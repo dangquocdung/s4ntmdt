@@ -1944,11 +1944,11 @@ shopist.event =
               if($('#hf_custom_designer_data').val() != '' || $('#hf_custom_designer_data').val().length>0)
               {
                 data_arry = JSON.parse( $('#hf_custom_designer_data').val() );
-                data_arry.push({id:count_id, title_label:title_label, design_img_url:'/public/images/no-image.png', design_trans_img_url:'', design_title_icon:'/public/images/no-image.png'});
+                data_arry.push({id:count_id, title_label:title_label, design_img_url:'/images/no-image.png', design_trans_img_url:'', design_title_icon:'/images/no-image.png'});
               }
               else
               {
-                data_arry.push({id:count_id, title_label:title_label, design_img_url:'/public/images/no-image.png', design_trans_img_url:'', design_title_icon:'/public/images/no-image.png'});
+                data_arry.push({id:count_id, title_label:title_label, design_img_url:'/images/no-image.png', design_trans_img_url:'', design_title_icon:'/images/no-image.png'});
               }
                
               $('#hf_custom_designer_data').val(JSON.stringify(data_arry));
@@ -2375,7 +2375,7 @@ shopist.event =
         formData.append('tab_name', $(this).data('tab_name'));
         formData.append('template_name', $(this).data('template_name'));
         
-        obj.parents('.manage-template').after('<div class="template_activate_loader"><img src="'+ $('#hf_base_url').val() +'/public/images/ajax-loader_001.gif" alt="ajax-loader"></div>');
+        obj.parents('.manage-template').after('<div class="template_activate_loader"><img src="'+ $('#hf_base_url').val() +'/images/ajax-loader_001.gif" alt="ajax-loader"></div>');
         var xhrForm = new XMLHttpRequest();
         xhrForm.open("POST", $('#hf_base_url').val() + "/ajax/appearance_data_manage");
         xhrForm.setRequestHeader('X-CSRF-TOKEN', $('meta[name="csrf-token"]').attr('content'));
@@ -3508,8 +3508,8 @@ shopist.normalFunction=
     str += '<div class="panel-heading"><h4 class="panel-title"><a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapse_'+ count +'"><span class="fa fa-minus"></span>&nbsp;&nbsp;<span>'+ val +'</span></a><a data-id="'+ count +'" class="pull-right" href=""><span class="fa fa-remove remove-panel"></span></a></h4></div>';
     str += '<div id="collapse_'+ count +'" data-id="'+ count +'" class="panel-collapse collapse show collapse-' + count +'">';
     str += '<div class="panel-body">';
-    str += '<div class="form-group"><div class="row"><div class="col-sm-6"><div class="design-img-content"><div class="design-sample-img"><img class="img-responsive" src="'+ baseUrl +'/public/images/upload.png" alt="no_img"></div><div class="design-img"><img class="img-responsive" src="" alt=""></div><br><div class="design-img-upload-btn"><div><button type="button" data-name="only_design_img" class="btn btn-default attachtopost upload-design-img btn-sm">'+  adminLocalizationString.upload_design_image +'</button></div><div><button type="button" data-name="design_img" data-id="solid-'+ count +'" class="btn btn-default attachtopost remove-design-img">'+ adminLocalizationString.remove_image +'</button></div></div></div></div><div class="col-sm-6"><div class="design-img-content"><div class="trans-design-sample-img"><img class="img-responsive" src="'+ baseUrl +'/public/images/upload.png" alt="no_img"></div><div class="trans-design-img"><img class="img-responsive" src="" alt=""></div><br><div class="trans-design-img-upload-btn"><div><button type="button" data-name="only_trans_design_img" class="btn btn-default attachtopost upload-design-img btn-sm">'+ adminLocalizationString.upload_design_transparent_image +'</button></div><div><button type="button" data-name="trans_design_img" data-id="trans-'+ count +'" class="btn btn-default attachtopost remove-design-img">'+ adminLocalizationString.remove_image +'</button></div></div></div></div></div></div><hr>';
-    str += '<div class="form-group"><div class="row"><div class="col-sm-12"><div class="design-title-img-content"><div class="design-title-sample-img"><img class="img-responsive" src="'+ baseUrl +'/public/images/upload.png" alt="no_img"></div><div class="design-title-img"><img class="img-responsive" src="" alt=""></div><br><div class="design-title-img-upload-btn"><div><button type="button" data-name="only_design_title_img" class="btn btn-default attachtopost upload-design-title-img">'+ adminLocalizationString.upload_design_title_icon +'</button></div><div><button type="button" data-name="design_title_img" data-id="'+ count +'" class="btn btn-default attachtopost remove-design-title-img">'+ adminLocalizationString.remove_image +'</button></div></div></div></div></div></div></div></div></div></div>';
+    str += '<div class="form-group"><div class="row"><div class="col-sm-6"><div class="design-img-content"><div class="design-sample-img"><img class="img-responsive" src="'+ baseUrl +'/images/upload.png" alt="no_img"></div><div class="design-img"><img class="img-responsive" src="" alt=""></div><br><div class="design-img-upload-btn"><div><button type="button" data-name="only_design_img" class="btn btn-default attachtopost upload-design-img btn-sm">'+  adminLocalizationString.upload_design_image +'</button></div><div><button type="button" data-name="design_img" data-id="solid-'+ count +'" class="btn btn-default attachtopost remove-design-img">'+ adminLocalizationString.remove_image +'</button></div></div></div></div><div class="col-sm-6"><div class="design-img-content"><div class="trans-design-sample-img"><img class="img-responsive" src="'+ baseUrl +'/images/upload.png" alt="no_img"></div><div class="trans-design-img"><img class="img-responsive" src="" alt=""></div><br><div class="trans-design-img-upload-btn"><div><button type="button" data-name="only_trans_design_img" class="btn btn-default attachtopost upload-design-img btn-sm">'+ adminLocalizationString.upload_design_transparent_image +'</button></div><div><button type="button" data-name="trans_design_img" data-id="trans-'+ count +'" class="btn btn-default attachtopost remove-design-img">'+ adminLocalizationString.remove_image +'</button></div></div></div></div></div></div><hr>';
+    str += '<div class="form-group"><div class="row"><div class="col-sm-12"><div class="design-title-img-content"><div class="design-title-sample-img"><img class="img-responsive" src="'+ baseUrl +'/images/upload.png" alt="no_img"></div><div class="design-title-img"><img class="img-responsive" src="" alt=""></div><br><div class="design-title-img-upload-btn"><div><button type="button" data-name="only_design_title_img" class="btn btn-default attachtopost upload-design-title-img">'+ adminLocalizationString.upload_design_title_icon +'</button></div><div><button type="button" data-name="design_title_img" data-id="'+ count +'" class="btn btn-default attachtopost remove-design-title-img">'+ adminLocalizationString.remove_image +'</button></div></div></div></div></div></div></div></div></div></div>';
     
     return str;
   },
@@ -3734,7 +3734,7 @@ shopist.normalFunction=
          {
            if('solid-' + parseJson[i].id == id)
            {
-             parseJson[i].design_img_url = '/public/images/upload.png';
+             parseJson[i].design_img_url = '/images/upload.png';
              break;
            }
          }
@@ -3756,7 +3756,7 @@ shopist.normalFunction=
          {
            if(parseJson[j].id == id)
            {
-             parseJson[j].design_title_icon = '/public/images/upload.png';
+             parseJson[j].design_title_icon = '/images/upload.png';
              break;
            }
          }

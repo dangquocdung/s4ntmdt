@@ -1246,7 +1246,7 @@ shopist_frontend.ajaxCall =
                 confirmButtonColor: "#DD6B55",
                 confirmButtonText: frontendLocalizationString.wishlist_items_label,
                 closeOnConfirm: false,
-                imageUrl: $('#hf_base_url').val() + '/public/images/thumbs-up.jpg'
+                imageUrl: $('#hf_base_url').val() + '/images/thumbs-up.jpg'
               },
               function(){
                 location.href = $('#hf_base_url').val() + '/user/account/my-saved-items';
@@ -1297,7 +1297,7 @@ shopist_frontend.ajaxCall =
                 confirmButtonColor: "#DD6B55",
                 confirmButtonText: frontendLocalizationString.compare_items_label,
                 closeOnConfirm: false,
-                imageUrl: $('#hf_base_url').val() + '/public/images/thumbs-up.jpg'
+                imageUrl: $('#hf_base_url').val() + '/images/thumbs-up.jpg'
               },
               function(){
                 location.href = $('#hf_base_url').val() + '/product/comparison';

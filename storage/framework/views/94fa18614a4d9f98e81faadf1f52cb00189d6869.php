@@ -99,7 +99,7 @@
                <tr>
                  <td>
                    <?php if($row['lang_code'] == 'en'): ?>
-                    <img src="<?php echo e(asset('public/images/'. $row['lang_sample_img'])); ?>"> &nbsp;&nbsp;<?php echo e($row['lang_name']); ?>
+                    <img src="<?php echo e(asset('images/'. $row['lang_sample_img'])); ?>"> &nbsp;&nbsp;<?php echo e($row['lang_name']); ?>
 
                    <?php else: ?>
                     <img src="<?php echo e(get_image_url($row['lang_sample_img'])); ?>"> &nbsp;&nbsp;<?php echo e($row['lang_name']); ?>

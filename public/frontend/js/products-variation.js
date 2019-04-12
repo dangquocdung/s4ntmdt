@@ -63,7 +63,7 @@ function manage_matching_variations( selected_options ){
     }
     else{
       $('#product_single_page .selected-variation-product').show();
-      $('#product_single_page .selected-variation-product img').attr('src', $('#hf_base_url').val() + '/public/images/no-image.png');
+      $('#product_single_page .selected-variation-product img').attr('src', $('#hf_base_url').val() + '/images/no-image.png');
       $('#product_single_page .product-main-content').hide();
     }
     

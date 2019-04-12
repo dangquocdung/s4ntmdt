@@ -1,4 +1,10 @@
-<a href="" class="main show-mini-cart" data-id="2"> <span class="d-none d-md-inline"><?php echo trans('frontend.menu_my_cart'); ?></span> <span class="fa fa-shopping-cart"></span> <span class="cart-count"><span id="total_count_by_ajax"><?php echo Cart::count(); ?></span></span></a>
+<a href="" class="main show-mini-cart" data-id="2"> 
+  <span class="d-none d-md-inline"><?php echo trans('frontend.menu_my_cart'); ?></span> 
+  <span class="fa fa-shopping-cart"></span>
+  <span class="cart-count">
+    <span id="total_count_by_ajax"><?php echo Cart::count(); ?></span>
+  </span>
+</a>
 
 <div class="mini-cart-dropdown">
   <div class="dropdown-menu slide-from-top">

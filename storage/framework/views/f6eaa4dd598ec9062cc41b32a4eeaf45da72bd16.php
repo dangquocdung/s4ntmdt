@@ -27,7 +27,7 @@
             <?php if(count(get_frontend_selected_languages_data()) > 0): ?>
               <?php if(get_frontend_selected_languages_data()['lang_code'] == 'en'): ?>
                 <a class="dropdown-toggle" href="#" data-hover="dropdown" data-toggle="dropdown">
-                  <img src="<?php echo e(asset('public/images/'. get_frontend_selected_languages_data()['lang_sample_img'])); ?>" alt="lang"> <span class="d-none d-md-inline"> &nbsp; <?php echo get_frontend_selected_languages_data()['lang_name']; ?></span> <span class="caret"></span></a>
+                  <img src="<?php echo e(asset('images/'. get_frontend_selected_languages_data()['lang_sample_img'])); ?>" alt="lang"> <span class="d-none d-md-inline"> &nbsp; <?php echo get_frontend_selected_languages_data()['lang_name']; ?></span> <span class="caret"></span></a>
               <?php else: ?>
                 <a class="dropdown-toggle" href="#" data-hover="dropdown" data-toggle="dropdown">
                   <img src="<?php echo e(get_image_url(get_frontend_selected_languages_data()['lang_sample_img'])); ?>" alt="lang"> <span class="d-none d-md-inline"> &nbsp; <?php echo get_frontend_selected_languages_data()['lang_name']; ?></span> <span class="caret"></span></a>
@@ -38,7 +38,7 @@
               <div class="dropdown-content">
                 <?php $__currentLoopData = get_available_languages_data_frontend(); $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $key => $val): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                   <?php if($val['lang_code'] == 'en'): ?>
-                    <a href="#" data-lang_name="<?php echo e($val['lang_code']); ?>"><img src="<?php echo e(asset('public/images/'. $val['lang_sample_img'])); ?>" alt="lang"> &nbsp;<?php echo ucwords($val['lang_name']); ?></a>
+                    <a href="#" data-lang_name="<?php echo e($val['lang_code']); ?>"><img src="<?php echo e(asset('images/'. $val['lang_sample_img'])); ?>" alt="lang"> &nbsp;<?php echo ucwords($val['lang_name']); ?></a>
                   <?php else: ?>
                     <a href="#" data-lang_name="<?php echo e($val['lang_code']); ?>"><img src="<?php echo e(get_image_url($val['lang_sample_img'])); ?>" alt="lang"> &nbsp;<?php echo ucwords($val['lang_name']); ?></a>
                   <?php endif; ?>
@@ -279,7 +279,7 @@
     <div id="slider_carousel" class="carousel slide" data-ride="carousel">
       <div class="carousel-inner">
         <div class="carousel-item active">
-          <img src="<?php echo e(asset('public/images/sunglass.jpg')); ?>" class="d-block w-100" alt="slide" />
+          <img src="<?php echo e(asset('images/sunglass.jpg')); ?>" class="d-block w-100" alt="slide" />
         </div>
       </div>
     </div>

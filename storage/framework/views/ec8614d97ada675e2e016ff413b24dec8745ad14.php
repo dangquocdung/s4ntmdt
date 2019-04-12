@@ -77,6 +77,9 @@
 <!--load single products style-->
 <link rel="stylesheet" href="<?php echo e(URL::asset('public/templates-assets/single-product/'. $appearance_settings['single_product'] .'/style.css')); ?>" />
 
+<!--my style-->
+
+
 
 <script type="text/javascript" src="<?php echo e(URL::asset('public/jquery/jquery-1.10.2.js')); ?>"></script>
 <script type="text/javascript" src="<?php echo e(URL::asset('public/jquery/jquery-ui-1.11.4.js')); ?>"></script>

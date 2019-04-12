@@ -987,7 +987,7 @@ class CommonFunction
       $price = 0;
       $options = array();
       $variation_id = null;
-      $img_src = '/public/images/no-image.png';
+      $img_src = '/images/no-image.png';
       $stock_availability = false;
       $tax = false;
       $access_token = '';

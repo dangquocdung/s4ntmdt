@@ -1105,7 +1105,7 @@
                                       <button type="button" data-name="only_design_title_img" class="btn btn-default attachtopost upload-design-title-img btn-sm"><?php echo trans('admin.upload_design_title_icon'); ?></button>
                                     </div>
                                     <div>
-                                      <?php if(!empty($row->design_title_icon) && $row->design_title_icon != '/public/images/upload.png'): ?>
+                                      <?php if(!empty($row->design_title_icon) && $row->design_title_icon != '/images/upload.png'): ?>
                                       <button type="button" data-name="design_title_img" data-id="<?php echo e($row->id); ?>" class="btn btn-default attachtopost remove-design-title-img btn-sm" style="display:block;"><?php echo trans('admin.remove_image'); ?></button>
                                       <?php else: ?>
                                       <button type="button" data-name="design_title_img" data-id="<?php echo e($row->id); ?>" class="btn btn-default attachtopost remove-design-title-img btn-sm" style="display:none;"><?php echo trans('admin.remove_image'); ?></button>

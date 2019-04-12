@@ -55,7 +55,7 @@
     <?php echo $__env->make('modal.subscribe-content', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
     
     <div class="add-to-cart-loader">
-      <img src="<?php echo e(asset('public/images/ajax-loader.gif')); ?>" id="img-load" />
+      <img src="<?php echo e(asset('images/ajax-loader.gif')); ?>" id="img-load" />
       <div class="cart-updating-msg"><?php echo e(trans('frontend.cart_updating_msg')); ?></div>
     </div>
   </div>
