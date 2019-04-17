@@ -145,21 +145,21 @@
             <!-- Newsletter Form -->
             <form action="#" method="post" class="popup-subscribe-form validate" target="_blank" novalidate>
                 <div id="mc_embed_signup_scroll">
-                    <label for="popup_subscribe" class="d-none">{!! string_decode($subscriptions_data['popup_content']) !!}</label>
-                    <input type="email" value="" name="EMAIL" class="email" id="popup_subscribe" placeholder="{{ trans('frontend.enter_email_label') }}" required>
+                    <label for="popup_subscribe" class="d-none"><?php echo string_decode($subscriptions_data['popup_content']); ?></label>
+                    <input type="email" value="" name="EMAIL" class="email" id="popup_subscribe" placeholder="<?php echo e(trans('frontend.enter_email_label')); ?>" required>
                     <!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups-->
                     <div style="position: absolute; left: -5000px;" aria-hidden="true"><input type="text" name="b_6bbb9b6f5827bd842d9640c82_05d85f18ef" tabindex="-1" value=""></div>
-                    {{-- <button type="submit" name="subscribe" id="" class="button">subscribe</button> --}}
-                    <button type="button" id="subscribtion_submit" name="subscribe" class="button">{!! $subscriptions_data['subscribe_btn_text'] !!}</button>
+                    
+                    <button type="button" id="subscribtion_submit" name="subscribe" class="button"><?php echo $subscriptions_data['subscribe_btn_text']; ?></button>
                 </div>
             </form>
             
-            {{-- <p>Be the first in the by getting special deals and offers send directly to your inbox.</p> --}}
-            @if($subscriptions_data['subscribe_popup_cookie_set_visibility'] == true)
+            
+            <?php if($subscriptions_data['subscribe_popup_cookie_set_visibility'] == true): ?>
                 <p>
-                    <a href="#" class="set-popup-cookie">* {!! $subscriptions_data['subscribe_popup_cookie_set_text'] !!}</a>
+                    <a href="#" class="set-popup-cookie">* <?php echo $subscriptions_data['subscribe_popup_cookie_set_text']; ?></a>
                 </p>
-            @endif
+            <?php endif; ?>
             
         </div><!-- Popup Subscribe Form Wrap End -->
 

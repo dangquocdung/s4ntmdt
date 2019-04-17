@@ -1,7 +1,6 @@
-@extends('layouts.frontend.master')
-@section('title', trans('frontend.shopist_home_title') )
+<?php $__env->startSection('title', trans('frontend.shopist_home_title') ); ?>
 
-@section('content')
+<?php $__env->startSection('content'); ?>
 
 <!-- Hero Section Start -->
 <div class="hero-section section mb-30">
@@ -2193,6 +2192,7 @@
 </div><!-- Subscribe Section End -->
 
   
-@endsection
+<?php $__env->stopSection(); ?>
 
  
+<?php echo $__env->make('layouts.frontend.master', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

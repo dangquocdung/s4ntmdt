@@ -128,13 +128,13 @@
                     <div class="header-shop-links">
                         
                         <!-- Compare -->
-                        <a href="{{ route('product-comparison-page') }}" class="header-compare" title="{!! trans('frontend.compare_label') !!}"><i class="ti-control-shuffle"></i></a>
+                        <a href="<?php echo e(route('product-comparison-page')); ?>" class="header-compare" title="<?php echo trans('frontend.compare_label'); ?>"><i class="ti-control-shuffle"></i></a>
                         <!-- Wishlist -->
-                        <a href="{{ route('my-saved-items-page') }}" class="header-wishlist">
-                            <i class="ti-heart" title="{!! trans('frontend.frontend_wishlist') !!}"></i>
+                        <a href="<?php echo e(route('my-saved-items-page')); ?>" class="header-wishlist">
+                            <i class="ti-heart" title="<?php echo trans('frontend.frontend_wishlist'); ?>"></i>
                         </a>
                         <!-- Cart -->
-                        <a href="cart.html" class="header-cart" title="{!! trans('frontend.menu_my_cart') !!}"><i class="ti-shopping-cart"></i> <span class="number">{!! Cart::count() !!}</span></a>
+                        <a href="cart.html" class="header-cart" title="<?php echo trans('frontend.menu_my_cart'); ?>"><i class="ti-shopping-cart"></i> <span class="number"><?php echo Cart::count(); ?></span></a>
                         
                     </div><!-- Header Shop Links End -->
                 </div>
@@ -193,9 +193,9 @@
     </div>
 
     <!-- Mini Cart Products -->
-    @if( Cart::count() >0 )
+    <?php if( Cart::count() >0 ): ?>
     <ul class="mini-cart-products">
-        @foreach(Cart::items() as $index => $items)
+        <?php $__currentLoopData = Cart::items(); $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $index => $items): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
         <li>
             <a class="image"><img src="assets/images/product/product-1.png" alt="Product"></a>
             <div class="content">
@@ -205,17 +205,17 @@
             </div>
             <button class="remove"><i class="fa fa-trash-o"></i></button>
         </li>
-        @endforeach
+        <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
     </ul>
-    @endif
+    <?php endif; ?>
 
     <!-- Mini Cart Bottom -->
     <div class="mini-cart-bottom">    
     
-        <h4 class="sub-total">{!! trans('frontend.total') !!}: <span>{!! price_html( get_product_price_html_by_filter(Cart::getTotal()) ) !!}</span></h4>
+        <h4 class="sub-total"><?php echo trans('frontend.total'); ?>: <span><?php echo price_html( get_product_price_html_by_filter(Cart::getTotal()) ); ?></span></h4>
 
         <div class="button">
-            <a href="{{ route('checkout-page') }}">{!! trans('frontend.check_out') !!}</a>
+            <a href="<?php echo e(route('checkout-page')); ?>"><?php echo trans('frontend.check_out'); ?></a>
         </div>
         
     </div>

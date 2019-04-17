@@ -1,18 +1,18 @@
 <!doctype html>
 <html>
 <head>
-    @include('includes.frontend.head')
+    <?php echo $__env->make('includes.frontend.head', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
 </head>
 <body>
   
     
-    @include('includes.frontend.header')
+    <?php echo $__env->make('includes.frontend.header', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
     
     
-    @yield('content')
+    <?php echo $__env->yieldContent('content'); ?>
     
     
-    @include('includes.frontend.footer')
+    <?php echo $__env->make('includes.frontend.footer', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
 
     <!-- JS
     ============================================ -->
