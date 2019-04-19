@@ -52,15 +52,18 @@
         <div class="container">
             <div class="row align-items-center justify-content-between">
 
+                
+                @if(get_site_logo_image())                  
                 <div class="col mt-15 mb-15">
                     <!-- Logo Start -->
                     <div class="header-logo">
                         <a href="index.html">
-                            <img src="assets/images/logo.png" alt="E&E - Electronics eCommerce Bootstrap4 HTML Template">
-                            <img class="theme-dark" src="assets/images/logo-light.png" alt="E&E - Electronics eCommerce Bootstrap4 HTML Template">
+                            <img src="{{ get_site_logo_image() }}" title="{{ trans('frontend.your_store_label') }}" alt="{{ trans('frontend.your_store_label') }}">
+                            <img class="theme-dark" src="{{ get_site_logo_image() }}" title="{{ trans('frontend.your_store_label') }}" alt="{{ trans('frontend.your_store_label') }}">
                         </a>
                     </div><!-- Logo End -->
                 </div>
+                @endif
 
                 <div class="col order-12 order-lg-2 order-xl-2 d-none d-lg-block">
                     <!-- Main Menu Start -->
