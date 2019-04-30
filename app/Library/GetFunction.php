@@ -1413,7 +1413,7 @@ class GetFunction
       'THB' => 'Thai Baht (฿)',
       'UAH' => 'Ukrainian Hryvnia (₴)',
       'USD' => 'US Dollars ($)', 
-      'VND' => 'Việt Nam Đồng (VNĐ)',
+      'VNĐ' => 'Việt Nam đồng (₫)',
       'EGP' => 'Egyptian Pound (EGP)'
     );
   }
