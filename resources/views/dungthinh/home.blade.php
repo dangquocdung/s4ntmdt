@@ -2,12 +2,49 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
-    <title>Dungthinh | Universal E-Commerce Template
-    </title>
+    <title>@yield('title')</title>
     <!-- SEO Meta Tags-->
-    <meta name="description" content="Dungthinh - Universal E-Commerce Template">
-    <meta name="keywords" content="shop, e-commerce, modern, flat style, responsive, online store, business, mobile, blog, bootstrap 4, html5, css3, jquery, js, gallery, slider, touch, creative, clean">
-    <meta name="author" content="dungthinh">
+    <meta content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no' name='viewport'>
+    <meta name="csrf-token" content="{{ csrf_token() }}">
+
+    @if((Request::is('product/details/*') || Request::is('product/customize/*')) && !empty($single_product_details['meta_keywords']))
+    <meta name="keywords" content="{{ $single_product_details['meta_keywords'] }}">
+
+    @elseif( Request::is('blog/*') && !empty($blog_details_by_slug['meta_keywords']))
+    <meta name="keywords" content="{{ $blog_details_by_slug['meta_keywords'] }}">
+
+    @elseif((Request::is('store/details/home/*') || Request::is('store/details/products/*') || Request::is('store/details/reviews/*') || Request::is('store/details/cat/products/*')) && !empty($store_seo_meta_keywords))
+    <meta name="keywords" content="{{ $store_seo_meta_keywords }}">
+
+    @elseif(!empty($seo_data) && $seo_data['meta_tag']['meta_keywords'])
+    <meta name="keywords" content="{{ $seo_data['meta_tag']['meta_keywords']}}">
+    @endif
+
+    @if(!empty($seo_data) && $seo_data['meta_tag']['meta_description'])
+    <meta name="description" content="{{ $seo_data['meta_tag']['meta_description'] }}">
+    @endif
+
+    @if((Request::is('product/details/*') || Request::is('product/customize/*')) && !empty($single_product_details['_product_seo_description']))
+    <meta name="description" content="{{ $single_product_details['_product_seo_description'] }}">
+    @endif
+
+    @if((Request::is('product/details/*') || Request::is('product/customize/*')) && !empty($single_product_details['post_slug']))
+    <link rel="canonical" href="{{ route('details-page', $single_product_details['post_slug']) }}">
+    @endif
+
+    @if(Request::is('blog/*') && !empty($blog_details_by_slug['blog_seo_description']))
+    <meta name="description" content="{{ $blog_details_by_slug['blog_seo_description'] }}">
+    @endif
+
+    @if(Request::is('blog/*') && !empty($blog_details_by_slug['blog_seo_url']))
+    <link rel="canonical" href="{{ route('blog-single-page', $blog_details_by_slug['blog_seo_url']) }}">
+    @endif
+
+    @if((Request::is('store/details/home/*') || Request::is('store/details/products/*') || Request::is('store/details/reviews/*') || Request::is('store/details/cat/products/*')) && !empty($store_seo_meta_description))
+    <meta name="description" content="{{ $store_seo_meta_description }}">
+    @endif
+
+    <meta name="author" content="Dang Quoc Dung">
     <!-- Mobile Specific Meta Tag-->
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <!-- Favicon and Apple Icons-->
