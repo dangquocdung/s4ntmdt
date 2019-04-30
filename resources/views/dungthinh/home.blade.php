@@ -118,7 +118,7 @@
                       <i class="flag-icon">
                         <img src="{{ asset('images/'. get_frontend_selected_languages_data()['lang_sample_img']) }}" alt="lang">
                       </i>
-                      <span class="text-label">{!! get_frontend_selected_languages_data()['lang_name'] !!}</span>
+                      <span class="text-label">{!! get_frontend_selected_languages_data()['lang_name'] !!}/{!! get_currency_name_by_code( get_frontend_selected_currency() ) !!}</span>
                     </div>
                   </a>
                 @else
@@ -128,7 +128,7 @@
                       <i class="flag-icon">
                         <img src="{{ get_image_url(get_frontend_selected_languages_data()['lang_sample_img']) }}" alt="lang">
                       </i>
-                      <span class="text-label">{!! get_frontend_selected_languages_data()['lang_name'] !!}</span>
+                      <span class="text-label">{!! get_frontend_selected_languages_data()['lang_name'] !!}/{!! get_currency_name_by_code( get_frontend_selected_currency() ) !!}</span>
                     </div>
                   </a>
 
