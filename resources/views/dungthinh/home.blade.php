@@ -144,10 +144,16 @@
             <ul class="toolbar-dropdown lang-dropdown">
               <li class="px-3 pt-1 pb-2">
                 <select class="form-control form-control-sm">
-                  <option value="usd">$ USD</option>
-                  <option value="usd">€ EUR</option>
-                  <option value="usd">£ UKP</option>
-                  <option value="usd">¥ JPY</option>
+
+                    
+                    @if(count(get_frontend_selected_currency_data()) >0)
+                    @foreach(get_frontend_selected_currency_data() as $val)
+
+                      <option value="{{ $val }}">{!! get_currency_name_by_code( $val ) !!}</option>
+
+
+                    @endforeach
+                    @endif
                 </select>
               </li>
               <li><a href="#"><i class="flag-icon"><img src="img/flags/FR.png" alt="Français"></i>&nbsp;Français</a></li>
