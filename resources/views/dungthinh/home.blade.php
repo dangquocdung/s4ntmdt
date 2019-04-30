@@ -128,7 +128,7 @@
                       <i class="flag-icon">
                         <img src="{{ get_image_url(get_frontend_selected_languages_data()['lang_sample_img']) }}" alt="lang">
                       </i>
-                      <span class="text-label">{!! get_frontend_selected_languages_data()['lang_name'].'/' !!}</span>
+                      <span class="text-label">{!! get_frontend_selected_languages_data()['lang_name'] !!}</span>
                     </div>
                   </a>
 
@@ -156,9 +156,24 @@
                     @endif
                 </select>
               </li>
-              <li><a href="#"><i class="flag-icon"><img src="img/flags/FR.png" alt="Français"></i>&nbsp;Français</a></li>
-              <li><a href="#"><i class="flag-icon"><img src="img/flags/DE.png" alt="Deutsch"></i>&nbsp;Deutsch</a></li>
-              <li><a href="#"><i class="flag-icon"><img src="img/flags/IT.png" alt="Italiano"></i>&nbsp;Italiano</a></li>
+              <?php $available_lang = get_available_languages_data_frontend();?>  
+
+                @if(is_array($available_lang) && count($available_lang) >0)
+
+                @foreach(get_available_languages_data_frontend() as $key => $val)
+                  @if($val['lang_code'] == 'en')
+                    <li>
+                      <a href="#" data-lang_name="{{ $val['lang_code'] }}"><i class="flag-icon"><img src="{{ asset('images/'. $val['lang_sample_img']) }}" alt="lang"></i>&nbsp;{!! ucwords($val['lang_name']) !!}</a>
+                    </li>
+
+                  @else
+                    <li>
+                      <a href="#" data-lang_name="{{ $val['lang_code'] }}"><i class="flag-icon"><img src="{{ get_image_url($val['lang_sample_img']) }}" alt="lang"></i>&nbsp;{!! ucwords($val['lang_name']) !!}</a>
+                    </li>
+                  @endif
+                @endforeach
+                @endif
+              
             </ul>
           </div>
           <div class="toolbar-item hidden-on-mobile"><a href="product-comparison.html">
