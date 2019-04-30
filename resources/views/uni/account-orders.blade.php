@@ -5,7 +5,7 @@
     <title>My Orders
     </title>
     <!-- SEO Meta Tags-->
-    <meta name="description" content="Unishop - Universal E-Commerce Template">
+    <meta name="description" content="Dungthinh - Universal E-Commerce Template">
     <meta name="keywords" content="shop, e-commerce, modern, flat style, responsive, online store, business, mobile, blog, bootstrap 4, html5, css3, jquery, js, gallery, slider, touch, creative, clean">
     <meta name="author" content="dungthinh">
     <!-- Mobile Specific Meta Tag-->
@@ -94,7 +94,7 @@
       <!-- Topbar-->
       <div class="topbar d-flex justify-content-between">
         <!-- Logo-->
-        <div class="site-branding d-flex"><a class="site-logo align-self-center" href="index.html"><img src="img/logo/logo.png" alt="Unishop"></a></div>
+        <div class="site-branding d-flex"><a class="site-logo align-self-center" href="index.html"><img src="img/logo/logo.png" alt="Dungthinh"></a></div>
         <!-- Search / Categories-->
         <div class="search-box-wrap d-flex">
           <div class="search-box-inner align-self-center">
@@ -735,7 +735,7 @@
               <h3 class="widget-title">About Us</h3>
               <ul>
                 <li><a href="#">Careers</a></li>
-                <li><a href="#">About Unishop</a></li>
+                <li><a href="#">About Dungthinh</a></li>
                 <li><a href="#">Our Story</a></li>
                 <li><a href="#">Services</a></li>
                 <li><a href="#">Our Blog</a></li>

@@ -1,14 +1,14 @@
 {
-  "name": "unishop-template",
+  "name": "Dungthinh-template",
   "version": "1.2.0",
-  "description": "Unishop - Universal Bootstrap 4 E-Commerce Template",
+  "description": "Dungthinh - Universal Bootstrap 4 E-Commerce Template",
   "main": "index.html",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "dungthinh.com",
   "license": "ISC",
-  "homepage": "themes.dungthinh.com/unishop/v1.1",
+  "homepage": "themes.dungthinh.com/Dungthinh/v1.1",
   "devDependencies": {
     "grunt": "^1.0.3",
     "grunt-autoprefixer": "^3.0.4",

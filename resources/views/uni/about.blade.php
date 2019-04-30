@@ -5,7 +5,7 @@
     <title>About Us
     </title>
     <!-- SEO Meta Tags-->
-    <meta name="description" content="Unishop - Universal E-Commerce Template">
+    <meta name="description" content="Dungthinh - Universal E-Commerce Template">
     <meta name="keywords" content="shop, e-commerce, modern, flat style, responsive, online store, business, mobile, blog, bootstrap 4, html5, css3, jquery, js, gallery, slider, touch, creative, clean">
     <meta name="author" content="dungthinh">
     <!-- Mobile Specific Meta Tag-->
@@ -32,7 +32,7 @@
       <!-- Topbar-->
       <div class="topbar d-flex justify-content-between">
         <!-- Logo-->
-        <div class="site-branding d-flex"><a class="site-logo align-self-center" href="index.html"><img src="img/logo/logo.png" alt="Unishop"></a></div>
+        <div class="site-branding d-flex"><a class="site-logo align-self-center" href="index.html"><img src="img/logo/logo.png" alt="Dungthinh"></a></div>
         <!-- Search / Categories-->
         <div class="search-box-wrap d-flex">
           <div class="search-box-inner align-self-center">
@@ -606,7 +606,7 @@
         </div>
         <div class="col-md-7 text-md-left text-center">
           <div class="mt-30 hidden-md-up"></div>
-          <h2>Unishop - Your Reliable Partner.</h2>
+          <h2>Dungthinh - Your Reliable Partner.</h2>
           <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam id purus at risus pellentesque faucibus a quis eros. In eu fermentum leo. Integer ut eros lacus. Proin ut accumsan leo. Morbi vitae est eget dolor consequat aliquam eget quis dolor. Mauris rutrum fermentum erat, at euismod lorem pharetra nec. Duis erat lectus, ultrices euismod sagittis at, pharetra eu nisl. Phasellus id ante at velit tincidunt hendrerit. Aenean dolor dolor, tristique nec placerat nec.</p>
         </div>
       </div>
@@ -676,7 +676,7 @@
               <h3 class="widget-title">About Us</h3>
               <ul>
                 <li><a href="#">Careers</a></li>
-                <li><a href="#">About Unishop</a></li>
+                <li><a href="#">About Dungthinh</a></li>
                 <li><a href="#">Our Story</a></li>
                 <li><a href="#">Services</a></li>
                 <li><a href="#">Our Blog</a></li>

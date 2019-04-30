@@ -2,10 +2,10 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
-    <title>Unishop | Universal E-Commerce Template
+    <title>Dungthinh | Universal E-Commerce Template
     </title>
     <!-- SEO Meta Tags-->
-    <meta name="description" content="Unishop - Universal E-Commerce Template">
+    <meta name="description" content="Dungthinh - Universal E-Commerce Template">
     <meta name="keywords" content="shop, e-commerce, modern, flat style, responsive, online store, business, mobile, blog, bootstrap 4, html5, css3, jquery, js, gallery, slider, touch, creative, clean">
     <meta name="author" content="dungthinh">
     <!-- Mobile Specific Meta Tag-->
@@ -31,7 +31,7 @@
       <div class="col-md-6 fh-section" style="background-image: url(img/coming-soon-bg.jpg);"><span class="overlay" style="background-color: #000; opacity: .7;"></span>
         <div class="d-flex flex-column fh-section py-5 px-3 justify-content-between">
           <div class="w-100 text-center">
-            <div class="d-inline-block mb-5" style="width: 136px;"><img class="d-block" src="img/logo/logo-light.png" alt="Unishop"></div>
+            <div class="d-inline-block mb-5" style="width: 136px;"><img class="d-block" src="img/logo/logo-light.png" alt="Dungthinh"></div>
             <h1 class="text-white text-normal mb-3">Coming Soon...</h1>
             <h6 class="text-white opacity-80 mb-4">Our website is currently under construction. It goes live in:</h6>
             <div class="countdown countdown-inverse" data-date-time="12/30/2019 12:00:00">
