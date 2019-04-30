@@ -4257,11 +4257,11 @@ var customDropZone = (function() {
               }
               else if(name == 'site_picture')
               {
-                $('.site-logo-container').find('img').attr('src', base_url + '/public/uploads/'+ response.name);
+                $('.site-logo-container').find('img').attr('src', base_url + '/uploads/'+ response.name);
                 $('.site-logo-container').show();
                 $('.no-logo-image').hide();
                 $('#uploadSiteLogo').modal('hide');
-                $('#hf_site_picture').val( '/public/uploads/'+ response.name );
+                $('#hf_site_picture').val( '/uploads/'+ response.name );
               }
               else if(name == 'vendor_cover_picture')
               {
