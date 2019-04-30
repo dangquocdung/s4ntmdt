@@ -32,7 +32,13 @@
       <!-- Topbar-->
       <div class="topbar d-flex justify-content-between">
         <!-- Logo-->
-        <div class="site-branding d-flex"><a class="site-logo align-self-center" href="index.html"><img src="img/logo/logo.png" alt="Dungthinh"></a></div>
+        @if(get_site_logo_image())            
+          <div class="site-branding d-flex">
+            <a class="site-logo align-self-center" href="{{ route('home-page') }}">
+              <img src="{{ get_site_logo_image() }}" title="{{ trans('frontend.your_store_label') }}" alt="{{ trans('frontend.your_store_label') }}">
+            </a>
+          </div>
+        @endif
         <!-- Search / Categories-->
         <div class="search-box-wrap d-flex">
           <div class="search-box-inner align-self-center">
