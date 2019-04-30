@@ -6,9 +6,9 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "rokaux.com",
+  "author": "dungthinh.com",
   "license": "ISC",
-  "homepage": "themes.rokaux.com/unishop/v1.1",
+  "homepage": "themes.dungthinh.com/unishop/v1.1",
   "devDependencies": {
     "grunt": "^1.0.3",
     "grunt-autoprefixer": "^3.0.4",
