@@ -79,7 +79,7 @@
                   <a href="#">
                     <div>
                       <i class="flag-icon">
-                        <img src="{{ asset('images/'. get_frontend_selected_languages_data()['lang_sample_img']) }}" alt="{!! get_frontend_selected_languages_data()['lang_name'] !!}">
+                        <img src="{{ asset('images/'. get_frontend_selected_languages_data()['lang_sample_img']) }}" alt="lang">
                       </i>
                       <span class="text-label">{!! get_frontend_selected_languages_data()['lang_name'] !!}</span>
                     </div>
@@ -89,11 +89,13 @@
                   <a href="#">
                     <div>
                       <i class="flag-icon">
-                        <img src="{{ get_image_url(get_frontend_selected_languages_data()['lang_sample_img']) }}" alt="{!! get_frontend_selected_languages_data()['lang_name'] !!}">
+                        <img src="{{ get_image_url(get_frontend_selected_languages_data()['lang_sample_img']) }}" alt="lang">
                       </i>
                       <span class="text-label">{!! get_frontend_selected_languages_data()['lang_name'] !!}</span>
                     </div>
                   </a>
+
+                  
                 @endif
               @endif
 
