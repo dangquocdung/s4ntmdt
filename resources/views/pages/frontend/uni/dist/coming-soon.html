@@ -51,7 +51,7 @@
             <div class="pt-3 hidden-md-up"><a class="btn btn-primary scroll-to" href="#notify"><i class="icon-bell"></i>&nbsp;Notify Me!</a></div>
           </div>
           <div class="w-100 text-center">
-            <p class="text-white mb-2">00 33 169 7720</p><a class="navi-link-light" href="mailto:support@unishop.com">support@unishop.com</a>
+            <p class="text-white mb-2">00 33 169 7720</p><a class="navi-link-light" href="mailto:support@dungthinh.com">support@dungthinh.com</a>
             <div class="pt-3"><a class="social-button shape-circle sb-facebook sb-light-skin" href="#"><i class="socicon-facebook"></i></a><a class="social-button shape-circle sb-twitter sb-light-skin" href="#"><i class="socicon-twitter"></i></a><a class="social-button shape-circle sb-instagram sb-light-skin" href="#"><i class="socicon-instagram"></i></a><a class="social-button shape-circle sb-google-plus sb-light-skin" href="#"><i class="socicon-googleplus"></i></a></div>
           </div>
         </div>
