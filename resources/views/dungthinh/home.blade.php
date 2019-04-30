@@ -98,11 +98,7 @@
               @endif
 
 
-            <a href="#">
-              <div>
-                <i class="flag-icon"><img src="img/flags/EN.png" alt="English"></i><span class="text-label">Eng / Usd</span>
-              </div>
-            </a>
+            
 
 
 
