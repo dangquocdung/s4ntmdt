@@ -71,8 +71,41 @@
         <div class="toolbar d-flex">
           <div class="toolbar-item visible-on-mobile mobile-menu-toggle"><a href="#">
               <div><i class="icon-menu"></i><span class="text-label">Menu</span></div></a></div>
-          <div class="toolbar-item hidden-on-mobile"><a href="#">
-              <div><i class="flag-icon"><img src="img/flags/EN.png" alt="English"></i><span class="text-label">Eng / Usd</span></div></a>
+          <div class="toolbar-item hidden-on-mobile">
+
+              @if(count(get_frontend_selected_languages_data()) > 0)
+                @if(get_frontend_selected_languages_data()['lang_code'] == 'en')
+
+                  <a href="#">
+                    <div>
+                      <i class="flag-icon">
+                        <img src="{{ asset('images/'. get_frontend_selected_languages_data()['lang_sample_img']) }}" alt="{!! get_frontend_selected_languages_data()['lang_name'] !!}">
+                      </i>
+                      <span class="text-label">{!! get_frontend_selected_languages_data()['lang_name'] !!}</span>
+                    </div>
+                  </a>
+                @else
+
+                  <a href="#">
+                    <div>
+                      <i class="flag-icon">
+                        <img src="{{ get_image_url(get_frontend_selected_languages_data()['lang_sample_img']) }}" alt="{!! get_frontend_selected_languages_data()['lang_name'] !!}">
+                      </i>
+                      <span class="text-label">{!! get_frontend_selected_languages_data()['lang_name'] !!}</span>
+                    </div>
+                  </a>
+                @endif
+              @endif
+
+
+            <a href="#">
+              <div>
+                <i class="flag-icon"><img src="img/flags/EN.png" alt="English"></i><span class="text-label">Eng / Usd</span>
+              </div>
+            </a>
+
+
+
             <ul class="toolbar-dropdown lang-dropdown">
               <li class="px-3 pt-1 pb-2">
                 <select class="form-control form-control-sm">
