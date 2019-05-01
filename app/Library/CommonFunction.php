@@ -555,6 +555,8 @@ class CommonFunction
         }
 
         $html .= '<span class="text-gray-dark">'. $cat['name'] .'</span>';
+
+        $html .= '</a></div>';
         $i ++;
       }  
 

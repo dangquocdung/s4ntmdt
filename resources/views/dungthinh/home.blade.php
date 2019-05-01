@@ -83,19 +83,13 @@
               <div class="btn-group categories-btn">
                 <button class="btn btn-secondary dropdown-toggle" data-toggle="dropdown"><i class="icon-menu text-lg"></i>&nbsp;{!! trans('frontend.categories_list') !!}s</button>
 
-                <div class="dropdown-menu mega-dropdown">
-                  <div class="row">
+                
 
-                    {{-- <div class="col-sm-3">
-                      <a class="d-block navi-link text-center mb-30" href="shop-grid-ls.html">
-                        <img class="d-block" src="img/shop/header-categories/01.jpg">
-                        <span class="text-gray-dark">Computers &amp; Accessories</span>
-                      </a>
-                    </div> --}}
+                    
 
                     {!! $dynamic_categories_megabox !!}
 
-                </div>
+                
               </div>
               <form class="input-group" method="get"><span class="input-group-btn">
                   <button type="submit"><i class="icon-search"></i></button></span>
