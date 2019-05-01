@@ -81,7 +81,7 @@
           <div class="search-box-inner align-self-center">
             <div class="search-box d-flex">
               <div class="btn-group categories-btn">
-                <button class="btn btn-secondary dropdown-toggle" data-toggle="dropdown"><i class="icon-menu text-lg"></i>&nbsp;{!! trans('frontend.categories_list') !!}s</button>
+                <button class="btn btn-secondary dropdown-toggle" data-toggle="dropdown"><i class="icon-menu text-lg"></i>&nbsp;{!! trans('frontend.product_categories_label') !!}</button>
 
                 
 
@@ -93,7 +93,7 @@
               </div>
               <form class="input-group" method="get"><span class="input-group-btn">
                   <button type="submit"><i class="icon-search"></i></button></span>
-                <input class="form-control" type="search" placeholder="Search for anything">
+                <input class="form-control" type="search" placeholder="{!! trans('frontend.search_for_label') !!}">
               </form>
             </div>
           </div>
