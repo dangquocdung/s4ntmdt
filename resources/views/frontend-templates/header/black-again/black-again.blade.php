@@ -28,7 +28,7 @@
             @if(count(get_frontend_selected_languages_data()) > 0)
               @if(get_frontend_selected_languages_data()['lang_code'] == 'en')
                 <a class="dropdown-toggle" href="#" data-hover="dropdown" data-toggle="dropdown">
-                  <img src="{{ asset('images/'. get_frontend_selected_languages_data()['lang_sample_img']) }}" alt="lang"> <span class="d-none d-md-inline"> &nbsp; {!! get_frontend_selected_languages_data()['lang_name'] !!}</span> <span class="caret"></span>
+                  <img src="{{ asset('public/images/'. get_frontend_selected_languages_data()['lang_sample_img']) }}" alt="lang"> <span class="d-none d-md-inline"> &nbsp; {!! get_frontend_selected_languages_data()['lang_name'] !!}</span> <span class="caret"></span>
                 </a>
               @else
                 <a class="dropdown-toggle" href="#" data-hover="dropdown" data-toggle="dropdown">
@@ -42,7 +42,7 @@
               <div class="dropdown-content">
                 @foreach(get_available_languages_data_frontend() as $key => $val)
                   @if($val['lang_code'] == 'en')
-                    <a href="#" data-lang_name="{{ $val['lang_code'] }}"><img src="{{ asset('images/'. $val['lang_sample_img']) }}" alt="lang"> &nbsp;{!! ucwords($val['lang_name']) !!}</a>
+                    <a href="#" data-lang_name="{{ $val['lang_code'] }}"><img src="{{ asset('public/images/'. $val['lang_sample_img']) }}" alt="lang"> &nbsp;{!! ucwords($val['lang_name']) !!}</a>
                   @else
                     <a href="#" data-lang_name="{{ $val['lang_code'] }}"><img src="{{ get_image_url($val['lang_sample_img']) }}" alt="lang"> &nbsp;{!! ucwords($val['lang_name']) !!}</a>
                   @endif
@@ -275,7 +275,7 @@
     <div id="slider_carousel" class="carousel slide" data-ride="carousel">
       <div class="carousel-inner">
         <div class="carousel-item active">
-          <img src="{{ asset('images/sunglass.jpg') }}" class="d-block w-100" alt="slide" />
+          <img src="{{ asset('public/images/sunglass.jpg') }}" class="d-block w-100" alt="slide" />
         </div>
       </div>
     </div>

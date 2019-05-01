@@ -9,7 +9,7 @@
       <div class="panel panel-default">
         <div class="panel-body">
           <div class="text-center">
-            <img src="{{ URL::asset('images/forgot-password.png') }}">
+            <img src="{{ URL::asset('public/images/forgot-password.png') }}">
 
             <h3 class="text-center">{{ trans('frontend.forgot_password') }}</h3>
 

@@ -103,17 +103,17 @@
               <div class="carousel-inner">
                 <div class="carousel-item active">
                   <div class="text-center">
-                    <a href=""><img src="{{ asset('images/add-sample/girl.jpg') }}" alt="" class="d-block w-100" /></a>
+                    <a href=""><img src="{{ asset('public/images/add-sample/girl.jpg') }}" alt="" class="d-block w-100" /></a>
                   </div>
                 </div>
                 <div class="carousel-item">
                   <div class="text-center">
-                    <a href=""><img src="{{ asset('images/add-sample/girl-in-sunglass.jpg') }}" alt="" class="d-block w-100" /></a>
+                    <a href=""><img src="{{ asset('public/images/add-sample/girl-in-sunglass.jpg') }}" alt="" class="d-block w-100" /></a>
                   </div>
                 </div> 
                 <div class="carousel-item">
                   <div class="text-center">
-                    <a href=""><img src="{{ asset('images/add-sample/T-shirt.jpg') }}" alt="" class="d-block w-100" /></a>
+                    <a href=""><img src="{{ asset('public/images/add-sample/T-shirt.jpg') }}" alt="" class="d-block w-100" /></a>
                   </div>
                 </div>
               </div>

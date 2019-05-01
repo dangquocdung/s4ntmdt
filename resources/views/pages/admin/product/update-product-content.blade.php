@@ -1102,7 +1102,7 @@
                                       <button type="button" data-name="only_design_title_img" class="btn btn-default attachtopost upload-design-title-img btn-sm">{!! trans('admin.upload_design_title_icon') !!}</button>
                                     </div>
                                     <div>
-                                      @if(!empty($row->design_title_icon) && $row->design_title_icon != '/images/upload.png')
+                                      @if(!empty($row->design_title_icon) && $row->design_title_icon != '/public/images/upload.png')
                                       <button type="button" data-name="design_title_img" data-id="{{ $row->id }}" class="btn btn-default attachtopost remove-design-title-img btn-sm" style="display:block;">{!! trans('admin.remove_image') !!}</button>
                                       @else
                                       <button type="button" data-name="design_title_img" data-id="{{ $row->id }}" class="btn btn-default attachtopost remove-design-title-img btn-sm" style="display:none;">{!! trans('admin.remove_image') !!}</button>
