@@ -44,19 +44,19 @@
 ============================================ -->
 
 <!-- Bootstrap CSS -->
-<link rel="stylesheet" href="assets/css/bootstrap.min.css">
+<link rel="stylesheet" href="/assets/css/bootstrap.min.css">
 
 <!-- Icon Font CSS -->
-<link rel="stylesheet" href="assets/css/icon-font.min.css">
+<link rel="stylesheet" href="/assets/css/icon-font.min.css">
 
 <!-- Plugins CSS -->
-<link rel="stylesheet" href="assets/css/plugins.css">
+<link rel="stylesheet" href="/assets/css/plugins.css">
 
 <!-- Main Style CSS -->
-<link rel="stylesheet" href="assets/css/style.css">
+<link rel="stylesheet" href="/assets/css/style.css">
 
 <!-- Modernizer JS -->
-<script src="assets/js/vendor/modernizr-2.8.3.min.js"></script>
+<script src="/assets/js/vendor/modernizr-2.8.3.min.js"></script>
 
 
 <script type="text/javascript" src="{{ URL::asset('jquery/jquery-1.10.2.js') }}"></script>
