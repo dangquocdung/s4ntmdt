@@ -212,7 +212,7 @@ return [
 'checkout' =>'Thanh toán',
 'cart' =>'Giỏ hàng',
 'blog' =>'Tin tức',
-'product_search_by_name' =>'Search Tìm kiếm sản phẩm theo tên ',
+'product_search_by_name' =>'Tìm kiếm sản phẩm theo tên ',
 'filter' =>'Bộ lọc',
 'choose_an_options' =>'Chọn một tùy chọn ...',
 'copyright_msg' =>'© Bản quyền 2015',
