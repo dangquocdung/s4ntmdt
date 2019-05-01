@@ -252,9 +252,14 @@ class CommonFunction
     
     if(Request::is('/')){
       $data_ary['dynamic_vertical_megamenu']  =   $this->frontendVerticalMenuHTML();
+
+      $data_ary['dynamic_categories_megabox']  =   $this->frontendCategoriesBoxHTML();
+
     }
     else{
       $data_ary['dynamic_vertical_megamenu']  =  '';
+
+      $data_ary['dynamic_categories_megabox']  = '';
     }
     
     $get_frontend_selected_lang = get_frontend_selected_languages_data();
@@ -515,6 +520,45 @@ class CommonFunction
 
       $html .= '</nav></ul>';
       $html .= '</div>';
+      $html .= '</div>';
+      $html .= '</div>';
+    }
+    
+    return $html;
+  }
+
+  /**
+  * Create vertical categories search box
+  *
+  * @param null
+  * @return string
+  */
+  public function frontendCategoriesBoxHTML(){
+    $product =  new ProductsController();
+    $get_categories_tree = $product->get_categories(0, 'product_cat');
+    $html = '';
+    
+    if(is_array($get_categories_tree) && count($get_categories_tree) >0){
+      $html .= '<div class="dropdown-menu mega-dropdown">';
+      $html .= '<div class="row">';
+
+      $i = 1;  
+      foreach($get_categories_tree as $cat){
+        $html .= '<div class="col-sm-3">';
+        $html .= '<a class="d-block navi-link text-center mb-30" href="'. route('categories-page', $cat['slug']) .'">';
+        if(!empty($cat['img_url'])){
+          $html .= '<img class="d-block" src="'. get_image_url( $cat['img_url'] ) .'">';
+        }
+        else{
+          $html .= '<img class="d-block" src="'. default_placeholder_img_src() .'">';
+
+        }
+
+        $html .= '<span class="text-gray-dark">'. $cat['name'] .'</span>';
+        $i ++;
+      }  
+
+      
       $html .= '</div>';
       $html .= '</div>';
     }
