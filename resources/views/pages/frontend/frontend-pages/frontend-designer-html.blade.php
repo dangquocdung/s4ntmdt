@@ -275,7 +275,7 @@
   </div>
   <div id="designer-shadow-layer">
     <div class="designer-add-to-cart-loader">
-      <img src="http://localhost/shopist/images/ajax-loader.gif" id="img-load">
+      <img src="http://localhost/shopist/public/images/ajax-loader.gif" id="img-load">
     </div>
   </div>
 </div>
