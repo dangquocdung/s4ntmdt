@@ -46,3 +46,4 @@
       <div class="pl-2 w-50"><a class="btn btn-primary btn-sm btn-block mb-0" href="checkout.html">Checkout</a></div>
     </div>
   </div>
+  @endif
