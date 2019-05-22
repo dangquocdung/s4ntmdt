@@ -174,14 +174,7 @@
             </div>
           </div>
           <div class="toolbar-item">
-            <a href="cart.html">
-              <div>
-                <span class="cart-icon"><i class="icon-shopping-cart"></i>
-                  <span class="count-label">3   </span>
-                </span>
-                <span class="text-label">Cart</span>
-              </div>
-            </a>
+            
             @include('pages.ajax-pages.mini-cart-dt')
             
           </div>
