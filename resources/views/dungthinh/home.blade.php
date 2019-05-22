@@ -379,7 +379,16 @@
         <!-- Main Navigation-->
         <nav class="site-menu">
           <ul>
-            <li class="has-submenu active"><a href="index.html">Home</a>
+            @if(Request::is('/'))
+              <li class="active">
+                <a href="{{ route('home-page') }}">{!! trans('frontend.home') !!}</a>
+              </li>
+            @else
+              <li>
+                <a href="{{ route('home-page') }}">{!! trans('frontend.home') !!}</a>
+              </li>
+            @endif
+            {{-- <li class="has-submenu active"><a href="index.html">Home</a>
               <ul class="sub-menu">
                 <li class="active has-children"><a href="index.html">Hero Slider</a>
                   <ul class="sub-menu w-400 p-0 overflow-hidden">
@@ -392,7 +401,7 @@
                   </ul>
                 </li>
               </ul>
-            </li>
+            </li> --}}
             <li class="has-submenu"><a href="shop-grid-ls.html">Shop</a>
               <ul class="sub-menu">
                   <li><a href="shop-categories.html">Shop Categories</a></li>
