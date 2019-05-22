@@ -232,6 +232,7 @@ return [
 'frontend_vendor_login_title' =>'Đăng nhập nhà cung cấp',
 'frontend_user_registration_title' =>'Đăng ký người dùng',
 'frontend_vendor_registration_title' =>'Đăng ký nhà cung cấp',
+'login_intro' => 'Đăng nhập vào tài khoản của bạn hoặc đăng ký tài khoản mới để có toàn quyền kiểm soát đơn hàng của bạn, nhận tiền thưởng và hơn thế nữa.',
 'display_name' =>'Tên hiển thị',
 'user_name' =>'Tên người dùng',
 'password' =>'mật khẩu',
