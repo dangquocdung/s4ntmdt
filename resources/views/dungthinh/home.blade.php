@@ -164,7 +164,7 @@
                 <span class="compare-icon">
                   <i class="icon-repeat"></i><span class="count-label">{{ $total_compare_item }}</span>
                 </span>
-                <span class="text-label">Compare</span>
+                <span class="text-label">{!! trans('frontend.compare_label') !!}</span>
               </div>
             </a>
           </div>
