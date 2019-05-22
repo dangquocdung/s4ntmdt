@@ -159,9 +159,11 @@
           </div>
 
           <div class="toolbar-item hidden-on-mobile">
-            <a href="product-comparison.html">
+            <a href="{{ route('product-comparison-page') }}">
               <div>
-                <span class="compare-icon"><i class="icon-repeat"></i><span class="count-label">3</span></span>
+                <span class="compare-icon">
+                  <i class="icon-repeat"></i><span class="count-label"><?php echo $total_compare_item;?></span>
+                </span>
                 <span class="text-label">Compare</span>
               </div>
             </a>
