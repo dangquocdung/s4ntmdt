@@ -168,11 +168,13 @@
               </div>
             </a>
           </div>
-          <div class="toolbar-item hidden-on-mobile"><a href="account-login.html">
-              <div><i class="icon-user"></i><span class="text-label">Sign In / Up</span></div></a>
+          <div class="toolbar-item hidden-on-mobile"><a href="#">
+              <div><i class="icon-user"></i><span class="text-label">{!! trans('frontend.compare_label') !!}</span></div></a>
             <div class="toolbar-dropdown text-center px-3">
-              <p class="text-xs mb-3 pt-2">Sign in to your account or register new one to have full control over your orders, receive bonuses and more.</p><a class="btn btn-primary btn-sm btn-block" href="account-login.html">Sign In</a>
-              <p class="text-xs text-muted mb-2">New customer?&nbsp;<a href="account-login.html">Register</a></p>
+              <p class="text-xs mb-3 pt-2">Sign in to your account or register new one to have full control over your orders, receive bonuses and more.</p>
+              <a class="btn btn-primary btn-sm btn-block" href="account-login.html">Sign In</a>
+
+              <p class="text-xs text-muted mb-2">New customer?&nbsp;<a href="{{ route('vendor-registration-page') }}">{!! trans('frontend.vendor_registration') !!}</a></p>
             </div>
           </div>
           <div class="toolbar-item">
