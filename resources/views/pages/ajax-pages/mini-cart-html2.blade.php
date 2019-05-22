@@ -1,4 +1,10 @@
-<a href="" class="main show-mini-cart" data-id="2"> <span class="d-none d-md-inline">{!! trans('frontend.menu_my_cart') !!}</span> <span class="fa fa-shopping-cart"></span> <span class="cart-count"><span id="total_count_by_ajax">{!! Cart::count() !!}</span></span></a>
+<a href="" class="main show-mini-cart" data-id="2"> 
+  <span class="d-none d-md-inline">{!! trans('frontend.menu_my_cart') !!}</span> 
+  <span class="fa fa-shopping-cart"></span> 
+  <span class="cart-count">
+    <span id="total_count_by_ajax">{!! Cart::count() !!}</span>
+  </span>
+</a>
 
 <div class="mini-cart-dropdown">
   <div class="dropdown-menu slide-from-top">
@@ -50,7 +56,9 @@
             </div>
           </div>
           <div class="item-control">
-          <div class="delete"><a href="{{ route('removed-item-from-cart', $index)}}" class="icon icon-delete" title="Delete"><i class="fa fa-trash-o"></i></a></div>
+            <div class="delete">
+              <a href="{{ route('removed-item-from-cart', $index)}}" class="icon icon-delete" title="Delete"><i class="fa fa-trash-o"></i></a>
+            </div>
           </div>
         </li>
         @endforeach
