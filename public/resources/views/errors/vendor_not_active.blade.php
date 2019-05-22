@@ -4,9 +4,9 @@
     <title>{!! trans('frontend.no_data_page_title') !!}</title>
 
     <link href="//fonts.googleapis.com/css?family=Lato:100" rel="stylesheet" type="text/css">
-    <link rel="stylesheet" href="{{ URL::asset('public/frontend/css/bootstrap.min.css') }}" />
-    <script type="text/javascript" src="{{ URL::asset('public/jquery/jquery-1.10.2.js') }}"></script>
-    <script type="text/javascript" src="{{ URL::asset('public/frontend/js/bootstrap.min.js') }}"></script>
+    <link rel="stylesheet" href="{{ URL::asset('/frontend/css/bootstrap.min.css') }}" />
+    <script type="text/javascript" src="{{ URL::asset('/jquery/jquery-1.10.2.js') }}"></script>
+    <script type="text/javascript" src="{{ URL::asset('/frontend/js/bootstrap.min.js') }}"></script>
     <style>
       body{
         #CDD6DF
