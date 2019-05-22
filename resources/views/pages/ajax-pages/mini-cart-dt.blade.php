@@ -1,4 +1,4 @@
-<a href="cart.html">
+<a href="{{ route('cart-page') }}">
   <div>
     <span class="cart-icon"><i class="icon-shopping-cart"></i>
       <span class="count-label">{!! Cart::count() !!}   </span>

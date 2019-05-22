@@ -449,7 +449,7 @@ return [
 'pages_label' =>  'Trang',
 'all_cat_label' =>'Tất cả danh mục',
 'search_for_label' =>'Tìm kiếm sản phẩm ....',
-'compare_label' =>'So sánh sản phẩm',
+'compare_label' =>'So sánh SP',
 'shop_by_cat_label' =>'Bộ sưu tập',
 'product_comparison_title_label' =>'Sự so sánh sản phẩm',
 'vendor_list_title_label' =>'Gian hàng',
