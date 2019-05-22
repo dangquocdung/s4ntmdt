@@ -389,55 +389,20 @@
               </li>
             @endif
             
-            <li class="has-megamenu"><a href="#">{!! trans('frontend.shop_by_cat_label') !!}</a>
+            <li class="has-megamenu"><a href="#">{!! trans('frontend.shop_by_cat_label') !!} <span class="caret"></span></a>
               <ul class="mega-menu">
-                  @if(count($productCategoriesTree) > 0)
-                    <?php $i = 1; $j = 0;?>
-                    @foreach($productCategoriesTree as $cat)
-                      @if($i == 1)
-                      <?php $j++; ?>
-                      <li class="col-xs-12 col-sm-4">  
-                      @endif
-
-                      <ul>
-                        @if(isset($cat['parent']) && $cat['parent'] == 'Parent Category')  
-                        <li class="dropdown-header">
-                            @if( !empty($cat['img_url']) )
-                            <img src="{{ get_image_url($cat['img_url']) }}"> 
-                            @else
-                            <img src="{{ default_placeholder_img_src() }}"> 
-                            @endif
-                            
-                            {!! $cat['name'] !!}
-                        </li>
-                        @endif
-                        @if(isset($cat['children']) && count($cat['children']) > 0)
-                          @foreach($cat['children'] as $cat_sub)
-                            <li class="product-sub-cat"><a href="{{ route('categories-page', $cat_sub['slug']) }}">{!! $cat_sub['name'] !!}</a></li>
-                            @if(isset($cat_sub['children']) && count($cat_sub['children']) > 0)
-                              @include('pages.common.category-frontend-loop-home', $cat_sub)
-                            @endif
-                          @endforeach
-                        @endif
-                      </ul>
-
-                      @if($i == 1)
-                      </li>
-                      <?php $i = 0;?>
-                      @endif
-
-                      @if($j == 3 || $j == 4)
-                      <div class="clear-both"></div>
-                      <?php $j = 0; ?>
-                      @endif
-
-                      <?php $i ++;?>
-                    @endforeach
-                  @endif
                 <li><span class="mega-menu-title">Top Categories</span>
                   <ul class="sub-menu">
-                    <li><a href="#">Computers &amp; Accessories</a></li>
                     
+                            
+                            <a href="#">Computers &amp; Accessories</a></li>
+                    <li><a href="#">Smartphones &amp; Tablets</a></li>
+                    <li><a href="#">TV, Video &amp; Audio</a></li>
+                    <li><a href="#">Cameras, Photo &amp; Video</a></li>
+                    <li><a href="#">Headphones</a></li>
+                    <li><a href="#">Wearable Electronics</a></li>
+                    <li><a href="#">Printers &amp; Ink</a></li>
+                    <li><a href="#">Video Games</a></li>
                   </ul>
                 </li>
                 <li><span class="mega-menu-title">Popular Brands</span>
