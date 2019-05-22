@@ -388,62 +388,56 @@
                 <a href="{{ route('home-page') }}">{!! trans('frontend.home') !!}</a>
               </li>
             @endif
-            {{-- <li class="has-submenu active"><a href="index.html">Home</a>
-              <ul class="sub-menu">
-                <li class="active has-children"><a href="index.html">Hero Slider</a>
-                  <ul class="sub-menu w-400 p-0 overflow-hidden">
-                    <li><a class="p-0" href="index.html"><img src="img/banners/home01.jpg" alt="Hero Slider Home"></a></li>
-                  </ul>
-                </li>
-                <li class="has-children"><a href="home-featured-categories.html">Categories Grid</a>
-                  <ul class="sub-menu w-400 p-0 overflow-hidden">
-                    <li><a class="p-0" href="home-featured-categories.html"><img src="img/banners/home02.jpg" alt="Categories Grid Home"></a></li>
-                  </ul>
-                </li>
-              </ul>
-            </li> --}}
-            <li class="has-submenu"><a href="shop-grid-ls.html">Shop</a>
-              <ul class="sub-menu">
-                  <li><a href="shop-categories.html">Shop Categories</a></li>
-                <li class="has-children"><a href="shop-grid-ls.html">Shop Grid</a>
-                  <ul class="sub-menu">
-                      <li><a href="shop-grid-ls.html">Grid Left Sidebar</a></li>
-                      <li><a href="shop-grid-rs.html">Grid Right Sidebar</a></li>
-                      <li><a href="shop-grid-ns.html">Grid No Sidebar</a></li>
-                  </ul>
-                </li>
-                <li class="has-children"><a href="shop-list-ls.html">Shop List</a>
-                  <ul class="sub-menu">
-                      <li><a href="shop-list-ls.html">List Left Sidebar</a></li>
-                      <li><a href="shop-list-rs.html">List Right Sidebar</a></li>
-                      <li><a href="shop-list-ns.html">List No Sidebar</a></li>
-                  </ul>
-                </li>
-                  <li><a href="shop-single.html">Single Product</a></li>
-                  <li><a href="cart.html">Cart</a></li>
-                <li class="has-children"><a href="checkout-address.html">Checkout</a>
-                  <ul class="sub-menu">             
-                      <li><a href="checkout-address.html">Address</a></li>
-                      <li><a href="checkout-shipping.html">Shipping</a></li>
-                      <li><a href="checkout-payment.html">Payment</a></li>
-                      <li><a href="checkout-review.html">Review</a></li>
-                      <li><a href="checkout-complete.html">Complete</a></li>
-                  </ul>
-                </li>
-              </ul>
-            </li>
-            <li class="has-megamenu"><a href="#">Mega Menu</a>
+            
+            <li class="has-megamenu"><a href="#">{!! trans('frontend.shop_by_cat_label') !!}</a>
               <ul class="mega-menu">
+                  @if(count($productCategoriesTree) > 0)
+                    <?php $i = 1; $j = 0;?>
+                    @foreach($productCategoriesTree as $cat)
+                      @if($i == 1)
+                      <?php $j++; ?>
+                      <li class="col-xs-12 col-sm-4">  
+                      @endif
+
+                      <ul>
+                        @if(isset($cat['parent']) && $cat['parent'] == 'Parent Category')  
+                        <li class="dropdown-header">
+                            @if( !empty($cat['img_url']) )
+                            <img src="{{ get_image_url($cat['img_url']) }}"> 
+                            @else
+                            <img src="{{ default_placeholder_img_src() }}"> 
+                            @endif
+                            
+                            {!! $cat['name'] !!}
+                        </li>
+                        @endif
+                        @if(isset($cat['children']) && count($cat['children']) > 0)
+                          @foreach($cat['children'] as $cat_sub)
+                            <li class="product-sub-cat"><a href="{{ route('categories-page', $cat_sub['slug']) }}">{!! $cat_sub['name'] !!}</a></li>
+                            @if(isset($cat_sub['children']) && count($cat_sub['children']) > 0)
+                              @include('pages.common.category-frontend-loop-home', $cat_sub)
+                            @endif
+                          @endforeach
+                        @endif
+                      </ul>
+
+                      @if($i == 1)
+                      </li>
+                      <?php $i = 0;?>
+                      @endif
+
+                      @if($j == 3 || $j == 4)
+                      <div class="clear-both"></div>
+                      <?php $j = 0; ?>
+                      @endif
+
+                      <?php $i ++;?>
+                    @endforeach
+                  @endif
                 <li><span class="mega-menu-title">Top Categories</span>
                   <ul class="sub-menu">
                     <li><a href="#">Computers &amp; Accessories</a></li>
-                    <li><a href="#">Smartphones &amp; Tablets</a></li>
-                    <li><a href="#">TV, Video &amp; Audio</a></li>
-                    <li><a href="#">Cameras, Photo &amp; Video</a></li>
-                    <li><a href="#">Headphones</a></li>
-                    <li><a href="#">Wearable Electronics</a></li>
-                    <li><a href="#">Printers &amp; Ink</a></li>
-                    <li><a href="#">Video Games</a></li>
+                    
                   </ul>
                 </li>
                 <li><span class="mega-menu-title">Popular Brands</span>
