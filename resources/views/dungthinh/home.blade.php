@@ -181,7 +181,7 @@
               @else
                 <p class="text-xs mb-3 pt-2">Sign in to your account or register new one to have full control over your orders, receive bonuses and more.</p>
                 <a class="btn btn-primary btn-sm btn-block" href="{{ route('user-login-page') }}">{!! trans('frontend.frontend_user_login') !!}</a>
-                <p class="text-xs text-muted mb-2">{{ trans('frontend.register_as_a_new_user') }}&nbsp;<a href="{{ route('user-registration-page') }}">{!! trans('frontend.register') !!}</a></p>
+                <p class="text-xs text-muted mb-2">{{ trans('frontend.register_as_a_new_user') }}?&nbsp;<a href="{{ route('user-registration-page') }}">{!! trans('frontend.frontend_user_registration_title') !!}</a></p>
 
               @endif
 
