@@ -159,10 +159,10 @@
           </div>
 
           <div class="toolbar-item hidden-on-mobile">
-              <a href="{{ route('product-comparison-page') }}" class="btn btn-light btn-compare">
+            <a href="product-comparison.html">
               <div>
-                <span class="compare-icon"><i class="icon-repeat"></i><span class="count-label">{{ $total_compare_item }}</span></span>
-                <span class="text-label">{!! trans('frontend.compare_label') !!}</span>
+                <span class="compare-icon"><i class="icon-repeat"></i><span class="count-label">3</span></span>
+                <span class="text-label">Compare</span>
               </div>
             </a>
           </div>
