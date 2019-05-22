@@ -162,7 +162,7 @@
             <a href="{{ route('product-comparison-page') }}">
               <div>
                 <span class="compare-icon">
-                  <i class="icon-repeat"></i><span class="count-label"><?php echo $total_compare_item;?></span>
+                  <i class="icon-repeat"></i><span class="count-label">{{ $total_compare_item }}</span>
                 </span>
                 <span class="text-label">Compare</span>
               </div>
