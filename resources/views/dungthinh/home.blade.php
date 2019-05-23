@@ -193,7 +193,7 @@
                   <a class="btn btn-primary btn-sm btn-block" target="_blank" href="{{ route('admin.login') }}">{!! trans('frontend.frontend_vendor_login') !!}</a>
                 @endif
 
-                <p class="text-xs text-muted mb-2">{{ trans('frontend.register_as_a_new_user') }}?&nbsp;<a href="{{ route('vendor-registration-page') }}">{!! trans('frontend.vendor_registration') !!}</a></p>
+                <p class="text-xs text-muted mb-2">{{ trans('frontend.register_as_a_new_vendor') }}?&nbsp;<a href="{{ route('vendor-registration-page') }}">{!! trans('frontend.vendor_registration') !!}</a></p>
 
               @endif
 
