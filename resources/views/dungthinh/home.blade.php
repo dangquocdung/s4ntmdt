@@ -401,7 +401,7 @@
             
             <li class="has-megamenu"><a href="#">{!! trans('frontend.shop_by_cat_label') !!} <span class="caret"></span></a>
               <ul class="mega-menu">
-                <li><span class="mega-menu-title">Top Categories</span>
+                <li><span class="mega-menu-title">{!! trans('frontend.shop_by_cat_label') !!}</span>
                   <ul class="sub-menu">
                       @if(count($productCategoriesTree) > 0)
                         @foreach($productCategoriesTree as $cat)
@@ -413,7 +413,21 @@
 
                   </ul>
                 </li>
-                <li><span class="mega-menu-title">Popular Brands</span>
+                <li><span class="mega-menu-title">{!! trans('frontend.all_products_label') !!}</span>
+                  <ul class="sub-menu">
+                      @if(count($vendors_list) > 0)
+                      @foreach($vendors_list as $vendor)
+                        @if($vendor->user_status == 1 && !is_vendor_expired($vendor->id))
+                          <?php $details = json_decode($vendor->details);?>
+                          <li>
+                            <a href="{{ route('store-details-page-content', $vendor->name) }}">{!! $details->profile_details->store_name !!}</a>
+                          </li>
+                          @endif
+                        @endforeach
+                      @endif
+
+                  </ul>
+                </li>
                 <li><span class="mega-menu-title">Store Locator</span>
                   <div class="card mb-3">
                     <div class="card-body">
