@@ -179,9 +179,21 @@
               @if (Session::has('shopist_frontend_user_id'))
                 <a href="{{ route('user-account-page') }}">{!! trans('frontend.user_account_label') !!}</a>
               @else
-                <p class="text-xs mb-3 pt-2">{!! trans('frontend.login_intro') !!}</p>
-                <a class="btn btn-primary btn-sm btn-block" href="{{ route('user-login-page') }}">{!! trans('frontend.frontend_user_login') !!}</a>
-                <p class="text-xs text-muted mb-2">{{ trans('frontend.register_as_a_new_user') }}?&nbsp;<a href="{{ route('user-registration-page') }}">{!! trans('frontend.frontend_user_registration_title') !!}</a></p>
+                {{-- <p class="text-xs mb-3 pt-2">{!! trans('frontend.login_intro') !!}</p> --}}
+                
+                @if (Session::has('shopist_frontend_user_id'))
+                  <a class="btn btn-primary btn-sm btn-block" href="{{ route('user-account-page') }}">{!! trans('frontend.user_account_label') !!}</a>
+                @else
+                  <a class="btn btn-primary btn-sm btn-block" href="{{ route('user-login-page') }}">{!! trans('frontend.frontend_user_login') !!}</a>
+                @endif
+
+                @if (Session::has('shopist_admin_user_id') && !empty(get_current_vendor_user_info()['user_role_slug']) && get_current_vendor_user_info()['user_role_slug'] == 'vendor')
+                  <a class="btn btn-primary btn-sm btn-block" target="_blank" href="{{ route('admin.dashboard') }}">{!! trans('frontend.vendor_account_label') !!}</a>
+                @else
+                  <a class="btn btn-primary btn-sm btn-block" target="_blank" href="{{ route('admin.login') }}">{!! trans('frontend.frontend_vendor_login') !!}</a>
+                @endif
+
+                <p class="text-xs text-muted mb-2">{{ trans('frontend.register_as_a_new_user') }}?&nbsp;<a href="{{ route('vendor-registration-page') }}">{!! trans('frontend.vendor_registration') !!}</a></p>
 
               @endif
 
