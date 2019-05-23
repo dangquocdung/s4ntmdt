@@ -58,6 +58,8 @@
     <link rel="stylesheet" media="screen" href="css/vendor.min.css">
     <!-- Main Template Styles-->
     <link id="mainStyles" rel="stylesheet" media="screen" href="css/styles.min.css">
+    <!-- Custom Template Styles-->
+    <link rel="stylesheet" href="{{ mix('css/app.css') }}">
     <!-- Modernizr-->
     <script src="js/modernizr.min.js"></script>
   </head>
@@ -401,7 +403,8 @@
             
             <li class="has-megamenu"><a href="#">{!! trans('frontend.shop_by_cat_label') !!} <span class="caret"></span></a>
               <ul class="mega-menu">
-                <li><span class="mega-menu-title">{!! trans('frontend.shop_by_cat_label') !!}</span>
+                <li>
+                  <span class="mega-menu-title">{!! trans('frontend.shop_by_cat_label') !!}</span>
                   <ul class="sub-menu">
                       @if(count($productCategoriesTree) > 0)
                         @foreach($productCategoriesTree as $cat)
