@@ -393,30 +393,15 @@
               <ul class="mega-menu">
                 <li><span class="mega-menu-title">Top Categories</span>
                   <ul class="sub-menu">
-                    
-                            
-                            <a href="#">Computers &amp; Accessories</a></li>
-                    <li><a href="#">Smartphones &amp; Tablets</a></li>
-                    <li><a href="#">TV, Video &amp; Audio</a></li>
-                    <li><a href="#">Cameras, Photo &amp; Video</a></li>
-                    <li><a href="#">Headphones</a></li>
-                    <li><a href="#">Wearable Electronics</a></li>
-                    <li><a href="#">Printers &amp; Ink</a></li>
-                    <li><a href="#">Video Games</a></li>
+                      @if(count($productCategoriesTree) > 0)
+                        @foreach($productCategoriesTree as $cat)
+                          <li><a href="#">{!! $cat['name'] !!}</a></li>
+                        @endforeach
+                      @endif
+
                   </ul>
                 </li>
                 <li><span class="mega-menu-title">Popular Brands</span>
-                  <ul class="sub-menu">
-                    <li><a href="#">Apple</a></li>
-                    <li><a href="#">Canon Inc.</a></li>
-                    <li><a href="#">Hewlett-Packard</a></li>
-                    <li><a href="#">Lenovo</a></li>
-                    <li><a href="#">Panasonic</a></li>
-                    <li><a href="#">Samsung Electronics</a></li>
-                    <li><a href="#">Sony</a></li>
-                    <li><a href="#">Toshiba</a></li>
-                  </ul>
-                </li>
                 <li><span class="mega-menu-title">Store Locator</span>
                   <div class="card mb-3">
                     <div class="card-body">
