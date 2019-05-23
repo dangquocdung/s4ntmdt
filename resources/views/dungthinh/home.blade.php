@@ -406,7 +406,14 @@
                       @if(count($productCategoriesTree) > 0)
                         @foreach($productCategoriesTree as $cat)
                           <li>
-                            <a href="{{ route('categories-page', $cat['slug']) }}">{!! $cat['name'] !!}</a>
+                            <a href="{{ route('categories-page', $cat['slug']) }}">
+                                @if( !empty($cat['img_url']) )
+                                  <img src="{{ get_image_url($cat['img_url']) }}"> 
+                                @else
+                                  <img src="{{ default_placeholder_img_src() }}"> 
+                                @endif
+                                {!! $cat['name'] !!}
+                              </a>
                           </li>
                         @endforeach
                       @endif
