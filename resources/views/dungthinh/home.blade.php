@@ -393,7 +393,14 @@
                   <ul class="sub-menu">
                       @if(count($productCategoriesTree) > 0)
                         @foreach($productCategoriesTree as $cat)
-                          <li><a href="{{ route('categories-page', $cat['slug']) }}">{!! $cat['name'] !!}</a></li>
+                          <li>
+                            @if( !empty($cat['img_url']) )
+                              <img src="{{ get_image_url($cat['img_url']) }}"> 
+                            @else
+                              <img src="{{ default_placeholder_img_src() }}"> 
+                            @endif
+                            <a href="{{ route('categories-page', $cat['slug']) }}">{!! $cat['name'] !!}</a>
+                          </li>
                         @endforeach
                       @endif
 
