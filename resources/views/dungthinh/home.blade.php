@@ -394,11 +394,6 @@
                       @if(count($productCategoriesTree) > 0)
                         @foreach($productCategoriesTree as $cat)
                           <li>
-                            @if( !empty($cat['img_url']) )
-                              <img src="{{ get_image_url($cat['img_url']) }}"> 
-                            @else
-                              <img src="{{ default_placeholder_img_src() }}"> 
-                            @endif
                             <a href="{{ route('categories-page', $cat['slug']) }}">{!! $cat['name'] !!}</a>
                           </li>
                         @endforeach
@@ -430,6 +425,36 @@
                 <li><a class="card border-0 bg-secondary rounded-0" href="shop-grid-ls.html"><img class="d-block mx-auto" alt="Samsung Galaxy S9" src="img/banners/mega-menu.jpg"></a></li>
               </ul>
             </li>
+
+            <li class="has-submenu"><a href="{{ route('shop-page') }}">{!! trans('frontend.all_products_label') !!}</a>
+              <ul class="sub-menu">
+
+                @if(count($productCategoriesTree) > 0)
+                  @foreach($productCategoriesTree as $cat)
+                  <li class="has-children">
+                    <a href="{{ route('categories-page', $cat['slug']) }}">{!! $cat['name'] !!}</a>
+                    @if(isset($cat['children']) && count($cat['children']) > 0)
+                    <ul class="sub-menu">
+                        @foreach($cat['children'] as $cat_sub)
+                        <li><a href="{{ route('categories-page', $cat_sub['slug']) }}">{!! $cat_sub['name'] !!}</a></li>
+                        @endforeach
+                    </ul>
+                    @endif
+                  </li>
+                  @endforeach
+                @endif
+
+                <li class="has-children"><a href="blog-rs.html">Blog Layout</a>
+                  <ul class="sub-menu">
+                      <li><a href="blog-rs.html">Blog Right Sidebar</a></li>
+                      <li><a href="blog-ls.html">Blog Left Sidebar</a></li>
+                      <li><a href="blog-ns.html">Blog No Sidebar</a></li>
+                  </ul>
+                </li>
+
+              </ul>
+            </li>
+
             <li class="has-submenu"><a href="account-orders.html">Account</a>
               <ul class="sub-menu">
                   <li><a href="account-login.html">Login / Register</a></li>
