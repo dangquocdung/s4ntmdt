@@ -415,18 +415,16 @@
                 </li>
                 <li><span class="mega-menu-title">{!! trans('frontend.all_products_label') !!}</span>
                   <ul class="sub-menu">
-                      @if(count($vendors_list) > 0)
-                      @foreach($vendors_list as $vendor)
-                        @if($vendor->user_status == 1 && !is_vendor_expired($vendor->id))
-                          <?php $details = json_decode($vendor->details);?>
+                      @if(count($productCategoriesTree) > 0)
+                        @foreach($productCategoriesTree as $cat)
                           <li>
-                            <a href="{{ route('store-details-page-content', $vendor->name) }}">{!! $details->profile_details->store_name !!}</a>
+                            <a href="{{ route('categories-page', $cat['slug']) }}">{!! $cat['name'] !!}</a>
                           </li>
-                          @endif
                         @endforeach
                       @endif
 
                   </ul>
+                  
                 </li>
                 <li><span class="mega-menu-title">Store Locator</span>
                   <div class="card mb-3">
