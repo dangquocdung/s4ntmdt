@@ -185,8 +185,6 @@
 
               @endif
 
-              
-
             </div>
           </div>
           <div class="toolbar-item">
@@ -395,7 +393,7 @@
                   <ul class="sub-menu">
                       @if(count($productCategoriesTree) > 0)
                         @foreach($productCategoriesTree as $cat)
-                          <li><a href="#">{!! $cat['name'] !!}</a></li>
+                          <li><a href="{{ route('categories-page', $cat['slug']) }}">{!! $cat['name'] !!}</a></li>
                         @endforeach
                       @endif
 
