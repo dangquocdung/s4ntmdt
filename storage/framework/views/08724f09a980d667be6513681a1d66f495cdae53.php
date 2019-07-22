@@ -58,6 +58,8 @@
     <link rel="stylesheet" media="screen" href="css/vendor.min.css">
     <!-- Main Template Styles-->
     <link id="mainStyles" rel="stylesheet" media="screen" href="css/styles.min.css">
+    <!-- Custom Template Styles-->
+    <link rel="stylesheet" href="<?php echo e(mix('css/app.css')); ?>">
     <!-- Modernizr-->
     <script src="js/modernizr.min.js"></script>
   </head>
@@ -81,20 +83,15 @@
           <div class="search-box-inner align-self-center">
             <div class="search-box d-flex">
               <div class="btn-group categories-btn">
-                <button class="btn btn-secondary dropdown-toggle" data-toggle="dropdown"><i class="icon-menu text-lg"></i>&nbsp;<?php echo trans('frontend.categories_list'); ?>s</button>
-
-                
-
-                    
+                <button class="btn btn-secondary dropdown-toggle" data-toggle="dropdown"><i class="icon-menu text-lg"></i>&nbsp;<?php echo trans('frontend.product_categories_label'); ?></button>
 
                     <?php echo $dynamic_categories_megabox; ?>
 
 
-                
               </div>
               <form class="input-group" method="get"><span class="input-group-btn">
                   <button type="submit"><i class="icon-search"></i></button></span>
-                <input class="form-control" type="search" placeholder="Search for anything">
+                <input class="form-control" type="search" placeholder="<?php echo trans('frontend.search_for_label'); ?>">
               </form>
             </div>
           </div>
@@ -127,25 +124,17 @@
                     </div>
                   </a>
 
-                  
                 <?php endif; ?>
               <?php endif; ?>
-
-
-            
-
-
 
             <ul class="toolbar-dropdown lang-dropdown">
               <li class="px-3 pt-1 pb-2">
                 <select class="form-control form-control-sm">
 
-                    
                     <?php if(count(get_frontend_selected_currency_data()) >0): ?>
                     <?php $__currentLoopData = get_frontend_selected_currency_data(); $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $val): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
 
                       <option value="<?php echo e($val); ?>"><?php echo get_currency_name_by_code( $val ); ?></option>
-
 
                     <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                     <?php endif; ?>
@@ -171,50 +160,52 @@
               
             </ul>
           </div>
-          <div class="toolbar-item hidden-on-mobile"><a href="product-comparison.html">
-              <div><span class="compare-icon"><i class="icon-repeat"></i><span class="count-label">3</span></span><span class="text-label">Compare</span></div></a></div>
-          <div class="toolbar-item hidden-on-mobile"><a href="account-login.html">
-              <div><i class="icon-user"></i><span class="text-label">Sign In / Up</span></div></a>
+
+          <div class="toolbar-item hidden-on-mobile">
+            <a href="<?php echo e(route('product-comparison-page')); ?>">
+              <div>
+                <span class="compare-icon">
+                  <i class="icon-repeat"></i><span class="count-label"><?php echo e($total_compare_item); ?></span>
+                </span>
+                <span class="text-label"><?php echo trans('frontend.compare_label'); ?></span>
+              </div>
+            </a>
+          </div>
+          <div class="toolbar-item hidden-on-mobile">
+            <a href="#">
+              <div>
+                <i class="icon-user"></i>
+                <span class="text-label"><?php echo trans('frontend.menu_my_account'); ?></span>
+              </div>
+            </a>
             <div class="toolbar-dropdown text-center px-3">
-              <p class="text-xs mb-3 pt-2">Sign in to your account or register new one to have full control over your orders, receive bonuses and more.</p><a class="btn btn-primary btn-sm btn-block" href="account-login.html">Sign In</a>
-              <p class="text-xs text-muted mb-2">New customer?&nbsp;<a href="account-login.html">Register</a></p>
+              <?php if(Session::has('shopist_frontend_user_id')): ?>
+                <a href="<?php echo e(route('user-account-page')); ?>"><?php echo trans('frontend.user_account_label'); ?></a>
+              <?php else: ?>
+                
+                
+                <?php if(Session::has('shopist_frontend_user_id')): ?>
+                  <a class="btn btn-primary btn-sm btn-block" href="<?php echo e(route('user-account-page')); ?>"><?php echo trans('frontend.user_account_label'); ?></a>
+                <?php else: ?>
+                  <a class="btn btn-primary btn-sm btn-block" href="<?php echo e(route('user-login-page')); ?>"><?php echo trans('frontend.frontend_user_login'); ?></a>
+                <?php endif; ?>
+
+                <?php if(Session::has('shopist_admin_user_id') && !empty(get_current_vendor_user_info()['user_role_slug']) && get_current_vendor_user_info()['user_role_slug'] == 'vendor'): ?>
+                  <a class="btn btn-primary btn-sm btn-block" target="_blank" href="<?php echo e(route('admin.dashboard')); ?>"><?php echo trans('frontend.vendor_account_label'); ?></a>
+                <?php else: ?>
+                  <a class="btn btn-primary btn-sm btn-block" target="_blank" href="<?php echo e(route('admin.login')); ?>"><?php echo trans('frontend.frontend_vendor_login'); ?></a>
+                <?php endif; ?>
+
+                <p class="text-xs text-muted mb-2"><?php echo e(trans('frontend.register_as_a_new_vendor')); ?>?&nbsp;<a href="<?php echo e(route('vendor-registration-page')); ?>"><?php echo trans('frontend.vendor_registration'); ?></a></p>
+
+              <?php endif; ?>
+
             </div>
           </div>
-          <div class="toolbar-item"><a href="cart.html">
-              <div><span class="cart-icon"><i class="icon-shopping-cart"></i><span class="count-label">3   </span></span><span class="text-label">Cart</span></div></a>
-            <div class="toolbar-dropdown cart-dropdown widget-cart hidden-on-mobile">
-              <!-- Entry-->
-              <div class="entry">
-                <div class="entry-thumb"><a href="shop-single.html"><img src="img/shop/widget/04.jpg" alt="Product"></a></div>
-                <div class="entry-content">
-                  <h4 class="entry-title"><a href="shop-single.html">Canon EOS M50 Mirrorless Camera</a></h4><span class="entry-meta">1 x $910.00</span>
-                </div>
-                <div class="entry-delete"><i class="icon-x"></i></div>
-              </div>
-              <!-- Entry-->
-              <div class="entry">
-                <div class="entry-thumb"><a href="shop-single.html"><img src="img/shop/widget/05.jpg" alt="Product"></a></div>
-                <div class="entry-content">
-                  <h4 class="entry-title"><a href="shop-single.html">Apple iPhone X 256 GB Space Gray</a></h4><span class="entry-meta">1 x $1,450.00</span>
-                </div>
-                <div class="entry-delete"><i class="icon-x"></i></div>
-              </div>
-              <!-- Entry-->
-              <div class="entry">
-                <div class="entry-thumb"><a href="shop-single.html"><img src="img/shop/widget/06.jpg" alt="Product"></a></div>
-                <div class="entry-content">
-                  <h4 class="entry-title"><a href="shop-single.html">HP LaserJet Pro Laser Printer</a></h4><span class="entry-meta">1 x $188.50</span>
-                </div>
-                <div class="entry-delete"><i class="icon-x"></i></div>
-              </div>
-              <div class="text-right">
-                <p class="text-gray-dark py-2 mb-0"><span class='text-muted'>Subtotal:</span> &nbsp;$2,548.50</p>
-              </div>
-              <div class="d-flex">
-                <div class="pr-2 w-50"><a class="btn btn-secondary btn-sm btn-block mb-0" href="cart.html">Expand Cart</a></div>
-                <div class="pl-2 w-50"><a class="btn btn-primary btn-sm btn-block mb-0" href="checkout.html">Checkout</a></div>
-              </div>
-            </div>
+          <div class="toolbar-item">
+            
+            <?php echo $__env->make('pages.ajax-pages.mini-cart-dt', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+            
           </div>
         </div>
         <!-- Mobile Menu-->
@@ -401,75 +392,51 @@
         <!-- Main Navigation-->
         <nav class="site-menu">
           <ul>
-            <li class="has-submenu active"><a href="index.html">Home</a>
-              <ul class="sub-menu">
-                <li class="active has-children"><a href="index.html">Hero Slider</a>
-                  <ul class="sub-menu w-400 p-0 overflow-hidden">
-                    <li><a class="p-0" href="index.html"><img src="img/banners/home01.jpg" alt="Hero Slider Home"></a></li>
-                  </ul>
-                </li>
-                <li class="has-children"><a href="home-featured-categories.html">Categories Grid</a>
-                  <ul class="sub-menu w-400 p-0 overflow-hidden">
-                    <li><a class="p-0" href="home-featured-categories.html"><img src="img/banners/home02.jpg" alt="Categories Grid Home"></a></li>
-                  </ul>
-                </li>
-              </ul>
-            </li>
-            <li class="has-submenu"><a href="shop-grid-ls.html">Shop</a>
-              <ul class="sub-menu">
-                  <li><a href="shop-categories.html">Shop Categories</a></li>
-                <li class="has-children"><a href="shop-grid-ls.html">Shop Grid</a>
-                  <ul class="sub-menu">
-                      <li><a href="shop-grid-ls.html">Grid Left Sidebar</a></li>
-                      <li><a href="shop-grid-rs.html">Grid Right Sidebar</a></li>
-                      <li><a href="shop-grid-ns.html">Grid No Sidebar</a></li>
-                  </ul>
-                </li>
-                <li class="has-children"><a href="shop-list-ls.html">Shop List</a>
-                  <ul class="sub-menu">
-                      <li><a href="shop-list-ls.html">List Left Sidebar</a></li>
-                      <li><a href="shop-list-rs.html">List Right Sidebar</a></li>
-                      <li><a href="shop-list-ns.html">List No Sidebar</a></li>
-                  </ul>
-                </li>
-                  <li><a href="shop-single.html">Single Product</a></li>
-                  <li><a href="cart.html">Cart</a></li>
-                <li class="has-children"><a href="checkout-address.html">Checkout</a>
-                  <ul class="sub-menu">             
-                      <li><a href="checkout-address.html">Address</a></li>
-                      <li><a href="checkout-shipping.html">Shipping</a></li>
-                      <li><a href="checkout-payment.html">Payment</a></li>
-                      <li><a href="checkout-review.html">Review</a></li>
-                      <li><a href="checkout-complete.html">Complete</a></li>
-                  </ul>
-                </li>
-              </ul>
-            </li>
-            <li class="has-megamenu"><a href="#">Mega Menu</a>
+            <?php if(Request::is('/')): ?>
+              <li class="active">
+                <a href="<?php echo e(route('home-page')); ?>"><?php echo trans('frontend.home'); ?></a>
+              </li>
+            <?php else: ?>
+              <li>
+                <a href="<?php echo e(route('home-page')); ?>"><?php echo trans('frontend.home'); ?></a>
+              </li>
+            <?php endif; ?>
+            
+            <li class="has-megamenu"><a href="#"><?php echo trans('frontend.shop_by_cat_label'); ?> <span class="caret"></span></a>
               <ul class="mega-menu">
-                <li><span class="mega-menu-title">Top Categories</span>
+                <li>
+                  <span class="mega-menu-title"><?php echo trans('frontend.shop_by_cat_label'); ?></span>
                   <ul class="sub-menu">
-                    <li><a href="#">Computers &amp; Accessories</a></li>
-                    <li><a href="#">Smartphones &amp; Tablets</a></li>
-                    <li><a href="#">TV, Video &amp; Audio</a></li>
-                    <li><a href="#">Cameras, Photo &amp; Video</a></li>
-                    <li><a href="#">Headphones</a></li>
-                    <li><a href="#">Wearable Electronics</a></li>
-                    <li><a href="#">Printers &amp; Ink</a></li>
-                    <li><a href="#">Video Games</a></li>
+                      <?php if(count($productCategoriesTree) > 0): ?>
+                        <?php $__currentLoopData = $productCategoriesTree; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $cat): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                          <li>
+                            <a href="<?php echo e(route('categories-page', $cat['slug'])); ?>">
+                                <?php if( !empty($cat['img_url']) ): ?>
+                                  <img src="<?php echo e(get_image_url($cat['img_url'])); ?>"> 
+                                <?php else: ?>
+                                  <img src="<?php echo e(default_placeholder_img_src()); ?>"> 
+                                <?php endif; ?>
+                                <?php echo $cat['name']; ?>
+
+                              </a>
+                          </li>
+                        <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+                      <?php endif; ?>
+
                   </ul>
                 </li>
-                <li><span class="mega-menu-title">Popular Brands</span>
+                <li><span class="mega-menu-title"><?php echo trans('frontend.all_products_label'); ?></span>
                   <ul class="sub-menu">
-                    <li><a href="#">Apple</a></li>
-                    <li><a href="#">Canon Inc.</a></li>
-                    <li><a href="#">Hewlett-Packard</a></li>
-                    <li><a href="#">Lenovo</a></li>
-                    <li><a href="#">Panasonic</a></li>
-                    <li><a href="#">Samsung Electronics</a></li>
-                    <li><a href="#">Sony</a></li>
-                    <li><a href="#">Toshiba</a></li>
+                      <?php if(count($productCategoriesTree) > 0): ?>
+                        <?php $__currentLoopData = $productCategoriesTree; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $cat): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                          <li>
+                            <a href="<?php echo e(route('categories-page', $cat['slug'])); ?>"><?php echo $cat['name']; ?></a>
+                          </li>
+                        <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+                      <?php endif; ?>
+
                   </ul>
+                  
                 </li>
                 <li><span class="mega-menu-title">Store Locator</span>
                   <div class="card mb-3">
@@ -494,6 +461,36 @@
                 <li><a class="card border-0 bg-secondary rounded-0" href="shop-grid-ls.html"><img class="d-block mx-auto" alt="Samsung Galaxy S9" src="img/banners/mega-menu.jpg"></a></li>
               </ul>
             </li>
+
+            <li class="has-submenu"><a href="<?php echo e(route('shop-page')); ?>"><?php echo trans('frontend.all_products_label'); ?></a>
+              <ul class="sub-menu">
+
+                <?php if(count($productCategoriesTree) > 0): ?>
+                  <?php $__currentLoopData = $productCategoriesTree; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $cat): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                  <li class="has-children">
+                    <a href="<?php echo e(route('categories-page', $cat['slug'])); ?>"><?php echo $cat['name']; ?></a>
+                    <?php if(isset($cat['children']) && count($cat['children']) > 0): ?>
+                    <ul class="sub-menu">
+                        <?php $__currentLoopData = $cat['children']; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $cat_sub): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                        <li><a href="<?php echo e(route('categories-page', $cat_sub['slug'])); ?>"><?php echo $cat_sub['name']; ?></a></li>
+                        <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+                    </ul>
+                    <?php endif; ?>
+                  </li>
+                  <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+                <?php endif; ?>
+
+                <li class="has-children"><a href="blog-rs.html">Blog Layout</a>
+                  <ul class="sub-menu">
+                      <li><a href="blog-rs.html">Blog Right Sidebar</a></li>
+                      <li><a href="blog-ls.html">Blog Left Sidebar</a></li>
+                      <li><a href="blog-ns.html">Blog No Sidebar</a></li>
+                  </ul>
+                </li>
+
+              </ul>
+            </li>
+
             <li class="has-submenu"><a href="account-orders.html">Account</a>
               <ul class="sub-menu">
                   <li><a href="account-login.html">Login / Register</a></li>
