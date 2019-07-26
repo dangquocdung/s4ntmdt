@@ -1,226 +1,112 @@
-<!-- Header Section Start -->
-<div class="header-section section">
+<header class="navbar navbar-sticky">
+  <!-- Search-->
+  <form class="site-search" action="<?php echo e(route('shop-page')); ?>" method="get">
+    <input type="text" id="srch_term" name="srch_term" placeholder="<?php echo e(trans('frontend.search_for_label')); ?>">
+    <div class="search-tools"><span class="clear-search">Clear</span><span class="close-search"><i class="icon-cross"></i></span></div>
+  </form>
 
-    <!-- Header Top Start -->
-    <div class="header-top header-top-one header-top-border pt-10 pb-10">
-        <div class="container">
-            <div class="row align-items-center justify-content-between">
-
-                <div class="col mt-10 mb-10">
-                    <!-- Header Links Start -->
-                    <div class="header-links">
-                        <a href="track-order.html"><img src="assets/images/icons/car.png" alt="Car Icon"> <span>Track your order</span></a>
-                        <a href="store.html"><img src="assets/images/icons/marker.png" alt="Car Icon"> <span>Locate Store</span></a>
-                    </div><!-- Header Links End -->
-                </div>
-
-                <div class="col order-12 order-xs-12 order-lg-2 mt-10 mb-10">
-                    <!-- Header Advance Search Start -->
-                    <div class="header-advance-search">
-                        
-                        <form action="#">
-                            <div class="input"><input type="text" placeholder="Search your product"></div>
-                            <div class="select">
-                                <select class="nice-select">
-                                    <option>All Categories</option>
-                                    <option>Mobile</option>
-                                    <option>Computer</option>
-                                    <option>Laptop</option>
-                                    <option>Camera</option>
-                                </select>
-                            </div>
-                            <div class="submit"><button><i class="icofont icofont-search-alt-1"></i></button></div>
-                        </form>
-                        
-                    </div><!-- Header Advance Search End -->
-                </div>
-
-                <div class="col order-2 order-xs-2 order-lg-12 mt-10 mb-10">
-                    <!-- Header Account Links Start -->
-                    <div class="header-account-links">
-                        <a href="register.html"><i class="icofont icofont-user-alt-7"></i> <span>my account</span></a>
-                        <a href="login.html"><i class="icofont icofont-login d-none"></i> <span>Login</span></a>
-                    </div><!-- Header Account Links End -->
-                </div>
-
-            </div>
-        </div>
-    </div><!-- Header Top End -->
-
-    <!-- Header Bottom Start -->
-    <div class="header-bottom header-bottom-one header-sticky">
-        <div class="container">
-            <div class="row align-items-center justify-content-between">
-
-                <div class="col mt-15 mb-15">
-                    <!-- Logo Start -->
-                    <div class="header-logo">
-                        <a href="index.html">
-                            <img src="assets/images/logo.png" alt="E&E - Electronics eCommerce Bootstrap4 HTML Template">
-                            <img class="theme-dark" src="assets/images/logo-light.png" alt="E&E - Electronics eCommerce Bootstrap4 HTML Template">
-                        </a>
-                    </div><!-- Logo End -->
-                </div>
-
-                <div class="col order-12 order-lg-2 order-xl-2 d-none d-lg-block">
-                    <!-- Main Menu Start -->
-                    <div class="main-menu">
-                        <nav>
-                            <ul>
-                                <li class="active"><a href="index.html">HOME</a></li>
-                                <li class="menu-item-has-children"><a href="shop-grid.html">Shop</a>
-                                    <ul class="sub-menu">
-                                        <li class="menu-item-has-children"><a href="shop-grid.html">shop grid</a>
-                                            <ul class="sub-menu">
-                                                <li><a href="shop-grid.html">shop grid</a></li>
-                                            </ul>
-                                        </li>
-                                        <li class="menu-item-has-children"><a href="single-product.html">Single Product</a>
-                                            <ul class="sub-menu">
-                                                <li><a href="single-product.html">Single Product 1</a></li>
-                                            </ul>
-                                        </li>
-                                    </ul>
-                                </li>
-                                <li class="menu-item-has-children"><a href="#">PAGES</a>
-                                    <ul class="mega-menu three-column">
-                                        <li><a href="#">Column One</a>
-                                            <ul>
-                                                <li><a href="about-us.html">About us</a></li>
-                                                <li><a href="best-deals.html">Best Deals</a></li>
-                                                <li><a href="cart.html">Cart</a></li>
-                                                <li><a href="checkout.html">Checkout</a></li>
-                                            </ul>
-                                        </li>
-                                        <li><a href="#">Column Two</a>
-                                            <ul>
-                                                <li><a href="compare.html">Compare</a></li>
-                                                <li><a href="faq.html">Faq</a></li>
-                                                <li><a href="feature.html">Feature</a></li>
-                                                <li><a href="login.html">Login</a></li>
-                                                <li><a href="register.html">Register</a></li>
-                                                <li><a href="store.html">Store</a></li>
-                                            </ul>
-                                        </li>
-                                        <li><a href="#">Column Three</a>
-                                            <ul>
-                                                <li><a href="terms-conditions.html">Terms & Conditions</a></li>
-                                                <li><a href="track-order.html">Track Order</a></li>
-                                                <li><a href="wishlist.html">Wishlist</a></li>
-                                            </ul>
-                                        </li>
-                                    </ul>
-                                </li>
-                                <li class="menu-item-has-children"><a href="blog-1-column-left-sidebar.html">BLOG</a>
-                                    <ul class="sub-menu">
-                                        <li><a href="blog-1-column-left-sidebar.html">Blog 1 Column Left Sidebar</a></li>
-                                        <li><a href="single-blog-left-sidebar.html">Single Blog Left Sidebar</a></li>
-                                    </ul>
-                                </li>
-                                <li><a href="contact.html">CONTACT</a></li>
-                            </ul>
-                        </nav>
-                    </div><!-- Main Menu End -->
-                </div>
-
-                <div class="col order-2 order-lg-12 order-xl-12">
-                    <!-- Header Shop Links Start -->
-                    <div class="header-shop-links">
-                        
-                        <!-- Compare -->
-                        <a href="<?php echo e(route('product-comparison-page')); ?>" class="header-compare" title="<?php echo trans('frontend.compare_label'); ?>"><i class="ti-control-shuffle"></i></a>
-                        <!-- Wishlist -->
-                        <a href="<?php echo e(route('my-saved-items-page')); ?>" class="header-wishlist">
-                            <i class="ti-heart" title="<?php echo trans('frontend.frontend_wishlist'); ?>"></i>
-                        </a>
-                        <!-- Cart -->
-                        <a href="cart.html" class="header-cart" title="<?php echo trans('frontend.menu_my_cart'); ?>"><i class="ti-shopping-cart"></i> <span class="number"><?php echo Cart::count(); ?></span></a>
-                        
-                    </div><!-- Header Shop Links End -->
-                </div>
-                
-                <!-- Mobile Menu -->
-                <div class="mobile-menu order-12 d-block d-lg-none col"></div>
-
-            </div>
-        </div>
-    </div><!-- Header Bottom End -->
-
-    <!-- Header Category Start -->
-    <div class="header-category-section">
-        <div class="container">
-            <div class="row">
-                <div class="col">
-                    
-                    <!-- Header Category -->
-                    <div class="header-category">
-                        
-                        <!-- Category Toggle Wrap -->
-                        <div class="category-toggle-wrap d-block d-lg-none">
-                            <!-- Category Toggle -->
-                            <button class="category-toggle">Categories <i class="ti-menu"></i></button>
-                        </div>
-                        
-                        <!-- Category Menu -->
-                        <nav class="category-menu">
-                            <ul>
-                                <li><a href="category-1.html">Tv & Audio System</a></li>
-                                <li><a href="category-2.html">Computer & Laptop</a></li>
-                                <li><a href="category-3.html">Phones & Tablets</a></li>
-                                <li><a href="category-1.html">Home Appliances</a></li>
-                                <li><a href="category-2.html">Kitchen appliances</a></li>
-                                <li><a href="category-3.html">Accessories</a></li>
-                            </ul>
-                        </nav>
-                        
-                    </div>
-                    
-                </div>
-            </div>
-        </div>
-    </div><!-- Header Category End -->
-
-</div><!-- Header Section End -->
-
-<!-- Mini Cart Wrap Start -->                      
-<div class="mini-cart-wrap">
-
-    <!-- Mini Cart Top -->
-    <div class="mini-cart-top">    
-    
-        <button class="close-cart">Close Cart<i class="icofont icofont-close"></i></button>
-        
+  <div class="site-branding">
+    <div class="inner">
+      <!-- Off-Canvas Toggle (#shop-categories)--><a class="offcanvas-toggle cats-toggle" href="#shop-categories" data-toggle="offcanvas"></a>
+      <!-- Off-Canvas Toggle (#mobile-menu)--><a class="offcanvas-toggle menu-toggle" href="#mobile-menu" data-toggle="offcanvas"></a>
+      <!-- Site Logo-->
+      <?php if(get_site_logo_image()): ?>      
+      <a class="site-logo" href="<?php echo e(route('home-page')); ?>"><img src="<?php echo e(get_site_logo_image()); ?>" alt="<?php echo e(trans('frontend.your_store_label')); ?>"></a>      
+      <?php endif; ?>
     </div>
+  </div>
+  <!-- Main Navigation-->
+  <nav class="site-menu">
+    <ul>
+      <li class="<?php echo e(Request::is('/')?'active':''); ?>"><a href="<?php echo e(route('home-page')); ?>"><span><?php echo trans('frontend.home'); ?></span></a></li>
+      
+      <li class="<?php echo e(Request::is('stores')?'active':''); ?>"><a href="<?php echo e(route('store-list-page-content')); ?>"><span>Gian hàng</span></a></li>
+      
+      <li class="has-megamenu"><a href="#"><span>Nổi bật</span></a>
+        <ul class="mega-menu">
+          <li><span class="mega-menu-title">Sản phẩm</span>
+            <ul class="sub-menu">
+              <li><a href="#">Men's Shoes</a></li>
+            </ul>
+          </li>
+          <li><span class="mega-menu-title">Gian hàng</span>
+            <ul class="sub-menu">
+              <li><a href="#">Junior's Shop</a></li>
+            </ul>
+          </li>
+          <li>
+            <section class="promo-box" style="background-image: url(img/banners/02.jpg);"><span class="overlay-dark" style="opacity: .4;"></span>
+              <div class="promo-box-content text-center padding-top-2x padding-bottom-2x">
+                <h4 class="text-light text-thin text-shadow">New Collection of</h4>
+                <h3 class="text-bold text-light text-shadow">Sunglasses</h3><a class="btn btn-sm btn-primary" href="#">Shop Now</a>
+              </div>
+            </section>
+          </li>
+          <li>
+            <section class="promo-box" style="background-image: url(img/banners/03.jpg);">
+              <!-- Choose between .overlay-dark (#000) or .overlay-light (#fff) with default opacity of 50%. You can overrride default color and opacity values via 'style' attribute.--><span class="overlay-dark" style="opacity: .45;"></span>
+              <div class="promo-box-content text-center padding-top-2x padding-bottom-2x">
+                <h3 class="text-bold text-light text-shadow">Limited Offer</h3>
+                <h4 class="text-light text-thin text-shadow">save up to 50%!</h4><a class="btn btn-sm btn-primary" href="#">Learn More</a>
+              </div>
+            </section>
+          </li>
+        </ul>
+      </li>
 
-    <!-- Mini Cart Products -->
-    <?php if( Cart::count() >0 ): ?>
-    <ul class="mini-cart-products">
-        <?php $__currentLoopData = Cart::items(); $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $index => $items): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-        <li>
-            <a class="image"><img src="assets/images/product/product-1.png" alt="Product"></a>
-            <div class="content">
-                <a href="single-product.html" class="title">Waxon Note Book Pro 5</a>
-                <span class="price">Price: $295</span>
-                <span class="qty">Qty: 02</span>
-            </div>
-            <button class="remove"><i class="fa fa-trash-o"></i></button>
-        </li>
-        <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+      <li class="<?php echo e(Request::is('shop')?'active':''); ?>"><a href="<?php echo e(route('shop-page')); ?>"><span><?php echo trans('frontend.all_products_label'); ?></span></a></li>
+      
+      <li class="<?php echo e(Request::is('checkout')?'active':''); ?>"><a href="<?php echo e(route('checkout-page')); ?>"><span><?php echo trans('frontend.checkout'); ?></span></a></li>
+
+      <li class="<?php echo e(Request::is('cart')?'active':''); ?>"><a href="<?php echo e(route('cart-page')); ?>"><span><?php echo trans('frontend.cart'); ?></span></a></li>
+      
+      <li class="<?php echo e(Request::is('blogs')?'active':''); ?>"><a href="<?php echo e(route('blogs-page-content')); ?>"><span><?php echo trans('frontend.blog'); ?></span></a></li>
+      
     </ul>
-    <?php endif; ?>
-
-    <!-- Mini Cart Bottom -->
-    <div class="mini-cart-bottom">    
-    
-        <h4 class="sub-total"><?php echo trans('frontend.total'); ?>: <span><?php echo price_html( get_product_price_html_by_filter(Cart::getTotal()) ); ?></span></h4>
-
-        <div class="button">
-            <a href="<?php echo e(route('checkout-page')); ?>"><?php echo trans('frontend.check_out'); ?></a>
+  </nav>
+  <!-- Toolbar-->
+  <div class="toolbar">
+    <div class="inner">
+      <div class="tools">
+        <div class="search"><i class="icon-search"></i></div>
+        <div class="account"><a href="account-orders.html"></a><i class="icon-head"></i>
+          <ul class="toolbar-dropdown">
+            <li class="sub-menu-user">
+              <div class="user-ava"><img src="img/account/user-ava-sm.jpg" alt="Daniel Adams">
+              </div>
+              <div class="user-info">
+                <h6 class="user-name">Daniel Adams</h6><span class="text-xs text-muted">290 Reward points</span>
+              </div>
+            </li>
+              <li><a href="account-profile.html">My Profile</a></li>
+              <li><a href="account-orders.html">Orders List</a></li>
+              <li><a href="account-wishlist.html">Wishlist</a></li>
+            <li class="sub-menu-separator"></li>
+            <li><a href="#"> <i class="icon-unlock"></i>Logout</a></li>
+          </ul>
         </div>
-        
+        <div class="cart"><a href="cart.html"></a><i class="icon-bag"></i><span class="count">3</span><span class="subtotal">$289.68</span>
+          <div class="toolbar-dropdown">
+            <div class="dropdown-product-item"><span class="dropdown-product-remove"><i class="icon-cross"></i></span><a class="dropdown-product-thumb" href="shop-single.html"><img src="img/cart-dropdown/01.jpg" alt="Product"></a>
+              <div class="dropdown-product-info"><a class="dropdown-product-title" href="shop-single.html">Unionbay Park</a><span class="dropdown-product-details">1 x $43.90</span></div>
+            </div>
+            <div class="dropdown-product-item"><span class="dropdown-product-remove"><i class="icon-cross"></i></span><a class="dropdown-product-thumb" href="shop-single.html"><img src="img/cart-dropdown/02.jpg" alt="Product"></a>
+              <div class="dropdown-product-info"><a class="dropdown-product-title" href="shop-single.html">Daily Fabric Cap</a><span class="dropdown-product-details">2 x $24.89</span></div>
+            </div>
+            <div class="dropdown-product-item"><span class="dropdown-product-remove"><i class="icon-cross"></i></span><a class="dropdown-product-thumb" href="shop-single.html"><img src="img/cart-dropdown/03.jpg" alt="Product"></a>
+              <div class="dropdown-product-info"><a class="dropdown-product-title" href="shop-single.html">Haan Crossbody</a><span class="dropdown-product-details">1 x $200.00</span></div>
+            </div>
+            <div class="toolbar-dropdown-group">
+              <div class="column"><span class="text-lg">Total:</span></div>
+              <div class="column text-right"><span class="text-lg text-medium">$289.68&nbsp;</span></div>
+            </div>
+            <div class="toolbar-dropdown-group">
+              <div class="column"><a class="btn btn-sm btn-block btn-secondary" href="cart.html">View Cart</a></div>
+              <div class="column"><a class="btn btn-sm btn-block btn-success" href="checkout-address.html">Checkout</a></div>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
-
-</div><!-- Mini Cart Wrap End --> 
-
-<!-- Cart Overlay -->
-<div class="cart-overlay"></div>
+  </div>
+</header>
