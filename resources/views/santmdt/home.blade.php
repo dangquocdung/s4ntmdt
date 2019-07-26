@@ -3,7 +3,6 @@
 @section('content')
 
     <!-- Off-Canvas Wrapper-->
-    <div class="offcanvas-wrapper">
       <!-- Page Content-->
       <!-- Main Slider-->
       <section class="hero-slider" style="background-image: url(img/hero-slider/main-bg.jpg);">
@@ -305,7 +304,7 @@
       <!-- Popular Brands-->
       <section class="bg-faded padding-top-3x padding-bottom-3x">
         <div class="container">
-          <h3 class="text-center mb-30 pb-2">Popular Brands</h3>
+          <h3 class="text-center mb-30 pb-2">Gian hàng hoạt động hiệu quả</h3>
           <div class="owl-carousel" data-owl-carousel="{ &quot;nav&quot;: false, &quot;dots&quot;: false, &quot;loop&quot;: true, &quot;autoplay&quot;: true, &quot;autoplayTimeout&quot;: 4000, &quot;responsive&quot;: {&quot;0&quot;:{&quot;items&quot;:2}, &quot;470&quot;:{&quot;items&quot;:3},&quot;630&quot;:{&quot;items&quot;:4},&quot;991&quot;:{&quot;items&quot;:5},&quot;1200&quot;:{&quot;items&quot;:6}} }"><img class="d-block w-110 opacity-75 m-auto" src="img/brands/01.png" alt="Adidas"><img class="d-block w-110 opacity-75 m-auto" src="img/brands/02.png" alt="Brooks"><img class="d-block w-110 opacity-75 m-auto" src="img/brands/03.png" alt="Valentino"><img class="d-block w-110 opacity-75 m-auto" src="img/brands/04.png" alt="Nike"><img class="d-block w-110 opacity-75 m-auto" src="img/brands/05.png" alt="Puma"><img class="d-block w-110 opacity-75 m-auto" src="img/brands/06.png" alt="New Balance"><img class="d-block w-110 opacity-75 m-auto" src="img/brands/07.png" alt="Dior"></div>
         </div>
       </section>
@@ -314,99 +313,21 @@
         <div class="row">
           <div class="col-md-3 col-sm-6 text-center mb-30"><img class="d-block w-90 img-thumbnail rounded-circle mx-auto mb-3" src="img/services/01.png" alt="Shipping">
             <h6>Miễn phí vận chuyển</h6>
-            <p class="text-muted margin-bottom-none">Free shipping for all orders over $100</p>
+            <p class="text-muted margin-bottom-none">Miễn phí vận chuyển nội tỉnh</p>
           </div>
           <div class="col-md-3 col-sm-6 text-center mb-30"><img class="d-block w-90 img-thumbnail rounded-circle mx-auto mb-3" src="img/services/02.png" alt="Money Back">
             <h6>Đảm bảo hoàn tiền</h6>
-            <p class="text-muted margin-bottom-none">We return money within 30 days</p>
+            <p class="text-muted margin-bottom-none">Hoàn tiền trong vòng 30 ngày</p>
           </div>
           <div class="col-md-3 col-sm-6 text-center mb-30"><img class="d-block w-90 img-thumbnail rounded-circle mx-auto mb-3" src="img/services/03.png" alt="Support">
             <h6>Hỗ trợ 24/7</h6>
-            <p class="text-muted margin-bottom-none">Friendly Hỗ trợ 24/7</p>
+            <p class="text-muted margin-bottom-none">Hỗ trợ nhiệt thành, thân thiện</p>
           </div>
           <div class="col-md-3 col-sm-6 text-center mb-30"><img class="d-block w-90 img-thumbnail rounded-circle mx-auto mb-3" src="img/services/04.png" alt="Payment">
             <h6>Thanh toán an toàn</h6>
-            <p class="text-muted margin-bottom-none">We posess SSL / Secure Certificate</p>
+            <p class="text-muted margin-bottom-none">Có chứng nhận SSL / Chứng chỉ bảo mật</p>
           </div>
         </div>
       </section>
-      <!-- Site Footer-->
-      <footer class="site-footer">
-        <div class="container">
-          <div class="row">
-            <div class="col-lg-3 col-md-6">
-              <!-- Contact Info-->
-              <section class="widget widget-light-skin">
-                <h3 class="widget-title">Get In Touch With Us</h3>
-                <p class="text-white">Phone: 00 33 169 7720</p>
-                <ul class="list-unstyled text-sm text-white">
-                  <li><span class="opacity-50">Monday-Friday:</span>9.00 am - 8.00 pm</li>
-                  <li><span class="opacity-50">Saturday:</span>10.00 am - 6.00 pm</li>
-                </ul>
-                <p><a class="navi-link-light" href="#">support@unishop.com</a></p><a class="social-button shape-circle sb-facebook sb-light-skin" href="#"><i class="socicon-facebook"></i></a><a class="social-button shape-circle sb-twitter sb-light-skin" href="#"><i class="socicon-twitter"></i></a><a class="social-button shape-circle sb-instagram sb-light-skin" href="#"><i class="socicon-instagram"></i></a><a class="social-button shape-circle sb-google-plus sb-light-skin" href="#"><i class="socicon-googleplus"></i></a>
-              </section>
-            </div>
-            <div class="col-lg-3 col-md-6">
-              <!-- Mobile App Buttons-->
-              <section class="widget widget-light-skin">
-                <h3 class="widget-title">Our Mobile App</h3><a class="market-button apple-button mb-light-skin" href="#"><span class="mb-subtitle">Download on the</span><span class="mb-title">App Store</span></a><a class="market-button google-button mb-light-skin" href="#"><span class="mb-subtitle">Download on the</span><span class="mb-title">Google Play</span></a><a class="market-button windows-button mb-light-skin" href="#"><span class="mb-subtitle">Download on the</span><span class="mb-title">Windows Store</span></a>
-              </section>
-            </div>
-            <div class="col-lg-3 col-md-6">
-              <!-- About Us-->
-              <section class="widget widget-links widget-light-skin">
-                <h3 class="widget-title">About Us</h3>
-                <ul>
-                  <li><a href="#">Careers</a></li>
-                  <li><a href="#">About Unishop</a></li>
-                  <li><a href="#">Our Story</a></li>
-                  <li><a href="#">Services</a></li>
-                  <li><a href="#">Our Blog</a></li>
-                </ul>
-              </section>
-            </div>
-            <div class="col-lg-3 col-md-6">
-              <!-- Account / Shipping Info-->
-              <section class="widget widget-links widget-light-skin">
-                <h3 class="widget-title">Account &amp; Shipping Info</h3>
-                <ul>
-                  <li><a href="#">Your Account</a></li>
-                  <li><a href="#">Shipping Rates & Policies</a></li>
-                  <li><a href="#">Refunds & Replacements</a></li>
-                  <li><a href="#">Taxes</a></li>
-                  <li><a href="#">Delivery Info</a></li>
-                  <li><a href="#">Affiliate Program</a></li>
-                </ul>
-              </section>
-            </div>
-          </div>
-          <hr class="hr-light mt-2 margin-bottom-2x">
-          <div class="row">
-            <div class="col-md-7 padding-bottom-1x">
-              <!-- Payment Methods-->
-              <div class="margin-bottom-1x" style="max-width: 615px;"><img src="img/payment_methods.png" alt="Payment Methods">
-              </div>
-            </div>
-            <div class="col-md-5 padding-bottom-1x">
-              <div class="margin-top-1x hidden-md-up"></div>
-              <!--Subscription-->
-              <form class="subscribe-form" action="//rokaux.us12.list-manage.com/subscribe/post?u=c7103e2c981361a6639545bd5&amp;amp;id=1194bb7544" method="post" target="_blank" novalidate>
-                <div class="clearfix">
-                  <div class="input-group input-light">
-                    <input class="form-control" type="email" name="EMAIL" placeholder="Your e-mail"><span class="input-group-addon"><i class="icon-mail"></i></span>
-                  </div>
-                  <!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups-->
-                  <div style="position: absolute; left: -5000px;" aria-hidden="true">
-                    <input type="text" name="b_c7103e2c981361a6639545bd5_1194bb7544" tabindex="-1">
-                  </div>
-                  <button class="btn btn-primary" type="submit"><i class="icon-check"></i></button>
-                </div><span class="form-text text-sm text-white opacity-50">Subscribe to our Newsletter to receive early discount offers, latest news, sales and promo information.</span>
-              </form>
-            </div>
-          </div>
-          <!-- Copyright-->
-          <p class="footer-copyright">© All rights reserved. Made with &nbsp;<i class="icon-heart text-danger"></i><a href="http://dungthinh.com/" target="_blank"> &nbsp;by dungthinh</a></p>
-        </div>
-      </footer>
-    </div>
+      
 @endsection

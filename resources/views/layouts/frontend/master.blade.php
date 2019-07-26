@@ -277,7 +277,15 @@
 
     <!-- Off-Canvas Wrapper-->
 
-    @yield('content')
+    <div class="offcanvas-wrapper">
+
+
+      @yield('content')
+
+
+      @include('includes.frontend.footer')
+
+    </div>
 
     <!-- Back To Top Button--><a class="scroll-to-top-btn" href="#"><i class="icon-arrow-up"></i></a>
     <!-- Backdrop-->
