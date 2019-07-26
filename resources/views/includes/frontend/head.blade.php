@@ -1,6 +1,5 @@
 <meta charset="utf-8">
-    <title>@yield('title')
-    </title>
+    <title>@yield('title')</title>
     <!-- SEO Meta Tags-->
     <meta content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no' name='viewport'>
     <meta name="csrf-token" content="{{ csrf_token() }}">
