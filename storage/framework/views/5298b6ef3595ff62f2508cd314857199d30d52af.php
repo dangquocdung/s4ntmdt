@@ -1361,7 +1361,7 @@
                 <div class="feature feature-guarantee">
                     <div class="feature-wrap">
                         <div class="icon"><img src="assets/images/icons/feature-walet.png" alt="Feature"></div>
-                        <h4>MONEY BACK GUARANTEE</h4>
+                        <h4>Đảm bảo hoàn tiền</h4>
                         <p>Back within 15 days</p>
                     </div>
                 </div><!-- Feature End -->

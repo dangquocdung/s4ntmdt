@@ -59,7 +59,7 @@ class FrontendManagerController extends Controller
     $data['brands_data']         =   $this->product->getTermData( 'product_brands', false, null, 1 );
     $data['testimonials_data']   =   get_all_testimonial_data();
     
-    return view('dungthinh.home', $data);
+    return view('santmdt.home', $data);
   }
   
   /**
