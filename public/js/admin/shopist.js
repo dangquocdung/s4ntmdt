@@ -349,7 +349,7 @@ shopist.pageLoad =
         {
           for(var count = 0; count< images.length; count ++)
           {
-            html += '<img src= "'+ $('#hf_base_url').val() +'/uploads/'+ images[count] +'">';
+            html += '<img src= "'+ $('#hf_base_url').val() +'/public/uploads/'+ images[count] +'">';
           }
         }
         
@@ -733,7 +733,7 @@ shopist.pageLoad =
           success:function( response ){ 
 
             if(response.status == 'success'){
-              $('#downloadable_file_uploaded_url_' + $('#hf_downloadable_product_file_url_track').val()).val($('#hf_base_url').val() + '/uploads/' + response.filename);
+              $('#downloadable_file_uploaded_url_' + $('#hf_downloadable_product_file_url_track').val()).val($('#hf_base_url').val() + '/public/uploads/' + response.filename);
             }
             else if(response.status == 'error'){
               swal("" , adminLocalizationString.unknown_msg_label);
@@ -763,7 +763,7 @@ shopist.pageLoad =
           success:function( response ){ 
 
             if(response.status == 'success'){
-              $('#variable_downloadable_file_uploaded_url_' + $('#hf_variable_product_downloadable_file_url_track').val()).val($('#hf_base_url').val() + '/uploads/' + response.filename);
+              $('#variable_downloadable_file_uploaded_url_' + $('#hf_variable_product_downloadable_file_url_track').val()).val($('#hf_base_url').val() + '/public/uploads/' + response.filename);
             }
             else if(response.status == 'error'){
               swal("" , adminLocalizationString.unknown_msg_label);
@@ -1944,11 +1944,11 @@ shopist.event =
               if($('#hf_custom_designer_data').val() != '' || $('#hf_custom_designer_data').val().length>0)
               {
                 data_arry = JSON.parse( $('#hf_custom_designer_data').val() );
-                data_arry.push({id:count_id, title_label:title_label, design_img_url:'/images/no-image.png', design_trans_img_url:'', design_title_icon:'/images/no-image.png'});
+                data_arry.push({id:count_id, title_label:title_label, design_img_url:'/public/images/no-image.png', design_trans_img_url:'', design_title_icon:'/public/images/no-image.png'});
               }
               else
               {
-                data_arry.push({id:count_id, title_label:title_label, design_img_url:'/images/no-image.png', design_trans_img_url:'', design_title_icon:'/images/no-image.png'});
+                data_arry.push({id:count_id, title_label:title_label, design_img_url:'/public/images/no-image.png', design_trans_img_url:'', design_title_icon:'/public/images/no-image.png'});
               }
                
               $('#hf_custom_designer_data').val(JSON.stringify(data_arry));
@@ -2375,7 +2375,7 @@ shopist.event =
         formData.append('tab_name', $(this).data('tab_name'));
         formData.append('template_name', $(this).data('template_name'));
         
-        obj.parents('.manage-template').after('<div class="template_activate_loader"><img src="'+ $('#hf_base_url').val() +'/images/ajax-loader_001.gif" alt="ajax-loader"></div>');
+        obj.parents('.manage-template').after('<div class="template_activate_loader"><img src="'+ $('#hf_base_url').val() +'/public/images/ajax-loader_001.gif" alt="ajax-loader"></div>');
         var xhrForm = new XMLHttpRequest();
         xhrForm.open("POST", $('#hf_base_url').val() + "/ajax/appearance_data_manage");
         xhrForm.setRequestHeader('X-CSRF-TOKEN', $('meta[name="csrf-token"]').attr('content'));
@@ -3508,8 +3508,8 @@ shopist.normalFunction=
     str += '<div class="panel-heading"><h4 class="panel-title"><a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapse_'+ count +'"><span class="fa fa-minus"></span>&nbsp;&nbsp;<span>'+ val +'</span></a><a data-id="'+ count +'" class="pull-right" href=""><span class="fa fa-remove remove-panel"></span></a></h4></div>';
     str += '<div id="collapse_'+ count +'" data-id="'+ count +'" class="panel-collapse collapse show collapse-' + count +'">';
     str += '<div class="panel-body">';
-    str += '<div class="form-group"><div class="row"><div class="col-sm-6"><div class="design-img-content"><div class="design-sample-img"><img class="img-responsive" src="'+ baseUrl +'/images/upload.png" alt="no_img"></div><div class="design-img"><img class="img-responsive" src="" alt=""></div><br><div class="design-img-upload-btn"><div><button type="button" data-name="only_design_img" class="btn btn-default attachtopost upload-design-img btn-sm">'+  adminLocalizationString.upload_design_image +'</button></div><div><button type="button" data-name="design_img" data-id="solid-'+ count +'" class="btn btn-default attachtopost remove-design-img">'+ adminLocalizationString.remove_image +'</button></div></div></div></div><div class="col-sm-6"><div class="design-img-content"><div class="trans-design-sample-img"><img class="img-responsive" src="'+ baseUrl +'/images/upload.png" alt="no_img"></div><div class="trans-design-img"><img class="img-responsive" src="" alt=""></div><br><div class="trans-design-img-upload-btn"><div><button type="button" data-name="only_trans_design_img" class="btn btn-default attachtopost upload-design-img btn-sm">'+ adminLocalizationString.upload_design_transparent_image +'</button></div><div><button type="button" data-name="trans_design_img" data-id="trans-'+ count +'" class="btn btn-default attachtopost remove-design-img">'+ adminLocalizationString.remove_image +'</button></div></div></div></div></div></div><hr>';
-    str += '<div class="form-group"><div class="row"><div class="col-sm-12"><div class="design-title-img-content"><div class="design-title-sample-img"><img class="img-responsive" src="'+ baseUrl +'/images/upload.png" alt="no_img"></div><div class="design-title-img"><img class="img-responsive" src="" alt=""></div><br><div class="design-title-img-upload-btn"><div><button type="button" data-name="only_design_title_img" class="btn btn-default attachtopost upload-design-title-img">'+ adminLocalizationString.upload_design_title_icon +'</button></div><div><button type="button" data-name="design_title_img" data-id="'+ count +'" class="btn btn-default attachtopost remove-design-title-img">'+ adminLocalizationString.remove_image +'</button></div></div></div></div></div></div></div></div></div></div>';
+    str += '<div class="form-group"><div class="row"><div class="col-sm-6"><div class="design-img-content"><div class="design-sample-img"><img class="img-responsive" src="'+ baseUrl +'/public/images/upload.png" alt="no_img"></div><div class="design-img"><img class="img-responsive" src="" alt=""></div><br><div class="design-img-upload-btn"><div><button type="button" data-name="only_design_img" class="btn btn-default attachtopost upload-design-img btn-sm">'+  adminLocalizationString.upload_design_image +'</button></div><div><button type="button" data-name="design_img" data-id="solid-'+ count +'" class="btn btn-default attachtopost remove-design-img">'+ adminLocalizationString.remove_image +'</button></div></div></div></div><div class="col-sm-6"><div class="design-img-content"><div class="trans-design-sample-img"><img class="img-responsive" src="'+ baseUrl +'/public/images/upload.png" alt="no_img"></div><div class="trans-design-img"><img class="img-responsive" src="" alt=""></div><br><div class="trans-design-img-upload-btn"><div><button type="button" data-name="only_trans_design_img" class="btn btn-default attachtopost upload-design-img btn-sm">'+ adminLocalizationString.upload_design_transparent_image +'</button></div><div><button type="button" data-name="trans_design_img" data-id="trans-'+ count +'" class="btn btn-default attachtopost remove-design-img">'+ adminLocalizationString.remove_image +'</button></div></div></div></div></div></div><hr>';
+    str += '<div class="form-group"><div class="row"><div class="col-sm-12"><div class="design-title-img-content"><div class="design-title-sample-img"><img class="img-responsive" src="'+ baseUrl +'/public/images/upload.png" alt="no_img"></div><div class="design-title-img"><img class="img-responsive" src="" alt=""></div><br><div class="design-title-img-upload-btn"><div><button type="button" data-name="only_design_title_img" class="btn btn-default attachtopost upload-design-title-img">'+ adminLocalizationString.upload_design_title_icon +'</button></div><div><button type="button" data-name="design_title_img" data-id="'+ count +'" class="btn btn-default attachtopost remove-design-title-img">'+ adminLocalizationString.remove_image +'</button></div></div></div></div></div></div></div></div></div></div>';
     
     return str;
   },
@@ -3734,7 +3734,7 @@ shopist.normalFunction=
          {
            if('solid-' + parseJson[i].id == id)
            {
-             parseJson[i].design_img_url = '/images/upload.png';
+             parseJson[i].design_img_url = '/public/images/upload.png';
              break;
            }
          }
@@ -3756,7 +3756,7 @@ shopist.normalFunction=
          {
            if(parseJson[j].id == id)
            {
-             parseJson[j].design_title_icon = '/images/upload.png';
+             parseJson[j].design_title_icon = '/public/images/upload.png';
              break;
            }
          }
@@ -4041,34 +4041,34 @@ var customDropZone = (function() {
               swal(adminLocalizationString.good_job, adminLocalizationString.successfully_uploaded_your_image, "success");
               if(name == 'product_image')
               {
-                $('.product-uploaded-image img').attr('src', base_url + '/uploads/' + response.name);
+                $('.product-uploaded-image img').attr('src', base_url + '/public/uploads/' + response.name);
                 $('#productUploader').modal('hide');
                 $('.product-sample-img').hide();
                 $('.product-uploaded-image').show();
 
                 if($('#hf_uploaded_all_images').length>0)
                 {
-                  shopist.normalFunction.createJsonDataForAllProductImage('product_image', '/uploads/' + response.name);
+                  shopist.normalFunction.createJsonDataForAllProductImage('product_image', '/public/uploads/' + response.name);
                 }
               }
               else if(name == 'testimonial_image'){
-                $('.testimonial-content .testimonial-uploaded-image img').attr('src', base_url + '/uploads/' + response.name);
+                $('.testimonial-content .testimonial-uploaded-image img').attr('src', base_url + '/public/uploads/' + response.name);
                 $('#testimonialUploader').modal('hide');
                 $('.testimonial-content .testimonial-sample-img').hide();
                 $('.testimonial-content .testimonial-uploaded-image').show();
 
                 if($('#image_url').length>0){
-                  $('#image_url').val( '/uploads/' + response.name );
+                  $('#image_url').val( '/public/uploads/' + response.name );
 		}
               }
               else if(name == 'featured_image'){
-                $('.featured-img-content .featured-uploaded-image img').attr('src', base_url + '/uploads/' + response.name);
+                $('.featured-img-content .featured-uploaded-image img').attr('src', base_url + '/public/uploads/' + response.name);
                 $('#featuredUploader').modal('hide');
                 $('.featured-img-content .featured-sample-img').hide();
                 $('.featured-img-content .featured-uploaded-image').show();
 
                 if($('#image_url').length>0){
-                  $('#image_url').val( '/uploads/' + response.name );
+                  $('#image_url').val( '/public/uploads/' + response.name );
 		}
               }
               else if(name == 'product_gallery_images')
@@ -4087,11 +4087,11 @@ var customDropZone = (function() {
                     {
                       if($('.gallery-image-single-container').length>0)
                       {
-                        $('.gallery-image-single-container:last').after('<div class="gallery-image-single-container '+ addExtraId +'"><img class="img-responsive" src="'+ base_url +'/uploads/'+ parseResponse[count] +'"><div data-id="'+ id +'" class="remove-gallery-img-link"></div></div>');
+                        $('.gallery-image-single-container:last').after('<div class="gallery-image-single-container '+ addExtraId +'"><img class="img-responsive" src="'+ base_url +'/public/uploads/'+ parseResponse[count] +'"><div data-id="'+ id +'" class="remove-gallery-img-link"></div></div>');
                       }
                       else
                       {
-                        $('.product-uploaded-gallery-image').append('<div class="gallery-image-single-container '+ addExtraId +'"><img class="img-responsive" src="'+ base_url +'/uploads/'+ parseResponse[count] +'"><div data-id="'+ id +'" class="remove-gallery-img-link"></div></div>');
+                        $('.product-uploaded-gallery-image').append('<div class="gallery-image-single-container '+ addExtraId +'"><img class="img-responsive" src="'+ base_url +'/public/uploads/'+ parseResponse[count] +'"><div data-id="'+ id +'" class="remove-gallery-img-link"></div></div>');
                       }
 
                       $('#productGalleryUploader').modal('hide');
@@ -4101,7 +4101,7 @@ var customDropZone = (function() {
 
                       if($('#hf_uploaded_all_images').length>0)
                       {
-                        shopist.normalFunction.createJsonDataForAllProductImage('product_gallery_images', {id:id, url:'/uploads/' + parseResponse[count]});
+                        shopist.normalFunction.createJsonDataForAllProductImage('product_gallery_images', {id:id, url:'/public/uploads/' + parseResponse[count]});
                       }
                     }
                   }
@@ -4109,35 +4109,35 @@ var customDropZone = (function() {
               }
               else if(name == 'shop_banner_image')
               {
-                $('.banner-uploaded-image img').attr('src', base_url + '/uploads/' + response.name);
+                $('.banner-uploaded-image img').attr('src', base_url + '/public/uploads/' + response.name);
                 $('#shopbannerUploader').modal('hide');
                 $('.banner-sample-img').hide();
                 $('.banner-uploaded-image').show();
 
                 if($('#hf_uploaded_all_images').length>0)
                 {
-                  shopist.normalFunction.createJsonDataForAllProductImage('shop_banner_image', '/uploads/' + response.name);
+                  shopist.normalFunction.createJsonDataForAllProductImage('shop_banner_image', '/public/uploads/' + response.name);
                 }
               }
               else if(name == 'cat_thumbnail_image')
               {
-                $('.cat-img img').attr('src', base_url + '/uploads/' + response.name);
-                $('.cat-img img').attr('data-img_url', '/uploads/' + response.name);
+                $('.cat-img img').attr('src', base_url + '/public/uploads/' + response.name);
+                $('.cat-img img').attr('data-img_url', '/public/uploads/' + response.name);
                 $('.cat-img-upload-btn').show();
                 $('.cat-sample-img').hide();
                 $('.cat-img').show();
               }
               else if(name == 'manufacturers_logo')
               {
-                $('.manufacturers-img img').attr('src', base_url + '/uploads/' + response.name);
+                $('.manufacturers-img img').attr('src', base_url + '/public/uploads/' + response.name);
                 $('.manufacturers-img-remove-btn').show();
                 $('.manufacturers-sample-img').hide();
                 $('.manufacturers-img').show();
-                $('#logo_img').val('/uploads/' + response.name);
+                $('#logo_img').val('/public/uploads/' + response.name);
               }
               else if(name == 'variation_img')
               {
-                $('.variation-img img').attr('src', base_url + '/uploads/' + response.name);
+                $('.variation-img img').attr('src', base_url + '/public/uploads/' + response.name);
                 $('.variation-img-upload-btn').show();
                 $('.variation-sample-img').hide();
                 $('.variation-img').show();
@@ -4146,30 +4146,30 @@ var customDropZone = (function() {
               {
                 if(clickTrackForDesignerUploader && clickTrackForDesignerUploader.split(',')[0] == 'only_design_img')
                 {
-                  $('.collapse-' + clickTrackForDesignerUploader.split(',')[1]).find('.design-img img').attr('src', base_url + '/uploads/' + response.name);
+                  $('.collapse-' + clickTrackForDesignerUploader.split(',')[1]).find('.design-img img').attr('src', base_url + '/public/uploads/' + response.name);
                   $('.collapse-' + clickTrackForDesignerUploader.split(',')[1]).find('.design-img-upload-btn .remove-design-img').show();
                   $('.collapse-' + clickTrackForDesignerUploader.split(',')[1]).find('.design-sample-img').hide();
                   $('.collapse-' + clickTrackForDesignerUploader.split(',')[1]).find('.design-img').show();
 
-                  shopist.normalFunction.createJsonDataForAllDesignerImage('only_design_img', clickTrackForDesignerUploader.split(',')[1], '/uploads/' + response.name);
+                  shopist.normalFunction.createJsonDataForAllDesignerImage('only_design_img', clickTrackForDesignerUploader.split(',')[1], '/public/uploads/' + response.name);
                 }
                 else if(clickTrackForDesignerUploader && clickTrackForDesignerUploader.split(',')[0] == 'only_trans_design_img')
                 {
-                  $('.collapse-' + clickTrackForDesignerUploader.split(',')[1]).find('.trans-design-img img').attr('src', base_url + '/uploads/' + response.name);
+                  $('.collapse-' + clickTrackForDesignerUploader.split(',')[1]).find('.trans-design-img img').attr('src', base_url + '/public/uploads/' + response.name);
                   $('.collapse-' + clickTrackForDesignerUploader.split(',')[1]).find('.trans-design-img-upload-btn .remove-design-img').show();
                   $('.collapse-' + clickTrackForDesignerUploader.split(',')[1]).find('.trans-design-sample-img').hide();
                   $('.collapse-' + clickTrackForDesignerUploader.split(',')[1]).find('.trans-design-img').show();
 
-                  shopist.normalFunction.createJsonDataForAllDesignerImage('only_trans_design_img', clickTrackForDesignerUploader.split(',')[1], '/uploads/' + response.name);
+                  shopist.normalFunction.createJsonDataForAllDesignerImage('only_trans_design_img', clickTrackForDesignerUploader.split(',')[1], '/public/uploads/' + response.name);
                 }
                 else if(clickTrackForDesignerUploader && clickTrackForDesignerUploader.split(',')[0] == 'only_design_title_img')
                 {
-                  $('.collapse-' + clickTrackForDesignerUploader.split(',')[1]).find('.design-title-img img').attr('src', base_url + '/uploads/' + response.name);
+                  $('.collapse-' + clickTrackForDesignerUploader.split(',')[1]).find('.design-title-img img').attr('src', base_url + '/public/uploads/' + response.name);
                   $('.collapse-' + clickTrackForDesignerUploader.split(',')[1]).find('.design-title-img-upload-btn .remove-design-title-img').show();
                   $('.collapse-' + clickTrackForDesignerUploader.split(',')[1]).find('.design-title-sample-img').hide();
                   $('.collapse-' + clickTrackForDesignerUploader.split(',')[1]).find('.design-title-img').show();
 
-                  shopist.normalFunction.createJsonDataForAllDesignerImage('only_design_title_img', clickTrackForDesignerUploader.split(',')[1], '/uploads/' + response.name);
+                  shopist.normalFunction.createJsonDataForAllDesignerImage('only_design_title_img', clickTrackForDesignerUploader.split(',')[1], '/public/uploads/' + response.name);
                 }
 
                 $('#designerImageUploader').modal('hide');
@@ -4194,24 +4194,24 @@ var customDropZone = (function() {
                         {
                           if($('#ht_art_all_uploaded_images').val() == '' || $('#ht_art_all_uploaded_images').val().length == 0)
                           {
-                            art_img_array.push({ id:id, url:base_url +'/uploads/'+ parseResponse[count]});
+                            art_img_array.push({ id:id, url:base_url +'/public/uploads/'+ parseResponse[count]});
                             $('#ht_art_all_uploaded_images').val( JSON.stringify(art_img_array) );
                           }
                           else
                           {
                             art_img_array = JSON.parse($('#ht_art_all_uploaded_images').val());
-                            art_img_array.push({ id:id, url:base_url +'/uploads/'+ parseResponse[count]});
+                            art_img_array.push({ id:id, url:base_url +'/public/uploads/'+ parseResponse[count]});
                             $('#ht_art_all_uploaded_images').val( JSON.stringify(art_img_array) );
                           }
                         }
 
                         if($('.uploaded-all-art-images .art-image-single-container').length>0)
                         {
-                          $('.uploaded-all-art-images .art-image-single-container:last').after('<div class="art-image-single-container '+ addExtraId +'"><img class="img-responsive" src="'+ base_url +'/uploads/'+ parseResponse[count] +'"><div data-id="'+ id +'" class="remove-art-img-link"></div></div>');
+                          $('.uploaded-all-art-images .art-image-single-container:last').after('<div class="art-image-single-container '+ addExtraId +'"><img class="img-responsive" src="'+ base_url +'/public/uploads/'+ parseResponse[count] +'"><div data-id="'+ id +'" class="remove-art-img-link"></div></div>');
                         }
                         else
                         {
-                          $('.uploaded-all-art-images').append('<div class="art-image-single-container '+ addExtraId +'"><img class="img-responsive" src="'+ base_url +'/uploads/'+ parseResponse[count] +'"><div data-id="'+ id +'" class="remove-art-img-link"></div></div>');
+                          $('.uploaded-all-art-images').append('<div class="art-image-single-container '+ addExtraId +'"><img class="img-responsive" src="'+ base_url +'/public/uploads/'+ parseResponse[count] +'"><div data-id="'+ id +'" class="remove-art-img-link"></div></div>');
                         }
                       }
 
@@ -4232,7 +4232,7 @@ var customDropZone = (function() {
 
                     if($('#ht_art_all_uploaded_images').length>0)
                     {
-                      update_art_img_array.push({ id:id, url:base_url +'/uploads/'+ response.name});
+                      update_art_img_array.push({ id:id, url:base_url +'/public/uploads/'+ response.name});
                       $('#ht_art_all_uploaded_images').val( JSON.stringify(update_art_img_array) );
                     }
 
@@ -4241,7 +4241,7 @@ var customDropZone = (function() {
                       $('.uploaded-all-art-images .art-image-single-container').remove();
                     }
 
-                    $('.uploaded-all-art-images').append('<div class="art-image-single-container"><img class="img-responsive" src="'+ base_url +'/uploads/'+ response.name +'"><div data-id="'+ id +'" class="remove-art-img-link"></div></div>');
+                    $('.uploaded-all-art-images').append('<div class="art-image-single-container"><img class="img-responsive" src="'+ base_url +'/public/uploads/'+ response.name +'"><div data-id="'+ id +'" class="remove-art-img-link"></div></div>');
                   }
 
                   shopist.event.adminGalleryImageRemoveBtnDisplay();
@@ -4249,27 +4249,27 @@ var customDropZone = (function() {
               }
               else if(name == 'profile_picture')
               {
-                $('.profile-picture').find('img').attr('src', base_url + '/uploads/'+ response.name);
+                $('.profile-picture').find('img').attr('src', base_url + '/public/uploads/'+ response.name);
                 $('.profile-picture').show();
                 $('.no-profile-picture').hide();
                 $('#uploadprofilepicture').modal('hide');
-                $('#hf_profile_picture').val( '/uploads/' + response.name );
+                $('#hf_profile_picture').val( '/public/uploads/' + response.name );
               }
               else if(name == 'site_picture')
               {
-                $('.site-logo-container').find('img').attr('src', base_url + '/uploads/'+ response.name);
+                $('.site-logo-container').find('img').attr('src', base_url + '/public/uploads/'+ response.name);
                 $('.site-logo-container').show();
                 $('.no-logo-image').hide();
                 $('#uploadSiteLogo').modal('hide');
-                $('#hf_site_picture').val( '/uploads/'+ response.name );
+                $('#hf_site_picture').val( '/public/uploads/'+ response.name );
               }
               else if(name == 'vendor_cover_picture')
               {
-                $('.vendor-cover-image-container').find('img').attr('src', base_url + '/uploads/'+ response.name);
+                $('.vendor-cover-image-container').find('img').attr('src', base_url + '/public/uploads/'+ response.name);
                 $('.vendor-cover-image-container').show();
                 $('.no-cover-image').hide();
                 $('#uploadVendorCoverImage').modal('hide');
-                $('#hf_vendor_cover_picture').val( '/uploads/'+ response.name );
+                $('#hf_vendor_cover_picture').val( '/public/uploads/'+ response.name );
               }
               else if(name == 'frontend_all_images')
               {
@@ -4287,11 +4287,11 @@ var customDropZone = (function() {
                     {
                       if($('.header-slider-image-single-container').length>0)
                       {
-                        $('.header-slider-image-single-container:last').after('<div class="header-slider-image-single-container '+ addExtraId +'"><img class="img-responsive" src="'+ base_url +'/uploads/'+ parseResponse[count] +'"><div data-id="'+ id +'" class="remove-frontend-img-link"></div><div class="header-slider-image-add-text-btn"></div></div>');
+                        $('.header-slider-image-single-container:last').after('<div class="header-slider-image-single-container '+ addExtraId +'"><img class="img-responsive" src="'+ base_url +'/public/uploads/'+ parseResponse[count] +'"><div data-id="'+ id +'" class="remove-frontend-img-link"></div><div class="header-slider-image-add-text-btn"></div></div>');
                       }
                       else
                       {
-                        $('.uploaded-header-slider-images .uploaded-slider-images').append('<div class="header-slider-image-single-container '+ addExtraId +'"><img class="img-responsive" src="'+ base_url +'/uploads/'+ parseResponse[count] +'"><div data-id="'+ id +'" class="remove-frontend-img-link"></div><div class="header-slider-image-add-text-btn"></div></div>');
+                        $('.uploaded-header-slider-images .uploaded-slider-images').append('<div class="header-slider-image-single-container '+ addExtraId +'"><img class="img-responsive" src="'+ base_url +'/public/uploads/'+ parseResponse[count] +'"><div data-id="'+ id +'" class="remove-frontend-img-link"></div><div class="header-slider-image-add-text-btn"></div></div>');
                       }
                       
                       shopist.event.frontendAllImageRemoveBtnDisplay();
@@ -4299,7 +4299,7 @@ var customDropZone = (function() {
                       
                       if($('#_frontend_images_json').length>0)
                       {
-                        shopist.normalFunction.createJsonDataForAllFrontendImage('header_slider_images', {id:id, url:'/uploads/' + parseResponse[count]});
+                        shopist.normalFunction.createJsonDataForAllFrontendImage('header_slider_images', {id:id, url:'/public/uploads/' + parseResponse[count]});
                       }
                       
                       $('#frontendImageUploader').modal('hide');
