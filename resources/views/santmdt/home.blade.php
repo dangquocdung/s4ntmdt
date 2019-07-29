@@ -223,33 +223,38 @@
         <div class="row">
           <div class="col-md-4 col-sm-6">
             <div class="widget widget-featured-products">
-              <h3 class="widget-title">Top Sellers</h3>
-              <!-- Entry-->
-              <div class="entry">
-                <div class="entry-thumb"><a href="shop-single.html"><img src="img/shop/widget/01.jpg" alt="Product"></a></div>
-                <div class="entry-content">
-                  <h4 class="entry-title"><a href="shop-single.html">Oakley Kickback</a></h4><span class="entry-meta">$155.00</span>
-                </div>
-              </div>
-              <!-- Entry-->
-              <div class="entry">
-                <div class="entry-thumb"><a href="shop-single.html"><img src="img/shop/widget/03.jpg" alt="Product"></a></div>
-                <div class="entry-content">
-                  <h4 class="entry-title"><a href="shop-single.html">Vented Straw Fedora</a></h4><span class="entry-meta">$49.50</span>
-                </div>
-              </div>
-              <!-- Entry-->
-              <div class="entry">
-                <div class="entry-thumb"><a href="shop-single.html"><img src="img/shop/widget/04.jpg" alt="Product"></a></div>
-                <div class="entry-content">
-                  <h4 class="entry-title"><a href="shop-single.html">Big Wordmark Tote</a></h4><span class="entry-meta">$29.99</span>
-                </div>
-              </div>
+              <h3 class="widget-title">{!! trans('frontend.latest_label') !!}</h3>
+
+              @if(count($advancedData['latest_items']) > 0)
+                @foreach($advancedData['latest_items'] as $key => $latest_product)
+                  <!-- Entry-->
+                  <div class="entry">
+                    <div class="entry-thumb">
+                      <a href="shop-single.html">
+                          @if(!empty($latest_product->image_url))
+                          <img class="d-block" src="{{ get_image_url( $latest_product->image_url ) }}" alt="{{ basename( get_image_url( $latest_product->image_url ) ) }}" />
+                          @else
+                          <img class="d-block" src="{{ default_placeholder_img_src() }}" alt="" />
+                          @endif
+                      </a>
+                    </div>
+                    <div class="entry-content">
+                      <h4 class="entry-title">
+                        <a href="{{ route('details-page', $latest_product->slug ) }}">{!! $latest_product->title !!}</a>
+                      </h4>
+                      <span class="entry-meta">{!! price_html( get_product_price_html_by_filter(get_role_based_price_by_product_id($latest_product->id, $latest_product->price)), get_frontend_selected_currency()) !!}</span>
+                    </div>
+                  </div>
+                @endforeach
+              @else
+                <p class="not-available">{!! trans('frontend.latest_products_empty_label') !!}</p>
+              @endif
+              
             </div>
           </div>
           <div class="col-md-4 col-sm-6">
             <div class="widget widget-featured-products">
-              <h3 class="widget-title">New Arrivals</h3>
+              <h3 class="widget-title">{!! trans('frontend.best_sales_label') !!}</h3>
               <!-- Entry-->
               <div class="entry">
                 <div class="entry-thumb"><a href="shop-single.html"><img src="img/shop/widget/05.jpg" alt="Product"></a></div>
@@ -275,7 +280,7 @@
           </div>
           <div class="col-md-4 col-sm-6">
             <div class="widget widget-featured-products">
-              <h3 class="widget-title">Best Rated</h3>
+              <h3 class="widget-title">{!! trans('frontend.todays_sale_label') !!}</h3>
               <!-- Entry-->
               <div class="entry">
                 <div class="entry-thumb"><a href="shop-single.html"><img src="img/shop/widget/08.jpg" alt="Product"></a></div>
