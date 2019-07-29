@@ -255,53 +255,61 @@
           <div class="col-md-4 col-sm-6">
             <div class="widget widget-featured-products">
               <h3 class="widget-title">{!! trans('frontend.best_sales_label') !!}</h3>
-              <!-- Entry-->
-              <div class="entry">
-                <div class="entry-thumb"><a href="shop-single.html"><img src="img/shop/widget/05.jpg" alt="Product"></a></div>
-                <div class="entry-content">
-                  <h4 class="entry-title"><a href="shop-single.html">Union Park</a></h4><span class="entry-meta">$49.99</span>
-                </div>
-              </div>
-              <!-- Entry-->
-              <div class="entry">
-                <div class="entry-thumb"><a href="shop-single.html"><img src="img/shop/widget/06.jpg" alt="Product"></a></div>
-                <div class="entry-content">
-                  <h4 class="entry-title"><a href="shop-single.html">Cole Haan Crossbody</a></h4><span class="entry-meta">$200.00</span>
-                </div>
-              </div>
-              <!-- Entry-->
-              <div class="entry">
-                <div class="entry-thumb"><a href="shop-single.html"><img src="img/shop/widget/07.jpg" alt="Product"></a></div>
-                <div class="entry-content">
-                  <h4 class="entry-title"><a href="shop-single.html">Skagen Holst Watch</a></h4><span class="entry-meta">$145.00</span>
-                </div>
-              </div>
+              @if(count($advancedData['best_sales']) > 0)
+                @foreach($advancedData['best_sales'] as $key => $best_sales_product)
+                  <!-- Entry-->
+                  <div class="entry">
+                    <div class="entry-thumb">
+                      <a href="shop-single.html">
+                          @if(!empty($best_sales_product->image_url))
+                          <img class="d-block" src="{{ get_image_url( $best_sales_product->image_url ) }}" alt="{{ basename( get_image_url( $best_sales_product->image_url ) ) }}" />
+                          @else
+                          <img class="d-block" src="{{ default_placeholder_img_src() }}" alt="" />
+                          @endif
+                      </a>
+                    </div>
+                    <div class="entry-content">
+                      <h4 class="entry-title">
+                        <a href="{{ route('details-page', $best_sales_product->slug ) }}">{!! $best_sales_product->title !!}</a>
+                      </h4>
+                      <span class="entry-meta">{!! price_html( get_product_price_html_by_filter(get_role_based_price_by_product_id($best_sales_product->id, $best_sales_product->price)), get_frontend_selected_currency()) !!}</span>
+                    </div>
+                  </div>
+                @endforeach
+              @else
+                <p class="not-available">{!! trans('frontend.best_sales_products_empty_label') !!}</p>
+              @endif
+              
             </div>
           </div>
           <div class="col-md-4 col-sm-6">
             <div class="widget widget-featured-products">
               <h3 class="widget-title">{!! trans('frontend.todays_sale_label') !!}</h3>
-              <!-- Entry-->
-              <div class="entry">
-                <div class="entry-thumb"><a href="shop-single.html"><img src="img/shop/widget/08.jpg" alt="Product"></a></div>
-                <div class="entry-content">
-                  <h4 class="entry-title"><a href="shop-single.html">Jordan's City Hoodie</a></h4><span class="entry-meta">$65.00</span>
-                </div>
-              </div>
-              <!-- Entry-->
-              <div class="entry">
-                <div class="entry-thumb"><a href="shop-single.html"><img src="img/shop/widget/09.jpg" alt="Product"></a></div>
-                <div class="entry-content">
-                  <h4 class="entry-title"><a href="shop-single.html">Palace Shell Track Jacket</a></h4><span class="entry-meta">$36.99</span>
-                </div>
-              </div>
-              <!-- Entry-->
-              <div class="entry">
-                <div class="entry-thumb"><a href="shop-single.html"><img src="img/shop/widget/10.jpg" alt="Product"></a></div>
-                <div class="entry-content">
-                  <h4 class="entry-title"><a href="shop-single.html">Off the Shoulder Top</a></h4><span class="entry-meta">$128.00</span>
-                </div>
-              </div>
+              @if(count($advancedData['todays_deal']) > 0)
+                @foreach($advancedData['todays_deal'] as $key => $todays_sales_product)
+                  <!-- Entry-->
+                  <div class="entry">
+                    <div class="entry-thumb">
+                      <a href="shop-single.html">
+                          @if(!empty($todays_sales_product->image_url))
+                          <img class="d-block" src="{{ get_image_url( $todays_sales_product->image_url ) }}" alt="{{ basename( get_image_url( $todays_sales_product->image_url ) ) }}" />
+                          @else
+                          <img class="d-block" src="{{ default_placeholder_img_src() }}" alt="" />
+                          @endif
+                      </a>
+                    </div>
+                    <div class="entry-content">
+                      <h4 class="entry-title">
+                        <a href="{{ route('details-page', $todays_sales_product->slug ) }}">{!! $todays_sales_product->title !!}</a>
+                      </h4>
+                      <span class="entry-meta">{!! price_html( get_product_price_html_by_filter(get_role_based_price_by_product_id($todays_sales_product->id, $todays_sales_product->price)), get_frontend_selected_currency()) !!}</span>
+                    </div>
+                  </div>
+                @endforeach
+              @else
+                <p class="not-available">{!! trans('frontend.todays_products_empty_label') !!}</p>
+              @endif
+              
             </div>
           </div>
         </div>

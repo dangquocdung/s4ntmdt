@@ -291,7 +291,7 @@
     <!-- Backdrop-->
     <div class="site-backdrop"></div>
     <!-- JavaScript (jQuery) libraries, plugins and custom scripts-->
-    <script src="js/vendor.min.js"></script>
-    <script src="js/scripts.min.js"></script>
+    <script src="/js/vendor.min.js"></script>
+    <script src="/js/scripts.min.js"></script>
   </body>
 </html>

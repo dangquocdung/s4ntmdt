@@ -501,7 +501,7 @@ class SettingsController extends Controller
 																										
                           $manageLanguage->lang_name              =    $input['inputLangName'];
                           $manageLanguage->lang_code              =    $folder_name;
-                          $manageLanguage->lang_sample_img        =    '/public/uploads/'.$folder_name. "_lang_sample_img.png";
+                          $manageLanguage->lang_sample_img        =    '/uploads/'.$folder_name. "_lang_sample_img.png";
                           $manageLanguage->status                 =    0;
                           $manageLanguage->default_lang           =    0;
 

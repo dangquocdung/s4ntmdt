@@ -2597,7 +2597,7 @@ class AdminAjaxController extends Controller
                     $decodedImageData = base64_decode( str_replace( 'data:image/png;base64,', '', $attribNode->value ) );
                     
                     if( file_put_contents( public_path('uploads/'. $img_name. ".png" ), $decodedImageData ) ){
-                      $img_url = url('/').'/public/uploads/'. $img_name. ".png";
+                      $img_url = url('/').'/uploads/'. $img_name. ".png";
                     }
                   } else {
                     $img_url = $attribNode->value;
