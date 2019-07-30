@@ -22,73 +22,34 @@
     </div>
     <!-- Page Content-->
     <div class="container padding-bottom-3x mb-1">
+
       <div class="row">
         <!-- Blog Posts-->
         <div class="col-xl-9 col-lg-8">
-          <!-- Post-->
-          <article class="row">
-            <div class="col-md-3">
-              <ul class="post-meta">
-                <li><i class="icon-clock"></i><a href="blog-single-rs.html">&nbsp;Feb 11, 2017</a></li>
-                <li><i class="icon-head"></i>&nbsp;John Doe</li>
-                <li><i class="icon-tag"></i><a href="#">&nbsp;Fashion,</a><a href="#">&nbsp;Travel</a></li>
-                <li><i class="icon-speech-bubble"></i><a href="#">&nbsp;3 Comments</a></li>
-              </ul>
-            </div>
-            <div class="col-md-9 blog-post"><a class="post-thumb" href="blog-single-rs.html"><img src="img/blog/01.jpg" alt="Post"></a>
-              <h3 class="post-title"><a href="blog-single-rs.html">High Fashion On The Lake Shore</a></h3>
-              <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo... <a href='blog-single-rs.html' class='text-medium'>Read More</a></p>
-            </div>
-          </article>
-          <!-- Post-->
-          <article class="row">
-            <div class="col-md-3">
-              <ul class="post-meta">
-                <li><i class="icon-clock"></i><a href="blog-single-rs.html">&nbsp;Feb 03, 2017</a></li>
-                <li><i class="icon-head"></i>&nbsp;Susan Mayer</li>
-                <li><i class="icon-tag"></i><a href="#">&nbsp;Fashion,</a><a href="#">&nbsp;Travel</a></li>
-                <li><i class="icon-speech-bubble"></i><a href="#">&nbsp;1 Comment</a></li>
-              </ul>
-            </div>
-            <div class="col-md-9 blog-post">
-              <h3 class="post-title"><a href="blog-single-rs.html">Must Have Clothing On Your Next Trip</a></h3>
-              <p>
-                 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse. Aliquid id nobis, amet dolorum earum maxime.</p>
-              <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo... <a href='blog-single-rs.html' class='text-medium'>Read More</a></p>
-            </div>
-          </article>
-          <!-- Post-->
-          <article class="row">
-            <div class="col-md-3">
-              <ul class="post-meta">
-                <li><i class="icon-clock"></i><a href="blog-single-rs.html">&nbsp;Jan 18, 2017</a></li>
-                <li><i class="icon-head"></i>&nbsp;Mike Jordan</li>
-                <li><i class="icon-tag"></i><a href="#">&nbsp;Fashion,</a><a href="#">&nbsp;Casual</a></li>
-                <li><i class="icon-speech-bubble"></i><a href="#">&nbsp;15 Comments</a></li>
-              </ul>
-            </div>
-            <div class="col-md-9 blog-post"><a class="post-thumb" href="blog-single-rs.html"><img src="img/blog/02.jpg" alt="Post"></a>
-              <h3 class="post-title"><a href="blog-single-rs.html">New Trends in Suburban Fashion</a></h3>
-              <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo... <a href='blog-single-rs.html' class='text-medium'>Read More</a></p>
-            </div>
-          </article>
-          <!-- Post-->
-          <article class="row">
-            <div class="col-md-3">
-              <ul class="post-meta">
-                <li><i class="icon-clock"></i><a href="blog-single-rs.html">&nbsp;Dec 26, 2016</a></li>
-                <li><i class="icon-head"></i>&nbsp;Paul Goodrich</li>
-                <li><i class="icon-tag"></i><a href="#">&nbsp;Fashion</a></li>
-                <li><i class="icon-speech-bubble"></i><a href="#">&nbsp;1 Comment</a></li>
-              </ul>
-            </div>
-            <div class="col-md-9 blog-post">
-              <h3 class="post-title"><a href="blog-single-rs.html">How To Choose Perfect Summer Suit</a></h3>
-              <p>
-                 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse. Aliquid id nobis, amet dolorum earum maxime.</p>
-              <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo... <a href='blog-single-rs.html' class='text-medium'>Read More</a></p>
-            </div>
-          </article>
+          @if(count($blogs_all_data) > 0)
+
+
+            <!-- Post-->
+            <article class="row">
+              <div class="col-md-3">
+                <ul class="post-meta">
+                  <li><i class="icon-clock"></i><a href="blog-single-rs.html">&nbsp;Feb 11, 2017</a></li>
+                  <li><i class="icon-head"></i>&nbsp;John Doe</li>
+                  <li><i class="icon-tag"></i><a href="#">&nbsp;Fashion,</a><a href="#">&nbsp;Travel</a></li>
+                  <li><i class="icon-speech-bubble"></i><a href="#">&nbsp;3 Comments</a></li>
+                </ul>
+              </div>
+              <div class="col-md-9 blog-post"><a class="post-thumb" href="blog-single-rs.html"><img src="img/blog/01.jpg" alt="Post"></a>
+                <h3 class="post-title"><a href="blog-single-rs.html">High Fashion On The Lake Shore</a></h3>
+                <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo... <a href='blog-single-rs.html' class='text-medium'>Read More</a></p>
+              </div>
+            </article>
+
+          @else
+            <p>{!! trans('frontend.no_blogs_data_label') !!}</p>
+          @endif
+         
+
           <!-- Pagination-->
           <nav class="pagination">
             <div class="column">
@@ -165,6 +126,7 @@
           </aside>
         </div>
       </div>
+
     </div>
     
   </div>
