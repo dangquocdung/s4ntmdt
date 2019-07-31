@@ -169,9 +169,12 @@
                   @endif
                 </div>
                 <div class="products-info">
-                  <a target="_blank" href="{{ route('details-page', $vals['id'] .'-'. string_slug_format(get_product_title($vals['id']))) }}" class="product-title">{!! $vals['title'] !!} <span class="label label-warning pull-right">{!! $vals['price'] !!}</span></a>
+                  <a target="_blank" href="{{ route('details-page', $vals['id'] .'-'. string_slug_format(get_product_title($vals['id']))) }}" class="product-title">
+                    {!! $vals['title'] !!} 
+                    <span class="label label-warning pull-right">{!! $vals['price'] !!}</span>
+                  </a>
                   <span class="product-description">
-                    {!! get_limit_string(string_decode($vals['description']), 100) !!}
+                    {!! strip_tags(get_limit_string(string_decode($vals['description']), 100)) !!}
                   </span>
                 </div>
               </li>
