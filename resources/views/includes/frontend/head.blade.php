@@ -44,6 +44,7 @@
     <meta name="author" content="Dang Quoc Dung">
     <!-- Mobile Specific Meta Tag-->
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <base href="{{asset('')}}">
     <!-- Favicon and Apple Icons-->
     <link rel="icon" type="image/x-icon" href="favicon.ico">
     <link rel="icon" type="image/png" href="favicon.png">

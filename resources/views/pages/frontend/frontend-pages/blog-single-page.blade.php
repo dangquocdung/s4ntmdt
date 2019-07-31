@@ -6,242 +6,252 @@
 @endif
 
 @section('content')
-<br>
-<div id="blog_single_page_main" class="container new-container">
-  <div class="row">
-    <div class="col-md-6 order-md-1">
-      <div class="blog-media">
-        @if(!empty($blog_details_by_slug['featured_image']))
-        <img class="img-responsive" src="{{ get_image_url($blog_details_by_slug['featured_image']) }}" alt="{{ basename($blog_details_by_slug['featured_image']) }}">
-        @else
-        <img class="img-responsive" src="{{ default_placeholder_img_src() }}" alt="media">
-        @endif
-      </div>
-      <div class="blog-text">
-        <p>
-          <span class="blog-date"><i class="fa fa-calendar"></i>&nbsp;{{ Carbon\Carbon::parse($blog_details_by_slug['created_at'])->format('d F, Y') }}</span> &nbsp;&nbsp;
-          <span class="blog-comments"> <i class="fa fa-comment"></i>&nbsp; {!! $comments_rating_details['total'] !!} {!! trans('frontend.comments_label') !!}</span>
-        </p>
-        <p class="blog-title"><strong>{!! $blog_details_by_slug['post_title'] !!}</strong></p>
-        <p class="blog-description">
-          {!! string_decode($blog_details_by_slug['post_content']) !!}
-        </p>
-      </div>
-    </div>
-    
-    @if(count($advanced_data['latest_items']) > 0)    
-    <div class="col-md-3 order-md-12">
-      <div class="latest-blog">
-        <div class="content-title">
-          <h2 class="text-center title-under">{!! trans('frontend.latest_from_the_blog') !!}</h2>
+ <!-- Off-Canvas Wrapper-->
+ <div class="offcanvas-wrapper">
+    <!-- Page Title-->
+    <div class="page-title">
+      <div class="container">
+        <div class="column">
+          <h1>Post Right Sidebar</h1>
         </div>
-        <div class="latest-blog-content">
-          <div class="row">
-            @foreach($advanced_data['latest_items'] as $items)
-              <div class="col-md-12 blog-box extra-padding">
-                <a href="{{ route('blog-single-page', $items['post_slug'])}}">
-                  @if(!empty($items['blog_image']))  
-                    <img class="img-responsive" src="{{ get_image_url($items['blog_image']) }}"  alt="{{ basename($items['blog_image']) }}">   
-                  @else
-                    <img class="img-responsive" src="{{ default_placeholder_img_src() }}"  alt="">   
-                  @endif
-                  <div class="blog-bottom-text">
-                    <p class="blog-title">{!! $items['post_title'] !!}</p>
-                    <p><span class="blog-date"><i class="fa fa-calendar"></i>&nbsp; {{ Carbon\Carbon::parse($items['created_at'])->format('d F, Y') }}</span>&nbsp;&nbsp;<span class="blog-comments"> <i class="fa fa-comment"></i>&nbsp; {!! $items['comments_details']['total'] !!} {!! trans('frontend.comments_label') !!}</span></p>
-                  </div>
-                </a>
-              </div>
-            @endforeach
-          </div>
-        </div>
-      </div>
-    </div>
-    @endif
-    
-    @if(count($advanced_data['best_items']) > 0)    
-    <div class="col-md-3">
-      <div class="best-blog">
-        <div class="content-title">
-          <h2 class="text-center title-under">{!! trans('frontend.best_from_the_blog_title') !!}</h2>
-        </div>
-        <div class="best-blog-content">
-          <div class="row">
-            @foreach($advanced_data['best_items'] as $items)
-              <div class="col-md-12 blog-box extra-padding">
-                <a href="{{ route('blog-single-page', $items['post_slug'])}}">
-                  @if(!empty($items['blog_image']))  
-                    <img class="img-responsive" src="{{ get_image_url($items['blog_image']) }}"  alt="{{ basename($items['blog_image']) }}">    
-                  @else
-                    <img class="img-responsive" src="{{ default_placeholder_img_src() }}"  alt="">    
-                  @endif
-                  <div class="blog-bottom-text">
-                    <p class="blog-title">{!! $items['post_title'] !!}</p>
-                    <p><span class="blog-date"><i class="fa fa-calendar"></i>&nbsp; {{ Carbon\Carbon::parse($items['created_at'])->format('d F, Y') }}</span>&nbsp;&nbsp;<span class="blog-comments"> <i class="fa fa-comment"></i>&nbsp; {!! $items['comments_details']['total'] !!} {!! trans('frontend.comments_label') !!}</span></p>
-                  </div>
-                </a>
-              </div>
-            @endforeach
-          </div>
-        </div>
-      </div>
-    </div>
-    @endif
-  </div>
-  
-  <div class="blog-reviews-content">
-    <h3>{!! trans('frontend.customer_review_label') !!}</h3><hr>  
-    <div class="rating-box clearfix">
-        <div class="score-box">
-          <div class="score">{!! $comments_rating_details['average'] !!}</div>
-          <div class="star-rating"><span style="width:{{ $comments_rating_details['percentage'] }}%"></span></div>
-          <div class="total-users"><i class="fa fa-user"></i>&nbsp;<span class="total">{!! $comments_rating_details['total'] !!}</span>&nbsp;{!! trans('frontend.totals_label') !!}</div>
-        </div>
-        <div class="individual-score-graph">
-          <ul>
-            <li>
-              <div class="rating-progress-content clearfix">
-                <div class="individual-rating-score">
-                  <span><i class="fa fa-star"></i> 5</span>
-                </div>
-                <div class="individual-rating-progress">
-                  <div class="progress">
-                    <div class="progress-bar progress-bar-five" role="progressbar" aria-valuenow="{{ $comments_rating_details[5] }}" aria-valuemin="0" aria-valuemax="100" style="width:{{ $comments_rating_details[5] }}%">
-                    {!! $comments_rating_details[5] !!}%
-                    </div>
-                  </div>
-                </div>
-              </div>
+        <div class="column">
+          <ul class="breadcrumbs">
+            <li><a href="index.html">Home</a>
             </li>
-            <li>
-                <div class="rating-progress-content clearfix">
-                    <div class="individual-rating-score">
-                        <span><i class="fa fa-star"></i> 4</span>
-                    </div>
-                    <div class="individual-rating-progress">
-                        <div class="progress">
-                          <div class="progress-bar progress-bar-four" role="progressbar" aria-valuenow="{{ $comments_rating_details[4] }}" aria-valuemin="0" aria-valuemax="100" style="width:{{ $comments_rating_details[4] }}%">
-                          {!! $comments_rating_details[4] !!}%
-                          </div>
-                        </div>
-                    </div>
-                </div>
+            <li class="separator">&nbsp;</li>
+            <li><a href="blog-rs.html">Blog</a>
             </li>
-            <li>
-                <div class="rating-progress-content clearfix">
-                    <div class="individual-rating-score">
-                        <span><i class="fa fa-star"></i> 3</span>
-                    </div>
-                    <div class="individual-rating-progress">
-                        <div class="progress">
-                          <div class="progress-bar progress-bar-three" role="progressbar" aria-valuenow="{{ $comments_rating_details[3] }}" aria-valuemin="0" aria-valuemax="100" style="width:{{ $comments_rating_details[3] }}%">
-                          {!! $comments_rating_details[3] !!}%
-                          </div>
-                        </div>
-                    </div>
-                </div>
-            </li>
-            <li>
-                <div class="rating-progress-content clearfix">
-                    <div class="individual-rating-score">
-                        <span><i class="fa fa-star"></i> 2</span>
-                    </div>
-                    <div class="individual-rating-progress">
-                        <div class="progress">
-                          <div class="progress-bar progress-bar-two" role="progressbar" aria-valuenow="{{ $comments_rating_details[2] }}" aria-valuemin="0" aria-valuemax="100" style="width:{{ $comments_rating_details[2] }}%">
-                          {!! $comments_rating_details[2] !!}%
-                          </div>
-                        </div>
-                    </div>
-                </div>
-            </li>
-            <li>
-                <div class="rating-progress-content clearfix">
-                    <div class="individual-rating-score">
-                        <span><i class="fa fa-star"></i> 1</span>
-                    </div>
-                    <div class="individual-rating-progress">
-                        <div class="progress">
-                          <div class="progress-bar progress-bar-one" role="progressbar" aria-valuenow="{{ $comments_rating_details[1] }}" aria-valuemin="0" aria-valuemax="100" style="width:{{ $comments_rating_details[1] }}%">
-                          {!! $comments_rating_details[1] !!}%
-                          </div>
-                        </div>
-                    </div>
-                </div>
-            </li>
+            <li class="separator">&nbsp;</li>
+            <li>Post Right Sidebar</li>
           </ul>
         </div>
+      </div>
     </div>
-    <div class="user-reviews-content">
-      <h2 class="user-reviews-title">{!! $comments_rating_details['total'] !!} {!! trans('frontend.reviews_for_label') !!} <span>{!! $blog_details_by_slug['post_title'] !!}</span></h2>
-      @if(count($comments_details) > 0)
-      <ol class="commentlist">
-         @foreach($comments_details as $comment) 
-          <li class="comment">
-            <div class="comment-container clearfix">
-              <div class="user-img">
-                @if(!empty($comment->user_photo_url))
-                <img alt="" src="{{ get_image_url($comment->user_photo_url) }}" class="avatar photo">
-                @else
-                <img alt="" src="{{ default_avatar_img_src() }}" class="avatar photo">
-                @endif
+    <!-- Page Content-->
+    <div class="container padding-bottom-3x mb-2">
+      <div class="row"> 
+        <!-- Content-->
+        <div class="col-xl-9 col-lg-8">
+          <!-- Post-->
+          <div class="single-post-meta">
+            <div class="column">
+              <div class="meta-link"><span>by</span>John Doe</div>
+              <div class="meta-link"><span>in</span><a href="#">Fashion,&nbsp;</a><a href="#">Travel</a></div>
+            </div>
+            <div class="column">
+              <div class="meta-link"><a href="#"><i class="icon-clock"></i>Feb 11, 2017</a></div>
+              <div class="meta-link"><a class="scroll-to" href="#comments"><i class="icon-speech-bubble"></i>3</a></div>
+            </div>
+          </div>
+          <div class="owl-carousel" data-owl-carousel="{ &quot;nav&quot;: true, &quot;dots&quot;: true, &quot;loop&quot;: true }">
+            <figure><img src="img/blog/single/01.jpg" alt="Image">
+              <figcaption class="text-white">Image Caption</figcaption>
+            </figure>
+            <figure><img src="img/blog/single/02.jpg" alt="Image">
+              <figcaption class="text-white">Image Caption</figcaption>
+            </figure>
+            <figure><img src="img/blog/single/03.jpg" alt="Image">
+              <figcaption class="text-white">Image Caption</figcaption>
+            </figure>
+          </div>
+          <h2 class="padding-top-2x">New Trends in Suburban Fashion</h2>
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Ut enim ad minima veniam, quis nostrum exercitationem.</p>
+          <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Ut enim ad minima veniam.</p>
+          <div class="row">
+            <div class="col-xl-10 offset-xl-1">
+              <blockquote class="margin-top-1x margin-bottom-1x">
+                <p>Perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo.</p>
+                <cite>Someone famous</cite>
+              </blockquote>
+            </div>
+          </div>
+          <p class="mt-2">At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga. Et harum quidem rerum facilis est et expedita distinctio.</p>
+          <div class="single-post-footer">
+            <div class="column"><a class="sp-tag" href="#">#design,</a><a class="sp-tag" href="#">&nbsp;#fashion,</a><a class="sp-tag" href="#">&nbsp;#travelling</a></div>
+            <div class="column">
+              <div class="entry-share"><span class="text-muted">Share post:</span>
+                <div class="share-links"><a class="social-button shape-circle sb-facebook" href="#" data-toggle="tooltip" data-placement="top" title="Facebook"><i class="socicon-facebook"></i></a><a class="social-button shape-circle sb-twitter" href="#" data-toggle="tooltip" data-placement="top" title="Twitter"><i class="socicon-twitter"></i></a><a class="social-button shape-circle sb-instagram" href="#" data-toggle="tooltip" data-placement="top" title="Instagram"><i class="socicon-instagram"></i></a><a class="social-button shape-circle sb-google-plus" href="#" data-toggle="tooltip" data-placement="top" title="Google +"><i class="socicon-googleplus"></i></a></div>
               </div>
-              <div class="comment-text">
-                <div class="star-rating">
-                  <span style="width:{{ $comment->percentage }}%"><strong itemprop="ratingValue"></strong></span>
-                </div>
-                <p class="meta">
-                  <span class="comment-date">{{ Carbon\Carbon::parse(  $comment->created_at )->format('F d, Y') }}</span> &nbsp; - <span class="comment-user-role"><strong >{!! trans('frontend.by_label') !!} {!! $comment->display_name !!}</strong></span>
-                </p>
-                <div class="description">
-                  <p>{!! $comment->content !!}</p>
+            </div>
+          </div>
+          <!-- Post Navigation-->
+          <div class="entry-navigation">
+            <div class="column text-left"><a class="btn btn-outline-secondary btn-sm" href="#"><i class="icon-arrow-left"></i>&nbsp;Prev</a></div>
+            <div class="column"><a class="btn btn-outline-secondary view-all" href="blog-rs.html" data-toggle="tooltip" data-placement="top" title="All posts"><i class="icon-menu"></i></a></div>
+            <div class="column text-right"><a class="btn btn-outline-secondary btn-sm" href="#">Next&nbsp;<i class="icon-arrow-right"></i></a></div>
+          </div>
+          <!-- Relevant Posts-->
+          <h3 class="padding-top-3x padding-bottom-1x">You May Also Like</h3>
+          <div class="owl-carousel" data-owl-carousel="{ &quot;nav&quot;: false, &quot;dots&quot;: true, &quot;loop&quot;: false, &quot;autoHeight&quot;: true, &quot;margin&quot;: 30, &quot;responsive&quot;: {&quot;0&quot;:{&quot;items&quot;:1},&quot;630&quot;:{&quot;items&quot;:2},&quot;991&quot;:{&quot;items&quot;:3},&quot;1200&quot;:{&quot;items&quot;:3}} }">
+            <div class="widget widget-featured-posts">
+              <div class="entry">
+                <div class="entry-thumb"><a href="#"><img src="img/blog/widget/01.jpg" alt="Post"></a></div>
+                <div class="entry-content">
+                  <h4 class="entry-title"><a href="#">Trending Winter Boots</a></h4><span class="entry-meta">by Olivia Reyes</span>
                 </div>
               </div>
             </div>
-          </li>
-          @endforeach
-      </ol>
-      @else
-      <p>{!! trans('frontend.no_review_label') !!}</p>
-      @endif
-    </div>
-    <br>
-
-    @if($blog_details_by_slug['allow_comments_at_frontend'] == 'yes')
-      @include('pages-message.notify-msg-success')
-      @include('pages-message.notify-msg-error')
-      @include('pages-message.form-submit')
-
-      <form id="new_comment_form" method="post" action="" enctype="multipart/form-data">
-        <input type="hidden" name="_token" id="_token" value="{{ csrf_token() }}">
-        <input type="hidden" name="comments_target" id="comments_target" value="blog">
-        <input type="hidden" name="selected_rating_value" id="selected_rating_value" value="">
-        <input type="hidden" name="object_id" id="object_id" value="{{ $blog_details_by_slug['id'] }}">
-
-        <div class="add-user-review">
-          <h2 class="add-reviews-title">{!! trans('frontend.add_a_review_label') !!}</h2>
-          <hr>
-          <h2 class="rating-title">{!! trans('frontend.select_your_rating_label') !!}</h2>
-          <div class="rating-select">
-            <div class="btn btn-light btn-sm" data-rating_value="1"><span class="fa fa-star"></span></div>
-            <div class="btn btn-light btn-sm" data-rating_value="2"><span class="fa fa-star"></span></div>
-            <div class="btn btn-light btn-sm" data-rating_value="3"><span class="fa fa-star"></span></div>
-            <div class="btn btn-light btn-sm" data-rating_value="4"><span class="fa fa-star"></span></div>
-            <div class="btn btn-light btn-sm" data-rating_value="5"><span class="fa fa-star"></span></div>
+            <div class="widget widget-featured-posts">
+              <div class="entry">
+                <div class="entry-content">
+                  <h4 class="entry-title"><a href="#">Global Travel And Vacations Luxury Travel On A Tight Budget</a></h4><span class="entry-meta">by Logan Coleman</span>
+                </div>
+              </div>
+            </div>
+            <div class="widget widget-featured-posts">
+              <div class="entry">
+                <div class="entry-thumb"><a href="#"><img src="img/blog/widget/03.jpg" alt="Post"></a></div>
+                <div class="entry-content">
+                  <h4 class="entry-title"><a href="#">Perfect Shoes for Yamakasi</a></h4><span class="entry-meta">by Edward Solo</span>
+                </div>
+              </div>
+            </div>
+            <div class="widget widget-featured-posts">
+              <div class="entry">
+                <div class="entry-thumb"><a href="#"><img src="img/blog/widget/02.jpg" alt="Post"></a></div>
+                <div class="entry-content">
+                  <h4 class="entry-title"><a href="#">Hoop Earrings A Style From History</a></h4><span class="entry-meta">by Cynthia Gomez</span>
+                </div>
+              </div>
+            </div>
+            <div class="widget widget-featured-posts">
+              <div class="entry">
+                <div class="entry-content">
+                  <h4 class="entry-title"><a href="#">How Fashion Industry Leads To A Melting Ice In Antarctica</a></h4><span class="entry-meta">by Johnathan Doe</span>
+                </div>
+              </div>
+            </div>
           </div>
-          <br>
-          <div class="review-content">
-            <fieldset>
-              <legend>{!! trans('frontend.write_your_review_label') !!}</legend>
-              <p><textarea name="product_review_content" id="product_review_content"></textarea></p>
-            </fieldset>
-          </div>
-          <br>
-          <div class="review-submit">
-            <input name="review_submit" id="review_submit" class="btn btn-default btn-sm" value="{{ trans('frontend.submit_label') }}" type="submit">
-          </div>
+          <!-- Comments-->
+          <section class="padding-top-3x" id="comments">
+            <h3 class="padding-bottom-1x">Comments</h3>
+            <!-- Comment-->
+            <div class="comment">
+              <div class="comment-author-ava"><img src="img/reviews/01.jpg" alt="Comment author"></div>
+              <div class="comment-body">
+                <div class="comment-header">
+                  <h4 class="comment-title">Francis Burton</h4>
+                </div>
+                <p class="comment-text">At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga.</p>
+                <div class="comment-footer">
+                  <div class="column"><span class="comment-meta">2 days ago</span></div>
+                  <div class="column"><a class="reply-link" href="#"><i class="icon-reply"></i>Reply</a></div>
+                </div>
+                <!-- Comment reply-->
+                <div class="comment comment-reply">
+                  <div class="comment-author-ava"><img src="img/reviews/02.jpg" alt="Comment author"></div>
+                  <div class="comment-body">
+                    <div class="comment-header">
+                      <h4 class="comment-title">Maggie Scott</h4>
+                    </div>
+                    <p class="comment-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+                    <div class="comment-footer"><span class="comment-meta">1 day ago</span></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- Comment-->
+            <div class="comment">
+              <div class="comment-author-ava"><img src="img/reviews/03.jpg" alt="Comment author"></div>
+              <div class="comment-body">
+                <div class="comment-header">
+                  <h4 class="comment-title">Jacob Hammond</h4>
+                </div>
+                <p class="comment-text">Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt.</p>
+                <div class="comment-footer">
+                  <div class="column"><span class="comment-meta">5 days ago</span></div>
+                  <div class="column"><a class="reply-link" href="#"><i class="icon-reply"></i>Reply</a></div>
+                </div>
+              </div>
+            </div>
+          </section>
+          <!-- Comment Form-->
+          <h4 class="padding-top-2x padding-bottom-1x">Leave a Comment</h4>
+          <form class="row" method="post">
+            <div class="col-sm-6">
+              <div class="form-group">
+                <label for="comment-name">Name</label>
+                <input class="form-control form-control-rounded" type="text" id="comment-name" placeholder="John Doe" required>
+              </div>
+            </div>
+            <div class="col-sm-6">
+              <div class="form-group">
+                <label for="comment-email">E-mail</label>
+                <input class="form-control form-control-rounded" type="email" id="comment-email" placeholder="johndoe@email.com" required>
+              </div>
+            </div>
+            <div class="col-12">
+              <div class="form-group">
+                <label for="comment-text">Comment</label>
+                <textarea class="form-control form-control-rounded" rows="7" id="comment-text" placeholder="Write your comment here..." required></textarea>
+              </div>
+            </div>
+            <div class="col-12 text-right">
+              <button class="btn btn-pill btn-primary" type="submit">Post Comment</button>
+            </div>
+          </form>
         </div>
-      </form>
-    @endif  
-  </div>  
-</div>
+        <!-- Sidebar          -->
+        <div class="col-xl-3 col-lg-4">
+          <button class="sidebar-toggle position-left" data-toggle="modal" data-target="#modalBlogSidebar"><i class="icon-layout"></i></button>
+          <aside class="sidebar sidebar-offcanvas">
+            <!-- Widget Search-->
+            <section class="widget">
+              <form class="input-group form-group" method="get"><span class="input-group-btn">
+                  <button type="submit"><i class="icon-search"></i></button></span>
+                <input class="form-control" type="search" placeholder="Search blog">
+              </form>
+            </section>
+            <!-- Widget Categories-->
+            <section class="widget widget-categories">
+              <h3 class="widget-title">Categories</h3>
+              <ul>
+                <li><a href="#">Editor's Choice</a><span>(24)</span></li>
+                <li><a href="#">Fashion</a><span>(12)</span></li>
+                <li><a href="#">Travel</a><span>(5)</span></li>
+                <li><a href="#">Online Shopping</a><span>(7)</span></li>
+                <li><a href="#">Closing Design</a><span>(3)</span></li>
+              </ul>
+            </section>
+            <!-- Widget Featured Posts-->
+            <section class="widget widget-featured-posts">
+              <h3 class="widget-title">Featured Posts</h3>
+              <!-- Entry-->
+              <div class="entry">
+                <div class="entry-thumb"><a href="blog-single-rs.html"><img src="img/blog/widget/01.jpg" alt="Post"></a></div>
+                <div class="entry-content">
+                  <h4 class="entry-title"><a href="blog-single-rs.html">Trending Winter Boots</a></h4><span class="entry-meta">by Olivia Reyes</span>
+                </div>
+              </div>
+              <!-- Entry-->
+              <div class="entry">
+                <div class="entry-content">
+                  <h4 class="entry-title"><a href="blog-single-rs.html">Global Travel And Vacations Luxury Travel On A Tight Budget</a></h4><span class="entry-meta">by Logan Coleman</span>
+                </div>
+              </div>
+              <!-- Entry-->
+              <div class="entry">
+                <div class="entry-thumb"><a href="blog-single-rs.html"><img src="img/blog/widget/02.jpg" alt="Post"></a></div>
+                <div class="entry-content">
+                  <h4 class="entry-title"><a href="blog-single-rs.html">Hoop Earrings A Style From History</a></h4><span class="entry-meta">by Cynthia Gomez</span>
+                </div>
+              </div>
+            </section>
+            <!-- Widget Tags-->
+            <section class="widget widget-tags">
+              <h3 class="widget-title">Popular Tags</h3><a class="tag" href="#">#design</a><a class="tag" href="#">#fashion</a><a class="tag" href="#">#travelling</a><span class="tag active">#active tag</span><a class="tag" href="#">#shopping</a>
+            </section>
+            <!-- Promo Banner-->
+            <section class="promo-box" style="background-image: url(img/banners/01.jpg);">
+              <!-- Choose between .overlay-dark (#000) or .overlay-light (#fff) with default opacity of 50%. You can overrride default color and opacity values via 'style' attribute.--><span class="overlay-dark" style="opacity: .35;"></span>
+              <div class="promo-box-content text-center padding-top-2x padding-bottom-2x">
+                <h3 class="text-bold text-light text-shadow">New 2017<br>Handbag Collection</h3>
+                <h4 class="text-light text-thin text-shadow">has just arrived!</h4><a class="btn btn-sm btn-primary" href="shop-grid-ls.html">Shop Now</a>
+              </div>
+            </section>
+          </aside>
+        </div>
+      </div>
+    </div>
+  </div>
 @endsection

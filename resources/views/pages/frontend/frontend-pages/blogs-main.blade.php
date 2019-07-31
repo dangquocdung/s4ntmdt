@@ -28,22 +28,38 @@
         <div class="col-xl-9 col-lg-8">
           @if(count($blogs_all_data) > 0)
 
+          @foreach($blogs_all_data as $row)
+
 
             <!-- Post-->
             <article class="row">
               <div class="col-md-3">
                 <ul class="post-meta">
-                  <li><i class="icon-clock"></i><a href="blog-single-rs.html">&nbsp;Feb 11, 2017</a></li>
-                  <li><i class="icon-head"></i>&nbsp;John Doe</li>
-                  <li><i class="icon-tag"></i><a href="#">&nbsp;Fashion,</a><a href="#">&nbsp;Travel</a></li>
-                  <li><i class="icon-speech-bubble"></i><a href="#">&nbsp;3 Comments</a></li>
+                    <li><i class="icon-clock"></i><a href="blog-single-ns.html">&nbsp;{{ Carbon\Carbon::parse($row['created_at'])->format('d F, Y') }}</a></li>
+                    <li><i class="icon-head"></i>&nbsp;John Doe</li>
+                    <li><i class="icon-tag"></i><a href="#">&nbsp;Fashion,</a><a href="#">&nbsp;Travel</a></li>
+                    <li><i class="icon-speech-bubble"></i><a href="#">&nbsp;{!! $row['comments_details']['total'] !!} {!! trans('frontend.comments_label') !!}</a></li>
                 </ul>
               </div>
-              <div class="col-md-9 blog-post"><a class="post-thumb" href="blog-single-rs.html"><img src="img/blog/01.jpg" alt="Post"></a>
-                <h3 class="post-title"><a href="blog-single-rs.html">High Fashion On The Lake Shore</a></h3>
-                <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo... <a href='blog-single-rs.html' class='text-medium'>Read More</a></p>
+              <div class="col-md-9 blog-post">
+                  <a class="post-thumb" href="{{ route('blog-single-page', $row['post_slug']) }}">
+
+                      @if(!empty($row['featured_image']))
+                        <img class="img-responsive" src="{{ get_image_url($row['featured_image']) }}" alt="{{ basename($row['featured_image']) }}">
+                      @else
+                        <img class="img-responsive" src="{{ default_placeholder_img_src() }}" alt="media">
+                      @endif
+                  </a>
+
+                <h3 class="post-title"><a href="{{ route('blog-single-page', $row['post_slug']) }}">{!! $row['post_title'] !!}</a></h3>
+                <p>
+                  {{-- {!! get_limit_string(string_decode($row['post_content']), $row['allow_max_number_characters_at_frontend']) !!} --}}
+                  <a href='{{ route('blog-single-page', $row['post_slug']) }}' class='text-medium'>{!! trans('frontend.read_more_label') !!}</a>
+                </p>
               </div>
             </article>
+
+          @endforeach
 
           @else
             <p>{!! trans('frontend.no_blogs_data_label') !!}</p>
