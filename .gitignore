@@ -1,6 +1,7 @@
 /node_modules
 /public/hot
 /public/storage
+/public/unishop_3.2
 /storage/*.key
 /storage/framework
 /.idea
