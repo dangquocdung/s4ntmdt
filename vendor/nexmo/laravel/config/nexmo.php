@@ -1,12 +1,4 @@
 <?php
-$api_key = '';
-$api_secret = '';
-$get_nexmo_data = get_nexmo_data();
-
-if(count($get_nexmo_data) > 0 && !empty($get_nexmo_data['nexmo_key']) && !empty($get_nexmo_data['nexmo_secret'])){
-  $api_key = $get_nexmo_data['nexmo_key'];
-  $api_secret = $get_nexmo_data['nexmo_secret'];
-}
 
 return [
 
@@ -20,8 +12,8 @@ return [
     |
     */
 
-    'api_key'    => $api_key,
-    'api_secret' => $api_secret,
+    'api_key'    => function_exists('env') ? env('NEXMO_KEY', '') : '',
+    'api_secret' => function_exists('env') ? env('NEXMO_SECRET', '') : '',
 
     /*
     |--------------------------------------------------------------------------
@@ -50,4 +42,16 @@ return [
     'private_key' => function_exists('env') ? env('NEXMO_PRIVATE_KEY', '') : '',
     'application_id' => function_exists('env') ? env('NEXMO_APPLICATION_ID', '') : '',
 
+    /*
+    |--------------------------------------------------------------------------
+    | Application Identifiers
+    |--------------------------------------------------------------------------
+    |
+    | Add an application name and version here to identify your application when
+    | making API calls
+    |
+    */
+
+    'app' => ['name' => function_exists('env') ? env('NEXMO_APP_NAME', 'NexmoLaravel') : 'NexmoLaravel',
+        'version' => function_exists('env') ? env('NEXMO_APP_VERSION', '1.1.2') : '1.1.2']
 ];
