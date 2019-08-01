@@ -279,6 +279,8 @@
 
     <!-- Off-Canvas Wrapper-->
     <div class="offcanvas-wrapper">
+
+        @if(!Request::is('/'))
         <!-- Page Title-->
         <div class="page-title">
           <div class="container">
@@ -296,6 +298,7 @@
             </div>
           </div>
         </div>
+        @endif
 
 
         @yield('content')
