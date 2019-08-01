@@ -2,26 +2,13 @@
 
 @section('title', trans('frontend.vendor_list_title_label') .' | '. get_site_title())
 
+@section('breadcrumbs',trans('frontend.vendor_list_title_label'))
+
+
 
 @section('content')
 
-<div class="offcanvas-wrapper">
-      <!-- Page Title-->
-      <div class="page-title">
-        <div class="container">
-          <div class="column">
-            <h1>Gian hàng</h1>
-          </div>
-          <div class="column">
-            <ul class="breadcrumbs">
-              <li><a href="{{ route('home-page') }}">Trang chủ</a>
-              </li>
-              <li class="separator">&nbsp;</li>
-              <li>Gian hàng</li>
-            </ul>
-          </div>
-        </div>
-      </div>
+
       <!-- Page Content-->
       <div class="container padding-bottom-3x mb-1">
         <!-- Shop Toolbar-->
@@ -109,6 +96,5 @@
         </nav> --}}
       </div>
       
-    </div>
 
 @endsection

@@ -1,25 +1,11 @@
 @extends('layouts.frontend.master')
-@section('title', trans('frontend.shopist_shop_title') .' < '. get_site_title() )
+@section('title', trans('frontend.products') .' < '. get_site_title() )
+
+@section('breadcrumbs',trans('frontend.products'))
+
 
 @section('content')
-<!-- Off-Canvas Wrapper-->
-<div class="offcanvas-wrapper">
-  <!-- Page Title-->
-  <div class="page-title">
-    <div class="container">
-      <div class="column">
-        <h1>Shop Grid Left Sidebar</h1>
-      </div>
-      <div class="column">
-        <ul class="breadcrumbs">
-          <li><a href="index.html">Home</a>
-          </li>
-          <li class="separator">&nbsp;</li>
-          <li>Shop Grid Left Sidebar</li>
-        </ul>
-      </div>
-    </div>
-  </div>
+
   <!-- Page Content-->
   <div class="container padding-bottom-3x mb-1">
     <div class="row">
@@ -357,5 +343,4 @@
     </div>
   </div>
   
-</div>
 @endsection  

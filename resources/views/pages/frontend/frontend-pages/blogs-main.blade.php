@@ -1,25 +1,9 @@
 @extends('layouts.frontend.master')
 @section('title',  trans('frontend.blogs_page_title') .' < '. get_site_title() )
+@section('breadcrumbs',trans('frontend.blogs_page_title'))
 
 @section('content')
-<!-- Off-Canvas Wrapper-->
-<div class="offcanvas-wrapper">
-    <!-- Page Title-->
-    <div class="page-title">
-      <div class="container">
-        <div class="column">
-          <h1>Blog Right Sidebar</h1>
-        </div>
-        <div class="column">
-          <ul class="breadcrumbs">
-            <li><a href="index.html">Home</a>
-            </li>
-            <li class="separator">&nbsp;</li>
-            <li>Blog Right Sidebar</li>
-          </ul>
-        </div>
-      </div>
-    </div>
+
     <!-- Page Content-->
     <div class="container padding-bottom-3x mb-1">
 
@@ -145,5 +129,4 @@
 
     </div>
     
-  </div>
 @endsection  

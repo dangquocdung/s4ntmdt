@@ -214,7 +214,7 @@
     </div>
     <!-- Topbar-->
     <div class="topbar">
-      <div class="topbar-column"><a class="hidden-md-down" href="mailto:support@unishop.com"><i class="icon-mail"></i>&nbsp; support@unishop.com</a><a class="hidden-md-down" href="tel:00331697720"><i class="icon-bell"></i>&nbsp; 00 33 169 7720</a><a class="social-button sb-facebook shape-none sb-dark" href="#" target="_blank"><i class="socicon-facebook"></i></a><a class="social-button sb-twitter shape-none sb-dark" href="#" target="_blank"><i class="socicon-twitter"></i></a><a class="social-button sb-instagram shape-none sb-dark" href="#" target="_blank"><i class="socicon-instagram"></i></a><a class="social-button sb-pinterest shape-none sb-dark" href="#" target="_blank"><i class="socicon-pinterest"></i></a>
+      <div class="topbar-column"><a class="hidden-md-down" href="mailto:hotro@hatinhtrade.com.vn"><i class="icon-mail"></i>&nbsp; hotro@hatinhtrade.com.vn</a><a class="hidden-md-down" href="tel:0986242487"><i class="icon-bell"></i>&nbsp; 098 624 2487</a><a class="social-button sb-facebook shape-none sb-dark" href="#" target="_blank"><i class="socicon-facebook"></i></a><a class="social-button sb-twitter shape-none sb-dark" href="#" target="_blank"><i class="socicon-twitter"></i></a><a class="social-button sb-instagram shape-none sb-dark" href="#" target="_blank"><i class="socicon-instagram"></i></a><a class="social-button sb-pinterest shape-none sb-dark" href="#" target="_blank"><i class="socicon-pinterest"></i></a>
       </div>
       <div class="topbar-column"><a class="hidden-md-down" href="#"><i class="icon-download"></i>&nbsp; Get mobile app</a>
         <div class="lang-currency-switcher-wrap">
@@ -277,13 +277,31 @@
 
     <!-- Off-Canvas Wrapper-->
 
+    <!-- Off-Canvas Wrapper-->
     <div class="offcanvas-wrapper">
+        <!-- Page Title-->
+        <div class="page-title">
+          <div class="container">
+            <div class="column">
+              <h1>@yield('breadcrumbs')</h1>
+            </div>
+            <div class="column">
+              <ul class="breadcrumbs">
+                <li>
+                  <a href="{{ route('home-page') }}">Trang chủ</a>
+                </li>
+                <li class="separator">&nbsp;</li>
+                <li>@yield('breadcrumbs')</li>
+              </ul>
+            </div>
+          </div>
+        </div>
 
 
-      @yield('content')
+        @yield('content')
 
 
-      @include('includes.frontend.footer')
+        @include('includes.frontend.footer')
 
     </div>
 
