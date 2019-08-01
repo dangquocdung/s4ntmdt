@@ -1,103 +1,149 @@
 @extends('layouts.frontend.master')
 
 @section('title', trans('frontend.frontend_vendor_registration_title') .' - '. get_site_title())
-@section('content')
 
-<div id="vendor_registration" class="container custom-extra-top-style">
-  <div class="row justify-content-center">
-    <div class="col-xs-12 col-sm-8 col-md-6 text-center">
+@section('breadcrumbs',trans('frontend.frontend_vendor_registration_title'))
+
+@section('content')
+<!-- Page Content-->
+<div class="container padding-bottom-3x mb-2">
+  <div class="row">
+    <div class="col-md-6">
+      <form class="login-box" method="post">
+        <div class="row margin-bottom-1x">
+          <div class="col-xl-4 col-md-6 col-sm-4"><a class="btn btn-sm btn-block facebook-btn" href="#"><i class="socicon-facebook"></i>&nbsp;Facebook login</a></div>
+          <div class="col-xl-4 col-md-6 col-sm-4"><a class="btn btn-sm btn-block twitter-btn" href="#"><i class="socicon-twitter"></i>&nbsp;Twitter login</a></div>
+          <div class="col-xl-4 col-md-6 col-sm-4"><a class="btn btn-sm btn-block google-btn" href="#"><i class="socicon-googleplus"></i>&nbsp;Google+ login</a></div>
+        </div>
+        <h4 class="margin-bottom-1x">Or using form below</h4>
+        <div class="form-group input-group">
+          <input class="form-control" type="email" placeholder="Email" required><span class="input-group-addon"><i class="icon-mail"></i></span>
+        </div>
+        <div class="form-group input-group">
+          <input class="form-control" type="password" placeholder="Password" required><span class="input-group-addon"><i class="icon-lock"></i></span>
+        </div>
+        <div class="d-flex flex-wrap justify-content-between padding-bottom-1x">
+          <div class="custom-control custom-checkbox">
+            <input class="custom-control-input" type="checkbox" id="remember_me" checked>
+            <label class="custom-control-label" for="remember_me">Remember me</label>
+          </div><a class="navi-link" href="account-password-recovery.html">Forgot password?</a>
+        </div>
+        <div class="text-center text-sm-right">
+          <button class="btn btn-primary margin-bottom-none" type="submit">Login</button>
+        </div>
+      </form>
+    </div>
+    <div class="col-md-6">
+
       @include('pages-message.notify-msg-error')
       @include('pages-message.form-submit')
-						@include('pages-message.notify-msg-success')
+      @include('pages-message.notify-msg-success')
+      
+      <div class="padding-top-3x hidden-md-up"></div>
+      <h3 class="margin-bottom-1x">No Account? Register</h3>
+      <p>Registration takes less than a minute but gives you full control over your orders.</p>
 
       <form method="post" action="" enctype="multipart/form-data">
         <input type="hidden" name="_token" id="_token" value="{{ csrf_token() }}">
         
-        <h2>{!! trans('frontend.please_sign_up_label') !!} <small>{!! trans('frontend.sign_up_free_label') !!}</small></h2>
-        <hr class="colorgraph">
-        
         <div class="row">
           <div class="col-xs-12 col-sm-6 col-md-6">
             <div class="form-group has-feedback">
+              <label for="reg-fn">Tên hiển thị</label>
+
               <input type="text" placeholder="{{ trans('frontend.display_name') }}" class="form-control" value="{{ old('vendor_reg_display_name') }}" id="vendor_reg_display_name" name="vendor_reg_display_name">
               <span class="fa fa-user form-control-feedback"></span>
             </div>
           </div>
           <div class="col-xs-12 col-sm-6 col-md-6">
             <div class="form-group has-feedback">
+              <label for="reg-fn">Tên người dùng</label>
+
               <input type="text" placeholder="{{ trans('frontend.user_name') }}" class="form-control" value="{{ old('vendor_reg_name') }}" id="vendor_reg_name" name="vendor_reg_name">
               <span class="fa fa-user form-control-feedback"></span>
             </div>
           </div>
         </div>
-        
+
         <div class="form-group has-feedback">
-          <input type="email" placeholder="{{ ucfirst( trans('frontend.email') ) }}" class="form-control" id="vendor_reg_email_id" value="{{ old('vendor_reg_email_id') }}" name="vendor_reg_email_id">
-          <span class="fa fa-envelope form-control-feedback"></span>
+          <label for="reg-fn">Tên gian hàng</label>
+
+          <input type="text" placeholder="{{ trans('frontend.store_name_label') }}" class="form-control" id="vendor_reg_store_name" name="vendor_reg_store_name" value="{{ old('vendor_reg_store_name') }}">
+          <span class="fa fa-home form-control-feedback"></span>
         </div>
+
+        <div class="row">
+          <div class="col-xs-12 col-sm-6 col-md-6">
         
+            <div class="form-group has-feedback">
+              <label for="reg-fn">Địa chỉ e-mail</label>
+
+              <input type="email" placeholder="{{ ucfirst( trans('frontend.email') ) }}" class="form-control" id="vendor_reg_email_id" value="{{ old('vendor_reg_email_id') }}" name="vendor_reg_email_id">
+              <span class="fa fa-envelope form-control-feedback"></span>
+            </div>
+          </div>
+
+          <div class="col-xs-12 col-sm-6 col-md-6">
+
+            <div class="form-group has-feedback">
+              <label for="reg-fn">Số điện thoại</label>
+
+              <input type="number" placeholder="{{ ucfirst(trans('frontend.phone')) }}" class="form-control" id="vendor_reg_phone_number" name="vendor_reg_phone_number" value="{{ old('vendor_reg_phone_number') }}" min="0">
+            </div>
+
+          </div>
+
+        </div>
+
+        <div class="form-group has-feedback">
+          <label for="reg-fn">Địa chỉ</label>
+
+          <textarea id="vendor_reg_address_line_1" placeholder="{{ trans('frontend.address_line_1') }}" class="form-control" name="vendor_reg_address_line_1">{!! old('vendor_reg_address_line_1') !!}</textarea>
+        </div>
+
+        <div class="row">
+          
+          <div class="col-xs-12 col-sm-6 col-md-6">
+            <div class="form-group has-feedback">
+              <label for="reg-fn">Huyện / Thị / Thành</label>
+
+              <input type="text" placeholder="{{ trans('frontend.country') }}" class="form-control" value="{{ old('vendor_reg_country') }}" id="vendor_reg_country" name="vendor_reg_country">
+              <span class="fa fa-text-width form-control-feedback"></span>
+            </div>
+          </div>
+
+          <div class="col-xs-12 col-sm-6 col-md-6">
+            <div class="form-group has-feedback">
+              <label for="reg-fn">Phường / Xã</label>
+
+              <input type="text" placeholder="{{ trans('frontend.city') }}" class="form-control" value="{{ old('vendor_reg_city') }}" id="vendor_reg_city" name="vendor_reg_city">
+              <span class="fa fa-text-width form-control-feedback"></span>
+            </div>
+          </div>
+        </div>
+								
         <div class="row">
           <div class="col-xs-12 col-sm-6 col-md-6">
             <div class="form-group has-feedback">
+            <label for="reg-fn">Mật khẩu</label>
+
               <input type="password" placeholder="{{ ucfirst(trans('frontend.password')) }}" class="form-control" id="vendor_reg_password" name="vendor_reg_password">
               <span class="fa fa-lock form-control-feedback"></span>
             </div>
           </div>
           <div class="col-xs-12 col-sm-6 col-md-6">
             <div class="form-group has-feedback">
+            <label for="reg-fn">Nhập lại mật khẩu</label>
+
               <input type="password" placeholder="{{ trans('frontend.retype_password') }}" class="form-control" id="vendor_reg_password_confirmation" name="vendor_reg_password_confirmation">
               <span class="fa fa-lock form-control-feedback"></span>
             </div>
           </div>
         </div>
-        
-				<div class="form-group has-feedback">
-          <input type="text" placeholder="{{ trans('frontend.store_name_label') }}" class="form-control" id="vendor_reg_store_name" name="vendor_reg_store_name" value="{{ old('vendor_reg_store_name') }}">
-          <span class="fa fa-home form-control-feedback"></span>
-        </div>
-								
-        <div class="form-group has-feedback">
-          <textarea id="vendor_reg_address_line_1" placeholder="{{ trans('frontend.address_line_1') }}" class="form-control" name="vendor_reg_address_line_1">{!! old('vendor_reg_address_line_1') !!}</textarea>
-        </div>
 
         <div class="form-group has-feedback">
-          <textarea id="vendor_reg_address_line_2" placeholder="{{ trans('frontend.address_line_2') }}" class="form-control" name="vendor_reg_address_line_2">{!! old('vendor_reg_address_line_2') !!}</textarea>
-        </div>
-								
-				<div class="row">
-          <div class="col-xs-12 col-sm-6 col-md-6">
-            <div class="form-group has-feedback">
-              <input type="text" placeholder="{{ trans('frontend.city') }}" class="form-control" value="{{ old('vendor_reg_city') }}" id="vendor_reg_city" name="vendor_reg_city">
-              <span class="fa fa-text-width form-control-feedback"></span>
-            </div>
-          </div>
-          <div class="col-xs-12 col-sm-6 col-md-6">
-            <div class="form-group has-feedback">
-              <input type="text" placeholder="{{ trans('frontend.state_label') }}" class="form-control" value="{{ old('vendor_reg_state') }}" id="vendor_reg_state" name="vendor_reg_state">
-              <span class="fa fa-text-width form-control-feedback"></span>
-            </div>
-          </div>
-        </div>
-								
-				<div class="row">
-          <div class="col-xs-12 col-sm-6 col-md-6">
-            <div class="form-group has-feedback">
-              <input type="text" placeholder="{{ trans('frontend.country') }}" class="form-control" value="{{ old('vendor_reg_country') }}" id="vendor_reg_country" name="vendor_reg_country">
-              <span class="fa fa-text-width form-control-feedback"></span>
-            </div>
-          </div>
-          <div class="col-xs-12 col-sm-6 col-md-6">
-            <div class="form-group has-feedback">
-              <input type="number" placeholder="{{ trans('frontend.zip_postal_code') }}" class="form-control" value="{{ old('vendor_reg_zip_code') }}" id="vendor_reg_zip_code" name="vendor_reg_zip_code">
-            </div>
-          </div>
-        </div>
-        
-        <div class="form-group has-feedback">
-          <input type="number" placeholder="{{ ucfirst(trans('frontend.phone')) }}" class="form-control" id="vendor_reg_phone_number" name="vendor_reg_phone_number" value="{{ old('vendor_reg_phone_number') }}" min="0">
-        </div>
-								
-        <div class="form-group has-feedback">
+          <label for="reg-fn">Khoá bí mật</label>
+
           <input type="text" placeholder="{{ ucfirst(trans('frontend.secret_key')) }}" class="form-control" id="vendor_reg_secret_key" name="vendor_reg_secret_key">
           <span class="fa fa-lock form-control-feedback"></span>
         </div>
@@ -116,32 +162,14 @@
             </span>
           </div>
         </div>
+
+        <br>
         
-        <hr class="colorgraph">
         <div class="row">
           <div class="col-xs-12 col-md-6"><input name="vendor_reg_submit" id="vendor_reg_submit" class="btn btn-secondary btn-block btn-md" value="{{ trans('frontend.vendor_registration') }}" type="submit"> </div>
           <div class="col-xs-12 col-md-6"><a target="_blank" href="{{ route('admin.login') }}" class="btn btn-secondary btn-block btn-md vendor-reg-log-in-text">{{ trans('frontend.signin_account_label') }}</a></div>
         </div>
       </form>
-    </div>
-  </div>
-</div>  
-
-<div class="modal fade" id="t_and_c_m" tabindex="-1" role="dialog" aria-labelledby="t_and_c_m_l" aria-hidden="true">    
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title">{!! trans('frontend.t_and_c_label') !!}</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
-        {!! string_decode(get_vendor_settings_data()['term_n_conditions']) !!}
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-primary" data-dismiss="modal">{!! trans('frontend.agree_label') !!}</button>
-      </div>
     </div>
   </div>
 </div>

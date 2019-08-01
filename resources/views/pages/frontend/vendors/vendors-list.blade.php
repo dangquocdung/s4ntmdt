@@ -47,9 +47,9 @@
                     <a class="product-thumb" href="{{ route('store-details-page-content', $vendor->name) }}">
 
                       @if(!empty($vendor->user_photo_url))
-                        <img src="{{ get_image_url($vendor->user_photo_url) }}" alt="Product">
+                        <img src="{{ get_image_url($vendor->user_photo_url) }}" alt="{!! $details->profile_details->store_name !!}">
                       @else
-                        <img src="{{ default_placeholder_img_src() }}" alt="Product">
+                        <img src="{{ default_placeholder_img_src() }}" alt="{!! $details->profile_details->store_name !!}">
                       @endif
                                         
                     </a>
@@ -64,7 +64,7 @@
                         <strong>{!! trans('frontend.phone') !!}:</strong> {!! $details->profile_details->phone !!}
                     </h4>
                     <h4 class="product-price">
-                        <strong>{!! trans('frontend.member_since_label') !!}:</strong> {!! Carbon\Carbon::parse(  $vendor->created_at )->format('F d, Y') !!}
+                        <strong>{!! trans('frontend.member_since_label') !!}:</strong> {!! Carbon\Carbon::parse(  $vendor->created_at )->format('d-m-Y') !!}
                     </h4>
                     <div class="product-buttons">
                       <a class="btn btn-outline-primary btn-sm"  href="{{ route('store-details-page-content', $vendor->name) }}">{!! trans('frontend.view_details') !!}</a>
