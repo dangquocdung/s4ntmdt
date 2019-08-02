@@ -52,42 +52,49 @@
       <section class="container padding-top-3x">
         <h3 class="text-center mb-30">Top Categories</h3>
         <div class="row">
-          <div class="col-md-4 col-sm-6">
-            <div class="card mb-30"><a class="card-img-tiles" href="shop-grid-ls.html">
-                <div class="inner">
-                  <div class="main-img"><img src="img/shop/categories/01.jpg" alt="Category"></div>
-                  <div class="thumblist"><img src="img/shop/categories/02.jpg" alt="Category"><img src="img/shop/categories/03.jpg" alt="Category"></div>
-                </div></a>
-              <div class="card-body text-center">
-                <h4 class="card-title">Clothing</h4>
-                <p class="text-muted">Starting from $49.99</p><a class="btn btn-outline-primary btn-sm" href="shop-grid-ls.html">View Products</a>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-4 col-sm-6">
-            <div class="card mb-30"><a class="card-img-tiles" href="shop-grid-ls.html">
-                <div class="inner">
-                  <div class="main-img"><img src="img/shop/categories/04.jpg" alt="Category"></div>
-                  <div class="thumblist"><img src="img/shop/categories/05.jpg" alt="Category"><img src="img/shop/categories/06.jpg" alt="Category"></div>
-                </div></a>
-              <div class="card-body text-center">
-                <h4 class="card-title">Shoes</h4>
-                <p class="text-muted">Starting from $56.00</p><a class="btn btn-outline-primary btn-sm" href="shop-grid-ls.html">View Products</a>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-4 col-sm-6">
-            <div class="card mb-30"><a class="card-img-tiles" href="shop-grid-ls.html">
-                <div class="inner">
-                  <div class="main-img"><img src="img/shop/categories/07.jpg" alt="Category"></div>
-                  <div class="thumblist"><img src="img/shop/categories/08.jpg" alt="Category"><img src="img/shop/categories/09.jpg" alt="Category"></div>
-                </div></a>
-              <div class="card-body text-center">
-                <h4 class="card-title">Bags</h4>
-                <p class="text-muted">Starting from $27.00</p><a class="btn btn-outline-primary btn-sm" href="shop-grid-ls.html">View Products</a>
-              </div>
-            </div>
-          </div>
+          @if(count($productCategoriesTree) > 0)
+            <?php $i = 1; $j = 0;?>
+            @foreach($productCategoriesTree as $cat)
+              @if ($i < 4)
+                <div class="col-md-4 col-sm-6">
+                  <div class="card mb-30">
+                    <a class="card-img-tiles" href="{{ route('categories-page', $cat['slug']) }}">
+                      <div class="inner">
+                        <div class="main-img"> 
+                          @if( !empty($cat['img_url']) )
+                            <img src="{{ get_image_url($cat['img_url']) }}"> 
+                          @else
+                            <img src="{{ default_placeholder_img_src() }}"> 
+                          @endif
+                        </div>
+                        <div class="thumblist">
+                            @if( !empty($cat['img_url']) )
+                            <img src="{{ get_image_url($cat['img_url']) }}"> 
+                          @else
+                            <img src="{{ default_placeholder_img_src() }}"> 
+                          @endif
+                          @if( !empty($cat['img_url']) )
+                            <img src="{{ get_image_url($cat['img_url']) }}"> 
+                          @else
+                            <img src="{{ default_placeholder_img_src() }}"> 
+                          @endif
+                          {{-- <img src="img/shop/categories/02.jpg" alt="Category">
+                          <img src="img/shop/categories/03.jpg" alt="Category"> --}}
+                        </div>
+                      </div>
+                    </a>
+                    <div class="card-body text-center">
+                      <h4 class="card-title">{!! $cat['name'] !!}</h4>
+                      <p class="text-muted">Starting from $49.99</p>
+                      <a class="btn btn-outline-primary btn-sm" href="{{ route('categories-page', $cat['slug']) }}">View Products</a>
+                    </div>
+                  </div>
+                </div>
+              @endif
+              <?php $i ++;?>
+            @endforeach
+          @endif
+         
         </div>
         <div class="text-center"><a class="btn btn-outline-secondary margin-top-none" href="shop-categories.html">All Categories</a></div>
       </section>
@@ -180,8 +187,6 @@
             <p class="not-available">{!! trans('frontend.features_products_empty_label') !!}</p>
           @endif
 
-
-         
         </div>
       </section>
       <!-- Product Widgets-->

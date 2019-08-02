@@ -58,8 +58,9 @@ class FrontendManagerController extends Controller
     $data['advancedData']        =   $this->product->getAdvancedProducts();
     $data['brands_data']         =   $this->product->getTermData( 'product_brands', false, null, 1 );
     $data['testimonials_data']   =   get_all_testimonial_data();
+
     
-    return view('santmdt.home', $data);
+    return view('pages.frontend.frontend-pages.home', $data);
   }
   
   /**

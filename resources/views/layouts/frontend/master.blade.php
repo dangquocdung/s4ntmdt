@@ -17,7 +17,11 @@
           @foreach($productCategoriesTree as $cat)
 
             @if(isset($cat['parent']) && $cat['parent'] == 'Parent Category')
-              <li class="has-children"><span><a href="#">{!! $cat['name'] !!}</a><span class="sub-menu-toggle"></span></span>
+              <li class="has-children">
+                <span>
+                  <a href="{{ route('categories-page', $cat['slug']) }}">{!! $cat['name'] !!}</a>
+                  <span class="sub-menu-toggle"></span>
+                </span>
                 <ul class="offcanvas-submenu">
 
                   @if(isset($cat['children']) && count($cat['children']) > 0)
