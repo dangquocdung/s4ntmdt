@@ -138,84 +138,50 @@
       </section>
       <!-- Featured Products Carousel-->
       <section class="container padding-top-3x padding-bottom-3x">
-        <h3 class="text-center mb-30">Featured Products</h3>
+        <h3 class="text-center mb-30">Sản phẩm tiêu biểu</h3>
         <div class="owl-carousel" data-owl-carousel="{ &quot;nav&quot;: false, &quot;dots&quot;: true, &quot;margin&quot;: 30, &quot;responsive&quot;: {&quot;0&quot;:{&quot;items&quot;:1},&quot;576&quot;:{&quot;items&quot;:2},&quot;768&quot;:{&quot;items&quot;:3},&quot;991&quot;:{&quot;items&quot;:4},&quot;1200&quot;:{&quot;items&quot;:4}} }">
-          <!-- Product-->
-          <div class="grid-item">
-            <div class="product-card">
-              <div class="product-badge text-danger">22% Off</div><a class="product-thumb" href="shop-single.html"><img src="img/shop/products/09.jpg" alt="Product"></a>
-              <h3 class="product-title"><a href="shop-single.html">Rocket Dog</a></h3>
-              <h4 class="product-price">
-                <del>$44.95</del>$34.99
-              </h4>
-              <div class="product-buttons">
-                <button class="btn btn-outline-secondary btn-sm btn-wishlist" data-toggle="tooltip" title="Whishlist"><i class="icon-heart"></i></button>
-                <button class="btn btn-outline-primary btn-sm" data-toast data-toast-type="success" data-toast-position="topRight" data-toast-icon="icon-circle-check" data-toast-title="Product" data-toast-message="successfuly added to cart!">Add to Cart</button>
+          @if(count($advancedData['features_items']) > 0)
+            @foreach($advancedData['features_items'] as $key => $features_product)
+              <!-- Product-->
+              <div class="grid-item">
+                <div class="product-card">
+                  <div class="product-badge text-danger">22% Off</div>
+                  <div class="rating-stars">
+                    <i class="icon-star filled"></i>
+                    <i class="icon-star filled"></i>
+                    <i class="icon-star filled"></i>
+                    <i class="icon-star filled"></i>
+                    <i class="icon-star"></i>
+                  </div>
+
+                  <a class="product-thumb" href="{{ route('details-page', $features_product->slug ) }}">
+                      @if(!empty($features_product->image_url))
+                        <img class="d-block" src="{{ get_image_url( $features_product->image_url ) }}" alt="{{ basename( get_image_url( $features_product->image_url ) ) }}" />
+                      @else
+                        <img class="d-block" src="{{ default_placeholder_img_src() }}" alt="" />
+                      @endif
+                  </a>
+                  <h3 class="product-title">
+                      <a href="{{ route('details-page', $features_product->slug ) }}">{!! $features_product->title !!}</a>
+                    </h3>
+                  <h4 class="product-price">
+                    <del>$44.95</del>
+                    {!! price_html( get_product_price_html_by_filter(get_role_based_price_by_product_id($features_product->id, $features_product->price)), get_frontend_selected_currency()) !!}
+                  </h4>
+                  <div class="product-buttons">
+                    <button class="btn btn-outline-secondary btn-sm btn-wishlist" data-toggle="tooltip" title="Whishlist"><i class="icon-heart"></i></button>
+                    <button class="btn btn-outline-primary btn-sm" data-toast data-toast-type="success" data-toast-position="topRight" data-toast-icon="icon-circle-check" data-toast-title="Product" data-toast-message="successfuly added to cart!">Add to Cart</button>
+                  </div>
+                </div>
               </div>
-            </div>
-          </div>
-          <!-- Product-->
-          <div class="grid-item">
-            <div class="product-card">
-                <div class="rating-stars"><i class="icon-star filled"></i><i class="icon-star filled"></i><i class="icon-star filled"></i><i class="icon-star filled"></i><i class="icon-star"></i>
-                </div><a class="product-thumb" href="shop-single.html"><img src="img/shop/products/03.jpg" alt="Product"></a>
-              <h3 class="product-title"><a href="shop-single.html">Oakley Kickback</a></h3>
-              <h4 class="product-price">$155.00</h4>
-              <div class="product-buttons">
-                <button class="btn btn-outline-secondary btn-sm btn-wishlist" data-toggle="tooltip" title="Whishlist"><i class="icon-heart"></i></button>
-                <button class="btn btn-outline-primary btn-sm" data-toast data-toast-type="success" data-toast-position="topRight" data-toast-icon="icon-circle-check" data-toast-title="Product" data-toast-message="successfuly added to cart!">Add to Cart</button>
-              </div>
-            </div>
-          </div>
-          <!-- Product-->
-          <div class="grid-item">
-            <div class="product-card"><a class="product-thumb" href="shop-single.html"><img src="img/shop/products/12.jpg" alt="Product"></a>
-              <h3 class="product-title"><a href="shop-single.html">Vented Straw Fedora</a></h3>
-              <h4 class="product-price">$49.50</h4>
-              <div class="product-buttons">
-                <button class="btn btn-outline-secondary btn-sm btn-wishlist" data-toggle="tooltip" title="Whishlist"><i class="icon-heart"></i></button>
-                <button class="btn btn-outline-primary btn-sm" data-toast data-toast-type="success" data-toast-position="topRight" data-toast-icon="icon-circle-check" data-toast-title="Product" data-toast-message="successfuly added to cart!">Add to Cart</button>
-              </div>
-            </div>
-          </div>
-          <!-- Product-->
-          <div class="grid-item">
-            <div class="product-card">
-                <div class="rating-stars"><i class="icon-star filled"></i><i class="icon-star filled"></i><i class="icon-star filled"></i><i class="icon-star filled"></i><i class="icon-star filled"></i>
-                </div><a class="product-thumb" href="shop-single.html"><img src="img/shop/products/11.jpg" alt="Product"></a>
-              <h3 class="product-title"><a href="shop-single.html">Top-Sider Fathom</a></h3>
-              <h4 class="product-price">$90.00</h4>
-              <div class="product-buttons">
-                <button class="btn btn-outline-secondary btn-sm btn-wishlist" data-toggle="tooltip" title="Whishlist"><i class="icon-heart"></i></button>
-                <button class="btn btn-outline-primary btn-sm" data-toast data-toast-type="success" data-toast-position="topRight" data-toast-icon="icon-circle-check" data-toast-title="Product" data-toast-message="successfuly added to cart!">Add to Cart</button>
-              </div>
-            </div>
-          </div>
-          <!-- Product-->
-          <div class="grid-item">
-            <div class="product-card"><a class="product-thumb" href="shop-single.html"><img src="img/shop/products/04.jpg" alt="Product"></a>
-              <h3 class="product-title"><a href="shop-single.html">Waist Leather Belt</a></h3>
-              <h4 class="product-price">$47.00</h4>
-              <div class="product-buttons">
-                <button class="btn btn-outline-secondary btn-sm btn-wishlist" data-toggle="tooltip" title="Whishlist"><i class="icon-heart"></i></button>
-                <button class="btn btn-outline-primary btn-sm" data-toast data-toast-type="success" data-toast-position="topRight" data-toast-icon="icon-circle-check" data-toast-title="Product" data-toast-message="successfuly added to cart!">Add to Cart</button>
-              </div>
-            </div>
-          </div>
-          <!-- Product-->
-          <div class="grid-item">
-            <div class="product-card">
-              <div class="product-badge text-danger">50% Off</div><a class="product-thumb" href="shop-single.html"><img src="img/shop/products/01.jpg" alt="Product"></a>
-              <h3 class="product-title"><a href="shop-single.html">Unionbay Park</a></h3>
-              <h4 class="product-price">
-                <del>$99.99</del>$49.99
-              </h4>
-              <div class="product-buttons">
-                <button class="btn btn-outline-secondary btn-sm btn-wishlist" data-toggle="tooltip" title="Whishlist"><i class="icon-heart"></i></button>
-                <button class="btn btn-outline-primary btn-sm" data-toast data-toast-type="success" data-toast-position="topRight" data-toast-icon="icon-circle-check" data-toast-title="Product" data-toast-message="successfuly added to cart!">Add to Cart</button>
-              </div>
-            </div>
-          </div>
+            @endforeach
+          @else
+
+            <p class="not-available">{!! trans('frontend.features_products_empty_label') !!}</p>
+          @endif
+
+
+         
         </div>
       </section>
       <!-- Product Widgets-->
@@ -230,7 +196,7 @@
                   <!-- Entry-->
                   <div class="entry">
                     <div class="entry-thumb">
-                      <a href="shop-single.html">
+                      <a href="{{ route('details-page', $latest_product->slug ) }}">
                           @if(!empty($latest_product->image_url))
                           <img class="d-block" src="{{ get_image_url( $latest_product->image_url ) }}" alt="{{ basename( get_image_url( $latest_product->image_url ) ) }}" />
                           @else
@@ -260,7 +226,7 @@
                   <!-- Entry-->
                   <div class="entry">
                     <div class="entry-thumb">
-                      <a href="shop-single.html">
+                      <a href="{{ route('details-page', $best_sales_product->slug ) }}">
                           @if(!empty($best_sales_product->image_url))
                           <img class="d-block" src="{{ get_image_url( $best_sales_product->image_url ) }}" alt="{{ basename( get_image_url( $best_sales_product->image_url ) ) }}" />
                           @else
@@ -290,7 +256,7 @@
                   <!-- Entry-->
                   <div class="entry">
                     <div class="entry-thumb">
-                      <a href="shop-single.html">
+                      <a href="{{ route('details-page', $todays_sales_product->slug ) }}">
                           @if(!empty($todays_sales_product->image_url))
                           <img class="d-block" src="{{ get_image_url( $todays_sales_product->image_url ) }}" alt="{{ basename( get_image_url( $todays_sales_product->image_url ) ) }}" />
                           @else
