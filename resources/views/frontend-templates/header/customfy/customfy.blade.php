@@ -58,7 +58,12 @@
                 </a>    
               </li> 
 
-              <li class="users-vendors-login dropdown"><a href="#" class="main selected dropdown-toggle" data-toggle="dropdown" data-hover="dropdown"><i class="fa fa-user" aria-hidden="true"></i> <span class="d-none d-md-inline">{!! trans('frontend.menu_my_account') !!}</span><span class="caret"></span></a>
+              <li class="users-vendors-login dropdown">
+                <a href="#" class="main selected dropdown-toggle" data-toggle="dropdown" data-hover="dropdown">
+                  <i class="fa fa-user" aria-hidden="true"></i> 
+                  <span class="d-none d-md-inline">{!! trans('frontend.menu_my_account') !!}</span>
+                  <span class="caret"></span>
+                </a>
                 <ul class="dropdown-menu dropdown-content my-account-menu">
                   @if (Session::has('shopist_frontend_user_id'))
                   <li><a href="{{ route('user-account-page') }}">{!! trans('frontend.user_account_label') !!}</a></li>

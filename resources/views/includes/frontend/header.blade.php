@@ -2,7 +2,7 @@
   <!-- Search-->
   <form class="site-search" action="{{ route('shop-page') }}" method="get">
     <input type="text" id="srch_term" name="srch_term" placeholder="{{ trans('frontend.search_for_label') }}">
-    <div class="search-tools"><span class="clear-search">Clear</span><span class="close-search"><i class="icon-cross"></i></span></div>
+    <div class="search-tools"><span class="clear-search">Tìm kiếm</span><span class="close-search"><i class="icon-cross"></i></span></div>
   </form>
 
   <div class="site-branding">
