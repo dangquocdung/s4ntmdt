@@ -6,26 +6,53 @@
 
     <!-- Off-Canvas Wrapper-->
       <!-- Page Content-->
-      <!-- Main Slider-->
-      <section class="hero-slider" style="background-image: url(img/hero-slider/main-bg.jpg);">
-        <div class="owl-carousel large-controls dots-inside" data-owl-carousel="{ &quot;nav&quot;: true, &quot;dots&quot;: true, &quot;loop&quot;: true, &quot;autoplay&quot;: true, &quot;autoplayTimeout&quot;: 7000 }">
-          
-          <div class="item">
-            <div class="container padding-top-3x">
-              <div class="row justify-content-center align-items-center">
-                <div class="col-lg-5 col-md-6 padding-bottom-2x text-md-left text-center">
-                  <div class="from-bottom"><img class="d-inline-block w-150 mb-4" src="img/hero-slider/logo02.png" alt="Puma">
-                    <div class="h2 text-body text-normal mb-2 pt-1">Puma Backpacks Collection</div>
-                    <div class="h2 text-body text-normal mb-4 pb-1">starting at <span class="text-bold">$37.99</span></div>
-                  </div><a class="btn btn-primary scale-up delay-1" href="shop-grid-ls.html">View Offers</a>
-                </div>
-                <div class="col-md-6 padding-bottom-2x mb-3"><img class="d-block mx-auto" src="img/hero-slider/02.png" alt="Puma Backpack"></div>
-              </div>
-            </div>
-          </div>
 
-        </div>
-      </section>
+       
+      @if($appearance_all_data['header_details']['slider_visibility'] == true && Request::is('/'))
+        <?php $count = count(get_appearance_header_settings_data());?>
+     
+        <!-- Main Slider-->
+        <section class="hero-slider" style="background-image: url(img/hero-slider/main-bg.jpg);">
+          <div class="owl-carousel large-controls dots-inside" data-owl-carousel="{ &quot;nav&quot;: true, &quot;dots&quot;: true, &quot;loop&quot;: true, &quot;autoplay&quot;: true, &quot;autoplayTimeout&quot;: 7000 }">
+            
+              @if($count > 0)
+                @foreach(get_appearance_header_settings_data() as $img)
+                  <div class="item">
+                    <div class="container padding-top-3x">
+                      <div class="row justify-content-center align-items-center">
+                        <div class="col-lg-5 col-md-6 padding-bottom-2x text-md-left text-center">
+                          <div class="from-bottom">
+                            <img class="d-inline-block w-150 mb-4" src="img/hero-slider/logo02.png" alt="Puma">
+                            <div class="h2 text-body text-normal mb-2 pt-1">Puma Backpacks Collection</div>
+                            <div class="h2 text-body text-normal mb-4 pb-1">starting at <span class="text-bold">$37.99</span></div>
+                          </div>
+                          <a class="btn btn-primary scale-up delay-1" href="shop-grid-ls.html">View Offers {{ $count }}</a>
+                        </div>
+                        <div class="col-md-6 padding-bottom-2x mb-3"><img class="d-block mx-auto" src="{{ get_image_url($img->img_url) }}" alt="Puma Backpack"></div>
+                      </div>
+                    </div>
+                  </div>
+                @endforeach
+              @else
+                <div class="item">
+                  <div class="container padding-top-3x">
+                    <div class="row justify-content-center align-items-center">
+                      <div class="col-lg-5 col-md-6 padding-bottom-2x text-md-left text-center">
+                        <div class="from-bottom"><img class="d-inline-block w-150 mb-4" src="img/hero-slider/logo02.png" alt="Puma">
+                          <div class="h2 text-body text-normal mb-2 pt-1">Puma Backpacks Collection</div>
+                          <div class="h2 text-body text-normal mb-4 pb-1">starting at <span class="text-bold">$37.99</span></div>
+                        </div><a class="btn btn-primary scale-up delay-1" href="shop-grid-ls.html">View Offers</a>
+                      </div>
+                      <div class="col-md-6 padding-bottom-2x mb-3"><img class="d-block mx-auto" src="img/hero-slider/02.png" alt="Puma Backpack"></div>
+                    </div>
+                  </div>
+                </div>
+              @endif
+            
+          </div>
+        </section>
+      @endif 
+       
       <!-- Top Categories-->
       <section class="container padding-top-3x">
         <h3 class="text-center mb-30">Sản phẩm được ưa chuộng</h3>
@@ -38,20 +65,26 @@
                   <div class="card mb-30">
                     <a class="card-img-tiles" href="{{ route('categories-page', $cat['slug']) }}">
                       <div class="inner">
+
+                          <div class="main-img"> 
+
+                            @if( !empty($cat['img_url']) )
+                              <img src="{{ get_image_url($cat['img_url']) }}"> 
+                            @else
+                              <img src="{{ default_placeholder_img_src() }}"> 
+                            @endif
+
+                          </div>
                         
                         <div class="thumblist">
-                            @if( !empty($cat['img_url']) )
+                          {{-- @if( !empty($cat['img_url']) )
                             <img src="{{ get_image_url($cat['img_url']) }}"> 
                           @else
                             <img src="{{ default_placeholder_img_src() }}"> 
-                          @endif
-                          @if( !empty($cat['img_url']) )
-                            <img src="{{ get_image_url($cat['img_url']) }}"> 
-                          @else
-                            <img src="{{ default_placeholder_img_src() }}"> 
-                          @endif
-                          {{-- <img src="img/shop/categories/02.jpg" alt="Category">
-                          <img src="img/shop/categories/03.jpg" alt="Category"> --}}
+                          @endif --}}
+                        
+                          <img src="img/shop/categories/02.jpg" alt="Category">
+                          <img src="img/shop/categories/03.jpg" alt="Category">
                         </div>
                       </div>
                     </a>
