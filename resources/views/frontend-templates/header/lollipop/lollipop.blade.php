@@ -55,12 +55,15 @@
           <div class="col-7 col-md-6">
             <div class="float-right">
               <ul class="right-menu top-right-menu">
+                
                 <li class="wishlist-content">
                   <a class="main" href="{{ route('my-saved-items-page') }}">
                     <i class="fa fa-heart"></i> 
                     <span class="d-none d-md-inline">{!! trans('frontend.frontend_wishlist') !!}</span> 
                   </a>    
                 </li>  
+
+                
 
                 <li class="users-vendors-login dropdown"><a href="#" class="main selected dropdown-toggle" data-toggle="dropdown" data-hover="dropdown"><i class="fa fa-user" aria-hidden="true"></i> <span class="d-none d-md-inline">{!! trans('frontend.menu_my_account') !!}</span><span class="caret"></span></a>
                   <div class="new-dropdown-menu dropdown-content my-account-menu">
@@ -79,6 +82,8 @@
                     <a href="{{ route('vendor-registration-page') }}">{!! trans('frontend.vendor_registration') !!}</a>
                   </div>
                 </li>
+
+
 
                 <li class="mini-cart-content">
                   @include('pages.ajax-pages.mini-cart-html2')

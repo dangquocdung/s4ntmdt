@@ -235,22 +235,62 @@
       <div class="inner">
         <div class="tools">
           <div class="search"><i class="icon-search"></i></div>
+
+          {{-- <div class="account">
+            <a href="{{ route('my-saved-items-page') }}"></a><i class="icon-heart" title="{!! trans('frontend.frontend_wishlist') !!}"></i>
+          </div> --}}
+
           <div class="account"><a href="account-orders.html"></a><i class="icon-head"></i>
             <ul class="toolbar-dropdown">
-              <li class="sub-menu-user">
+              {{-- <li class="sub-menu-user">
                 <div class="user-ava"><img src="img/account/user-ava-sm.jpg" alt="Daniel Adams">
                 </div>
                 <div class="user-info">
                   <h6 class="user-name">Daniel Adams</h6><span class="text-xs text-muted">290 Reward points</span>
                 </div>
               </li>
-                <li><a href="account-profile.html">My Profile</a></li>
+              <li><a href="account-profile.html">My Profile</a></li>
+              <li><a href="account-orders.html">Orders List</a></li>
+              <li><a href="account-wishlist.html">Wishlist</a></li>
+              <li class="sub-menu-separator"></li>
+              <li><a href="#"> <i class="icon-unlock"></i>Logout</a></li> --}}
+
+              @if (Session::has('shopist_frontend_user_id'))
+                <li class="sub-menu-user">
+                  <div class="user-ava"><img src="img/account/user-ava-sm.jpg" alt="Daniel Adams">
+                  </div>
+                  <div class="user-info">
+                    <h6 class="user-name">Daniel Adams</h6><span class="text-xs text-muted">290 Reward points</span>
+                  </div>
+                </li>
+                <li>
+                  <a href="{{ route('user-account-page') }}">{!! trans('frontend.user_account_label') !!}</a>
+                </li>
                 <li><a href="account-orders.html">Orders List</a></li>
                 <li><a href="account-wishlist.html">Wishlist</a></li>
-              <li class="sub-menu-separator"></li>
-              <li><a href="#"> <i class="icon-unlock"></i>Logout</a></li>
+                <li class="sub-menu-separator"></li>
+                <li><a href="#"> <i class="icon-unlock"></i>Logout</a></li>
+              @else
+                <li>
+                  <a href="{{ route('user-login-page') }}">{!! trans('frontend.frontend_user_login') !!}</a>
+              </li>
+              @endif
+
+              @if (Session::has('shopist_admin_user_id') && !empty(get_current_vendor_user_info()['user_role_slug']) && get_current_vendor_user_info()['user_role_slug'] == 'vendor')
+              <li>
+                  <a target="_blank" href="{{ route('admin.dashboard') }}">{!! trans('frontend.vendor_account_label') !!}</a>
+              </li>
+              @else
+              <li>
+                <a target="_blank" href="{{ route('admin.login') }}">{!! trans('frontend.frontend_vendor_login') !!}</a>
+              </li>
+              @endif
+              <li>
+                <a href="{{ route('vendor-registration-page') }}">{!! trans('frontend.vendor_registration') !!}</a>
+              </li>
             </ul>
           </div>
+
           <div class="cart"><a href="cart.html"></a><i class="icon-bag"></i><span class="count">3</span><span class="subtotal">$289.68</span>
             <div class="toolbar-dropdown">
               <div class="dropdown-product-item"><span class="dropdown-product-remove"><i class="icon-cross"></i></span><a class="dropdown-product-thumb" href="shop-single.html"><img src="img/cart-dropdown/01.jpg" alt="Product"></a>
