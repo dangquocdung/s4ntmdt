@@ -96,51 +96,7 @@
 </div>
 <div class="text-center"><a class="btn btn-outline-secondary margin-top-none" href="shop-categories.html">All Categories</a></div>
 </section>
-<!-- Promo #1-->
-<section class="container-fluid padding-top-3x">
-<div class="row justify-content-center">
-    <div class="col-xl-5 col-lg-6 mb-30">
-    <div class="rounded bg-faded position-relative padding-top-3x padding-bottom-3x"><span class="product-badge text-danger" style="top: 24px; left: 24px;">Sản phẩm khuyến mãi</span>
-        <div class="text-center">
-        <h3 class="h2 text-normal mb-1">New</h3>
-        <h2 class="display-2 text-bold mb-2">Sunglasses</h2>
-        <h4 class="h3 text-normal mb-4">collection at discounted price!</h4>
-        <div class="countdown mb-3" data-date-time="12/30/2019 12:00:00">
-            <div class="item">
-            <div class="days">00</div><span class="days_ref">Days</span>
-            </div>
-            <div class="item">
-            <div class="hours">00</div><span class="hours_ref">Hours</span>
-            </div>
-            <div class="item">
-            <div class="minutes">00</div><span class="minutes_ref">Mins</span>
-            </div>
-            <div class="item">
-            <div class="seconds">00</div><span class="seconds_ref">Secs</span>
-            </div>
-        </div><br><a class="btn btn-primary margin-bottom-none" href="#">View Offers</a>
-        </div>
-    </div>
-    </div>
-    <div class="col-xl-5 col-lg-6 mb-30" style="min-height: 270px;">
-    <div class="img-cover rounded" style="background-image: url(img/banners/home01.jpg);"></div>
-    </div>
-</div>
-</section>
-<!-- Promo #2-->
-<section class="container-fluid">
-<div class="row justify-content-center">
-    <div class="col-xl-10 col-lg-12">
-    <div class="fw-section rounded padding-top-4x padding-bottom-4x" style="background-image: url(img/banners/home02.jpg);"><span class="overlay rounded" style="opacity: .35;"></span>
-        <div class="text-center">
-        <h3 class="display-4 text-normal text-white text-shadow mb-1">Bộ sưu tập mới</h3>
-        <h2 class="display-2 text-bold text-white text-shadow">HUGE SALE!</h2>
-        <h4 class="d-inline-block h2 text-normal text-white text-shadow border-default border-left-0 border-right-0 mb-4">at our outlet stores</h4><br><a class="btn btn-primary margin-bottom-none" href="contacts.html">Locate Stores</a>
-        </div>
-    </div>
-    </div>
-</div>
-</section>
+
 
 <!-- Featured Products-->
 <section class="container padding-top-3x padding-bottom-3x">
@@ -179,10 +135,29 @@
                 </h4>
               </div>
               <div class="product-button-group">
-                <a class="product-button btn-wishlist" href="#"><i class="icon-heart"></i><span>Wishlist</span></a>
-                <a class="product-button btn-compare" href="#"><i class="icon-repeat"></i><span>Compare</span></a>
-                <a class="product-button btn-compare" href="#"><i class="icon-repeat"></i><span>Compare</span></a>
-                <a class="product-button" href="#" data-toast data-toast-type="success" data-toast-position="topRight" data-toast-icon="icon-check-circle" data-toast-title="Product" data-toast-message="successfuly added to cart!"><i class="icon-shopping-cart"></i><span>To Cart</span></a></div>
+
+                  {{-- @if( $features_product->type == 'simple_product' )
+                    <a href="" data-id="{{ $features_product->id }}" class="btn btn-sm btn-style add-to-cart-bg" data-toggle="tooltip" data-placement="top" title="{{ trans('frontend.add_to_cart_label') }}"><i class="fa fa-shopping-cart"></i></a>
+                    <a href="" class="btn btn-sm btn-style product-wishlist" data-id="{{ $features_product->id }}" data-toggle="tooltip" data-placement="top" title="{{ trans('frontend.add_to_wishlist_label') }}"><i class="fa fa-heart"></i></a>
+                    <a href="" class="btn btn-sm btn-style product-compare" data-id="{{ $features_product->id }}" data-toggle="tooltip" data-placement="top" title="{{ trans('frontend.add_to_compare_list_label') }}"><i class="fa fa-exchange"></i></a>
+                    <a href="{{ route('details-page', $features_product->slug) }}" class="btn btn-sm btn-style product-details-view" data-toggle="tooltip" data-placement="top" title="{{ trans('frontend.product_details_label') }}"><i class="fa fa-eye"></i></a>
+                  @endif --}}
+                <a class="product-button btn-wishlist" href="" data-id="{{ $features_product->id }}" data-toggle="tooltip" data-placement="top" title="{{ trans('frontend.add_to_wishlist_label') }}">
+                  <i class="icon-heart"></i><span>{{ trans('frontend.wishlist') }}</span>
+                </a>
+                <a class="product-button btn-compare" href="" data-id="{{ $features_product->id }}" data-toggle="tooltip" data-placement="top" title="{{ trans('frontend.add_to_compare_list_label') }}">
+                  <i class="icon-repeat"></i><span>{{ trans('frontend.add_to_compare_list_label') }}</span>
+                </a>
+                <a class="product-button btn-compare" href="{{ route('details-page', $features_product->slug) }}" data-toggle="tooltip" data-placement="top" title="{{ trans('frontend.product_details_label') }}">
+                  <i class="icon-eye"></i><span>{{ trans('frontend.product_details_label') }}</span>
+                </a>
+                <a class="product-button add-to-cart-bg" href="#" data-toast data-toast-type="success" data-toast-position="topRight" 
+                    data-toast-icon="icon-check-circle" data-toast-title="Product" data-toast-message="successfuly added to cart!"
+                    data-id="{{ $features_product->id }}"
+                    data-toggle="tooltip" data-placement="top" title="{{ trans('frontend.add_to_cart_label') }}">
+                    <i class="icon-bag"></i><span>{{ trans('frontend.to_cart') }}</span>
+                </a>
+              </div>
             </div>
           </div>
           @endforeach

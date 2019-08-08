@@ -44,11 +44,13 @@
 
     </div>
 
+    <input type="hidden" name="hf_base_url" id="hf_base_url" value="{{ url('/') }}">
+    <input type="hidden" name="cart_url" id="cart_url" value="{{ route('cart-page') }}">
+    <input type="hidden" name="currency_symbol" id="currency_symbol" value="{{ $_currency_symbol }}">
+
     <!-- Back To Top Button--><a class="scroll-to-top-btn" href="#"><i class="icon-arrow-up"></i></a>
     <!-- Backdrop-->
     <div class="site-backdrop"></div>
-    <!-- JavaScript (jQuery) libraries, plugins and custom scripts-->
-    <script src="/js/vendor.min.js"></script>
-    <script src="/js/scripts.min.js"></script>
+  
   </body>
 </html>
