@@ -6,7 +6,7 @@
 
 <!-- Main Slider-->
 <section class="hero-slider" style="background-image: url(img/hero-slider/main-bg.jpg);">
-    <div class="owl-carousel large-controls dots-inside" data-owl-carousel="{ &quot;nav&quot;: true, &quot;dots&quot;: true, &quot;loop&quot;: true, &quot;autoplay&quot;: true, &quot;autoplayTimeout&quot;: 7000 }">
+    <div class="owl-carousel large-controls dots-inside" data-owl-carousel='{ "nav": true, "dots": true, "loop": true, "autoplay": true, "autoplayTimeout": 7000 }'>
     
         @if($count > 0)
         @foreach(get_appearance_header_settings_data() as $img)
@@ -94,199 +94,210 @@
     @endif
     
 </div>
-<div class="text-center"><a class="btn btn-outline-secondary margin-top-none" href="shop-categories.html">All Categories</a></div>
+{{-- <div class="text-center"><a class="btn btn-outline-secondary margin-top-none" href="shop-categories.html">All Categories</a></div> --}}
 </section>
 
 
 <!-- Featured Products-->
-<section class="container padding-top-3x padding-bottom-3x">
-        <h2 class="h3 pb-3 text-center">Sản phẩm tiêu biểu</h2>
-        @if(count($advancedData['features_items']) > 0)
+<section class="container padding-bottom-1x">
 
-        <div class="row">
-          @foreach($advancedData['features_items'] as $key => $features_product)
-          <div class="col-lg-3 col-md-4 col-sm-6">
-            <div class="product-card mb-30">
-              <div class="product-badge bg-danger">Sale</div>
-              <div class="rating-stars">
-                <i class="icon-star filled"></i>
-                <i class="icon-star filled"></i>
-                <i class="icon-star filled"></i>
-                <i class="icon-star filled"></i>
-                <i class="icon-star"></i>
+<h2 class="h3 text-center mb-30">Sản phẩm tiêu biểu</h2>
+
+@if(count($advancedData['features_items']) > 0)
+
+<div class="row">
+  @foreach($advancedData['features_items'] as $key => $features_product)
+    <div class="col-lg-3 col-md-4 col-sm-6">
+      <div class="product-card mb-30">
+        <div class="product-badge bg-danger">Sale</div>
+        <div class="rating-stars">
+          <i class="icon-star filled"></i>
+          <i class="icon-star filled"></i>
+          <i class="icon-star filled"></i>
+          <i class="icon-star filled"></i>
+          <i class="icon-star"></i>
+        </div>
+        <a class="product-thumb" href="{{ route('details-page', $features_product->slug ) }}">
+            @if(!empty($features_product->image_url))
+              <img src="{{ get_image_url( $features_product->image_url ) }}" alt="{{ basename( get_image_url( $features_product->image_url ) ) }}" />
+            @else
+              <img src="{{ default_placeholder_img_src() }}" alt="" />
+            @endif
+        </a>
+        <div class="product-card-body">
+          {{-- <div class="product-category"><a href="#">{!! $features_product->title !!}</a></div> --}}
+          <h3 class="product-title">
+            <a href="{{ route('details-page', $features_product->slug ) }}">{!! $features_product->title !!}</a>
+          </h3>
+          <h4 class="product-price">
+            <del>
+              {!! price_html( get_product_price_html_by_filter(get_role_based_price_by_product_id($features_product->id, $features_product->regular_price)), get_frontend_selected_currency()) !!}
+            </del>
+            {!! price_html( get_product_price_html_by_filter(get_role_based_price_by_product_id($features_product->id, $features_product->price)), get_frontend_selected_currency()) !!}
+          </h4>
+        </div>
+        <div class="product-button-group">
+
+            {{-- @if( $features_product->type == 'simple_product' )
+              <a href="" data-id="{{ $features_product->id }}" class="btn btn-sm btn-style add-to-cart-bg" data-toggle="tooltip" data-placement="top" title="{{ trans('frontend.add_to_cart_label') }}"><i class="fa fa-shopping-cart"></i></a>
+              <a href="" class="btn btn-sm btn-style product-wishlist" data-id="{{ $features_product->id }}" data-toggle="tooltip" data-placement="top" title="{{ trans('frontend.add_to_wishlist_label') }}"><i class="fa fa-heart"></i></a>
+              <a href="" class="btn btn-sm btn-style product-compare" data-id="{{ $features_product->id }}" data-toggle="tooltip" data-placement="top" title="{{ trans('frontend.add_to_compare_list_label') }}"><i class="fa fa-exchange"></i></a>
+              <a href="{{ route('details-page', $features_product->slug) }}" class="btn btn-sm btn-style product-details-view" data-toggle="tooltip" data-placement="top" title="{{ trans('frontend.product_details_label') }}"><i class="fa fa-eye"></i></a>
+            @endif --}}
+          <a class="product-button btn-wishlist product-wishlist" href="" data-id="{{ $features_product->id }}" data-toggle="tooltip" data-placement="top" title="{{ trans('frontend.add_to_wishlist_label') }}">
+            <i class="icon-heart"></i><span>{{ trans('frontend.wishlist') }}</span>
+          </a>
+          <a class="product-button btn-compare" href="" data-id="{{ $features_product->id }}" data-toggle="tooltip" data-placement="top" title="{{ trans('frontend.add_to_compare_list_label') }}">
+            <i class="icon-repeat"></i><span>{{ trans('frontend.add_to_compare_list_label') }}</span>
+          </a>
+          <a class="product-button btn-compare" href="{{ route('details-page', $features_product->slug) }}" data-toggle="tooltip" data-placement="top" title="{{ trans('frontend.product_details_label') }}">
+            <i class="icon-eye"></i><span>{{ trans('frontend.product_details_label') }}</span>
+          </a>
+          <a class="product-button add-to-cart-bg" href="#" data-toast data-toast-type="success" data-toast-position="topRight" 
+              data-toast-icon="icon-check-circle" data-toast-title="Product" data-toast-message="successfuly added to cart!"
+              data-id="{{ $features_product->id }}"
+              data-toggle="tooltip" data-placement="top" title="{{ trans('frontend.add_to_cart_label') }}">
+              <i class="icon-bag"></i><span>{{ trans('frontend.to_cart') }}</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  @endforeach
+
+</div>
+@endif
+{{-- <div class="text-center"><a class="btn btn-outline-secondary" href="shop-grid-ls.html">View All Products</a></div> --}}
+</section>
+
+<!-- Product Widgets-->
+<section class="container padding-bottom-2x">
+  <div class="row">
+    <div class="col-md-4 col-sm-6">
+      <div class="widget widget-featured-products">
+        <h3 class="widget-title">{!! trans('frontend.latest_label') !!}</h3>
+
+        @if(count($advancedData['latest_items']) > 0)
+          @foreach($advancedData['latest_items'] as $key => $latest_product)
+            <!-- Entry-->
+            <div class="entry">
+              <div class="entry-thumb">
+                <a href="{{ route('details-page', $latest_product->slug ) }}">
+                    @if(!empty($latest_product->image_url))
+                    <img class="d-block" src="{{ get_image_url( $latest_product->image_url ) }}" alt="{{ basename( get_image_url( $latest_product->image_url ) ) }}" />
+                    @else
+                    <img class="d-block" src="{{ default_placeholder_img_src() }}" alt="" />
+                    @endif
+                </a>
               </div>
-              <a class="product-thumb" href="{{ route('details-page', $features_product->slug ) }}">
-                  @if(!empty($features_product->image_url))
-                    <img src="{{ get_image_url( $features_product->image_url ) }}" alt="{{ basename( get_image_url( $features_product->image_url ) ) }}" />
-                  @else
-                    <img src="{{ default_placeholder_img_src() }}" alt="" />
-                  @endif
-              </a>
-              <div class="product-card-body">
-                {{-- <div class="product-category"><a href="#">{!! $features_product->title !!}</a></div> --}}
-                <h3 class="product-title">
-                  <a href="{{ route('details-page', $features_product->slug ) }}">{!! $features_product->title !!}</a>
-                </h3>
-                <h4 class="product-price">
-                  <del>
-                    {!! price_html( get_product_price_html_by_filter(get_role_based_price_by_product_id($features_product->id, $features_product->regular_price)), get_frontend_selected_currency()) !!}
-                  </del>
-                  {!! price_html( get_product_price_html_by_filter(get_role_based_price_by_product_id($features_product->id, $features_product->price)), get_frontend_selected_currency()) !!}
+              <div class="entry-content">
+                <h4 class="entry-title">
+                  <a href="{{ route('details-page', $latest_product->slug ) }}">{!! $latest_product->title !!}</a>
                 </h4>
-              </div>
-              <div class="product-button-group">
-
-                  {{-- @if( $features_product->type == 'simple_product' )
-                    <a href="" data-id="{{ $features_product->id }}" class="btn btn-sm btn-style add-to-cart-bg" data-toggle="tooltip" data-placement="top" title="{{ trans('frontend.add_to_cart_label') }}"><i class="fa fa-shopping-cart"></i></a>
-                    <a href="" class="btn btn-sm btn-style product-wishlist" data-id="{{ $features_product->id }}" data-toggle="tooltip" data-placement="top" title="{{ trans('frontend.add_to_wishlist_label') }}"><i class="fa fa-heart"></i></a>
-                    <a href="" class="btn btn-sm btn-style product-compare" data-id="{{ $features_product->id }}" data-toggle="tooltip" data-placement="top" title="{{ trans('frontend.add_to_compare_list_label') }}"><i class="fa fa-exchange"></i></a>
-                    <a href="{{ route('details-page', $features_product->slug) }}" class="btn btn-sm btn-style product-details-view" data-toggle="tooltip" data-placement="top" title="{{ trans('frontend.product_details_label') }}"><i class="fa fa-eye"></i></a>
-                  @endif --}}
-                <a class="product-button btn-wishlist" href="" data-id="{{ $features_product->id }}" data-toggle="tooltip" data-placement="top" title="{{ trans('frontend.add_to_wishlist_label') }}">
-                  <i class="icon-heart"></i><span>{{ trans('frontend.wishlist') }}</span>
-                </a>
-                <a class="product-button btn-compare" href="" data-id="{{ $features_product->id }}" data-toggle="tooltip" data-placement="top" title="{{ trans('frontend.add_to_compare_list_label') }}">
-                  <i class="icon-repeat"></i><span>{{ trans('frontend.add_to_compare_list_label') }}</span>
-                </a>
-                <a class="product-button btn-compare" href="{{ route('details-page', $features_product->slug) }}" data-toggle="tooltip" data-placement="top" title="{{ trans('frontend.product_details_label') }}">
-                  <i class="icon-eye"></i><span>{{ trans('frontend.product_details_label') }}</span>
-                </a>
-                <a class="product-button add-to-cart-bg" href="#" data-toast data-toast-type="success" data-toast-position="topRight" 
-                    data-toast-icon="icon-check-circle" data-toast-title="Product" data-toast-message="successfuly added to cart!"
-                    data-id="{{ $features_product->id }}"
-                    data-toggle="tooltip" data-placement="top" title="{{ trans('frontend.add_to_cart_label') }}">
-                    <i class="icon-bag"></i><span>{{ trans('frontend.to_cart') }}</span>
-                </a>
+                <span class="entry-meta">{!! price_html( get_product_price_html_by_filter(get_role_based_price_by_product_id($latest_product->id, $latest_product->price)), get_frontend_selected_currency()) !!}</span>
               </div>
             </div>
-          </div>
           @endforeach
-          
-        </div>
+        @else
+          <p class="not-available">{!! trans('frontend.latest_products_empty_label') !!}</p>
         @endif
-        <div class="text-center"><a class="btn btn-outline-secondary" href="shop-grid-ls.html">View All Products</a></div>
-      </section>
-      <!-- Product Widgets-->
-      <section class="container padding-bottom-2x">
-        <div class="row">
-          <div class="col-md-4 col-sm-6">
-            <div class="widget widget-featured-products">
-              <h3 class="widget-title">{!! trans('frontend.latest_label') !!}</h3>
-
-              @if(count($advancedData['latest_items']) > 0)
-                @foreach($advancedData['latest_items'] as $key => $latest_product)
-                  <!-- Entry-->
-                  <div class="entry">
-                    <div class="entry-thumb">
-                      <a href="{{ route('details-page', $latest_product->slug ) }}">
-                          @if(!empty($latest_product->image_url))
-                          <img class="d-block" src="{{ get_image_url( $latest_product->image_url ) }}" alt="{{ basename( get_image_url( $latest_product->image_url ) ) }}" />
-                          @else
-                          <img class="d-block" src="{{ default_placeholder_img_src() }}" alt="" />
-                          @endif
-                      </a>
-                    </div>
-                    <div class="entry-content">
-                      <h4 class="entry-title">
-                        <a href="{{ route('details-page', $latest_product->slug ) }}">{!! $latest_product->title !!}</a>
-                      </h4>
-                      <span class="entry-meta">{!! price_html( get_product_price_html_by_filter(get_role_based_price_by_product_id($latest_product->id, $latest_product->price)), get_frontend_selected_currency()) !!}</span>
-                    </div>
-                  </div>
-                @endforeach
-              @else
-                <p class="not-available">{!! trans('frontend.latest_products_empty_label') !!}</p>
-              @endif
-              
+        
+      </div>
+    </div>
+    <div class="col-md-4 col-sm-6">
+      <div class="widget widget-featured-products">
+        <h3 class="widget-title">{!! trans('frontend.best_sales_label') !!}</h3>
+        @if(count($advancedData['best_sales']) > 0)
+          @foreach($advancedData['best_sales'] as $key => $best_sales_product)
+            <!-- Entry-->
+            <div class="entry">
+              <div class="entry-thumb">
+                <a href="{{ route('details-page', $best_sales_product->slug ) }}">
+                    @if(!empty($best_sales_product->image_url))
+                    <img class="d-block" src="{{ get_image_url( $best_sales_product->image_url ) }}" alt="{{ basename( get_image_url( $best_sales_product->image_url ) ) }}" />
+                    @else
+                    <img class="d-block" src="{{ default_placeholder_img_src() }}" alt="" />
+                    @endif
+                </a>
+              </div>
+              <div class="entry-content">
+                <h4 class="entry-title">
+                  <a href="{{ route('details-page', $best_sales_product->slug ) }}">{!! $best_sales_product->title !!}</a>
+                </h4>
+                <span class="entry-meta">{!! price_html( get_product_price_html_by_filter(get_role_based_price_by_product_id($best_sales_product->id, $best_sales_product->price)), get_frontend_selected_currency()) !!}</span>
+              </div>
             </div>
-          </div>
-          <div class="col-md-4 col-sm-6">
-            <div class="widget widget-featured-products">
-              <h3 class="widget-title">{!! trans('frontend.best_sales_label') !!}</h3>
-              @if(count($advancedData['best_sales']) > 0)
-                @foreach($advancedData['best_sales'] as $key => $best_sales_product)
-                  <!-- Entry-->
-                  <div class="entry">
-                    <div class="entry-thumb">
-                      <a href="{{ route('details-page', $best_sales_product->slug ) }}">
-                          @if(!empty($best_sales_product->image_url))
-                          <img class="d-block" src="{{ get_image_url( $best_sales_product->image_url ) }}" alt="{{ basename( get_image_url( $best_sales_product->image_url ) ) }}" />
-                          @else
-                          <img class="d-block" src="{{ default_placeholder_img_src() }}" alt="" />
-                          @endif
-                      </a>
-                    </div>
-                    <div class="entry-content">
-                      <h4 class="entry-title">
-                        <a href="{{ route('details-page', $best_sales_product->slug ) }}">{!! $best_sales_product->title !!}</a>
-                      </h4>
-                      <span class="entry-meta">{!! price_html( get_product_price_html_by_filter(get_role_based_price_by_product_id($best_sales_product->id, $best_sales_product->price)), get_frontend_selected_currency()) !!}</span>
-                    </div>
-                  </div>
-                @endforeach
-              @else
-                <p class="not-available">{!! trans('frontend.best_sales_products_empty_label') !!}</p>
-              @endif
-              
+          @endforeach
+        @else
+          <p class="not-available">{!! trans('frontend.best_sales_products_empty_label') !!}</p>
+        @endif
+        
+      </div>
+    </div>
+    <div class="col-md-4 col-sm-6">
+      <div class="widget widget-featured-products">
+        <h3 class="widget-title">{!! trans('frontend.todays_sale_label') !!}</h3>
+        @if(count($advancedData['todays_deal']) > 0)
+          @foreach($advancedData['todays_deal'] as $key => $todays_sales_product)
+            <!-- Entry-->
+            <div class="entry">
+              <div class="entry-thumb">
+                <a href="{{ route('details-page', $todays_sales_product->slug ) }}">
+                    @if(!empty($todays_sales_product->image_url))
+                    <img class="d-block" src="{{ get_image_url( $todays_sales_product->image_url ) }}" alt="{{ basename( get_image_url( $todays_sales_product->image_url ) ) }}" />
+                    @else
+                    <img class="d-block" src="{{ default_placeholder_img_src() }}" alt="" />
+                    @endif
+                </a>
+              </div>
+              <div class="entry-content">
+                <h4 class="entry-title">
+                  <a href="{{ route('details-page', $todays_sales_product->slug ) }}">{!! $todays_sales_product->title !!}</a>
+                </h4>
+                <span class="entry-meta">{!! price_html( get_product_price_html_by_filter(get_role_based_price_by_product_id($todays_sales_product->id, $todays_sales_product->price)), get_frontend_selected_currency()) !!}</span>
+              </div>
             </div>
-          </div>
-          <div class="col-md-4 col-sm-6">
-            <div class="widget widget-featured-products">
-              <h3 class="widget-title">{!! trans('frontend.todays_sale_label') !!}</h3>
-              @if(count($advancedData['todays_deal']) > 0)
-                @foreach($advancedData['todays_deal'] as $key => $todays_sales_product)
-                  <!-- Entry-->
-                  <div class="entry">
-                    <div class="entry-thumb">
-                      <a href="{{ route('details-page', $todays_sales_product->slug ) }}">
-                          @if(!empty($todays_sales_product->image_url))
-                          <img class="d-block" src="{{ get_image_url( $todays_sales_product->image_url ) }}" alt="{{ basename( get_image_url( $todays_sales_product->image_url ) ) }}" />
-                          @else
-                          <img class="d-block" src="{{ default_placeholder_img_src() }}" alt="" />
-                          @endif
-                      </a>
-                    </div>
-                    <div class="entry-content">
-                      <h4 class="entry-title">
-                        <a href="{{ route('details-page', $todays_sales_product->slug ) }}">{!! $todays_sales_product->title !!}</a>
-                      </h4>
-                      <span class="entry-meta">{!! price_html( get_product_price_html_by_filter(get_role_based_price_by_product_id($todays_sales_product->id, $todays_sales_product->price)), get_frontend_selected_currency()) !!}</span>
-                    </div>
-                  </div>
-                @endforeach
-              @else
-                <p class="not-available">{!! trans('frontend.todays_products_empty_label') !!}</p>
-              @endif
-              
-            </div>
-          </div>
-        </div>
-      </section>
-      <!-- Popular Brands-->
-      <section class="bg-faded padding-top-3x padding-bottom-3x">
-        <div class="container">
-          <h3 class="text-center mb-30 pb-2">Gian hàng hoạt động hiệu quả</h3>
-          <div class="owl-carousel" data-owl-carousel="{ &quot;nav&quot;: false, &quot;dots&quot;: false, &quot;loop&quot;: true, &quot;autoplay&quot;: true, &quot;autoplayTimeout&quot;: 4000, &quot;responsive&quot;: {&quot;0&quot;:{&quot;items&quot;:2}, &quot;470&quot;:{&quot;items&quot;:3},&quot;630&quot;:{&quot;items&quot;:4},&quot;991&quot;:{&quot;items&quot;:5},&quot;1200&quot;:{&quot;items&quot;:6}} }"><img class="d-block w-110 opacity-75 m-auto" src="img/brands/01.png" alt="Adidas"><img class="d-block w-110 opacity-75 m-auto" src="img/brands/02.png" alt="Brooks"><img class="d-block w-110 opacity-75 m-auto" src="img/brands/03.png" alt="Valentino"><img class="d-block w-110 opacity-75 m-auto" src="img/brands/04.png" alt="Nike"><img class="d-block w-110 opacity-75 m-auto" src="img/brands/05.png" alt="Puma"><img class="d-block w-110 opacity-75 m-auto" src="img/brands/06.png" alt="New Balance"><img class="d-block w-110 opacity-75 m-auto" src="img/brands/07.png" alt="Dior"></div>
-        </div>
-      </section>
-      <!-- Services-->
-      <section class="container padding-top-3x padding-bottom-2x">
-        <div class="row">
-          <div class="col-md-3 col-sm-6 text-center mb-30"><img class="d-block w-90 img-thumbnail rounded-circle mx-auto mb-3" src="img/services/01.png" alt="Shipping">
-            <h6>Miễn phí vận chuyển</h6>
-            <p class="text-muted margin-bottom-none">Miễn phí vận chuyển nội tỉnh</p>
-          </div>
-          <div class="col-md-3 col-sm-6 text-center mb-30"><img class="d-block w-90 img-thumbnail rounded-circle mx-auto mb-3" src="img/services/02.png" alt="Money Back">
-            <h6>Đảm bảo hoàn tiền</h6>
-            <p class="text-muted margin-bottom-none">Hoàn tiền trong vòng 30 ngày</p>
-          </div>
-          <div class="col-md-3 col-sm-6 text-center mb-30"><img class="d-block w-90 img-thumbnail rounded-circle mx-auto mb-3" src="img/services/03.png" alt="Support">
-            <h6>Hỗ trợ 24/7</h6>
-            <p class="text-muted margin-bottom-none">Hỗ trợ nhiệt thành, thân thiện</p>
-          </div>
-          <div class="col-md-3 col-sm-6 text-center mb-30"><img class="d-block w-90 img-thumbnail rounded-circle mx-auto mb-3" src="img/services/04.png" alt="Payment">
-            <h6>Thanh toán an toàn</h6>
-            <p class="text-muted margin-bottom-none">Có chứng nhận SSL / Chứng chỉ bảo mật</p>
-          </div>
-        </div>
-      </section>
+          @endforeach
+        @else
+          <p class="not-available">{!! trans('frontend.todays_products_empty_label') !!}</p>
+        @endif
+        
+      </div>
+    </div>
+  </div>
+</section>
+<!-- Popular Brands-->
+<section class="bg-faded padding-top-3x padding-bottom-3x">
+  <div class="container">
+    <h3 class="text-center mb-30 pb-2">Gian hàng hoạt động hiệu quả</h3>
+    <div class="owl-carousel" data-owl-carousel='{ "nav": false, "dots": false, "loop": true, "autoplay": true, "autoplayTimeout": 4000, "responsive": {"0":{"items":2}, "470":{"items":3},"630":{"items":4},"991":{"items":5},"1200":{"items":6}} }'>
+      <img class="d-block w-110 opacity-75 m-auto" src="img/brands/01.png" alt="Adidas">
+      <img class="d-block w-110 opacity-75 m-auto" src="img/brands/02.png" alt="Brooks">
+      <img class="d-block w-110 opacity-75 m-auto" src="img/brands/03.png" alt="Valentino">
+      <img class="d-block w-110 opacity-75 m-auto" src="img/brands/04.png" alt="Nike">
+      <img class="d-block w-110 opacity-75 m-auto" src="img/brands/05.png" alt="Puma">
+      <img class="d-block w-110 opacity-75 m-auto" src="img/brands/06.png" alt="New Balance">
+      <img class="d-block w-110 opacity-75 m-auto" src="img/brands/07.png" alt="Dior">
+    </div>
+  </div>
+</section>
+<!-- Services-->
+<section class="container padding-top-3x padding-bottom-2x">
+  <div class="row">
+    <div class="col-md-3 col-sm-6 text-center mb-30"><img class="d-block w-90 img-thumbnail rounded-circle mx-auto mb-3" src="img/services/01.png" alt="Shipping">
+      <h6>Miễn phí vận chuyển</h6>
+      <p class="text-muted margin-bottom-none">Miễn phí vận chuyển nội tỉnh</p>
+    </div>
+    <div class="col-md-3 col-sm-6 text-center mb-30"><img class="d-block w-90 img-thumbnail rounded-circle mx-auto mb-3" src="img/services/02.png" alt="Money Back">
+      <h6>Đảm bảo hoàn tiền</h6>
+      <p class="text-muted margin-bottom-none">Hoàn tiền trong vòng 30 ngày</p>
+    </div>
+    <div class="col-md-3 col-sm-6 text-center mb-30"><img class="d-block w-90 img-thumbnail rounded-circle mx-auto mb-3" src="img/services/03.png" alt="Support">
+      <h6>Hỗ trợ 24/7</h6>
+      <p class="text-muted margin-bottom-none">Hỗ trợ nhiệt thành, thân thiện</p>
+    </div>
+    <div class="col-md-3 col-sm-6 text-center mb-30"><img class="d-block w-90 img-thumbnail rounded-circle mx-auto mb-3" src="img/services/04.png" alt="Payment">
+      <h6>Thanh toán an toàn</h6>
+      <p class="text-muted margin-bottom-none">Có chứng nhận SSL / Chứng chỉ bảo mật</p>
+    </div>
+  </div>
+</section>

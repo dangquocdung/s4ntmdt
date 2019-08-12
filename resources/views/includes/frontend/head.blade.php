@@ -56,19 +56,66 @@
     <!-- Vendor Styles including: Bootstrap, Font Icons, Plugins, etc.-->
     <link rel="stylesheet" media="screen" href="/css/vendor.min.css">
     <!-- Unishop Template Styles-->
-    <link id="mainStyles" rel="stylesheet" media="screen" href="/css/app.css">
+    <link id="mainStyles" rel="stylesheet" media="screen" href="{{ mix('/css/app.css') }}">
+
+    <script type="text/javascript" src="{{ URL::asset('/jquery/jquery-1.10.2.js') }}"></script>
+
+    <script type="text/javascript" src="{{ URL::asset('/jquery/jquery-ui-1.11.4.js') }}"></script>
+    <script type="text/javascript" src="{{ URL::asset('/dropzone/dropzone.js') }}"></script>
+    <script type="text/javascript" src="{{ URL::asset('/bootstrap/js/popper.min.js') }}"></script>
+    <script type="text/javascript" src="{{ URL::asset('/bootstrap/js/bootstrap.min.js') }}"></script>
+    <script type="text/javascript" src="{{ URL::asset('/plugins/datatable/jquery.dataTables.min.js') }}"></script>
+    <script type="text/javascript" src="{{ URL::asset('/plugins/datatable/dataTables.bootstrap4.min.js') }}"></script>
+    <script type="text/javascript" src="{{ URL::asset('/plugins/datatable/dataTables.responsive.min.js') }}"></script>
+    <script type="text/javascript" src="{{ URL::asset('/plugins/datatable/responsive.bootstrap4.min.js') }}"></script>
+    <script type="text/javascript" src="{{ URL::asset('/frontend/js/jquery.scrollUp.min.js') }}"></script>
+    <script type="text/javascript" src="{{ URL::asset('/sweetalert/sweetalert.min.js') }}"></script>
+    <script type="text/javascript" src="{{ URL::asset('/plugins/select2/select2.full.min.js') }}"></script>
+
+    @if(Request::is('product/customize/*'))
+        <script type="text/javascript" src="{{ URL::asset('/designer/fabric-1.5.0.min.js') }}"></script>
+        <script type="text/javascript" src="{{ URL::asset('/designer/customiseControls.min.js') }}"></script>
+        <script type="text/javascript" src="{{ URL::asset('/designer/fabric.curvedText.js') }}"></script>
+        <script type="text/javascript" src="{{ URL::asset('/designer/jsPDF.js') }}"></script>
+        <script type="text/javascript" src="{{ URL::asset('/designer/designer.js') }}"></script>
+        <script type="text/javascript" src="{{ URL::asset('/designer/designerControl.js') }}"></script>
+    @endif
+
+    <script type="text/javascript" src="{{ URL::asset('/designer/colorpicker/jscolor.js') }}"></script>
+    <script type="text/javascript" src="{{ URL::asset('/designer/scroll/jquery.mCustomScrollbar.concat.min.js') }}"></script>
+    <script type="text/javascript" src="{{ URL::asset('/plugins/ionslider/ion.rangeSlider.min.js') }}"></script>
+    <script type="text/javascript" src="{{ URL::asset('/plugins/bootstrap-slider/bootstrap-slider.js') }}"></script>
+    <script type="text/javascript" src="{{ URL::asset('/frontend/js/products-variation.js') }}"></script>
+    {{-- <script type="text/javascript" src="{{ URL::asset('/frontend/js/products-add-to-cart.js') }}"></script> --}}
+    <script type="text/javascript" src="{{ URL::asset('/frontend/js/price-range.js') }}"></script>
+    <script type="text/javascript" src="{{ URL::asset('/plugins/iCheck/icheck.min.js') }}"></script>
+    <script type="text/javascript" src="{{ URL::asset('/modal/js/modal.js') }}"></script>
+    <script type="text/javascript" src="{{ URL::asset('/frontend/js/jquery.validate.js') }}"></script>
+
 
     <script type="text/javascript" src="{{ URL::asset('/jquery/jquery-1.10.2.js') }}"></script>
     <script type="text/javascript" src="{{ URL::asset('/jquery/jquery-ui-1.11.4.js') }}"></script>
     <script type="text/javascript" src="{{ URL::asset('/dropzone/dropzone.js') }}"></script>
     <script type="text/javascript" src="{{ URL::asset('/bootstrap/js/popper.min.js') }}"></script>
     <script type="text/javascript" src="{{ URL::asset('/bootstrap/js/bootstrap.min.js') }}"></script>
-    <script type="text/javascript" src="{{ URL::asset('/frontend/js/products-add-to-cart.js') }}"></script>
+    {{-- <script type="text/javascript" src="{{ URL::asset('/frontend/js/products-add-to-cart.js') }}"></script> --}}
+
+    <script  type="text/javascript" src="{{ mix('/js/app.js') }}"></script>
+
+
+
+    
+
 
 
     <!-- Modernizr-->
     <script src="js/modernizr.min.js"></script>
     <!-- JavaScript (jQuery) libraries, plugins and custom scripts-->
-    {{-- <script src="/js/vendor.min.js"></script> --}}
+    <script src="/js/vendor.min.js"></script>
     <script src="/js/scripts.min.js"></script>
     <script src='https://www.google.com/recaptcha/api.js'></script>
+
+    <script type="text/javascript" src="{{ URL::asset('/frontend/js/common.js') }}"></script>
+    <script type="text/javascript" src="{{ URL::asset('/frontend/js/social-network.js') }}"></script>
+    <script type="text/javascript" src="{{ URL::asset('/slick/slick.min.js') }}"></script>
+    <script type="text/javascript" src="{{ URL::asset('/common/base64.js') }}"></script>

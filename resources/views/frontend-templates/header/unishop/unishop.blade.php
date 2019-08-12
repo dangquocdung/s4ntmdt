@@ -291,8 +291,8 @@
             </ul>
           </div>
 
-          <div class="cart">
-            @include('pages.ajax-pages.mini-cart-html3')
+          <div class="cart mini-cart-content">
+            @include('pages.ajax-pages.mini-cart-html')
             
           </div>
         </div>

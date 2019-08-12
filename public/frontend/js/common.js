@@ -2,6 +2,7 @@ var frontendLocalizationString;
 
 /*scroll to top*/
 $(document).ready(function() {
+
     $(function() {
         $.scrollUp({
             scrollName: 'scrollUp',
@@ -710,6 +711,7 @@ var shopist_frontend = shopist_frontend || {};
 
 shopist_frontend.init = {
     pageLoad: function() {
+
         $('.category-products .collapse').on('shown.bs.collapse', function() {
             $(this).parent().find(".fa-plus").removeClass("fa-plus").addClass("fa-minus");
         }).on('hidden.bs.collapse', function() {
