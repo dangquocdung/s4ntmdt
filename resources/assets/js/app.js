@@ -7,6 +7,7 @@
 require('./bootstrap');
 require('./common.js')
 require('./products-add-to-cart');
+require('./unishop');
 
 // window.Vue = require('vue');
 

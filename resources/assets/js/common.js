@@ -670,11 +670,6 @@ $(document).ready(function() {
         });
     }
 
-    $(".vendor-categories-list").mCustomScrollbar({
-        autoHideScrollbar: true,
-        theme: "rounded"
-    });
-
     if ($('.vendor-special-products-menu').length > 0) {
         $('#vendor_home_content ul.vendor-special-products-menu li a').on('click', function() {
             $(this).parents('.vendor-special-products-menu').find('.active').removeClass('active');
