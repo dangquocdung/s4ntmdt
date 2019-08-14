@@ -36,17 +36,23 @@
 <div class="offcanvas-container" id="mobile-menu">
   @if (Session::has('shopist_frontend_user_id'))
     <a class="account-link" href="account-orders.html">
-      <div class="user-ava"><img src="img/account/user-ava-md.jpg" alt="Daniel Adams">
+      <div class="user-ava">
+          @if($login_user_details['user_photo_url'])
+            <img src="{{ get_image_url($login_user_details['user_photo_url']) }}" alt="">
+          @else
+            <img src="{{ default_avatar_img_src() }}" alt="">
+          @endif
       </div>
       <div class="user-info">
-        <h6 class="user-name">Daniel Adams</h6><span class="text-sm text-white opacity-60">290 Reward points</span>
+        <h6 class="user-name">{{ $login_user_details['user_display_name'] }}</h6>
+        {{-- <span class="text-sm text-white opacity-60">290 Reward points</span> --}}
       </div>
     </a>
   @endif
   <nav class="offcanvas-menu">
     <ul class="menu">
         
-        <li class="has-children"><span><a href="index.html">Tài khoản</a><span class="sub-menu-toggle"></span></span>
+        <li class="has-children"><span><a href="{{ route('user-account-page') }}">Tài khoản</a><span class="sub-menu-toggle"></span></span>
           <ul class="offcanvas-submenu">
               @if (Session::has('shopist_frontend_user_id'))
               <li><a href="{{ route('user-account-page') }}">{!! trans('frontend.user_account_label') !!}</a></li>
