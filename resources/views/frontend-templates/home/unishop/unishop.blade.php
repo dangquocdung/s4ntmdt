@@ -147,7 +147,7 @@
           <a class="product-button btn-wishlist product-wishlist" href="" data-id="{{ $features_product->id }}" data-toggle="tooltip" data-placement="top" title="{{ trans('frontend.add_to_wishlist_label') }}">
             <i class="icon-heart"></i><span>{{ trans('frontend.wishlist') }}</span>
           </a>
-          <a class="product-button btn-compare" href="" data-id="{{ $features_product->id }}" data-toggle="tooltip" data-placement="top" title="{{ trans('frontend.add_to_compare_list_label') }}">
+          <a class="product-button btn-compare product-compare" href="" data-id="{{ $features_product->id }}" data-toggle="tooltip" data-placement="top" title="{{ trans('frontend.add_to_compare_list_label') }}">
             <i class="icon-repeat"></i><span>{{ trans('frontend.add_to_compare_list_label') }}</span>
           </a>
           <a class="product-button btn-compare" href="{{ route('details-page', $features_product->slug) }}" data-toggle="tooltip" data-placement="top" title="{{ trans('frontend.product_details_label') }}">

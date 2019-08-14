@@ -11,7 +11,7 @@ $(document).ready(function() {
     });
 
     if ($('#hf_base_url').length > 0 && $('#lang_code').length > 0) {
-        $.getJSON($('#hf_base_url').val() + '/resources/lang/' + $('#lang_code').val() + '/frontend_js.json', function(data) {
+        $.getJSON('/resources/lang/' + $('#lang_code').val() + '/frontend_js.json', function(data) {
             frontendLocalizationString = data;
         });
     }
