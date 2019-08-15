@@ -1,5 +1,5 @@
 @extends('layouts.admin.master')
-@section('title', trans('admin.vendor_package_select') .' < '. get_site_title())
+@section('title', trans('admin.vendor_package_select') .' | '. get_site_title())
 
 @section('content')
 <div id="vendor_package_select_option">

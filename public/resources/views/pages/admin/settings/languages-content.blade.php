@@ -1,5 +1,5 @@
 @extends('layouts.admin.master')
-@section('title', trans('admin.manage_languages') .' < '. get_site_title())
+@section('title', trans('admin.manage_languages') .' | '. get_site_title())
 
 @section('content')
 <form class="form-horizontal lang-settings" method="post" action="" enctype="multipart/form-data">

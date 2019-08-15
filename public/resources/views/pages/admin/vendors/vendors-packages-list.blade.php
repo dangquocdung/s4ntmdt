@@ -1,5 +1,5 @@
 @extends('layouts.admin.master')
-@section('title', trans('admin.vendors_package_list_label') .' < '. get_site_title())
+@section('title', trans('admin.vendors_package_list_label') .' | '. get_site_title())
 
 @section('content')
 <div class="row">

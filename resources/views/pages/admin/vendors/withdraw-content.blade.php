@@ -1,5 +1,5 @@
 @extends('layouts.admin.master')
-@section('title', trans('admin.withdraw_title_label') .' < '. get_site_title())
+@section('title', trans('admin.withdraw_title_label') .' | '. get_site_title())
 
 @section('content')
   @if(is_vendor_login())

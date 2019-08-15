@@ -1,5 +1,5 @@
 @extends('layouts.frontend.master')
-@section('title',  trans('frontend.shopist_customize_page') .' < '. get_site_title() )
+@section('title',  trans('frontend.shopist_customize_page') .' | '. get_site_title() )
 
 @section('content')
 <div id="product_designer" class="container new-container">

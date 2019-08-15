@@ -1,5 +1,5 @@
 @extends('layouts.admin.master')
-@section('title', trans('admin.vendors_list_page_title') .' < '. get_site_title())
+@section('title', trans('admin.vendors_list_page_title') .' | '. get_site_title())
 
 @section('content')
 <h4 class="box-title">{!! trans('admin.vendors_list_label') !!}</h4><hr class="text-border-bottom">

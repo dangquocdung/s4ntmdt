@@ -1,8 +1,8 @@
 @extends('layouts.admin.master')
 @if(Request::is('admin/product/categories/list'))
-  @section('title', trans('admin.product_categories_list') .' < '. get_site_title())
+  @section('title', trans('admin.product_categories_list') .' | '. get_site_title())
 @elseif(Request::is('admin/blog/categories/list'))
-  @section('title', trans('admin.blog_categories_list') .' < '. get_site_title())
+  @section('title', trans('admin.blog_categories_list') .' | '. get_site_title())
 @endif
 
 @section('content')

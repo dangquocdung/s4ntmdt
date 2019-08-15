@@ -1,5 +1,5 @@
 @extends('layouts.admin.master')
-@section('title', trans('admin.settings') .' < '. get_site_title())
+@section('title', trans('admin.settings') .' | '. get_site_title())
 
 @section('content')
 @include('pages-message.notify-msg-success')

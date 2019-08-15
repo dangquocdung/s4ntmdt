@@ -1,5 +1,5 @@
 @extends('layouts.frontend.master')
-@section('title',  trans('frontend.shopist_order_received_title') .' < '. get_site_title() )
+@section('title',  trans('frontend.shopist_order_received_title') .' | '. get_site_title() )
 
 @section('content')
   @if( count($order_details_for_thank_you_page) > 0)

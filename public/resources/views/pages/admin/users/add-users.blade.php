@@ -1,5 +1,5 @@
 @extends('layouts.admin.master')
-@section('title', trans('admin.add_user_page_title') .' < '. get_site_title())
+@section('title', trans('admin.add_user_page_title') .' | '. get_site_title())
 
 @section('content')
 @include('pages-message.form-submit')

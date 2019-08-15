@@ -1,5 +1,5 @@
 @extends('layouts.admin.master')
-@section('title', trans('admin.update_bacs_payment') .' < '. get_site_title())
+@section('title', trans('admin.update_bacs_payment') .' | '. get_site_title())
 
 @section('content')
 @if(count($payment_method_data) >0)

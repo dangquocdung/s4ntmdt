@@ -1,5 +1,5 @@
 @extends('layouts.admin.install')
-@section('title', trans('frontend.retrieve_password') .' < '. get_site_title() )
+@section('title', trans('frontend.retrieve_password') .' | '. get_site_title() )
 @section('content')
 
 <br><br>

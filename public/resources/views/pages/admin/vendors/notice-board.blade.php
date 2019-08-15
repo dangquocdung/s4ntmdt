@@ -1,5 +1,5 @@
 @extends('layouts.admin.master')
-@section('title', trans('admin.notice_board_label') .' < '. get_site_title())
+@section('title', trans('admin.notice_board_label') .' | '. get_site_title())
 
 @section('content')
 <div id="vendor_notice_board">

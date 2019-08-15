@@ -1,5 +1,5 @@
 @extends('layouts.admin.master')
-@section('title', trans('admin.compare_products_page_title') .' < '. get_site_title())
+@section('title', trans('admin.compare_products_page_title') .' | '. get_site_title())
 
 @section('content')
 <form class="form-horizontal" method="post" action="" enctype="multipart/form-data">

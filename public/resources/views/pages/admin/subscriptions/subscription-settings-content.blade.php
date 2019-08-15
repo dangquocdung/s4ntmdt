@@ -1,5 +1,5 @@
 @extends('layouts.admin.master')
-@section('title', trans('admin.subscription_settings_page_title') .' < '. get_site_title())
+@section('title', trans('admin.subscription_settings_page_title') .' | '. get_site_title())
 
 @section('content')
 @include('pages-message.notify-msg-success')

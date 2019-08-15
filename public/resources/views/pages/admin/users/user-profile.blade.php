@@ -1,5 +1,5 @@
 @extends('layouts.admin.master')
-@section('title', trans('admin.user_profile') .' < '. get_site_title())
+@section('title', trans('admin.user_profile') .' | '. get_site_title())
 
 @section('content')
 @if($user_profile_data->count() > 0)
