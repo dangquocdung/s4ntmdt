@@ -1,74 +1,176 @@
-@if(count($blogs_all_data) > 0)
-<div class="blog-content-main">
-  <div class="row">
-    <div class="col-sm-12 col-md-3">
-      @include('includes.frontend.blog-categories')
-      @yield('blog-categories-content')    
-    </div> 
-      
-    <div class="col-sm-12 col-md-6">
-      @foreach($blogs_all_data as $row)
-      <div class="blog-content-elements-main">
-        <div class="row">
-          <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
-            <div class="blog-media">
-              @if(!empty($row['featured_image']))
-                <img class="img-responsive" src="{{ get_image_url($row['featured_image']) }}" alt="{{ basename($row['featured_image']) }}">
-              @else
-                <img class="img-responsive" src="{{ default_placeholder_img_src() }}" alt="media">
-              @endif
-            </div>
-          </div>
-          
-          <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
-            <div class="blog-text">
-              <p>
-                <span class="blog-date"><i class="fa fa-calendar"></i>&nbsp;{{ Carbon\Carbon::parse($row['created_at'])->format('d F, Y') }}</span> &nbsp;&nbsp;
-                <span class="blog-comments"> <i class="fa fa-comment"></i>&nbsp; {!! $row['comments_details']['total'] !!} {!! trans('frontend.comments_label') !!}</span>
-              </p>
-              <p class="blog-title">{!! $row['post_title'] !!}</p>
-              <p class="blog-description">
-                {!! get_limit_string(string_decode($row['post_content']), $row['allow_max_number_characters_at_frontend']) !!}
-              </p>
-              <br>
-              <div class="btn-read-more"><a class="btn btn-block btn-default" href="{{ route('blog-single-page', $row['post_slug']) }}">{!! trans('frontend.read_more_label') !!}</a></div>
-            </div>
-          </div>
-        </div>
-      </div>
-      @endforeach
-    </div>
+@section('content')
 
-    <div class="col-sm-12 col-md-3">
-      @if(count($advanced_data['best_items']) > 0)  
-      <div class="best-blog">
-        <div class="content-title">
-          <h2 class="text-center title-under">{!! trans('frontend.best_from_the_blog_title') !!}</h2>
-        </div>
-        <div class="best-blog-content">
-          <div class="row">
-            @foreach($advanced_data['best_items'] as $items)
-              <div class="col-md-12 blog-box blog-extra-padding">
-                <a href="{{ route('blog-single-page', $items['post_slug'])}}">
-                  @if(!empty($items['blog_image']))  
-                    <img class="img-responsive" src="{{ get_image_url($items['blog_image']) }}"  alt="{{ basename($items['blog_image']) }}">          
+  <!-- Page Content-->
+  <div class="container padding-bottom-3x mb-1">
+    <div class="row">
+      <!-- Products-->
+      <div class="col-xl-9 col-lg-8 order-lg-2">
+        <!-- Shop Toolbar-->
+        <div class="shop-toolbar padding-bottom-1x mb-2">
+          <div class="column">
+            <div class="shop-sorting">
+                <label for="sorting">{{ trans('frontend.sort_filter_label') }}:</label>
+                <select class="form-control" id="sorting">
+                  @if($all_products_details['sort_by'] == 'all')  
+                  <option selected="selected" value="all">{{ trans('frontend.sort_filter_all_label') }}</option>
                   @else
-                    <img class="img-responsive" src="{{ default_placeholder_img_src() }}"  alt="">          
+                  <option value="all">{{ trans('frontend.sort_filter_all_label') }}</option>
                   @endif
-                  <div class="blog-bottom-text">
-                    <p class="blog-title">{!! $items['post_title'] !!}</p>
-                    <p><span class="blog-date"><i class="fa fa-calendar"></i>&nbsp; {{ Carbon\Carbon::parse($items['created_at'])->format('d F, Y') }}</span>&nbsp;&nbsp;<span class="blog-comments"> <i class="fa fa-comment"></i>&nbsp; {!! $items['comments_details']['total'] !!} {!! trans('frontend.comments_label') !!}</span></p>
-                  </div>
-                </a>
-              </div>
-            @endforeach
+
+                  @if($all_products_details['sort_by'] == 'alpaz')  
+                  <option selected="selected" value="alpaz">{{ trans('frontend.sort_filter_alpaz_label') }}</option>
+                  @else
+                  <option value="alpaz">{{ trans('frontend.sort_filter_alpaz_label') }}</option>
+                  @endif
+
+                  @if($all_products_details['sort_by'] == 'alpza')  
+                  <option selected="selected" value="alpza">{{ trans('frontend.sort_filter_alpza_label') }}</option>
+                  @else
+                  <option value="alpza">{{ trans('frontend.sort_filter_alpza_label') }}</option>
+                  @endif
+
+                  @if($all_products_details['sort_by'] == 'low-high')  
+                  <option selected="selected" value="low-high">{{ trans('frontend.sort_filter_low_high_label') }}</option>
+                  @else
+                  <option value="low-high">{{ trans('frontend.sort_filter_low_high_label') }}</option>
+                  @endif
+
+                  @if($all_products_details['sort_by'] == 'high-low')  
+                  <option selected="selected" value="high-low">{{ trans('frontend.sort_filter_high_low_label') }}</option>
+                  @else
+                  <option value="high-low">{{ trans('frontend.sort_filter_high_low_label') }}</option>
+                  @endif
+
+                  @if($all_products_details['sort_by'] == 'old-new')  
+                  <option selected="selected" value="old-new">{{ trans('frontend.sort_filter_old_new_label') }}</option>
+                  @else
+                  <option value="old-new">{{ trans('frontend.sort_filter_old_new_label') }}</option>
+                  @endif
+
+                  @if($all_products_details['sort_by'] == 'new-old')
+                  <option selected="selected" value="new-old">{{ trans('frontend.sort_filter_new_old_label') }}</option>
+                  @else
+                  <option value="new-old">{{ trans('frontend.sort_filter_new_old_label') }}</option>
+                  @endif
+                </select>
+              {{-- <label for="sorting">Sort by:</label>
+              <select class="form-control" id="sorting">
+                <option>Popularity</option>
+                <option>Low - High Price</option>
+                <option>High - Low Price</option>
+                <option>Avarage Rating</option>
+                <option>A - Z Order</option>
+                <option>Z - A Order</option>
+              </select> --}}
+              <span class="text-muted">Showing:&nbsp;</span><span>1 - 12 items</span>
+            </div>
+          </div>
+          <div class="column">
+            <div class="shop-view">
+                    @if($all_products_details['selected_view'] == 'grid')
+                      <a class="grid-view active" href="{{ $all_products_details['action_url_grid_view'] }}" data-toggle="tooltip" data-placement="top" title="{{ trans('frontend.grid_label') }}"><span></span><span></span><span></span></a> 
+                    @else  
+                      <a class="grid-view" href="{{ $all_products_details['action_url_grid_view'] }}" data-toggle="tooltip" data-placement="top" title="{{ trans('frontend.grid_label') }}"><span></span><span></span><span></span></a>
+                    @endif
+  
+                    @if($all_products_details['selected_view'] == 'list')
+                      <a class="list-view active" href="{{ $all_products_details['action_url_list_view'] }}" data-toggle="tooltip" data-placement="top" title="{{ trans('frontend.list_label') }}"><span></span><span></span><span></span></a>
+                    @else  
+                      <a class="list-view" href="{{ $all_products_details['action_url_list_view'] }}" data-toggle="tooltip" data-placement="top" title="{{ trans('frontend.list_label') }}"><span></span><span></span><span></span></a>
+                    @endif
+              {{-- <a class="grid-view active" href="shop-grid-ls.html"><span></span><span></span><span></span></a>
+              <a class="list-view" href="shop-list-ls.html"><span></span><span></span><span></span></a> --}}
+            </div>
           </div>
         </div>
+        <!-- Products Grid-->
+        <div class="isotope-grid cols-3 mb-2">
+          <div class="gutter-sizer"></div>
+          <div class="grid-sizer"></div>
+
+          @include('includes.frontend.products')
+
+        </div>
+        <nav class="phan-trang">
+          <div class="column">{!! $all_products_details['products']->appends(Request::capture()->except('page'))->render() !!}</div>
+        </nav>
       </div>
-      @endif
+      <!-- Sidebar          -->
+      <div class="col-xl-3 col-lg-4 order-lg-1">
+        <button class="sidebar-toggle position-left" data-toggle="modal" data-target="#modalShopFilters"><i class="icon-layout"></i></button>
+        <aside class="sidebar sidebar-offcanvas">
+          <!-- Widget Categories-->
+          <section class="widget widget-categories">
+            <h3 class="widget-title">Shop Categories</h3>
+            <ul>
+              <li class="has-children expanded"><a href="#">Shoes</a><span>(1138)</span>
+                <ul>
+                  <li><a href="#">Women's</a><span>(508)</span>
+                    <ul>
+                      <li><a href="#">Sneakers</a></li>
+                      <li><a href="#">Heels</a></li>
+                      <li><a href="#">Loafers</a></li>
+                      <li><a href="#">Sandals</a></li>
+                    </ul>
+                  </li>
+                  
+                  <li><a href="#">Girl's Shoes</a><span>(110)</span></li>
+                </ul>
+              </li>
+              
+            </ul>
+          </section>
+          <!-- Widget Price Range-->
+          <section class="widget widget-categories">
+            <h3 class="widget-title">Price Range</h3>
+            <form class="price-range-slider" method="post" data-start-min="250" data-start-max="650" data-min="0" data-max="1000" data-step="1">
+              <div class="ui-range-slider"></div>
+              <footer class="ui-range-slider-footer">
+                <div class="column">
+                  <button class="btn btn-outline-primary btn-sm" type="submit">Filter</button>
+                </div>
+                <div class="column">
+                  <div class="ui-range-values">
+                    <div class="ui-range-value-min">$<span></span>
+                      <input type="hidden">
+                    </div>&nbsp;-&nbsp;
+                    <div class="ui-range-value-max">$<span></span>
+                      <input type="hidden">
+                    </div>
+                  </div>
+                </div>
+              </footer>
+            </form>
+          </section>
+          <!-- Widget Brand Filter-->
+          <section class="widget">
+            <h3 class="widget-title">Filter by Brand</h3>
+            <div class="custom-control custom-checkbox">
+              <input class="custom-control-input" type="checkbox" id="adidas">
+              <label class="custom-control-label" for="adidas">Adidas&nbsp;<span class="text-muted">(254)</span></label>
+            </div>
+            
+          </section>
+          <!-- Widget Size Filter-->
+          <section class="widget">
+            <h3 class="widget-title">Filter by Size</h3>
+            <div class="custom-control custom-checkbox">
+              <input class="custom-control-input" type="checkbox" id="xl">
+              <label class="custom-control-label" for="xl">XL&nbsp;<span class="text-muted">(208)</span></label>
+            </div>
+            
+          </section>
+          <!-- Promo Banner-->
+          <section class="promo-box" style="background-image: url(img/banners/02.jpg);">
+            <!-- Choose between .overlay-dark (#000) or .overlay-light (#fff) with default opacity of 50%. You can overrride default color and opacity values via 'style' attribute.--><span class="overlay-dark" style="opacity: .45;"></span>
+            <div class="promo-box-content text-center padding-top-3x padding-bottom-2x">
+              <h4 class="text-light text-thin text-shadow">New Collection of</h4>
+              <h3 class="text-bold text-light text-shadow">Sunglassess</h3><a class="btn btn-sm btn-primary" href="#">Shop Now</a>
+            </div>
+          </section>
+        </aside>
+      </div>
     </div>
   </div>
-</div>  
-@else
-<p>{!! trans('frontend.no_blogs_data_label') !!}</p>
-@endif
+  
+@endsection  

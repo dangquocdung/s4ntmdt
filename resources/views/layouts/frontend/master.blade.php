@@ -44,7 +44,7 @@
 
 
         <div class="add-to-cart-loader">
-          <img src="{{ asset('/images/ajax-loader.gif') }}" id="img-load" />
+          <img src="{{ asset('/images/loading.gif') }}" id="img-load" />
           <div class="cart-updating-msg">{{ trans('frontend.cart_updating_msg') }}</div>
         </div>
 
