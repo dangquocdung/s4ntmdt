@@ -1,6 +1,4 @@
 @if($all_products_details['products']->count() > 0)
-
-
   @if($all_products_details['selected_view'] == 'grid')
     @foreach($all_products_details['products'] as $products)
       <?php 

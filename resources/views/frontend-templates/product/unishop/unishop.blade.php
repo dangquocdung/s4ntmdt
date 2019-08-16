@@ -100,42 +100,27 @@
         <button class="sidebar-toggle position-left" data-toggle="modal" data-target="#modalShopFilters"><i class="icon-layout"></i></button>
         <aside class="sidebar sidebar-offcanvas">
           <!-- Widget Categories-->
-          <section class="widget widget-categories">
-            <h3 class="widget-title">Shop Categories</h3>
-            <ul>
-              <li class="has-children expanded"><a href="#">Shoes</a><span>(1138)</span>
-                <ul>
-                  <li><a href="#">Women's</a><span>(508)</span>
-                    <ul>
-                      <li><a href="#">Sneakers</a></li>
-                      <li><a href="#">Heels</a></li>
-                      <li><a href="#">Loafers</a></li>
-                      <li><a href="#">Sandals</a></li>
-                    </ul>
-                  </li>
-                  
-                  <li><a href="#">Girl's Shoes</a><span>(110)</span></li>
-                </ul>
-              </li>
-              
-            </ul>
-          </section>
+          @include('includes.frontend.categories')
+
+         
+          
           <!-- Widget Price Range-->
           <section class="widget widget-categories">
-            <h3 class="widget-title">Price Range</h3>
-            <form class="price-range-slider" method="post" data-start-min="250" data-start-max="650" data-min="0" data-max="1000" data-step="1">
+            <h3 class="widget-title">{{ trans('frontend.price_range_label') }}</h3>
+            <form action="{{ $all_products_details['action_url'] }}" method="get" class="price-range-slider" data-start-min="1" data-start-max="1000000" data-min="0" data-max="5000000" data-step="1000">
               <div class="ui-range-slider"></div>
               <footer class="ui-range-slider-footer">
                 <div class="column">
-                  <button class="btn btn-outline-primary btn-sm" type="submit">Filter</button>
+                  <button class="btn btn-outline-primary btn-sm" type="submit">{{ trans('frontend.filter_label') }}</button>
+
                 </div>
                 <div class="column">
                   <div class="ui-range-values">
-                    <div class="ui-range-value-min">$<span></span>
-                      <input type="hidden">
+                    <div class="ui-range-value-min"><span></span>đ
+                      <input name="price_min" id="price_min" value="{{ $all_products_details['min_price'] }}" type="hidden">
                     </div>&nbsp;-&nbsp;
-                    <div class="ui-range-value-max">$<span></span>
-                      <input type="hidden">
+                    <div class="ui-range-value-max"><span></span>đ
+                      <input name="price_max" id="price_max" value="{{ $all_products_details['max_price'] }}" type="hidden">
                     </div>
                   </div>
                 </div>

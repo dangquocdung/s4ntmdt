@@ -488,6 +488,7 @@ jQuery(document).ready(function($) {
             dataMin = parseInt(rangeSlider.parentNode.getAttribute('data-min'), 10),
             dataMax = parseInt(rangeSlider.parentNode.getAttribute('data-max'), 10),
             dataStep = parseInt(rangeSlider.parentNode.getAttribute('data-step'), 10);
+
         var valueMin = document.querySelector('.ui-range-value-min span'),
             valueMax = document.querySelector('.ui-range-value-max span'),
             valueMinInput = document.querySelector('.ui-range-value-min input'),
