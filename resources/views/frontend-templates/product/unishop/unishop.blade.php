@@ -92,7 +92,9 @@
 
         </div>
         <nav class="phan-trang">
-          <div class="column">{!! $all_products_details['products']->appends(Request::capture()->except('page'))->render() !!}</div>
+          <div class="column">
+            {!! $all_products_details['products']->appends(Request::capture()->except('page'))->render() !!}
+          </div>
         </nav>
       </div>
       <!-- Sidebar          -->

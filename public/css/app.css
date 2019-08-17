@@ -7614,17 +7614,28 @@ video {
   width: 100%;
 }
 
+@media (min-width: 576px) {
+  .product-card .product-thumb > img {
+    max-height: 200px;
+  }
+}
+
 .product-card .product-title {
   margin-bottom: 10px;
   font-size: 16px;
   font-weight: normal;
   text-align: center;
+  line-height: 1.125rem;
+  height: 2.25rem;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .product-card .product-title > a {
   transition: color 0.3s;
   color: #374250;
   text-decoration: none;
+  font-weight: 450;
 }
 
 .product-card .product-title > a:hover {
