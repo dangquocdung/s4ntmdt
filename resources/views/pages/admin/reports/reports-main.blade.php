@@ -1,5 +1,5 @@
 @extends('layouts.admin.master')
-@section('title', trans('admin.reports') .' < '. get_site_title())
+@section('title', trans('admin.reports') .' | '. get_site_title())
 
 @section('content')
 <section class="content reports-parent">

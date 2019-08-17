@@ -1,5 +1,5 @@
 @extends('layouts.admin.master')
-@section('title', trans('admin.vendors_settings_page_title') .' < '. get_site_title())
+@section('title', trans('admin.vendors_settings_page_title') .' | '. get_site_title())
 
 @section('content')
 <style type="text/css">

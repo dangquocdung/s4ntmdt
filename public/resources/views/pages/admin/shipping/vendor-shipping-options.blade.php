@@ -1,5 +1,5 @@
 @extends('layouts.admin.master')
-@section('title', trans('admin.shipping_options') .' < '. get_site_title())
+@section('title', trans('admin.shipping_options') .' | '. get_site_title())
 
 @section('content')
 @if($shipping_method_data)

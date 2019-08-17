@@ -1,5 +1,5 @@
 @extends('layouts.admin.master')
-@section('title', trans('admin.add_new_shape') .' < '. get_site_title())
+@section('title', trans('admin.add_new_shape') .' | '. get_site_title())
 
 @section('content')
 

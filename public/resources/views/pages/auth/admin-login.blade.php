@@ -1,5 +1,5 @@
 @extends('layouts.admin.install')
-@section('title', trans('admin.login') .' < '. get_site_title())
+@section('title', trans('admin.login') .' | '. get_site_title())
 @section('content')
 
 <div class="login-box">

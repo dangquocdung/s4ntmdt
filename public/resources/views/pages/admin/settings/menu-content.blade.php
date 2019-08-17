@@ -1,5 +1,5 @@
 @extends('layouts.admin.master')
-@section('title', trans('admin.manage_menu_content') .' < '. get_site_title())
+@section('title', trans('admin.manage_menu_content') .' | '. get_site_title())
 
 @section('content')
 <div class="box">

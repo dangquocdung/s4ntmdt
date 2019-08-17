@@ -37,14 +37,14 @@
   @if (Session::has('shopist_frontend_user_id'))
     <a class="account-link" href="account-orders.html">
       <div class="user-ava">
-          @if($login_user_details['user_photo_url'])
+          @if(isset($login_user_details) && $login_user_details['user_photo_url'])
             <img src="{{ get_image_url($login_user_details['user_photo_url']) }}" alt="">
           @else
             <img src="{{ default_avatar_img_src() }}" alt="">
           @endif
       </div>
       <div class="user-info">
-        <h6 class="user-name">{{ $login_user_details['user_display_name'] }}</h6>
+        <h6 class="user-name">{{ isset($login_user_details) && $login_user_details['user_display_name'] }}</h6>
         {{-- <span class="text-sm text-white opacity-60">290 Reward points</span> --}}
       </div>
     </a>
@@ -263,23 +263,29 @@
 
               @if (Session::has('shopist_frontend_user_id'))
                 <li class="sub-menu-user">
-                  <div class="user-ava"><img src="img/account/user-ava-sm.jpg" alt="Daniel Adams">
-                  </div>
-                  <div class="user-info">
-                    <h6 class="user-name">Daniel Adams</h6><span class="text-xs text-muted">290 Reward points</span>
-                  </div>
+                    <div class="user-ava">
+                        @if(isset($login_user_details) && $login_user_details['user_photo_url'])
+                          <img src="{{ get_image_url($login_user_details['user_photo_url']) }}" alt="">
+                        @else
+                          <img src="{{ default_avatar_img_src() }}" alt="">
+                        @endif
+                    </div>
+                    <div class="user-info">
+                      <h6 class="user-name">{{ isset($login_user_details) && $login_user_details['user_display_name'] }}</h6>
+                      {{-- <span class="text-sm text-white opacity-60">290 Reward points</span> --}}
+                    </div>
                 </li>
                 <li>
                   <a href="{{ route('user-account-page') }}">{!! trans('frontend.user_account_label') !!}</a>
                 </li>
-                <li><a href="account-orders.html">Orders List</a></li>
-                <li><a href="account-wishlist.html">Wishlist</a></li>
+                <li><a href="{{ route('my-orders-page') }}">{{ trans('frontend.my_orders') }}</a></li>
+                <li><a href="{{ route('my-saved-items-page') }}">{{ trans('frontend.my_saved_items') }}</a></li>
                 <li class="sub-menu-separator"></li>
-                <li><a href="#"> <i class="icon-unlock"></i>Logout</a></li>
+                <li><a href="{{ route('user-logout') }}">{!! trans('admin.sign_out') !!}</a></li>
               @else
                 <li>
                   <a href="{{ route('user-login-page') }}">{!! trans('frontend.frontend_user_login') !!}</a>
-              </li>
+                </li>
               @endif
 
               @if (Session::has('shopist_admin_user_id') && !empty(get_current_vendor_user_info()['user_role_slug']) && get_current_vendor_user_info()['user_role_slug'] == 'vendor')

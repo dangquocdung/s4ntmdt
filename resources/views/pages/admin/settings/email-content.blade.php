@@ -1,5 +1,5 @@
 @extends('layouts.admin.master')
-@section('title', trans('admin.email_content_label') .' < '. get_site_title())
+@section('title', trans('admin.email_content_label') .' | '. get_site_title())
 
 @section('content')
 <div id="email_details_content">

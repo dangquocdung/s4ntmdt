@@ -97,7 +97,6 @@
 {{-- <div class="text-center"><a class="btn btn-outline-secondary margin-top-none" href="shop-categories.html">All Categories</a></div> --}}
 </section>
 
-
 <!-- Featured Products-->
 <section class="container padding-bottom-1x">
 
@@ -136,14 +135,18 @@
             {!! price_html( get_product_price_html_by_filter(get_role_based_price_by_product_id($features_product->id, $features_product->price)), get_frontend_selected_currency()) !!}
           </h4>
         </div>
-        <div class="product-button-group">
 
-            {{-- @if( $features_product->type == 'simple_product' )
-              <a href="" data-id="{{ $features_product->id }}" class="btn btn-sm btn-style add-to-cart-bg" data-toggle="tooltip" data-placement="top" title="{{ trans('frontend.add_to_cart_label') }}"><i class="fa fa-shopping-cart"></i></a>
-              <a href="" class="btn btn-sm btn-style product-wishlist" data-id="{{ $features_product->id }}" data-toggle="tooltip" data-placement="top" title="{{ trans('frontend.add_to_wishlist_label') }}"><i class="fa fa-heart"></i></a>
-              <a href="" class="btn btn-sm btn-style product-compare" data-id="{{ $features_product->id }}" data-toggle="tooltip" data-placement="top" title="{{ trans('frontend.add_to_compare_list_label') }}"><i class="fa fa-exchange"></i></a>
-              <a href="{{ route('details-page', $features_product->slug) }}" class="btn btn-sm btn-style product-details-view" data-toggle="tooltip" data-placement="top" title="{{ trans('frontend.product_details_label') }}"><i class="fa fa-eye"></i></a>
-            @endif --}}
+        <div class="product-buttons">
+          <button class="btn btn-outline-secondary btn-sm btn-wishlist product-wishlist" data-id="{{ $features_product->id }}" data-toggle="tooltip" title="{{ trans('frontend.add_to_wishlist_label') }}" data-original-title="{{ trans('frontend.add_to_wishlist_label') }}">
+            <i class="icon-heart"></i>
+          </button>
+          <button class="btn btn-outline-secondary btn-sm btn-wishlist product-compare" data-id="{{ $features_product->id }}" data-toggle="tooltip" title="" data-original-title="{{ trans('frontend.add_to_compare_list_label') }}">
+            <i class="icon-repeat"></i>
+          </button>
+          <button class="btn btn-outline-primary btn-sm add-to-cart-bg" data-toast data-toast-type="success" data-toast-position="topRight" data-toast-icon="icon-check-circle" data-toast-title="Product" data-toast-message="successfuly added to cart!" data-id="{{ $features_product->id }}" data-toggle="tooltip" data-placement="top"title="" data-original-title="{{ trans('frontend.add_to_cart_label') }}"><i class="icon-bag"></i> Chọn</button>
+        </div>
+
+        {{-- <div class="product-button-group">
           <a class="product-button btn-wishlist product-wishlist" href="" data-id="{{ $features_product->id }}" data-toggle="tooltip" data-placement="top" title="{{ trans('frontend.add_to_wishlist_label') }}">
             <i class="icon-heart"></i><span>{{ trans('frontend.wishlist') }}</span>
           </a>
@@ -159,7 +162,7 @@
               data-toggle="tooltip" data-placement="top" title="{{ trans('frontend.add_to_cart_label') }}">
               <i class="icon-bag"></i><span>{{ trans('frontend.to_cart') }}</span>
           </a>
-        </div>
+        </div> --}}
       </div>
     </div>
   @endforeach

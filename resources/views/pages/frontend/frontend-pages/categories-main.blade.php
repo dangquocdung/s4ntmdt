@@ -1,5 +1,5 @@
 @extends('layouts.frontend.master')
-@section('title', trans('frontend.shopist_category_products') .' < '. get_site_title() )
+@section('title', trans('frontend.shopist_category_products') .' | '. get_site_title() )
 
 @section('content')
 <?php if(isset($product_by_cat_id['breadcrumb_html'])){?>

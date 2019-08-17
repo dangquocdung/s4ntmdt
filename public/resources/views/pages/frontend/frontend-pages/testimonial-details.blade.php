@@ -1,5 +1,5 @@
 @extends('layouts.frontend.master')
-@section('title', trans('frontend.testimonials_details_page_title') .' < '. get_site_title() )
+@section('title', trans('frontend.testimonials_details_page_title') .' | '. get_site_title() )
 
 @section('content')
 <div id="testimonial_details" class="container new-container">

@@ -1,5 +1,5 @@
 @extends('layouts.admin.master')
-@section('title', trans('admin.update_announcement_label') .' < '. get_site_title())
+@section('title', trans('admin.update_announcement_label') .' | '. get_site_title())
 
 @section('content')
 @include('pages-message.form-submit')

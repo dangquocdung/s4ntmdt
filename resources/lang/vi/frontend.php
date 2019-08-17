@@ -120,7 +120,7 @@ return [
   'secret_key' =>'khóa bí mật, cần khôi phục mật khẩu',
   'reset_my_password' =>'Đặt lại mật khẩu của tôi',
   'shopist_home_title' =>'Trang chủ',
-  'shopist_shop_title' =>'Cửa tiệm',
+  'shopist_shop_title' =>'Sản phẩm',
   'shopist_brands_title' =>'Nhãn hiệu',
   'shopist_product_details' =>'Thông tin chi tiết sản phẩm',
   'shopist_category_products' =>'Danh mục sản phẩm',

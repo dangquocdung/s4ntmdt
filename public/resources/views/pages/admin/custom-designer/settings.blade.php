@@ -1,5 +1,5 @@
 @extends('layouts.admin.master')
-@section('title', trans('admin.designer_settings') .' < '. get_site_title())
+@section('title', trans('admin.designer_settings') .' | '. get_site_title())
 
 @section('content')
 @if(count($custom_designer_settings_data) > 0)

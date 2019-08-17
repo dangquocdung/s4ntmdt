@@ -1,5 +1,5 @@
 @extends('layouts.admin.master')
-@section('title', trans('admin.update_product') .' < '. get_site_title())
+@section('title', trans('admin.update_product') .' | '. get_site_title())
 
 @section('content')
 @if (Session::has('update-message'))

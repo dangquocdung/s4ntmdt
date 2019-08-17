@@ -1,5 +1,5 @@
 @extends('layouts.frontend.master')
-@section('title',  trans('frontend.cat_post_label') .' < '. get_site_title() )
+@section('title',  trans('frontend.cat_post_label') .' | '. get_site_title() )
 
 @section('content')
 <br>

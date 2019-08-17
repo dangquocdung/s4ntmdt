@@ -1,5 +1,5 @@
 @extends('layouts.admin.master')
-@section('title', trans('admin.fonts_list') .' < '. get_site_title())
+@section('title', trans('admin.fonts_list') .' | '. get_site_title())
 
 @section('content')
 <style type="text/css">
