@@ -99,116 +99,91 @@
     </div>
 
     <div class="col-xs-12 col-md-8">
-      <div class="row">
-        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-          <div class="advertisement-right">
-            <div id="advertisement-right-carousel" class="carousel slide" data-ride="carousel"> 
-              <div class="carousel-inner">
-                <div class="carousel-item active">
-                  <div class="text-center">
-                    <a href=""><img src="{{ asset('/images/add-sample/girl.jpg') }}" alt="" class="d-block w-100" /></a>
-                  </div>
-                </div>
-                <div class="carousel-item">
-                  <div class="text-center">
-                    <a href=""><img src="{{ asset('/images/add-sample/girl-in-sunglass.jpg') }}" alt="" class="d-block w-100" /></a>
-                  </div>
-                </div> 
-                <div class="carousel-item">
-                  <div class="text-center">
-                    <a href=""><img src="{{ asset('/images/add-sample/T-shirt.jpg') }}" alt="" class="d-block w-100" /></a>
-                  </div>
-                </div>
-              </div>
-              <div class="slider-control-main text-center">
-                <div class="prev-btn">
-                  <a href="#advertisement-right-carousel" class="control-carousel" data-slide="prev">
-                    <i class="fa fa-angle-left"></i>
-                  </a>
-                </div>
-
-                <div class="next-btn">
-                  <a href="#advertisement-right-carousel" class="control-carousel" data-slide="next">
-                    <i class="fa fa-angle-right"></i>
-                  </a>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div> 
+      
         
       <div class="products-list-top">
-        <div class="row">  
-          <div class="col-4">
-            <div class="product-views pull-left">
-              @if($product_by_cat_id['selected_view'] == 'grid')
-                <a class="active" href="{{ $product_by_cat_id['action_url_grid_view'] }}" data-toggle="tooltip" data-placement="top" title="{{ trans('frontend.grid_label') }}"><i class="fa fa-th"></i></a> 
-              @else  
-                <a href="{{ $product_by_cat_id['action_url_grid_view'] }}" data-toggle="tooltip" data-placement="top" title="{{ trans('frontend.grid_label') }}"><i class="fa fa-th"></i></a> 
-              @endif
+        <!-- Shop Toolbar-->
+        <div class="shop-toolbar padding-bottom-1x mb-2">
+          <div class="column">
+            <div class="shop-sorting">
+                <label for="sorting">{{ trans('frontend.sort_filter_label') }}:</label>
+                <select class="form-control" id="sorting">
+                  @if($product_by_cat_id['sort_by'] == 'all')  
+                  <option selected="selected" value="all">{{ trans('frontend.sort_filter_all_label') }}</option>
+                  @else
+                  <option value="all">{{ trans('frontend.sort_filter_all_label') }}</option>
+                  @endif
 
-              @if($product_by_cat_id['selected_view'] == 'list')
-                <a class="active" href="{{ $product_by_cat_id['action_url_list_view'] }}" data-toggle="tooltip" data-placement="top" title="{{ trans('frontend.list_label') }}"><i class="fa fa-th-list"></i></a>
-              @else  
-                <a href="{{ $product_by_cat_id['action_url_list_view'] }}" data-toggle="tooltip" data-placement="top" title="{{ trans('frontend.list_label') }}"><i class="fa fa-th-list"></i></a>
-              @endif
+                  @if($product_by_cat_id['sort_by'] == 'alpaz')  
+                  <option selected="selected" value="alpaz">{{ trans('frontend.sort_filter_alpaz_label') }}</option>
+                  @else
+                  <option value="alpaz">{{ trans('frontend.sort_filter_alpaz_label') }}</option>
+                  @endif
+
+                  @if($product_by_cat_id['sort_by'] == 'alpza')  
+                  <option selected="selected" value="alpza">{{ trans('frontend.sort_filter_alpza_label') }}</option>
+                  @else
+                  <option value="alpza">{{ trans('frontend.sort_filter_alpza_label') }}</option>
+                  @endif
+
+                  @if($product_by_cat_id['sort_by'] == 'low-high')  
+                  <option selected="selected" value="low-high">{{ trans('frontend.sort_filter_low_high_label') }}</option>
+                  @else
+                  <option value="low-high">{{ trans('frontend.sort_filter_low_high_label') }}</option>
+                  @endif
+
+                  @if($product_by_cat_id['sort_by'] == 'high-low')  
+                  <option selected="selected" value="high-low">{{ trans('frontend.sort_filter_high_low_label') }}</option>
+                  @else
+                  <option value="high-low">{{ trans('frontend.sort_filter_high_low_label') }}</option>
+                  @endif
+
+                  @if($product_by_cat_id['sort_by'] == 'old-new')  
+                  <option selected="selected" value="old-new">{{ trans('frontend.sort_filter_old_new_label') }}</option>
+                  @else
+                  <option value="old-new">{{ trans('frontend.sort_filter_old_new_label') }}</option>
+                  @endif
+
+                  @if($product_by_cat_id['sort_by'] == 'new-old')
+                  <option selected="selected" value="new-old">{{ trans('frontend.sort_filter_new_old_label') }}</option>
+                  @else
+                  <option value="new-old">{{ trans('frontend.sort_filter_new_old_label') }}</option>
+                  @endif
+                </select>
+              {{-- <label for="sorting">Sort by:</label>
+              <select class="form-control" id="sorting">
+                <option>Popularity</option>
+                <option>Low - High Price</option>
+                <option>High - Low Price</option>
+                <option>Avarage Rating</option>
+                <option>A - Z Order</option>
+                <option>Z - A Order</option>
+              </select> --}}
+              <span class="text-muted">Showing:&nbsp;</span><span>1 - 12 items</span>
             </div>
           </div>
-          <div class="col-8">
-            <div class="sort-filter-options">
-              <span>{{ trans('frontend.sort_filter_label') }} </span>  
-              <select class="form-control select2 sort-by-filter" style="width: 50%;">
-                @if($product_by_cat_id['sort_by'] == 'all')  
-                <option selected="selected" value="all">{{ trans('frontend.sort_filter_all_label') }}</option>
-                @else
-                <option value="all">{{ trans('frontend.sort_filter_all_label') }}</option>
-                @endif
-
-                @if($product_by_cat_id['sort_by'] == 'alpaz')  
-                <option selected="selected" value="alpaz">{{ trans('frontend.sort_filter_alpaz_label') }}</option>
-                @else
-                <option value="alpaz">{{ trans('frontend.sort_filter_alpaz_label') }}</option>
-                @endif
-
-                @if($product_by_cat_id['sort_by'] == 'alpza')  
-                <option selected="selected" value="alpza">{{ trans('frontend.sort_filter_alpza_label') }}</option>
-                @else
-                <option value="alpza">{{ trans('frontend.sort_filter_alpza_label') }}</option>
-                @endif
-
-                @if($product_by_cat_id['sort_by'] == 'low-high')  
-                <option selected="selected" value="low-high">{{ trans('frontend.sort_filter_low_high_label') }}</option>
-                @else
-                <option value="low-high">{{ trans('frontend.sort_filter_low_high_label') }}</option>
-                @endif
-
-                @if($product_by_cat_id['sort_by'] == 'high-low')  
-                <option selected="selected" value="high-low">{{ trans('frontend.sort_filter_high_low_label') }}</option>
-                @else
-                <option value="high-low">{{ trans('frontend.sort_filter_high_low_label') }}</option>
-                @endif
-
-                @if($product_by_cat_id['sort_by'] == 'old-new')  
-                <option selected="selected" value="old-new">{{ trans('frontend.sort_filter_old_new_label') }}</option>
-                @else
-                <option value="old-new">{{ trans('frontend.sort_filter_old_new_label') }}</option>
-                @endif
-
-                @if($product_by_cat_id['sort_by'] == 'new-old')
-                <option selected="selected" value="new-old">{{ trans('frontend.sort_filter_new_old_label') }}</option>
-                @else
-                <option value="new-old">{{ trans('frontend.sort_filter_new_old_label') }}</option>
-                @endif
-              </select>
+          <div class="column">
+            <div class="shop-view">
+                    @if($product_by_cat_id['selected_view'] == 'grid')
+                      <a class="grid-view active" href="{{ $product_by_cat_id['action_url_grid_view'] }}" data-toggle="tooltip" data-placement="top" title="{{ trans('frontend.grid_label') }}"><span></span><span></span><span></span></a> 
+                    @else  
+                      <a class="grid-view" href="{{ $product_by_cat_id['action_url_grid_view'] }}" data-toggle="tooltip" data-placement="top" title="{{ trans('frontend.grid_label') }}"><span></span><span></span><span></span></a>
+                    @endif
+  
+                    @if($product_by_cat_id['selected_view'] == 'list')
+                      <a class="list-view active" href="{{ $product_by_cat_id['action_url_list_view'] }}" data-toggle="tooltip" data-placement="top" title="{{ trans('frontend.list_label') }}"><span></span><span></span><span></span></a>
+                    @else  
+                      <a class="list-view" href="{{ $product_by_cat_id['action_url_list_view'] }}" data-toggle="tooltip" data-placement="top" title="{{ trans('frontend.list_label') }}"><span></span><span></span><span></span></a>
+                    @endif
+              {{-- <a class="grid-view active" href="shop-grid-ls.html"><span></span><span></span><span></span></a>
+              <a class="list-view" href="shop-list-ls.html"><span></span><span></span><span></span></a> --}}
             </div>
-          </div>  
-        </div>        
+          </div>
+        </div>     
       </div>
         
       <div class="categories-products-list">
         @include('pages.frontend.frontend-pages.categories-products')
-        @yield('categories-products-content')
       </div>  
     </div>
   </div>

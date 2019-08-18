@@ -1,3 +1,4 @@
+@section('categories-products-content')
   @if(count($product_by_cat_id['products'])>0)
     @if($product_by_cat_id['selected_view'] == 'grid')
       <div class="categories-products-content">
@@ -171,3 +172,4 @@
       <div class="alert-msg"><span>{{ trans('frontend.no_product_of_this_category') }}</span> </div>
     </div>
   @endif
+@endsection
