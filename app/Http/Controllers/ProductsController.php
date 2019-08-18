@@ -3084,10 +3084,12 @@ class ProductsController extends Controller
       if($cat_data['parent_id'] > 0){
         $parent_cat = $this->getTermDataById( $cat_data['parent_id'] );
         
-        $str = '<nav aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="'. route('home-page') .'"><i class="fa fa-home"></i></a></li><li class="breadcrumb-item"><a href="'. route('shop-page') .'">'. Lang::get('frontend.all_products_label' ) .'</a></li><li class="breadcrumb-item"><a href="'. route('categories-page', $parent_cat[0]['slug']) .'">'. $parent_cat[0]['name'] .'</a></li><li class="breadcrumb-item active" aria-current="page">'. $cat_data['name'] .'</li></ol></nav>';
+        // $str = '<nav aria-label="breadcrumb"><ol class="breadcrumb"><li><a href="'. route('home-page') .'"><i class="fa fa-home"></i></a></li><li><a href="'. route('shop-page') .'">'. Lang::get('frontend.all_products_label' ) .'</a></li><li><a href="'. route('categories-page', $parent_cat[0]['slug']) .'">'. $parent_cat[0]['name'] .'</a></li><li class="breadcrumb-item active" aria-current="page">'. $cat_data['name'] .'</li></ol></nav>';
+        $str = '<ul class="breadcrumbs"><li><a href="'. route('home-page') .'">'.  Lang::get('frontend.home') .'</a></li><li class="separator">&nbsp;</li><li><a href="'. route('shop-page') .'">'. Lang::get('frontend.all_products_label' ) .'</a></li><li class="separator">&nbsp;</li><li><a href="'. route('categories-page', $parent_cat[0]['slug']) .'">'. $parent_cat[0]['name'] .'</a></li><li class="separator">&nbsp;</li><li>'. $cat_data['name'] .'</li></ul>';
       }
       else{
-        $str = '<nav aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="'. route('home-page') .'"><i class="fa fa-home"></i></a></li><li class="breadcrumb-item"><a href="'. route('shop-page') .'">'. Lang::get('frontend.all_products_label' ) .'</a></li><li class="breadcrumb-item active" aria-current="page">'. $cat_data['name'] .'</li></ol></nav>';
+        // $str = '<nav aria-label="breadcrumb"><ol class="breadcrumb"><li><a href="'. route('home-page') .'"><i class="fa fa-home"></i></a></li><li><a href="'. route('shop-page') .'">'. Lang::get('frontend.all_products_label' ) .'</a></li><li class="breadcrumb-item active" aria-current="page">'. $cat_data['name'] .'</li></ol></nav>';
+        $str = '<ul class="breadcrumbs"><li><a href="'. route('home-page') .'">'.  Lang::get('frontend.home') .'</a></li><li><a href="'. route('shop-page') .'">'. Lang::get('frontend.all_products_label' ) .'</a></li><li>'. $cat_data['name'] .'</li></ul>';
       }
 
       $post_array['products']        =  $posts_object;

@@ -2,7 +2,7 @@
 
 @section('title', trans('frontend.vendor_list_title_label') .' | '. get_site_title())
 
-@section('breadcrumbs',trans('frontend.vendor_list_title_label'))
+@section('breadcrumb',trans('frontend.vendor_list_title_label'))
 
 
 

@@ -1,16 +1,48 @@
-@section('categories-page-content')
+<section class="widget widget-categories">
+    @if (count($productCategoriesTree) > 0)
+    <ul>
 
-<div class="product-categories-accordian">
-  <h2>{{ trans('frontend.category_label') }} <span class="responsive-accordian"></span></h2>
-  @if (count($productCategoriesTree) > 0)
-  <div class="panel-group category-accordian" id="accordian">
-    @foreach ($productCategoriesTree as $data)
-        @include('pages.common.category-frontend-loop', $data)
-    @endforeach
-  </div>
-  @else
-  <h5>{{ trans('frontend.no_categories_yet') }}</h5>
-  @endif
-</div>
+      @foreach ($productCategoriesTree as $data)
 
-@endsection 
+      @if(count($data['children'])>0)
+
+        @if((in_array($data['id'], $product_by_cat_id['selected_cat'])) || ($data['id'] == $product_by_cat_id['parent_id']) )
+
+          <li class="has-children expanded">
+        @else
+
+          <li class="has-children">
+
+        @endif
+
+          <a href="#">{!! $data['name'] !!}</a><span>(123)</span>
+
+          @if(count($data['children'])>0)
+          <ul>
+            @foreach($data['children'] as $data)
+              @include('pages.common.category-frontend-loop-extra', $data)
+            @endforeach
+          </ul>  
+          @endif
+          
+        </li>
+
+      @else
+
+        <li>
+            <a href="{{ route('categories-page', $data['slug']) }}">
+              @if(in_array($data['id'], $product_by_cat_id['selected_cat']))
+                <span class="active">{!! $data['name'] !!}</span>
+              @else
+                <span>{!! $data['name'] !!}</span>
+              @endif
+            </a>
+        </li>
+
+      @endif
+
+      @endforeach
+     
+    </ul>
+    @endif
+  </section>

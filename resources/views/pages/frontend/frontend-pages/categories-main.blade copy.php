@@ -1,27 +1,25 @@
 @extends('layouts.frontend.master')
 @section('title', trans('frontend.shopist_category_products') .' | '. get_site_title() )
-@section('breadcrumb',trans('frontend.shopist_category_products'))
-
-@section('breadcrumbs')
-<?php if(isset($product_by_cat_id['breadcrumb_html'])){?>
-
-      <div class="column">
-
-          {!! $product_by_cat_id['breadcrumb_html'] !!}
-        
-      </div>
-    
-<?php }?>
-
-@endsection
 
 @section('content')
+<?php if(isset($product_by_cat_id['breadcrumb_html'])){?>
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+      <div id="product-category-breadcrumb">
+        {!! $product_by_cat_id['breadcrumb_html'] !!}
+      </div>
+    </div>    
+  </div>    
+</div>    
+<?php }?>
 
 <div id="product-category" class="container new-container">
   <div class="row">
     <div class="col-xs-12 col-md-4">
       <div class="left-sidebar">
-        @include('includes.frontend.categories-page')
+      @include('includes.frontend.categories-page')
+      @yield('categories-page-content')
       </div>
 			
       <div class="filter-panel">
@@ -89,9 +87,8 @@
           @endif
           
           <div class="btn-filter clearfix">
-            <a class="btn btn-sm" href="{{ route('categories-page', $product_by_cat_id['parent_slug']) }}">
-              <i class="fa fa-close" aria-hidden="true"></i>{{ trans('frontend.clear_filter_label') }}
-            </a>  
+            <a class="btn btn-sm" href="{{ route('categories-page', $product_by_cat_id['parent_slug']) }}"><i class="fa fa-close" aria-hidden="true"></i>
+ {{ trans('frontend.clear_filter_label') }}</a>  
             <button class="btn btn-sm" type="submit"><i class="fa fa-filter" aria-hidden="true"></i> {{ trans('frontend.filter_label') }}</button>
           </div>
         </form>
