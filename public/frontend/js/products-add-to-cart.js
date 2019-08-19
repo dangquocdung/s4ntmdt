@@ -19,7 +19,6 @@ $(document).ready(function() {
 var dynamicAddToCart = function() {
     $('.add-to-cart-bg, .single-page-add-to-cart').on('click', function(e) {
 
-        alert("123");
         e.preventDefault();
         var dataObj = {};
         var selected_option = {};

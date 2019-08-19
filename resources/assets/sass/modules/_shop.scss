@@ -44,6 +44,12 @@
             }
         }
     }
+    .intro {
+        line-height: 1.125rem;
+        height: 5.625rem;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
     .product-price {
         margin-bottom: 10px;
         color: $product-price-color;

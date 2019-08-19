@@ -443,6 +443,17 @@ jQuery(document).ready(function($) {
         });
     }
 
+    // Isotope Grid
+    if ($('.isotope-list').length) {
+        var $list = $('.isotope-list').imagesLoaded(function() {
+            $list.isotope({
+                itemSelector: '.list-item',
+                transitionDuration: '0.7s',
+
+            });
+        });
+    }
+
     // Filtering
     if ($('.filter-grid').length > 0) {
         var $filterGrid = $('.filter-grid');
