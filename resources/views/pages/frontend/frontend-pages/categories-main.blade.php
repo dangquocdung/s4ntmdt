@@ -107,48 +107,48 @@
           <div class="column">
             <div class="shop-sorting">
                 <label for="sorting">{{ trans('frontend.sort_filter_label') }}:</label>
-                <select class="form-control" id="sorting">
-                  @if($product_by_cat_id['sort_by'] == 'all')  
-                  <option selected="selected" value="all">{{ trans('frontend.sort_filter_all_label') }}</option>
-                  @else
-                  <option value="all">{{ trans('frontend.sort_filter_all_label') }}</option>
-                  @endif
-
-                  @if($product_by_cat_id['sort_by'] == 'alpaz')  
-                  <option selected="selected" value="alpaz">{{ trans('frontend.sort_filter_alpaz_label') }}</option>
-                  @else
-                  <option value="alpaz">{{ trans('frontend.sort_filter_alpaz_label') }}</option>
-                  @endif
-
-                  @if($product_by_cat_id['sort_by'] == 'alpza')  
-                  <option selected="selected" value="alpza">{{ trans('frontend.sort_filter_alpza_label') }}</option>
-                  @else
-                  <option value="alpza">{{ trans('frontend.sort_filter_alpza_label') }}</option>
-                  @endif
-
-                  @if($product_by_cat_id['sort_by'] == 'low-high')  
-                  <option selected="selected" value="low-high">{{ trans('frontend.sort_filter_low_high_label') }}</option>
-                  @else
-                  <option value="low-high">{{ trans('frontend.sort_filter_low_high_label') }}</option>
-                  @endif
-
-                  @if($product_by_cat_id['sort_by'] == 'high-low')  
-                  <option selected="selected" value="high-low">{{ trans('frontend.sort_filter_high_low_label') }}</option>
-                  @else
-                  <option value="high-low">{{ trans('frontend.sort_filter_high_low_label') }}</option>
-                  @endif
-
-                  @if($product_by_cat_id['sort_by'] == 'old-new')  
-                  <option selected="selected" value="old-new">{{ trans('frontend.sort_filter_old_new_label') }}</option>
-                  @else
-                  <option value="old-new">{{ trans('frontend.sort_filter_old_new_label') }}</option>
-                  @endif
-
-                  @if($product_by_cat_id['sort_by'] == 'new-old')
-                  <option selected="selected" value="new-old">{{ trans('frontend.sort_filter_new_old_label') }}</option>
-                  @else
-                  <option value="new-old">{{ trans('frontend.sort_filter_new_old_label') }}</option>
-                  @endif
+                <select class="form-control sort-by-filter" style="width: 50%;">
+                    @if($product_by_cat_id['sort_by'] == 'all')  
+                    <option selected="selected" value="all">{{ trans('frontend.sort_filter_all_label') }}</option>
+                    @else
+                    <option value="all">{{ trans('frontend.sort_filter_all_label') }}</option>
+                    @endif
+    
+                    @if($product_by_cat_id['sort_by'] == 'alpaz')  
+                    <option selected="selected" value="alpaz">{{ trans('frontend.sort_filter_alpaz_label') }}</option>
+                    @else
+                    <option value="alpaz">{{ trans('frontend.sort_filter_alpaz_label') }}</option>
+                    @endif
+    
+                    @if($product_by_cat_id['sort_by'] == 'alpza')  
+                    <option selected="selected" value="alpza">{{ trans('frontend.sort_filter_alpza_label') }}</option>
+                    @else
+                    <option value="alpza">{{ trans('frontend.sort_filter_alpza_label') }}</option>
+                    @endif
+    
+                    @if($product_by_cat_id['sort_by'] == 'low-high')  
+                    <option selected="selected" value="low-high">{{ trans('frontend.sort_filter_low_high_label') }}</option>
+                    @else
+                    <option value="low-high">{{ trans('frontend.sort_filter_low_high_label') }}</option>
+                    @endif
+    
+                    @if($product_by_cat_id['sort_by'] == 'high-low')  
+                    <option selected="selected" value="high-low">{{ trans('frontend.sort_filter_high_low_label') }}</option>
+                    @else
+                    <option value="high-low">{{ trans('frontend.sort_filter_high_low_label') }}</option>
+                    @endif
+    
+                    @if($product_by_cat_id['sort_by'] == 'old-new')  
+                    <option selected="selected" value="old-new">{{ trans('frontend.sort_filter_old_new_label') }}</option>
+                    @else
+                    <option value="old-new">{{ trans('frontend.sort_filter_old_new_label') }}</option>
+                    @endif
+    
+                    @if($product_by_cat_id['sort_by'] == 'new-old')
+                    <option selected="selected" value="new-old">{{ trans('frontend.sort_filter_new_old_label') }}</option>
+                    @else
+                    <option value="new-old">{{ trans('frontend.sort_filter_new_old_label') }}</option>
+                    @endif
                 </select>
               {{-- <label for="sorting">Sort by:</label>
               <select class="form-control" id="sorting">
