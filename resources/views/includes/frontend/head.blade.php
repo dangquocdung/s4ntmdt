@@ -53,7 +53,7 @@
     <link rel="apple-touch-icon" sizes="180x180" href="touch-icon-iphone-retina.png">
     <link rel="apple-touch-icon" sizes="167x167" href="touch-icon-ipad-retina.png">
 
-    <link rel="stylesheet" href="{{ URL::asset('/bootstrap/css/bootstrap.min.css') }}" />
+    {{-- <link rel="stylesheet" href="{{ URL::asset('/bootstrap/css/bootstrap.min.css') }}" /> --}}
     <link rel="stylesheet" href="{{ URL::asset('/font-awesome/css/font-awesome.min.css') }}" />
     <link rel="stylesheet" href="{{ URL::asset('/plugins/datatable/dataTables.bootstrap4.min.css') }}" />
     <link rel="stylesheet" href="{{ URL::asset('/plugins/datatable/responsive.bootstrap4.min.css') }}" />

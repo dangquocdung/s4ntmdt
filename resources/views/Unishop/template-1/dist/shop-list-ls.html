@@ -102,15 +102,26 @@
               </ul>
             </section>
             <!-- Widget Price Range-->
-            <section class="widget">
+            <section class="widget widget-categories">
               <h3 class="widget-title">Price Range</h3>
-              <select class="form-control">
-                <option>0 - $100</option>
-                <option>$100 - $200</option>
-                <option>$200 - $500</option>
-                <option>$500 - $1000</option>
-                <option>$1000 - $5000</option>
-              </select>
+              <form class="price-range-slider" method="post" data-start-min="250" data-start-max="650" data-min="0" data-max="1000" data-step="1">
+                <div class="ui-range-slider"></div>
+                <footer class="ui-range-slider-footer">
+                  <div class="column">
+                    <button class="btn btn-outline-primary btn-sm" type="submit">Filter</button>
+                  </div>
+                  <div class="column">
+                    <div class="ui-range-values">
+                      <div class="ui-range-value-min">$<span></span>
+                        <input type="hidden">
+                      </div>&nbsp;-&nbsp;
+                      <div class="ui-range-value-max">$<span></span>
+                        <input type="hidden">
+                      </div>
+                    </div>
+                  </div>
+                </footer>
+              </form>
             </section>
             <!-- Widget Brand Filter-->
             <section class="widget">
@@ -1037,7 +1048,7 @@
             </div>
           </div>
           <!-- Copyright-->
-          <p class="footer-copyright">© All rights reserved. Made with &nbsp;<i class="icon-heart text-danger"></i><a href="http://dungthinh.com/" target="_blank"> &nbsp;by dungthinh</a></p>
+          <p class="footer-copyright">© All rights reserved. Made with &nbsp;<i class="icon-heart text-danger"></i><a href="http://rokaux.com/" target="_blank"> &nbsp;by rokaux</a></p>
         </div>
       </footer>
     </div>
