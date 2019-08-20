@@ -1,6 +1,6 @@
 @extends('layouts.frontend.master')
 @section('title', trans('frontend.shopist_checkout') .' | '. get_site_title() )
-@section('breadcrumbs',trans('frontend.checkout'))
+@section('breadcrumb',trans('frontend.checkout'))
 
 
 @section('content')

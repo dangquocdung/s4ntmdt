@@ -62,7 +62,7 @@
                 <option>A - Z Order</option>
                 <option>Z - A Order</option>
               </select> --}}
-              <span class="text-muted">Showing:&nbsp;</span><span>1 - 12 items</span>
+              {{-- <span class="text-muted">Showing:&nbsp;</span><span>1 - 12 items</span> --}}
             </div>
           </div>
           <div class="column">
@@ -83,16 +83,12 @@
             </div>
           </div>
         </div>
-        <!-- Products Grid-->
-        <div class="isotope-grid cols-3 mb-2">
-          <div class="gutter-sizer"></div>
-          <div class="grid-sizer"></div>
-
-          @include('includes.frontend.products')
-
-        </div>
+        <!-- Products-->
+        @include('includes.frontend.products')
         <nav class="phan-trang">
-          <div class="column">{!! $all_products_details['products']->appends(Request::capture()->except('page'))->render() !!}</div>
+          <div class="column">
+            {!! $all_products_details['products']->appends(Request::capture()->except('page'))->render() !!}
+          </div>
         </nav>
       </div>
       <!-- Sidebar          -->
@@ -102,8 +98,6 @@
           <!-- Widget Categories-->
           @include('includes.frontend.categories')
 
-         
-          
           <!-- Widget Price Range-->
           <section class="widget widget-categories">
             <h3 class="widget-title">{{ trans('frontend.price_range_label') }}</h3>

@@ -1,13 +1,34 @@
-<li>
-  <a href="{{ route('categories-page', $data['slug']) }}">
-    <i class="fa fa-angle-right"></i> &nbsp; 
-    <?php if(in_array($data['id'], $product_by_cat_id['selected_cat'])){?>
-    <span class="active">{!! $data['name'] !!}</span>
-    <?php } else {?>
-    <span>{!! $data['name'] !!}</span>
-    <?php }?>
-  </a>
+@if(count($data['children'])>0)
+
+  @if( (in_array($data['id'], $product_by_cat_id['selected_cat'])) || ($data['id'] == $product_by_cat_id['parent_id']))
+    <li class="active">
+  @else
+    <li>
+  @endif
+    <a href="{{ route('categories-page', $data['slug']) }}"> {!! $data['name'] !!} </a>
+
+  <ul>
+
+    @foreach($data['children'] as $data)  
+      @include('pages.common.product-children-category-extra', $data)
+    @endforeach
+
+  </ul>
+
+
 </li>
-@foreach($data['children'] as $data)
-    @include('pages.common.category-frontend-loop-extra', $data)
-@endforeach
+
+
+@else
+
+@if( (in_array($data['id'], $product_by_cat_id['selected_cat'])) || ($data['id'] == $product_by_cat_id['parent_id']))
+<li class="active">
+@else
+<li>
+@endif
+  <a href="{{ route('categories-page', $data['slug']) }}"> {!! $data['name'] !!} </a>
+
+</li>
+
+
+@endif

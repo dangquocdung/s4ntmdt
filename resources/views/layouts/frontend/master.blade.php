@@ -18,14 +18,15 @@
     <!-- Off-Canvas Wrapper-->
     <div class="offcanvas-wrapper">
 
-        @if(!Request::is('/'))
-        <!-- Page Title-->
+      <!-- Page Title-->  
+      @if(!Request::is('/'))
         <div class="page-title">
           <div class="container">
             <div class="column">
-              <h1>@yield('breadcrumbs')</h1>
+              <h1>@yield('breadcrumb')</h1>
             </div>
-            <div class="column">
+            @yield('breadcrumbs')
+            {{-- <div class="column">
               <ul class="breadcrumbs">
                 <li>
                   <a href="{{ route('home-page') }}">Trang chủ</a>
@@ -33,10 +34,10 @@
                 <li class="separator">&nbsp;</li>
                 <li>@yield('breadcrumbs')</li>
               </ul>
-            </div>
+            </div> --}}
           </div>
         </div>
-        @endif
+      @endif
 
         @yield('content')
 

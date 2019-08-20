@@ -18,6 +18,9 @@
         >img {
             display: block;
             width: 100%;
+            @media (min-width: $screen-sm) {
+                max-height: 200px;
+            }
         }
     }
     .product-title {
@@ -27,14 +30,25 @@
             weight: normal;
         }
         text-align: center;
+        line-height: 1.125rem;
+        height: 2.25rem;
+        overflow: hidden;
+        text-overflow: ellipsis;
         >a {
             transition: color .3s;
             color: $product-title-color;
             text-decoration: none;
+            font-weight: 450;
             &:hover {
                 color: $product-title-hover-color;
             }
         }
+    }
+    .intro {
+        line-height: 1.125rem;
+        height: 5.625rem;
+        overflow: hidden;
+        text-overflow: ellipsis;
     }
     .product-price {
         margin-bottom: 10px;

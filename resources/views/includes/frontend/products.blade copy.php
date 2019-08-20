@@ -141,7 +141,7 @@
                     @endif
                   @endif
 
-                   @if($reviews_settings['enable_reviews_add_link_to_product_page'] && $reviews_settings['enable_reviews_add_link_to_product_page'] == 'yes')
+                  @if($reviews_settings['enable_reviews_add_link_to_product_page'] && $reviews_settings['enable_reviews_add_link_to_product_page'] == 'yes')
                     <div class="list-view-reviews-main">
                       <div class="star-rating">
                         <span style="width:{{ $reviews['percentage'] }}%"></span>

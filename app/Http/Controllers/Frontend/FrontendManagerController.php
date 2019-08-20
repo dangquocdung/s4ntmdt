@@ -143,8 +143,13 @@ class FrontendManagerController extends Controller
           $data['product_by_cat_id']['selected_view'] = 'grid';
         }
       }
+
+      //Dũng thêm
+
+      // $data['all_products_details']=$data['product_by_cat_id'];
       
       return view('pages.frontend.frontend-pages.categories-main', $data);
+      // return view('pages.frontend.frontend-pages.shop', $data);
     }
     else{
       return view('errors.no_data');
