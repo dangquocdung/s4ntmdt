@@ -2556,6 +2556,7 @@ class ProductsController extends Controller
       $advanced_arr['features_items']     =   $get_features_items;
       $advanced_arr['todays_deal']        =   $todays_deal_arr; 
     }
+
     $advanced_arr['latest_items']         =   $get_latest_items;
     $advanced_arr['best_sales']           =   $best_sales_arr; 
      

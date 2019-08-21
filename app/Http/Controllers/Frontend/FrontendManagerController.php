@@ -52,6 +52,7 @@ class FrontendManagerController extends Controller
    * @return void 
    */
   public function homePageContent(){
+
     $data = array();
     
     $data = $this->classCommonFunction->get_dynamic_frontend_content_data(); 
@@ -61,6 +62,8 @@ class FrontendManagerController extends Controller
 
     
     return view('pages.frontend.frontend-pages.home', $data);
+
+    // return Response::json($data['advancedData']);
   }
   
   /**

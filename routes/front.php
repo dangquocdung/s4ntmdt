@@ -18,12 +18,12 @@ Route::get( '/', [
   'as'   => 'home-page'
 ]);
 
-Route::get( '/shop', [
+Route::get( '/cac-san-pham', [
   'uses' => 'Frontend\FrontendManagerController@productsPageContent',
   'as'   => 'shop-page'
 ]);
 
-Route::get( '/product/details/{details_slug}', [
+Route::get( '/san-pham/chi-tiet/{details_slug}', [
   'uses' => 'Frontend\FrontendManagerController@productSinglePageContent',
   'as'   => 'details-page'
 ]);
@@ -33,17 +33,17 @@ Route::get( '/product/customize/{details_id}', [
   'as'   => 'customize-page'
 ]);
 
-Route::get( '/product/categories/{cat_slug}', [
+Route::get( '/san-pham/danh-muc/{cat_slug}', [
   'uses' => 'Frontend\FrontendManagerController@productCategoriesSinglePageContent',
   'as'   => 'categories-page'
 ]);
 
-Route::get('/cart', [
+Route::get('/gio-hang', [
   'uses' => 'Frontend\FrontendManagerController@cartPageContent',
   'as'   => 'cart-page'
 ]);
 
-Route::get('/checkout', [
+Route::get('/thanh-toan', [
   'uses' => 'Frontend\FrontendManagerController@checkoutPageContent',
   'as'   => 'checkout-page'
 ]);
@@ -84,27 +84,27 @@ Route::get( '/testimonial/{testimonial_slug}', [
   'as'   => 'testimonial-single-page'
 ]);
 
-Route::get( '/blogs', [
+Route::get( '/tin-tuc', [
   'uses' => 'Frontend\FrontendManagerController@blogsPageContent',
   'as'   => 'blogs-page-content'
 ]);
 
-Route::get( '/stores', [
+Route::get( '/gian-hang', [
   'uses' => 'Frontend\FrontendManagerController@multivendorStoreListPageContent',
   'as'   => 'store-list-page-content'
 ]);
 
-Route::get( '/store/details/home/{store_user_name}', [
+Route::get( '/gian-hang/chi-tiet/trang-chu/{store_user_name}', [
   'uses' => 'Frontend\FrontendManagerController@multivendorStoreSinglePageHomeContent',
   'as'   => 'store-details-page-content'
 ]);
 
-Route::get( '/store/details/products/{store_user_name}', [
+Route::get( '/gian-hang/chi-tiet/san-pham/{store_user_name}', [
   'uses' => 'Frontend\FrontendManagerController@multivendorStoreSinglePageProductsContent',
   'as'   => 'store-products-page-content'
 ]);
 
-Route::get( '/store/details/reviews/{store_user_name}', [
+Route::get( '/gian-hang/chi-tiet/reviews/{store_user_name}', [
   'uses' => 'Frontend\FrontendManagerController@multivendorStoreSinglePageReviewContent',
   'as'   => 'store-reviews-page-content'
 ]);
@@ -114,12 +114,12 @@ Route::post( '/store/details/reviews/{store_user_name}', [
   'as'   => 'vendor-reviews-save'
 ]);
 
-Route::get( '/store/details/cat/products/{product_cat}/{store_user_name}', [
+Route::get( '/gian-hang/chi-tiet/cat/products/{product_cat}/{store_user_name}', [
   'uses' => 'Frontend\FrontendManagerController@multivendorStoreSinglePageProductsCatContent',
   'as'   => 'store-products-cat-page-content'
 ]);
 
-Route::get( '/blog/{blog_slug}', [
+Route::get( '/tin-tuc/{blog_slug}', [
   'uses' => 'Frontend\FrontendManagerController@blogSinglePageContent',
   'as'   => 'blog-single-page'
 ]);
@@ -129,7 +129,7 @@ Route::get( '/categories/blog/{blog_cat_slug}', [
   'as'   => 'blog-cat-page'
 ]);
 
-Route::get( '/product/tag/{tag_slug}', [
+Route::get( '/san-pham/tag/{tag_slug}', [
   'uses' => 'Frontend\FrontendManagerController@tagSinglePageContent',
   'as'   => 'tag-single-page'
 ]);

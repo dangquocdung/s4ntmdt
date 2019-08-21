@@ -227,11 +227,11 @@
         </li>
   
         <li class="{{ Request::is('shop')?'active':''}}"><a href="{{ route('shop-page') }}"><span>{!! trans('frontend.all_products_label') !!}</span></a></li>
-        
+
+        <li class="{{ Request::is('cart')?'active':''}}"><a href="{{ route('cart-page') }}"><span>{!! trans('frontend.cart') !!}</span></a></li>
+
         <li class="{{ Request::is('checkout')?'active':''}}"><a href="{{ route('checkout-page') }}"><span>{!! trans('frontend.checkout') !!}</span></a></li>
   
-        <li class="{{ Request::is('cart')?'active':''}}"><a href="{{ route('cart-page') }}"><span>{!! trans('frontend.cart') !!}</span></a></li>
-        
         <li class="{{ Request::is('blogs')?'active':''}}"><a href="{{ route('blogs-page-content') }}"><span>{!! trans('frontend.blog') !!}</span></a></li>
         
       </ul>

@@ -41,10 +41,10 @@
                 <?php $details = json_decode($vendor->details);?>
 
 
-                <!-- Product-->
+                <!-- vendor-->
                 <div class="grid-item">
-                  <div class="product-card">
-                    <a class="product-thumb" href="{{ route('store-details-page-content', $vendor->name) }}">
+                  <div class="vendor-card">
+                    <a class="vendor-thumb" href="{{ route('store-details-page-content', $vendor->name) }}">
 
                       @if(!empty($vendor->user_photo_url))
                         <img src="{{ get_image_url($vendor->user_photo_url) }}" alt="{!! $details->profile_details->store_name !!}">
@@ -53,20 +53,20 @@
                       @endif
                                         
                     </a>
-                    <h3 class="product-title"><a href="{{ route('store-details-page-content', $vendor->name) }}">{!! $details->profile_details->store_name !!}</a></h3>
-                    <h4 class="product-price">
+                    <h3 class="vendor-title"><a href="{{ route('store-details-page-content', $vendor->name) }}">{!! $details->profile_details->store_name !!}</a></h3>
+                    <h4 class="vendor-address">
                         {!! $details->profile_details->address_line_1 !!}
                     </h4>
-                    <h4 class="product-price">
+                    <h4 class="vendor-price">
                         <strong>{!! trans('frontend.email_label') !!}:</strong> {!! $vendor->email !!}
                     </h4>
-                    <h4 class="product-price">
+                    <h4 class="vendor-price">
                         <strong>{!! trans('frontend.phone') !!}:</strong> {!! $details->profile_details->phone !!}
                     </h4>
-                    <h4 class="product-price">
+                    <h4 class="vendor-price">
                         <strong>{!! trans('frontend.member_since_label') !!}:</strong> {!! Carbon\Carbon::parse(  $vendor->created_at )->format('d-m-Y') !!}
                     </h4>
-                    <div class="product-buttons">
+                    <div class="vendor-buttons">
                       <a class="btn btn-outline-primary btn-sm"  href="{{ route('store-details-page-content', $vendor->name) }}">{!! trans('frontend.view_details') !!}</a>
                     </div>
                   </div>
