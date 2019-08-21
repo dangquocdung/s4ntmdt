@@ -70,6 +70,12 @@
                     </div>
                 
                 <div class="thumblist">
+                    {{-- @if( !empty($cat['img_url']) )
+                    <img src="{{ get_image_url($cat['img_url']) }}"> 
+                    @else
+                    <img src="{{ default_placeholder_img_src() }}"> 
+                    @endif --}}
+                
                     <img src="img/shop/categories/02.jpg" alt="Category">
                     <img src="img/shop/categories/03.jpg" alt="Category">
                 </div>
@@ -88,11 +94,16 @@
     @endif
     
 </div>
+{{-- <div class="text-center"><a class="btn btn-outline-secondary margin-top-none" href="shop-categories.html">All Categories</a></div> --}}
 </section>
+
 <!-- Featured Products-->
 <section class="container padding-bottom-1x">
+
 <h2 class="h3 text-center mb-30">Sản phẩm tiêu biểu</h2>
+
 @if(count($advancedData['features_items']) > 0)
+
 <div class="row">
   @foreach($advancedData['features_items'] as $key => $features_product)
     <div class="col-lg-3 col-md-4 col-sm-6">
@@ -117,11 +128,6 @@
           <h3 class="product-title">
             <a href="{{ route('details-page', $features_product->slug ) }}">{!! $features_product->title !!}</a>
           </h3>
-          <h1>
-
-              {!! $features_product->author_id !!}
-
-          </h1>
           <h4 class="product-price">
             <del>
               {!! price_html( get_product_price_html_by_filter(get_role_based_price_by_product_id($features_product->id, $features_product->regular_price)), get_frontend_selected_currency()) !!}

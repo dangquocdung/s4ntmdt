@@ -18,6 +18,7 @@
         >img {
             display: block;
             width: 100%;
+            min-height: 200px;
             @media (min-width: $screen-sm) {
                 max-height: 200px;
             }
