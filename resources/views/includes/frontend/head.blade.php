@@ -44,7 +44,7 @@
     <meta name="author" content="Dang Quoc Dung">
     <!-- Mobile Specific Meta Tag-->
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <base href="{{asset('')}}">
+    <!-- <base href="{{asset('')}}"> -->
     <!-- Favicon and Apple Icons-->
     <link rel="icon" type="image/x-icon" href="favicon.ico">
     <link rel="icon" type="image/png" href="favicon.png">
@@ -66,9 +66,10 @@
     <!-- Unishop Template Styles-->
     <link id="mainStyles" rel="stylesheet" media="screen" href="{{ mix('/css/app.css') }}">
 
+    
+
     <!-- Main Template Styles-->
     <script type="text/javascript" src="{{ URL::asset('/jquery/jquery-1.10.2.js') }}"></script>
-
     <script type="text/javascript" src="{{ URL::asset('/jquery/jquery-ui-1.11.4.js') }}"></script>
     <script type="text/javascript" src="{{ URL::asset('/dropzone/dropzone.js') }}"></script>
     <script type="text/javascript" src="{{ URL::asset('/bootstrap/js/popper.min.js') }}"></script>
@@ -106,14 +107,8 @@
     <script type="text/javascript" src="{{ URL::asset('/bootstrap/js/popper.min.js') }}"></script>
     <script type="text/javascript" src="{{ URL::asset('/bootstrap/js/bootstrap.min.js') }}"></script>
     <script type="text/javascript" src="{{ URL::asset('/frontend/js/products-add-to-cart.js') }}"></script>
-
-    <!-- JavaScript (jQuery) libraries, plugins and custom scripts-->
-    <script src="/js/vendor.min.js"></script>
-    {{-- <script src="/js/scripts.min.js"></script> --}}
-
-    <script  type="text/javascript" src="{{ mix('/js/app.js') }}"></script>
-
+    
     <!-- Modernizr-->
-    <script src="js/modernizr.min.js"></script>
-
+    <script src="/js/modernizr.min.js"></script>
     <script src='https://www.google.com/recaptcha/api.js'></script>
+

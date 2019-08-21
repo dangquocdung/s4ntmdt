@@ -11,69 +11,27 @@
               <div class="gallery-item video-btn text-center">
                 <a href="#" data-toggle="tooltip" data-type="video" data-video="&lt;div class=&quot;wrapper&quot;&gt;&lt;div class=&quot;video-wrapper&quot;&gt;&lt;iframe class=&quot;pswp__video&quot; width=&quot;960&quot; height=&quot;640&quot; src=&quot;//www.youtube.com/embed/B81qd2v6alw?rel=0&quot; frameborder=&quot;0&quot; allowfullscreen&gt;&lt;/iframe&gt;&lt;/div&gt;&lt;/div&gt;" title="Watch video"></a></div>
             </div>
-
-            @if(count($single_product_details['_product_related_images_url']->product_gallery_images) > 0)
-              <?php $count = 1;?>
-              <div class="product-carousel owl-carousel gallery-wrapper">
-                @foreach($single_product_details['_product_related_images_url']->product_gallery_images as $key => $row)
-                  <div class="gallery-item" data-hash="{{ $count }}">
-                    <a href="{{ get_image_url($row->zoom_img_url) }}" data-size="1000x667">
-                    @if(!empty($row->url) && (basename($row->url) !== 'no-image.png'))  
-                      <img src="{{ get_image_url($row->url) }}"/>
-                    @else
-                      <img src="{{ default_placeholder_img_src() }}"/>
-                    @endif
-                    </a>
-                  </div>
-                  <?php $count ++;?>
-                @endforeach
-              </div>
-
-              <ul class="product-thumbnails">
-                <?php $count = 1;?>
-
-                @foreach($single_product_details['_product_related_images_url']->product_gallery_images as $key => $row)
-                  @if($count == 1)
-                    <li class="active">
-                      <a href="#{{ $count }}">
-                        @if(!empty($row->url) && (basename($row->url) !== 'no-image.png'))  
-                          <img src="{{ get_image_url($row->url) }}"/>
-                        @else
-                          <img src="{{ default_placeholder_img_src() }}"/>
-                        @endif
-                      </a>
-                    </li>
-                  @else
-                    <li>
-                      <a href="#{{ $count }}">
-                        @if(!empty($row->url) && (basename($row->url) !== 'no-image.png'))  
-                          <img src="{{ get_image_url($row->url) }}"/>
-                        @else
-                          <img src="{{ default_placeholder_img_src() }}"/>
-                        @endif
-                      </a>
-                    </li>
-                  @endif
-                  <?php $count ++;?>
-                @endforeach
-                
-              </ul>
-
-            @endif
-
+            <div class="product-carousel owl-carousel gallery-wrapper">
+              <div class="gallery-item" data-hash="one"><a href="img/shop/single/01.jpg" data-size="1000x667"><img src="img/shop/single/01.jpg" alt="Product"></a></div>
+              <div class="gallery-item" data-hash="two"><a href="img/shop/single/02.jpg" data-size="1000x667"><img src="img/shop/single/02.jpg" alt="Product"></a></div>
+              <div class="gallery-item" data-hash="three"><a href="img/shop/single/03.jpg" data-size="1000x667"><img src="img/shop/single/03.jpg" alt="Product"></a></div>
+              <div class="gallery-item" data-hash="four"><a href="img/shop/single/04.jpg" data-size="1000x667"><img src="img/shop/single/04.jpg" alt="Product"></a></div>
+              <div class="gallery-item" data-hash="five"><a href="img/shop/single/05.jpg" data-size="1000x667"><img src="img/shop/single/05.jpg" alt="Product"></a></div>
+            </div>
+            <ul class="product-thumbnails">
+              <li class="active"><a href="#one"><img src="img/shop/single/th01.jpg" alt="Product"></a></li>
+              <li><a href="#two"><img src="img/shop/single/th02.jpg" alt="Product"></a></li>
+              <li><a href="#three"><img src="img/shop/single/th03.jpg" alt="Product"></a></li>
+              <li><a href="#four"><img src="img/shop/single/th04.jpg" alt="Product"></a></li>
+              <li><a href="#five"><img src="img/shop/single/th05.jpg" alt="Product"></a></li>
+            </ul>
           </div>
         </div>
         <!-- Product Info-->
         <div class="col-md-6">
           <div class="padding-top-2x mt-2 hidden-md-up"></div>
-            <div class="rating-stars">
-            <i class="icon-star filled"></i>
-            <i class="icon-star filled"></i>
-            <i class="icon-star filled"></i>
-            <i class="icon-star filled"></i>
-            <i class="icon-star"></i>
-          </div>
-          <span class="text-muted align-middle">&nbsp;&nbsp;4.2 | 3 customer reviews</span>
+            <div class="rating-stars"><i class="icon-star filled"></i><i class="icon-star filled"></i><i class="icon-star filled"></i><i class="icon-star filled"></i><i class="icon-star"></i>
+            </div><span class="text-muted align-middle">&nbsp;&nbsp;4.2 | 3 customer reviews</span>
           <h2 class="padding-top-1x text-normal">{{ $single_product_details['post_title'] }}</h2><span class="h2 d-block">
             <del class="text-muted text-normal">$68.00</del>&nbsp; $47.60</span>
           <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dicta voluptatibus quos ea dolore rem, molestias laudantium et explicabo assumenda fugiat deserunt in, facilis laborum excepturi aliquid nobis ipsam deleniti aut? Aliquid sit hic id velit qui fuga nemo suscipit obcaecati. Officia nisi quaerat minus nulla saepe aperiam sint possimus magni veniam provident.</p>
@@ -341,5 +299,3 @@
     </div>
    
   </div>
-
-  

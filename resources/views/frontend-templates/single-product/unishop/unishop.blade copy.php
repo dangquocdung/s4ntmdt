@@ -1,301 +1,589 @@
-<!-- Off-Canvas Wrapper-->
-<div class="offcanvas-wrapper">
- 
-    <!-- Page Content-->
-    <div class="container padding-bottom-3x mb-1">
-      <div class="row">
-        <!-- Poduct Gallery-->
-        <div class="col-md-6">
-          <div class="product-gallery"><span class="product-badge text-danger">30% Off</span>
-            <div class="gallery-wrapper">
-              <div class="gallery-item video-btn text-center">
-                <a href="#" data-toggle="tooltip" data-type="video" data-video="&lt;div class=&quot;wrapper&quot;&gt;&lt;div class=&quot;video-wrapper&quot;&gt;&lt;iframe class=&quot;pswp__video&quot; width=&quot;960&quot; height=&quot;640&quot; src=&quot;//www.youtube.com/embed/B81qd2v6alw?rel=0&quot; frameborder=&quot;0&quot; allowfullscreen&gt;&lt;/iframe&gt;&lt;/div&gt;&lt;/div&gt;" title="Watch video"></a></div>
+<div id="single_product">
+  <div class="container">
+    <div class="small-product-title"><h1 class="product-title">{{ $single_product_details['post_title'] }}</h1><hr></div> 
+    
+    @if(!empty($single_product_details['_product_related_images_url']->shop_banner_image))  
+    <div class="row extra-margin-bottom">
+      <div class="col-12">
+        <img src="{{ get_image_url($single_product_details['_product_related_images_url']->shop_banner_image) }}" class="d-block w-100" alt="" />
+      </div>
+    </div> 
+    @endif
+    
+    <div class="row">
+      <div class="col-xs-12 col-sm-5 col-md-5">
+        <div class="product-main-content">
+          <div class="product-main-image">
+            @if(get_product_image($single_product_details['id']))
+              <img src="{{ get_image_url($single_product_details['_product_related_images_url']->product_image) }}" id="product_image_zoom" data-zoom-image="{{ get_image_url($product_zoom_image) }}" alt="{{ basename($single_product_details['_product_related_images_url']->product_image) }}" class="img-responsive"/>
+              <div class="zoom-icon"></div>
+            @else
+            <div class="product-details-no-image"><img src="{{ default_placeholder_img_src() }}" alt=""></div>
+            @endif
+          </div>
+        
+          @if(count($single_product_details['_product_related_images_url']->product_gallery_images) > 0)
+          <?php $count = 1;?>
+
+          <div id="product_gallery_image" class="product-gallery-image">
+            @foreach($single_product_details['_product_related_images_url']->product_gallery_images as $key => $row)
+              @if($count == 1)
+              <a  href="{{ get_image_url($row->url) }}" class="elevatezoom-gallery active" data-image="{{ get_image_url($row->url) }}" data-zoom-image="{{ get_image_url($row->zoom_img_url) }}">
+                @if(!empty($row->url) && (basename($row->url) !== 'no-image.png'))  
+                <img src="{{ get_image_url($row->url) }}" width="100"  />
+                @else
+                <img src="{{ default_placeholder_img_src() }}" width="100"  />
+                @endif
+              </a>
+              @else
+              <a  href="#" class="elevatezoom-gallery" data-image="{{ get_image_url($row->url) }}" data-zoom-image="{{ get_image_url($row->zoom_img_url) }}">
+                @if(!empty($row->url) && (basename($row->url) !== 'no-image.png'))  
+                <img src="{{ get_image_url($row->url) }}" width="100"  />
+                @else
+                <img src="{{ default_placeholder_img_src() }}" width="100"  />
+                @endif
+              </a>
+              @endif
+              <?php $count ++;?>
+            @endforeach
+          </div>
+          @endif
+        </div> 
+          
+        <div class="selected-variation-product">
+          <div class="product-details-variation-image"><img src=""/></div>
+        </div> 
+          
+        @if($single_product_details['_product_enable_video_feature'] == 'yes')
+        <br>
+          @if($single_product_details['_product_video_feature_display_mode'] == 'popup')
+            <div class="product-video-content">
+              <button class="btn btn-secondary product-video" type="button">
+                <i class="fa fa-video-camera"></i>
+                {{ trans('frontend.product_video') }}
+              </button>
+              @include('modal.product-video')  
             </div>
-            <div class="product-carousel owl-carousel gallery-wrapper">
-              <div class="gallery-item" data-hash="one"><a href="img/shop/single/01.jpg" data-size="1000x667"><img src="img/shop/single/01.jpg" alt="Product"></a></div>
-              <div class="gallery-item" data-hash="two"><a href="img/shop/single/02.jpg" data-size="1000x667"><img src="img/shop/single/02.jpg" alt="Product"></a></div>
-              <div class="gallery-item" data-hash="three"><a href="img/shop/single/03.jpg" data-size="1000x667"><img src="img/shop/single/03.jpg" alt="Product"></a></div>
-              <div class="gallery-item" data-hash="four"><a href="img/shop/single/04.jpg" data-size="1000x667"><img src="img/shop/single/04.jpg" alt="Product"></a></div>
-              <div class="gallery-item" data-hash="five"><a href="img/shop/single/05.jpg" data-size="1000x667"><img src="img/shop/single/05.jpg" alt="Product"></a></div>
-            </div>
-            <ul class="product-thumbnails">
-              <li class="active"><a href="#one"><img src="img/shop/single/th01.jpg" alt="Product"></a></li>
-              <li><a href="#two"><img src="img/shop/single/th02.jpg" alt="Product"></a></li>
-              <li><a href="#three"><img src="img/shop/single/th03.jpg" alt="Product"></a></li>
-              <li><a href="#four"><img src="img/shop/single/th04.jpg" alt="Product"></a></li>
-              <li><a href="#five"><img src="img/shop/single/th05.jpg" alt="Product"></a></li>
+          @elseif($single_product_details['_product_video_feature_display_mode'] == 'content')
+            <h4> {!! $single_product_details['_product_video_feature_title'] !!} </h4>
+            <div class="product-video-content-panel">
+              @if($single_product_details['_product_video_feature_source'] == 'embedded_code')
+                @include('pages.frontend.frontend-pages.video-source-embedded-url')
+                @yield('embedded-content')
+              @elseif($single_product_details['_product_video_feature_source'] == 'online_url')
+                @include('pages.frontend.frontend-pages.video-source-online-url')
+                @yield('online-url-content')
+              @endif
+            </div>  
+          @endif
+        @endif
+        
+      </div>
+        
+      <div class="col-xs-12 col-sm-7 col-md-7">
+        <h1 class="product-title large-product-title">{{ $single_product_details['post_title'] }}</h1>
+        
+        @if( count(get_vendor_details_by_product_id($single_product_details['id'])) >0 )
+        <p class="vendor-title"><strong>{!! trans('frontend.sold_by_label') !!}</strong> - {!! get_vendor_name_by_product_id( $single_product_details['id'] ) !!}</p>
+        @endif
+        
+        <?php $reviews_settings = get_reviews_settings_data($single_product_details['id']);?>
+        @if($reviews_settings['enable_reviews_add_link_to_details_page'] && $reviews_settings['enable_reviews_add_link_to_details_page'] == 'yes')
+          <div class="comments-advices">
+            <ul>
+              <li class="review-stars"><div class="star-rating"><span style="width:{{ $comments_rating_details['percentage'] }}%"></span></div></li>
+              <li class="read-review"><a href="#product_description_bottom_tab" class="reviews selected"> {{ trans('frontend.single_product_read_review_label') }} (<span itemprop="reviewCount">{{ $comments_rating_details['total'] }}</span>) </a></li>
+              <li class="write-review"><a class="open-comment-form" href="#new_comment_form">&nbsp;<span>|</span>&nbsp; {{ trans('frontend.single_product_write_review_label') }} </a></li>
             </ul>
           </div>
+        @endif
+        
+        <div class="product-pricing">
+          @if( get_product_type($single_product_details['id']) == 'simple_product' || (get_product_type($single_product_details['id']) == 'downloadable_product' && count(get_product_variations($single_product_details['id'])) == 0 ) || (get_product_type($single_product_details['id']) == 'customizable_product' && count(get_product_variations($single_product_details['id'])) == 0 ) )
+            @if(!is_null($single_product_details['offer_price']))
+            <span class="offer-price">{!! price_html( $single_product_details['offer_price'] ) !!}</span>
+            @endif
+            
+            <span class="solid-price">{!! price_html( $single_product_details['solid_price'] ) !!}</span>
+
+            @if($single_product_details['post_regular_price'] && $single_product_details['post_sale_price'] && $single_product_details['post_regular_price'] > $single_product_details['post_sale_price'] && $single_product_details['_product_sale_price_start_date'] && $single_product_details['_product_sale_price_end_date'] && $single_product_details['_product_sale_price_end_date'] >= date("Y-m-d"))
+            <p class="offer-message-label"><i class="fa fa-bell" aria-hidden="true"></i> {{ trans('frontend.offer_msg') }}  <i>{!! date("F j, Y", strtotime($single_product_details['_product_sale_price_start_date'])) !!} {{ trans('frontend.to') }} {!! date("F j, Y", strtotime($single_product_details['_product_sale_price_end_date'])) !!} </i></p>
+            @endif
+            
+          @elseif( (get_product_type($single_product_details['id']) == 'configurable_product' || get_product_type($single_product_details['id']) == 'customizable_product' || get_product_type($single_product_details['id']) == 'downloadable_product') && count(get_product_variations($single_product_details['id'])) > 0 )
+            <span class="solid-price">{!! get_product_variations_min_to_max_price_html($currency_symbol, $single_product_details['id']) !!} </span>
+          @endif
         </div>
-        <!-- Product Info-->
-        <div class="col-md-6">
-          <div class="padding-top-2x mt-2 hidden-md-up"></div>
-            <div class="rating-stars"><i class="icon-star filled"></i><i class="icon-star filled"></i><i class="icon-star filled"></i><i class="icon-star filled"></i><i class="icon-star"></i>
-            </div><span class="text-muted align-middle">&nbsp;&nbsp;4.2 | 3 customer reviews</span>
-          <h2 class="padding-top-1x text-normal">{{ $single_product_details['post_title'] }}</h2><span class="h2 d-block">
-            <del class="text-muted text-normal">$68.00</del>&nbsp; $47.60</span>
-          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dicta voluptatibus quos ea dolore rem, molestias laudantium et explicabo assumenda fugiat deserunt in, facilis laborum excepturi aliquid nobis ipsam deleniti aut? Aliquid sit hic id velit qui fuga nemo suscipit obcaecati. Officia nisi quaerat minus nulla saepe aperiam sint possimus magni veniam provident.</p>
-          <div class="row margin-top-1x">
-            <div class="col-sm-4">
-              <div class="form-group">
-                <label for="size">Men's size</label>
-                <select class="form-control" id="size">
-                  <option>Chooze size</option>
-                  <option>11.5</option>
-                  <option>11</option>
-                  <option>10.5</option>
-                  <option>10</option>
-                  <option>9.5</option>
-                  <option>9</option>
-                  <option>8.5</option>
-                </select>
+        
+        @if(( get_product_type($single_product_details['id']) == 'simple_product' || ( ( get_product_type($single_product_details['id']) == 'customizable_product' || get_product_type($single_product_details['id']) == 'downloadable_product' ) && count(get_product_variations($single_product_details['id'])) == 0) ))
+          @if( $single_product_details['post_stock_availability'] == 'in_stock' || ($single_product_details['_product_manage_stock'] == 'yes' && $single_product_details['_product_manage_stock_back_to_order'] == 'only_allow' && $single_product_details['post_stock_availability'] == 'in_stock') || ($single_product_details['_product_manage_stock'] == 'yes' && $single_product_details['_product_manage_stock_back_to_order'] == 'allow_notify_customer' && $single_product_details['post_stock_availability'] == 'in_stock') )
+            <p class="availability-status"><span>{{ trans('frontend.single_product_availability_label') }}: </span> <span class="in-stock">{{ trans('frontend.single_product_availability_status_instock_label') }}</span></p>
+          @else
+            <p class="availability-status"><span>{{ trans('frontend.single_product_availability_label') }}: </span> <span class="in-stock">{{ trans('frontend.single_product_availability_status_outstock_label') }}</span></p>
+            <button class="btn btn-light request-product" type="button">{{ trans('frontend.request_product') }}</button>
+            @include('modal.request-products', array('product_id' => $single_product_details['id']))
+          @endif
+          
+          
+          @if($single_product_details['_product_manage_stock'] == 'yes' && $single_product_details['post_stock_qty'] > 0)
+          <p class="availability-status"><span>{{ trans('frontend.single_product_available_stock_label') }}: </span> <span class="stock-amount">{{ $single_product_details['post_stock_qty'] }}</span></p>
+          @endif
+         
+          
+          @if($single_product_details['_product_manage_stock'] == 'yes' && $single_product_details['_product_manage_stock_back_to_order'] == 'allow_notify_customer' && $single_product_details['post_stock_availability'] == 'in_stock')
+            <p class="stock-notify-msg"><i class="fa fa-bell" aria-hidden="true"></i> {{ trans('frontend.product_available_msg') }}</p>
+          @endif
+        @endif
+        <hr>
+        
+        @if($single_product_details['post_content'])
+        <div class="product-description">
+        {!! string_decode($single_product_details['post_content']) !!}
+        </div><hr>
+        @endif
+        
+        @if( (get_product_type($single_product_details['id']) == 'configurable_product' || get_product_type($single_product_details['id']) == 'downloadable_product'))
+          @if(count($attr_lists) >0 && count(get_product_variations_with_data($single_product_details['id']))>0)
+            @include('includes.frontend.variations-html', array('attr_lists' => $attr_lists, 'single_product_details' => $single_product_details))
+          @endif
+        @endif
+        
+        @if(( get_product_type($single_product_details['id']) == 'simple_product' || ( get_product_type($single_product_details['id']) == 'downloadable_product' && count(get_product_variations($single_product_details['id'])) == 0 )) && ($single_product_details['post_stock_availability'] == 'in_stock' || ($single_product_details['_product_manage_stock'] == 'yes' && $single_product_details['_product_manage_stock_back_to_order'] == 'only_allow' && $single_product_details['post_stock_availability'] == 'in_stock') || ($single_product_details['_product_manage_stock'] == 'yes' && $single_product_details['_product_manage_stock_back_to_order'] == 'allow_notify_customer' && $single_product_details['post_stock_availability'] == 'in_stock')))
+        <div class="product-add-to-cart-content add-to-cart-content">
+          <ul>
+            <li>
+              <div class="input-group">
+                  <span class="input-group-btn">
+                    <button type="button" class="btn btn-light btn-number minus-control" disabled="disabled" data-type="minus" data-field="quant[1]">
+                      <span class="fa fa-minus"></span>
+                    </button>
+                  </span>
+                  <?php $qty = ''; if($single_product_details['_product_manage_stock_back_to_order'] == 'not_allow' && $single_product_details['post_stock_qty']>0){?>
+                  <?php $qty = $single_product_details['post_stock_qty'];}?>
+                  <input type="text" id="quantity" name="quant[1]" class="form-control input-number" value="1" min="1" max="{{ $qty }}"/>
+                  <span class="input-group-btn">
+                    <button type="button" class="btn btn-light btn-number plus-control" data-type="plus" data-field="quant[1]">
+                      <span class="fa fa-plus"></span>
+                    </button>
+                  </span>
               </div>
-            </div>
-            <div class="col-sm-5">
-              <div class="form-group">
-                <label for="color">Choose color</label>
-                <select class="form-control" id="color">
-                  <option>White/Red/Blue</option>
-                  <option>Black/Orange/Green</option>
-                  <option>Gray/Purple/White</option>
-                </select>
-              </div>
-            </div>
-            <div class="col-sm-3">
-              <div class="form-group">
-                <label for="quantity">Quantity</label>
-                <select class="form-control" id="quantity">
-                  <option>1</option>
-                  <option>2</option>
-                  <option>3</option>
-                  <option>4</option>
-                  <option>5</option>
-                </select>
-              </div>
-            </div>
-          </div>
-          <div class="pt-1 mb-2"><span class="text-medium">SKU:</span> #21457832</div>
-          <div class="padding-bottom-1x mb-2"><span class="text-medium">Categories:&nbsp;</span><a class="navi-link" href="#">Men’s shoes,</a><a class="navi-link" href="#"> Snickers,</a><a class="navi-link" href="#"> Sport shoes</a></div>
-          <hr class="mb-3">
-          <div class="d-flex flex-wrap justify-content-between">
-            <div class="entry-share mt-2 mb-2"><span class="text-muted">Share:</span>
-              <div class="share-links"><a class="social-button shape-circle sb-facebook" href="#" data-toggle="tooltip" data-placement="top" title="Facebook"><i class="socicon-facebook"></i></a><a class="social-button shape-circle sb-twitter" href="#" data-toggle="tooltip" data-placement="top" title="Twitter"><i class="socicon-twitter"></i></a><a class="social-button shape-circle sb-instagram" href="#" data-toggle="tooltip" data-placement="top" title="Instagram"><i class="socicon-instagram"></i></a><a class="social-button shape-circle sb-google-plus" href="#" data-toggle="tooltip" data-placement="top" title="Google +"><i class="socicon-googleplus"></i></a></div>
-            </div>
-            <div class="sp-buttons mt-2 mb-2">
-              <button class="btn btn-outline-secondary btn-sm btn-wishlist" data-toggle="tooltip" title="Whishlist"><i class="icon-heart"></i></button>
-              <button class="btn btn-primary" data-toast data-toast-type="success" data-toast-position="topRight" data-toast-icon="icon-circle-check" data-toast-title="Product" data-toast-message="successfuly added to cart!"><i class="icon-bag"></i> Add to Cart</button>
-            </div>
-          </div>
-        </div>
-      </div>
-      <!-- Product Tabs-->
-      <div class="row padding-top-3x mb-3">
-        <div class="col-lg-10 offset-lg-1">
-          <ul class="nav nav-tabs" role="tablist">
-            <li class="nav-item"><a class="nav-link active" href="#description" data-toggle="tab" role="tab">Description</a></li>
-            <li class="nav-item"><a class="nav-link" href="#reviews" data-toggle="tab" role="tab">Reviews (3)</a></li>
+            </li>
+            <li>
+              <a href="" class="btn btn-sm btn-style add-to-cart-bg" data-id="{{ $single_product_details['id'] }}"><i class="fa fa-shopping-cart"></i>&nbsp;&nbsp; {{ trans('frontend.add_to_cart') }}</a>
+            </li>
           </ul>
-          <div class="tab-content">
-            <div class="tab-pane fade show active" id="description" role="tabpanel">
-              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Error blanditiis a, deserunt magnam pariatur quam suscipit quae. Veniam, deserunt reprehenderit quasi hic recusandae itaque omnis fugiat animi architecto facilis repellendus. Commodi dolorem, eius consectetur. Amet maiores nemo at nobi s aspernatur velit, sequi odio, a veritatis inventore autem esse provident in? Placeat, sunt!</p>
-              <p class="mb-30">Iste assumenda, vitae, aliquam excepturi libero quia ullam quisquam tenetur id sint labore. Pariatur praesentium velit, fugit facere maxime voluptates optio qui? Quidem obcaecati necessitatibus rem aspernatur, mollitia, assumenda explicabo numquam minus eos sapiente totam dicta, laborum dolorum! Vitae distinctio quos non ut fugiat.</p>
-              <div class="row">
-                <div class="col-sm-6">
-                  <dl>
-                    <dt>Materials:</dt>
-                    <dd>Leather, Cotton, Rubber, Foam</dd>
-                    <dt>Available Sizes:</dt>
-                    <dd>8.5, 9.0, 9.5, 10.0, 10.5, 11.0, 11.5</dd>
-                    <dt>Available Colors:</dt>
-                    <dd>White/Red/Blue, Black/Orange/Green</dd>
-                  </dl>
-                </div>
-                <div class="col-sm-6">
-                  <dl>
-                    <dt>Model Year:</dt>
-                    <dd>2016</dd>
-                    <dt>Manufacturer:</dt>
-                    <dd>Reebok Inc.</dd>
-                    <dt>Made In:</dt>
-                    <dd>Taiwan</dd>
-                  </dl>
-                </div>
-              </div>
-            </div>
-            <div class="tab-pane fade" id="reviews" role="tabpanel">
-              <!-- Review-->
-              <div class="comment">
-                <div class="comment-author-ava"><img src="img/reviews/01.jpg" alt="Review author"></div>
-                <div class="comment-body">
-                  <div class="comment-header d-flex flex-wrap justify-content-between">
-                    <h4 class="comment-title">Average quality for the price</h4>
-                    <div class="mb-2">
-                        <div class="rating-stars"><i class="icon-star filled"></i><i class="icon-star filled"></i><i class="icon-star filled"></i><i class="icon-star"></i><i class="icon-star"></i>
-                        </div>
-                    </div>
-                  </div>
-                  <p class="comment-text">At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga.</p>
-                  <div class="comment-footer"><span class="comment-meta">Francis Burton</span></div>
-                </div>
-              </div>
-              <!-- Review-->
-              <div class="comment">
-                <div class="comment-author-ava"><img src="img/reviews/02.jpg" alt="Review author"></div>
-                <div class="comment-body">
-                  <div class="comment-header d-flex flex-wrap justify-content-between">
-                    <h4 class="comment-title">My husband love his new...</h4>
-                    <div class="mb-2">
-                        <div class="rating-stars"><i class="icon-star filled"></i><i class="icon-star filled"></i><i class="icon-star filled"></i><i class="icon-star filled"></i><i class="icon-star filled"></i>
-                        </div>
-                    </div>
-                  </div>
-                  <p class="comment-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-                  <div class="comment-footer"><span class="comment-meta">Maggie Scott</span></div>
-                </div>
-              </div>
-              <!-- Review-->
-              <div class="comment">
-                <div class="comment-author-ava"><img src="img/reviews/03.jpg" alt="Review author"></div>
-                <div class="comment-body">
-                  <div class="comment-header d-flex flex-wrap justify-content-between">
-                    <h4 class="comment-title">Soft, comfortable, quite durable...</h4>
-                    <div class="mb-2">
-                        <div class="rating-stars"><i class="icon-star filled"></i><i class="icon-star filled"></i><i class="icon-star filled"></i><i class="icon-star filled"></i><i class="icon-star"></i>
-                        </div>
-                    </div>
-                  </div>
-                  <p class="comment-text">Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt.</p>
-                  <div class="comment-footer"><span class="comment-meta">Jacob Hammond</span></div>
-                </div>
-              </div>
-              <!-- Review Form-->
-              <h5 class="mb-30 padding-top-1x">Leave Review</h5>
-              <form class="row" method="post">
-                <div class="col-sm-6">
-                  <div class="form-group">
-                    <label for="review_name">Your Name</label>
-                    <input class="form-control form-control-rounded" type="text" id="review_name" required>
-                  </div>
-                </div>
-                <div class="col-sm-6">
-                  <div class="form-group">
-                    <label for="review_email">Your Email</label>
-                    <input class="form-control form-control-rounded" type="email" id="review_email" required>
-                  </div>
-                </div>
-                <div class="col-sm-6">
-                  <div class="form-group">
-                    <label for="review_subject">Subject</label>
-                    <input class="form-control form-control-rounded" type="text" id="review_subject" required>
-                  </div>
-                </div>
-                <div class="col-sm-6">
-                  <div class="form-group">
-                    <label for="review_rating">Rating</label>
-                    <select class="form-control form-control-rounded" id="review_rating">
-                      <option>5 Stars</option>
-                      <option>4 Stars</option>
-                      <option>3 Stars</option>
-                      <option>2 Stars</option>
-                      <option>1 Star</option>
-                    </select>
-                  </div>
-                </div>
-                <div class="col-12">
-                  <div class="form-group">
-                    <label for="review_text">Review </label>
-                    <textarea class="form-control form-control-rounded" id="review_text" rows="8" required></textarea>
-                  </div>
-                </div>
-                <div class="col-12 text-right">
-                  <button class="btn btn-outline-primary" type="submit">Submit Review</button>
-                </div>
-              </form>
-            </div>
-          </div>
+          <input type="hidden" name="available_stock_val" id="available_stock_val" value="{{ $single_product_details['post_stock_qty'] }}">
+          <input type="hidden" name="backorder_val" id="backorder_val" value="{{ $single_product_details['_product_manage_stock_back_to_order'] }}">
         </div>
-      </div>
-      <!-- Related Products Carousel-->
-      <h3 class="text-center padding-top-2x mt-2 padding-bottom-1x">You May Also Like</h3>
-      <!-- Carousel-->
-      <div class="owl-carousel" data-owl-carousel="{ &quot;nav&quot;: false, &quot;dots&quot;: true, &quot;margin&quot;: 30, &quot;responsive&quot;: {&quot;0&quot;:{&quot;items&quot;:1},&quot;576&quot;:{&quot;items&quot;:2},&quot;768&quot;:{&quot;items&quot;:3},&quot;991&quot;:{&quot;items&quot;:4},&quot;1200&quot;:{&quot;items&quot;:4}} }">
-        <!-- Product-->
-        <div class="grid-item">
-          <div class="product-card">
-            <div class="product-badge text-danger">22% Off</div><a class="product-thumb" href="shop-single.html"><img src="img/shop/products/09.jpg" alt="Product"></a>
-            <h3 class="product-title"><a href="shop-single.html">Rocket Dog</a></h3>
-            <h4 class="product-price">
-              <del>$44.95</del>$34.99
-            </h4>
-            <div class="product-buttons">
-              <button class="btn btn-outline-secondary btn-sm btn-wishlist" data-toggle="tooltip" title="Whishlist"><i class="icon-heart"></i></button>
-              <button class="btn btn-outline-primary btn-sm" data-toast data-toast-type="success" data-toast-position="topRight" data-toast-icon="icon-circle-check" data-toast-title="Product" data-toast-message="successfuly added to cart!">Add to Cart</button>
-            </div>
-          </div>
+        @endif
+        
+        @if(get_product_type($single_product_details['id']) == 'customizable_product')
+        <a href="{{ route('customize-page', $single_product_details['post_slug']) }}" class="btn btn-sm btn-style product-customize-bg"><i class="fa fa-gears"></i> {!! trans('frontend.customize_it') !!}</a>
+        @endif
+        
+        <div class="product-extra-data">
+          @if($single_product_details['post_sku'])  
+            <p><label>{{ trans('frontend.sku') }}:</label><span>{{ $single_product_details['post_sku'] }}</span></p>
+          @endif
+          
+          @if($single_product_details['_product_enable_as_latest'] == 'yes')
+            <p><label>{{ trans('frontend.condition_label') }}:</label><span>{{ trans('frontend.new_label') }}</span></p>
+          @endif
+          
+          @if(count(get_product_brands_lists($single_product_details['id'])) > 0)
+            <p><label>{{ trans('frontend.brand_label') }}:</label><span>{{ get_single_page_product_brands_lists( get_product_brands_lists($single_product_details['id']) ) }}</span></p>
+          @endif
+          
+          @if(get_single_page_product_categories_lists($single_product_details['id']))
+            <p><label>{{ trans('frontend.category_label') }}:</label><span>{{ get_single_page_product_categories_lists($single_product_details['id']) }}</span></p>
+          @endif
+          
+          @if(count(get_product_tags_lists($single_product_details['id']))>0)
+            <p><label>{{ trans('frontend.tag_label') }}:</label><span>{{ get_single_page_product_tags_lists(get_product_tags_lists($single_product_details['id'])) }}</span></p>
+          @endif
         </div>
-        <!-- Product-->
-        <div class="grid-item">
-          <div class="product-card">
-              <div class="rating-stars"><i class="icon-star filled"></i><i class="icon-star filled"></i><i class="icon-star filled"></i><i class="icon-star filled"></i><i class="icon-star"></i>
-              </div><a class="product-thumb" href="shop-single.html"><img src="img/shop/products/03.jpg" alt="Product"></a>
-            <h3 class="product-title"><a href="shop-single.html">Oakley Kickback</a></h3>
-            <h4 class="product-price">$155.00</h4>
-            <div class="product-buttons">
-              <button class="btn btn-outline-secondary btn-sm btn-wishlist" data-toggle="tooltip" title="Whishlist"><i class="icon-heart"></i></button>
-              <button class="btn btn-outline-primary btn-sm" data-toast data-toast-type="success" data-toast-position="topRight" data-toast-icon="icon-circle-check" data-toast-title="Product" data-toast-message="successfuly added to cart!">Add to Cart</button>
-            </div>
-          </div>
+        
+        <div class="single-page-btn">
+          <ul>
+            <li>
+              <a href="" class="btn btn-light btn-sm product-wishlist" data-id="{{ $single_product_details['id'] }}"><i class="fa fa-heart"></i> {{ trans('frontend.add_to_wishlist_label') }}</a>
+            </li>
+            <li>
+              <a href="" class="btn btn-light btn-sm product-compare" data-id="{{ $single_product_details['id'] }}"><i class="fa fa-exchange"></i> {{ trans('frontend.add_to_compare_list_label') }}</a>
+            </li>
+          </ul>  
         </div>
-        <!-- Product-->
-        <div class="grid-item">
-          <div class="product-card"><a class="product-thumb" href="shop-single.html"><img src="img/shop/products/12.jpg" alt="Product"></a>
-            <h3 class="product-title"><a href="shop-single.html">Vented Straw Fedora</a></h3>
-            <h4 class="product-price">$49.50</h4>
-            <div class="product-buttons">
-              <button class="btn btn-outline-secondary btn-sm btn-wishlist" data-toggle="tooltip" title="Whishlist"><i class="icon-heart"></i></button>
-              <button class="btn btn-outline-primary btn-sm" data-toast data-toast-type="success" data-toast-position="topRight" data-toast-icon="icon-circle-check" data-toast-title="Product" data-toast-message="successfuly added to cart!">Add to Cart</button>
-            </div>
-          </div>
-        </div>
-        <!-- Product-->
-        <div class="grid-item">
-          <div class="product-card">
-              <div class="rating-stars"><i class="icon-star filled"></i><i class="icon-star filled"></i><i class="icon-star filled"></i><i class="icon-star filled"></i><i class="icon-star filled"></i>
-              </div><a class="product-thumb" href="shop-single.html"><img src="img/shop/products/11.jpg" alt="Product"></a>
-            <h3 class="product-title"><a href="shop-single.html">Top-Sider Fathom</a></h3>
-            <h4 class="product-price">$90.00</h4>
-            <div class="product-buttons">
-              <button class="btn btn-outline-secondary btn-sm btn-wishlist" data-toggle="tooltip" title="Whishlist"><i class="icon-heart"></i></button>
-              <button class="btn btn-outline-primary btn-sm" data-toast data-toast-type="success" data-toast-position="topRight" data-toast-icon="icon-circle-check" data-toast-title="Product" data-toast-message="successfuly added to cart!">Add to Cart</button>
-            </div>
-          </div>
-        </div>
-        <!-- Product-->
-        <div class="grid-item">
-          <div class="product-card"><a class="product-thumb" href="shop-single.html"><img src="img/shop/products/04.jpg" alt="Product"></a>
-            <h3 class="product-title"><a href="shop-single.html">Waist Leather Belt</a></h3>
-            <h4 class="product-price">$47.00</h4>
-            <div class="product-buttons">
-              <button class="btn btn-outline-secondary btn-sm btn-wishlist" data-toggle="tooltip" title="Whishlist"><i class="icon-heart"></i></button>
-              <button class="btn btn-outline-primary btn-sm" data-toast data-toast-type="success" data-toast-position="topRight" data-toast-icon="icon-circle-check" data-toast-title="Product" data-toast-message="successfuly added to cart!">Add to Cart</button>
-            </div>
-          </div>
-        </div>
-        <!-- Product-->
-        <div class="grid-item">
-          <div class="product-card">
-            <div class="product-badge text-danger">50% Off</div><a class="product-thumb" href="shop-single.html"><img src="img/shop/products/01.jpg" alt="Product"></a>
-            <h3 class="product-title"><a href="shop-single.html">Unionbay Park</a></h3>
-            <h4 class="product-price">
-              <del>$99.99</del>$49.99
-            </h4>
-            <div class="product-buttons">
-              <button class="btn btn-outline-secondary btn-sm btn-wishlist" data-toggle="tooltip" title="Whishlist"><i class="icon-heart"></i></button>
-              <button class="btn btn-outline-primary btn-sm" data-toast data-toast-type="success" data-toast-position="topRight" data-toast-icon="icon-circle-check" data-toast-title="Product" data-toast-message="successfuly added to cart!">Add to Cart</button>
-            </div>
-          </div>
+        
+        <div class="product-share-content">
+          <ul>
+            <li><a class="facebook btn btn-light btn-sm" data-name="fb" href="#" data-toggle="tooltip" data-placement="top" title="{{ trans('frontend.share_with_fb_label') }}"><i class="fa fa-facebook"></i> {!! trans('frontend.share_label') !!}</a></li>
+            <li><a class="twitter btn btn-light btn-sm" data-name="tweet" href="#" data-toggle="tooltip" data-placement="top" title="{{ trans('frontend.share_with_twitter_label') }}"><i class="fa fa-twitter"></i> {!! trans('frontend.tweet_label') !!}</a></li>
+            <li><a class="google-plus btn btn-light btn-sm" data-name="gplus" href="#" data-toggle="tooltip" data-placement="top" title="{{ trans('frontend.share_with_google_plus_label') }}"><i class="fa fa-google-plus"></i> {!! trans('frontend.share_label') !!}</a></li>
+            <li><a class="linkedin btn btn-light btn-sm" data-name="lin" href="#" data-toggle="tooltip" data-placement="top" title="{{ trans('frontend.share_with_linkedin_label') }}"><i class="fa fa-linkedin"></i> {!! trans('frontend.share_label') !!}</a></li>
+            <li><a class="pinterest btn btn-light btn-sm" data-name="pi" href="#" data-toggle="tooltip" data-placement="top" title="{{ trans('frontend.share_with_pin_it_label') }}"><i class="fa fa-pinterest"></i> {!! trans('frontend.share_pin_it_label') !!}</a></li>
+            <li><a class="print btn btn-light btn-sm" data-name="print" href="#" data-toggle="tooltip" data-placement="top" title="{{ trans('frontend.print_label') }}"><i class="fa fa-print"></i> {!! trans('frontend.print_label') !!}</a></li>
+          </ul>
         </div>
       </div>
     </div>
-   
+    <div id="product_description_bottom_tab" class="product-description-bottom-tab">
+      <div class="row">
+        <div class="col-12">  
+          <ul class="nav nav-tabs">
+            <li class="nav-item"><a <?php if(!old('comments_target')){?>class="nav-link active" <?php }?> href="#features" data-toggle="tab">{{ trans('frontend.features_label') }}</a></li>  
+            <li class="nav-item"><a class="nav-link" href="#shippingInfo" data-toggle="tab">{{ trans('frontend.shipping_info_label') }}</a></li>
+
+            @if($single_product_details['_product_enable_reviews'] == 'yes')
+              <li class="nav-item"><a class="nav-link <?php if(old('comments_target')){?>active <?php }?>" href="#reviews" data-toggle="tab">{{ trans('frontend.reviews_label') }} ({!! $comments_rating_details['total'] !!})</a></li>
+            @endif
+
+            @if( count(get_vendor_details_by_product_id($single_product_details['id'])) >0 )
+            <li class="nav-item"><a class="nav-link" href="#vendorInfo" data-toggle="tab">{{ trans('frontend.vendor_info_label') }}</a></li>
+            @endif
+          </ul>
+
+          <div class="tab-content">
+            <div class="tab-pane fade <?php if(!old('comments_target')){?>show active<?php }?>" id="features">
+              @if($single_product_details['_product_extra_features'])  
+                {!! string_decode($single_product_details['_product_extra_features']) !!}
+              @else
+                {!! trans('frontend.no_features_label') !!}
+              @endif
+            </div>
+
+            <div class="tab-pane fade" id="shippingInfo" >
+              {!! trans('frontend.no_shippingInfo_label') !!}
+            </div>
+
+            @if($single_product_details['_product_enable_reviews'] == 'yes')
+            <div class="tab-pane fade <?php if(old('comments_target')){?>show active<?php }?>" id="reviews">
+                <div class="product-reviews-content">
+                  <div class="rating-box clearfix">
+                      <div class="score-box">
+                        <div class="score">{{ $comments_rating_details['average'] }}</div>
+                        <div class="star-rating"><span style="width:{{ $comments_rating_details['percentage'] }}%"></span></div>
+                        <div class="total-users"><i class="fa fa-user"></i>&nbsp;<span class="total">{{ $comments_rating_details['total'] }}</span>&nbsp;{{ trans('frontend.totals_label') }}</div>
+                      </div>
+                      <div class="individual-score-graph">
+                        <ul>
+                          <li>
+                            <div class="rating-progress-content clearfix">
+                              <div class="individual-rating-score">
+                                <span><i class="fa fa-star"></i> 5</span>
+                              </div>
+                              <div class="individual-rating-progress">
+                                <div class="progress">
+                                  <div class="progress-bar progress-bar-five" role="progressbar" aria-valuenow="{{ $comments_rating_details[5] }}" aria-valuemin="0" aria-valuemax="100" style="width:{{ $comments_rating_details[5] }}%">
+                                  {!! $comments_rating_details[5] !!}%
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </li>
+                          <li>
+                              <div class="rating-progress-content clearfix">
+                                  <div class="individual-rating-score">
+                                      <span><i class="fa fa-star"></i> 4</span>
+                                  </div>
+                                  <div class="individual-rating-progress">
+                                      <div class="progress">
+                                        <div class="progress-bar progress-bar-four" role="progressbar" aria-valuenow="{{ $comments_rating_details[4] }}" aria-valuemin="0" aria-valuemax="100" style="width:{{ $comments_rating_details[4] }}%">
+                                        {!! $comments_rating_details[4] !!}%
+                                        </div>
+                                      </div>
+                                  </div>
+                              </div>
+                          </li>
+                          <li>
+                              <div class="rating-progress-content clearfix">
+                                  <div class="individual-rating-score">
+                                      <span><i class="fa fa-star"></i> 3</span>
+                                  </div>
+                                  <div class="individual-rating-progress">
+                                      <div class="progress">
+                                        <div class="progress-bar progress-bar-three" role="progressbar" aria-valuenow="{{ $comments_rating_details[3] }}" aria-valuemin="0" aria-valuemax="100" style="width:{{ $comments_rating_details[3] }}%">
+                                        {!! $comments_rating_details[3] !!}%
+                                        </div>
+                                      </div>
+                                  </div>
+                              </div>
+                          </li>
+                          <li>
+                              <div class="rating-progress-content clearfix">
+                                  <div class="individual-rating-score">
+                                      <span><i class="fa fa-star"></i> 2</span>
+                                  </div>
+                                  <div class="individual-rating-progress">
+                                      <div class="progress">
+                                        <div class="progress-bar progress-bar-two" role="progressbar" aria-valuenow="{{ $comments_rating_details[2] }}" aria-valuemin="0" aria-valuemax="100" style="width:{{ $comments_rating_details[2] }}%">
+                                        {!! $comments_rating_details[2] !!}%
+                                        </div>
+                                      </div>
+                                  </div>
+                              </div>
+                          </li>
+                          <li>
+                              <div class="rating-progress-content clearfix">
+                                  <div class="individual-rating-score">
+                                      <span><i class="fa fa-star"></i> 1</span>
+                                  </div>
+                                  <div class="individual-rating-progress">
+                                      <div class="progress">
+                                        <div class="progress-bar progress-bar-one" role="progressbar" aria-valuenow="{{ $comments_rating_details[1] }}" aria-valuemin="0" aria-valuemax="100" style="width:{{ $comments_rating_details[1] }}%">
+                                        {!! $comments_rating_details[1] !!}%
+                                        </div>
+                                      </div>
+                                  </div>
+                              </div>
+                          </li>
+                        </ul>
+                      </div>
+                  </div>
+                  <div class="user-reviews-content">
+                      <h2 class="user-reviews-title">{{ $comments_rating_details['total'] }} {{ trans('frontend.reviews_for_label') }} <i><span>{{ $single_product_details['post_title'] }}</span></i></h2>
+                        @if(count($comments_details) > 0)
+                        <ol class="commentlist">
+                           @foreach($comments_details as $comment) 
+                            <li class="comment">
+                              <div class="comment-container clearfix">
+                                <div class="user-img">
+                                  @if(!empty($comment->user_photo_url))
+                                  <img alt="" src="{{ get_image_url( $comment->user_photo_url ) }}" class="avatar photo">
+                                  @else
+                                  <img alt="" src="{{ default_avatar_img_src() }}" class="avatar photo">
+                                  @endif
+                                </div>
+                                <div class="comment-text">
+                                  <div class="star-rating">
+                                    <span style="width:{{ $comment->percentage }}%"><strong itemprop="ratingValue"></strong></span>
+                                  </div>
+                                  <p class="meta">
+                                    <span class="comment-date">{{ Carbon\Carbon::parse(  $comment->created_at )->format('F d, Y') }}</span> &nbsp; - <span class="comment-user-role"><strong >{{ trans('frontend.by_label') }} {{ $comment->display_name }}</strong></span>
+                                  </p><hr>
+                                  <div class="description">
+                                    <p>{{ $comment->content }}</p>
+                                  </div>
+                                </div>
+                              </div>
+                            </li>
+                            @endforeach
+                        </ol>
+                        @else
+                        <p>{{ trans('frontend.no_review_label') }}</p>
+                        @endif
+                  </div>
+
+                  <br>
+
+                  @include('pages-message.notify-msg-success')
+                  @include('pages-message.notify-msg-error')
+                  @include('pages-message.form-submit')
+
+                  <form id="new_comment_form" method="post" action="" enctype="multipart/form-data">
+                    <input type="hidden" name="_token" id="_token" value="{{ csrf_token() }}">
+                    <input type="hidden" name="comments_target" id="comments_target" value="product">
+                    <input type="hidden" name="selected_rating_value" id="selected_rating_value" value="">
+                    <input type="hidden" name="object_id" id="object_id" value="{{ $single_product_details['id'] }}">
+
+                    <div class="add-user-review">
+                      <h2 class="add-reviews-title">{{ trans('frontend.add_a_review_label') }}</h2>
+                      <hr>
+                      <h2 class="rating-title">{{ trans('frontend.select_your_rating_label') }}</h2>
+                      <div class="rating-select">
+                        <div class="btn btn-light btn-sm" data-rating_value="1"><span class="fa fa-star"></span></div>
+                        <div class="btn btn-light btn-sm" data-rating_value="2"><span class="fa fa-star"></span></div>
+                        <div class="btn btn-light btn-sm" data-rating_value="3"><span class="fa fa-star"></span></div>
+                        <div class="btn btn-light btn-sm" data-rating_value="4"><span class="fa fa-star"></span></div>
+                        <div class="btn btn-light btn-sm" data-rating_value="5"><span class="fa fa-star"></span></div>
+                      </div>
+                      <br>
+                      <div class="review-content">
+                        <fieldset>
+                          <legend>{{ trans('frontend.write_your_review_label') }}</legend>
+                          <p><textarea name="product_review_content" id="product_review_content"></textarea></p>
+                        </fieldset>
+                      </div>
+                      <br>
+                      <div class="review-submit">
+                        <input name="review_submit" id="review_submit" class="btn btn-sm btn-style" value="{{ trans('frontend.submit_label') }}" type="submit">
+                      </div>
+                    </div>
+                  </form>
+              </div>
+            </div>
+            @endif
+
+            @if( count(get_vendor_details_by_product_id($single_product_details['id'])) >0 )
+            <div class="tab-pane fade" id="vendorInfo">
+              <?php  $vendor_details = get_vendor_details_by_product_id($single_product_details['id']); $parse_json = json_decode($vendor_details['details']);?>
+              <table>
+                <tr>
+                  <th>{!! trans('frontend.store_name_label') !!}</th>
+                  @if(!empty($parse_json->profile_details->store_name))
+                  <td>{!! $parse_json->profile_details->store_name !!}</td>
+                  @else
+                  <td>{!! $vendor_details['user_name'] !!}</td>
+                  @endif
+                </tr>
+
+                <tr><th>{!! trans('frontend.vendor_label') !!}</th><td><a target="_blank" href="{{ route('store-details-page-content', $vendor_details['user_name']) }}"><i>{!!  $vendor_details['user_name'] !!}</i></a></td></tr>
+
+                @if(!empty($parse_json->profile_details->country))
+                <tr><th>{!! trans('frontend.country') !!}</th><td>{!! $parse_json->profile_details->country !!}</td></tr>
+                @endif
+
+                <tr><th>{!! trans('frontend.vendor_rating_label') !!}</th><td><div class="review-stars"><div class="star-rating" style="text-align:left !important; margin:0px !important;"><span style="width:{{ $vendor_reviews_rating_details['percentage'] }}%"></span></div></div></td></tr>  
+              </table>
+            </div>  
+            @endif
+          </div>
+        </div>
+      </div>    
+    </div>  
+            
+    @if(count($related_items) > 0)    
+    <div class="row">
+      <div class="col-12">  
+        <div id="related_products">
+          <div class="content-title">
+            <h2 class="text-center title-under">{{ trans('frontend.related_products_label') }}</h2>
+          </div>
+
+          <div class="related-products-content">
+            <div class="row"> 
+            @foreach($related_items as $products)
+              <?php 
+              $reviews          = get_comments_rating_details($products['id'], 'product');
+              $reviews_settings = get_reviews_settings_data($products['id']);      
+              ?>
+              <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4 grid-view">
+                <div class="hover-product">
+                  <div class="hover">
+                    @if($products['_product_related_images_url']->product_image)
+                    <img class="img-responsive" src="{{ get_image_url($products['_product_related_images_url']->product_image) }}" alt="{{ basename($products['_product_related_images_url']->product_image) }}" />
+                    @else
+                    <img class="img-responsive" src="{{ default_placeholder_img_src() }}" alt="" />
+                    @endif
+
+                    <div class="overlay">
+                      <button class="info quick-view-popup" data-id="{{ $products['id'] }}">{{ trans('frontend.quick_view_label') }}</button>
+                    </div>
+                  </div> 
+
+                  <div class="single-product-bottom-section">
+                    <h3>{!! get_product_title($products['id']) !!}</h3>
+
+                    @if(get_product_type($products['id']) == 'simple_product')
+                      <p>{!! price_html( get_product_price($products['id']), get_frontend_selected_currency() ) !!}</p>
+                    @elseif(get_product_type($products['id']) == 'configurable_product')
+                      <p>{!! get_product_variations_min_to_max_price_html(get_frontend_selected_currency(), $products['id']) !!}</p>
+                    @elseif(get_product_type($products['id']) == 'customizable_product' || get_product_type($products['id']) == 'downloadable_product')
+                      @if(count(get_product_variations($products['id']))>0)
+                        <p>{!! get_product_variations_min_to_max_price_html(get_frontend_selected_currency(), $products['id']) !!}</p>
+                      @else
+                        <p>{!! price_html( get_product_price($products['id']), get_frontend_selected_currency() ) !!}</p>
+                      @endif
+                    @endif
+
+                    @if($reviews_settings['enable_reviews_add_link_to_product_page'] && $reviews_settings['enable_reviews_add_link_to_product_page'] == 'yes')
+                      <div class="text-center">
+                        <div class="star-rating">
+                          <span style="width:{{ $reviews['percentage'] }}%"></span>
+                        </div>
+
+                        <div class="comments-advices">
+                          <ul>
+                            <li class="read-review"><a href="{{ route('details-page', $products['post_slug']) }}#product_description_bottom_tab" class="reviews selected"> {{ trans('frontend.single_product_read_review_label') }} (<span itemprop="reviewCount">{!! $reviews['total'] !!}</span>) </a></li>
+                            <li class="write-review"><a class="open-comment-form" href="{{ route('details-page', $products['post_slug']) }}#new_comment_form">&nbsp;<span>|</span>&nbsp; {{ trans('frontend.single_product_write_review_label') }} </a></li>
+                          </ul>
+                        </div>
+                      </div>
+                    @endif
+
+                    <div class="title-divider"></div>
+                    <div class="single-product-add-to-cart">
+                      @if(get_product_type($products['id']) == 'simple_product')
+                        <a href="" data-id="{{ $products['id'] }}" class="btn btn-sm btn-style add-to-cart-bg" data-toggle="tooltip" data-placement="top" title="{{ trans('frontend.add_to_cart_label') }}"><i class="fa fa-shopping-cart"></i></a>
+                        <a href="" class="btn btn-sm btn-style product-wishlist" data-id="{{ $products['id'] }}" data-toggle="tooltip" data-placement="top" title="{{ trans('frontend.add_to_wishlist_label') }}"><i class="fa fa-heart"></i></a>
+                        <a href="" class="btn btn-sm btn-style product-compare" data-id="{{ $products['id'] }}" data-toggle="tooltip" data-placement="top" title="{{ trans('frontend.add_to_compare_list_label') }}"><i class="fa fa-exchange"></i></a>
+                        <a href="{{ route('details-page', $products['post_slug']) }}" class="btn btn-sm btn-style product-details-view" data-toggle="tooltip" data-placement="top" title="{{ trans('frontend.product_details_label') }}"><i class="fa fa-eye"></i></a>
+
+                      @elseif(get_product_type($products['id']) == 'configurable_product')
+                        <a href="{{ route('details-page', $products['post_slug']) }}" class="btn btn-sm btn-style select-options-bg" data-toggle="tooltip" data-placement="top" title="{{ trans('frontend.select_options') }}"><i class="fa fa-hand-o-up"></i></a>
+                        <a href="" class="btn btn-sm btn-style product-wishlist" data-id="{{ $products['id'] }}" data-toggle="tooltip" data-placement="top" title="{{ trans('frontend.add_to_wishlist_label') }}"><i class="fa fa-heart"></i></a>
+                        <a href="" class="btn btn-sm btn-style product-compare" data-id="{{ $products['id'] }}" data-toggle="tooltip" data-placement="top" title="{{ trans('frontend.add_to_compare_list_label') }}"><i class="fa fa-exchange"></i></a>
+                        <a href="{{ route('details-page', $products['post_slug']) }}" class="btn btn-sm btn-style product-details-view" data-toggle="tooltip" data-placement="top" title="{{ trans('frontend.product_details_label') }}"><i class="fa fa-eye"></i></a>
+
+                      @elseif(get_product_type($products['id']) == 'customizable_product')
+                        @if(is_design_enable_for_this_product($products['id']))
+                          <a href="{{ route('customize-page', $products['post_slug']) }}" class="btn btn-sm btn-style product-customize-bg" data-toggle="tooltip" data-placement="top" title="{{ trans('frontend.select_options') }}"><i class="fa fa-gears"></i></a>
+                          <a href="" class="btn btn-sm btn-style product-wishlist" data-id="{{ $products['id'] }}" data-toggle="tooltip" data-placement="top" title="{{ trans('frontend.add_to_wishlist_label') }}"><i class="fa fa-heart"></i></a>
+                          <a href="" class="btn btn-sm btn-style product-compare" data-id="{{ $products['id'] }}" data-toggle="tooltip" data-placement="top" title="{{ trans('frontend.add_to_compare_list_label') }}"><i class="fa fa-exchange"></i></a>
+                          <a href="{{ route('details-page', $products['post_slug']) }}" class="btn btn-sm btn-style product-details-view" data-toggle="tooltip" data-placement="top" title="{{ trans('frontend.product_details_label') }}"><i class="fa fa-eye"></i></a>
+
+                        @else
+                          <a href="" data-id="{{ $products['id'] }}" class="btn btn-sm btn-style add-to-cart-bg" data-toggle="tooltip" data-placement="top" title="{{ trans('frontend.add_to_cart_label') }}"><i class="fa fa-shopping-cart"></i></a>
+                          <a href="" class="btn btn-sm btn-style product-wishlist" data-id="{{ $products['id'] }}" data-toggle="tooltip" data-placement="top" title="{{ trans('frontend.add_to_wishlist_label') }}"><i class="fa fa-heart"></i></a>
+                          <a href="" class="btn btn-sm btn-style product-compare" data-id="{{ $products['id'] }}" data-toggle="tooltip" data-placement="top" title="{{ trans('frontend.add_to_compare_list_label') }}"><i class="fa fa-exchange"></i></a>
+                          <a href="{{ route('details-page', $products['post_slug']) }}" class="btn btn-sm btn-style product-details-view" data-toggle="tooltip" data-placement="top" title="{{ trans('frontend.product_details_label') }}"><i class="fa fa-eye"></i></a>
+                        @endif
+                      @elseif(get_product_type( $products['id'] ) == 'downloadable_product') 
+                        @if(count(get_product_variations( $products['id'] ))>0)
+                        <a href="{{ route( 'details-page', $products['post_slug'] ) }}" class="btn btn-sm btn-style select-options-bg" data-toggle="tooltip" data-placement="top" title="{{ trans('frontend.select_options') }}"><i class="fa fa-hand-o-up"></i></a>
+                        <a href="" class="btn btn-sm btn-style product-wishlist" data-id="{{ $products['id'] }}" data-toggle="tooltip" data-placement="top" title="{{ trans('frontend.add_to_wishlist_label') }}"><i class="fa fa-heart"></i></a>
+                        <a href="" class="btn btn-sm btn-style product-compare" data-id="{{ $products['id'] }}" data-toggle="tooltip" data-placement="top" title="{{ trans('frontend.add_to_compare_list_label') }}"><i class="fa fa-exchange" ></i></a>
+                        <a href="{{ route('details-page', $products['post_slug'] ) }}" class="btn btn-sm btn-style product-details-view" data-toggle="tooltip" data-placement="top" title="{{ trans('frontend.product_details_label') }}"><i class="fa fa-eye"></i></a>
+                        @else
+                        <a href="" data-id="{{ $products['id'] }}" class="btn btn-sm btn-style add-to-cart-bg" data-toggle="tooltip" data-placement="top" title="{{ trans('frontend.add_to_cart_label') }}"><i class="fa fa-shopping-cart"></i></a>
+                        <a href="" class="btn btn-sm btn-style product-wishlist" data-id="{{ $products['id'] }}" data-toggle="tooltip" data-placement="top" title="{{ trans('frontend.add_to_wishlist_label') }}"><i class="fa fa-heart"></i></a>
+                        <a href="" class="btn btn-sm btn-style product-compare" data-id="{{ $products['id'] }}" data-toggle="tooltip" data-placement="top" title="{{ trans('frontend.add_to_compare_list_label') }}"><i class="fa fa-exchange" ></i></a>
+                        <a href="{{ route('details-page', $products['post_slug'] ) }}" class="btn btn-sm btn-style product-details-view" data-toggle="tooltip" data-placement="top" title="{{ trans('frontend.product_details_label') }}"><i class="fa fa-eye"></i></a>
+                        @endif                         
+                      @endif
+                    </div>
+                  </div>
+                </div>
+              </div>
+            @endforeach
+            </div>
+          </div>      
+        </div>
+      </div>  
+    </div>
+    @endif
+    
+    @if(count($upsell_products) > 0)
+    <br>
+    <div class="row upsell-products-content">
+      <div class="col-12">
+        <h3>{!! trans('frontend.upsell_title_label') !!}</h3><br>  
+        <div class="upsell-products">
+          @foreach($upsell_products as $products)
+          <div class="upsell-items">
+            <div class="upsell-img"><img src="{{ get_image_url(get_product_image( $products )) }}" alt="{{ basename( get_product_image( $products ) )}}"></div>
+            <div class="upsell-products-info">
+              <a href="{{ route('details-page', get_product_slug($products) ) }}"><span>{!! get_product_title( $products ) !!}</span></a><br>
+              <span>
+                @if(get_product_type( $products ) == 'simple_product')
+                  {!! price_html( get_product_price( $products ), get_frontend_selected_currency() ) !!}
+                @elseif(get_product_type( $products ) == 'configurable_product')
+                  {!! get_product_variations_min_to_max_price_html(get_frontend_selected_currency(), $products) !!}
+                @elseif(get_product_type( $products ) == 'customizable_product' || get_product_type( $products ) == 'downloadable_product')
+                  @if(count(get_product_variations( $products ))>0)
+                    {!! get_product_variations_min_to_max_price_html(get_frontend_selected_currency(), $products) !!}
+                  @else
+                    {!! price_html( get_product_price( $products ), get_frontend_selected_currency() ) !!}
+                  @endif
+                @endif
+              </span>
+            </div>
+          </div>  
+          @endforeach
+        </div>
+      </div>  
+    </div>    
+    @endif
   </div>
+  <input type="hidden" name="product_title" id="product_title" value="{{ $single_product_details['post_title'] }}"> 
+  <input type="hidden" name="product_img" id="product_img" value="{{ $single_product_details['_product_related_images_url']->product_image }}"> 
+</div>
