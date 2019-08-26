@@ -117,16 +117,11 @@
           <h3 class="product-title">
             <a href="{{ route('details-page', $features_product->slug ) }}">{!! $features_product->title !!}</a>
           </h3>
-          <h1>
-
-              {!! $features_product->author_id !!}
-
-          </h1>
           <h4 class="product-price">
             <del>
               {!! price_html( get_product_price_html_by_filter(get_role_based_price_by_product_id($features_product->id, $features_product->regular_price)), get_frontend_selected_currency()) !!}
             </del>
-            {!! price_html( get_product_price_html_by_filter(get_role_based_price_by_product_id($features_product->id, $features_product->price)), get_frontend_selected_currency()) !!}
+              {!! price_html( get_product_price_html_by_filter(get_role_based_price_by_product_id($features_product->id, $features_product->price)), get_frontend_selected_currency()) !!}
           </h4>
         </div>
 

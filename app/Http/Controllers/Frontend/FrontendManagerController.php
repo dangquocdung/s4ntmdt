@@ -472,6 +472,17 @@ class FrontendManagerController extends Controller
         }
       }
 
+      //Dũng thêm
+
+      $data['selected_cat']       =   $this->product->getCatByObjectId( $product_id );
+      $data['selected_tag']       =   $this->product->getTagsByObjectId( $product_id );
+      $data['selected_colors']    =   $this->product->getColorsByObjectId( $product_id );
+      $data['selected_sizes']     =   $this->product->getSizesByObjectId( $product_id );
+      $data['selected_brands']    =   $this->product->getManufacturerByObjectId( $product_id );
+      $data['crosssell_products'] =   get_crosssell_products($product_id);
+
+      //
+
       $data['attr_lists']               =   $this->product->getAllAttributes( $product_id );
       $data['related_items']            =   $this->product->getRelatedItems( $product_id );  
       $data['comments_details']         =   get_comments_data_by_object_id( $product_id, 'product' );
@@ -531,7 +542,9 @@ class FrontendManagerController extends Controller
         $data['variations_data'] = $get_variation_data;
       }
       
-      return view('pages.frontend.frontend-pages.product-details', $data);
+      // return view('pages.frontend.frontend-pages.product-details', $data);
+
+      return response()->json($data['selected_colors']['term_details']);
     }
     else{
       return view('errors.no_data');

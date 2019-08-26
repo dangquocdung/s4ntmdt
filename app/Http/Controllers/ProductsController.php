@@ -179,6 +179,8 @@ class ProductsController extends Controller
       $get_data = $this->createProductContentData( $data );
       
       return view('pages.admin.product.update-product-content', $get_data);
+
+      // return response()->json($data['selected_colors']['term_details']);
     }
     else{
       return view('errors.no_data');
