@@ -96,7 +96,6 @@
         <span class="text-muted align-middle">&nbsp;&nbsp;4.2 | 3 customer reviews</span>
         <h2 class="padding-top-1x text-normal">{{ $single_product_details['post_title'] }}</h2>
         
-
         @if( get_product_type($single_product_details['id']) == 'simple_product' || (get_product_type($single_product_details['id']) == 'downloadable_product' && count(get_product_variations($single_product_details['id'])) == 0 ) || (get_product_type($single_product_details['id']) == 'customizable_product' && count(get_product_variations($single_product_details['id'])) == 0 ) )
           <span class="h2 d-block">
           @if(!is_null($single_product_details['offer_price']))
@@ -121,35 +120,45 @@
         <div id="sapo" style="max-height:250px; overflow:hidden; ">
           {!! string_decode($single_product_details['post_content']) !!}
         </div>
+
         <div class="row margin-top-1x">
+          @if (count($selected_sizes['term_details']) > 0)
+
           <div class="col-sm-4">
             <div class="form-group">
-              <label for="size">Men's size</label>
+              <label for="size">{!! trans('frontend.choose_size_label') !!}</label>
               <select class="form-control" id="size">
-                <option>Chooze size</option>
-                <option>11.5</option>
-                <option>11</option>
-                <option>10.5</option>
-                <option>10</option>
-                <option>9.5</option>
-                <option>9</option>
-                <option>8.5</option>
+                <option>{!! trans('frontend.choose_size_label') !!}</option>
+
+                @foreach ($selected_sizes['term_details'] as $row)
+
+                  <option value="{{ $row['term_id'] }}">{!! $row['name'] !!}</option>
+                @endforeach
+                
               </select>
             </div>
           </div>
+          @endif
+
+          @if (count($selected_colors['term_details']) > 0)
           <div class="col-sm-5">
             <div class="form-group">
-              <label for="color">Choose color</label>
+              <label for="color">{!! trans('frontend.choose_color_label') !!}</label>
               <select class="form-control" id="color">
-                <option>White/Red/Blue</option>
-                <option>Black/Orange/Green</option>
-                <option>Gray/Purple/White</option>
+
+              <option>{!! trans('frontend.choose_color_label') !!}</option>
+
+              @foreach ($selected_colors['term_details'] as $row)
+                <option value="{{ $row['term_id'] }}" style="background-color:#{{ $row['color_code'] }}">{!! $row['name'] !!}</option>
+              @endforeach
+                
               </select>
             </div>
           </div>
+          @endif
           <div class="col-sm-3">
             <div class="form-group">
-              <label for="quantity">Quantity</label>
+              <label for="quantity">{!! trans('frontend.quantity') !!}</label>
               <select class="form-control" id="quantity">
                 <option>1</option>
                 <option>2</option>
@@ -160,12 +169,40 @@
             </div>
           </div>
         </div>
-        <div class="pt-1 mb-2"><span class="text-medium">SKU:</span> #21457832</div>
-        <div class="padding-bottom-1x mb-2"><span class="text-medium">Categories:&nbsp;</span><a class="navi-link" href="#">Men’s shoes,</a><a class="navi-link" href="#"> Snickers,</a><a class="navi-link" href="#"> Sport shoes</a></div>
+
+        @if (!empty($single_product_details['post_sku']))
+
+        <div class="pt-1 mb-2">
+          <span class="text-medium">SKU:</span> #{{ $single_product_details['post_sku'] }}
+        </div>
+
+        @endif
+
+        @if (count($selected_cat['term_details']) > 0)
+
+          <div class="padding-bottom-1x mb-2">
+            <span class="text-medium">Categories:&nbsp;</span>
+
+            @foreach ($selected_cat['term_details'] as $row)
+
+            <a class="navi-link" href="{{ route('categories-page', $row['slug']) }}">{!! $row['name'] !!},&nbsp;</a>
+
+            @endforeach
+            
+          </div>
+
+        @endif
         <hr class="mb-3">
         <div class="d-flex flex-wrap justify-content-between">
-          <div class="entry-share mt-2 mb-2"><span class="text-muted">Share:</span>
-            <div class="share-links"><a class="social-button shape-circle sb-facebook" href="#" data-toggle="tooltip" data-placement="top" title="Facebook"><i class="socicon-facebook"></i></a><a class="social-button shape-circle sb-twitter" href="#" data-toggle="tooltip" data-placement="top" title="Twitter"><i class="socicon-twitter"></i></a><a class="social-button shape-circle sb-instagram" href="#" data-toggle="tooltip" data-placement="top" title="Instagram"><i class="socicon-instagram"></i></a><a class="social-button shape-circle sb-google-plus" href="#" data-toggle="tooltip" data-placement="top" title="Google +"><i class="socicon-googleplus"></i></a></div>
+          <div class="entry-share mt-2 mb-2">
+          <span class="text-muted">Share:</span>
+            <div class="share-links">
+              <a class="social-button shape-circle sb-facebook" data-name="fb" href="#" data-toggle="tooltip" data-placement="top" title="Facebook"><i class="socicon-facebook"></i></a>
+              <a class="social-button shape-circle sb-twitter" data-name="tweet" href="#" data-toggle="tooltip" data-placement="top" title="Twitter"><i class="socicon-twitter"></i></a>
+              <a class="social-button shape-circle sb-instagram" data-name="lin" href="#" data-toggle="tooltip" data-placement="top" title="Instagram"><i class="socicon-instagram"></i></a>
+              <a class="social-button shape-circle sb-google-plus" data-name="gplus" href="#" data-toggle="tooltip" data-placement="top" title="Google +"><i class="socicon-googleplus"></i></a>
+            </div>
+
           </div>
           <div class="sp-buttons mt-2 mb-2">
             <button class="btn btn-outline-secondary btn-sm btn-wishlist" data-toggle="tooltip" title="Whishlist"><i class="icon-heart"></i></button>
@@ -387,7 +424,6 @@
 
 // $(document).ready(function () {
 
-
 //   console.log( $('#product-gallery').innerHeight() );
 
 //   $('#sapo').css( 'max-height',$('#product-gallery').height() );
@@ -401,5 +437,44 @@ $(window).on( 'resize', function () {
   console.log($('#product-gallery').height());
 
 }).resize();
+
+$(document).ready(function(){
+
+	$('.entry-share>.share-links>.social-button').on('click', function(e){
+    
+		e.preventDefault();
+		var share_url = null;
+		var window_url = null;
+    var product_url = null;
+		
+    product_url = window.location.href;
+
+    // alert($(this).data('name'));
+    
+		if($(this).data('name') == 'fb'){
+			share_url = '//www.facebook.com/sharer.php?u=';
+		}
+		else if($(this).data('name') == 'tweet'){
+			share_url = '//twitter.com/share?text=' + encodeURI($('#product_title').val()) + '&url=';
+		}
+    else if($(this).data('name') == 'gplus'){
+			share_url = '//plus.google.com/share?url=';
+		}
+    else if($(this).data('name') == 'pi'){
+			share_url = '//pinterest.com/pin/create/button/?media=' + $('#product_img').val() + '&description=' + encodeURI($('#product_title').val()) + '&url=';
+		}
+    else if($(this).data('name') == 'lin'){
+			share_url = '//www.linkedin.com/shareArticle?mini=true&url=';
+		}
+
+    if($(this).data('name') == 'fb' || $(this).data('name') == 'tweet' || $(this).data('name') == 'gplus' || $(this).data('name') == 'pi' || $(this).data('name') == 'lin'){
+      window_url = share_url + product_url;
+      window.open(window_url, "_blank", "scrollbars=yes, resizable=yes, toolbar=yes, top=50, left=50, width=500, height=500");
+    }
+    else if($(this).data('name') == 'print'){
+      window.print();
+    }
+	});
+})
 
 </script>

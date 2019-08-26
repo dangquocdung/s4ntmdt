@@ -542,9 +542,9 @@ class FrontendManagerController extends Controller
         $data['variations_data'] = $get_variation_data;
       }
       
-      // return view('pages.frontend.frontend-pages.product-details', $data);
+      return view('pages.frontend.frontend-pages.product-details', $data);
 
-      return response()->json($data['selected_colors']['term_details']);
+      // return response()->json($data['selected_cat']);
     }
     else{
       return view('errors.no_data');

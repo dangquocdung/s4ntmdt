@@ -1623,7 +1623,7 @@
         <div class="box-body">
           @if(!is_vendor_login())  
           <div class="clearfix">
-            <a class="btn btn-default pull-right" href="{{ route('admin.product_tags_list') }}">{!! trans('admin.create_tags') !!}</a>
+            <a class="btn btn-default pull-right" href="{{ route('admin.product_tags_list') }}" target="_blank">{!! trans('admin.create_tags') !!}</a>
           </div>
           @endif
 
@@ -1660,7 +1660,7 @@
         <div class="box-body">
           @if(!is_vendor_login())  
           <div class="clearfix">
-            <a class="btn btn-default pull-right" href="{{ route('admin.product_colors_list') }}">{!! trans('admin.create_colors') !!}</a>
+            <a class="btn btn-default pull-right" href="{{ route('admin.product_colors_list') }}" target="_blank">{!! trans('admin.create_colors') !!}</a>
           </div>
           @endif
 
@@ -1698,7 +1698,7 @@
         <div class="box-body">
           @if(!is_vendor_login())    
           <div class="clearfix">
-            <a class="btn btn-default pull-right" href="{{ route('admin.product_sizes_list') }}">{!! trans('admin.create_sizes') !!}</a>
+            <a class="btn btn-default pull-right" href="{{ route('admin.product_sizes_list') }}" target="_blank">{!! trans('admin.create_sizes') !!}</a>
           </div>
           @endif
 
