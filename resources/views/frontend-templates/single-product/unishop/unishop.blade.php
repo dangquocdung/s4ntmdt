@@ -7,7 +7,7 @@
       <!-- Poduct Gallery-->
       <div class="col-md-6">
         <div class="product-gallery" id="product-gallery">
-          <span class="product-badge text-danger">30% Off</span>
+          {{-- <span id="sale" class="product-badge text-danger">30% Off</span> --}}
           <div class="gallery-wrapper">
             
             @if($single_product_details['_product_enable_video_feature'] == 'yes')
@@ -117,9 +117,7 @@
           <span class="h2 d-block">{!! get_product_variations_min_to_max_price_html($currency_symbol, $single_product_details['id']) !!} </span>
         @endif
         
-        <div id="sapo" style="max-height:250px; overflow:hidden; ">
-          {!! string_decode($single_product_details['post_content']) !!}
-        </div>
+        {!! string_decode($single_product_details['post_content']) !!}
 
         <div class="row margin-top-1x">
           @if (count($selected_sizes['term_details']) > 0)
@@ -149,7 +147,7 @@
               <option>{!! trans('frontend.choose_color_label') !!}</option>
 
               @foreach ($selected_colors['term_details'] as $row)
-                <option value="{{ $row['term_id'] }}" style="background-color:#{{ $row['color_code'] }}">{!! $row['name'] !!}</option>
+                <option value="{{ $row['term_id'] }}" style="color:#{{ $row['color_code'] }}">{!! $row['name'] !!}</option>
               @endforeach
                 
               </select>
@@ -215,84 +213,141 @@
     <div class="row padding-top-3x mb-3">
       <div class="col-lg-10 offset-lg-1">
         <ul class="nav nav-tabs" role="tablist">
-          <li class="nav-item"><a class="nav-link active" href="#description" data-toggle="tab" role="tab">Description</a></li>
+          <li class="nav-item"><a class="{{ (!old('comments_target'))?'nav-link active':'' }}" href="#features" data-toggle="tab" role="tab">{{ trans('frontend.features_label') }}</a></li>
+
+          {{-- <li class="nav-item"><a class="nav-link" href="#shippingInfo" data-toggle="tab">{{ trans('frontend.shipping_info_label') }}</a></li> --}}
+
           @if($single_product_details['_product_enable_reviews'] == 'yes')
-          <li class="nav-item">
-            <a class="nav-link" href="#reviews" data-toggle="tab" role="tab">
-            {{ $comments_rating_details['total'] }} {{ trans('frontend.reviews_for_label') }} <i><span>{{ $single_product_details['post_title'] }}</span></i>
-              </a>
+
+            <li class="nav-item">
+              <a class="nav-link" href="#reviews" data-toggle="tab" role="tab">
+              {{ trans('frontend.reviews_for_label')}} ({{ $comments_rating_details['total'] }})
+                </a>
             </li>
           @endif
+
+          @if( count(get_vendor_details_by_product_id($single_product_details['id'])) >0 )
+          <li class="nav-item"><a class="nav-link" href="#vendorInfo" data-toggle="tab">{{ trans('frontend.vendor_info_label') }}</a></li>
+          @endif
+
         </ul>
         <div class="tab-content">
-          <div class="tab-pane fade show active" id="description" role="tabpanel">
-            {!! string_decode($single_product_details['post_content']) !!}
+          <div class="tab-pane fade" id="features" role="tabpanel">
+            {{-- {!! string_decode($single_product_details['post_content']) !!} --}}
+
+              @if($single_product_details['_product_extra_features'])  
+                {!! string_decode($single_product_details['_product_extra_features']) !!}
+              @else
+                {!! trans('frontend.no_features_label') !!}
+              @endif
           </div>
 
           @if($single_product_details['_product_enable_reviews'] == 'yes')
-          <div class="tab-pane fade" id="reviews" role="tabpanel">
 
-            <!-- Review-->
-            <div class="comment">
-              <div class="comment-author-ava"><img src="img/reviews/01.jpg" alt="Review author"></div>
-              <div class="comment-body">
-                <div class="comment-header d-flex flex-wrap justify-content-between">
-                  <h4 class="comment-title">Average quality for the price</h4>
-                  <div class="mb-2">
-                      <div class="rating-stars"><i class="icon-star filled"></i><i class="icon-star filled"></i><i class="icon-star filled"></i><i class="icon-star"></i><i class="icon-star"></i>
+          <div class="tab-pane fade show active" id="reviews" role="tabpanel">
+
+            @if(count($comments_details) > 0)
+              @foreach($comments_details as $comment) 
+                <!-- Review-->
+                <div class="comment">
+                  <div class="comment-author-ava">
+                    @if(!empty($comment->user_photo_url))
+                      <img alt="" src="{{ get_image_url( $comment->user_photo_url ) }}" class="avatar photo">
+                    @else
+                      <img alt="" src="{{ default_avatar_img_src() }}" class="avatar photo">
+                    @endif
+                  </div>
+                  <div class="comment-body">
+                    <div class="comment-header d-flex flex-wrap justify-content-between">
+                      <h4 class="comment-title">Average quality for the price</h4>
+                      <div class="mb-2">
+                          <div class="rating-stars">
+                            <i class="icon-star filled"></i>
+                            <i class="icon-star filled"></i>
+                            <i class="icon-star filled"></i>
+                            <i class="icon-star"></i>
+                            <i class="icon-star"></i>
+                          </div>
                       </div>
+                    </div>
+                    <p class="comment-text">
+                        {{ $comment->content }}
+                    </p>
+                    <div class="comment-footer">
+                      <span class="comment-meta">
+                          {{ trans('frontend.by_label') }} {{ $comment->display_name }}
+                      </span>
+                    </div>
                   </div>
                 </div>
-                <p class="comment-text">At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga.</p>
-                <div class="comment-footer"><span class="comment-meta">Francis Burton</span></div>
-              </div>
-            </div>
+              @endforeach
+            @else
+              {{ trans('frontend.no_review_label') }}
+            @endif
 
+            @include('pages-message.notify-msg-success')
+            @include('pages-message.notify-msg-error')
+            @include('pages-message.form-submit')
 
             <!-- Review Form-->
-            <h5 class="mb-30 padding-top-1x">Leave Review</h5>
-            <form class="row" method="post">
+            <h5 class="mb-30 padding-top-1x">{{ trans('frontend.add_a_review_label') }}</h5>
+
+            <form id="new_comment_form" class="row product-reviews-content" method="post" action="" enctype="multipart/form-data">
+
+              <input type="hidden" name="_token" id="_token" value="{{ csrf_token() }}">
+              <input type="hidden" name="comments_target" id="comments_target" value="product">
+              <input type="hidden" name="selected_rating_value" id="selected_rating_value" value="">
+              <input type="hidden" name="object_id" id="object_id" value="{{ $single_product_details['id'] }}">
+              
               <div class="col-sm-6">
                 <div class="form-group">
-                  <label for="review_name">Your Name</label>
-                  <input class="form-control form-control-rounded" type="text" id="review_name" required>
-                </div>
-              </div>
-              <div class="col-sm-6">
-                <div class="form-group">
-                  <label for="review_email">Your Email</label>
-                  <input class="form-control form-control-rounded" type="email" id="review_email" required>
-                </div>
-              </div>
-              <div class="col-sm-6">
-                <div class="form-group">
-                  <label for="review_subject">Subject</label>
-                  <input class="form-control form-control-rounded" type="text" id="review_subject" required>
-                </div>
-              </div>
-              <div class="col-sm-6">
-                <div class="form-group">
-                  <label for="review_rating">Rating</label>
-                  <select class="form-control form-control-rounded" id="review_rating">
-                    <option>5 Stars</option>
-                    <option>4 Stars</option>
-                    <option>3 Stars</option>
-                    <option>2 Stars</option>
-                    <option>1 Star</option>
-                  </select>
+                  <label for="review_rating">{{ trans('frontend.select_your_rating_label') }}</label>
+                  <div class="rating-select">
+                    <div class="btn btn-light btn-sm" data-rating_value="1"><span class="fa fa-star"></span></div>
+                    <div class="btn btn-light btn-sm" data-rating_value="2"><span class="fa fa-star"></span></div>
+                    <div class="btn btn-light btn-sm" data-rating_value="3"><span class="fa fa-star"></span></div>
+                    <div class="btn btn-light btn-sm" data-rating_value="4"><span class="fa fa-star"></span></div>
+                    <div class="btn btn-light btn-sm" data-rating_value="5"><span class="fa fa-star"></span></div>
+                  </div>
+                  <br>
                 </div>
               </div>
               <div class="col-12">
                 <div class="form-group">
-                  <label for="review_text">Review </label>
-                  <textarea class="form-control form-control-rounded" id="review_text" rows="8" required></textarea>
+                  <label for="review_text">{{ trans('frontend.write_your_review_label') }} </label>
+                  <textarea class="form-control form-control-rounded" id="review_text" rows="8" name="product_review_content" id="product_review_content"></textarea>
                 </div>
               </div>
               <div class="col-12 text-right">
-                <button class="btn btn-outline-primary" type="submit">Submit Review</button>
+                <button id="review_submit" class="btn btn-outline-primary" type="submit">{{ trans('frontend.submit_label') }}</button>
+                {{-- <input name="review_submit" id="review_submit" class="btn btn-sm btn-style" value="{{ trans('frontend.submit_label') }}" type="submit"> --}}
               </div>
             </form>
           </div>
+          @endif
+
+          @if( count(get_vendor_details_by_product_id($single_product_details['id'])) >0 )
+            <div class="tab-pane fade" id="vendorInfo">
+              <?php  $vendor_details = get_vendor_details_by_product_id($single_product_details['id']); $parse_json = json_decode($vendor_details['details']);?>
+              <table>
+                <tr>
+                  <th>{!! trans('frontend.store_name_label') !!}</th>
+                  @if(!empty($parse_json->profile_details->store_name))
+                  <td>{!! $parse_json->profile_details->store_name !!}</td>
+                  @else
+                  <td>{!! $vendor_details['user_name'] !!}</td>
+                  @endif
+                </tr>
+
+                <tr><th>{!! trans('frontend.vendor_label') !!}</th><td><a target="_blank" href="{{ route('store-details-page-content', $vendor_details['user_name']) }}"><i>{!!  $vendor_details['user_name'] !!}</i></a></td></tr>
+
+                @if(!empty($parse_json->profile_details->country))
+                <tr><th>{!! trans('frontend.country') !!}</th><td>{!! $parse_json->profile_details->country !!}</td></tr>
+                @endif
+
+                <tr><th>{!! trans('frontend.vendor_rating_label') !!}</th><td><div class="review-stars"><div class="star-rating" style="text-align:left !important; margin:0px !important;"><span style="width:{{ $vendor_reviews_rating_details['percentage'] }}%"></span></div></div></td></tr>  
+              </table>
+            </div>  
           @endif
         </div>
       </div>
@@ -470,13 +525,23 @@
 
 $(window).on( 'resize', function () {
 
-  $('#sapo').css( 'max-height',$('#product-gallery').height() );
+  // $('#sapo').css( 'max-height',$('#product-gallery').height() );
 
   console.log($('#product-gallery').height());
 
 }).resize();
 
 $(document).ready(function(){
+
+  if($("span#sale").length){
+
+    $('.product-gallery').css('padding-top','74px');
+      ;
+  }else{
+
+    $('.product-gallery').css('padding-top','15px');
+
+  }
 
 	$('.entry-share>.share-links>.social-button').on('click', function(e){
 

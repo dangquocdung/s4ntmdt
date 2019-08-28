@@ -101,6 +101,23 @@
     <script type="text/javascript" src="{{ URL::asset('/modal/js/modal.js') }}"></script>
     <script type="text/javascript" src="{{ URL::asset('/frontend/js/jquery.validate.js') }}"></script>
 
+    <!--load header scripts-->
+    <script type="text/javascript" src="{{ URL::asset('/templates-assets/header/'. $appearance_settings['header'] .'/script.js') }}"></script>
+
+    <!--load home scripts-->
+    <script type="text/javascript" src="{{ URL::asset('/templates-assets/home/'. $appearance_settings['home'] .'/script.js') }}"></script>
+
+    <!--load blogs scripts-->
+    <script type="text/javascript" src="{{ URL::asset('/templates-assets/blog/'. $appearance_settings['blogs'] .'/script.js') }}"></script>
+
+    <!--load products scripts-->
+    <script type="text/javascript" src="{{ URL::asset('/templates-assets/product/'. $appearance_settings['products'] .'/script.js') }}"></script>
+
+    <!--load single products scripts-->
+    <script type="text/javascript" src="{{ URL::asset('/templates-assets/single-product/'. $appearance_settings['single_product'] .'/script.js') }}"></script>
+    <script type="text/javascript" src="{{ URL::asset('/templates-assets/single-product/'. $appearance_settings['single_product'] .'/jquery.elevatezoom.js') }}"></script>
+
+
     <script type="text/javascript" src="{{ URL::asset('/jquery/jquery-1.10.2.js') }}"></script>
     <script type="text/javascript" src="{{ URL::asset('/jquery/jquery-ui-1.11.4.js') }}"></script>
     <script type="text/javascript" src="{{ URL::asset('/dropzone/dropzone.js') }}"></script>

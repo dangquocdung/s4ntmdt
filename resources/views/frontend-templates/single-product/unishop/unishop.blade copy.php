@@ -388,7 +388,7 @@
                     <input type="hidden" name="object_id" id="object_id" value="{{ $single_product_details['id'] }}">
 
                     <div class="add-user-review">
-                      <h2 class="add-reviews-title">{{ trans('frontend.add_a_review_label') }}</h2>
+                    <h2 class="add-reviews-title">{{ trans('frontend.add_a_review_label') }}</h2>
                       <hr>
                       <h2 class="rating-title">{{ trans('frontend.select_your_rating_label') }}</h2>
                       <div class="rating-select">
