@@ -216,13 +216,22 @@
       <div class="col-lg-10 offset-lg-1">
         <ul class="nav nav-tabs" role="tablist">
           <li class="nav-item"><a class="nav-link active" href="#description" data-toggle="tab" role="tab">Description</a></li>
-          <li class="nav-item"><a class="nav-link" href="#reviews" data-toggle="tab" role="tab">Reviews (3)</a></li>
+          @if($single_product_details['_product_enable_reviews'] == 'yes')
+          <li class="nav-item">
+            <a class="nav-link" href="#reviews" data-toggle="tab" role="tab">
+            {{ $comments_rating_details['total'] }} {{ trans('frontend.reviews_for_label') }} <i><span>{{ $single_product_details['post_title'] }}</span></i>
+              </a>
+            </li>
+          @endif
         </ul>
         <div class="tab-content">
           <div class="tab-pane fade show active" id="description" role="tabpanel">
-          {!! string_decode($single_product_details['post_content']) !!}
+            {!! string_decode($single_product_details['post_content']) !!}
           </div>
+
+          @if($single_product_details['_product_enable_reviews'] == 'yes')
           <div class="tab-pane fade" id="reviews" role="tabpanel">
+
             <!-- Review-->
             <div class="comment">
               <div class="comment-author-ava"><img src="img/reviews/01.jpg" alt="Review author"></div>
@@ -238,6 +247,8 @@
                 <div class="comment-footer"><span class="comment-meta">Francis Burton</span></div>
               </div>
             </div>
+
+
             <!-- Review Form-->
             <h5 class="mb-30 padding-top-1x">Leave Review</h5>
             <form class="row" method="post">
@@ -282,6 +293,7 @@
               </div>
             </form>
           </div>
+          @endif
         </div>
       </div>
     </div>
@@ -404,6 +416,32 @@
                 </button>
                 <button class="btn btn-outline-primary btn-sm add-to-cart-bg" data-toast data-toast-type="success" data-toast-position="topRight" data-toast-icon="icon-check-circle" data-toast-title="Product" data-toast-message="successfuly added to cart!" data-id="{{ $products['id'] }}" data-toggle="tooltip" data-placement="top" title="" data-original-title="{{ trans('frontend.add_to_cart_label') }}"><i class="icon-bag"></i> Chọn</button>             
               @endif
+
+              @if(get_product_type($single_product_details['id']) == 'customizable_product')
+                <a href="{{ route('customize-page', $single_product_details['post_slug']) }}" class="btn btn-sm btn-style product-customize-bg"><i class="fa fa-gears"></i> {!! trans('frontend.customize_it') !!}</a>
+              @endif
+
+              <!-- Tuy chon san pham -->
+
+              @if($single_product_details['post_sku'])  
+                <p><label>{{ trans('frontend.sku') }}:</label><span>{{ $single_product_details['post_sku'] }}</span></p>
+              @endif
+              
+              @if($single_product_details['_product_enable_as_latest'] == 'yes')
+                <p><label>{{ trans('frontend.condition_label') }}:</label><span>{{ trans('frontend.new_label') }}</span></p>
+              @endif
+              
+              @if(count(get_product_brands_lists($single_product_details['id'])) > 0)
+                <p><label>{{ trans('frontend.brand_label') }}:</label><span>{{ get_single_page_product_brands_lists( get_product_brands_lists($single_product_details['id']) ) }}</span></p>
+              @endif
+              
+              @if(get_single_page_product_categories_lists($single_product_details['id']))
+                <p><label>{{ trans('frontend.category_label') }}:</label><span>{{ get_single_page_product_categories_lists($single_product_details['id']) }}</span></p>
+              @endif
+              
+              @if(count(get_product_tags_lists($single_product_details['id']))>0)
+                <p><label>{{ trans('frontend.tag_label') }}:</label><span>{{ get_single_page_product_tags_lists(get_product_tags_lists($single_product_details['id'])) }}</span></p>
+              @endif
               
             </div>
           </div>
@@ -441,7 +479,7 @@ $(window).on( 'resize', function () {
 $(document).ready(function(){
 
 	$('.entry-share>.share-links>.social-button').on('click', function(e){
-    
+
 		e.preventDefault();
 		var share_url = null;
 		var window_url = null;

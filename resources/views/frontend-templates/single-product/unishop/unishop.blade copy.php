@@ -169,7 +169,9 @@
               </div>
             </li>
             <li>
-              <a href="" class="btn btn-sm btn-style add-to-cart-bg" data-id="{{ $single_product_details['id'] }}"><i class="fa fa-shopping-cart"></i>&nbsp;&nbsp; {{ trans('frontend.add_to_cart') }}</a>
+              <a href="" class="btn btn-sm btn-style add-to-cart-bg" data-id="{{ $single_product_details['id'] }}">
+                <i class="fa fa-shopping-cart"></i>&nbsp;&nbsp; {{ trans('frontend.add_to_cart') }}
+              </a>
             </li>
           </ul>
           <input type="hidden" name="available_stock_val" id="available_stock_val" value="{{ $single_product_details['post_stock_qty'] }}">
