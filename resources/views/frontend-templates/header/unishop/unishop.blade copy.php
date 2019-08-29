@@ -190,7 +190,41 @@
       <ul>
         <li class="{{ Request::is('/')?'active':''}}"><a href="{{ route('home-page') }}"><span>{!! trans('frontend.home') !!}</span></a></li>
         
-        <li class="{{ Request::is('stores')?'active':''}}"><a href="{{ route('store-list-page-content') }}"><span>{!! trans('frontend.vendor_list_title_label') !!}</span></a></li>
+        <li class="{{ Request::is('stores')?'active':''}}"><a href="{{ route('store-list-page-content') }}"><span>Gian hàng</span></a></li>
+        
+        <li class="has-megamenu"><a href="#"><span>Nổi bật</span></a>
+          <ul class="mega-menu">
+              @if(count($productCategoriesTree) > 0)
+                <?php $i = 1; $j = 0;?>
+                @foreach($productCategoriesTree as $cat)
+                  @if($i < 5 && isset($cat['parent']) && $cat['parent'] == 'Parent Category')  
+                    <li>
+                      <a href="{{ route('categories-page', $cat['slug']) }}">
+                      
+                        @if( !empty($cat['img_url']) )
+                          <img src="{{ get_image_url($cat['img_url']) }}"> 
+                        @else
+                          <img src="{{ default_placeholder_img_src() }}"> 
+                        @endif
+                      
+                      </a>
+                      <span class="mega-menu-title">{!! $cat['name'] !!}</span>
+                      <ul class="sub-menu">
+                          @if(isset($cat['children']) && count($cat['children']) > 0)
+                            @foreach($cat['children'] as $cat_sub)
+                              <li>
+                                <a href="{{ route('categories-page', $cat_sub['slug']) }}">{!! $cat_sub['name'] !!}</a>
+                              </li>
+                            @endforeach
+                          @endif
+                      </ul>
+                    </li>
+                  @endif
+                  <?php $i ++;?>
+                @endforeach
+              @endif
+          </ul>
+        </li>
   
         <li class="{{ Request::is('shop')?'active':''}}"><a href="{{ route('shop-page') }}"><span>{!! trans('frontend.all_products_label') !!}</span></a></li>
 

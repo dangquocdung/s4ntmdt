@@ -425,6 +425,42 @@ jQuery(document).ready(function($) {
 
     // Wishlist Button
     //------------------------------------------------------------------------------
+    $('.btn-wishlist').on('click', function() {
+        var iteration = $(this).data('iteration') || 1,
+            toastOptions = {
+                title: 'Product',
+                animateInside: false,
+                position: 'topRight',
+                progressBar: false,
+                timeout: 3200,
+                transitionIn: 'fadeInLeft',
+                transitionOut: 'fadeOut',
+                transitionInMobile: 'fadeIn',
+                transitionOutMobile: 'fadeOut'
+            };
+
+        switch (iteration) {
+            case 1:
+                $(this).addClass('active');
+                toastOptions.class = 'iziToast-info';
+                toastOptions.message = 'added to your wishlist!';
+                toastOptions.icon = 'icon-bell';
+                break;
+
+            case 2:
+                $(this).removeClass('active');
+                toastOptions.class = 'iziToast-danger';
+                toastOptions.message = 'removed from your wishlist!';
+                toastOptions.icon = 'icon-ban';
+                break;
+        }
+
+        iziToast.show(toastOptions);
+
+        iteration++;
+        if (iteration > 2) iteration = 1;
+        $(this).data('iteration', iteration);
+    });
 
     // Isotope Grid / Filters (Gallery)
     //------------------------------------------------------------------------------

@@ -134,7 +134,7 @@ Route::get( '/san-pham/tag/{tag_slug}', [
   'as'   => 'tag-single-page'
 ]);
 
-Route::get( '/product/comparison', [
+Route::get( '/san-pham/so-sanh-san-pham', [
   'uses' => 'Frontend\FrontendManagerController@productComparisonPageContent',
   'as'   => 'product-comparison-page'
 ]);

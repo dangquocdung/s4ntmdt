@@ -228,6 +228,7 @@
         </div>
       </div>
     </div>
+    
     <div id="product_description_bottom_tab" class="product-description-bottom-tab">
       <div class="row">
         <div class="col-12">  

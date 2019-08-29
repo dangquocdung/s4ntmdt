@@ -1,99 +1,94 @@
 <!-- Off-Canvas Wrapper-->
-<div class="offcanvas-wrapper">
+<div id="single_product" class="offcanvas-wrapper">
  
   <!-- Page Content-->
   <div class="container padding-bottom-3x mb-1">
     <div class="row">
       <!-- Poduct Gallery-->
       <div class="col-md-6">
-        <div class="product-gallery" id="product-gallery">
-          {{-- <span id="sale" class="product-badge text-danger">30% Off</span> --}}
-          <div class="gallery-wrapper">
+
+          <div class="product-gallery">
             
+            <span class="product-badge text-danger">30% Off</span>
+
             @if($single_product_details['_product_enable_video_feature'] == 'yes')
-              @if($single_product_details['_product_video_feature_display_mode'] == 'popup')
-                <div class="product-video-content">
-                  <button class="btn btn-secondary product-video" type="button">
-                    <i class="fa fa-video-camera"></i>
-                    {{ trans('frontend.product_video') }}
-                  </button>
-                  @include('modal.product-video')  
-                </div>
-              @elseif($single_product_details['_product_video_feature_display_mode'] == 'content')
-                <!-- <h4> {!! $single_product_details['_product_video_feature_title'] !!} </h4> -->
-                <div class="product-video-content-panel">
-                  @if($single_product_details['_product_video_feature_source'] == 'embedded_code')
-                    @include('pages.frontend.frontend-pages.video-source-embedded-url')
-                  @elseif($single_product_details['_product_video_feature_source'] == 'online_url')
-                    @include('pages.frontend.frontend-pages.video-source-online-url')
-                  @endif
-                </div>  
+
+            <div class="gallery-wrapper">
+              @if($single_product_details['_product_video_feature_source'] == 'embedded_code')
+                @include('pages.frontend.frontend-pages.video-source-embedded-url')
+                @yield('embedded-content')
+              @elseif($single_product_details['_product_video_feature_source'] == 'online_url')
+                @include('pages.frontend.frontend-pages.video-source-online-url')
+                @yield('online-url-content')
               @endif
+            </div>
             @endif
 
             @if(count($single_product_details['_product_related_images_url']->product_gallery_images) > 0)
-              <?php $count = 1;?>
-              <div class="product-carousel owl-carousel gallery-wrapper">
-                @foreach($single_product_details['_product_related_images_url']->product_gallery_images as $key => $row)
-                  <div class="gallery-item" data-hash="{{ $count }}">
-                    <a href="{{ get_image_url($row->zoom_img_url) }}" data-size="1000x667">
+            <?php $count = 1;?>
+
+            <div class="product-carousel owl-carousel gallery-wrapper">
+              @foreach($single_product_details['_product_related_images_url']->product_gallery_images as $key => $row)
+                <div class="gallery-item" data-hash="{{ $count }}">
+                  <a href="{{ get_image_url($row->url) }}" data-size="1000x667">
                     @if(!empty($row->url) && (basename($row->url) !== 'no-image.png'))  
-                      <img src="{{ get_image_url($row->url) }}"/>
+                    <img src="{{ get_image_url($row->url) }}" alt="Product">
                     @else
-                      <img src="{{ default_placeholder_img_src() }}"/>
+                    <img src="{{ default_placeholder_img_src() }}" alt="Product"/>
                     @endif
-                    </a>
-                  </div>
-                  <?php $count ++;?>
-                @endforeach
-              </div>
-
-              <ul class="product-thumbnails">
-                <?php $count = 1;?>
-
-                @foreach($single_product_details['_product_related_images_url']->product_gallery_images as $key => $row)
-                  @if($count == 1)
-                    <li class="active">
-                      <a href="#{{ $count }}">
-                        @if(!empty($row->url) && (basename($row->url) !== 'no-image.png'))  
-                          <img src="{{ get_image_url($row->url) }}"/>
-                        @else
-                          <img src="{{ default_placeholder_img_src() }}"/>
-                        @endif
-                      </a>
-                    </li>
-                  @else
-                    <li>
-                      <a href="#{{ $count }}">
-                        @if(!empty($row->url) && (basename($row->url) !== 'no-image.png'))  
-                          <img src="{{ get_image_url($row->url) }}"/>
-                        @else
-                          <img src="{{ default_placeholder_img_src() }}"/>
-                        @endif
-                      </a>
-                    </li>
-                  @endif
-                  <?php $count ++;?>
-                @endforeach
-                
-              </ul>
-
+                  </a>
+                </div>
+                <?php $count ++;?>
+              @endforeach
+            </div>
+            <ul class="product-thumbnails">
+              <?php $count = 1;?>
+              @foreach($single_product_details['_product_related_images_url']->product_gallery_images as $key => $row)
+              @if($count == 1)
+              <li class="active">
+                <a href="#{{ $count }}">
+                    @if(!empty($row->url) && (basename($row->url) !== 'no-image.png'))  
+                    <img src="{{ get_image_url($row->url) }}" alt="Product">
+                    @else
+                    <img src="{{ default_placeholder_img_src() }}" alt="Product"/>
+                    @endif
+                </a>
+              </li>
+              @else
+              <li>
+                <a href="#{{ $count }}">
+                    @if(!empty($row->url) && (basename($row->url) !== 'no-image.png'))  
+                    <img src="{{ get_image_url($row->url) }}" alt="Product">
+                    @else
+                    <img src="{{ default_placeholder_img_src() }}" alt="Product"/>
+                    @endif
+                </a>
+              </li>
+              @endif
+              <?php $count ++;?>
+              @endforeach
+              
+            </ul>
             @endif
           </div>
-
-        </div>
+        
       </div>
       <!-- Product Info-->
       <div class="col-md-6">
-        <div class="padding-top-2x mt-2 hidden-md-up"></div>
-          <div class="rating-stars">
-          <i class="icon-star filled"></i>
-          <i class="icon-star filled"></i>
-          <i class="icon-star filled"></i>
-          <i class="icon-star filled"></i>
-          <i class="icon-star"></i>
-        </div>
-        <span class="text-muted align-middle">&nbsp;&nbsp;4.2 | 3 customer reviews</span>
+
+        <?php $reviews_settings = get_reviews_settings_data($single_product_details['id']);?>
+
+        @if($reviews_settings['enable_reviews_add_link_to_details_page'] && $reviews_settings['enable_reviews_add_link_to_details_page'] == 'yes')
+
+          <div class="comments-advices">
+            <ul>
+              <li class="review-stars"><div class="star-rating"><span style="width:{{ $comments_rating_details['percentage'] }}%"></span></div></li>
+              <li class="read-review"><a href="#reviews" class="reviews selected"> {{ trans('frontend.single_product_read_review_label') }} (<span itemprop="reviewCount">{{ $comments_rating_details['total'] }}</span>) </a></li>
+              <li class="write-review"><a class="open-comment-form" href="#new_comment_form">&nbsp;<span>|</span>&nbsp; {{ trans('frontend.single_product_write_review_label') }} </a></li>
+            </ul>
+          </div>
+        @endif
+
         <h2 class="padding-top-1x text-normal">{{ $single_product_details['post_title'] }}</h2>
         
         @if( get_product_type($single_product_details['id']) == 'simple_product' || (get_product_type($single_product_details['id']) == 'downloadable_product' && count(get_product_variations($single_product_details['id'])) == 0 ) || (get_product_type($single_product_details['id']) == 'customizable_product' && count(get_product_variations($single_product_details['id'])) == 0 ) )
@@ -198,13 +193,16 @@
               <a class="social-button shape-circle sb-facebook" data-name="fb" href="#" data-toggle="tooltip" data-placement="top" title="Facebook"><i class="socicon-facebook"></i></a>
               <a class="social-button shape-circle sb-twitter" data-name="tweet" href="#" data-toggle="tooltip" data-placement="top" title="Twitter"><i class="socicon-twitter"></i></a>
               <a class="social-button shape-circle sb-instagram" data-name="lin" href="#" data-toggle="tooltip" data-placement="top" title="Instagram"><i class="socicon-instagram"></i></a>
-              <a class="social-button shape-circle sb-google-plus" data-name="gplus" href="#" data-toggle="tooltip" data-placement="top" title="Google +"><i class="socicon-googleplus"></i></a>
+              {{-- <a class="social-button shape-circle sb-google-plus" data-name="gplus" href="#" data-toggle="tooltip" data-placement="top" title="Google +"><i class="socicon-googleplus"></i></a> --}}
             </div>
 
           </div>
           <div class="sp-buttons mt-2 mb-2">
-            <button class="btn btn-outline-secondary btn-sm btn-wishlist" data-toggle="tooltip" title="Whishlist"><i class="icon-heart"></i></button>
-            <button class="btn btn-primary" data-toast data-toast-type="success" data-toast-position="topRight" data-toast-icon="icon-circle-check" data-toast-title="Product" data-toast-message="successfuly added to cart!"><i class="icon-bag"></i> Add to Cart</button>
+            <button class="btn btn-outline-secondary btn-sm btn-wishlist product-wishlist" data-id="{{ $single_product_details['id'] }}" data-toggle="tooltip" title="{{ trans('frontend.add_to_wishlist_label') }}" data-original-title="{{ trans('frontend.add_to_wishlist_label') }}"><i class="icon-heart"></i></button>
+            <button class="btn btn-outline-secondary btn-sm btn-compare product-compare" data-id="{{ $single_product_details['id'] }}" data-toggle="tooltip" title="" data-original-title="{{ trans('frontend.add_to_compare_list_label') }}">
+              <i class="icon-repeat"></i>
+            </button>
+            <button class="btn btn-primary add-to-cart-bg" data-toast data-toast-type="success" data-toast-position="topRight" data-toast-icon="icon-check-circle" data-toast-title="Product" data-toast-message="successfuly added to cart!" data-id="{{ $single_product_details['id'] }}" data-toggle="tooltip" data-placement="top" title="" data-original-title="{{ trans('frontend.add_to_cart_label') }}"><i class="icon-bag"></i> Thêm vào giỏ hàng</button>
           </div>
         </div>
       </div>
@@ -232,7 +230,7 @@
 
         </ul>
         <div class="tab-content">
-          <div class="tab-pane fade" id="features" role="tabpanel">
+          <div class="tab-pane fade show active" id="features" role="tabpanel">
             {{-- {!! string_decode($single_product_details['post_content']) !!} --}}
 
               @if($single_product_details['_product_extra_features'])  
@@ -244,7 +242,7 @@
 
           @if($single_product_details['_product_enable_reviews'] == 'yes')
 
-          <div class="tab-pane fade show active" id="reviews" role="tabpanel">
+          <div class="tab-pane fade" id="reviews" role="tabpanel">
 
             @if(count($comments_details) > 0)
               @foreach($comments_details as $comment) 
@@ -259,15 +257,11 @@
                   </div>
                   <div class="comment-body">
                     <div class="comment-header d-flex flex-wrap justify-content-between">
-                      <h4 class="comment-title">Average quality for the price</h4>
+                      <h4 class="comment-title">{{ $comments_rating_details['average'] }}</h4>
                       <div class="mb-2">
-                          <div class="rating-stars">
-                            <i class="icon-star filled"></i>
-                            <i class="icon-star filled"></i>
-                            <i class="icon-star filled"></i>
-                            <i class="icon-star"></i>
-                            <i class="icon-star"></i>
-                          </div>
+                        <div class="star-rating">
+                          <span style="width:{{ $comments_rating_details['percentage'] }}%"></span>
+                        </div>
                       </div>
                     </div>
                     <p class="comment-text">

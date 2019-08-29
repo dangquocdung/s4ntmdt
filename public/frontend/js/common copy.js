@@ -3,6 +3,30 @@ var frontendLocalizationString;
 /*scroll to top*/
 $(document).ready(function() {
 
+    $(function() {
+        $.scrollUp({
+            scrollName: 'scrollUp',
+            scrollDistance: 300,
+            scrollFrom: 'top',
+            scrollSpeed: 300,
+            easingType: 'linear',
+            animation: 'fade',
+            animationSpeed: 200,
+            scrollTrigger: false,
+            scrollText: '<i class="fa fa-angle-up"></i>',
+            scrollTitle: false,
+            scrollImg: false,
+            activeOverlay: false,
+            zIndex: 2147483647
+        });
+    });
+
+    $('.shopist-iCheck').iCheck({
+        checkboxClass: 'icheckbox_square-purple',
+        radioClass: 'iradio_square-purple',
+        increaseArea: '20%'
+    });
+
     shopist_frontend.init.pageLoad();
 
     $('#productRequest').on('hidden.bs.modal', function() {
@@ -669,6 +693,11 @@ $(document).ready(function() {
             ]
         });
     }
+
+    $(".vendor-categories-list").mCustomScrollbar({
+        autoHideScrollbar: true,
+        theme: "rounded"
+    });
 
     if ($('.vendor-special-products-menu').length > 0) {
         $('#vendor_home_content ul.vendor-special-products-menu li a').on('click', function() {

@@ -60,6 +60,23 @@
     <link rel="stylesheet" href="{{ URL::asset('/sweetalert/sweetalert.css') }}" />
     <link rel="stylesheet" href="{{ URL::asset('/plugins/select2/select2.min.css') }}" />
     <link rel="stylesheet" href="{{ URL::asset('/dropzone/css/dropzone.css') }}" />
+
+    <!--load header style-->
+    <link rel="stylesheet" href="{{ URL::asset('/templates-assets/header/'. $appearance_settings['header'] .'/style.css') }}" />
+
+    <!--load home style-->
+    <link rel="stylesheet" href="{{ URL::asset('/templates-assets/home/'. $appearance_settings['home'] .'/style.css') }}" />
+
+    <!--load blogs style-->
+    <link rel="stylesheet" href="{{ URL::asset('/templates-assets/blog/'. $appearance_settings['blogs'] .'/style.css') }}" />
+
+    <!--load products style-->
+    <link rel="stylesheet" href="{{ URL::asset('/templates-assets/product/'. $appearance_settings['products'] .'/style.css') }}" />
+
+    <!--load single products style-->
+    <link rel="stylesheet" href="{{ URL::asset('/templates-assets/single-product/'. $appearance_settings['single_product'] .'/style.css') }}" />
+
+
     
     <!-- Vendor Styles including: Bootstrap, Font Icons, Plugins, etc.-->
     <link rel="stylesheet" media="screen" href="/css/vendor.min.css">
@@ -115,15 +132,13 @@
 
     <!--load single products scripts-->
     <script type="text/javascript" src="{{ URL::asset('/templates-assets/single-product/'. $appearance_settings['single_product'] .'/script.js') }}"></script>
-    <script type="text/javascript" src="{{ URL::asset('/templates-assets/single-product/'. $appearance_settings['single_product'] .'/jquery.elevatezoom.js') }}"></script>
+    {{-- <script type="text/javascript" src="{{ URL::asset('/templates-assets/single-product/'. $appearance_settings['single_product'] .'/jquery.elevatezoom.js') }}"></script> --}}
 
 
-    <script type="text/javascript" src="{{ URL::asset('/jquery/jquery-1.10.2.js') }}"></script>
-    <script type="text/javascript" src="{{ URL::asset('/jquery/jquery-ui-1.11.4.js') }}"></script>
-    <script type="text/javascript" src="{{ URL::asset('/dropzone/dropzone.js') }}"></script>
-    <script type="text/javascript" src="{{ URL::asset('/bootstrap/js/popper.min.js') }}"></script>
-    <script type="text/javascript" src="{{ URL::asset('/bootstrap/js/bootstrap.min.js') }}"></script>
-    <script type="text/javascript" src="{{ URL::asset('/frontend/js/products-add-to-cart.js') }}"></script>
+    <script type="text/javascript" src="{{ URL::asset('/frontend/js/common.js') }}"></script>
+    <script type="text/javascript" src="{{ URL::asset('/frontend/js/social-network.js') }}"></script>
+    <script type="text/javascript" src="{{ URL::asset('/slick/slick.min.js') }}"></script>
+    <script type="text/javascript" src="{{ URL::asset('/common/base64.js') }}"></script>
     
     <!-- Modernizr-->
     <script src="/js/modernizr.min.js"></script>

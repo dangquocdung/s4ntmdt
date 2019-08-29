@@ -1,7 +1,8 @@
 @extends('layouts.frontend.master')
+
 @section('title', trans('frontend.product_comparison_title_label') .' | '. get_site_title())
 
-@section('breadcrumbs',trans('frontend.product_comparison_title_label'))
+@section('breadcrumb',trans('frontend.product_comparison_details_title_label'))
 
 
 @section('content')
@@ -9,11 +10,10 @@
 <div class="container padding-bottom-3x mb-2">
 
   @if(count($compare_product_data) > 0)
-    <h5 class="cm14">{!! trans('frontend.product_comparison_details_title_label') !!}</h5>
 
     <table class="table table-bordered">
       
-      <tbody>
+      <tbody class="product-compare">
           @foreach($compare_product_label as $key => $label)
           <tr>
             <td>{!! $label !!}</td>
@@ -27,7 +27,7 @@
               @endif
 
               @if($label == 'Price')
-              <td>{!! price_html( get_product_price($products['id']), get_frontend_selected_currency() ) !!}</td>
+              <td align="center">{!! price_html( get_product_price($products['id']), get_frontend_selected_currency() ) !!}</td>
               @endif
 
               @if(($label !== 'Image' && $label !== 'Product' && $label !== 'Price') && !empty($products['_product_compare_data']))
