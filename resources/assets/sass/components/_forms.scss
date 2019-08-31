@@ -61,7 +61,7 @@ select.form-control {
   margin-bottom: floor($grid-vertical-step / 1.2) !important; //~20px
   label {
     margin-bottom: 8px;
-    padding-left: 18px;
+    // padding-left: 18px;
     font: {
       size: $font-size-xs;
       weight: 500;

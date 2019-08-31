@@ -1194,7 +1194,7 @@ shopist_frontend.ajaxCall = {
                             imageUrl: $('#hf_base_url').val() + '/images/thumbs-up.jpg'
                         },
                         function() {
-                            location.href = $('#hf_base_url').val() + '/product/comparison';
+                            location.href = $('#hf_base_url').val() + '/san-pham/so-sanh-san-pham';
                         });
                 } else if (data.status == 'error' && data.notice_type == 'already_saved') {
                     swal({
@@ -1208,7 +1208,7 @@ shopist_frontend.ajaxCall = {
                             type: 'warning'
                         },
                         function() {
-                            location.href = $('#hf_base_url').val() + '/product/comparison';
+                            location.href = $('#hf_base_url').val() + '/san-pham/so-sanh-san-pham';
                         });
                 } else if (data.status == 'error' && data.notice_type == 'compare_data_exceed_limit') {
                     swal({
