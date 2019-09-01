@@ -15,6 +15,7 @@
     left: 20px;
   }
 }
+.modal-header { background-color: $gray-lighter; }
 .modal-footer {
   padding: {
     top: floor($grid-vertical-step / 2);

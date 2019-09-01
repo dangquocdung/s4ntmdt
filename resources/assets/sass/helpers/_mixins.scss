@@ -50,7 +50,7 @@
 @mixin button-variant($bg-color) {
   background-color: $bg-color;
   &:hover {
-    background-color: darken($bg-color, 10%);
+    background-color: darken($bg-color, 9%);
   }
 }
 
@@ -69,7 +69,7 @@
 @mixin link-button-variant($color) {
   color: $color;
   &:hover {
-    color: darken($color, 10%);
+    color: darken($color, 9%);
   }
 }
 
@@ -125,6 +125,7 @@
 
 // Font smoothing
 @mixin font-smoothing {
+  text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }

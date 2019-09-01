@@ -6,45 +6,46 @@
   .card {
     margin-bottom: floor($grid-vertical-step / 3); //~12px
     border-bottom: 1px solid $border-color !important;
+    border-radius: $border-radius-base !important;
+  }
+  .card-header {
+    padding: 0;
+    transition: background-color .3s;
+    background-color: $white-color;
+    &:hover { background-color: $gray-lighter; }
   }
   [data-toggle='collapse'] {
     display: block;
     position: relative;
-    color: $nav-link-color;
+    padding: .85rem 1.25rem;
+    color: $headings-color;
+    font-size: $font-size-base;
     text-decoration: none;
     &::after {
       position: absolute;
       top: 50%;
-      right: 0;
-      width: 0;
-      height: 0;
-      margin-top: -2px;
+      right: 1rem;
+      margin-top: -12px;
       transition: transform .25s;
-      border: {
-        right: 5px solid transparent;
-        bottom: 5px dashed;
-        left: 5px solid transparent;
+      font: {
+        family: feather;
+        size: $font-size-lead;
       }
-      content: '';
+      content: '\e931';
     }
     &.collapsed::after {
       transform: rotate(-180deg);
     }
     > i {
+      display: inline-block;
       margin: {
-        top: -4px;
+        top: -3px;
         right: 7px;
       }
+      vertical-align: middle;
       &.socicon-paypal {
-        display: inline-block;
         margin-top: 1px;
         font-size: .8em;
-        vertical-align: middle;
-      }
-      &.icon-medal {
-        width: 16px;
-        height: 16px;
-        background-size: 16px;
       }
     }
   }

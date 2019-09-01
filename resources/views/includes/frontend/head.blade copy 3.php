@@ -99,7 +99,7 @@
     <script type="text/javascript" src="{{ URL::asset('/sweetalert/sweetalert.min.js') }}"></script>
     <script type="text/javascript" src="{{ URL::asset('/plugins/select2/select2.full.min.js') }}"></script>
 
-    {{-- @if(Request::is('product/customize/*'))
+{{-- @if(Request::is('product/customize/*'))
         <script type="text/javascript" src="{{ URL::asset('/designer/fabric-1.5.0.min.js') }}"></script>
         <script type="text/javascript" src="{{ URL::asset('/designer/customiseControls.min.js') }}"></script>
         <script type="text/javascript" src="{{ URL::asset('/designer/fabric.curvedText.js') }}"></script>

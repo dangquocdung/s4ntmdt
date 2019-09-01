@@ -16,11 +16,8 @@
       size: $nav-link-font-size;
       weight: $nav-link-font-weight;
     }
-    letter-spacing: .05em;
-    text: {
-      transform: uppercase;
-      decoration: none;
-    }
+    letter-spacing: .025em;
+    text-decoration: none;
     &:hover { color: $nav-link-hover-color; }
     &:hover, &:focus { border-color: transparent; }
     &.disabled { cursor: not-allowed; }
@@ -32,6 +29,10 @@
         right: 5px;
       }
     }
+  }
+  .nav-item.dropdown {
+    margin-bottom: -3px;
+    .dropdown-menu { margin-top: -3px; }
   }
   .nav-item.show .nav-link,
   .nav-link.active {
@@ -59,33 +60,40 @@
 .nav-pills {
   .nav-link {
     margin-right: 5px;
-    padding: 8px 16px;
+    padding: 6px 16px;
     transition: all .3s;
-    border-radius: ($btn-height / 2);
+    border: 1px solid transparent;
+    border-radius: $border-radius-base;
     color: $btn-text-color;
     font: {
-      size: $btn-sm-font-size;
+      size: $btn-font-size;
       weight: $btn-font-weight;
     }
-    letter-spacing: .07em;
+    letter-spacing: .025em;
     text: {
       transform: $btn-text-transform;
       decoration: none;
     }
-    &:hover:not(.disabled) { background-color: $gray-lighter; }
+    &:hover:not(.disabled) {
+      border-color: $border-color;
+      background-color: $gray-lighter;
+    }
     &.disabled {
       color: $gray;
       cursor: not-allowed;
     }
     > i {
+      display: inline-block;
       margin: {
-        top: -4px;
+        top: -1px;
         right: 5px;
       }
+      vertical-align: middle;
     }
   }
   .nav-item.show .nav-link,
   .nav-link.active {
+    border-color: $nav-link-active-color;
     background-color: $nav-link-active-color !important;
     color: $white-color;
     cursor: default;

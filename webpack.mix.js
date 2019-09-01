@@ -12,9 +12,10 @@ mix.pug = require('laravel-mix-pug');
  |
  */
 
-mix.js('resources/assets/js/app.js', 'public/js')
-   .sass('resources/assets/sass/app.scss', 'public/css')
-   .version();
+mix
+    .js('resources/assets/js/app.js', 'public/js')
+    .sass('resources/assets/sass/styles.scss', 'public/css')
+    .version();
 
 // mix.pug('resources/assets/html/index.pug', 'httrade')
 //    .setPublicPath('dist');

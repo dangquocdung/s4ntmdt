@@ -4,6 +4,7 @@
 
 .table {
   thead th, td, th { border-color: $border-color; }
+  thead th, th { font-weight: 500; }
   &.table-inverse {
     background-color: $gray-darker;
     color: $white-color;

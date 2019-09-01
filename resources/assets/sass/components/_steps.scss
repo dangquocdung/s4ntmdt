@@ -3,88 +3,88 @@
 // ----------------------------------------------------
 
 .steps {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
   .step {
     display: block;
+    position: relative;
     width: 100%;
-    margin-bottom: 35px;
-    text-align: center;
-    .step-icon-wrap {
-      display: block;
-      position: relative;
-      width: 100%;
-      height: $step-circle-size;
-      text-align: center;
-      &::before,
-      &::after {
-        display: block;
-        position: absolute;
-        top: 50%;
-        width: 50%;
-        height: $step-connect-height;
-        margin-top: -(floor($step-connect-height / 2));
-        background-color: $border-color;
-        content: '';
-        z-index: 1;
-      }
-      &::before { left: 0; }
-      &::after { right: 0; }
+    margin: {
+      bottom: -1px;
+      left: -1px;
     }
-    .step-icon {
-      display: inline-block;
-      position: relative;
-      width: $step-circle-size;
-      height: $step-circle-size;
-      border: 1px solid $border-color;
-      border-radius: 50%;
-      background-color: $step-icon-default-bg;
-      color: $step-icon-default-color;
-      font-size: $step-icon-size;
-      line-height: ($step-circle-size + 1);
-      z-index: 5;
+    padding: 20px 15px;
+    border: 1px solid $border-color;
+    background-color: $white-color;
+    z-index: 1;
+    text: {
+      align: center;
+      decoration: none;
+    }
+    &:first-child {
+      border: {
+        top-left-radius: $border-radius-base;
+        bottom-left-radius: $border-radius-base;
+      }
+    }
+    &:last-child {
+      border: {
+        top-right-radius: $border-radius-base;
+        bottom-right-radius: $border-radius-base;
+      }
     }
     .step-title {
-      margin: {
-        top: floor($grid-vertical-step / 1.5); //~16px
-        bottom: 0;
-      }
-      color: $step-title-color;
+      margin-bottom: 0;
       font: {
-        size: $step-title-size;
-        weight: 500;
+        size: $font-size-md;
+        weight: normal;
+      }
+      letter-spacing: .025em;
+      > i {
+        margin: {
+          top: -2px;
+          right: 6px;
+        }
+        color: $brand-success;
+        font-size: 1.2em;
+        vertical-align: middle;
       }
     }
-    &:first-child .step-icon-wrap::before { display: none; }
-    &:last-child .step-icon-wrap::after { display: none; }
-    &.completed {
-      .step-icon-wrap {
-        &::before,
-        &::after { background-color: $brand-primary; }
-      }
-      .step-icon {
-        border-color: $brand-primary;
-        background-color: $brand-primary;
-        color: $white-color;
-      }
+    > i {
+      display: inline-block;
+      margin-bottom: floor($grid-vertical-step / 2); //~12px
+      color: rgba($gray, .6);
+      font-size: 1.8em;
+    }
+    &.active {
+      border-color: $brand-primary;
+      cursor: default;
+      z-index: 5;
+      pointer-events: none;
+      .step-title, > i { color: $brand-primary; }
     }
   }
-}
-@media (max-width: $screen-sm) {
-  .flex-sm-nowrap .step .step-icon-wrap {
-    &::before, &::after { display: none; }
+  a.step:not(.active) {
+    transition: background-color .35s;
+    &:hover { background-color: $gray-lighter; }
   }
-}
-@media (max-width: $screen-md) {
-  .flex-md-nowrap .step .step-icon-wrap {
-    &::before, &::after { display: none; }
-  }
-}
-@media (max-width: $screen-lg) {
-  .flex-lg-nowrap .step .step-icon-wrap {
-    &::before, &::after { display: none; }
-  }
-}
-@media (max-width: $screen-xl) {
-  .flex-xl-nowrap .step .step-icon-wrap {
-    &::before, &::after { display: none; }
+  @media (max-width: $screen-sm) {
+    .step {
+      &:first-child {
+        border: {
+          top-left-radius: $border-radius-base;
+          top-right-radius: $border-radius-base;
+          bottom-left-radius: 0;
+        }
+      }
+      &:last-child {
+        border: {
+          top-right-radius: 0;
+          bottom-right-radius: $border-radius-base;
+          bottom-left-radius: $border-radius-base;
+        }
+      }
+    }
   }
 }

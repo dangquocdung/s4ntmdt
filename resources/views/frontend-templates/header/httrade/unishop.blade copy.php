@@ -115,7 +115,7 @@
     <div class="lang-currency-switcher-wrap">
       <div class="lang-currency-switcher dropdown-toggle">
         <span class="language">
-        @if(count(get_frontend_selected_languages_data()) > 0)
+          @if(count(get_frontend_selected_languages_data()) > 0)
             @if(get_frontend_selected_languages_data()['lang_code'] == 'en')
 
               <img alt="{!! get_frontend_selected_languages_data()['lang_name'] !!}" src="{{ asset('images/'. get_frontend_selected_languages_data()['lang_sample_img']) }}">

@@ -4,7 +4,11 @@
 
 .site-footer {
   padding-top: floor($grid-vertical-step * 3); //~72px;
-  background-color: $gray-darker;
+  background: {
+    position: center bottom;
+    color: $gray-darker;
+    repeat: no-repeat;
+  }
   @media (max-width: $screen-md) {
     padding-top: floor($grid-vertical-step * 2); //~48px;
   }
@@ -24,7 +28,7 @@
     transition: color .25s;
     color: rgba($white-color, .5);
     text-decoration: none;
-    &:hover { color: $link-hover-color; }
+    &:hover { color: $white-color; }
   }
 }
 
@@ -36,6 +40,6 @@
     > a {
       color: $gray;
       &:hover { color: $link-hover-color; }
-      }
+    }
   }
 }

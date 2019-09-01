@@ -18,11 +18,11 @@ body {
   color: $body-color;
   font: {
     family: $font-family-base;
-    size: $font-size-sm;
+    size: $font-size-md;
     weight: $font-weight-base;
   }
-  text-transform: $text-transform-base;
   line-height: $line-height-base;
+  text-transform: $text-transform-base;
 }
 
 // Links
@@ -40,14 +40,21 @@ a {
 .small, small { font-size: 85%; }
 
 // Navigation Links
-.navi-link,
-.navi-link-light {
+.navi-link {
   transition: color .3s;
   color: $nav-link-color;
   text-decoration: none;
-  &:hover { color: $nav-link-hover-color; }
+  &:hover { color: $nav-link-hover-color !important; }
 }
-.navi-link-light { color: $white-color; }
+.navi-link-light {
+  transition: opacity .3s;
+  color: $white-color;
+  text-decoration: none;
+  &:hover {
+    color: $white-color;
+    opacity: .6;
+  }
+}
 
 // Images
 // Responsive images (ensure images don't scale beyond their parents)

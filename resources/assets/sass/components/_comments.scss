@@ -24,7 +24,7 @@
     position: relative;
     padding: $grid-vertical-step;
     border: 1px solid $border-color;
-    border-radius: $border-radius-lg;
+    border-radius: $border-radius-base;
     background-color: $body-bg;
     &::after, &::before {
       position: absolute;
@@ -50,7 +50,6 @@
   }
   .comment-title {
     margin-bottom: floor($grid-vertical-step / 3); //~8px
-    color: $gray-dark;
     font: {
       size: $comment-title-size;
       weight: $comment-title-weight;
@@ -79,11 +78,8 @@
       size: $nav-link-font-size;
       weight: $nav-link-font-weight;
     }
-    letter-spacing: .07em;
-    text: {
-      transform: uppercase;
-      decoration: none;
-    }
+    letter-spacing: .025em;
+    text-decoration: none;
     > i {
       display: inline-block;
       margin: {

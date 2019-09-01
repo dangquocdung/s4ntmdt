@@ -16,7 +16,7 @@
   transform: translateZ(0);
   transition: all .4s;
   border: 1px solid transparent;
-  border-radius: floor($btn-height / 2);
+  border-radius: $border-radius-base;
   background: {
     color: transparent;
     image: none;
@@ -26,9 +26,9 @@
     family: $font-family-base;
     size: $btn-font-size;
     style: normal;
-    weight: $btn-font-weight;
+    weight: $btn-font-weight !important;
   }
-  letter-spacing: .07em;
+  letter-spacing: .025em;
   line-height: ($btn-height - 2);
   white-space: nowrap;
   cursor: pointer;
@@ -52,7 +52,7 @@
   &:hover { color: $btn-text-color; }
   > i {
     display: inline-block;
-    margin-top: -2px;
+    margin-top: -1px;
     vertical-align: middle;
   }
   &[disabled],
@@ -67,30 +67,32 @@ button:focus { outline: none; }
 // Button Sizes
 .btn-lg {
   height: $btn-lg-height;
-  border-radius: floor($btn-lg-height / 2);
+  border-radius: $border-radius-lg;
+  font-size: $btn-lg-font-size;
   line-height: ($btn-lg-height - 2);
 }
 .btn-sm {
   height: $btn-sm-height;
   padding: 0 18px;
-  border-radius: floor($btn-sm-height / 2);
-  font-size: floor($font-size-base * .75);
+  border-radius: $border-radius-sm;
+  font-size: $btn-sm-font-size;
   line-height: ($btn-sm-height - 2);
 }
 
 // Button Shapes
-.btn-rounded {
-  border-radius: $border-radius-base;
-  &.btn-lg { border-radius: $border-radius-lg; }
-  &.btn-sm { border-radius: $border-radius-sm; }
+.btn-pill {
+  border-radius: floor($btn-height / 2);
+  &.btn-lg { border-radius: floor($btn-lg-height / 2); }
+  &.btn-sm { border-radius: floor($btn-sm-height / 2); }
 }
 .btn-square { border-radius: 0; }
 
 // Filled Button Variants
 // Uses @mixin button-variant($bg-color)
 .btn-secondary {
-  @include button-variant($gray-lighter);
   border-color: $border-color;
+  background-color: $gray-lighter;
+  &:hover { background-color: darken($gray-lighter, 4%); }
 }
 .btn-primary,
 .btn-success,
@@ -120,6 +122,7 @@ button:focus { outline: none; }
 .btn-outline-danger { @include outline-button-variant($brand-danger); }
 .btn-outline-white {
   @include outline-button-variant($white-color);
+  border-color: rgba($white-color, .3);
   &:hover { color: $btn-text-color; }
 }
 
@@ -139,7 +142,7 @@ button:focus { outline: none; }
 .btn-link-warning,
 .btn-link-danger,
 .btn-link-white {
-  > i { margin-top: -4px; }
+  > i { margin-top: -3px; }
 }
 
 // Button Groups (Dropdowns)
@@ -220,11 +223,10 @@ button:focus { outline: none; }
   width: $btn-height;
   height: $btn-height;
   transition: bottom 400ms cubic-bezier(.68, -.55, .265, 1.55), opacity .3s, background-color .3s, border-color .3s;
-  border-radius: 50%;
-  background-color: rgba($black-color, .3);
+  border-radius: $border-radius-base;
+  background-color: rgba($black-color, .25);
   color: $white-color;
-  font-size: $font-size-lead;
-  line-height: ($btn-height - 5);
+  font-size: $font-size-h5;
   opacity: 0;
   z-index: 2000;
   text: {
@@ -240,11 +242,13 @@ button:focus { outline: none; }
     bottom: 14px;
     opacity: 1;
   }
+  > i { line-height: $btn-height; }
   @media (max-width: $screen-md) {
     bottom: -($btn-sm-height * 2);
     width: $btn-sm-height;
     height: $btn-sm-height;
     line-height: ($btn-sm-height - 5);
+    > i { line-height: $btn-sm-height; }
   }
 }
 
