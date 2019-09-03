@@ -26,7 +26,6 @@
       <div class="cart-updating-msg">{{ trans('frontend.cart_updating_msg') }}</div>
     </div>
 
-
     <input type="hidden" name="lang_code" id="lang_code" value="{{ $selected_lang_code }}">  
     <input type="hidden" name="subscription_type" id="subscription_type" value="{{ $subscriptions_data['subscribe_type'] }}">
 
@@ -76,7 +75,9 @@
     <!-- Backdrop-->
     <div class="site-backdrop"></div>
     <!-- JavaScript (jQuery) libraries, plugins and custom scripts-->
-    <script src="js/vendor.min.js"></script>
-    <script src="js/scripts.min.js"></script>
+    <script src="/js/vendor.min.js"></script>
+    <!-- <script src="js/scripts.min.js"></script> -->
+    <script src="{{ mix('/js/app.js') }}"></script>
+
   </body>
 </html>

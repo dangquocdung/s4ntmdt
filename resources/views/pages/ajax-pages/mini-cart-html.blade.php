@@ -1,50 +1,52 @@
-<a href="" class="show-mini-cart" data-id="1"></a>
-  <i class="icon-bag" title="{!! trans('frontend.menu_my_cart') !!}"></i>
-  @if( Cart::count() >0 ) 
-    <span class="count">{!! Cart::count() !!}</span>
-    <span class="subtotal">
-        {!! price_html( get_product_price_html_by_filter(Cart::getTotal()) ) !!}
+<a href="javascript:void(0)">
+  <div>
+    <span class="cart-icon">
+      <i class="icon-shopping-cart"></i>
+      <span class="count-label">{!! Cart::count() !!}   </span>
     </span>
-  @endif
+    <span class="text-label">{!! trans('frontend.menu_my_cart') !!}</span>
+  </div>
+</a>
+@if( Cart::count() >0 )
 
+<div class="toolbar-dropdown cart-dropdown widget-cart hidden-on-mobile">
+  @foreach(Cart::items() as $index => $items)
 
-<div class="toolbar-dropdown">
-  @if( Cart::count() >0 )
-
-    @foreach(Cart::items() as $index => $items)
-    <div class="dropdown-product-item">
-      <a href="{{ route('removed-item-from-cart', $index)}}" class="dropdown-product-remove">
-        <i class="icon-cross"></i>
+  <!-- Entry-->
+  <div class="entry">
+    <div class="entry-thumb">
+      <a href="{{ route('details-page', get_product_slug($items->id)) }}">
+        @if($items->img_src)  
+          <img src="{{ get_image_url($items->img_src) }}" alt="Sản phẩm">
+        @else
+          <img src="{{ default_placeholder_img_src() }}" alt="no_image">
+        @endif
       </a>
-      <a class="dropdown-product-thumb" href="{{ route('details-page', get_product_slug($items->id)) }}">
-          @if($items->img_src)  
-            <img src="{{ get_image_url($items->img_src) }}" alt="Sản phẩm">
-          @else
-            <img src="{{ default_placeholder_img_src() }}" alt="no_image">
-          @endif
-      </a>
-      <div class="dropdown-product-info">
-        <a class="dropdown-product-title" href="{{ route('details-page', get_product_slug($items->id)) }}">{!! $items->quantity !!} x {!! $items->name !!}</a>
-        <span class="dropdown-product-details">
-          
-          {!! price_html( get_product_price_html_by_filter( Cart::getRowPrice($items->quantity, get_role_based_price_by_product_id($items ->id, $items->price))) ) !!}
-        </span>
-      </div>
     </div>
-    @endforeach
     
-    <div class="toolbar-dropdown-group">
-      <div class="column"><span class="text-lg">{!! trans('frontend.total') !!}:</span></div>
-      <div class="column text-right"><span class="text-lg text-medium">{!! price_html( get_product_price_html_by_filter(Cart::getTotal()) ) !!}&nbsp;</span></div>
-    </div>
-    <div class="toolbar-dropdown-group">
-      <div class="column"><a class="btn btn-sm btn-block btn-secondary" href="{{ route('cart-page') }}">{!! trans('frontend.cart') !!}</a></div>
-      <div class="column"><a class="btn btn-sm btn-block btn-success" href="{{ route('checkout-page') }}">{!! trans('frontend.checkout') !!}</a></div>
+    <div class="entry-content">
+      <h4 class="entry-title">
+        <a href="{{ route('details-page', get_product_slug($items->id)) }}">{!! $items->name !!}</a>
+      </h4>
+      <span class="entry-meta">{!! $items->quantity !!} x {!! price_html( get_product_price_html_by_filter( Cart::getRowPrice($items->quantity, get_role_based_price_by_product_id($items ->id, $items->price))) ) !!}</span>
     </div>
 
-    @else
-    <div class="toolbar-dropdown-group">
-      <div class="column"><span class="text-lg">{!! trans('frontend.empty_cart_msg') !!}</span></div>
+    <div class="entry-delete">
+      <a href="{{ route('removed-item-from-cart', $index)}}">
+        <i class="icon-x"></i>
+      </a>
     </div>
-    @endif
+  </div>
+  
+  @endforeach
+
+  <div class="text-right">
+    <p class="text-gray-dark py-2 mb-0"><span class='text-muted'>{!! trans('frontend.total') !!}:</span> &nbsp;{!! price_html( get_product_price_html_by_filter(Cart::getTotal()) ) !!}</p>
+  </div>
+  <div class="d-flex">
+    <div class="pr-2 w-50"><a class="btn btn-secondary btn-sm btn-block mb-0" href="{{ route('cart-page') }}">{!! trans('frontend.cart') !!}</a></div>
+    <div class="pl-2 w-50"><a class="btn btn-primary btn-sm btn-block mb-0" href="{{ route('checkout-page') }}">{!! trans('frontend.checkout') !!}</a></div>
+  </div>
 </div>
+
+@endif

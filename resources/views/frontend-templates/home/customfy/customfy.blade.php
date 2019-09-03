@@ -880,15 +880,15 @@
                           <h3>{!! $recommended_product->title !!}</h3>
 
                           @if( $recommended_product->type == 'simple_product' )
-                          <p>{!! price_html( get_product_price_html_by_filter(get_role_based_price_by_product_id($recommended_product->id, $recommended_product->price)), get_frontend_selected_currency()) !!}</p>
+                            <p>{!! price_html( get_product_price_html_by_filter(get_role_based_price_by_product_id($recommended_product->id, $recommended_product->price)), get_frontend_selected_currency()) !!}</p>
                           @elseif( $recommended_product->type == 'configurable_product' )
-                          <p>{!! get_product_variations_min_to_max_price_html(get_frontend_selected_currency(), $recommended_product->id) !!}</p>
+                            <p>{!! get_product_variations_min_to_max_price_html(get_frontend_selected_currency(), $recommended_product->id) !!}</p>
                           @elseif( $recommended_product->type == 'customizable_product' || $recommended_product->type == 'downloadable_product')
-                          @if(count(get_product_variations($recommended_product->id))>0)
-                          <p>{!! get_product_variations_min_to_max_price_html(get_frontend_selected_currency(), $recommended_product->id) !!}</p>
-                          @else
-                          <p>{!! price_html( get_product_price_html_by_filter(get_role_based_price_by_product_id($recommended_product->id, $recommended_product->price)), get_frontend_selected_currency()) !!}</p>
-                          @endif
+                            @if(count(get_product_variations($recommended_product->id))>0)
+                            <p>{!! get_product_variations_min_to_max_price_html(get_frontend_selected_currency(), $recommended_product->id) !!}</p>
+                            @else
+                            <p>{!! price_html( get_product_price_html_by_filter(get_role_based_price_by_product_id($recommended_product->id, $recommended_product->price)), get_frontend_selected_currency()) !!}</p>
+                            @endif
                           @endif
 
                           <div class="title-divider"></div>
