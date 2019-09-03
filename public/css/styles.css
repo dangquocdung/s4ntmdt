@@ -7317,6 +7317,7 @@ video {
   width: 80%;
   margin-left: auto;
   margin-right: auto;
+  min-height: 150px;
 }
 
 .product-card .product-category {
@@ -7336,6 +7337,10 @@ video {
 }
 
 .product-card .product-title {
+  max-height: 40px;
+  line-height: 23px;
+  overflow: hidden;
+  text-overflow: ellipsis;
   margin-bottom: 18px;
   font-size: 16px;
   font-weight: normal;
@@ -8171,7 +8176,6 @@ video {
 
 .add-to-cart-loader {
   width: 300px;
-  height: 100px;
   background: #ffffff;
   position: fixed;
   top: 50%;

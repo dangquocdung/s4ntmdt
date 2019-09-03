@@ -46,9 +46,6 @@
       <div class="card border-0 bg-secondary mb-30">
         <div class="card-body d-table w-100">
           <div class="d-table-cell align-middle">
-            
-
-            
             @if(!empty($recommended_product->image_url))
             <img class="d-block w-100" src="{{ get_image_url( $recommended_product->image_url ) }}" alt="{{ basename( get_image_url( $recommended_product->image_url ) ) }}" />
             @else
@@ -71,6 +68,71 @@
     
   </div>
 </section>
+
+<!-- Today sale Products-->
+
+@if (count($advancedData['todays_deal']) > 0)
+<section class="container padding-bottom-2x mb-2">
+  <h2 class="h3 pb-3 text-center">{{ trans('frontend.todays_deal') }}</h2>
+  <div class="row">
+
+  @foreach($advancedData['todays_deal'] as $key => $todays_sales_product)
+
+    <div class="col-lg-3 col-md-4 col-sm-6">
+      <div class="product-card mb-30">
+        <div class="product-badge bg-danger">Sale</div>
+        <a class="product-thumb" href="{{ route('details-page', $todays_sales_product->slug) }}">
+          @if(!empty($todays_sales_product->image_url))
+          <img class="products-page-product-img" src="{{ get_image_url( $todays_sales_product->image_url ) }}" alt="{{ basename( get_image_url( $todays_sales_product->image_url ) ) }}" />
+          @else
+          <img class="products-page-product-img" src="{{ default_placeholder_img_src() }}" alt="" />
+          @endif
+        </a>
+        <div class="product-card-body">
+          <div class="product-category"><a href="#">Smart home</a></div>
+          <h3 class="product-title"><a href="{{ route('details-page', $todays_sales_product->slug) }}">{!! $todays_sales_product->title !!}</a></h3>
+          <h4 class="product-price">
+            <!-- <del>$62.00</del>$49.99 -->
+            <del>
+              {!! price_html( get_product_price_html_by_filter(get_role_based_price_by_product_id($todays_sales_product->id, $todays_sales_product->regular_price)), get_frontend_selected_currency()) !!}
+            </del>
+            @if( $todays_sales_product->type == 'simple_product' )
+              {!! price_html( get_product_price_html_by_filter(get_role_based_price_by_product_id($todays_sales_product->id, $todays_sales_product->price)), get_frontend_selected_currency()) !!}
+            @elseif( $todays_sales_product->type == 'configurable_product' )
+              {!! get_product_variations_min_to_max_price_html(get_frontend_selected_currency(), $todays_sales_product->id) !!}
+            @elseif( $todays_sales_product->type == 'customizable_product' || $todays_sales_product->type == 'downloadable_product')
+              @if(count(get_product_variations($todays_sales_product->id))>0)
+              {!! get_product_variations_min_to_max_price_html(get_frontend_selected_currency(), $todays_sales_product->id) !!}
+              @else
+              {!! price_html( get_product_price_html_by_filter(get_role_based_price_by_product_id($todays_sales_product->id, $todays_sales_product->price)), get_frontend_selected_currency()) !!}
+              @endif
+            @endif
+          </h4>
+        </div>
+        <div class="product-button-group">
+
+          <a class="product-button btn-wishlist product-wishlist" data-id="{{ $todays_sales_product->id }}" data-toggle="tooltip" title="{{ trans('frontend.add_to_wishlist_label') }}" data-original-title="{{ trans('frontend.add_to_wishlist_label') }}">
+            <i class="icon-heart"></i><span>{{ trans('frontend.add_to_wishlist_label') }}</span>
+          </a>
+          <a class="product-button btn-compare product-compare" data-id="{{ $todays_sales_product->id }}" data-toggle="tooltip" title="" data-original-title="{{ trans('frontend.add_to_compare_list_label') }}">
+            <i class="icon-repeat"></i><span>{{ trans('frontend.add_to_compare_list_label') }}</span>
+          </a>
+          <a class="product-button add-to-cart-bg" data-toast data-toast-type="success" data-toast-position="topRight" data-toast-icon="icon-check-circle" data-toast-title="{!! $todays_sales_product->title !!}" data-toast-message="{{ trans('frontend.successfuly_added_to_cart') }}" data-id="{{ $todays_sales_product->id }}" data-toggle="tooltip" data-placement="top"title="" data-original-title="{{ trans('frontend.add_to_cart_label') }}">
+            <i class="icon-shopping-cart"></i><span>{{ trans('frontend.add_to_cart_label') }}</span>
+          </a>
+
+       </div>
+      </div>
+    </div>  
+  @endforeach
+  </div>
+
+  <div class="text-center">
+    <a class="btn btn-outline-secondary" href="{{ Request::is('cac-san-pham')?'active':''}}">{{ trans('frontend.view_all_products') }}</a>
+  </div>
+
+</section>
+@endif
 
 <!-- Featured Products-->
 <section class="container padding-bottom-2x mb-2">
@@ -111,15 +173,17 @@
           </h4>
         </div>
         <div class="product-button-group">
+
           <a class="product-button btn-wishlist product-wishlist" data-id="{{ $features_product->id }}" data-toggle="tooltip" title="{{ trans('frontend.add_to_wishlist_label') }}" data-original-title="{{ trans('frontend.add_to_wishlist_label') }}">
             <i class="icon-heart"></i><span>{{ trans('frontend.add_to_wishlist_label') }}</span>
           </a>
           <a class="product-button btn-compare product-compare" data-id="{{ $features_product->id }}" data-toggle="tooltip" title="" data-original-title="{{ trans('frontend.add_to_compare_list_label') }}">
             <i class="icon-repeat"></i><span>{{ trans('frontend.add_to_compare_list_label') }}</span>
           </a>
-          <a class="product-button add-to-cart-bg" data-toast data-toast-type="success" data-toast-position="topRight" data-toast-icon="icon-check-circle" data-toast-title="Product" data-toast-message="successfuly added to cart!" data-id="{{ $features_product->id }}" data-toggle="tooltip" data-placement="top"title="" data-original-title="{{ trans('frontend.add_to_cart_label') }}">
+          <a class="product-button add-to-cart-bg" data-toast data-toast-type="success" data-toast-position="topRight" data-toast-icon="icon-check-circle" data-toast-title="{!! $features_product->title !!}" data-toast-message="{{ trans('frontend.successfuly_added_to_cart') }}" data-id="{{ $features_product->id }}" data-toggle="tooltip" data-placement="top"title="" data-original-title="{{ trans('frontend.add_to_cart_label') }}">
             <i class="icon-shopping-cart"></i><span>{{ trans('frontend.add_to_cart_label') }}</span>
           </a>
+
        </div>
       </div>
     </div>  
@@ -131,6 +195,67 @@
   </div>
 
 </section>
+
+<!-- Recommended Products-->
+<section class="container padding-bottom-2x mb-2">
+  <h2 class="h3 pb-3 text-center">{{ trans('frontend.recommended_products') }}</h2>
+  <div class="row">
+
+  @foreach($advancedData['recommended_items'] as $key => $recommended_product)
+    <div class="col-lg-3 col-md-4 col-sm-6">
+      <div class="product-card mb-30">
+        <div class="product-badge bg-danger">Sale</div>
+        <a class="product-thumb" href="{{ route('details-page', $features_product->slug) }}">
+          @if(!empty($recommended_product->image_url))
+          <img class="products-page-product-img" src="{{ get_image_url( $recommended_product->image_url ) }}" alt="{{ basename( get_image_url( $recommended_product->image_url ) ) }}" />
+          @else
+          <img class="products-page-product-img" src="{{ default_placeholder_img_src() }}" alt="" />
+          @endif
+        </a>
+        <div class="product-card-body">
+          <div class="product-category"><a href="#">Smart home</a></div>
+          <h3 class="product-title"><a href="{{ route('details-page', $recommended_product->slug) }}">{!! $recommended_product->title !!}</a></h3>
+          <h4 class="product-price">
+            <!-- <del>$62.00</del>$49.99 -->
+            <del>
+              {!! price_html( get_product_price_html_by_filter(get_role_based_price_by_product_id($recommended_product->id, $recommended_product->regular_price)), get_frontend_selected_currency()) !!}
+            </del>
+            @if( $recommended_product->type == 'simple_product' )
+              {!! price_html( get_product_price_html_by_filter(get_role_based_price_by_product_id($recommended_product->id, $recommended_product->price)), get_frontend_selected_currency()) !!}
+            @elseif( $recommended_product->type == 'configurable_product' )
+              {!! get_product_variations_min_to_max_price_html(get_frontend_selected_currency(), $recommended_product->id) !!}
+            @elseif( $recommended_product->type == 'customizable_product' || $recommended_product->type == 'downloadable_product')
+              @if(count(get_product_variations($recommended_product->id))>0)
+              {!! get_product_variations_min_to_max_price_html(get_frontend_selected_currency(), $recommended_product->id) !!}
+              @else
+              {!! price_html( get_product_price_html_by_filter(get_role_based_price_by_product_id($recommended_product->id, $recommended_product->price)), get_frontend_selected_currency()) !!}
+              @endif
+            @endif
+          </h4>
+        </div>
+        <div class="product-button-group">
+
+          <a class="product-button btn-wishlist product-wishlist" data-id="{{ $recommended_product->id }}" data-toggle="tooltip" title="{{ trans('frontend.add_to_wishlist_label') }}" data-original-title="{{ trans('frontend.add_to_wishlist_label') }}">
+            <i class="icon-heart"></i><span>{{ trans('frontend.add_to_wishlist_label') }}</span>
+          </a>
+          <a class="product-button btn-compare product-compare" data-id="{{ $recommended_product->id }}" data-toggle="tooltip" title="" data-original-title="{{ trans('frontend.add_to_compare_list_label') }}">
+            <i class="icon-repeat"></i><span>{{ trans('frontend.add_to_compare_list_label') }}</span>
+          </a>
+          <a class="product-button add-to-cart-bg" data-toast data-toast-type="success" data-toast-position="topRight" data-toast-icon="icon-check-circle" data-toast-title="{!! $features_product->title !!}" data-toast-message="{{ trans('frontend.successfuly_added_to_cart') }}" data-id="{{ $recommended_product->id }}" data-toggle="tooltip" data-placement="top"title="" data-original-title="{{ trans('frontend.add_to_cart_label') }}">
+            <i class="icon-shopping-cart"></i><span>{{ trans('frontend.add_to_cart_label') }}</span>
+          </a>
+
+       </div>
+      </div>
+    </div>  
+  @endforeach
+  </div>
+
+  <div class="text-center">
+    <a class="btn btn-outline-secondary" href="{{ Request::is('cac-san-pham')?'active':''}}">{{ trans('frontend.view_all_products') }}</a>
+  </div>
+</section>
+
 <!-- CTA-->
 <section class="fw-section padding-top-4x padding-bottom-8x" style="background-image: url(img/banners/shop-banner-bg-02.jpg);"><span class="overlay" style="opacity: .7;"></span>
   <div class="container text-center">

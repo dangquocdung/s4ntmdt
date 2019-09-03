@@ -559,12 +559,14 @@ class FrontendAjaxController extends Controller
       $input =  Request::all();
       $returnHTML = '';
       
-      if($input['mini_cart_id'] == 1){
-        $returnHTML = view('pages.ajax-pages.mini-cart-html')->render();
-      }
-      elseif($input['mini_cart_id'] == 2){
-        $returnHTML = view('pages.ajax-pages.mini-cart-html2')->render();
-      }
+      $returnHTML = view('pages.ajax-pages.mini-cart-html')->render();
+
+      // if($input['mini_cart_id'] == 1){
+      //   $returnHTML = view('pages.ajax-pages.mini-cart-html')->render();
+      // }
+      // elseif($input['mini_cart_id'] == 2){
+      //   $returnHTML = view('pages.ajax-pages.mini-cart-html2')->render();
+      // }
       
       return response()->json(array('status' => 'success', 'type' => 'mini_cart_data', 'html'=> $returnHTML));
     }

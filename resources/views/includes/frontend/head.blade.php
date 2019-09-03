@@ -2,6 +2,9 @@
 
     <title>@yield('title')</title>
 
+    <meta content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no' name='viewport'>
+    <meta name="csrf-token" content="{{ csrf_token() }}">
+
     <!-- SEO Meta Tags-->
     @if((Request::is('product/details/*') || Request::is('product/customize/*')) && !empty($single_product_details['meta_keywords']))
     <meta name="keywords" content="{{ $single_product_details['meta_keywords'] }}">
@@ -80,6 +83,55 @@
     <link rel="stylesheet" media="screen" href="/css/vendor.min.css">
     <!-- Unishop Template Styles-->
     <link id="mainStyles" rel="stylesheet" media="screen" href="{{ mix('/css/styles.css') }}">
+
+
+    <!-- Main Template Styles-->
+    <script type="text/javascript" src="{{ URL::asset('/jquery/jquery-1.10.2.js') }}"></script>
+    <script type="text/javascript" src="{{ URL::asset('/jquery/jquery-ui-1.11.4.js') }}"></script>
+    <script type="text/javascript" src="{{ URL::asset('/dropzone/dropzone.js') }}"></script>
+    <script type="text/javascript" src="{{ URL::asset('/bootstrap/js/popper.min.js') }}"></script>
+    <script type="text/javascript" src="{{ URL::asset('/bootstrap/js/bootstrap.min.js') }}"></script>
+    <script type="text/javascript" src="{{ URL::asset('/plugins/datatable/jquery.dataTables.min.js') }}"></script>
+    <script type="text/javascript" src="{{ URL::asset('/plugins/datatable/dataTables.bootstrap4.min.js') }}"></script>
+    <script type="text/javascript" src="{{ URL::asset('/plugins/datatable/dataTables.responsive.min.js') }}"></script>
+    <script type="text/javascript" src="{{ URL::asset('/plugins/datatable/responsive.bootstrap4.min.js') }}"></script>
+    <script type="text/javascript" src="{{ URL::asset('/frontend/js/jquery.scrollUp.min.js') }}"></script>
+    <script type="text/javascript" src="{{ URL::asset('/sweetalert/sweetalert.min.js') }}"></script>
+    <script type="text/javascript" src="{{ URL::asset('/plugins/select2/select2.full.min.js') }}"></script>
+
+
+    <script type="text/javascript" src="{{ URL::asset('/designer/colorpicker/jscolor.js') }}"></script>
+    <script type="text/javascript" src="{{ URL::asset('/plugins/ionslider/ion.rangeSlider.min.js') }}"></script>
+    <script type="text/javascript" src="{{ URL::asset('/plugins/bootstrap-slider/bootstrap-slider.js') }}"></script>
+    <script type="text/javascript" src="{{ URL::asset('/frontend/js/products-variation.js') }}"></script>
+    <script type="text/javascript" src="{{ URL::asset('/frontend/js/products-add-to-cart.js') }}"></script>
+    <script type="text/javascript" src="{{ URL::asset('/frontend/js/price-range.js') }}"></script>
+    <script type="text/javascript" src="{{ URL::asset('/plugins/iCheck/icheck.min.js') }}"></script>
+    <script type="text/javascript" src="{{ URL::asset('/modal/js/modal.js') }}"></script>
+    <script type="text/javascript" src="{{ URL::asset('/frontend/js/jquery.validate.js') }}"></script>
+
+    <!--load header scripts-->
+    <script type="text/javascript" src="{{ URL::asset('/templates-assets/header/'. $appearance_settings['header'] .'/script.js') }}"></script>
+
+    <!--load home scripts-->
+    <script type="text/javascript" src="{{ URL::asset('/templates-assets/home/'. $appearance_settings['home'] .'/script.js') }}"></script>
+
+    <!--load blogs scripts-->
+    <script type="text/javascript" src="{{ URL::asset('/templates-assets/blog/'. $appearance_settings['blogs'] .'/script.js') }}"></script>
+
+    <!--load products scripts-->
+    <script type="text/javascript" src="{{ URL::asset('/templates-assets/product/'. $appearance_settings['products'] .'/script.js') }}"></script>
+
+    <!--load single products scripts-->
+    <script type="text/javascript" src="{{ URL::asset('/templates-assets/single-product/'. $appearance_settings['single_product'] .'/script.js') }}"></script>
+    {{-- <script type="text/javascript" src="{{ URL::asset('/templates-assets/single-product/'. $appearance_settings['single_product'] .'/jquery.elevatezoom.js') }}"></script> --}}
+
+
+    <script type="text/javascript" src="{{ URL::asset('/frontend/js/common.js') }}"></script>
+    <script type="text/javascript" src="{{ URL::asset('/frontend/js/social-network.js') }}"></script>
+    <script type="text/javascript" src="{{ URL::asset('/slick/slick.min.js') }}"></script>
+    <script type="text/javascript" src="{{ URL::asset('/common/base64.js') }}"></script>
+    
 
     
     
