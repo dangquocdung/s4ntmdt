@@ -183,7 +183,7 @@ return [
   'guest_checkout' =>'Khách',
   'login_user_checkout' =>'Đăng nhập',
   'bill_to' =>'Hoa đơn để',
-  'title' =>'Chức vụ',
+  'title' =>'Tiêu đề',
   'company_name' =>'Tên công ty',
   'first_name' =>'Tên đầu tiên *',
   'last_name' =>'Họ *',
