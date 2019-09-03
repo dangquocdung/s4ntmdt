@@ -80,8 +80,9 @@
 
     
     <!-- Vendor Styles including: Bootstrap, Font Icons, Plugins, etc.-->
-    <link rel="stylesheet" media="screen" href="/css/vendor.min.css">
-    <!-- Unishop Template Styles-->
+    <link rel="stylesheet" media="screen" href="{{ URL::asset('/css/vendor.min.css') }}">
+
+    <!-- HTTRADE  Template Styles-->
     <link id="mainStyles" rel="stylesheet" media="screen" href="{{ mix('/css/styles.css') }}">
 
 
@@ -136,5 +137,5 @@
     
     
     <!-- Modernizr-->
-    <script src="/js/modernizr.min.js"></script>
+    <script src="{{ URL::asset('/js/modernizr.min.js') }}"></script>
     <script src='https://www.google.com/recaptcha/api.js'></script>
