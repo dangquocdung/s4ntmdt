@@ -53,7 +53,7 @@
             @endif
           </div>
           <div class="d-table-cell align-middle pl-2">
-            <h3 class="h6 text-thin">
+            <h3 class="h6 text-thin top-product">
               {!! $recommended_product->title !!}
             </h3>
             <h4 class="h6 d-table w-100 text-thin">

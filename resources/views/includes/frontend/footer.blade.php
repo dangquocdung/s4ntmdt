@@ -10,9 +10,9 @@
         <div class="col-md-6">
             <ul>
             @foreach($productCategoriesTree as $cat)
-                @if ($loop->iteration < 8)
+                @if ($loop->iteration < 7)
                 <li>
-                    <a href="{{ route('categories-page', $cat['slug']) }}">{!! $loop->iteration.'-'.$cat['name'] !!}</a>
+                    <a href="{{ route('categories-page', $cat['slug']) }}">{!! $cat['name'] !!}</a>
                 </li>
                 @endif
             @endforeach
@@ -21,9 +21,9 @@
         <div class="col-md-6">
             <ul>
             @foreach($productCategoriesTree as $cat)
-                @if ($loop->iteration >= 8)
+                @if ($loop->iteration >= 7)
                 <li>
-                    <a href="{{ route('categories-page', $cat['slug']) }}">{!! $loop->iteration.'-'.$cat['name'] !!}</a>
+                    <a href="{{ route('categories-page', $cat['slug']) }}">{!! $cat['name'] !!}</a>
                 </li>
                 @endif
             @endforeach

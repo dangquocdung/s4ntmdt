@@ -8225,3 +8225,10 @@ video {
   text-decoration: none;
 }
 
+h3.top-product {
+  max-height: 60px;
+  line-height: 20px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
