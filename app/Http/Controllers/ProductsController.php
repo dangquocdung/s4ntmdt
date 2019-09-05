@@ -2561,6 +2561,7 @@ class ProductsController extends Controller
 
     $advanced_arr['latest_items']         =   $get_latest_items;
     $advanced_arr['best_sales']           =   $best_sales_arr; 
+    $advanced_arr['top_rated_items']         =   $get_latest_items;
      
     return $advanced_arr;
   }

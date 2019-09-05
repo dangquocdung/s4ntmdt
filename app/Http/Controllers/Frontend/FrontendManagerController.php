@@ -56,8 +56,11 @@ class FrontendManagerController extends Controller
     $data = array();
     
     $data = $this->classCommonFunction->get_dynamic_frontend_content_data(); 
+
     $data['advancedData']        =   $this->product->getAdvancedProducts();
+
     $data['brands_data']         =   $this->product->getTermData( 'product_brands', false, null, 1 );
+    
     $data['testimonials_data']   =   get_all_testimonial_data();
 
     

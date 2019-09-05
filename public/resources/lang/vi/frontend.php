@@ -182,7 +182,7 @@ return [
   'shopping_cart_summary_label' =>'Tóm tắt giỏ hàng',
   'guest_checkout' =>'Khách',
   'login_user_checkout' =>'Đăng nhập',
-  'bill_to' =>'Hoa đơn để',
+  'bill_to' =>'Gửi hoá đơn đến',
   'title' =>'Tiêu đề',
   'company_name' =>'Tên công ty',
   'first_name' =>'Tên đầu tiên *',
