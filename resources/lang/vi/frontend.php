@@ -201,7 +201,7 @@ return [
 
   'all_design_images' =>'Tất cả hình ảnh thiết kế',
 'cart_updating_msg' =>'Đợi - Giỏ hàng của bạn đang cập nhật ...',
-'brands' =>'Nhãn hiệu',
+'brands' =>'Nhãn hiệu nổi bật',
 'no_brands_yet' =>'Chưa có thương hiệu nào!',
 'no_categories_yet' =>'Chưa có danh mục nào!',
 'footer_msg' =>'Bản quyền © 2019 <b>:title </ b>. Đã đăng ký Bản quyền.',
@@ -539,5 +539,11 @@ return [
 'wishlist'  => 'Yêu thích',
 'to_cart' => 'Giỏ hàng',
 'gia-thap-nhat' => 'Giá từ',
-'view_all_products' => 'Tất cả sản phẩm'
+'view_all_products' => 'Tất cả sản phẩm',
+'features_products' => 'Sản phầm hàng đầu',
+'recommended_products' => 'Sản phẩm gợi ý',
+'staff_picks' => 'Sản phẩm được khuyến nghị',
+'best_sellers' => 'Sản phẩm bán chạy',
+'news_arrivals' => 'Sản phẩm mới',
+'top_rated' => 'Sản phẩm được đánh giá cao'
 ];

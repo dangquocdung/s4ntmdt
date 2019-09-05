@@ -165,16 +165,11 @@
           <nav class="slideable-menu">
             <ul class="menu" data-initial-height="385">
 
-              
-
               <li class="{{ Request::is('/')?'active':''}}">
                 <span>
                   <a href="{{ route('home-page') }}">{!! trans('frontend.home') !!}</a>
 
-                
                 </span>
-
-               
 
               </li>
 
