@@ -57,3 +57,14 @@ h3.top-product{
     overflow: hidden;
     text-overflow: ellipsis;
 }
+
+.entry{
+    .entry-content{
+        .entry-title{
+            max-height: 50px;
+            line-height: 50px;
+            text-overflow: ellipsis;
+        }
+
+    }
+}

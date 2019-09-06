@@ -56,9 +56,9 @@
             <h3 class="h6 text-thin top-product">
               {!! $recommended_product->title !!}
             </h3>
-            <h4 class="h6 d-table w-100 text-thin">
+            <!-- <h4 class="h6 d-table w-100 text-thin">
               <span class="d-table-cell align-bottom" style="line-height: 1.2;">GIẢM<br>GIÁ&nbsp;</span><span class="d-table-cell align-bottom h1 text-medium">50%</span>
-            </h4>
+            </h4> -->
             <a class="text-decoration-none" href="{{ route('details-page', $recommended_product->slug) }}">Mua ngay&nbsp;<i class="icon-chevron-right d-inline-block align-middle text-lg"></i></a>
           </div>
         </div>
