@@ -252,7 +252,7 @@
   </div>
 
   <div class="text-center">
-    <a class="btn btn-outline-secondary" href="{{ Request::is('cac-san-pham')?'active':''}}">{{ trans('frontend.view_all_products') }}</a>
+    <a class="btn btn-outline-secondary" href="{{ route('shop-page') }}">{{ trans('frontend.view_all_products') }}</a>
   </div>
 </section>
 
@@ -342,7 +342,7 @@
 
         @endforeach
         
-        <a class="btn btn-outline-secondary btn-sm mb-0" href="{{ Request::is('cac-san-pham')?'active':''}}">{{ trans('frontend.view_all_products') }}</a>
+        <a class="btn btn-outline-secondary btn-sm mb-0" href="{{ route('shop-page') }}">{{ trans('frontend.view_all_products') }}</a>
       </div>
     </div>
     <div class="col-md-4 col-sm-6">
@@ -384,7 +384,7 @@
         </div>
         @endforeach
         
-        <a class="btn btn-outline-secondary btn-sm mb-0" href="{{ Request::is('cac-san-pham')?'active':''}}">{{ trans('frontend.view_all_products') }}</a>
+        <a class="btn btn-outline-secondary btn-sm mb-0" href="{{ route('shop-page') }}">{{ trans('frontend.view_all_products') }}</a>
       </div>
     </div>
     <div class="col-md-4 col-sm-6">
@@ -426,7 +426,7 @@
         </div>
         @endforeach
         
-        <a class="btn btn-outline-secondary btn-sm mb-0" href="{{ Request::is('cac-san-pham')?'active':''}}">{{ trans('frontend.view_all_products') }}</a>
+        <a class="btn btn-outline-secondary btn-sm mb-0" href="{{ route('shop-page') }}">{{ trans('frontend.view_all_products') }}</a>
       
       </div>
     </div>

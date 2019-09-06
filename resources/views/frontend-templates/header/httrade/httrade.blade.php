@@ -197,7 +197,7 @@
       <!-- Navbar-->
       <div class="navbar">
         <div class="btn-group categories-btn">
-          <button class="btn btn-secondary dropdown-toggle" data-toggle="dropdown"><i class="icon-menu text-lg"></i>&nbsp;Categories</button>
+          <button class="btn btn-secondary dropdown-toggle" data-toggle="dropdown"><i class="icon-menu text-lg"></i>&nbsp;{{ trans('frontend.product_categories_label') }}</button>
           <div class="dropdown-menu mega-dropdown">
             <div class="row">
               @foreach($productCategoriesTree as $cat)
