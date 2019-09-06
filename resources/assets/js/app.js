@@ -8,6 +8,7 @@
 require('./common.js')
 require('./products-add-to-cart');
 require('./unishop');
+// require('./customizer.js');
 require('./dungdang')
 
 // window.Vue = require('vue');

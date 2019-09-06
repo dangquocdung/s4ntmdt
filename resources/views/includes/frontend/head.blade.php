@@ -54,7 +54,7 @@
     <link rel="apple-touch-icon" sizes="180x180" href="touch-icon-iphone-retina.png">
     <link rel="apple-touch-icon" sizes="167x167" href="touch-icon-ipad-retina.png">
 
-    {{-- <link rel="stylesheet" href="{{ URL::asset('/bootstrap/css/bootstrap.min.css') }}" /> --}}
+    <!-- <link rel="stylesheet" href="{{ URL::asset('/bootstrap/css/bootstrap.min.css') }}" /> -->
     <link rel="stylesheet" href="{{ URL::asset('/font-awesome/css/font-awesome.min.css') }}" />
     <link rel="stylesheet" href="{{ URL::asset('/plugins/datatable/dataTables.bootstrap4.min.css') }}" />
     <link rel="stylesheet" href="{{ URL::asset('/plugins/datatable/responsive.bootstrap4.min.css') }}" />
@@ -77,14 +77,11 @@
     <!--load single products style-->
     <link rel="stylesheet" href="{{ URL::asset('/templates-assets/single-product/'. $appearance_settings['single_product'] .'/style.css') }}" />
 
-
-    
     <!-- Vendor Styles including: Bootstrap, Font Icons, Plugins, etc.-->
     <link rel="stylesheet" media="screen" href="{{ URL::asset('/css/vendor.min.css') }}">
 
     <!-- HTTRADE  Template Styles-->
     <link id="mainStyles" rel="stylesheet" media="screen" href="{{ mix('/css/styles.css') }}">
-
 
     <!-- Main Template Styles-->
     <script type="text/javascript" src="{{ URL::asset('/jquery/jquery-1.10.2.js') }}"></script>
@@ -99,7 +96,6 @@
     <script type="text/javascript" src="{{ URL::asset('/frontend/js/jquery.scrollUp.min.js') }}"></script>
     <script type="text/javascript" src="{{ URL::asset('/sweetalert/sweetalert.min.js') }}"></script>
     <script type="text/javascript" src="{{ URL::asset('/plugins/select2/select2.full.min.js') }}"></script>
-
 
     <script type="text/javascript" src="{{ URL::asset('/designer/colorpicker/jscolor.js') }}"></script>
     <script type="text/javascript" src="{{ URL::asset('/plugins/ionslider/ion.rangeSlider.min.js') }}"></script>
@@ -127,14 +123,10 @@
     <script type="text/javascript" src="{{ URL::asset('/templates-assets/single-product/'. $appearance_settings['single_product'] .'/script.js') }}"></script>
     {{-- <script type="text/javascript" src="{{ URL::asset('/templates-assets/single-product/'. $appearance_settings['single_product'] .'/jquery.elevatezoom.js') }}"></script> --}}
 
-
     <script type="text/javascript" src="{{ URL::asset('/frontend/js/common.js') }}"></script>
     <script type="text/javascript" src="{{ URL::asset('/frontend/js/social-network.js') }}"></script>
     <script type="text/javascript" src="{{ URL::asset('/slick/slick.min.js') }}"></script>
     <script type="text/javascript" src="{{ URL::asset('/common/base64.js') }}"></script>
-    
-
-    
     
     <!-- Modernizr-->
     <script src="{{ URL::asset('/js/modernizr.min.js') }}"></script>

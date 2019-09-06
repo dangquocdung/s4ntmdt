@@ -103,7 +103,8 @@ __webpack_require__(/*! ./common.js */ "./resources/assets/js/common.js");
 
 __webpack_require__(/*! ./products-add-to-cart */ "./resources/assets/js/products-add-to-cart.js");
 
-__webpack_require__(/*! ./unishop */ "./resources/assets/js/unishop.js");
+__webpack_require__(/*! ./unishop */ "./resources/assets/js/unishop.js"); // require('./customizer.js');
+
 
 __webpack_require__(/*! ./dungdang */ "./resources/assets/js/dungdang.js"); // window.Vue = require('vue');
 

@@ -20,12 +20,9 @@
                   <i class="icon-menu text-lg"></i>&nbsp;{{ trans('frontend.product_categories_label') }}
                 </button>
                 @if(count($productCategoriesTree) > 0)
-                  <div class="dropdown-menu mega-dropdown">
-
+                <div class="dropdown-menu mega-dropdown">
                     <div class="row">
-                      
                       @foreach($productCategoriesTree as $cat)
-
                       <div class="col-sm-3">
                         <a class="d-block navi-link text-center mb-30" href="{{ route('categories-page', $cat['slug']) }}">
                           @if( !empty($cat['img_url']) )
@@ -36,17 +33,11 @@
                           <span class="text-gray-dark">{!! $cat['name'] !!}</span>
                         </a>
                       </div>
-
                       @endforeach
-
                     </div>
-                  
                 </div>
-
                 @endif
-
               </div>
-
               <form class="input-group" action="{{ route('shop-page') }}" method="get">
                 <span class="input-group-btn">
                   <button type="submit"><i class="icon-search"></i></button>

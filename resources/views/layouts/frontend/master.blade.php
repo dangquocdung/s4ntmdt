@@ -42,6 +42,7 @@
     <a class="scroll-to-top-btn" href="#"><i class="icon-chevron-up"></i></a>
     <!-- Backdrop-->
     <div class="site-backdrop"></div>
+
     <!-- JavaScript (jQuery) libraries, plugins and custom scripts-->
     <script src="{{ URL::asset('/js/vendor.min.js') }}"></script>
     <!-- <script src="js/scripts.min.js"></script> -->
