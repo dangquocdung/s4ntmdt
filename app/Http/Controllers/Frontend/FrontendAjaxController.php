@@ -555,18 +555,18 @@ class FrontendAjaxController extends Controller
    * @return response
    */
   public function getMiniCartData(){
+
     if(Request::isMethod('post') && Request::ajax() && Session::token() == Request::header('X-CSRF-TOKEN')){
+      
       $input =  Request::all();
       $returnHTML = '';
       
-      $returnHTML = view('pages.ajax-pages.mini-cart-html')->render();
-
-      // if($input['mini_cart_id'] == 1){
-      //   $returnHTML = view('pages.ajax-pages.mini-cart-html')->render();
-      // }
-      // elseif($input['mini_cart_id'] == 2){
-      //   $returnHTML = view('pages.ajax-pages.mini-cart-html2')->render();
-      // }
+      if($input['mini_cart_id'] == 1){
+        $returnHTML = view('pages.ajax-pages.mini-cart-html')->render();
+      }
+      elseif($input['mini_cart_id'] == 2){
+        $returnHTML = view('pages.ajax-pages.mini-cart-html2')->render();
+      }
       
       return response()->json(array('status' => 'success', 'type' => 'mini_cart_data', 'html'=> $returnHTML));
     }

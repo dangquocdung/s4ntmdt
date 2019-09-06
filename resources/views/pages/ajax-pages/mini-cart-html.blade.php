@@ -1,4 +1,4 @@
-<a href="javascript:void(0)">
+<a href="javascript:void(0)" class="show-mini-cart" data-id="1">
   <div>
     <span class="cart-icon">
       <i class="icon-shopping-cart"></i>
@@ -7,6 +7,7 @@
     <span class="text-label">{!! trans('frontend.menu_my_cart') !!}</span>
   </div>
 </a>
+
 @if( Cart::count() >0 )
 
 <div class="toolbar-dropdown cart-dropdown widget-cart hidden-on-mobile">

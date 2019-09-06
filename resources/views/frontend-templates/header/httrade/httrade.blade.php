@@ -99,7 +99,7 @@
             </div>
 
           </div>
-          <div class="toolbar-item">
+          <div class="toolbar-item mini-cart-content">
             @include('pages.ajax-pages.mini-cart-html')
           </div>
         </div>
@@ -245,7 +245,7 @@
                 <div><span class="compare-icon"><i class="icon-repeat"></i><span class="count-label">{{ $total_compare_item }}</span></span><span class="text-label">{!! trans('frontend.compare_label') !!}</span></div>
               </a>
             </div>
-            <div class="toolbar-item">
+            <div class="toolbar-item mini-cart-content">
               @include('pages.ajax-pages.mini-cart-html')
             </div>
           </div>
