@@ -8232,7 +8232,7 @@ h3.top-product {
   text-overflow: ellipsis;
 }
 
-.entry .entry-content .entry-title {
+.entry .entry-content .entry-title h4 {
   max-height: 50px;
   line-height: 50px;
   text-overflow: ellipsis;
