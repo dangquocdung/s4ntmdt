@@ -33,7 +33,7 @@
       margin-right: auto;
       height: 180px;
 
-      @media screen {max-width: 767px;
+      @media screen and (max-width: 768px){
         height:200px;
       }
     }
