@@ -8249,3 +8249,13 @@ h3.top-product {
   text-overflow: ellipsis;
 }
 
+.card .card-body img {
+  height: 120px;
+}
+
+@media screen and (max-width: 768px) {
+  .card .card-body img {
+    height: 150px;
+  }
+}
+
