@@ -60,8 +60,8 @@ h3.top-product{
 
 .entry{
     .entry-content{
-        .entry-title{
-            h4{
+        h4.entry-title{
+            a{
                 max-height: 50px;
                 line-height: 50px;
                 text-overflow: ellipsis;
