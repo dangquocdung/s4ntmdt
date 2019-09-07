@@ -545,5 +545,6 @@ return [
 'staff_picks' => 'Sản phẩm được khuyến nghị',
 'best_sellers' => 'Sản phẩm bán chạy',
 'news_arrivals' => 'Sản phẩm mới',
-'top_rated' => 'Sản phẩm được đánh giá cao'
+'top_rated' => 'Sản phẩm được đánh giá cao',
+'address_label' => 'Địa chỉ'
 ];

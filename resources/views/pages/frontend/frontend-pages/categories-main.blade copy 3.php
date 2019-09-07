@@ -1,14 +1,22 @@
 @extends('layouts.frontend.master')
-
 @section('title', trans('frontend.shopist_category_products') .' | '. get_site_title() )
+@section('breadcrumb',trans('frontend.shopist_category_products'))
+
+@section('breadcrumbs')
+<?php if(isset($product_by_cat_id['breadcrumb_html'])){?>
+
+      <div class="column">
+
+          {!! $product_by_cat_id['breadcrumb_html'] !!}
+        
+      </div>
+    
+<?php }?>
+
+@endsection
 
 @section('content')
 
-<!-- Page Title-->
-{!! $product_by_cat_id['breadcrumb_html'] !!}
-
-
-<!-- Page Content-->
 <div id="product-category" class="container new-container">
   <div class="row">
     <div class="col-xs-12 col-md-3">

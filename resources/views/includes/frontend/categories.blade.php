@@ -1,36 +1,18 @@
-<section class="widget widget-categories chuyen-muc">
-  <h3 class="widget-title">{{ trans('frontend.category_label') }}</h3>
-  @if (count($productCategoriesTree) > 0)
+<section class="widget widget-categories">
+@if (count($productCategoriesTree) > 0)
+  <h3 class="widget-title">Shop Categories</h3>
   <ul>
+    <!-- expanded -->
     @foreach ($productCategoriesTree as $data)
-    <li class="has-children">
-      @if(count($data['children'])>0)
-        {{-- <a href="{{ route('categories-page', $data['slug']) }}">{!! $data['name'] !!}</a> --}}
+      <li class="{{ (count($data['children'])>0)?'has-children':'' }}">
         <a href="#">{!! $data['name'] !!}</a>
-
-        <ul style="display:none">
+        <ul>
           @foreach($data['children'] as $data)
             @include('pages.common.product-children-category', $data)
           @endforeach
         </ul>
-      @else
-        <a href="{{ route('categories-page', $data['slug']) }}"> {!! $data['name'] !!} </a>
-      @endif
-    </li>
+      </li>
     @endforeach
   </ul>
-  @endif
+@endif
 </section>
-
-<script>
-$(document).ready(function(){
-  $(".has-children a").click(function (e) {
-
-    if ($(this).attr("href") == '#') {
-      e.preventDefault();
-      $(this).closest('li').children('ul').toggle();
-    }
-
-  });
-})
-</script>

@@ -3662,26 +3662,26 @@ a.card {
   font-size: 0.8em;
 }
 
-.pagination {
+.phan-trang {
   display: table;
   width: 100%;
   border-top: 1px solid #e5e5e5;
 }
 
-.pagination > .column {
+.phan-trang > .column {
   display: table-cell;
   padding-top: 16px;
   vertical-align: middle;
 }
 
-.pagination .pages {
+.phan-trang .pagination {
   display: block;
   margin: 0;
   padding: 0;
   list-style: none;
 }
 
-.pagination .pages > li {
+.phan-trang .pagination > li {
   display: inline-block;
   width: 36px;
   height: 36px;
@@ -3691,7 +3691,8 @@ a.card {
   text-align: center;
 }
 
-.pagination .pages > li > a {
+.phan-trang .pagination > li > span,
+.phan-trang .pagination > li a {
   display: block;
   width: 36px;
   height: 36px;
@@ -3703,22 +3704,23 @@ a.card {
   text-decoration: none;
 }
 
-.pagination .pages > li > a:hover {
+.phan-trang .pagination > li > span:hover,
+.phan-trang .pagination > li a:hover {
   border-color: #e5e5e5;
   background-color: #f5f5f5;
 }
 
-.pagination .pages > li.active > a {
+.phan-trang .pagination > li.active > span {
   border-color: #0055ff;
   background-color: #0055ff;
   color: #ffffff;
 }
 
-.pagination .btn-sm {
+.phan-trang .btn-sm {
   font-size: 13px;
 }
 
-.pagination .btn-sm > i {
+.phan-trang .btn-sm > i {
   font-size: 1.1em;
 }
 

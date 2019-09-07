@@ -68,7 +68,9 @@
               </div>
               <button class="btn btn-primary" type="submit"><i class="icon-check"></i></button>
             </div>
-            <span class="form-text text-sm text-white opacity-50">Đăng ký nhận bản tin của chúng tôi. Đừng bỏ lỡ hàng ngàn sản phẩm và chương trình siêu hấp dẫn.</span>
+            <span class="form-text text-sm text-white opacity-50">
+              Đăng ký nhận bản tin của chúng tôi. Đừng bỏ lỡ hàng ngàn sản phẩm và chương trình siêu hấp dẫn.
+            </span>
           </form>
         </div>
       </div>

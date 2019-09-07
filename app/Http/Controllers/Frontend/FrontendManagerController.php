@@ -155,7 +155,7 @@ class FrontendManagerController extends Controller
       // $data['all_products_details']=$data['product_by_cat_id'];
       
       return view('pages.frontend.frontend-pages.categories-main', $data);
-      // return view('pages.frontend.frontend-pages.shop', $data);
+      // return view('pages.frontend.frontend-pages.products', $data);
     }
     else{
       return view('errors.no_data');
@@ -380,8 +380,10 @@ class FrontendManagerController extends Controller
           $data['all_products_details']['selected_view'] = 'grid';
         }
       }
+
+      // return response()->json($data['all_products_details']);
       
-      return view('pages.frontend.frontend-pages.shop', $data);
+      return view('pages.frontend.frontend-pages.products', $data);
     }
     else{
       return view('errors.no_data');

@@ -24,7 +24,6 @@ use shopist\Library\CommonFunction;
 use Carbon\Carbon;
 use shopist\Models\SaveCustomDesign;
 
-
 class ProductsController extends Controller
 {
 	public $option;
@@ -33,7 +32,6 @@ class ProductsController extends Controller
   public $cat_list_arr = array();
   public $parent_id = 0;
   public $vendors;
-
 
   public function __construct(){
 		$this->option               =   new OptionController();
@@ -150,7 +148,6 @@ class ProductsController extends Controller
       $tabSettings['btnCustomize'] = $customizeBtn;
 
       $data['tabSettings'] = $tabSettings;
-
 
       $data['selected_cat']       =   $this->getCatByObjectId( $product_id );
       $data['selected_tag']       =   $this->getTagsByObjectId( $product_id );
@@ -337,7 +334,6 @@ class ProductsController extends Controller
     return view('pages.admin.product.comments-list', $data);
   }
 
-  
   /**
    * 
    * Get term data
@@ -825,7 +821,6 @@ class ProductsController extends Controller
           $download_limit = Input::get('download_limit');
         }
 
-
         //role based pricing
         $role_price = array();
         $available_user_role = get_available_user_roles();
@@ -833,7 +828,6 @@ class ProductsController extends Controller
         if(count($available_user_role) > 0 && Input::has('RoleRegularPricing') && Input::has('RoleSalePricing')){
           $role_based_regular_pricing = Input::get('RoleRegularPricing');
           $role_based_sale_pricing = Input::get('RoleSalePricing');
-
 
           foreach($role_based_regular_pricing as $key=> $role){
             $role_sale_price = '';
@@ -870,7 +864,6 @@ class ProductsController extends Controller
           }
         }
         
-        
         if(!empty($params)){
           $get_post =  Product :: where('slug', $params)->get()->toArray();
 
@@ -895,7 +888,6 @@ class ProductsController extends Controller
           $sale_price = Input::get('inputSalePrice');
         }
  
-        
         if(($regular_price && $sale_price) && (abs($sale_price) < abs($regular_price)) && $sale_price > 0){
           $price = Input::get('inputSalePrice');
         }
@@ -920,7 +912,6 @@ class ProductsController extends Controller
         if(is_numeric(Input::get('inputStockQty'))){
           $stock_qty = Input::get('inputStockQty');
         }
-
 
         $manage_stock         = 'yes';
         $enable_recommended   = 'yes';
@@ -954,7 +945,6 @@ class ProductsController extends Controller
         $_visibility      = (Input::has('inputVisibilitySchedule')) ? true : false;
         $_home_product    = (Input::has('inputEnableForHomePage')) ? true : false;
         $_is_role_based_pricing_enable    = (Input::has('inputEnableDisableRoleBasedPricing')) ? true : false;
-
 
         if($_stock){
           $manage_stock = 'yes';
@@ -1089,7 +1079,6 @@ class ProductsController extends Controller
         $_is_enable_design_layout     = (Input::has('inputEnableDesignLayout')) ? true : false;
         $_is_enable_global_settings   = (Input::has('inputEnableGlobalSettings')) ? true : false;
 
-
         if($_is_enable_global_settings){
           $enable_global_settings = 'yes';
         }
@@ -1103,7 +1092,6 @@ class ProductsController extends Controller
         else{
           $enable_design_layout = 'no';
         }
-
 
         // canvas size
         if(Input::has('specific_canvas_small_devices_width') && $enable_global_settings == 'no'){
@@ -1126,7 +1114,6 @@ class ProductsController extends Controller
           $cavas_small_height = $get_designer_settings['general_settings']['canvas_dimension']['small_devices']['height'];
         }
 
-
         if(Input::has('specific_canvas_medium_devices_width') && $enable_global_settings == 'no'){
           $cavas_medium_width = Input::get('specific_canvas_medium_devices_width');
         }
@@ -1146,7 +1133,6 @@ class ProductsController extends Controller
         else{
           $cavas_medium_height = $get_designer_settings['general_settings']['canvas_dimension']['medium_devices']['height'];
         }
-
 
         if(Input::has('specific_canvas_large_devices_width') && $enable_global_settings == 'no'){
           $cavas_large_width = Input::get('specific_canvas_large_devices_width');
@@ -1168,13 +1154,11 @@ class ProductsController extends Controller
           $cavas_large_height = $get_designer_settings['general_settings']['canvas_dimension']['large_devices']['height'];
         }
 
-
         $designer_settings = array(
           'canvas_dimension' => array('small_devices' => array('width' => $cavas_small_width, 'height' => $cavas_small_height), 'medium_devices' => array('width'=> $cavas_medium_width, 'height' => $cavas_medium_height), 'large_devices' => array('width' => $cavas_large_width, 'height' => $cavas_large_height)),
           'enable_layout_at_frontend' => $enable_design_layout,
           'enable_global_settings' => $enable_global_settings
         );
-
 
         $videoSourceName = '';
 
@@ -1210,7 +1194,6 @@ class ProductsController extends Controller
           $slug_count = $check_slug + 1;
           $post_slug = string_slug_format( $url_slug ). '-' . $slug_count;
         }
-
 
         $author_id = 0;
         if(Input::has('vendor_list') && !empty(Input::get('vendor_list'))){
@@ -1514,8 +1497,6 @@ class ProductsController extends Controller
                                           'updated_at'    =>  date("y-m-d H:i:s", strtotime('now'))
                                       )
 
-
-
             ))){
 
             //save categories
@@ -1768,7 +1749,6 @@ class ProductsController extends Controller
             $selected_vendor = array(
                               'key_value'    => $author_id
             );
-
 
             ProductExtra::where(['product_id' => $product_id, 'key_name' => '_product_related_images_url'])->update($data_related_url);
             ProductExtra::where(['product_id' => $product_id, 'key_name' => '_product_sale_price_start_date'])->update($data_sale_price_start_date);
@@ -2228,7 +2208,6 @@ class ProductsController extends Controller
       }
     }
     
-    
     if(!empty($search_val) && $search_val != '' && !empty($where)){
       $get_posts_for_product = Product:: where($where)
                                ->where('title', 'LIKE', '%'. $search_val .'%')
@@ -2382,7 +2361,6 @@ class ProductsController extends Controller
       $product_data['sort_by'] = $filter['sort'];
     }
      
-    
     if(count($filter_arr) > 0){
       if(count($data_array) > 0){
         if(isset($filter['sort']) && $filter['sort'] != 'all'){
@@ -2800,7 +2778,6 @@ class ProductsController extends Controller
       $product_data['sort_by'] = $filter['sort'];
     }
      
-    
     if(count($filter_arr) > 0){
       if(count($data_array) > 0){
         if(isset($filter['sort']) && $filter['sort'] != 'all'){
@@ -2896,7 +2873,6 @@ class ProductsController extends Controller
       $cat_data['description']  =  $get_term_data[0]['category_description'];
       $cat_data['img_url']  =  $get_term_data[0]['category_img_url'];
       $cat_data['search_type']  =  'category-filter';
-      
       
       //color filter
       if(isset($filter['selected_colors'])){
@@ -3083,18 +3059,23 @@ class ProductsController extends Controller
       $currentPageSearchResults = $col->slice(($currentPage - 1) * $perPage, $perPage)->all();
       $posts_object = new LengthAwarePaginator($currentPageSearchResults, count($col), $perPage);
       $posts_object->setPath( route('categories-page', $cat_data['slug']) );
-      
+
+      $str = '<div class="page-title"><div class="container"><div class="column">';
+      $str .= '<h1>'.$cat_data['name'].'</h1>';
+      $str .= '</div><div class="column"><ul class="breadcrumbs">';
       
       if($cat_data['parent_id'] > 0){
         $parent_cat = $this->getTermDataById( $cat_data['parent_id'] );
-        
+
         // $str = '<nav aria-label="breadcrumb"><ol class="breadcrumb"><li><a href="'. route('home-page') .'"><i class="fa fa-home"></i></a></li><li><a href="'. route('shop-page') .'">'. Lang::get('frontend.all_products_label' ) .'</a></li><li><a href="'. route('categories-page', $parent_cat[0]['slug']) .'">'. $parent_cat[0]['name'] .'</a></li><li class="breadcrumb-item active" aria-current="page">'. $cat_data['name'] .'</li></ol></nav>';
-        $str = '<ul class="breadcrumbs"><li><a href="'. route('home-page') .'">'.  Lang::get('frontend.home') .'</a></li><li class="separator">&nbsp;</li><li><a href="'. route('shop-page') .'">'. Lang::get('frontend.all_products_label' ) .'</a></li><li class="separator">&nbsp;</li><li><a href="'. route('categories-page', $parent_cat[0]['slug']) .'">'. $parent_cat[0]['name'] .'</a></li><li class="separator">&nbsp;</li><li>'. $cat_data['name'] .'</li></ul>';
+        $str .= '<li><a href="'. route('home-page') .'">'.  Lang::get('frontend.home') .'</a></li><li class="separator">&nbsp;</li><li><a href="'. route('shop-page') .'">'. Lang::get('frontend.all_products_label' ) .'</a></li><li class="separator">&nbsp;</li><li><a href="'. route('categories-page', $parent_cat[0]['slug']) .'">'. $parent_cat[0]['name'] .'</a></li>';
       }
       else{
         // $str = '<nav aria-label="breadcrumb"><ol class="breadcrumb"><li><a href="'. route('home-page') .'"><i class="fa fa-home"></i></a></li><li><a href="'. route('shop-page') .'">'. Lang::get('frontend.all_products_label' ) .'</a></li><li class="breadcrumb-item active" aria-current="page">'. $cat_data['name'] .'</li></ol></nav>';
-        $str = '<ul class="breadcrumbs"><li><a href="'. route('home-page') .'">'.  Lang::get('frontend.home') .'</a></li><li><a href="'. route('shop-page') .'">'. Lang::get('frontend.all_products_label' ) .'</a></li><li>'. $cat_data['name'] .'</li></ul>';
+        $str .= '<li><a href="'. route('home-page') .'">'.  Lang::get('frontend.home') .'</a></li><li><a href="'. route('shop-page') .'">'. Lang::get('frontend.all_products_label' ) .'</a></li>';
       }
+
+      $str .= '</ul></div></div></div>';
 
       $post_array['products']        =  $posts_object;
       $post_array['breadcrumb_html'] =  $str;
@@ -3250,7 +3231,6 @@ class ProductsController extends Controller
       }
     }
     
-    
     if(count($related_items) > 0){
       $products_id_array = array_unique($related_items);
    
@@ -3285,7 +3265,6 @@ class ProductsController extends Controller
     else{
       $get_products = Product :: where([])->orderBy('id', 'DESC')->get()->toArray();
     }
-    
     
     if(count($get_products) > 0){
       foreach($get_products as $rows){
