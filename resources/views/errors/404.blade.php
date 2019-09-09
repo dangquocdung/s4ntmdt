@@ -1,47 +1,18 @@
-<!DOCTYPE html>
-<html>
-    <head>
-        <title>{!! trans('frontend.page_not_found') !!}</title>
+@extends('layouts.frontend.master-no-header')
 
-        <link href="//fonts.googleapis.com/css?family=Lato:100" rel="stylesheet" type="text/css">
+@section('title', trans('frontend.page_not_found').' | '. get_site_title() )
 
-        <style>
-            html, body {
-                height: 100%;
-            }
+@section('content')
 
-            body {
-                margin: 0;
-                padding: 0;
-                width: 100%;
-                color: #B0BEC5;
-                display: table;
-                font-weight: 100;
-                font-family: 'Lato';
-            }
+<!-- Page Content-->
+<section class="fw-section margin-top-3x" style="background-image: url(img/404-bg.png);">
+    <h1 class="display-404 text-center">{!! trans('frontend.404') !!}</h1>
+</section>
+<div class="container padding-bottom-3x mb-1">
+    <div class="text-center">
+    <h2>{!! trans('frontend.page_not_found') !!}</h2>
+    <p>It seems we can’t find the page you are looking for. <a href="{{route('home-page') }}">Go back to Homepage</a><br>Or try using search at the top right corner of the page.</p>
+    </div>
+</div>
 
-            .container {
-                text-align: center;
-                display: table-cell;
-                vertical-align: middle;
-            }
-
-            .content {
-                text-align: center;
-                display: inline-block;
-            }
-
-            .title {
-                font-size: 72px;
-                margin-bottom: 40px;
-            }
-        </style>
-    </head>
-    <body>
-        <div class="container">
-            <div class="content">
-              <div class="title"><div><h1>{!! trans('frontend.404') !!}</h1></div><div>{!! trans('frontend.page_not_found') !!}</div></div>
-            </div>
-        </div>
-    </body>
-</html>
+@endsection

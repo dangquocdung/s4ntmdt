@@ -338,6 +338,7 @@ $(document).ready(function() {
     if ($('#apply_coupon_post').length > 0) {
         $('#apply_coupon_post').on('click', function(e) {
             e.preventDefault();
+            
             if ($('#apply_coupon_code').val().length == 0 && $('#apply_coupon_code').val() == '') {
                 $('#apply_coupon_code').css({ 'border': '1px solid #f06953' });
                 return false
@@ -1040,9 +1041,13 @@ shopist_frontend.ajaxCall = {
     },
 
     applyCoupon: function(val) {
-        var msgStr = '<div class="alert alert-danger" style="margin-left:-15px; margin-right:15px;"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button><div class="message-header"><i class="fa fa-exclamation-triangle"></i>&nbsp;<strong>' + frontendLocalizationString.error_message_text + '</strong></div><p class="error-msg-coupon"></p></div>';
+
+        // var msgStr = '<div class="alert alert-danger" style="margin-left:-15px; margin-right:15px;"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button><div class="message-header"><i class="fa fa-exclamation-triangle"></i>&nbsp;<strong>' + frontendLocalizationString.error_message_text + '</strong></div><p class="error-msg-coupon"></p></div>';
+
+        var msgStr = '<div class="alert alert-info alert-dismissible fade show text-center" style="margin-bottom: 30px;"><span class="alert-close" data-dismiss="alert"></span><i class="icon-award"></i>' + frontendLocalizationString.error_message_text + '</div>';
 
         $('.cart-total-area-overlay').show();
+
         $('#loader-1-cart').show();
 
         $.ajax({
@@ -1053,6 +1058,7 @@ shopist_frontend.ajaxCall = {
             data: { _couponCode: val },
             headers: { 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content') },
             success: function(data) {
+
                 if ($('#cart_page, #checkout_page').find('.error-msg-coupon').length > 0) {
                     $('#cart_page, #checkout_page').find('.error-msg-coupon').parents('.alert-danger').remove();
                 }
@@ -1060,6 +1066,7 @@ shopist_frontend.ajaxCall = {
                 if (data.error == true && data.error_type == 'no_coupon_data') {
                     $('#cart_page .cart-data, #checkout_page .cart-data').prepend(msgStr);
                     $('#cart_page .cart-data, #checkout_page .cart-data').find('.error-msg-coupon').html(frontendLocalizationString.coupon_not_exists_msg);
+
                 } else if (data.error == true && data.error_type == 'less_from_min_amount' && data.min_amount) {
                     $('#cart_page .cart-data, #checkout_page .cart-data').prepend(msgStr);
                     $('#cart_page .cart-data, #checkout_page .cart-data').find('.error-msg-coupon').html(frontendLocalizationString.coupon_min_spend_msg + ' ' + data.min_amount);
@@ -1085,6 +1092,7 @@ shopist_frontend.ajaxCall = {
                     $('#cart_page .cart-total-content .cart-grand-total .value, #checkout_page .cart-total-content .cart-grand-total .value').html(data.grand_total);
 
                     shopist_frontend.event.remove_user_coupon();
+
                 } else if (data.error == true && data.error_type == 'exceed_from_cart_total') {
                     $('#cart_page .cart-data, #checkout_page .cart-data').prepend(msgStr);
                     $('#cart_page .cart-data, #checkout_page .cart-data').find('.error-msg-coupon').html(frontendLocalizationString.exceed_from_cart_total_msg);
@@ -1092,6 +1100,7 @@ shopist_frontend.ajaxCall = {
 
                 $('.cart-total-area-overlay').hide();
                 $('#loader-1-cart').hide();
+                
             },
             error: function() {}
         });

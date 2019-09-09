@@ -546,5 +546,7 @@ return [
 'best_sellers' => 'Sản phẩm bán chạy',
 'news_arrivals' => 'Sản phẩm mới',
 'top_rated' => 'Sản phẩm được đánh giá cao',
-'address_label' => 'Địa chỉ'
+'address_label' => 'Địa chỉ',
+'chung-toi' => 'Giới thiệu',
+'about_us' => 'Về chúng tôi'
 ];

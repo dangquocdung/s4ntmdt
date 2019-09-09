@@ -21,6 +21,43 @@ a.card {
   &:first-child {
     border-radius: $border-radius-base $border-radius-base 0 0;
   }
+  
+}
+
+.gian-hang{
+
+  img.card-img-top {
+    height: 200px !important;
+  }
+
+  .card-header {
+
+    text-align: center;
+    height: 60px;
+    line-height: 20px;
+    overflow: hidden;
+    font-weight: 500;
+    font-size: 1.2em;
+    a{
+      padding-top: 10px;
+      text-decoration: none;
+      text-overflow: ellipsis;
+    }
+  }
+
+  .card-body{
+    ul{
+      li{
+        &:first-child {
+          height: 40px;
+          line-height: 20px;
+          overflow: hidden;
+        }
+      
+      }
+    }
+  }
+
 }
 .card-header,
 .card-footer { background-color: $gray-lighter; }

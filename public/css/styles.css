@@ -3465,6 +3465,31 @@ a.card {
   border-radius: 5px 5px 0 0;
 }
 
+.gian-hang img.card-img-top {
+  height: 200px !important;
+}
+
+.gian-hang .card-header {
+  text-align: center;
+  height: 60px;
+  line-height: 20px;
+  overflow: hidden;
+  font-weight: 500;
+  font-size: 1.2em;
+}
+
+.gian-hang .card-header a {
+  padding-top: 10px;
+  text-decoration: none;
+  text-overflow: ellipsis;
+}
+
+.gian-hang .card-body ul li:first-child {
+  height: 40px;
+  line-height: 20px;
+  overflow: hidden;
+}
+
 .card-header,
 .card-footer {
   background-color: #f5f5f5;

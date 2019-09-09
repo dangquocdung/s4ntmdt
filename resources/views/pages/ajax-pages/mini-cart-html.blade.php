@@ -29,7 +29,9 @@
       <h4 class="entry-title">
         <a href="{{ route('details-page', get_product_slug($items->id)) }}">{!! $items->name !!}</a>
       </h4>
-      <span class="entry-meta">{!! $items->quantity !!} x {!! price_html( get_product_price_html_by_filter( Cart::getRowPrice($items->quantity, get_role_based_price_by_product_id($items ->id, $items->price))) ) !!}</span>
+      <span class="entry-meta">
+        {!! $items->quantity !!} x {!! price_html( get_product_price_html_by_filter( Cart::getRowPrice(1, get_role_based_price_by_product_id($items ->id, $items->price))) ) !!}
+      </span>
     </div>
 
     <div class="entry-delete">

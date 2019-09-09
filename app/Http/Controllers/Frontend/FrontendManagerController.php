@@ -68,6 +68,25 @@ class FrontendManagerController extends Controller
 
     // return Response::json($data['advancedData']);
   }
+
+
+  public function aboutUs(){
+
+    $data = array();
+    
+    $data = $this->classCommonFunction->get_dynamic_frontend_content_data(); 
+
+    $data['advancedData']        =   $this->product->getAdvancedProducts();
+
+    $data['brands_data']         =   $this->product->getTermData( 'product_brands', false, null, 1 );
+    
+    $data['testimonials_data']   =   get_all_testimonial_data();
+
+    
+    return view('pages.frontend.frontend-pages.about', $data);
+
+  }
+
   
   /**
    * 
@@ -107,6 +126,7 @@ class FrontendManagerController extends Controller
     $get_cat_product_and_breadcrumb  =  $this->product->getProductByCatSlug($params, array('sort' => $sort, 'price_min' => $price_min, 'price_max' => $price_max, 'selected_colors' => $selected_colors, 'selected_sizes' => $selected_sizes));
 
     if(count($get_cat_product_and_breadcrumb) > 0){
+
       $data = $this->classCommonFunction->get_dynamic_frontend_content_data(); 
       $data['product_by_cat_id']  =   $get_cat_product_and_breadcrumb;
       $data['brands_data']        =   $this->product->getTermData( 'product_brands', false, null, 1 );

@@ -452,10 +452,13 @@ class FrontendAjaxController extends Controller
    * @return response
    */
   public function applyUserCoupon(){
+
     $input = Request::all();
     
     if(Request::isMethod('post') && Request::ajax() && Session::token() == Request::header('X-CSRF-TOKEN')){
+
       $response = $this->classGetFunction->manage_coupon($input['_couponCode'], 'new_add');
+      
       $coupon_response = $this->classGetFunction->get_coupon_response( $input['_couponCode'] );
       
       if(!empty($response) && $response == 'no_coupon_data'){

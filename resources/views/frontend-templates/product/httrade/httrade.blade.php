@@ -25,7 +25,7 @@
   <div class="row">
     <!-- Products-->
     <div class="col-lg-9 order-lg-2">
-      <!-- Promo banner--><a class="alert alert-default alert-dismissible fade show fw-section mb-30" href="shop-grid-ls.html" style="background-image: url(img/banners/shop-banner-bg.jpg);"><span class="alert-close" data-dismiss="alert"></span>
+      <!-- Promo banner--><a class="alert alert-default alert-dismissible fade show fw-section mb-30" href="{{ route('shop-page') }}" style="background-image: url(img/banners/shop-banner-bg.jpg);"><span class="alert-close" data-dismiss="alert"></span>
         <div class="d-flex flex-wrap flex-md-nowrap justify-content-between align-items-center">
           <div class="mx-auto mx-md-0 px-3 pb-2 text-center text-md-left"><span class="d-block text-lg text-thin mb-2">Limited Time Deals</span>
             <h3 class="text-gray-dark">Surface Pro 4</h3>
@@ -128,7 +128,7 @@
         <!-- Widget Price Range-->
         <section class="widget widget-categories">
           <h3 class="widget-title">{{ trans('frontend.price_range_label') }}</h3>
-          <form action="{{ $all_products_details['action_url'] }}" method="get" class="price-range-slider" data-start-min="1" data-start-max="1000000" data-min="0" data-max="5000000" data-step="1000">
+          <form action="{{ $all_products_details['action_url'] }}" method="get" class="price-range-slider" data-start-min="{{ $all_products_details['min_price'] }}" data-start-max="{{ $all_products_details['max_price'] }}" data-min="{{ get_appearance_settings()['general']['filter_price_min'] }}" data-max="{{ get_appearance_settings()['general']['filter_price_max'] }}" data-step="1000">
             <div class="ui-range-slider"></div>
               <footer class="ui-range-slider-footer">
                 <div class="column">
@@ -147,66 +147,23 @@
               </footer>
           </form>
         </section>
-        <!-- Widget Size Filter-->
-        <section class="widget">
-          <h3 class="widget-title">Filter by Price</h3>
-          <div class="custom-control custom-checkbox">
-            <input class="custom-control-input" type="checkbox" id="low">
-            <label class="custom-control-label" for="low">$50 - $100L&nbsp;<span class="text-muted">(208)</span></label>
-          </div>
-          <div class="custom-control custom-checkbox">
-            <input class="custom-control-input" type="checkbox" id="middle">
-            <label class="custom-control-label" for="middle">$100L - $500&nbsp;<span class="text-muted">(311)</span></label>
-          </div>
-          <div class="custom-control custom-checkbox">
-            <input class="custom-control-input" type="checkbox" id="high">
-            <label class="custom-control-label" for="high">$500 - $1,000&nbsp;<span class="text-muted">(485)</span></label>
-          </div>
-          <div class="custom-control custom-checkbox">
-            <input class="custom-control-input" type="checkbox" id="top">
-            <label class="custom-control-label" for="top">$1,000 - $5,000&nbsp;<span class="text-muted">(213)</span></label>
-          </div>
-        </section>
+        
         <!-- Widget Brand Filter-->
+        @if(count($brands_data) > 0)  
         <section class="widget">
-          <h3 class="widget-title">Filter by Brand</h3>
+          <h3 class="widget-title">{{ trans('frontend.brands') }}</h3>
+
+          @foreach($brands_data as $brand)  
+
           <div class="custom-control custom-checkbox">
-            <input class="custom-control-input" type="checkbox" id="apple">
-            <label class="custom-control-label" for="apple">Apple&nbsp;<span class="text-muted">(254)</span></label>
+            <input class="custom-control-input" type="checkbox" id="{{ $brand['term_id'] }}">
+            <label class="custom-control-label" for="apple">{{ $brand['name'] }}</label>
           </div>
-          <div class="custom-control custom-checkbox">
-            <input class="custom-control-input" type="checkbox" id="bosh">
-            <label class="custom-control-label" for="bosh">Bosh&nbsp;<span class="text-muted">(39)</span></label>
-          </div>
-          <div class="custom-control custom-checkbox">
-            <input class="custom-control-input" type="checkbox" id="canon">
-            <label class="custom-control-label" for="canon">Canon Inc.&nbsp;<span class="text-muted">(128)</span></label>
-          </div>
-          <div class="custom-control custom-checkbox">
-            <input class="custom-control-input" type="checkbox" id="dell">
-            <label class="custom-control-label" for="dell">Dell&nbsp;<span class="text-muted">(310)</span></label>
-          </div>
-          <div class="custom-control custom-checkbox">
-            <input class="custom-control-input" type="checkbox" id="hewlet">
-            <label class="custom-control-label" for="hewlet">Hewlett-Packard&nbsp;<span class="text-muted">(42)</span></label>
-          </div>
-          <div class="custom-control custom-checkbox">
-            <input class="custom-control-input" type="checkbox" id="hitachi">
-            <label class="custom-control-label" for="hitachi">Hitachi&nbsp;<span class="text-muted">(217)</span></label>
-          </div>
-          <div class="custom-control custom-checkbox">
-            <input class="custom-control-input" type="checkbox" id="lg">
-            <label class="custom-control-label" for="lg">LG Electronics&nbsp;<span class="text-muted">(310)</span></label>
-          </div>
-          <div class="custom-control custom-checkbox">
-            <input class="custom-control-input" type="checkbox" id="panasonic">
-            <label class="custom-control-label" for="panasonic">Panasonic&nbsp;<span class="text-muted">(74)</span></label>
-          </div>
-          <div class="custom-control custom-checkbox">
-            <input class="custom-control-input" type="checkbox" id="siemens">
-            <label class="custom-control-label" for="siemens">Siemens&nbsp;<span class="text-muted">(86)</span></label>
-          </div>
+
+          @endforeach
+
         </section>
+        @endif
       </aside>
     </div>
   </div>

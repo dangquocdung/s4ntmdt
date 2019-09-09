@@ -62,21 +62,7 @@
     <link rel="stylesheet" href="{{ URL::asset('/plugins/select2/select2.min.css') }}" />
     <link rel="stylesheet" href="{{ URL::asset('/dropzone/css/dropzone.css') }}" />
 
-    <!--load header style-->
-    <!-- <link rel="stylesheet" href="{{ URL::asset('/templates-assets/header/'. $appearance_settings['header'] .'/style.css') }}" /> -->
-
-    <!--load home style-->
-    <link rel="stylesheet" href="{{ URL::asset('/templates-assets/home/'. $appearance_settings['home'] .'/style.css') }}" />
-
-    <!--load blogs style-->
-    <link rel="stylesheet" href="{{ URL::asset('/templates-assets/blog/'. $appearance_settings['blogs'] .'/style.css') }}" />
-
-    <!--load products style-->
-    <link rel="stylesheet" href="{{ URL::asset('/templates-assets/product/'. $appearance_settings['products'] .'/style.css') }}" />
-
-    <!--load single products style-->
-    <link rel="stylesheet" href="{{ URL::asset('/templates-assets/single-product/'. $appearance_settings['single_product'] .'/style.css') }}" />
-
+    
     <!-- Vendor Styles including: Bootstrap, Font Icons, Plugins, etc.-->
     <link rel="stylesheet" media="screen" href="{{ URL::asset('/css/vendor.min.css') }}">
 
@@ -110,22 +96,7 @@
     <script type="text/javascript" src="{{ URL::asset('/modal/js/modal.js') }}"></script>
     <script type="text/javascript" src="{{ URL::asset('/frontend/js/jquery.validate.js') }}"></script> -->
 
-    <!--load header scripts-->
-    <!-- <script type="text/javascript" src="{{ URL::asset('/templates-assets/header/'. $appearance_settings['header'] .'/script.js') }}"></script> -->
-
-    <!--load home scripts-->
-    <!-- <script type="text/javascript" src="{{ URL::asset('/templates-assets/home/'. $appearance_settings['home'] .'/script.js') }}"></script> -->
-
-    <!--load blogs scripts-->
-    <!-- <script type="text/javascript" src="{{ URL::asset('/templates-assets/blog/'. $appearance_settings['blogs'] .'/script.js') }}"></script> -->
-
-    <!--load products scripts-->
-    <!-- <script type="text/javascript" src="{{ URL::asset('/templates-assets/product/'. $appearance_settings['products'] .'/script.js') }}"></script> -->
-
-    <!--load single products scripts-->
-    <!-- <script type="text/javascript" src="{{ URL::asset('/templates-assets/single-product/'. $appearance_settings['single_product'] .'/script.js') }}"></script>
-    <script type="text/javascript" src="{{ URL::asset('/templates-assets/single-product/'. $appearance_settings['single_product'] .'/jquery.elevatezoom.js') }}"></script> -->
-
+    
     <!-- <script type="text/javascript" src="{{ URL::asset('/frontend/js/common.js') }}"></script>
     <script type="text/javascript" src="{{ URL::asset('/frontend/js/social-network.js') }}"></script>
     <script type="text/javascript" src="{{ URL::asset('/slick/slick.min.js') }}"></script>

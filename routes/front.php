@@ -18,6 +18,11 @@ Route::get( '/', [
   'as'   => 'home-page'
 ]);
 
+Route::get( '/chung-toi', [
+  'uses' => 'Frontend\FrontendManagerController@aboutUs',
+  'as'   => 'chung-toi'
+]);
+
 Route::get( '/cac-san-pham', [
   'uses' => 'Frontend\FrontendManagerController@productsPageContent',
   'as'   => 'shop-page'
@@ -53,7 +58,7 @@ Route::get( '/page/{page_slug}', [
   'as'   => 'custom-page-content'
 ]);
 
-Route::post('/cart', [
+Route::post('/gio-hang', [
               'uses' => 'Frontend\FrontendManagerController@doActionFromCartPage',
               'as'   => 'cart-page-post'
 ]);

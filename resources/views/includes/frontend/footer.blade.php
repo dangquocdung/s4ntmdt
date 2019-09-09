@@ -1,4 +1,4 @@
-<footer class="site-footer" style="background-image: url(img/footer-bg.png);">
+<footer class="site-footer" style="background-image: url(/img/footer-bg.png);">
 
 <div class="container">
 <div class="row">
@@ -37,7 +37,8 @@
 <section class="widget widget-links widget-light-skin">
     <h3 class="widget-title">Về chúng tôi</h3>
     <ul>
-        <li><a href="javascript:void(0)">Giới thiệu</a></li>
+        <li><a href="{{ route('chung-toi') }}">{{ trans('frontend.about_us') }}</a></li>
+
         <li><a href="javascript:void(0)">Chính sách bảo mật thanh toán</a></li>
         <li><a href="javascript:void(0)">Chính sách bảo mật thông tin cá nhân</a></li>
         <li><a href="javascript:void(0)">Chính sách giải quyết khiếu nại</a></li>

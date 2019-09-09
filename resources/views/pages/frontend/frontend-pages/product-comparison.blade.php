@@ -2,57 +2,104 @@
 
 @section('title', trans('frontend.product_comparison_title_label') .' | '. get_site_title())
 
-@section('breadcrumb',trans('frontend.product_comparison_details_title_label'))
-
-
 @section('content')
 
-<div class="container padding-bottom-3x mb-2">
+<!-- Page Title-->
+<div class="page-title">
+  <div class="container">
+    <div class="column">
+      <h1>{{ trans('frontend.product_comparison_title_label') }}</h1>
+    </div>
+    <div class="column">
+      <ul class="breadcrumbs">
+        <li><a href="{{ route('home-page')}}">{{ trans('frontend.home') }}</a>
+        </li>
+        <li class="separator">&nbsp;</li>
+        <li>{{ trans('frontend.product_comparison_title_label') }}</li>
+      </ul>
+    </div>
+  </div>
+</div>
+<!-- Page Content-->
 
-  @if(count($compare_product_data) > 0)
+<div class="container padding-bottom-2x mb-2">
 
+@if(count($compare_product_data) > 0)
+  <div class="comparison-table">
     <table class="table table-bordered">
-      
-      <tbody class="product-compare">
-          @foreach($compare_product_label as $key => $label)
-          <tr>
-            <td>{!! $label !!}</td>
-            @foreach($compare_product_data as $products)
-              @if($label == 'Image')
-                <td><img src="{{ get_image_url( get_product_image( $products['id'] )) }}" alt="{{ basename( get_image_url( get_product_image( $products['id'] )) ) }}"></td>
-              @endif
+      <thead class="bg-secondary">
+        <tr>
+          <th class="align-middle">
+            {{ trans('frontend.products') }}
+          </th>
 
-              @if($label == 'Product')
-              <td><a href="{{ route('details-page', $products['post_slug']) }}" target="_blank">{!! get_product_title( $products['id'] ) !!}</a></td>
-              @endif
+          @foreach($compare_product_data as $products)
 
-              @if($label == 'Price')
-              <td align="center">{!! price_html( get_product_price($products['id']), get_frontend_selected_currency() ) !!}</td>
-              @endif
+          <td>
+            <div class="comparison-item">
+              <a href="{{ route('remove-compare-product-from-list', $products['id']) }}">
+                <span class="remove-item"><i class="icon-x"></i></span>
+              </a>
+              <a class="comparison-item-thumb" href="shop-single.html">
+                
+                  <img src="{{ get_image_url( get_product_image( $products['id'] )) }}" alt="{{ basename( get_image_url( get_product_image( $products['id'] )) ) }}">
+              </a>
 
-              @if(($label !== 'Image' && $label !== 'Product' && $label !== 'Price') && !empty($products['_product_compare_data']))
-              <td>{!! $products['_product_compare_data'][$key] !!}</td>
-              @endif
-            @endforeach
-          </tr>
+              <a class="comparison-item-title" href="{{ route('details-page', $products['post_slug']) }}" target="_blank">{!! get_product_title( $products['id'] ) !!}</a>
+
+              <a class="comparison-item-title">{!! price_html( get_product_price($products['id']), get_frontend_selected_currency() ) !!}</a>
+
+            <!-- <a class="btn btn-outline-primary btn-sm" href="#" data-toast data-toast-type="success" data-toast-position="topRight" data-toast-icon="icon-check-circle" data-toast-title="Product" data-toast-message="successfuly added to cart!">Add to Cart</a></div> -->
+          </td>
+
           @endforeach
 
-          <tr>
-            <td></td>
-            @foreach($compare_product_data as $products)
-            <td class="text-center">
-              <a class="btn btn-danger" href="{{ route('remove-compare-product-from-list', $products['id']) }}">
-                {{-- <i class="icon-white icon-trash"></i> --}}
-                <span class="hidden-phone"> {!! trans('frontend.remove') !!}</span>
-              </a>
-            </td>
-            @endforeach
-          </tr>
+        </tr>
+      </thead>
+      <tbody>
+      @foreach($compare_product_label as $key => $label)
+        <tr>
+
+          @if( ($label !== 'Image' && $label !== 'Product' && $label !== 'Price') )
+          <th>{!! $label !!}</th>
+          @endif
+
+          @foreach($compare_product_data as $products)
+            @if(($label !== 'Image' && $label !== 'Product' && $label !== 'Price') )
+
+              @if (!empty($products['_product_compare_data']) )
+                <td>{!! $products['_product_compare_data'][$key] !!}</td>
+              @else
+                <td>N/A</td>
+              @endif
+            @endif
+          @endforeach
+
+        </tr>
+      @endforeach
+      <tr>
+        <th></th>
+        @foreach($compare_product_data as $products)
+        <td>
+          <div style="text-align:center">
+            <a class="btn btn-outline-primary btn-sm add-to-cart-bg" data-id="{{ $products['id'] }}" data-toggle="tooltip" data-placement="top"title="" data-original-title="{{ trans('frontend.add_to_cart_label') }}">
+              {{ trans('frontend.add_to_cart_label') }}
+            </a>
+          </div>
+        </td>
+        @endforeach
+
+
+
+
+      </tr>
       </tbody>
     </table>
-  @else
-    <div class="no-comparison-label">{!! trans('frontend.product_comparison_no_label') !!}</div>
-  @endif
+  </div>
+
+@else
+  <div class="no-comparison-label">{!! trans('frontend.product_comparison_no_label') !!}</div>
+@endif
 
 </div>
 
