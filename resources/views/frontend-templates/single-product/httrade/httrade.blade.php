@@ -251,6 +251,8 @@
       </div>
     </div>
     <!-- Reviews-->
+    @if($single_product_details['_product_enable_reviews'] == 'yes')
+
     <div class="container padding-top-2x">
       <div class="row">
         <div class="col-md-4 mb-4">
@@ -291,118 +293,103 @@
         </div>
         <div class="col-md-8">
           <h3 class="padding-bottom-1x">Latest Reviews</h3>
-          <!-- Review-->
-          <div class="comment">
-            <div class="comment-author-ava"><img src="img/reviews/02.jpg" alt="Comment author"></div>
-            <div class="comment-body">
-              <div class="comment-header d-flex flex-wrap justify-content-between">
-                <h4 class="comment-title">My husband love his new...</h4>
-                <div class="mb-2">
-                    <div class="rating-stars"><i class="icon-star filled"></i><i class="icon-star filled"></i><i class="icon-star filled"></i><i class="icon-star filled"></i><i class="icon-star"></i>
+
+          @if(count($comments_details) > 0)
+              @foreach($comments_details as $comment) 
+                <!-- Review-->
+                <div class="comment">
+                  <div class="comment-author-ava"><img src="img/reviews/02.jpg" alt="Comment author"></div>
+                  <div class="comment-body">
+                    <div class="comment-header d-flex flex-wrap justify-content-between">
+                      <h4 class="comment-title">My husband love his new...</h4>
+                      <div class="mb-2">
+                          <div class="rating-stars"><i class="icon-star filled"></i><i class="icon-star filled"></i><i class="icon-star filled"></i><i class="icon-star filled"></i><i class="icon-star"></i>
+                          </div>
+                      </div>
                     </div>
+                    <p class="comment-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor...</p>
+                    <div class="comment-footer"><span class="comment-meta">Maggie Scott</span></div>
+                  </div>
                 </div>
-              </div>
-              <p class="comment-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor...</p>
-              <div class="comment-footer"><span class="comment-meta">Maggie Scott</span></div>
-            </div>
-          </div>
-          <!-- Review-->
-          <div class="comment">
-            <div class="comment-author-ava"><img src="img/reviews/03.jpg" alt="Comment author"></div>
-            <div class="comment-body">
-              <div class="comment-header d-flex flex-wrap justify-content-between">
-                <h4 class="comment-title">Awesome quality for the price</h4>
-                <div class="mb-2">
-                    <div class="rating-stars"><i class="icon-star filled"></i><i class="icon-star filled"></i><i class="icon-star filled"></i><i class="icon-star filled"></i><i class="icon-star filled"></i>
-                    </div>
-                </div>
-              </div>
-              <p class="comment-text">Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium...</p>
-              <div class="comment-footer"><span class="comment-meta">Jacob Hammond</span></div>
-            </div>
-          </div>
-          <!-- View All Button--><a class="btn btn-secondary btn-block" href="#">View All Reviews</a>
+              @endforeach
+
+              <!-- View All Button--><a class="btn btn-secondary btn-block" href="#">View All Reviews</a>
+
+          @else
+            {{ trans('frontend.no_review_label') }}
+          @endif
+
+          
+
         </div>
       </div>
     </div>
+
+    @endif  
+
+
+
+    @if(count($related_items) > 0)   
+
     <div class="container padding-bottom-3x mb-1">             
       <!-- Related Products Carousel-->
       <h3 class="text-center padding-top-2x mt-2 padding-bottom-1x">You May Also Like</h3>
       <!-- Carousel-->
       <div class="owl-carousel" data-owl-carousel="{ &quot;nav&quot;: false, &quot;dots&quot;: true, &quot;margin&quot;: 30, &quot;responsive&quot;: {&quot;0&quot;:{&quot;items&quot;:1},&quot;576&quot;:{&quot;items&quot;:2},&quot;768&quot;:{&quot;items&quot;:3},&quot;991&quot;:{&quot;items&quot;:4},&quot;1200&quot;:{&quot;items&quot;:4}} }">
+        
+      @foreach($related_items as $products)
+        <?php 
+          $reviews          = get_comments_rating_details($products['id'], 'product');
+          $reviews_settings = get_reviews_settings_data($products['id']);      
+        ?>
+        
+
         <!-- Product-->
         <div class="product-card">
-          <div class="product-badge bg-danger">Sale</div><a class="product-thumb" href="shop-single.html"><img src="img/shop/products/01.jpg" alt="Product"></a>
+          <div class="product-badge bg-danger">Sale</div>
+
+          <a class="product-thumb" href="{{ route('details-page', $products['post_slug']) }}">
+              @if($products['_product_related_images_url']->product_image)
+                <img src="{{ get_image_url($products['_product_related_images_url']->product_image) }}" alt="{{ basename($products['_product_related_images_url']->product_image) }}" />
+              @else
+                <img src="{{ default_placeholder_img_src() }}" alt="" />
+              @endif
+            </a>
+          
           <div class="product-card-body">
-            <div class="product-category"><a href="#">Smart home</a></div>
             <h3 class="product-title"><a href="shop-single.html">Echo Dot (2nd Generation)</a></h3>
             <h4 class="product-price">
-              <del>$62.00</del>$49.99
+              @if(get_product_type($products['id']) == 'simple_product')
+                {!! price_html( get_product_price($products['id']), get_frontend_selected_currency() ) !!}
+              @elseif(get_product_type($products['id']) == 'configurable_product')
+                {!! get_product_variations_min_to_max_price_html(get_frontend_selected_currency(), $products['id']) !!}
+              @elseif(get_product_type($products['id']) == 'customizable_product' || get_product_type($products['id']) == 'downloadable_product')
+                @if(count(get_product_variations($products['id']))>0)
+                  {!! get_product_variations_min_to_max_price_html(get_frontend_selected_currency(), $products['id']) !!}
+                @else
+                  {!! price_html( get_product_price($products['id']), get_frontend_selected_currency() ) !!}
+                @endif
+              @endif
             </h4>
           </div>
-          <div class="product-button-group"><a class="product-button btn-wishlist" href="#"><i class="icon-heart"></i><span>Wishlist</span></a><a class="product-button btn-compare" href="#"><i class="icon-repeat"></i><span>Compare</span></a><a class="product-button" href="#" data-toast data-toast-type="success" data-toast-position="topRight" data-toast-icon="icon-check-circle" data-toast-title="Product" data-toast-message="successfuly added to cart!"><i class="icon-shopping-cart"></i><span>To Cart</span></a></div>
-        </div>
-        <!-- Product-->
-        <div class="product-card"><a class="product-thumb" href="shop-single.html"><img src="img/shop/products/11.jpg" alt="Product"></a>
-          <div class="product-card-body">
-            <div class="product-category"><a href="#">Headphones</a></div>
-            <h3 class="product-title"><a href="shop-single.html">Edifier W855BT Bluetooth</a></h3>
-            <h4 class="product-price">$99.75</h4>
+          <div class="product-button-group">
+
+            <a class="btn btn-outline-secondary btn-sm btn-wishlist product-wishlist" data-id="{{ $products['id'] }}" data-toggle="tooltip" title="{{ trans('frontend.add_to_wishlist_label') }}" data-original-title="{{ trans('frontend.add_to_wishlist_label') }}">
+              <i class="icon-heart"></i>
+            </a>
+            <a class="btn btn-outline-secondary btn-sm btn-compare product-compare" data-id="{{ $products['id'] }}" data-toggle="tooltip" title="" data-original-title="{{ trans('frontend.add_to_compare_list_label') }}">
+              <i class="icon-repeat"></i>
+            </a>
+            <a class="btn btn-outline-primary btn-sm add-to-cart-bg" data-toast data-toast-type="success" data-toast-position="topRight" data-toast-icon="icon-check-circle" data-toast-title="Product" data-toast-message="successfuly added to cart!" data-id="{{ $products['id'] }}" data-toggle="tooltip" data-placement="top" title="" data-original-title="{{ trans('frontend.add_to_cart_label') }}"><i class="icon-bag"></i> Chọn</a>             
+          
+            
           </div>
-          <div class="product-button-group"><a class="product-button btn-wishlist" href="#"><i class="icon-heart"></i><span>Wishlist</span></a><a class="product-button btn-compare" href="#"><i class="icon-repeat"></i><span>Compare</span></a><a class="product-button" href="#" data-toast data-toast-type="success" data-toast-position="topRight" data-toast-icon="icon-check-circle" data-toast-title="Product" data-toast-message="successfuly added to cart!"><i class="icon-shopping-cart"></i><span>To Cart</span></a></div>
         </div>
-        <!-- Product-->
-        <div class="product-card">
-            <div class="rating-stars"><i class="icon-star filled"></i><i class="icon-star filled"></i><i class="icon-star filled"></i><i class="icon-star filled"></i><i class="icon-star filled"></i>
-            </div><a class="product-thumb" href="shop-single.html"><img src="img/shop/products/06.jpg" alt="Product"></a>
-          <div class="product-card-body">
-            <div class="product-category"><a href="#">Video games</a></div>
-            <h3 class="product-title"><a href="shop-single.html">Xbox One S White</a></h3>
-            <h4 class="product-price">$298.99</h4>
-          </div>
-          <div class="product-button-group"><a class="product-button btn-wishlist" href="#"><i class="icon-heart"></i><span>Wishlist</span></a><a class="product-button btn-compare" href="#"><i class="icon-repeat"></i><span>Compare</span></a><a class="product-button" href="#" data-toast data-toast-type="success" data-toast-position="topRight" data-toast-icon="icon-check-circle" data-toast-title="Product" data-toast-message="successfuly added to cart!"><i class="icon-shopping-cart"></i><span>To Cart</span></a></div>
-        </div>
-        <!-- Product-->
-        <div class="product-card"><a class="product-thumb" href="shop-single.html"><img src="img/shop/products/07.jpg" alt="Product"></a>
-          <div class="product-card-body">
-            <div class="product-category"><a href="#">Smartphones</a></div>
-            <h3 class="product-title"><a href="shop-single.html">Samsung Galaxy S9+</a></h3>
-            <h4 class="product-price">$839.99</h4>
-          </div>
-          <div class="product-button-group"><a class="product-button btn-wishlist" href="#"><i class="icon-heart"></i><span>Wishlist</span></a><a class="product-button btn-compare" href="#"><i class="icon-repeat"></i><span>Compare</span></a><a class="product-button" href="#" data-toast data-toast-type="success" data-toast-position="topRight" data-toast-icon="icon-check-circle" data-toast-title="Product" data-toast-message="successfuly added to cart!"><i class="icon-shopping-cart"></i><span>To Cart</span></a></div>
-        </div>
-        <!-- Product-->
-        <div class="product-card">
-          <div class="product-badge bg-secondary border-default text-body">Out of stock</div><a class="product-thumb" href="shop-single.html"><img src="img/shop/products/12.jpg" alt="Product"></a>
-          <div class="product-card-body">
-            <div class="product-category"><a href="#">Wearable electornics</a></div>
-            <h3 class="product-title"><a href="shop-single.html">Apple Watch Series 3</a></h3>
-            <h4 class="product-price">$329.10</h4>
-          </div>
-          <div class="product-button-group"><a class="product-button btn-wishlist" href="#"><i class="icon-heart"></i><span>Wishlist</span></a><a class="product-button btn-compare" href="#"><i class="icon-repeat"></i><span>Compare</span></a><a class="product-button" href="shop-single.html"><i class="icon-arrow-right"></i><span>Details</span></a></div>
-        </div>
-        <!-- Product-->
-        <div class="product-card">
-            <div class="rating-stars"><i class="icon-star filled"></i><i class="icon-star filled"></i><i class="icon-star filled"></i><i class="icon-star filled"></i><i class="icon-star"></i>
-            </div><a class="product-thumb" href="shop-single.html"><img src="img/shop/products/10.jpg" alt="Product"></a>
-          <div class="product-card-body">
-            <div class="product-category"><a href="#">Printers &amp; Ink</a></div>
-            <h3 class="product-title"><a href="shop-single.html">HP LaserJet Pro Printer</a></h3>
-            <h4 class="product-price">$249.50</h4>
-          </div>
-          <div class="product-button-group"><a class="product-button btn-wishlist" href="#"><i class="icon-heart"></i><span>Wishlist</span></a><a class="product-button btn-compare" href="#"><i class="icon-repeat"></i><span>Compare</span></a><a class="product-button" href="#" data-toast data-toast-type="success" data-toast-position="topRight" data-toast-icon="icon-check-circle" data-toast-title="Product" data-toast-message="successfuly added to cart!"><i class="icon-shopping-cart"></i><span>To Cart</span></a></div>
-        </div>
-        <!-- Product-->
-        <div class="product-card">
-          <div class="product-badge bg-danger">Sale</div><a class="product-thumb" href="shop-single.html"><img src="img/shop/products/09.jpg" alt="Product"></a>
-          <div class="product-card-body">
-            <div class="product-category"><a href="#">Action cameras</a></div>
-            <h3 class="product-title"><a href="shop-single.html">Samsung Gear 360 Camera</a></h3>
-            <h4 class="product-price">
-              <del>$74.00</del>$68.00
-            </h4>
-          </div>
-          <div class="product-button-group"><a class="product-button btn-wishlist" href="#"><i class="icon-heart"></i><span>Wishlist</span></a><a class="product-button btn-compare" href="#"><i class="icon-repeat"></i><span>Compare</span></a><a class="product-button" href="#" data-toast data-toast-type="success" data-toast-position="topRight" data-toast-icon="icon-check-circle" data-toast-title="Product" data-toast-message="successfuly added to cart!"><i class="icon-shopping-cart"></i><span>To Cart</span></a></div>
-        </div>
+
+      @endforeach
+        
+
       </div>
     </div>
+
+    @endif
