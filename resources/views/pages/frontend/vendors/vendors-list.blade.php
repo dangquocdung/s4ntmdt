@@ -12,7 +12,8 @@
     </div>
     <div class="column">
       <ul class="breadcrumbs">
-        <li><a href="index.html">Home</a>
+        <li>
+          <a href="{{ route('home-page') }}">{{ trans('frontend.home') }}</a>        </li>
         </li>
         <li class="separator">&nbsp;</li>
         <li>{{ trans('frontend.vendor_list_title_label') }}</li>

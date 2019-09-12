@@ -10,11 +10,11 @@
         <div class="row justify-content-center align-items-center">
           <div class="col-lg-5 col-md-6 padding-bottom-2x text-md-left text-center">
             <div class="from-bottom">
-              @if(!empty($recommended_product->image_url))
-              <img class="d-inline-block w-150 mb-4" src="{{ get_image_url( $recommended_product->image_url ) }}" alt="{{ basename( get_image_url( $recommended_product->image_url ) ) }}" />
-              @else
-              <img class="d-inline-block w-150 mb-4" src="{{ default_placeholder_img_src() }}" alt="" />
-              @endif
+                @if(!empty($recommended_product->image_url))
+                  <img class="d-inline-block w-150 mb-4" src="{{ get_image_url( $recommended_product->image_url ) }}" alt="{{ basename( get_image_url( $recommended_product->image_url ) ) }}" />
+                @else
+                  <img class="d-inline-block w-150 mb-4" src="{{ default_placeholder_img_src() }}" alt="" />
+                @endif
               <div class="h2 text-body mb-2 pt-1">{!! $recommended_product->title !!}</div>
               <div class="h2 text-body mb-4 pb-1">{{ trans('frontend.gia-thap-nhat') }} <span class="text-medium">{!! price_html( get_product_price_html_by_filter(get_role_based_price_by_product_id($recommended_product->id, $recommended_product->price)), get_frontend_selected_currency()) !!}</span></div>
             </div>
@@ -46,12 +46,16 @@
       <div class="card border-0 bg-secondary mb-30">
         <div class="card-body d-table w-100">
           <div class="d-table-cell align-middle">
-            @if(!empty($recommended_product->image_url))
-            <img class="d-block w-100 " src="{{ get_image_url( $recommended_product->image_url ) }}" alt="{!! $recommended_product->title !!}" />
-            @else
-            <img class="d-block w-100 " src="{{ default_placeholder_img_src() }}" alt="{!! $recommended_product->title !!}" />
-            @endif
+            <a href="{{ route('details-page', $recommended_product->slug ) }}">
+
+              @if(!empty($recommended_product->image_url))
+              <img class="d-block w-100 " src="{{ get_image_url( $recommended_product->image_url ) }}" alt="{!! $recommended_product->title !!}" />
+              @else
+              <img class="d-block w-100 " src="{{ default_placeholder_img_src() }}" alt="{!! $recommended_product->title !!}" />
+              @endif
+          </a>
           </div>
+
           <div class="d-table-cell align-middle pl-2">
             <h3 class="h6 text-thin top-product">
               {!! $recommended_product->title !!}
@@ -89,7 +93,7 @@
           @endif
         </a>
         <div class="product-card-body">
-          <div class="product-category"><a href="#">Smart home</a></div>
+          
           <h3 class="product-title"><a href="{{ route('details-page', $todays_sales_product->slug) }}">{!! $todays_sales_product->title !!}</a></h3>
           <h4 class="product-price">
             <!-- <del>$62.00</del>$49.99 -->
@@ -152,7 +156,7 @@
           @endif
         </a>
         <div class="product-card-body">
-          <div class="product-category"><a href="#">Smart home</a></div>
+          
           <h3 class="product-title"><a href="{{ route('details-page', $features_product->slug) }}">{!! $features_product->title !!}</a></h3>
           <h4 class="product-price">
             <!-- <del>$62.00</del>$49.99 -->
@@ -213,7 +217,7 @@
           @endif
         </a>
         <div class="product-card-body">
-          <div class="product-category"><a href="#">Smart home</a></div>
+          <!-- <div class="product-category"><a href="#">Smart home</a></div> -->
           <h3 class="product-title"><a href="{{ route('details-page', $recommended_product->slug) }}">{!! $recommended_product->title !!}</a></h3>
           <h4 class="product-price">
             <!-- <del>$62.00</del>$49.99 -->
