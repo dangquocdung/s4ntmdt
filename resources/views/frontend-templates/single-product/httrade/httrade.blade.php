@@ -2,7 +2,8 @@
 <div class="page-title">
       <div class="container">
         <div class="column">
-          <h1>{{ $single_product_details['post_title'] }}</h1>
+          <!-- <h1>{{ $single_product_details['post_title'] }}</h1> -->
+          <h1>{!! trans('frontend.all_products_label') !!}</h1>
         </div>
         <div class="column">
           <ul class="breadcrumbs">
@@ -13,8 +14,8 @@
             <li>
               <a href="{{ route('shop-page') }}">{!! trans('frontend.all_products_label') !!}</a>
             </li>
-            <li class="separator">&nbsp;</li>
-            <li>{{ $single_product_details['post_title'] }}</li>
+            <!-- <li class="separator">&nbsp;</li>
+            <li>{{ $single_product_details['post_title'] }}</li> -->
           </ul>
         </div>
       </div>
