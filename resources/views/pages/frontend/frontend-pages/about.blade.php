@@ -44,7 +44,7 @@
     <div class="col-md-5"><img class="d-block m-auto img-thumbnail" src="img/banners/about-03.jpg" alt="Mobile App"></div>
     <div class="col-md-7 text-md-left text-center">
       <div class="mt-30 hidden-md-up"></div>
-      <h2>Mua sắm mọi lúc, mọi nơi với ứng dụng di động</h2>
+      <h2>Mua sắm bất kì đâu với ứng dụng di động</h2>
       <p class="text-muted mb-4">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam id purus at risus pellentesque faucibus a quis eros. In eu fermentum leo. Integer ut eros lacus. Proin ut accumsan leo. Morbi vitae est eget dolor consequat aliquam eget quis dolor.</p>
       <a class="market-button apple-button" href="#"><span class="mb-subtitle">Download on the</span><span class="mb-title">App Store</span></a>
       <a class="market-button google-button" href="#"><span class="mb-subtitle">Download on the</span><span class="mb-title">Google Play</span></a>
