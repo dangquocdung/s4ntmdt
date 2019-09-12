@@ -25,7 +25,7 @@
     <div class="col-md-5"><img class="d-block m-auto img-thumbnail" src="img/banners/about-01.jpg" alt="Online Shopping"></div>
     <div class="col-md-7 text-md-left text-center">
       <div class="mt-30 hidden-md-up"></div>
-      <h2>Search, Select, Buy Online.</h2>
+      <h2>Tìm kiếm, lựa chọn và mua bán trực tuyến.</h2>
       <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam id purus at risus pellentesque faucibus a quis eros. In eu fermentum leo. Integer ut eros lacus. Proin ut accumsan leo. Morbi vitae est eget dolor consequat aliquam eget quis dolor. Mauris rutrum fermentum erat, at euismod lorem pharetra nec. Duis erat lectus, ultrices euismod sagittis at, pharetra eu nisl. Phasellus id ante at velit tincidunt hendrerit. Aenean dolor dolor, tristique nec placerat nec.</p>
       <a class="text-decoration-none" href="{{ route('shop-page') }}">View Products&nbsp;<i class="icon-arrow-right d-inline-block align-middle"></i></a>
     </div>
@@ -35,7 +35,7 @@
     <div class="col-md-5 order-md-2"><img class="d-block m-auto img-thumbnail" src="img/banners/about-02.jpg" alt="Delivery"></div>
     <div class="col-md-7 order-md-1 text-md-left text-center">
       <div class="mt-30 hidden-md-up"></div>
-      <h2>Fast Delivery Worldwide.</h2>
+      <h2>Chuyển phát nhanh toàn tỉnh</h2>
       <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam id purus at risus pellentesque faucibus a quis eros. In eu fermentum leo. Integer ut eros lacus. Proin ut accumsan leo. Morbi vitae est eget dolor consequat aliquam eget quis dolor. Mauris rutrum fermentum erat, at euismod lorem pharetra nec. Duis erat lectus, ultrices euismod sagittis at, pharetra eu nisl. Phasellus id ante at velit tincidunt hendrerit. Aenean dolor dolor, tristique nec placerat nec.</p><a class="text-decoration-none" href="#">Shipping Details&nbsp;<i class="icon-arrow-right d-inline-block align-middle"></i></a>
     </div>
   </div>
@@ -44,7 +44,7 @@
     <div class="col-md-5"><img class="d-block m-auto img-thumbnail" src="img/banners/about-03.jpg" alt="Mobile App"></div>
     <div class="col-md-7 text-md-left text-center">
       <div class="mt-30 hidden-md-up"></div>
-      <h2>Great Mobile App. Shop On The Go.</h2>
+      <h2>Mua sắm mọi lúc, mọi nơi với ứng dụng di động</h2>
       <p class="text-muted mb-4">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam id purus at risus pellentesque faucibus a quis eros. In eu fermentum leo. Integer ut eros lacus. Proin ut accumsan leo. Morbi vitae est eget dolor consequat aliquam eget quis dolor.</p>
       <a class="market-button apple-button" href="#"><span class="mb-subtitle">Download on the</span><span class="mb-title">App Store</span></a>
       <a class="market-button google-button" href="#"><span class="mb-subtitle">Download on the</span><span class="mb-title">Google Play</span></a>
@@ -55,7 +55,7 @@
     <div class="col-md-5 order-md-2"><img class="d-block m-auto img-thumbnail" src="img/banners/about-04.jpg" alt="Stores"></div>
     <div class="col-md-7 order-md-1 text-md-left text-center">
       <div class="mt-30 hidden-md-up"></div>
-      <h2>Shop Offline. Modern Outlet Stores.</h2>
+      <h2>Cửa hàng trung bày sản phẩm hiện đại</h2>
       <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam id purus at risus pellentesque faucibus a quis eros. In eu fermentum leo. Integer ut eros lacus. Proin ut accumsan leo. Morbi vitae est eget dolor consequat aliquam eget quis dolor. Mauris rutrum fermentum erat, at euismod lorem pharetra nec. Duis erat lectus, ultrices euismod sagittis at, pharetra eu nisl. Phasellus id ante at velit tincidunt hendrerit. Aenean dolor dolor, tristique nec placerat nec.</p><a class="text-decoration-none" href="contacts.html">See Outlet Stores&nbsp;<i class="icon-arrow-right d-inline-block align-middle"></i></a>
     </div>
   </div>
@@ -70,7 +70,7 @@
     </div>
     <div class="col-md-7 text-md-left text-center">
       <div class="mt-30 hidden-md-up"></div>
-      <h2>Đối tác tin cậy của Doanh nghiệp.</h2>
+      <h2>Đối tác tin cậy của các doanh nghiệp.</h2>
       <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam id purus at risus pellentesque faucibus a quis eros. In eu fermentum leo. Integer ut eros lacus. Proin ut accumsan leo. Morbi vitae est eget dolor consequat aliquam eget quis dolor. Mauris rutrum fermentum erat, at euismod lorem pharetra nec. Duis erat lectus, ultrices euismod sagittis at, pharetra eu nisl. Phasellus id ante at velit tincidunt hendrerit. Aenean dolor dolor, tristique nec placerat nec.</p>
     </div>
   </div>
