@@ -33,8 +33,9 @@ class FrontendManagerController extends Controller
   public $CMS;
   public $option;
   public $vendors;
-
+  
   public function __construct() {
+
     $this->product              =  new ProductsController();
     $this->classCommonFunction  =  new CommonFunction();
     $this->cart                 =  new Cart();
@@ -42,6 +43,7 @@ class FrontendManagerController extends Controller
     $this->CMS                  =  new CMSController();
     $this->option               =  new OptionController();
     $this->vendors              =  new VendorsController();
+
   }
   
   /**
@@ -63,12 +65,10 @@ class FrontendManagerController extends Controller
     
     $data['testimonials_data']   =   get_all_testimonial_data();
 
-    
     return view('pages.frontend.frontend-pages.home', $data);
 
     // return Response::json($data['advancedData']);
   }
-
 
   public function aboutUs(){
 
@@ -82,12 +82,10 @@ class FrontendManagerController extends Controller
     
     $data['testimonials_data']   =   get_all_testimonial_data();
 
-    
     return view('pages.frontend.frontend-pages.about', $data);
 
   }
 
-  
   /**
    * 
    * Product categories single page content
@@ -418,14 +416,34 @@ class FrontendManagerController extends Controller
    * @return void 
    */
   public function productSinglePageContent( $params ){
+
     $get_product = Product::where(['slug' => $params, 'status' => 1])->first();
       
     if(!empty($get_product)){
+
+      // Push product ID to session
+      session()->push('products.recently_viewed', $get_product->id);
+
+      // $products = session()->get('products.recently_viewed');
+
+      // $products = array_unique($products);
+
+      // $recently = array();
+
+      // foreach ($products as $row){
+
+      //   array_push($recently, $row);
+
+      // }
+
+
       $data = array();
+
       $product_id  = $get_product->id;
       $get_current_user_data  =  get_current_frontend_user_info();
       
       $data = $this->classCommonFunction->get_dynamic_frontend_content_data();
+
       $data['single_product_details']  =  $this->product->getProductDataById( $product_id );
       
       if(is_frontend_user_logged_in() && isset($get_current_user_data['user_role_slug']) && $data['single_product_details']['_is_role_based_pricing_enable'] == 'yes'){
@@ -459,7 +477,6 @@ class FrontendManagerController extends Controller
         $data['single_product_details']['solid_price']   = get_product_price_html_by_filter($data['single_product_details']['post_price']);
       }
 
-
       $data['single_product_details']['is_user_login']   = 'no';
       $data['single_product_details']['login_user_slug'] = '';
 
@@ -485,7 +502,6 @@ class FrontendManagerController extends Controller
       }
 
       $data['single_product_details']['_product_related_images_url']->product_image = $product_url;
-
 
       $product = (object) array('id' => time(), 'url' => $product_url);
       $data['single_product_details']['_product_related_images_url']->product_gallery_images[0] = $product;
@@ -513,7 +529,6 @@ class FrontendManagerController extends Controller
       $data['comments_details']         =   get_comments_data_by_object_id( $product_id, 'product' );
       $data['comments_rating_details']  =   get_comments_rating_details( $product_id, 'product' );
       $data['vendor_reviews_rating_details']  =   get_comments_rating_details( get_vendor_id_by_product_id($product_id), 'vendor' );
-
 
       $get_seo_data = get_seo_data();
 
@@ -569,7 +584,7 @@ class FrontendManagerController extends Controller
       
       return view('pages.frontend.frontend-pages.product-details', $data);
 
-      // return response()->json($data['selected_cat']);
+      // return response()->json($recently_viewed);
     }
     else{
       return view('errors.no_data');
@@ -614,7 +629,6 @@ class FrontendManagerController extends Controller
     $data['stripe_api_key'] = json_encode(get_stripe_api_key());
     $data['twocheckout_api_data'] = json_encode(get_twocheckout_api_data());
     
-      
     //coupon applay
     if($this->cart->is_coupon_applyed() && !empty($this->cart->couponCode())){
       $response = $this->classGetFunction->manage_coupon($this->cart->couponCode(), 'update');
@@ -1219,7 +1233,6 @@ class FrontendManagerController extends Controller
         return view('errors.no_data');
       }
       
-       
       if(count($data['vendor_products']) > 0){
         $data['vendor_products']['action_url'] = Request::url();
         
@@ -1374,7 +1387,6 @@ class FrontendManagerController extends Controller
           $data['single_product_details']['solid_price']   = get_product_price_html_by_filter($data['single_product_details']['post_price']);
         }
 
-
         $data['single_product_details']['is_user_login']   = 'no';
         $data['single_product_details']['login_user_slug'] = '';
 
@@ -1401,7 +1413,6 @@ class FrontendManagerController extends Controller
 
         $data['single_product_details']['_product_related_images_url']->product_image = $product_url;
 
-
         $product = (object) array('id' => time(), 'url' => $product_url);
         $data['single_product_details']['_product_related_images_url']->product_gallery_images[0] = $product;
 
@@ -1419,7 +1430,6 @@ class FrontendManagerController extends Controller
         $data['vendor_reviews_rating_details']  =   get_comments_rating_details( get_vendor_id_by_product_id($product_id), 'vendor' );
         $data['fonts_list']               =   $this->product->getFontsList( false, null, 1 );
         $data['shape_list']               =   $this->product->getShapeList( false, null, 1 );
-
 
         $get_seo_data = get_seo_data();
 
