@@ -3,7 +3,19 @@
       <div class="container">
         <div class="column">
           <!-- <h1>{{ $single_product_details['post_title'] }}</h1> -->
-          <h1>{!! trans('frontend.all_products_label') !!}</h1>
+          <h1>
+
+          @if (count($selected_cat['term_details']) > 0)
+
+            @foreach ($selected_cat['term_details'] as $row)
+
+              {!! $row['name'] !!},&nbsp;
+
+            @endforeach
+            
+          @endif
+          </h1>
+
         </div>
         <div class="column">
           <ul class="breadcrumbs">
