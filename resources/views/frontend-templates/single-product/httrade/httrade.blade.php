@@ -9,7 +9,13 @@
 
             @foreach ($selected_cat['term_details'] as $row)
 
-              {!! $row['name'] !!},&nbsp;
+              {!! $row['name'] !!}
+
+              @if ( $loop->iteration < (count($selected_cat['term_details']) - 1) ) 
+
+                ,&nbsp;
+
+              @endif
 
             @endforeach
             
@@ -111,7 +117,16 @@
 
             @foreach ($selected_cat['term_details'] as $row)
 
-              <a href="{{ route('categories-page', $row['slug']) }}">{!! $row['name'] !!},&nbsp;</a>
+              <a href="{{ route('categories-page', $row['slug']) }}">{!! $row['name'] !!}
+
+
+              @if ( $loop->iteration < (count($selected_cat['term_details']) - 1) ) 
+
+                ,&nbsp;
+
+              @endif
+
+              </a>
 
             @endforeach
             
@@ -233,7 +248,6 @@
           <hr class="mb-2">
           <div class="d-flex flex-wrap justify-content-between">
 
-          
             <div class="mt-2 mb-2">
               <button class="btn btn-outline-secondary btn-sm btn-wishlist product-wishlist" data-id="{{ $single_product_details['id'] }}" data-toggle="tooltip" title="{{ trans('frontend.add_to_wishlist_label') }}" data-original-title="{{ trans('frontend.add_to_wishlist_label') }}"><i class="icon-heart"></i>&nbsp;{!! trans('frontend.wishlist') !!}</button>
               <button class="btn btn-outline-secondary btn-sm btn-compare product-compare" data-id="{{ $single_product_details['id'] }}" data-toggle="tooltip" title="" data-original-title="{{ trans('frontend.add_to_compare_list_label') }}"><i class="icon-repeat"></i>&nbsp;{!! trans('frontend.compare') !!}</button>
@@ -332,15 +346,11 @@
             {{ trans('frontend.no_review_label') }}
           @endif
 
-          
-
         </div>
       </div>
     </div>
 
     @endif  
-
-
 
     @if(count($related_items) > 0)   
 
@@ -356,7 +366,6 @@
           $reviews_settings = get_reviews_settings_data($products['id']);      
         ?>
         
-
         <!-- Product-->
         <div class="product-card">
           <div class="product-badge bg-danger">Sale</div>
@@ -395,13 +404,11 @@
             </a>
             <a class="btn btn-outline-primary btn-sm add-to-cart-bg" data-toast data-toast-type="success" data-toast-position="topRight" data-toast-icon="icon-check-circle" data-toast-title="Product" data-toast-message="successfuly added to cart!" data-id="{{ $products['id'] }}" data-toggle="tooltip" data-placement="top" title="" data-original-title="{{ trans('frontend.add_to_cart_label') }}"><i class="icon-bag"></i> Chọn</a>             
           
-            
           </div>
         </div>
 
       @endforeach
         
-
       </div>
     </div>
 
