@@ -41,7 +41,7 @@
   <div class="row">
   @foreach($productCategoriesTree as $cat)
 
-  @if ( in_array($cat['term_id'],[8,14,18,]) )
+  @if ( in_array($cat['id'],[8,14,18,]) )
 
     <div class="col-lg-4 col-sm-6">
       <div class="card border-0 bg-secondary mb-30">
