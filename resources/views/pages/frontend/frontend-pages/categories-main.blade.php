@@ -9,7 +9,7 @@
 
 
 <!-- Page Content-->
-<div id="product-category" class="container new-container">
+<div id="product-category" class="container new-container padding-bottom-3x mb-1">
   <div class="row">
     <div class="col-xs-12 col-md-3">
       <div class="left-sidebar">
