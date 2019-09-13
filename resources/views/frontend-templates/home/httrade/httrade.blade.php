@@ -39,23 +39,22 @@
 
 <section class="container padding-top-3x padding-bottom-2x">
   <div class="row">
+  @foreach($advancedData['recommended_items'] as $recommended_product)
 
-  @foreach($advancedData['recommended_items'] as $key => $recommended_product)
+  @if ($loop->iteration < 3)
 
     <div class="col-lg-4 col-sm-6">
       <div class="card border-0 bg-secondary mb-30">
         <div class="card-body d-table w-100">
           <div class="d-table-cell align-middle">
             <a href="{{ route('details-page', $recommended_product->slug ) }}">
-
               @if(!empty($recommended_product->image_url))
-              <img class="d-block w-100 " src="{{ get_image_url( $recommended_product->image_url ) }}" alt="{!! $recommended_product->title !!}" />
+                <img class="d-block w-100 " src="{{ get_image_url( $recommended_product->image_url ) }}" alt="{!! $recommended_product->title !!}" />
               @else
-              <img class="d-block w-100 " src="{{ default_placeholder_img_src() }}" alt="{!! $recommended_product->title !!}" />
+                <img class="d-block w-100 " src="{{ default_placeholder_img_src() }}" alt="{!! $recommended_product->title !!}" />
               @endif
-          </a>
+            </a>
           </div>
-
           <div class="d-table-cell align-middle pl-2">
             <h3 class="h6 text-thin top-product">
               {!! $recommended_product->title !!}
@@ -68,6 +67,9 @@
         </div>
       </div>
     </div>
+
+    @endif
+
     @endforeach
     
   </div>
