@@ -800,6 +800,7 @@ class FrontendManagerController extends Controller
     $data = array();
     
     $data = $this->classCommonFunction->get_dynamic_frontend_content_data();
+
     $data['vendors_list'] = $this->vendors->getAllVendors( false, null, 1 );
     
     return view('pages.frontend.vendors.vendors-list', $data);

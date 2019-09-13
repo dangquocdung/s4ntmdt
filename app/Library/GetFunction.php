@@ -2870,6 +2870,40 @@ class GetFunction
     
     return $get_users;
   }
+
+  public static function users_by_display_name($role_id, $extra_search_term = null, $flag = null){
+    if(($flag == -1) || is_null($flag)){
+        $where = ['role_user.role_id' => $role_id];
+    }
+    else{
+        $where = ['role_user.role_id' => $role_id, 'users.user_status' => $flag ];
+    }
+				
+    if(!is_null($extra_search_term) || !empty($extra_search_term)){
+      $get_users = DB::table('users')
+                   ->where($where)
+                   ->where('users.name', 'LIKE', '%'. $extra_search_term. '%')
+                   ->join('role_user', 'users.id', '=', 'role_user.user_id')
+                   ->join('users_details', 'users.id', '=', 'users_details.user_id')
+                   ->select('users.*', 'users_details.details')
+                   ->orderBy('users.display_name', 'asc')
+                   ->get()
+                   ->toArray();
+    }
+    else{
+      $get_users = DB::table('users')
+                   ->where($where)
+                   ->join('role_user', 'users.id', '=', 'role_user.user_id')
+                   ->leftJoin('users_details', 'users.id', '=', 'users_details.user_id')
+                   ->select('users.*', 'users_details.details')
+                   ->orderBy('users.display_name', 'asc')
+                   ->get()
+                   ->toArray();
+    }
+    
+    return $get_users;
+  }
+  
   
   public static function check_vendor_login(){
     $_this = new self;

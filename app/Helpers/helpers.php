@@ -1034,6 +1034,17 @@ function get_users_by_role_id($role_id, $extra_search_term = null, $flag = null)
 }
 
 /**
+ * Get users by role id
+ *
+ * @param role_id, extra search term
+ * @return array
+ */
+function get_users_by_display_name($role_id, $extra_search_term = null, $flag = null)
+{
+  return GetFunction::users_by_display_name($role_id, $extra_search_term, $flag);
+}
+
+/**
  * Get vendor details by product id
  *
  * @param product_id

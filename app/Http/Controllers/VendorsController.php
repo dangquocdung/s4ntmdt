@@ -645,7 +645,10 @@ class VendorsController extends Controller
     $get_role_details = get_roles_details_by_role_slug('vendor');
     
     if(!empty($get_role_details)){
-      $get_users = get_users_by_role_id( $get_role_details->id, $search_val, $status_flag);
+
+      // $get_users = get_users_by_role_id( $get_role_details->id, $search_val, $status_flag);
+      
+      $get_users = get_users_by_display_name( $get_role_details->id, $search_val, $status_flag);
       
       if(count($get_users) > 0){
         $users_details = $get_users;
