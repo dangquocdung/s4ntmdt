@@ -548,5 +548,6 @@ return [
 'top_rated' => 'Sản phẩm được đánh giá cao',
 'address_label' => 'Địa chỉ',
 'chung-toi' => 'Giới thiệu',
-'about_us' => 'Về chúng tôi'
+'about_us' => 'Về chúng tôi',
+'gian-hang' => 'Gian hàng',
 ];

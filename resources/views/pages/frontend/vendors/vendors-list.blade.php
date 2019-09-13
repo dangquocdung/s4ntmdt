@@ -13,7 +13,7 @@
     <div class="column">
       <ul class="breadcrumbs">
         <li>
-          <a href="{{ route('home-page') }}">{{ trans('frontend.home') }}</a>        </li>
+          <a href="{{ route('home-page') }}">{{ trans('frontend.home') }}</a>
         </li>
         <li class="separator">&nbsp;</li>
         <li>{{ trans('frontend.vendor_list_title_label') }}</li>
