@@ -25,7 +25,6 @@
   </div>
 </div>
 
-
 <!-- Page Content-->
 <div class="container padding-bottom-3x mb-1">
   <div class="row">
@@ -35,7 +34,6 @@
       <!-- Promo banner-->
       <a class="alert alert-default alert-dismissible fade show fw-section mb-30" href="{{ route('shop-page') }}" style="background-image: url('/img/banners/shop-banner-bg.jpg');">
       
-
         <div class="d-flex flex-wrap flex-md-nowrap justify-content-between align-items-center">
           <div class="mx-auto mx-md-0 px-3 pb-2 text-center text-md-left">
             <span class="d-block text-lg text-thin mb-2">{!! trans('frontend.gian-hang') !!}</span>
@@ -64,27 +62,97 @@
           @endif -->
 
         </div>
+
       </a>
       <!-- Shop Toolbar-->
       <div class="shop-toolbar padding-bottom-1x mb-2">
         
+        <ul class="nav nav-pills" role="tablist">
+          @if(Request::is('gian-hang/chi-tiet/trang-chu/*'))  
+            <li class="nav-item"><a class="nav-link active" href="{{ route('store-details-page-content', $vendor_info->name) }}" ><i class="icon-home"></i>&nbsp;{!! trans('frontend.shopist_home_title') !!}</a></li>
+          @else  
+            <li class="nav-item"><a class="nav-link" href="{{ route('store-details-page-content', $vendor_info->name) }}" ><i class="icon-home"></i>&nbsp;{!! trans('frontend.shopist_home_title') !!}</a></li>
+          @endif
+
+          @if(Request::is('gian-hang/chi-tiet/san-pham/*'))  
+            <li class="nav-item"><a class="nav-link active" href="{{ route('store-products-page-content', $vendor_info->name) }}" ><i class="icon-search"></i>&nbsp;{!! trans('frontend.all_products_label') !!}</a></li>
+          @else  
+            <li class="nav-item"><a class="nav-link" href="{{ route('store-products-page-content', $vendor_info->name) }}" ><i class="icon-search"></i>&nbsp;{!! trans('frontend.all_products_label') !!}</a></li>
+          @endif
+
+          @if(Request::is('gian-hang/chi-tiet/danh-gia/*'))  
+            <li class="nav-item"><a class="nav-link active" href="{{ route('store-reviews-page-content', $vendor_info->name) }}" ><i class="icon-mail"></i>&nbsp;{!! trans('frontend.reviews_label') !!}</a></li>
+          @else  
+            <li class="nav-item"><a class="nav-link" href="{{ route('store-reviews-page-content', $vendor_info->name) }}" ><i class="icon-mail"></i>&nbsp;{!! trans('frontend.reviews_label') !!}</a></li>
+          @endif
+        </ul>
+
+        <div class="tab-content">
+
+          @if(Request::is('store/details/home/*'))
+            @include('pages.frontend.vendors.vendors-home')
+            @yield('vendors-home-page-content')
+          @endif
+
+          @if(Request::is('store/details/products/*'))
+            @include('pages.frontend.vendors.vendors-products')
+            @yield('vendors-products-page-content')
+          @endif
+          
+          @if(Request::is('store/details/cat/products/*'))
+            @include('pages.frontend.vendors.vendors-category-products')
+            @yield('vendors-categoty-products-page-content')
+          @endif
+
+          @if(Request::is('store/details/reviews/*'))
+            @include('pages.frontend.vendors.vendors-reviews')
+            @yield('vendors-reviews-page-content')  
+          @endif
+
+        </div>
 
 
-      </div>
-      
-    
 
          
-    </div>
-    <!-- Sidebar          -->
-    <div class="col-lg-3 order-lg-1">
+        
+      </div>
+
+      @if($vendor_package_details->show_social_media_follow_btn_on_store_page == true)  
+        <div class="d-flex flex-wrap justify-content-between">
+          <div class="mt-2 mb-2">
+            <span class="text-muted">{!! trans('frontend.share_label') !!}:&nbsp;&nbsp;</span>
+            <div class="d-inline-block">
+              <a class="social-button shape-rounded sb-facebook" href="{{ $vendor_settings->social_media->fb_follow_us_url  }}" data-toggle="tooltip" data-placement="top" title="Facebook"><i class="socicon-facebook"></i></a>
+              <a class="social-button shape-rounded sb-twitter" href="{{ $vendor_settings->social_media->twitter_follow_us_url }}" data-toggle="tooltip" data-placement="top" title="Twitter"><i class="socicon-twitter"></i></a>
+              <a class="social-button shape-rounded sb-instagram" href="{{ $vendor_settings->social_media->instagram_follow_us_url }}" data-toggle="tooltip" data-placement="top" title="Instagram"><i class="socicon-instagram"></i></a>
+              <a class="social-button shape-rounded sb-youtube" href="{{ $vendor_settings->social_media->youtube_follow_us_url }}" data-toggle="tooltip" data-placement="top" title="Instagram"><i class="socicon-youtube"></i></a>
+            </div>
+          </div>
+        </div>
+      @endif
       
+    </div>
+    <!-- Sidebar-->
+    <div class="col-lg-3 order-lg-1">
 
+    @if($vendor_package_details->show_social_media_share_btn_on_store_page == true)  
+    <div class="d-flex flex-wrap justify-content-between">
+      <div class="mt-2 mb-2">
+        <span class="text-muted">{!! trans('frontend.share_label') !!}:&nbsp;&nbsp;</span>
 
+        <div class="d-inline-block">
+          <a class="social-button shape-rounded sb-facebook" href="" data-name="fb"><i class="socicon-facebook"></i></a>
+          <a class="social-button shape-rounded sb-facebook" href="" data-name="gplus"><i class="socicon-twitter"></i></a>
+          <a class="social-button shape-rounded sb-facebook" href="" data-name="instagram"><i class="socicon-instagram"></i></a>
+          <a class="social-button shape-rounded sb-facebook" href="" data-name="youtube"><i class="socicon-youtube"></i></a>
+        </div> 
+      </div>
+    </div> 
+    <hr><br>
+    @endif 
+      
     </div>
   </div>
 </div>
-
-
 
 @endsection 

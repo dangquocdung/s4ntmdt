@@ -97,10 +97,10 @@
     <script type="text/javascript" src="{{ URL::asset('/frontend/js/jquery.validate.js') }}"></script> -->
 
     
-    <!-- <script type="text/javascript" src="{{ URL::asset('/frontend/js/common.js') }}"></script>
-    <script type="text/javascript" src="{{ URL::asset('/frontend/js/social-network.js') }}"></script>
-    <script type="text/javascript" src="{{ URL::asset('/slick/slick.min.js') }}"></script>
-    <script type="text/javascript" src="{{ URL::asset('/common/base64.js') }}"></script> -->
+    <!-- <script type="text/javascript" src="{{ URL::asset('/frontend/js/common.js') }}"></script> -->
+    <!-- <script type="text/javascript" src="{{ URL::asset('/frontend/js/social-network.js') }}"></script> -->
+    <!-- <script type="text/javascript" src="{{ URL::asset('/slick/slick.min.js') }}"></script> -->
+    <!-- <script type="text/javascript" src="{{ URL::asset('/common/base64.js') }}"></script> -->
     
     <!-- Modernizr-->
     <script src="{{ URL::asset('/js/modernizr.min.js') }}"></script>
