@@ -34,7 +34,7 @@
     <?php $details = json_decode($vendor->details);?>
 
 
-    <div class="col-md-4 col-sm-6">
+    <div class="col-md-3 col-sm-6">
       <div class="card mb-30 gian-hang">
         
 

@@ -27,7 +27,11 @@ a.card {
 .gian-hang{
 
   img.card-img-top {
-    height: 200px !important;
+    display: block;
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+    height: 180px;
   }
 
   .card-header {
