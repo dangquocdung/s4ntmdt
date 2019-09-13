@@ -3476,14 +3476,20 @@ a.card {
 .gian-hang .card-header {
   text-align: center;
   height: 60px;
-  line-height: 20px;
+  line-height: 22px;
   overflow: hidden;
   font-weight: 500;
   font-size: 1.2em;
+  position: relative;
 }
 
 .gian-hang .card-header a {
-  padding-top: 10px;
+  margin: 0;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 80%;
   text-decoration: none;
   text-overflow: ellipsis;
 }
