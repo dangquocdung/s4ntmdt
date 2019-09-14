@@ -542,7 +542,7 @@ return [
 'view_all_products' => 'Tất cả sản phẩm',
 'features_products' => 'Sản phẩm được tài trợ',
 'recommended_products' => 'Gợi ý hôm nay',
-'staff_picks' => 'Đề xuất cho bạn',
+'staff_picks' => 'Chúng tôi đề xuất',
 'best_sellers' => 'Bán chạy nhất',
 'news_arrivals' => 'Mới về',
 'top_rated' => 'Được đánh giá cao',
