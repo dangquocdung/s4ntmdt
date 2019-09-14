@@ -168,17 +168,17 @@
         <div class="vendor-details-left-panel">
           @if(Request::is('store/details/products/*') || Request::is('store/details/cat/products/*'))  
 
-          @if(Request::is('store/details/products/*'))
-          <div class="product-categories-list">
-              @include('includes.frontend.vendor-categories', array('user_name' => $vendor_info->name))
-              @yield('vendor-categories-content')  
-          </div>
-          @elseif(Request::is('store/details/cat/products/*'))
-          <div class="product-categories-list">
-              @include('includes.frontend.vendor-categories-page')
-              @yield('vendor-categories-page-content')
-          </div>		
-          @endif
+            @if(Request::is('store/details/products/*'))
+            <div class="product-categories-list">
+                @include('includes.frontend.vendor-categories', array('user_name' => $vendor_info->name))
+                @yield('vendor-categories-content')  
+            </div>
+            @elseif(Request::is('store/details/cat/products/*'))
+            <div class="product-categories-list">
+                @include('includes.frontend.vendor-categories-page')
+                @yield('vendor-categories-page-content')
+            </div>		
+            @endif
 
             <div class="filter-panel">
               <div class="filter-option-title">{{ trans('frontend.filter_options_label') }}</div>

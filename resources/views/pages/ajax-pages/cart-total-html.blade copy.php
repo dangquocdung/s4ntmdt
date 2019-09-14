@@ -3,9 +3,11 @@
   <div class="cart-total-area-overlay"></div>  
   <div id="loader-1-cart"></div>
   <div class="cart-total-content">
-      <div class="cart-sub-total"><div class="label">{!! trans('frontend.cart_sub_total') !!}:</div><div class="value">{!! price_html( get_product_price_html_by_filter(Cart::getTotal()), get_frontend_selected_currency() ) !!}</div></div>
+      <div class="cart-sub-total"><div class="label">{!! trans('frontend.cart_sub_total') !!}:</div>
+      <div class="value">{!! price_html( get_product_price_html_by_filter(Cart::getTotal()), get_frontend_selected_currency() ) !!}</div></div>
       
-      <div class="cart-tax"><div class="label">{!! trans('frontend.tax') !!}:</div><div class="value">{!! price_html( get_product_price_html_by_filter(Cart::getTax()), get_frontend_selected_currency() ) !!}</div></div>
+      <div class="cart-tax"><div class="label">{!! trans('frontend.tax') !!}:</div><div class="value">
+      {!! price_html( get_product_price_html_by_filter(Cart::getTax()), get_frontend_selected_currency() ) !!}</div></div>
       
         @if((!$shipping_data['shipping_option']['enable_shipping']) || ($shipping_data['shipping_option']['enable_shipping'] && !$shipping_data['flat_rate']['enable_option'] && !$shipping_data['free_shipping']['enable_option'] && !$shipping_data['local_delivery']['enable_option']))
         
@@ -104,7 +106,9 @@
       <div class="cart-coupon"><div class="label">{!! trans('frontend.coupon_label') !!}:</div><div class="value">- {!! price_html( get_product_price_html_by_filter(Cart::couponPrice()), get_frontend_selected_currency() ) !!}</div> <div><button class="remove-coupon btn btn-default btn-xs" type="button">{!! trans('frontend.remove_coupon_label') !!}</button></div></div>
       @endif
       
-      <div class="cart-grand-total"><div class="label">{{ trans('frontend.grand_total') }}:</div><div class="value">{!! price_html( get_product_price_html_by_filter(Cart::getCartTotal()), get_frontend_selected_currency() ) !!}</div></div>
+      <div class="cart-grand-total"><div class="label">{{ trans('frontend.grand_total') }}:</div><div class="value">
+      {!! price_html( get_product_price_html_by_filter(Cart::getCartTotal()), get_frontend_selected_currency() ) !!}
+      </div></div>
   </div>
   
   @if(Request::is('cart'))

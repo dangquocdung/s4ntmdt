@@ -7,6 +7,7 @@
 
 <div id="vendor_home_content">
   <h2 class="cat-box-top">{!! trans('frontend.shop_by_cat_label') !!} <span class="responsive-accordian"></span></h2>
+  
   @if(count($vendor_home_page_cats) > 0)  
   <div class="vendor-categories">
     <div class="row">
