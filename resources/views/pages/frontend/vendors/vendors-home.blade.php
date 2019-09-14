@@ -2,7 +2,7 @@
 
 <!-- Featured Products-->
 <section class="container padding-bottom-2x mb-2">
-  <h2 class="h3 pb-3 text-center">{{ trans('frontend.features_products') }}</h2>
+  <h2 class="h3 pb-3 text-center">{{ trans('frontend.only_latest_label') }}</h2>
 
   @if(count($vendor_advanced_items['latest_items']) > 0)  
     <div class="row">
