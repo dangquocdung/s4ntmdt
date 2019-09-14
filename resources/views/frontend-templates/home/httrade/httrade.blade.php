@@ -96,13 +96,14 @@
         <div class="product-card-body">
           
           <h3 class="product-title"><a href="{{ route('details-page', $todays_sales_product->slug) }}">{!! $todays_sales_product->title !!}</a></h3>
+
           <h4 class="product-price">
-            @if ( $latest->regular_price <   $latest->regular_price )
+            @if ( $todays_sales_product->regular_price <   $todays_sales_product->regular_price )
               <del>
                 {!! price_html( get_product_price_html_by_filter(get_role_based_price_by_product_id($todays_sales_product->id, $todays_sales_product->regular_price)), get_frontend_selected_currency()) !!}
               </del>
             @endif
-            
+
             @if( $todays_sales_product->type == 'simple_product' )
               {!! price_html( get_product_price_html_by_filter(get_role_based_price_by_product_id($todays_sales_product->id, $todays_sales_product->price)), get_frontend_selected_currency()) !!}
             @elseif( $todays_sales_product->type == 'configurable_product' )
@@ -162,10 +163,12 @@
           
           <h3 class="product-title"><a href="{{ route('details-page', $features_product->slug) }}">{!! $features_product->title !!}</a></h3>
           <h4 class="product-price">
-            <!-- <del>$62.00</del>$49.99 -->
-            <del>
-              {!! price_html( get_product_price_html_by_filter(get_role_based_price_by_product_id($features_product->id, $features_product->regular_price)), get_frontend_selected_currency()) !!}
-            </del>
+            @if ( $features_product->regular_price < $features_product->regular_price )
+              <del>
+                {!! price_html( get_product_price_html_by_filter(get_role_based_price_by_product_id($features_product->id, $features_product->regular_price)), get_frontend_selected_currency()) !!}
+              </del>
+            @endif
+
             @if( $features_product->type == 'simple_product' )
               {!! price_html( get_product_price_html_by_filter(get_role_based_price_by_product_id($features_product->id, $features_product->price)), get_frontend_selected_currency()) !!}
             @elseif( $features_product->type == 'configurable_product' )
@@ -223,10 +226,11 @@
           <!-- <div class="product-category"><a href="#">Smart home</a></div> -->
           <h3 class="product-title"><a href="{{ route('details-page', $recommended_product->slug) }}">{!! $recommended_product->title !!}</a></h3>
           <h4 class="product-price">
-            <!-- <del>$62.00</del>$49.99 -->
-            <del>
-              {!! price_html( get_product_price_html_by_filter(get_role_based_price_by_product_id($recommended_product->id, $recommended_product->regular_price)), get_frontend_selected_currency()) !!}
-            </del>
+            @if ( $recommended_product->regular_price < $recommended_product->regular_price )
+              <del>
+                {!! price_html( get_product_price_html_by_filter(get_role_based_price_by_product_id($recommended_product->id, $recommended_product->regular_price)), get_frontend_selected_currency()) !!}
+              </del>
+            @endif
             @if( $recommended_product->type == 'simple_product' )
               {!! price_html( get_product_price_html_by_filter(get_role_based_price_by_product_id($recommended_product->id, $recommended_product->price)), get_frontend_selected_currency()) !!}
             @elseif( $recommended_product->type == 'configurable_product' )
