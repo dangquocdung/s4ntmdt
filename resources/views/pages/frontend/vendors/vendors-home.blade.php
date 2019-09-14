@@ -10,7 +10,7 @@
 
         <?php $reviews  = get_comments_rating_details($latest->id, 'product');?>
 
-        <div class="col-lg-3 col-md-4 col-sm-6">
+        <div class="col-md-4 col-sm-6">
           <div class="product-card mb-30">
             <div class="product-badge bg-danger">Sale</div>
             <a class="product-thumb" href="{{ route('details-page', $latest->slug) }}">
