@@ -1,7 +1,7 @@
 @section('vendors-home-page-content')
 
 <!-- Featured Products-->
-<section class="container padding-bottom-2x mb-2">
+<section>
   <h2 class="h3 pb-3 text-center">{{ trans('frontend.only_latest_label') }}</h2>
 
   @if(count($vendor_advanced_items['latest_items']) > 0)  
