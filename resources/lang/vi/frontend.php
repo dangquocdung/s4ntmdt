@@ -316,7 +316,7 @@ return [
 'add_to_cart_label' =>'Thêm vào giỏ hàng',
 'latest_label' =>'Sản phẩm mới nhất',
 'latest_products_empty_label' =>'Sản phẩm mới nhất không có sẵn!',
-'best_sales_label' =>'Hàng bán chạy nhất',
+'best_sales_label' =>'Bán chạy nhất',
 'best_sales_products_empty_label' =>'Sản phẩm bán hàng tốt nhất không có sẵn!',
 'featured_products_label' =>'Sản phẩm nổi bật',
 'features_products_empty_label' =>'Tính năng sản phẩm không có sẵn!',
