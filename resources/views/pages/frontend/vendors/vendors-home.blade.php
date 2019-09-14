@@ -62,11 +62,10 @@
       @endforeach
     </div>
 
-    @endif
+    @else
+          {!! trans('frontend.product_not_available') !!}
 
-  <div class="text-center">
-    <a class="btn btn-outline-secondary" href="{{ Request::is('cac-san-pham')?'active':''}}">{{ trans('frontend.view_all_products') }}</a>
-  </div>
+    @endif
 
 </section>
 
