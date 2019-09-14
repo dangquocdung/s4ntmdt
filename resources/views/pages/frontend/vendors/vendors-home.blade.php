@@ -28,9 +28,16 @@
               <h3 class="product-title"><a href="{{ route('details-page', $latest->slug) }}">{!! get_product_title( $latest->id ) !!}</a></h3>
               <h4 class="product-price">
                 <!-- <del>$62.00</del>$49.99 -->
+
+                @if ( $latest->regular_price <   $latest->regular_price )
+
                 <del>
                   {!! price_html( get_product_price_html_by_filter(get_role_based_price_by_product_id($latest->id, $latest->regular_price)), get_frontend_selected_currency()) !!}
                 </del>
+
+                @endif
+
+
                 @if( $latest->type == 'simple_product' )
                   {!! price_html( get_product_price_html_by_filter(get_role_based_price_by_product_id($latest->id, $latest->price)), get_frontend_selected_currency()) !!}
                 @elseif( $latest->type == 'configurable_product' )
