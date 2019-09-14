@@ -114,7 +114,7 @@
       </div>
 
       @if($vendor_package_details->show_social_media_follow_btn_on_store_page == true)  
-        <div class="d-flex flex-wrap justify-content-between">
+        <div class="d-flex flex-wrap justify-content-between" style="float:right">
           <div class="mt-2 mb-2">
             <span class="text-muted">{!! trans('frontend.share_label') !!}:&nbsp;&nbsp;</span>
             <div class="d-inline-block">
