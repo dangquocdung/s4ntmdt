@@ -36,12 +36,15 @@
 
     <div class="col-md-3 col-sm-6">
       <div class="card mb-30 gian-hang">
+
+      
         
 
         @if(!empty($vendor->user_photo_url))
           <img class="card-img-top"src="{{ get_image_url($vendor->user_photo_url) }}" alt="{!! $details->profile_details->store_name !!}">
         @else
-          <img class="card-img-top" src="{{ default_placeholder_img_src() }}" alt="{!! $details->profile_details->store_name !!}">
+          <img class="d-block mx-auto img-thumbnail rounded-circle mb-3" src="{{ default_placeholder_img_src() }}" alt="{!! $details->profile_details->store_name !!}">
+          <!-- <img class="card-img-top" src="{{ default_placeholder_img_src() }}" alt="{!! $details->profile_details->store_name !!}"> -->
         @endif
 
         <div class="card-header">
