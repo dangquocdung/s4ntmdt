@@ -17,7 +17,7 @@ return [
   'tax' =>'Thuế',
   'shipping_cost' =>'Giá vận chuyển',
   'free' =>'Miễn phí',
-  'flat_rate' =>'Tỷ lệ căn hộ',
+  'flat_rate' =>'Mức phí cố định',
   'free_shipping' =>'Miễn phí vận chuyển',
   'local_delivery' =>'Giao hàng địa phương',
   'check_out' =>'Thanh toán',

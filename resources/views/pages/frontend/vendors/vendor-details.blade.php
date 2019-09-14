@@ -89,22 +89,22 @@
 
         <div class="tab-content">
 
-          @if(Request::is('store/details/home/*'))
+          @if(Request::is('gian-hang/chi-tiet/trang-chu/*'))
             @include('pages.frontend.vendors.vendors-home')
             @yield('vendors-home-page-content')
           @endif
 
-          @if(Request::is('store/details/products/*'))
+          @if(Request::is('gian-hang/chi-tiet/san-pham/*'))
             @include('pages.frontend.vendors.vendors-products')
             @yield('vendors-products-page-content')
           @endif
           
-          @if(Request::is('store/details/cat/products/*'))
+          @if(Request::is('sian-hang/chi-tiet/cat/san-pham/*'))
             @include('pages.frontend.vendors.vendors-category-products')
             @yield('vendors-categoty-products-page-content')
           @endif
 
-          @if(Request::is('store/details/reviews/*'))
+          @if(Request::is('gian-hang/chi-tiet/danh-gia/*'))
             @include('pages.frontend.vendors.vendors-reviews')
             @yield('vendors-reviews-page-content')  
           @endif
