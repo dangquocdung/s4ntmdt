@@ -41,10 +41,9 @@
         
 
         @if(!empty($vendor->user_photo_url))
-          <img class="card-img-top"src="{{ get_image_url($vendor->user_photo_url) }}" alt="{!! $details->profile_details->store_name !!}">
+          <img class="d-block mx-auto img-thumbnail rounded-circle mt-3 mb-3" src="{{ get_image_url($vendor->user_photo_url) }}" alt="{!! $details->profile_details->store_name !!}">
         @else
-          <img class="d-block mx-auto img-thumbnail rounded-circle mb-3" src="{{ default_placeholder_img_src() }}" alt="{!! $details->profile_details->store_name !!}">
-          <!-- <img class="card-img-top" src="{{ default_placeholder_img_src() }}" alt="{!! $details->profile_details->store_name !!}"> -->
+          <img class="d-block mx-auto img-thumbnail rounded-circle mt-3 mb-3" src="{{ default_placeholder_img_src() }}" alt="{!! $details->profile_details->store_name !!}">
         @endif
 
         <div class="card-header">
