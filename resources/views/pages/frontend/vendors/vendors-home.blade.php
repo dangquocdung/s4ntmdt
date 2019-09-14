@@ -62,6 +62,8 @@
       @endforeach
     </div>
 
+    @endif
+
   <div class="text-center">
     <a class="btn btn-outline-secondary" href="{{ Request::is('cac-san-pham')?'active':''}}">{{ trans('frontend.view_all_products') }}</a>
   </div>
