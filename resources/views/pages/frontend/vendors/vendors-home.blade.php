@@ -7,12 +7,7 @@
   @if(count($vendor_home_page_cats) > 0)  
     <div class="row">
 
-    @foreach($vendor_home_page_cats as $cats)
-
-    <div class="vendor-categories">
-    <div class="row">
-      <div class="col-md-12">
-        <div class="vendor-top-collection">
+   
           @foreach($vendor_home_page_cats as $cats)
           <div>
             <div class="vendor-category-content clearfix">
@@ -38,12 +33,7 @@
             </div>
           </div>
           @endforeach
-        </div>  
       </div>
-    </div>
-  </div>
-    @endforeach
-    </div>
 
   @else
 
