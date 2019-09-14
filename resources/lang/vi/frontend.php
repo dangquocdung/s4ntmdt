@@ -540,7 +540,7 @@ return [
 'to_cart' => 'Giỏ hàng',
 'gia-thap-nhat' => 'Giá từ',
 'view_all_products' => 'Tất cả sản phẩm',
-'features_products' => 'Được tài trợ',
+'features_products' => 'Sản phẩm được tài trợ',
 'recommended_products' => 'Gợi ý hôm nay',
 'staff_picks' => 'Đề xuất cho bạn',
 'best_sellers' => 'Bán chạy nhất',
