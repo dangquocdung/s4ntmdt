@@ -131,6 +131,9 @@
     <!-- Sidebar-->
     <div class="col-lg-3 order-lg-1">
 
+    <section class="widget widget-categories">
+      <h3 class="widget-title">{!! trans('frontend.store_label') !!}</h3>
+
       <ul class="list-icon">
         <li> <i class="icon-map-pin text-muted"></i> {!! $vendor_settings->profile_details->address_line_1 !!}</li>
         <li> <i class="icon-phone text-muted"></i> {!! $vendor_settings->profile_details->phone !!}</li>
@@ -140,116 +143,38 @@
         <li> <i class="icon-calendar text-muted"></i> {!! Carbon\Carbon::parse( $vendor_info->created_at )->format('d-m-Y') !!}</li>
       </ul>
 
-      @if($vendor_package_details->show_social_media_share_btn_on_store_page == true)  
-        <div class="d-flex flex-wrap justify-content-between">
-          <div class="mt-2 mb-2">
-            <span class="text-muted">{!! trans('frontend.share_label') !!}:&nbsp;&nbsp;</span>
+        @if($vendor_package_details->show_social_media_share_btn_on_store_page == true)  
+          <div class="d-flex flex-wrap justify-content-between">
+            <div class="mt-2 mb-2">
+              <span class="text-muted">{!! trans('frontend.share_label') !!}:&nbsp;&nbsp;</span>
 
-            <div class="d-inline-block">
-              <a class="social-button shape-rounded sb-facebook" href="//{{ $vendor_settings->social_media->fb_follow_us_url }}" data-name="fb"><i class="socicon-facebook"></i></a>
-              <a class="social-button shape-rounded sb-facebook" href="//{{ $vendor_settings->social_media->fb_follow_us_url }}" data-name="gplus"><i class="socicon-twitter"></i></a>
-              <a class="social-button shape-rounded sb-facebook" href="//{{ $vendor_settings->social_media->fb_follow_us_url }}" data-name="instagram"><i class="socicon-instagram"></i></a>
-              <a class="social-button shape-rounded sb-facebook" href="//{{ $vendor_settings->social_media->fb_follow_us_url }}" data-name="youtube"><i class="socicon-youtube"></i></a>
-            </div> 
-          </div>
-        </div> 
-        <hr><br>
-      @endif 
-
-      @if(Request::is('store/details/products/*') || Request::is('store/details/cat/products/*'))  
-
-        @if(Request::is('store/details/products/*'))
-        <div class="product-categories-list">
-            @include('includes.frontend.vendor-categories', array('user_name' => $vendor_info->name))
-            @yield('vendor-categories-content')  
-        </div>
-        @elseif(Request::is('store/details/cat/products/*'))
-        <div class="product-categories-list">
-            @include('includes.frontend.vendor-categories-page')
-            @yield('vendor-categories-page-content')
-        </div>		
-        @endif
-
-        <div class="filter-panel">
-          <div class="filter-option-title">{{ trans('frontend.filter_options_label') }}</div>
-          <form action="{{ $vendor_products['action_url'] }}" method="get">
-            <div class="price-filter">
-              <h2><span>{!! trans('frontend.price_range_label') !!}</span></h2>
-              <div class="price-slider-option">
-                <input type="text" class="span2" value="" data-slider-min="{{ get_appearance_settings()['general']['filter_price_min'] }}" data-slider-max="{{ get_appearance_settings()['general']['filter_price_max'] }}" data-slider-step="5" data-slider-value="[{{ $vendor_products['min_price'] }},{{ $vendor_products['max_price'] }}]" id="price_range" ><br />
-                <b>{!! price_html(get_appearance_settings()['general']['filter_price_min'], get_frontend_selected_currency()) !!}</b> <b class="pull-right">{!! price_html(get_appearance_settings()['general']['filter_price_max'], get_frontend_selected_currency()) !!}</b>
-
-                <input name="price_min" id="price_min" value="{{ $vendor_products['min_price'] }}" type="hidden">
-                <input name="price_max" id="price_max" value="{{ $vendor_products['max_price'] }}" type="hidden">
-              </div>
-            </div>  
-                            
-            @if(count($colors_list_data) > 0)
-            <div class="colors-filter">
-              <h2><span>{!! trans('frontend.choose_color_label') !!}</span></h2>
-              <div class="colors-filter-option">
-                @foreach($colors_list_data as $terms)
-                <div class="colors-filter-elements">
-                  <div class="chk-filter">
-                    @if(count($vendor_products['selected_colors']) > 0 && in_array($terms['slug'], $vendor_products['selected_colors']))  
-                    <input type="checkbox" checked class="shopist-iCheck chk-colors-filter" value="{{ $terms['slug'] }}">
-                    @else
-                    <input type="checkbox" class="shopist-iCheck chk-colors-filter" value="{{ $terms['slug'] }}">
-                    @endif
-                  </div>
-                  <div class="filter-terms">
-                    <div class="filter-terms-appearance"><span style="background-color:#{{ $terms['color_code'] }};width:21px;height:20px;display:block;"></span></div>
-                    <div class="filter-terms-name">&nbsp; {!! $terms['name'] !!}</div>
-                  </div>
-                </div>
-                @endforeach
-              </div>
-              @if($vendor_products['selected_colors_hf'])
-              <input name="selected_colors" id="selected_colors" value="{{ $vendor_products['selected_colors_hf'] }}" type="hidden">
-              @endif
-            </div>
-            @endif
-                            
-            @if(count($sizes_list_data) > 0)
-            <div class="size-filter">
-              <h2><span>{!! trans('frontend.choose_size_label') !!}</span></h2>
-              <div class="size-filter-option">
-                @foreach($sizes_list_data as $terms)
-                <div class="size-filter-elements">
-                  <div class="chk-filter">
-                    @if(count($vendor_products['selected_sizes']) > 0 && in_array($terms['slug'], $vendor_products['selected_sizes']))  
-                    <input type="checkbox" checked class="shopist-iCheck chk-size-filter" value="{{ $terms['slug'] }}">
-                    @else
-                    <input type="checkbox" class="shopist-iCheck chk-size-filter" value="{{ $terms['slug'] }}">
-                    @endif
-                  </div>
-                  <div class="filter-terms">
-                    <div class="filter-terms-name">{!! $terms['name'] !!}</div>
-                  </div>
-                </div>
-                @endforeach
+              <div class="d-inline-block">
+                <a class="social-button shape-rounded sb-facebook" href="//{{ $vendor_settings->social_media->fb_follow_us_url }}" data-name="fb"><i class="socicon-facebook"></i></a>
+                <a class="social-button shape-rounded sb-facebook" href="//{{ $vendor_settings->social_media->fb_follow_us_url }}" data-name="gplus"><i class="socicon-twitter"></i></a>
+                <a class="social-button shape-rounded sb-facebook" href="//{{ $vendor_settings->social_media->fb_follow_us_url }}" data-name="instagram"><i class="socicon-instagram"></i></a>
+                <a class="social-button shape-rounded sb-facebook" href="//{{ $vendor_settings->social_media->fb_follow_us_url }}" data-name="youtube"><i class="socicon-youtube"></i></a>
               </div> 
-              @if($vendor_products['selected_sizes_hf'])
-              <input name="selected_sizes" id="selected_sizes" value="{{ $vendor_products['selected_sizes_hf'] }}" type="hidden">
-              @endif
             </div>
-            @endif
-                            
-            <div class="btn-filter clearfix">
-              <button class="btn btn-sm" type="submit"><i class="fa fa-filter" aria-hidden="true"></i> {!! trans('frontend.filter_label') !!}</button>
-              <a class="btn btn-sm" href="{{ route('store-products-page-content', $vendor_info->name) }}"><i class="fa fa-close" aria-hidden="true"></i> {!! trans('frontend.clear_filter_label') !!}</a>  
-            </div>
-          </form>
-        </div>
-      @else
+          </div> 
+          <hr><br>
+        @endif 
+
+      </section>
+
+      <section class="widget widget-categories">
+
+          @include('includes.frontend.vendor-categories', array('user_name' => $vendor_info->name))
+          @yield('vendor-categories-content')  
+
+      </section>
+        
         @if($vendor_package_details->show_map_on_store_page == true)
-        <div class="vendor-location">
-          <div class="vendor-location-content">
-            <h2><span>{!! trans('frontend.store_location_label') !!}</span></h2>
-            <div id="location_map"></div>
-          </div>    
-        </div>  
-        <br><br>
+
+        <section class="widget widget-categories">
+          <h3 class="widget-title">{!! trans('frontend.store_location_label') !!}</h3>
+          <div id="location_map"></div>
+        </section>
+        
         @endif
         
         @if($vendor_package_details->show_contact_form_on_store_page == true)
@@ -269,7 +194,6 @@
           </div>
         </div> 
         @endif
-      @endif
       
     </div>
   </div>

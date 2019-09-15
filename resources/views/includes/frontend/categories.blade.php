@@ -1,6 +1,6 @@
 <section class="widget widget-categories">
 @if (count($productCategoriesTree) > 0)
-  <h3 class="widget-title">Shop Categories</h3>
+  <h3 class="widget-title">{!! trans('frontend.shop_categories') !!}</h3>
   <ul>
     <!-- expanded -->
     @foreach ($productCategoriesTree as $data)
