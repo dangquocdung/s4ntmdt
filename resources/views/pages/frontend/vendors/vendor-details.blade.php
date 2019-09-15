@@ -146,7 +146,7 @@
         @if($vendor_package_details->show_social_media_share_btn_on_store_page == true)  
           <div class="d-flex flex-wrap justify-content-between">
             <div class="mt-2 mb-2">
-              <span class="text-muted">{!! trans('frontend.lk_mxh') !!}:&nbsp;&nbsp;</span>
+              <span class="text-muted">{!! trans('frontend.lk-mxh') !!}:&nbsp;&nbsp;</span>
 
               <div class="d-inline-block">
                 <a class="social-button shape-rounded sb-facebook" href="//{{ $vendor_settings->social_media->fb_follow_us_url }}" data-name="fb"><i class="socicon-facebook"></i></a>

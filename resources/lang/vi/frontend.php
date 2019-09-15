@@ -550,4 +550,6 @@ return [
 'chung-toi' => 'Giới thiệu',
 'about_us' => 'Về chúng tôi',
 'gian-hang' => 'Gian hàng',
+'lk-mxh' => 'Liên kết',
+'shop_categories' => 'Danh mục'
 ];
