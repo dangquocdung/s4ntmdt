@@ -161,7 +161,7 @@
     <section class="widget widget-categories">
       <h3 class="widget-title">{!! trans('frontend.store_label') !!}</h3>
 
-      <ul class="list-icon">
+      <ul class="list-icon" style="list-style:none">
         <li> <i class="icon-map-pin text-muted"></i> {!! $vendor_settings->profile_details->address_line_1 !!}</li>
         <li> <i class="icon-phone text-muted"></i> {!! $vendor_settings->profile_details->phone !!}</li>
         <li> <i class="icon-mail text-muted"></i>
