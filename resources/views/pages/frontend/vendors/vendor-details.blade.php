@@ -158,7 +158,7 @@
     <!-- Sidebar-->
     <div class="col-lg-3 order-lg-1">
 
-    <section class="widget widget-categories">
+    <section>
       <h3 class="widget-title">{!! trans('frontend.store_label') !!}</h3>
 
       <ul class="list-icon" style="list-style:none">
