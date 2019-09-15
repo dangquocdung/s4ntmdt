@@ -3,6 +3,33 @@
 
 @section('content')
 
+<style>
+  #location_map {
+  height: 400px;
+  width: 100%;
+  }
+</style>
+
+<script>
+  @if($vendor_package_details->show_map_on_store_page == true)
+    function initMap() {
+      var position = { lat: {!! $vendor_settings->general_details->latitude !!}, lng: {!! $vendor_settings->general_details->longitude !!} };
+      var map = new google.maps.Map(document.getElementById('location_map'), {
+        zoom: 7,
+        center: position
+      });
+
+      var marker = new google.maps.Marker({
+        position: position,
+        map: map
+      });
+    }
+  @endif
+</script>
+@if($vendor_package_details->show_map_on_store_page == true)
+  <script async defer src="https://maps.googleapis.com/maps/api/js?key={{ $vendor_settings->general_details->google_map_app_key }}&callback=initMap"></script>
+@endif
+
 <!-- Page Title-->
 <div class="page-title">
   <div class="container">
