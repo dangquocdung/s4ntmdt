@@ -158,7 +158,7 @@
     <!-- Sidebar-->
     <div class="col-lg-3 order-lg-1">
 
-      <section>
+      <section class="widget">
         <h3 class="widget-title">{!! trans('frontend.store_label') !!}</h3>
 
         <ul class="list-icon" style="list-style:none">
@@ -198,7 +198,7 @@
         
         @if($vendor_package_details->show_map_on_store_page == true)
 
-        <section>
+        <section class="widget">
           <h3 class="widget-title">{!! trans('frontend.store_location_label') !!}</h3>
           <div id="location_map"></div>
         </section>
@@ -206,7 +206,7 @@
         @endif
         
         @if($vendor_package_details->show_contact_form_on_store_page == true)
-          <section class="widget widget-categories">
+          <section class="widget">
             <h3 class="widget-title">{!! trans('frontend.contact_vendor_label') !!}</h3>
             
             <div class="form-group">
