@@ -15,7 +15,8 @@
 
         @endif
 
-          <a href="#">{!! $data['name'] !!}</a><span>(123)</span>
+          <a href="#">{!! $data['name'] !!}</a>
+          <!-- <span>(123)</span> -->
 
           @if(count($data['children'])>0)
           <ul>
