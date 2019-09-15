@@ -131,16 +131,27 @@
     <!-- Sidebar-->
     <div class="col-lg-3 order-lg-1">
 
+      <div class="card-body">
+        <ul class="list-icon">
+          <li> <i class="icon-map-pin text-muted"></i> {!! $details->profile_details->address_line_1 !!}</li>
+          <li> <i class="icon-phone text-muted"></i> {!! $details->profile_details->phone !!}</li>
+          <li> <i class="icon-mail text-muted"></i>
+            <a class="navi-link" href="mailto:{!! $vendor->email !!}"> {!! $vendor->email !!}</a>
+          </li>
+          <li> <i class="icon-calendar text-muted"></i> {!! Carbon\Carbon::parse(  $vendor->created_at )->format('d-m-Y') !!}</li>
+        </ul>
+      </div>
+
       @if($vendor_package_details->show_social_media_share_btn_on_store_page == true)  
         <div class="d-flex flex-wrap justify-content-between">
           <div class="mt-2 mb-2">
             <span class="text-muted">{!! trans('frontend.share_label') !!}:&nbsp;&nbsp;</span>
 
             <div class="d-inline-block">
-              <a class="social-button shape-rounded sb-facebook" href="" data-name="fb"><i class="socicon-facebook"></i></a>
-              <a class="social-button shape-rounded sb-facebook" href="" data-name="gplus"><i class="socicon-twitter"></i></a>
-              <a class="social-button shape-rounded sb-facebook" href="" data-name="instagram"><i class="socicon-instagram"></i></a>
-              <a class="social-button shape-rounded sb-facebook" href="" data-name="youtube"><i class="socicon-youtube"></i></a>
+              <a class="social-button shape-rounded sb-facebook" href="//{{ $vendor_settings->social_media->fb_follow_us_url }}" data-name="fb"><i class="socicon-facebook"></i></a>
+              <a class="social-button shape-rounded sb-facebook" href="//{{ $vendor_settings->social_media->fb_follow_us_url }}" data-name="gplus"><i class="socicon-twitter"></i></a>
+              <a class="social-button shape-rounded sb-facebook" href="//{{ $vendor_settings->social_media->fb_follow_us_url }}" data-name="instagram"><i class="socicon-instagram"></i></a>
+              <a class="social-button shape-rounded sb-facebook" href="//{{ $vendor_settings->social_media->fb_follow_us_url }}" data-name="youtube"><i class="socicon-youtube"></i></a>
             </div> 
           </div>
         </div> 
