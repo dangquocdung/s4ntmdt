@@ -184,17 +184,14 @@
             
             <div class="form-group">
               <input class="form-control" name="contact_name" id="contact_name" placeholder="{{ trans('frontend.enter_name_label') }}" type="text" required>
-              <div class="valid-feedback">Looks good!</div>
             </div>
 
             <div class="form-group">
-              <input class="form-control" name="contact_email_id" id="contact_email_id" placeholder="{{ trans('frontend.enter_email_label') }}" type="text" required>
-              <div class="valid-feedback">Looks good!</div>
+              <input class="form-control" name="contact_email_id" id="contact_email_id" placeholder="{{ trans('frontend.enter_email_label') }}" type="email" required>
             </div>
 
             <div class="form-group">
               <textarea class="form-control" name="contact_message" id="contact_message" placeholder="{{ trans('frontend.enter_your_message_label') }}"></textarea>
-              <div class="valid-feedback">Looks good!</div>
             </div> 
             
             <button class="btn btn-primary pull-right" type="button" id="sendVendorContactMessage" name="sendVendorContactMessage">{!! trans('frontend.send_label') !!} <i class="fa fa-arrow-circle-right"></i></button>  
@@ -221,6 +218,7 @@
 <script type="text/javascript">
   $(document).ready(function(){
     $('#sendVendorContactMessage').on('click', function(){
+
       if($('#contact_name').val() == '' || $('#contact_name').val() == null){
         alert('please insert name!');
         return false;
@@ -254,18 +252,6 @@
       }
     });
     
-    if($('#store_details #price_range').length>0){
-      $('#store_details #price_range').slider();
-    }
-    
-    if($('#store_details .price-slider-option #price_range').length>0){
-      $('#store_details .price-slider-option #price_range') .slider()
-        .on('slideStop', function(ev){
-          $('#price_min').val(ev.value[0]);
-          $('#price_max').val(ev.value[1]);
-          $('.price-slider-option .tooltip-inner').html(ev.value[0] + ':' + ev.value[1]);
-        });
-    }
   });
 </script>
 
