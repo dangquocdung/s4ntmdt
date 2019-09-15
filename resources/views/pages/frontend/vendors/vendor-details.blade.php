@@ -182,7 +182,6 @@
           <section class="widget widget-categories">
             <h3 class="widget-title">{!! trans('frontend.contact_vendor_label') !!}</h3>
             
-
             <div class="form-group">
               <input class="form-control" name="contact_name" id="contact_name" placeholder="{{ trans('frontend.enter_name_label') }}" type="text" required>
               <div class="valid-feedback">Looks good!</div>
