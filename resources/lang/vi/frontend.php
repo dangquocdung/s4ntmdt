@@ -318,7 +318,7 @@ return [
 'latest_products_empty_label' =>'Sản phẩm mới nhất không có sẵn!',
 'best_sales_label' =>'Bán chạy nhất',
 'best_sales_products_empty_label' =>'Sản phẩm bán hàng tốt nhất không có sẵn!',
-'featured_products_label' =>'Nổi bật',
+'featured_products_label' =>'Đang phổ biến',
 'features_products_empty_label' =>'Tính năng sản phẩm không có sẵn!',
 'testimonials_label' =>'Lời chứng thực',
 'testimonials_data_empty_label' =>'Dữ liệu chứng thực không có sẵn!',
