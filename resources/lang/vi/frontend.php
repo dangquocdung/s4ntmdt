@@ -551,5 +551,6 @@ return [
 'about_us' => 'Về chúng tôi',
 'gian-hang' => 'Gian hàng',
 'lk-mxh' => 'Liên kết',
-'shop_categories' => 'Danh mục'
+'shop_categories' => 'Danh mục',
+'store_label' => 'Thông tin gian hàng'
 ];

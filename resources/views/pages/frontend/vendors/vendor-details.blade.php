@@ -160,12 +160,31 @@
 
       </section>
 
-      <section class="widget widget-categories">
+      @if(Request::is('gian-hang/chi-tiet/san-pham/*') || Request::is('gian-hang/chi-tiet/danh-muc/san-pham/*'))  
 
-          @include('includes.frontend.vendor-categories', array('user_name' => $vendor_info->name))
-          @yield('vendor-categories-content')  
+        @if(Request::is('gian-hang/chi-tiet/san-pham/*'))
 
-      </section>
+          <section class="widget widget-categories">
+            @include('includes.frontend.vendor-categories', array('user_name' => $vendor_info->name))
+            @yield('vendor-categories-content')  
+          </section>
+          
+        @elseif(Request::is('gian-hang/chi-tiet/danh-muc/san-pham/*'))
+
+          <section class="widget widget-categories">
+            @include('includes.frontend.vendor-categories'))
+            @yield('vendor-categories-content')  
+          </section>
+
+        @endif
+
+        <section class="widget widget-categories">
+            @include('includes.frontend.vendor-categories', array('user_name' => $vendor_info->name))
+            @yield('vendor-categories-content')  
+
+        </section>
+
+      @else
         
         @if($vendor_package_details->show_map_on_store_page == true)
 
@@ -193,6 +212,8 @@
           </div>
         </div> 
         @endif
+
+      @endif
       
     </div>
   </div>

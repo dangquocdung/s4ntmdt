@@ -119,7 +119,7 @@ Route::post( '/store/details/reviews/{store_user_name}', [
   'as'   => 'vendor-reviews-save'
 ]);
 
-Route::get( '/gian-hang/chi-tiet/cat/products/{product_cat}/{store_user_name}', [
+Route::get( '/gian-hang/chi-tiet/danh-muc/san-pham/{product_cat}/{store_user_name}', [
   'uses' => 'Frontend\FrontendManagerController@multivendorStoreSinglePageProductsCatContent',
   'as'   => 'store-products-cat-page-content'
 ]);

@@ -1,5 +1,22 @@
-<li><a href="{{ route('store-products-cat-page-content', array($data['slug'], $user_name)) }}"> {!! $data['name'] !!} </a></li>
+@if(count($data['children'])>0)
 
-@foreach($data['children'] as $data)  
-  @include('pages.common.product-children-category-extra', $data)
-@endforeach
+<li><a href="{{ route('store-products-cat-page-content', array($data['slug'], $vendor_info->name)) }}"> {!! $data['name'] !!} </a>
+  <ul>
+
+    @foreach($data['children'] as $data)  
+      @include('pages.common.product-children-category-extra', $data)
+    @endforeach
+
+  </ul>
+
+
+</li>
+
+
+@else
+
+<li><a href="{{ route('store-products-cat-page-content', array($data['slug'], $vendor_info->name)) }}"> {!! $data['name'] !!} </a></li>
+
+
+@endif
+
