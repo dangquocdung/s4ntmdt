@@ -158,32 +158,32 @@
     <!-- Sidebar-->
     <div class="col-lg-3 order-lg-1">
 
-    <section>
-      <h3 class="widget-title">{!! trans('frontend.store_label') !!}</h3>
+      <section>
+        <h3 class="widget-title">{!! trans('frontend.store_label') !!}</h3>
 
-      <ul class="list-icon" style="list-style:none">
-        <li> <i class="icon-map-pin text-muted"></i> {!! $vendor_settings->profile_details->address_line_1 !!}</li>
-        <li> <i class="icon-phone text-muted"></i> {!! $vendor_settings->profile_details->phone !!}</li>
-        <li> <i class="icon-mail text-muted"></i>
-          <a class="navi-link" href="mailto:{!! $vendor_info->email !!}"> {!! $vendor_info->email !!}</a>
-        </li>
-        <li> <i class="icon-calendar text-muted"></i> {!! Carbon\Carbon::parse( $vendor_info->created_at )->format('d-m-Y') !!}</li>
-      </ul>
+        <ul class="list-icon" style="list-style:none">
+          <li> <i class="icon-map-pin text-muted"></i> {!! $vendor_settings->profile_details->address_line_1 !!}</li>
+          <li> <i class="icon-phone text-muted"></i> {!! $vendor_settings->profile_details->phone !!}</li>
+          <li> <i class="icon-mail text-muted"></i>
+            <a class="navi-link" href="mailto:{!! $vendor_info->email !!}"> {!! $vendor_info->email !!}</a>
+          </li>
+          <li> <i class="icon-calendar text-muted"></i> {!! Carbon\Carbon::parse( $vendor_info->created_at )->format('d-m-Y') !!}</li>
+        </ul>
 
-        @if($vendor_package_details->show_social_media_share_btn_on_store_page == true)  
-          <div class="d-flex flex-wrap justify-content-between">
-            <div class="mt-2 mb-2">
-              <span class="text-muted">{!! trans('frontend.lk-mxh') !!}:&nbsp;&nbsp;</span>
+          @if($vendor_package_details->show_social_media_share_btn_on_store_page == true)  
+            <div class="d-flex flex-wrap justify-content-between">
+              <div class="mt-2 mb-2">
+                <span class="text-muted">{!! trans('frontend.lk-mxh') !!}:&nbsp;&nbsp;</span>
 
-              <div class="d-inline-block">
-                <a class="social-button shape-rounded sb-facebook" href="//{{ $vendor_settings->social_media->fb_follow_us_url }}" data-name="fb"><i class="socicon-facebook"></i></a>
-                <a class="social-button shape-rounded sb-facebook" href="//{{ $vendor_settings->social_media->fb_follow_us_url }}" data-name="gplus"><i class="socicon-twitter"></i></a>
-                <a class="social-button shape-rounded sb-facebook" href="//{{ $vendor_settings->social_media->fb_follow_us_url }}" data-name="instagram"><i class="socicon-instagram"></i></a>
-                <a class="social-button shape-rounded sb-facebook" href="//{{ $vendor_settings->social_media->fb_follow_us_url }}" data-name="youtube"><i class="socicon-youtube"></i></a>
-              </div> 
-            </div>
-          </div> 
-        @endif 
+                <div class="d-inline-block">
+                  <a class="social-button shape-rounded sb-facebook" href="//{{ $vendor_settings->social_media->fb_follow_us_url }}" data-name="fb"><i class="socicon-facebook"></i></a>
+                  <a class="social-button shape-rounded sb-facebook" href="//{{ $vendor_settings->social_media->fb_follow_us_url }}" data-name="gplus"><i class="socicon-twitter"></i></a>
+                  <a class="social-button shape-rounded sb-facebook" href="//{{ $vendor_settings->social_media->fb_follow_us_url }}" data-name="instagram"><i class="socicon-instagram"></i></a>
+                  <a class="social-button shape-rounded sb-facebook" href="//{{ $vendor_settings->social_media->fb_follow_us_url }}" data-name="youtube"><i class="socicon-youtube"></i></a>
+                </div> 
+              </div>
+            </div> 
+          @endif 
 
       </section>
 
@@ -198,7 +198,7 @@
         
         @if($vendor_package_details->show_map_on_store_page == true)
 
-        <section class="widget widget-categories">
+        <section>
           <h3 class="widget-title">{!! trans('frontend.store_location_label') !!}</h3>
           <div id="location_map"></div>
         </section>
