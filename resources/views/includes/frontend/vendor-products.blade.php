@@ -2,219 +2,120 @@
 
 @if($vendor_products['products']->count() > 0)
   @if($vendor_products['selected_view'] == 'grid')
-    <div class="product-content">
-      <div class="row">
-      @foreach($vendor_products['products'] as $products)
-        <?php 
-        $reviews          = get_comments_rating_details($products->id, 'product');
-        $reviews_settings = get_reviews_settings_data($products->id);      
-        ?>
-        <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 extra-padding grid-view">
-          <div class="hover-product">
-            <div class="hover">
-              @if(!empty($products->image_url))
-              <img class="img-responsive" src="{{ get_image_url( $products->image_url ) }}" alt="{{ basename( get_image_url( $products->image_url ) ) }}" />
-              @else
-              <img class="img-responsive" src="{{ default_placeholder_img_src() }}" alt="" />
-              @endif
-
-              <div class="overlay">
-                <button class="info quick-view-popup" data-id="{{ $products->id }}">{{ trans('frontend.quick_view_label') }}</button>
-              </div>
-            </div> 
-
-            <div class="single-product-bottom-section">
-              <h3>{!! $products->title !!}</h3>
-
-              @if($products->type == 'simple_product')
-                <p>{!! price_html( $products->price, get_frontend_selected_currency() ) !!}</p>
-              @elseif($products->type == 'configurable_product')
-                <p>{!! get_product_variations_min_to_max_price_html(get_frontend_selected_currency(), $products->id) !!}</p>
-              @elseif($products->type == 'customizable_product' || $products->type == 'downloadable_product')
-                @if(count(get_product_variations($products->id))>0)
-                  <p>{!! get_product_variations_min_to_max_price_html(get_frontend_selected_currency(), $products->id) !!}</p>
-                @else
-                  <p>{!! price_html( $products->price, get_frontend_selected_currency() ) !!}</p>
-                @endif
-              @endif
-              
-              @if($reviews_settings['enable_reviews_add_link_to_product_page'] && $reviews_settings['enable_reviews_add_link_to_product_page'] == 'yes')
-                <div class="text-center">
-                  <div class="star-rating">
-                    <span style="width:{{ $reviews['percentage'] }}%"></span>
-                  </div>
-
-                  <div class="comments-advices">
-                    <ul>
-                      <li class="read-review"><a href="{{ route('details-page', $products->slug) }}#product_description_bottom_tab" class="reviews selected"> {{ trans('frontend.single_product_read_review_label') }} (<span itemprop="reviewCount">{!! $reviews['total'] !!}</span>) </a></li>
-                      <li class="write-review"><a class="open-comment-form" href="{{ route('details-page', $products->slug) }}#new_comment_form">&nbsp;<span>|</span>&nbsp; {{ trans('frontend.single_product_write_review_label') }} </a></li>
-                    </ul>
-                  </div>
-                </div>
-              @endif
-              
-              <div class="title-divider"></div>
-              <div class="single-product-add-to-cart">
-                @if($products->type == 'simple_product')
-                  <a href="" data-id="{{ $products->id }}" class="btn btn-sm btn-style add-to-cart-bg" data-toggle="tooltip" data-placement="top" title="{{ trans('frontend.add_to_cart_label') }}"><i class="fa fa-shopping-cart"></i></a>
-                  <a href="" class="btn btn-sm btn-style product-wishlist" data-id="{{ $products->id }}" data-toggle="tooltip" data-placement="top" title="{{ trans('frontend.add_to_wishlist_label') }}"><i class="fa fa-heart"></i></a>
-                  <a href="" class="btn btn-sm btn-style product-compare" data-id="{{ $products->id }}" data-toggle="tooltip" data-placement="top" title="{{ trans('frontend.add_to_compare_list_label') }}"><i class="fa fa-exchange"></i></a>
-                  <a href="{{ route('details-page', $products->slug) }}" class="btn btn-sm btn-style product-details-view" data-toggle="tooltip" data-placement="top" title="{{ trans('frontend.product_details_label') }}"><i class="fa fa-eye"></i></a>
-
-                @elseif($products->type == 'configurable_product')
-                  <a href="{{ route('details-page', $products->slug) }}" class="btn btn-sm btn-style select-options-bg" data-toggle="tooltip" data-placement="top" title="{{ trans('frontend.select_options') }}"><i class="fa fa-hand-o-up"></i></a>
-                  <a href="" class="btn btn-sm btn-style product-wishlist" data-id="{{ $products->id }}" data-toggle="tooltip" data-placement="top" title="{{ trans('frontend.add_to_wishlist_label') }}"><i class="fa fa-heart"></i></a>
-                  <a href="" class="btn btn-sm btn-style product-compare" data-id="{{ $products->id }}" data-toggle="tooltip" data-placement="top" title="{{ trans('frontend.add_to_compare_list_label') }}"><i class="fa fa-exchange"></i></a>
-                  <a href="{{ route('details-page', $products->slug) }}" class="btn btn-sm btn-style product-details-view" data-toggle="tooltip" data-placement="top" title="{{ trans('frontend.product_details_label') }}"><i class="fa fa-eye"></i></a>
-
-                @elseif($products->type == 'customizable_product')
-                  @if(is_design_enable_for_this_product($products->id))
-                    <a href="{{ route('customize-page', $products->slug) }}" class="btn btn-sm btn-style product-customize-bg" data-toggle="tooltip" data-placement="top" title="{{ trans('frontend.customize') }}"><i class="fa fa-gears"></i></a>
-                    <a href="" class="btn btn-sm btn-style product-wishlist" data-id="{{ $products->id }}" data-toggle="tooltip" data-placement="top" title="{{ trans('frontend.add_to_wishlist_label') }}"><i class="fa fa-heart"></i></a>
-                    <a href="" class="btn btn-sm btn-style product-compare" data-id="{{ $products->id }}" data-toggle="tooltip" data-placement="top" title="{{ trans('frontend.add_to_compare_list_label') }}"><i class="fa fa-exchange"></i></a>
-                    <a href="{{ route('details-page', $products->slug) }}" class="btn btn-sm btn-style product-details-view" data-toggle="tooltip" data-placement="top" title="{{ trans('frontend.product_details_label') }}"><i class="fa fa-eye"></i></a>
-
-                  @else
-                    <a href="" data-id="{{ $products->id }}" class="btn btn-sm btn-style add-to-cart-bg" data-toggle="tooltip" data-placement="top" title="{{ trans('frontend.add_to_cart_label') }}"><i class="fa fa-shopping-cart"></i></a>
-                    <a href="" class="btn btn-sm btn-style product-wishlist" data-id="{{ $products->id }}" data-toggle="tooltip" data-placement="top" title="{{ trans('frontend.add_to_wishlist_label') }}"><i class="fa fa-heart"></i></a>
-                    <a href="" class="btn btn-sm btn-style product-compare" data-id="{{ $products->id }}" data-toggle="tooltip" data-placement="top" title="{{ trans('frontend.add_to_compare_list_label') }}"><i class="fa fa-exchange"></i></a>
-                    <a href="{{ route('details-page', $products->slug) }}" class="btn btn-sm btn-style product-details-view" data-toggle="tooltip" data-placement="top" title="{{ trans('frontend.product_details_label') }}"><i class="fa fa-eye"></i></a>
-                  @endif
-                @elseif($products->type == 'downloadable_product')
-                  @if(count(get_product_variations_with_data($products->id)) > 0)
-                    <a href="{{ route('details-page', $products->slug) }}" class="btn btn-sm btn-style select-options-bg" data-toggle="tooltip" data-placement="top" title="{{ trans('frontend.select_options') }}"><i class="fa fa-hand-o-up"></i></a>
-                    <a href="" class="btn btn-sm btn-style product-wishlist" data-id="{{ $products->id }}" data-toggle="tooltip" data-placement="top" title="{{ trans('frontend.add_to_wishlist_label') }}"><i class="fa fa-heart"></i></a>
-                    <a href="" class="btn btn-sm btn-style product-compare" data-id="{{ $products->id }}" data-toggle="tooltip" data-placement="top" title="{{ trans('frontend.add_to_compare_list_label') }}"><i class="fa fa-exchange"></i></a>
-                    <a href="{{ route('details-page', $products->slug) }}" class="btn btn-sm btn-style product-details-view" data-toggle="tooltip" data-placement="top" title="{{ trans('frontend.product_details_label') }}"><i class="fa fa-eye"></i></a>
-                  @else
-                    <a href="" data-id="{{ $products->id }}" class="btn btn-sm btn-style add-to-cart-bg" data-toggle="tooltip" data-placement="top" title="{{ trans('frontend.add_to_cart_label') }}"><i class="fa fa-shopping-cart"></i></a>
-                    <a href="" class="btn btn-sm btn-style product-wishlist" data-id="{{ $products->id }}" data-toggle="tooltip" data-placement="top" title="{{ trans('frontend.add_to_wishlist_label') }}"><i class="fa fa-heart"></i></a>
-                    <a href="" class="btn btn-sm btn-style product-compare" data-id="{{ $products->id }}" data-toggle="tooltip" data-placement="top" title="{{ trans('frontend.add_to_compare_list_label') }}"><i class="fa fa-exchange"></i></a>
-                    <a href="{{ route('details-page', $products->slug) }}" class="btn btn-sm btn-style product-details-view" data-toggle="tooltip" data-placement="top" title="{{ trans('frontend.product_details_label') }}"><i class="fa fa-eye"></i></a>
-                  @endif  
-                @endif
-              </div>
-            </div>
-          </div>
-        </div>
-      @endforeach
-      </div>  
-    </div>
-  @endif
-  
-  @if($vendor_products['selected_view'] == 'list')
     <div class="row">
       @foreach($vendor_products['products'] as $products)
         <?php 
         $reviews          = get_comments_rating_details($products->id, 'product');
-        $reviews_settings = get_reviews_settings_data($products->id);      
+        $reviews_settings = get_reviews_settings_data($products->id);
         ?>
-        <div class="col-xs-12 col-sm-12 col-md-12">
-          <div class="box effect list-view-box">
-            <div class="row"> 
-              <div class="col-xs-5 col-sm-5 col-md-5">
-                <div class="list-view-image-container">
-                  @if(!empty($products->image_url))
-                  <img class="img-responsive" src="{{ get_image_url( $products->image_url ) }}" alt="{{ basename( get_image_url( $products->image_url ) ) }}" />
+        <!-- Products Grid-->
+        <div class="col-md-4 col-sm-6">
+          <div class="product-card mb-30">
+            <!-- <div class="product-badge bg-danger">Sale</div> -->
+            <a class="product-thumb" href="{{ route('details-page', $products->slug ) }}">
+              @if(!empty($products->image_url))
+                <img src="{{ get_image_url( $products->image_url ) }}" alt="{{ basename( get_image_url( $products->image_url ) ) }}" />
+              @else
+                <img src="{{ default_placeholder_img_src() }}" alt="" />
+              @endif
+            </a>
+            <div class="product-card-body">
+              <!-- <div class="product-category"><a href="#">Smart home</a></div> -->
+              <h3 class="product-title"><a href="{{ route('details-page', $products->slug ) }}">{!! $products->title !!}</a></h3>
+              
+              <h4 class="product-price">
+                <del>
+                  {!! price_html( get_product_price_html_by_filter(get_role_based_price_by_product_id($products->id, $products->regular_price)), get_frontend_selected_currency()) !!}
+                </del>
+
+                @if( $products->type == 'simple_product' )
+                  {!! price_html( get_product_price_html_by_filter(get_role_based_price_by_product_id($products->id, $products->price)), get_frontend_selected_currency()) !!}
+                @elseif( $products->type == 'configurable_product' )
+                  {!! get_product_variations_min_to_max_price_html(get_frontend_selected_currency(), $products->id) !!}
+                @elseif( $products->type == 'customizable_product' || $products->type == 'downloadable_product')
+                  @if(count(get_product_variations($products->id))>0)
+                  {!! get_product_variations_min_to_max_price_html(get_frontend_selected_currency(), $products->id) !!}
                   @else
-                  <img class="img-responsive" src="{{ default_placeholder_img_src() }}" alt="" />
+                  {!! price_html( get_product_price_html_by_filter(get_role_based_price_by_product_id($products->id, $products->price)), get_frontend_selected_currency()) !!}
                   @endif
-                  <div class="overlay">
-                    <button class="info quick-view-popup" data-id="{{ $products->id }}">{{ trans('frontend.quick_view_label') }}</button>
-                  </div>
-                </div>
-              </div>
-              <div class="col-xs-7 col-sm-7 col-md-7">
-                <div class="list-view-product-details">
-                  <h3>{!! $products->title !!}</h3>
-
-                  @if($products->type == 'simple_product')
-                    <p>{!! price_html( $products->price, get_frontend_selected_currency() ) !!}</p>
-                  @elseif($products->type == 'configurable_product')
-                    <p>{!! get_product_variations_min_to_max_price_html(get_frontend_selected_currency(), $products->id) !!}</p>
-                  @elseif($products->type == 'customizable_product' || $products->type == 'downloadable_product')
-                    @if(count(get_product_variations($products->id))>0)
-                      <p>{!! get_product_variations_min_to_max_price_html(get_frontend_selected_currency(), $products->id) !!}</p>
-                    @else
-                      <p>{!! price_html( $products->price, get_frontend_selected_currency() ) !!}</p>
-                    @endif
-                  @endif
-
-                   @if($reviews_settings['enable_reviews_add_link_to_product_page'] && $reviews_settings['enable_reviews_add_link_to_product_page'] == 'yes')
-                    <div class="list-view-reviews-main">
-                      <div class="star-rating">
-                        <span style="width:{{ $reviews['percentage'] }}%"></span>
-                      </div>
-
-                      <div class="comments-advices">
-                        <ul>
-                          <li class="read-review"><a href="{{ route('details-page', $products->slug) }}#product_description_bottom_tab" class="reviews selected"> {{ trans('frontend.single_product_read_review_label') }} (<span itemprop="reviewCount">{!! $reviews['total'] !!}</span>) </a></li>
-                          <li class="write-review"><a class="open-comment-form" href="{{ route('details-page', $products->slug) }}#new_comment_form">&nbsp;<span>|</span>&nbsp; {{ trans('frontend.single_product_write_review_label') }} </a></li>
-                        </ul>
-                      </div>
-                    </div>
-                  @endif 
-
-                  <div class="title-divider"></div>
-
-                  <div class="single-product-add-to-cart">
-                    @if($products->type == 'simple_product')
-                      <a href="" data-id="{{ $products->id }}" class="btn btn-sm btn-style add-to-cart-bg" data-toggle="tooltip" data-placement="top" title="{{ trans('frontend.add_to_cart_label') }}"><i class="fa fa-shopping-cart"></i></a>
-                      <a href="" class="btn btn-sm btn-style product-wishlist" data-id="{{ $products->id }}" data-toggle="tooltip" data-placement="top" title="{{ trans('frontend.add_to_wishlist_label') }}"><i class="fa fa-heart"></i></a>
-                      <a href="" class="btn btn-sm btn-style product-compare" data-id="{{ $products->id }}" data-toggle="tooltip" data-placement="top" title="{{ trans('frontend.add_to_compare_list_label') }}"><i class="fa fa-exchange"></i></a>
-                      <a href="{{ route('details-page', $products->slug) }}" class="btn btn-sm btn-style product-details-view" data-toggle="tooltip" data-placement="top" title="{{ trans('frontend.product_details_label') }}"><i class="fa fa-eye"></i></a>
-
-                    @elseif($products->type == 'configurable_product')
-                      <a href="{{ route('details-page', $products->slug) }}" class="btn btn-sm btn-style select-options-bg" data-toggle="tooltip" data-placement="top" title="{{ trans('frontend.select_options') }}"><i class="fa fa-hand-o-up"></i></a>
-                      <a href="" class="btn btn-sm btn-style product-wishlist" data-id="{{ $products->id }}" data-toggle="tooltip" data-placement="top" title="{{ trans('frontend.add_to_wishlist_label') }}"><i class="fa fa-heart"></i></a>
-                      <a href="" class="btn btn-sm btn-style product-compare" data-id="{{ $products->id }}" data-toggle="tooltip" data-placement="top" title="{{ trans('frontend.add_to_compare_list_label') }}"><i class="fa fa-exchange"></i></a>
-                      <a href="{{ route('details-page', $products->slug) }}" class="btn btn-sm btn-style product-details-view" data-toggle="tooltip" data-placement="top" title="{{ trans('frontend.product_details_label') }}"><i class="fa fa-eye"></i></a>
-
-                    @elseif($products->type == 'customizable_product')
-                      @if(is_design_enable_for_this_product($products->id))
-                        <a href="{{ route('customize-page', $products->slug) }}" class="btn btn-sm btn-style product-customize-bg" data-toggle="tooltip" data-placement="top" title="{{ trans('frontend.customize') }}"><i class="fa fa-gears"></i></a>
-                        <a href="" class="btn btn-sm btn-style product-wishlist" data-id="{{ $products->id }}" data-toggle="tooltip" data-placement="top" title="{{ trans('frontend.add_to_wishlist_label') }}"><i class="fa fa-heart"></i></a>
-                        <a href="" class="btn btn-sm btn-style product-compare" data-id="{{ $products->id }}" data-toggle="tooltip" data-placement="top" title="{{ trans('frontend.add_to_compare_list_label') }}"><i class="fa fa-exchange"></i></a>
-                        <a href="{{ route('details-page', $products->slug) }}" class="btn btn-sm btn-style product-details-view" data-toggle="tooltip" data-placement="top" title="{{ trans('frontend.product_details_label') }}"><i class="fa fa-eye"></i></a>
-
-                      @else
-                        <a href="" data-id="{{ $products->id }}" class="btn btn-sm btn-style add-to-cart-bg" data-toggle="tooltip" data-placement="top" title="{{ trans('frontend.add_to_cart_label') }}"><i class="fa fa-shopping-cart"></i></a>
-                        <a href="" class="btn btn-sm btn-style product-wishlist" data-id="{{ $products->id }}" data-toggle="tooltip" data-placement="top" title="{{ trans('frontend.add_to_wishlist_label') }}"><i class="fa fa-heart"></i></a>
-                        <a href="" class="btn btn-sm btn-style product-compare" data-id="{{ $products->id }}" data-toggle="tooltip" data-placement="top" title="{{ trans('frontend.add_to_compare_list_label') }}"><i class="fa fa-exchange"></i></a>
-                        <a href="{{ route('details-page', $products->slug) }}" class="btn btn-sm btn-style product-details-view" data-toggle="tooltip" data-placement="top" title="{{ trans('frontend.product_details_label') }}"><i class="fa fa-eye"></i></a>
-                      @endif
-                    @elseif($products->type == 'downloadable_product')
-                      @if(count(get_product_variations_with_data($products->id)) > 0)
-                        <a href="{{ route('details-page', $products->slug) }}" class="btn btn-sm btn-style select-options-bg" data-toggle="tooltip" data-placement="top" title="{{ trans('frontend.select_options') }}"><i class="fa fa-hand-o-up"></i></a>
-                        <a href="" class="btn btn-sm btn-style product-wishlist" data-id="{{ $products->id }}" data-toggle="tooltip" data-placement="top" title="{{ trans('frontend.add_to_wishlist_label') }}"><i class="fa fa-heart"></i></a>
-                        <a href="" class="btn btn-sm btn-style product-compare" data-id="{{ $products->id }}" data-toggle="tooltip" data-placement="top" title="{{ trans('frontend.add_to_compare_list_label') }}"><i class="fa fa-exchange"></i></a>
-                        <a href="{{ route('details-page', $products->slug) }}" class="btn btn-sm btn-style product-details-view" data-toggle="tooltip" data-placement="top" title="{{ trans('frontend.product_details_label') }}"><i class="fa fa-eye"></i></a>
-                      @else
-                        <a href="" data-id="{{ $products->id }}" class="btn btn-sm btn-style add-to-cart-bg" data-toggle="tooltip" data-placement="top" title="{{ trans('frontend.add_to_cart_label') }}"><i class="fa fa-shopping-cart"></i></a>
-                        <a href="" class="btn btn-sm btn-style product-wishlist" data-id="{{ $products->id }}" data-toggle="tooltip" data-placement="top" title="{{ trans('frontend.add_to_wishlist_label') }}"><i class="fa fa-heart"></i></a>
-                        <a href="" class="btn btn-sm btn-style product-compare" data-id="{{ $products->id }}" data-toggle="tooltip" data-placement="top" title="{{ trans('frontend.add_to_compare_list_label') }}"><i class="fa fa-exchange"></i></a>
-                        <a href="{{ route('details-page', $products->slug) }}" class="btn btn-sm btn-style product-details-view" data-toggle="tooltip" data-placement="top" title="{{ trans('frontend.product_details_label') }}"><i class="fa fa-eye"></i></a>
-                      @endif    
-                    @endif
-                  </div>
-                </div>  
-              </div>
+                @endif
+              </h4>
+            </div>
+            <div class="product-button-group">
+              <a class="product-button btn-wishlist product-wishlist" data-id="{{ $products->id }}" data-toggle="tooltip" title="{{ trans('frontend.add_to_wishlist_label') }}" data-original-title="{{ trans('frontend.add_to_wishlist_label') }}">
+                <i class="icon-heart"></i><span>{{ trans('frontend.add_to_wishlist_label') }}</span>
+              </a>
+              <a class="product-button btn-compare product-compare" data-id="{{ $products->id }}" data-toggle="tooltip" title="" data-original-title="{{ trans('frontend.add_to_compare_list_label') }}">
+                <i class="icon-repeat"></i><span>{{ trans('frontend.add_to_compare_list_label') }}</span>
+              </a>
+              <a class="product-button add-to-cart-bg" data-toast data-toast-type="success" data-toast-position="topRight" data-toast-icon="icon-check-circle" data-toast-title="{!! $products->title !!}" data-toast-message="{{ trans('frontend.successfuly_added_to_cart') }}" data-id="{{ $products->id }}" data-toggle="tooltip" data-placement="top"title="" data-original-title="{{ trans('frontend.add_to_cart_label') }}">
+                <i class="icon-shopping-cart"></i><span>{{ trans('frontend.add_to_cart_label') }}</span>
+              </a>
             </div>
           </div>
         </div>
       @endforeach
     </div>
   @endif
-  <div class="row">
-    <div class="col-12">
-      <div class="products-pagination">{!! $vendor_products['products']->appends(Request::capture()->except('page'))->render() !!}</div>
-    </div>
-  </div>
+
+  @if($vendor_products['selected_view'] == 'list')
+    @foreach($vendor_products['products'] as $products)
+      <?php 
+      $reviews          = get_comments_rating_details($products->id, 'product');
+      $reviews_settings = get_reviews_settings_data($products->id);
+      ?>
+      <!-- Products List-->
+      <div class="product-card product-list mb-30">
+        <a class="product-thumb" href="{{ route('details-page', $products->slug ) }}">
+          <!-- <div class="product-badge bg-danger">Sale</div> -->
+          @if(!empty($products->image_url))
+            <img src="{{ get_image_url( $products->image_url ) }}" alt="{{ basename( get_image_url( $products->image_url ) ) }}" />
+          @else
+            <img src="{{ default_placeholder_img_src() }}" alt="" />
+          @endif
+        </a>
+        <div class="product-card-inner">
+          <div class="product-card-body">
+            <!-- <div class="product-category"><a href="#">Smart home</a></div> -->
+            <h3 class="product-title"><a href="{{ route('details-page', $products->slug ) }}">{!! $products->title !!}</a></h3>
+            <h4 class="product-price">
+                <del>
+                  {!! price_html( get_product_price_html_by_filter(get_role_based_price_by_product_id($products->id, $products->regular_price)), get_frontend_selected_currency()) !!}
+                </del>
+                @if( $products->type == 'simple_product' )
+                  {!! price_html( get_product_price_html_by_filter(get_role_based_price_by_product_id($products->id, $products->price)), get_frontend_selected_currency()) !!}
+                @elseif( $products->type == 'configurable_product' )
+                  {!! get_product_variations_min_to_max_price_html(get_frontend_selected_currency(), $products->id) !!}
+                @elseif( $products->type == 'customizable_product' || $products->type == 'downloadable_product')
+                  @if(count(get_product_variations($products->id))>0)
+                  {!! get_product_variations_min_to_max_price_html(get_frontend_selected_currency(), $products->id) !!}
+                  @else
+                  {!! price_html( get_product_price_html_by_filter(get_role_based_price_by_product_id($products->id, $products->price)), get_frontend_selected_currency()) !!}
+                  @endif
+                @endif
+              </h4>
+            <p class="text-sm text-muted hidden-xs-down my-1">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tempore odit officiis illo perferendis deserunt, ipsam dolor ad dolorem eaque veritatis.</p>
+          </div>
+
+          <div class="product-button-group">
+            <a class="product-button btn-wishlist product-wishlist" data-id="{{ $products->id }}" data-toggle="tooltip" title="{{ trans('frontend.add_to_wishlist_label') }}" data-original-title="{{ trans('frontend.add_to_wishlist_label') }}">
+              <i class="icon-heart"></i><span>{{ trans('frontend.add_to_wishlist_label') }}</span>
+            </a>
+            <a class="product-button btn-compare product-compare" data-id="{{ $products->id }}" data-toggle="tooltip" title="" data-original-title="{{ trans('frontend.add_to_compare_list_label') }}">
+              <i class="icon-repeat"></i><span>{{ trans('frontend.add_to_compare_list_label') }}</span>
+            </a>
+            <a class="product-button add-to-cart-bg" data-toast data-toast-type="success" data-toast-position="topRight" data-toast-icon="icon-check-circle" data-toast-title="{!! $products->title !!}" data-toast-message="{{ trans('frontend.successfuly_added_to_cart') }}" data-id="{{ $products->id }}" data-toggle="tooltip" data-placement="top"title="" data-original-title="{{ trans('frontend.add_to_cart_label') }}">
+              <i class="icon-shopping-cart"></i><span>{{ trans('frontend.add_to_cart_label') }}</span>
+            </a>
+          </div>
+        </div>
+      </div>
+      
+    @endforeach    
+  @endif
 @else
-<div class="row">
-  <div class="col-12">
-    <p class="not-available">{!! trans('frontend.product_not_available') !!}</p>
-  </div>
-</div>
+  <p class="not-available">{!! trans('frontend.product_not_available') !!}</p>
 @endif
+
+
 @endsection
