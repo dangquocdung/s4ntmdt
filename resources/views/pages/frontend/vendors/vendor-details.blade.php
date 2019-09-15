@@ -162,28 +162,11 @@
 
       @if(Request::is('gian-hang/chi-tiet/san-pham/*') || Request::is('gian-hang/chi-tiet/danh-muc/san-pham/*'))  
 
-        @if(Request::is('gian-hang/chi-tiet/san-pham/*'))
-
           <section class="widget widget-categories">
             @include('includes.frontend.vendor-categories', array('user_name' => $vendor_info->name))
             @yield('vendor-categories-content')  
           </section>
           
-        @elseif(Request::is('gian-hang/chi-tiet/danh-muc/san-pham/*'))
-
-          <section class="widget widget-categories">
-            @include('includes.frontend.vendor-categories'))
-            @yield('vendor-categories-content')  
-          </section>
-
-        @endif
-
-        <section class="widget widget-categories">
-            @include('includes.frontend.vendor-categories', array('user_name' => $vendor_info->name))
-            @yield('vendor-categories-content')  
-
-        </section>
-
       @else
         
         @if($vendor_package_details->show_map_on_store_page == true)
@@ -196,27 +179,95 @@
         @endif
         
         @if($vendor_package_details->show_contact_form_on_store_page == true)
-        <div class="contact-vendor">
-          <div class="contact-vendor-content clearfix">
-            <h2><span>{!! trans('frontend.contact_vendor_label') !!}</span></h2>
+          <section class="widget widget-categories">
+            <h3 class="widget-title">{!! trans('frontend.contact_vendor_label') !!}</h3>
+            
+
             <div class="form-group">
-              <input class="form-control" name="contact_name" id="contact_name" placeholder="{{ trans('frontend.enter_name_label') }}" type="text">
+              <input class="form-control" name="contact_name" id="contact_name" placeholder="{{ trans('frontend.enter_name_label') }}" type="text" required>
+              <div class="valid-feedback">Looks good!</div>
             </div>
+
             <div class="form-group">
-              <input class="form-control" name="contact_email_id" id="contact_email_id" placeholder="{{ trans('frontend.enter_email_label') }}" type="text">
+              <input class="form-control" name="contact_email_id" id="contact_email_id" placeholder="{{ trans('frontend.enter_email_label') }}" type="text" required>
+              <div class="valid-feedback">Looks good!</div>
             </div>
+
             <div class="form-group">
               <textarea class="form-control" name="contact_message" id="contact_message" placeholder="{{ trans('frontend.enter_your_message_label') }}"></textarea>
-            </div>  
-            <button class="pull-right btn btn-default btn-style" type="button" id="sendVendorContactMessage" name="sendVendorContactMessage">{!! trans('frontend.send_label') !!} <i class="fa fa-arrow-circle-right"></i></button>  
-          </div>
-        </div> 
+              <div class="valid-feedback">Looks good!</div>
+            </div> 
+            
+            <button class="btn btn-primary pull-right" type="button" id="sendVendorContactMessage" name="sendVendorContactMessage">{!! trans('frontend.send_label') !!} <i class="fa fa-arrow-circle-right"></i></button>  
+             
+          </section>
+
         @endif
 
       @endif
       
     </div>
   </div>
+
+  <input type="hidden" name="product_title" id="product_title" value="{{ trans('frontend.vendor_details_title_label') }}">
+  @if( !empty($vendor_settings) && !empty($vendor_settings->general_details->cover_img) )  
+  <input type="hidden" name="product_img" id="product_img" value="{{ get_image_url( $vendor_settings->general_details->cover_img ) }}">
+  @else
+  <input type="hidden" name="product_img" id="product_img" value="{{ default_vendor_cover_img_src() }}">
+  @endif
 </div>
+
+<input type="hidden" name="vendor_email" id="vendor_email" value="{{ $vendor_info->email}}">
+
+<script type="text/javascript">
+  $(document).ready(function(){
+    $('#sendVendorContactMessage').on('click', function(){
+      if($('#contact_name').val() == '' || $('#contact_name').val() == null){
+        alert('please insert name!');
+        return false;
+      }
+      
+      if($('#contact_email_id').val() == '' || $('#contact_email_id').val() == null){
+        alert('please insert valid email id!');
+        return false;
+      }
+      
+      if($('#contact_message').val() == '' || $('#contact_message').val() == null){
+        alert('please insert message!');
+        return false;
+      }
+      
+      if($('#contact_name').val().length> 0 && $('#contact_email_id').val().length> 0 && $('#contact_message').val().length>0){
+        $.ajax({
+              url: $('#hf_base_url').val() + '/ajax/contact-with-vendor',
+              type: 'POST',
+              cache: false,
+              datatype: 'json',
+              data: {vendor_mail:Base64.encode($('#vendor_email').val()), name: Base64.encode($('#contact_name').val()), customer_email: Base64.encode($('#contact_email_id').val()), message: Base64.encode($('#contact_message').val())},
+              headers: { 'X-CSRF-TOKEN' : $('meta[name="csrf-token"]').attr('content') },
+              success: function(data){
+                if(data && data.status == 'success'){
+                  alert("your message successfully sent to the vendor");
+                }
+              },
+              error:function(){alert('Something wrong!');}
+        });
+      }
+    });
+    
+    if($('#store_details #price_range').length>0){
+      $('#store_details #price_range').slider();
+    }
+    
+    if($('#store_details .price-slider-option #price_range').length>0){
+      $('#store_details .price-slider-option #price_range') .slider()
+        .on('slideStop', function(ev){
+          $('#price_min').val(ev.value[0]);
+          $('#price_max').val(ev.value[1]);
+          $('.price-slider-option .tooltip-inner').html(ev.value[0] + ':' + ev.value[1]);
+        });
+    }
+  });
+</script>
 
 @endsection 

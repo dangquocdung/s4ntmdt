@@ -114,7 +114,7 @@
 // Base Class
 .widget {
   margin-bottom: ceil($grid-vertical-step * 1.66); //~40px
-  .form-group { margin-bottom: 0; }
+  // .form-group { margin-bottom: 0; }
   ul { margin-bottom: floor($grid-vertical-step / 2); }
   .market-button:last-child { margin-bottom: 0; }
   .custom-control:last-child { margin-bottom: 0 !important; }
@@ -312,7 +312,6 @@
   }
   tr:nth-last-child(2) > td { padding-bottom: 12px; }
 }
-
 
 // Price Range Slider
 .noUi-target,
