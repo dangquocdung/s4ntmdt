@@ -3072,7 +3072,7 @@ class ProductsController extends Controller
       }
       else{
         // $str = '<nav aria-label="breadcrumb"><ol class="breadcrumb"><li><a href="'. route('home-page') .'"><i class="fa fa-home"></i></a></li><li><a href="'. route('shop-page') .'">'. Lang::get('frontend.all_products_label' ) .'</a></li><li class="breadcrumb-item active" aria-current="page">'. $cat_data['name'] .'</li></ol></nav>';
-        $str .= '<li><a href="'. route('home-page') .'">'.  Lang::get('frontend.home') .'</a></li><li><a href="'. route('shop-page') .'">'. Lang::get('frontend.all_products_label' ) .'</a></li>';
+        $str .= '<li><a href="'. route('home-page') .'">'.  Lang::get('frontend.home') .'</a></li><li class="separator">&nbsp;</li><li><a href="'. route('shop-page') .'">'. Lang::get('frontend.all_products_label' ) .'</a></li>';
       }
 
       $str .= '</ul></div></div></div>';
