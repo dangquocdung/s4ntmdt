@@ -1,7 +1,7 @@
 @section('vendors-products-page-content')
 
   <!-- Shop Toolbar-->
-  <div class="shop-toolbar padding-bottom-1x mb-2">
+  <div class="shop-toolbar">
     
     <div class="column">
       <div class="shop-view">
