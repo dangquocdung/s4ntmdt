@@ -535,7 +535,7 @@ return [
 'mini_cart_top_label' =>'Mục đã thêm gần đây',
 'view_cart_label' =>'Xem giỏ hàng',
 'qty_label' =>'Số lượng',
-'menu_label' =>'Thực đơn',
+'menu_label' =>'Menu',
 'wishlist'  => 'Yêu thích',
 'to_cart' => 'Giỏ hàng',
 'gia-thap-nhat' => 'Giá từ',
