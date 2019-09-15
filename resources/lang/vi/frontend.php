@@ -540,7 +540,7 @@ return [
 'to_cart' => 'Giỏ hàng',
 'gia-thap-nhat' => 'Giá từ',
 'view_all_products' => 'Tất cả sản phẩm',
-'features_products' => 'Phổ biến',
+'features_products' => 'Đang phổ biến',
 'recommended_products' => 'Gợi ý hôm nay',
 'staff_picks' => 'Chúng tôi đề xuất',
 'best_sellers' => 'Bán chạy nhất',
