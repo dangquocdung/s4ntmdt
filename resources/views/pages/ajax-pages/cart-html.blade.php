@@ -185,8 +185,8 @@
             <div class="product-badge bg-danger">Sale</div>
 
             <a class="product-thumb" href="{{ route('details-page', $products['post_slug']) }}">
-                @if($products['_product_related_images_url']->product_image)
-                  <img src="{{ get_image_url($products['_product_related_images_url']->product_image) }}" alt="{{ basename($products['_product_related_images_url']->product_image) }}" />
+                @if($products['product_image'])
+                  <img src="{{ get_image_url($products['product_image']) }}" alt="{{ basename($products['product_image']) }}" />
                 @else
                   <img src="{{ default_placeholder_img_src() }}" alt="" />
                 @endif

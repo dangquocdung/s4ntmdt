@@ -666,6 +666,101 @@ class FrontendManagerController extends Controller
    */
   public function cartPageContent(){
     $data = array();
+    
+
+    
+
+    //Xong
+
+    if($this->cart->getItems()->count() > 0){
+      foreach($this->cart->getItems() as $item){
+        $get_vendor_details = get_vendor_details_by_product_id( $item->product_id );
+
+        if(count($get_vendor_details) > 0 && $get_vendor_details['user_role_slug'] == 'vendor'){
+         $vendor_details = json_decode($get_vendor_details['details']);
+         break;
+        }
+      }
+    }
+    
+    $data = $this->classCommonFunction->get_dynamic_frontend_content_data();
+    if(!empty($vendor_details)){
+      $data['shipping_data'] = $this->classCommonFunction->objToArray($vendor_details->shipping_method, true);
+    }
+    else{
+      $data['shipping_data'] = $this->option->getShippingMethodData();
+    }
+
+    $data['payment_method_data'] = $this->option->getPaymentMethodData();
+    $data['stripe_api_key'] = json_encode(get_stripe_api_key());
+
+    //coupon applay
+    if($this->cart->is_coupon_applyed() && !empty($this->cart->couponCode())){
+      $response = $this->classGetFunction->manage_coupon($this->cart->couponCode(), 'update');
+
+      if($response == 'coupon_already_apply' || $response == 'less_from_min_amount' || $response == 'exceed_from_max_amount' || $response == 'no_login' || $response == 'user_role_not_match' || $response == 'coupon_expired' || $response == 'exceed_from_cart_total' || $response == 'no_coupon_data'){
+        $this->cart->remove_coupon();
+        Session::flash('error-message', Lang::get('validation.coupon_removed_from_cart_msg' ));
+      }
+    } 
+    
+    if($this->cart->getItems()->count() > 0){
+      $product_id = array();
+      $cross_sell_products = array();
+
+      foreach($this->cart->getItems() as $item){
+        array_push($product_id, $item->product_id);
+        $get_cross_sell_products = get_crosssell_products($item->product_id);
+
+        if(count($get_cross_sell_products) > 0){
+          $cross_sell_products = array_merge($cross_sell_products, $get_cross_sell_products);
+        }
+      }
+
+      $unique_1 = array_unique($product_id); 
+      $unique_2 = array_unique($cross_sell_products); 
+
+      $final_unique_cross_sell_products = array_diff($unique_2, $unique_1);
+      $data['cross_sell_products'] = $final_unique_cross_sell_products;
+    }
+
+    $vendor_details  = array();
+
+    //Lấy related item
+
+    $products_id = session()->get('products.recently_viewed');
+
+    if (!empty($products_id)){
+
+      $products_id = array_unique($products_id);
+
+      $variation_data = array();
+
+      foreach($products_id as $row){
+
+        $sp = $this->classCommonFunction->get_product_data_by_product_id( $row );
+        
+        array_push($variation_data, $sp);
+      }
+
+      $data['related_items'] = $variation_data;
+
+    }else{
+
+      $data['related_items'] ='';
+
+
+    }
+    
+    return view('pages.frontend.frontend-pages.cart', $data);
+
+    // return response()->json($data);
+
+    
+  }
+
+  public function cartPageContent2(){
+    $data = array();
     $vendor_details  = array();
 
     //Lấy related item
