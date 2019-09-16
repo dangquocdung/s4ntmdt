@@ -552,5 +552,6 @@ return [
 'gian-hang' => 'Gian hàng',
 'lk-mxh' => 'Liên kết',
 'shop_categories' => 'Danh mục',
-'store_label' => 'Thông tin gian hàng'
+'store_label' => 'Thông tin gian hàng',
+'tin-tuc' => 'Tin tức'
 ];
