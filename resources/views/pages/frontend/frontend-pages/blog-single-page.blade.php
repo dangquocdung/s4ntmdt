@@ -19,129 +19,141 @@
           <a href="{{ route('home-page') }}">{{ trans('frontend.home') }}</a>
         </li>
         <li class="separator">&nbsp;</li>
+        <li>
+          <a href="{{ route('tin-tuc') }}">{{ trans('frontend.tin-tuc') }}</a>
+        </li>
+        <li class="separator">&nbsp;</li>
         <li>{!! trans('frontend.blog_details_page_label') !!}</li>
       </ul>
     </div>
   </div>
 </div>
+
 <!-- Page Content-->
-<div class="container padding-bottom-3x mb-1">
-  <div class="isotope-grid cols-3 mb-4">
-    <div class="gutter-sizer"></div>
-    <div class="grid-sizer"></div>
-    <!-- Post-->
-    <div class="grid-item">
-      <div class="blog-post"><a class="post-thumb" href="blog-single-ns.html"><img src="img/blog/02.jpg" alt="Blog Post"></a>
-        <div class="post-body">
-          <ul class="post-meta">
-            <li><i class="icon-clock"></i><a href="#">Mar 30, 2018</a></li>
-            <li><i class="icon-user"></i><a href="#">Paul G.</a></li>
-            <li><i class="icon-tag"></i><a href="#">Video Games</a></li>
-          </ul>
-          <h3 class="post-title"><a href="blog-single-ns.html">VR: Next Level of Video Gaming</a></h3>
-          <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam... <a href='blog-single-ns.html'>Read more</a></p>
+<div class="container padding-bottom-3x mb-2">
+  <div class="row justify-content-center">
+    <!-- Content-->
+    <div class="col-xl-9 col-lg-8 order-lg-2">
+      <!-- Post Meta-->
+      <ul class="post-meta mb-4">
+        <li><i class="icon-clock"></i><a href="#">Mar 15, 2018</a></li>
+        <li><i class="icon-user"></i><a href="#">Gregory Smith</a></li>
+        <li><i class="icon-tag"></i><a href="#">Gadgets</a></li>
+        <li><i class="icon-message-square"></i><a class="scroll-to" href="#comments">12</a></li>
+      </ul>
+      <!-- Gallery-->
+      <div class="gallery-wrapper">
+        <div class="gallery-item">
+         
+
+          @if(!empty($blog_details_by_slug['featured_image']))
+          <a href="{{ get_image_url($blog_details_by_slug['featured_image']) }}" data-size="1000x353">
+            <img src="{{ get_image_url($blog_details_by_slug['featured_image']) }}" alt="{{ basename($blog_details_by_slug['featured_image']) }}">
+          </a>
+          @else
+          <a href="{{ default_placeholder_img_src() }}" data-size="1000x353">
+            <img src="{{ default_placeholder_img_src() }}" alt="media">
+          </a>
+          @endif
+
+           
+          <!-- <span class="caption">Blog single post caption 1</span> -->
         </div>
       </div>
-    </div>
-    <!-- Post-->
-    <div class="grid-item">
-      <div class="blog-post">
-        <div class="post-body">
-          <ul class="post-meta">
-            <li><i class="icon-clock"></i><a href="#">Mar 15, 2018</a></li>
-            <li><i class="icon-user"></i><a href="#">Gregory S.</a></li>
-            <li><i class="icon-tag"></i><a href="#">Ecommerce</a></li>
-          </ul>
-          <h3 class="post-title"><a href="blog-single-ns.html">Different Ways Ecommerce Companies Can Capitalize on Apps</a></h3>
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris... <a href='blog-single-ns.html'>Read more</a></p>
+      <!-- <div class="gallery-wrapper">
+        <div class="row">
+          <div class="col-md-4 col-sm-6">
+            <div class="gallery-item"><a href="img/blog/single/01.jpg" data-type="video" data-video="&lt;div class=&quot;wrapper&quot;&gt;&lt;div class=&quot;video-wrapper&quot;&gt;&lt;iframe class=&quot;pswp__video&quot; width=&quot;960&quot; height=&quot;640&quot; src=&quot;https://www.youtube-nocookie.com/embed/zpLVsR8cSFo?rel=0&quot; frameborder=&quot;0&quot; allowfullscreen&gt;&lt;/iframe&gt;&lt;/div&gt;&lt;/div&gt;"><img src="img/blog/single/th02.jpg" alt="Image"></a><span class="caption">Blog single post caption 2</span></div>
+          </div>
+          <div class="col-md-4 col-sm-6">
+            <div class="gallery-item"><a href="img/blog/single/02.jpg" data-size="900x600"><img src="img/blog/single/th03.jpg" alt="Image"></a><span class="caption">Blog single post caption 3</span></div>
+          </div>
+          <div class="col-md-4 col-sm-6">
+            <div class="gallery-item"><a href="img/blog/single/03.jpg" data-size="900x600"><img src="img/blog/single/th04.jpg" alt="Image"></a><span class="caption">Blog single post caption 4</span></div>
+          </div>
         </div>
+      </div> -->
+      <h2 class="pt-4">{!! $blog_details_by_slug['post_title'] !!}</h2>
+
+      <p>
+        {!! string_decode($blog_details_by_slug['post_content']) !!}
+      </p>
+      
+
+      
+      <!-- Post Tags + Share-->
+      <div class="d-flex flex-wrap justify-content-between align-items-center pt-3 pb-4">
+        <div class="pb-2"><a class="text-sm text-muted navi-link" href="#">#electronics,</a><a class="text-sm text-muted navi-link" href="#">&nbsp;#gadgets&nbsp;</a></div>
+        <div class="pb-2"><span class="d-inline-block align-middle text-sm text-muted">Share post:&nbsp;&nbsp;&nbsp;</span><a class="social-button shape-rounded sb-facebook" href="#" data-toggle="tooltip" data-placement="top" title="Facebook"><i class="socicon-facebook"></i></a><a class="social-button shape-rounded sb-twitter" href="#" data-toggle="tooltip" data-placement="top" title="Twitter"><i class="socicon-twitter"></i></a><a class="social-button shape-rounded sb-instagram" href="#" data-toggle="tooltip" data-placement="top" title="Instagram"><i class="socicon-instagram"></i></a><a class="social-button shape-rounded sb-google-plus" href="#" data-toggle="tooltip" data-placement="top" title="Google +"><i class="socicon-googleplus"></i></a></div>
       </div>
-    </div>
-    <!-- Post-->
-    <div class="grid-item">
-      <div class="blog-post"><a class="post-thumb" href="blog-single-ns.html"><img src="img/blog/03.jpg" alt="Blog Post"></a>
-        <div class="post-body">
-          <ul class="post-meta">
-            <li><i class="icon-clock"></i><a href="#">Feb 23, 2018</a></li>
-            <li><i class="icon-user"></i><a href="#">Cedric D.</a></li>
-            <li><i class="icon-tag"></i><a href="#">Gadgets</a></li>
-          </ul>
-          <h3 class="post-title"><a href="blog-single-ns.html">What Apps Will Increase Your Productivity</a></h3>
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam... <a href='blog-single-ns.html'>Read more</a></p>
+      <!-- Post Navigation-->
+      <div class="entry-navigation">
+        <div class="column text-left"><a class="btn btn-outline-secondary btn-sm" href="#"><i class="icon-arrow-left"></i>&nbsp;Prev</a></div>
+        <div class="column"><a class="btn btn-outline-secondary view-all" href="blog-rs.html" data-toggle="tooltip" data-placement="top" title="All posts"><i class="icon-menu"></i></a></div>
+        <div class="column text-right"><a class="btn btn-outline-secondary btn-sm" href="#">Next&nbsp;<i class="icon-arrow-right"></i></a></div>
+      </div>
+      <!-- Relevant Posts-->
+      <h3 class="padding-top-3x padding-bottom-1x">You May Also Like</h3>
+      <div class="owl-carousel" data-owl-carousel="{ &quot;nav&quot;: false, &quot;dots&quot;: true, &quot;loop&quot;: false, &quot;autoHeight&quot;: true, &quot;margin&quot;: 30, &quot;responsive&quot;: {&quot;0&quot;:{&quot;items&quot;:1},&quot;630&quot;:{&quot;items&quot;:2},&quot;991&quot;:{&quot;items&quot;:3},&quot;1200&quot;:{&quot;items&quot;:3}} }">
+        
+        <div class="widget widget-featured-posts">
+          <div class="entry">
+            <div class="entry-thumb"><a href="blog-single-rs.html"><img src="img/blog/widget/01.jpg" alt="Post"></a></div>
+            <div class="entry-content">
+              <h4 class="entry-title"><a href="blog-single-rs.html">Factors Behind Wearable Gadgets Popularity</a></h4><span class="entry-meta">by Olivia Reyes</span>
+            </div>
+          </div>
         </div>
+        
+      
+      
       </div>
-    </div>
-    <!-- Post-->
-    <div class="grid-item">
-      <div class="blog-post"><a class="post-thumb" href="blog-single-ns.html"><img src="img/blog/01.jpg" alt="Blog Post"></a>
-        <div class="post-body">
-          <ul class="post-meta">
-            <li><i class="icon-clock"></i><a href="#">Feb 06, 2018</a></li>
-            <li><i class="icon-user"></i><a href="#">Olivia R.</a></li>
-            <li><i class="icon-tag"></i><a href="#">Drones</a></li>
-          </ul>
-          <h3 class="post-title"><a href="blog-single-ns.html">The Complete Guide: How To Make Professional Video With Drones</a></h3>
-          <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam eaque... <a href='blog-single-ns.html'>Read more</a></p>
+      <!-- Comments-->
+      <section class="padding-top-3x" data-offset-top="60" id="comments">
+        <h3 class="padding-bottom-1x">Comments</h3>
+        <!-- Comment-->
+        <div class="comment">
+          <div class="comment-author-ava"><img src="img/reviews/01.jpg" alt="Comment author"></div>
+          <div class="comment-body">
+            <div class="comment-header">
+              <h4 class="comment-title">Francis Burton</h4>
+            </div>
+            <p class="comment-text">At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga.</p>
+            <div class="comment-footer">
+              <div class="column"><span class="comment-meta">2 days ago</span></div>
+              <div class="column"><a class="reply-link" href="#"><i class="icon-corner-up-left"></i>Reply</a></div>
+            </div>
+            
+          </div>
         </div>
-      </div>
-    </div>
-    <!-- Post-->
-    <div class="grid-item">
-      <div class="blog-post"><a class="post-thumb" href="blog-single-ns.html"><img src="img/blog/04.jpg" alt="Blog Post"></a>
-        <div class="post-body">
-          <ul class="post-meta">
-            <li><i class="icon-clock"></i><a href="#">Jan 11, 2018</a></li>
-            <li><i class="icon-user"></i><a href="#">Cynthia G.</a></li>
-            <li><i class="icon-tag"></i><a href="#">Photography</a></li>
-          </ul>
-          <h3 class="post-title"><a href="blog-single-ns.html">How Photography Changed My Life</a></h3>
-          <p>At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores... <a href='blog-single-ns.html'>Read more</a></p>
+       
+      </section>
+      <!-- Comment Form-->
+      <h4 class="padding-top-2x padding-bottom-1x">Leave a Comment</h4>
+      <form class="row" method="post">
+        <div class="col-sm-6">
+          <div class="form-group">
+            <label for="comment-name">Name</label>
+            <input class="form-control form-control-rounded" type="text" id="comment-name" placeholder="John Doe" required>
+          </div>
         </div>
-      </div>
-    </div>
-    <!-- Post-->
-    <div class="grid-item">
-      <div class="blog-post"><a class="post-thumb" href="blog-single-ns.html"><img src="img/blog/05.jpg" alt="Blog Post"></a>
-        <div class="post-body">
-          <ul class="post-meta">
-            <li><i class="icon-clock"></i><a href="#">Dec 29, 2017</a></li>
-            <li><i class="icon-user"></i><a href="#">Logan C.</a></li>
-            <li><i class="icon-tag"></i><a href="#">Gadgets</a></li>
-          </ul>
-          <h3 class="post-title"><a href="blog-single-ns.html">Perfect Freelancer's Working Desk</a></h3>
-          <p>Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore cum... <a href='blog-single-ns.html'>Read more</a></p>
+        <div class="col-sm-6">
+          <div class="form-group">
+            <label for="comment-email">E-mail</label>
+            <input class="form-control form-control-rounded" type="email" id="comment-email" placeholder="johndoe@email.com" required>
+          </div>
         </div>
-      </div>
-    </div>
-    <!-- Post-->
-    <div class="grid-item">
-      <div class="blog-post">
-        <div class="post-body">
-          <ul class="post-meta">
-            <li><i class="icon-clock"></i><a href="#">Dec 18, 2017</a></li>
-            <li><i class="icon-user"></i><a href="#">Andy W.</a></li>
-            <li><i class="icon-tag"></i><a href="#">Ecommerce</a></li>
-          </ul>
-          <h3 class="post-title"><a href="blog-single-ns.html">Tips &amp; Tricks: Make Your Ecommerce Startup Stand Out</a></h3>
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim... <a href='blog-single-ns.html'>Read more</a></p>
+        <div class="col-12">
+          <div class="form-group">
+            <label for="comment-text">Comment</label>
+            <textarea class="form-control form-control-rounded" rows="7" id="comment-text" placeholder="Write your comment here..." required></textarea>
+          </div>
         </div>
-      </div>
+        <div class="col-12 text-right">
+          <button class="btn btn-primary" type="submit">Post Comment</button>
+        </div>
+      </form>
     </div>
   </div>
-  <!-- Pagination-->
-  <nav class="pagination">
-    <div class="column">
-      <ul class="pages">
-        <li class="active"><a href="#">1</a></li>
-        <li><a href="#">2</a></li>
-        <li><a href="#">3</a></li>
-        <li><a href="#">4</a></li>
-        <li>...</li>
-        <li><a href="#">12</a></li>
-      </ul>
-    </div>
-    <div class="column text-right hidden-xs-down"><a class="btn btn-outline-secondary btn-sm" href="#">Next&nbsp;<i class="icon-chevron-right"></i></a></div>
-  </nav>
 </div>
-
 @endsection
