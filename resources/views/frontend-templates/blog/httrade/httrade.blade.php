@@ -24,20 +24,36 @@
 
     @if(count($blogs_all_data) > 0)
 
-    <!-- Post-->
-    <div class="grid-item">
-      <div class="blog-post"><a class="post-thumb" href="blog-single-ns.html"><img src="img/blog/02.jpg" alt="Blog Post"></a>
-        <div class="post-body">
-          <ul class="post-meta">
-            <li><i class="icon-clock"></i><a href="#">Mar 30, 2018</a></li>
-            <li><i class="icon-user"></i><a href="#">Paul G.</a></li>
-            <li><i class="icon-tag"></i><a href="#">Video Games</a></li>
-          </ul>
-          <h3 class="post-title"><a href="blog-single-ns.html">VR: Next Level of Video Gaming</a></h3>
-          <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam... <a href='blog-single-ns.html'>Read more</a></p>
+      @foreach($blogs_all_data as $row)
+
+        <!-- Post-->
+        <div class="grid-item">
+          <div class="blog-post">
+            <a class="post-thumb" href="{{ route('blog-single-page', $row['post_slug']) }}">
+            
+              @if(!empty($row['featured_image']))
+                <img src="{{ get_image_url($row['featured_image']) }}" alt="{{ basename($row['featured_image']) }}">
+              @else
+                <img src="{{ default_placeholder_img_src() }}" alt="media">
+              @endif
+            
+            </a>
+            <div class="post-body">
+              <ul class="post-meta">
+                <li><i class="icon-clock"></i><a href="#">{{ Carbon\Carbon::parse($row['created_at'])->format('d F, Y') }}</a></li>
+                <!-- <li><i class="icon-user"></i><a href="#">Paul G.</a></li>
+                <li><i class="icon-tag"></i><a href="#">Video Games</a></li> -->
+              </ul>
+              <h3 class="post-title"><a href="{{ route('blog-single-page', $row['post_slug']) }}">{!! $row['post_title'] !!}</a></h3>
+              <p>
+                {!! get_limit_string(string_decode($row['post_content']), $row['allow_max_number_characters_at_frontend']) !!}
+                <a href="{{ route('blog-single-page', $row['post_slug']) }}" class="text-medium">{!! trans('frontend.read_more_label') !!}</a>
+              </p>
+            </div>
+          </div>
         </div>
-      </div>
-    </div>
+
+      @endforeach
 
     @else
       <p>{!! trans('frontend.no_blogs_data_label') !!}</p>
