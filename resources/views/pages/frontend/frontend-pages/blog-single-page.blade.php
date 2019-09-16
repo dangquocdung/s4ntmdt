@@ -22,8 +22,6 @@
         <li>
           <a href="{{ route('blogs-page-content') }}">{{ trans('frontend.tin-tuc') }}</a>
         </li>
-        <li class="separator">&nbsp;</li>
-        <li>{!! trans('frontend.blog_details_page_label') !!}</li>
       </ul>
     </div>
   </div>
@@ -36,10 +34,10 @@
     <div class="col-xl-9 col-lg-8 order-lg-2">
       <!-- Post Meta-->
       <ul class="post-meta mb-4">
-        <li><i class="icon-clock"></i><a href="#">Mar 15, 2018</a></li>
-        <li><i class="icon-user"></i><a href="#">Gregory Smith</a></li>
-        <li><i class="icon-tag"></i><a href="#">Gadgets</a></li>
-        <li><i class="icon-message-square"></i><a class="scroll-to" href="#comments">12</a></li>
+        <li><i class="icon-clock"></i><a href="#">{{ Carbon\Carbon::parse($blog_details_by_slug['created_at'])->format('d F, Y') }}</a></li>
+        <!-- <li><i class="icon-user"></i><a href="#">Gregory Smith</a></li>
+        <li><i class="icon-tag"></i><a href="#">Gadgets</a></li> -->
+        <li><i class="icon-message-square"></i><a class="scroll-to" href="#comments">{!! $comments_rating_details['total'] !!} {!! trans('frontend.comments_label') !!}</a></li>
       </ul>
       <!-- Gallery-->
       <div class="gallery-wrapper">
