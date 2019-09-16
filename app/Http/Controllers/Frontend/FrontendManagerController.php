@@ -668,6 +668,10 @@ class FrontendManagerController extends Controller
   public function cartPageContent(){
     $data = array();
     $vendor_details  = array();
+
+
+    $data['related_items'] = $this->product->getRelatedItems( $product_id );
+
       
     if($this->cart->getItems()->count() > 0){
       foreach($this->cart->getItems() as $item){

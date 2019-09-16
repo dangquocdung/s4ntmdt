@@ -7,11 +7,12 @@
   <div class="page-title">
       <div class="container">
         <div class="column">
-          <h1>Checkout{{ trans('frontend.checkout') }}</h1>
+          <h1>{{ trans('frontend.checkout') }}</h1>
         </div>
         <div class="column">
           <ul class="breadcrumbs">
-            <li><a href="{{ route('home-page') }}">Home</a>
+            <li>
+              <a href="{{ route('home-page') }}">{{ trans('frontend.home') }}</a>
             </li>
             <li class="separator">&nbsp;</li>
             <li>{{ trans('frontend.checkout') }}</li>
