@@ -20,7 +20,7 @@
         </li>
         <li class="separator">&nbsp;</li>
         <li>
-          <a href="{{ route('tin-tuc') }}">{{ trans('frontend.tin-tuc') }}</a>
+          <a href="{{ route('blogs-page-content') }}">{{ trans('frontend.tin-tuc') }}</a>
         </li>
         <li class="separator">&nbsp;</li>
         <li>{!! trans('frontend.blog_details_page_label') !!}</li>
