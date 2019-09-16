@@ -666,9 +666,9 @@ class CommonFunction
 		
 		public function get_sub_orders_details_by_order_id($order = array()){
 				$order_data = array();
-    $option  =  new OptionController();
+        $option  =  new OptionController();
 				$order_id = $order['order_id'];
-    $order_process_id = $order['order_process_id'];
+        $order_process_id = $order['order_process_id'];
 				
 				$get_post_by_order_id     =   Post::where(['id' => $order_id])->first();
 				
