@@ -65,7 +65,6 @@ class FrontendManagerController extends Controller
     
     $data['testimonials_data']   =   get_all_testimonial_data();
     
-
     return view('pages.frontend.frontend-pages.home', $data);
 
     // return Response::json($data['advancedData']);
@@ -423,6 +422,7 @@ class FrontendManagerController extends Controller
     if(!empty($get_product)){
 
       // Push product ID to session
+
       session()->push('products.recently_viewed', $get_product->id);
 
       // $products = session()->get('products.recently_viewed');
@@ -436,7 +436,6 @@ class FrontendManagerController extends Controller
       //   array_push($recently, $row);
 
       // }
-
 
       $data = array();
 
@@ -669,10 +668,25 @@ class FrontendManagerController extends Controller
     $data = array();
     $vendor_details  = array();
 
+    //Lấy related item
 
-    $data['related_items'] = $this->product->getRelatedItems( $product_id );
+    $products_id = session()->get('products.recently_viewed');
 
+    $products_id = array_unique($products_id);
+
+    $variation_data = array();
+
+    foreach($products_id as $row){
+
+      $sp = $this->classCommonFunction->get_product_data_by_product_id( $row );
       
+      array_push($variation_data, $row);
+    }
+
+    $data['related_items'] = $variation_data;
+
+    //Xong
+
     if($this->cart->getItems()->count() > 0){
       foreach($this->cart->getItems() as $item){
         $get_vendor_details = get_vendor_details_by_product_id( $item->product_id );
