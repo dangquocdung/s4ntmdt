@@ -22,6 +22,8 @@
     <!-- Page Content-->
     <div class="container padding-bottom-3x mb-2">
 
+    @if( Cart::count() >0 )
+
       <div class="row">
         <!-- Checkout Adress-->
         <div class="col-xl-9 col-lg-8">
@@ -189,6 +191,25 @@
           </aside>
         </div>
       </div>
+
+      @else
+
+        <div class="alert alert-info alert-dismissible fade show text-center" style="margin-bottom: 30px;">
+          <span class="alert-close" data-dismiss="alert"></span>
+          {{ trans('frontend.empty_cart_msg') }}
+        </div>
+
+        @include('pages-message.notify-msg-error')
+
+        <div class="shopping-cart-footer">
+          <div class="column">
+            <a class="btn btn-outline-secondary" href="{{ route('shop-page') }}" style="margin-left:0; float:left">
+              <i class="icon-arrow-left"></i>&nbsp;{{ trans('frontend.return_to_shop') }}
+            </a>
+          </div>
+        </div>
+
+      @endif
 
     </div>
 
