@@ -680,7 +680,7 @@ class FrontendManagerController extends Controller
 
       $sp = $this->classCommonFunction->get_product_data_by_product_id( $row );
       
-      array_push($variation_data, $row);
+      array_push($variation_data, $sp);
     }
 
     $data['related_items'] = $variation_data;
