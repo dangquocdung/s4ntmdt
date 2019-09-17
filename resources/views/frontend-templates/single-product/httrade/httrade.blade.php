@@ -324,22 +324,27 @@
               @foreach($comments_details as $comment) 
                 <!-- Review-->
                 <div class="comment">
-                  <div class="comment-author-ava"><img src="img/reviews/02.jpg" alt="Comment author"></div>
+                  <div class="comment-author-ava">
+                    @if(!empty($comment->user_photo_url))
+                    <img alt="" src="{{ get_image_url( $comment->user_photo_url ) }}" >
+                    @else
+                    <img alt="" src="{{ default_avatar_img_src() }}">
+                    @endif
+                    
+                  </div>
                   <div class="comment-body">
                     <div class="comment-header d-flex flex-wrap justify-content-between">
-                      <h4 class="comment-title">My husband love his new...</h4>
                       <div class="mb-2">
-                          <div class="rating-stars"><i class="icon-star filled"></i><i class="icon-star filled"></i><i class="icon-star filled"></i><i class="icon-star filled"></i><i class="icon-star"></i>
-                          </div>
+                        <div class="star-rating">
+                          <span style="width:{{ $comment->percentage }}%"><strong itemprop="ratingValue"></strong></span>
+                        </div>
                       </div>
                     </div>
-                    <p class="comment-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor...</p>
-                    <div class="comment-footer"><span class="comment-meta">Maggie Scott</span></div>
+                    <p class="comment-text">{{ $comment->content }}</p>
+                    <div class="comment-footer"><span class="comment-meta">{{ $comment->display_name }}</span></div>
                   </div>
                 </div>
               @endforeach
-
-              <!-- View All Button--><a class="btn btn-secondary btn-block" href="#">View All Reviews</a>
 
           @else
             {{ trans('frontend.no_review_label') }}
