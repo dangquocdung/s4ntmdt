@@ -138,7 +138,7 @@
   </div>
 
   <div class="text-center">
-    <a class="btn btn-outline-secondary" href="{{ Request::is('cac-san-pham')?'active':''}}">{{ trans('frontend.view_all_products') }}</a>
+    <a class="btn btn-outline-secondary" href="{{ route('shop-page') }}">{{ trans('frontend.view_all_products') }}</a>
   </div>
 
 </section>
@@ -206,7 +206,7 @@
   </div>
 
   <div class="text-center">
-    <a class="btn btn-outline-secondary" href="{{ Request::is('cac-san-pham')?'active':''}}">{{ trans('frontend.view_all_products') }}</a>
+    <a class="btn btn-outline-secondary" href="{{ route('shop-page') }}">{{ trans('frontend.view_all_products') }}</a>
   </div>
 
 </section>
