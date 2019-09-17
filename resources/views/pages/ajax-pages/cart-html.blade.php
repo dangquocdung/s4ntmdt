@@ -33,7 +33,6 @@
 
       </div>
 
-      
       <!-- Shopping Cart-->
 
         @include('pages-message.notify-msg-error')
@@ -147,8 +146,6 @@
 
         </form>    
 
-
-
       @else
 
         <div class="alert alert-info alert-dismissible fade show text-center" style="margin-bottom: 30px;">
@@ -169,6 +166,8 @@
       @endif
 
       <!-- Related Products Carousel-->
+
+      @if (count($related_items)>0)
       <h3 class="text-center padding-top-2x mt-2 padding-bottom-1x">{{ trans('frontend.sp_da_xem') }}</h3>
       <!-- Carousel-->
       <div class="owl-carousel" data-owl-carousel="{ &quot;nav&quot;: false, &quot;dots&quot;: true, &quot;margin&quot;: 30, &quot;responsive&quot;: {&quot;0&quot;:{&quot;items&quot;:1},&quot;576&quot;:{&quot;items&quot;:2},&quot;768&quot;:{&quot;items&quot;:3},&quot;991&quot;:{&quot;items&quot;:4},&quot;1200&quot;:{&quot;items&quot;:4}} }">
@@ -193,7 +192,9 @@
               </a>
             
             <div class="product-card-body">
-              <h3 class="product-title"><a href="shop-single.html">Echo Dot (2nd Generation)</a></h3>
+              <h3 class="product-title">
+                <a href="{{ route('details-page', $products['post_slug']) }}">{!! $products['title'] !!}</a>
+              </h3>
               <h4 class="product-price">
                 @if(get_product_type($products['id']) == 'simple_product')
                   {!! price_html( get_product_price($products['id']), get_frontend_selected_currency() ) !!}
@@ -209,10 +210,7 @@
               </h4>
             </div>
 
-
             <div class="product-button-group">
-
-
 
               <a class="product-button btn-wishlist product-wishlist" data-id="{{ $products['id'] }}" data-toggle="tooltip" title="{{ trans('frontend.add_to_wishlist_label') }}" data-original-title="{{ trans('frontend.add_to_wishlist_label') }}">
                 <i class="icon-heart"></i><span>Wishlist</span>
@@ -228,4 +226,5 @@
         @endforeach
         
       </div>
+      @endif
     </div>
