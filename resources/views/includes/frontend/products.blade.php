@@ -65,7 +65,13 @@
       <!-- Products List-->
       <div class="product-card product-list mb-30">
         <a class="product-thumb" href="{{ route('details-page', $products->slug ) }}">
-          <!-- <div class="product-badge bg-danger">Sale</div> -->
+
+          @if ( $products->price < $products->regular_price )
+
+            <div class="product-badge bg-danger">Giảm giá</div>
+
+          @endif
+
           @if(!empty($products->image_url))
             <img src="{{ get_image_url( $products->image_url ) }}" alt="{{ basename( get_image_url( $products->image_url ) ) }}" />
           @else
@@ -77,9 +83,15 @@
             <!-- <div class="product-category"><a href="#">Smart home</a></div> -->
             <h3 class="product-title"><a href="{{ route('details-page', $products->slug ) }}">{!! $products->title !!}</a></h3>
             <h4 class="product-price">
-                <del>
-                  {!! price_html( get_product_price_html_by_filter(get_role_based_price_by_product_id($products->id, $products->regular_price)), get_frontend_selected_currency()) !!}
-                </del>
+
+                @if ( $products->price < $products->regular_price )
+
+                  <del>
+                    {!! price_html( get_product_price_html_by_filter(get_role_based_price_by_product_id($products->id, $products->regular_price)), get_frontend_selected_currency()) !!}
+                  </del>
+
+                @endif
+
                 @if( $products->type == 'simple_product' )
                   {!! price_html( get_product_price_html_by_filter(get_role_based_price_by_product_id($products->id, $products->price)), get_frontend_selected_currency()) !!}
                 @elseif( $products->type == 'configurable_product' )
