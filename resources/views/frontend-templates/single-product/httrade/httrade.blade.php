@@ -119,7 +119,6 @@
 
               <a href="{{ route('categories-page', $row['slug']) }}">{!! $row['name'] !!}
 
-
               @if ( $loop->iteration < (count($selected_cat['term_details']) - 1) ) 
 
                 ,&nbsp;
@@ -352,11 +351,11 @@
 
     @endif  
 
+    <div class="container padding-bottom-3x mb-1">       
     @if(count($related_items) > 0)   
-
-    <div class="container padding-bottom-3x mb-1">             
+      
       <!-- Related Products Carousel-->
-      <h3 class="text-center padding-top-2x mt-2 padding-bottom-1x">You May Also Like</h3>
+      <h3 class="text-center padding-top-2x mt-2 padding-bottom-1x">{!! trans('frontend.san-pham-tuong-tu') !!}</h3>
       <!-- Carousel-->
       <div class="owl-carousel" data-owl-carousel="{ &quot;nav&quot;: false, &quot;dots&quot;: true, &quot;margin&quot;: 30, &quot;responsive&quot;: {&quot;0&quot;:{&quot;items&quot;:1},&quot;576&quot;:{&quot;items&quot;:2},&quot;768&quot;:{&quot;items&quot;:3},&quot;991&quot;:{&quot;items&quot;:4},&quot;1200&quot;:{&quot;items&quot;:4}} }">
         
@@ -379,7 +378,7 @@
             </a>
           
           <div class="product-card-body">
-            <h3 class="product-title"><a href="shop-single.html">Echo Dot (2nd Generation)</a></h3>
+            <h3 class="product-title"><a href="{{ route('details-page', $products['post_slug']) }}">{!! $products['post_title'] !!}</a></h3>
             <h4 class="product-price">
               @if(get_product_type($products['id']) == 'simple_product')
                 {!! price_html( get_product_price($products['id']), get_frontend_selected_currency() ) !!}
@@ -395,10 +394,7 @@
             </h4>
           </div>
 
-
           <div class="product-button-group">
-
-
 
             <a class="product-button btn-wishlist product-wishlist" data-id="{{ $products['id'] }}" data-toggle="tooltip" title="{{ trans('frontend.add_to_wishlist_label') }}" data-original-title="{{ trans('frontend.add_to_wishlist_label') }}">
               <i class="icon-heart"></i><span>Wishlist</span>
@@ -414,6 +410,13 @@
       @endforeach
         
       </div>
+    
+    @endif
     </div>
 
-    @endif
+    <!-- Seen Products Carousel-->
+    <div class="container padding-bottom-3x mb-1">       
+
+    @include('includes.frontend.seen-products')
+    @yield('seen-products')
+    </div>
