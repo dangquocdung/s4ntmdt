@@ -27,7 +27,7 @@
               <h4 class="product-price">
 
                 @if ( $products->price < $products->regular_price )
-                  <del>adads
+                  <del>
                     {!! price_html( get_product_price_html_by_filter(get_role_based_price_by_product_id($products->id, $products->regular_price)), get_frontend_selected_currency()) !!}
                   </del>
                 @endif
