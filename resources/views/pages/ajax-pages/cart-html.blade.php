@@ -182,7 +182,7 @@
             <!-- Product-->
             <div class="product-card">
 
-              @if ( $products['product_price'] < $products['regular_price'] )
+              @if ( $products['product_price'] < $products['product_regular_price'] )
                 <div class="product-badge bg-danger">Giảm giá</div>
               @endif
 
@@ -199,9 +199,7 @@
                   <a href="{{ route('details-page', $products['post_slug']) }}">{!! $products['post_title'] !!}</a>
                 </h3>
                 <h4 class="product-price">
-
-
-                  @if ( $products['product_price'] < $products['regular_price'] )
+                  @if ( $products['product_price'] < $products['product_regular_price'] )
                     <del>
                       {!! price_html( get_product_price_html_by_filter(get_role_based_price_by_product_id($products['id'], $products['regular_price'])), get_frontend_selected_currency()) !!}
                     </del>

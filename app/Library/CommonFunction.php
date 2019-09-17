@@ -891,7 +891,7 @@ class CommonFunction
       $product_data['id']                                =  $get_data['id'];
       $product_data['author_id']                         =  $get_data['author_id'];
       $product_data['post_title']                        =  $get_data['post_title'];
-      $product_data['post_slug']                        =  $get_data['post_slug'];
+      $product_data['post_slug']                         =  $get_data['post_slug'];
 
       $product_data['post_status']                       =  $get_data['post_status'];
       $product_data['post_type']                         =  $get_data['post_type'];
@@ -899,6 +899,7 @@ class CommonFunction
       $product_data['product_type']                      =  $get_data['post_type'];
       $product_data['product_sku']                       =  $get_data['post_sku'];
       $product_data['product_price']                     =  $get_data['post_price'];
+      $product_data['product_regular_price']             =  $get_data['post_regular_price'];
       $product_data['product_sale_price_start_date']     =  $get_data['_product_sale_price_start_date'];
       $product_data['product_sale_price_end_date']       =  $get_data['_product_sale_price_end_date'];
       $product_data['product_manage_stock']              =  $get_data['_product_manage_stock'];
