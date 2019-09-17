@@ -85,7 +85,7 @@
 
     <div class="col-lg-3 col-md-4 col-sm-6">
       <div class="product-card mb-30">
-        @if ( $todays_deal_product->regular_price < $todays_deal_product->regular_price )
+        @if ( $todays_deal_product->price < $todays_deal_product->regular_price )
           <div class="product-badge bg-danger">Giảm giá</div>
         @endif
         <a class="product-thumb" href="{{ route('details-page', $todays_sales_product->slug) }}">
@@ -100,7 +100,7 @@
           <h3 class="product-title"><a href="{{ route('details-page', $todays_sales_product->slug) }}">{!! $todays_sales_product->title !!}</a></h3>
 
           <h4 class="product-price">
-            @if ( $todays_sales_product->regular_price <   $todays_sales_product->regular_price )
+            @if ( $todays_sales_product->price < $todays_sales_product->regular_price )
               <del>
                 {!! price_html( get_product_price_html_by_filter(get_role_based_price_by_product_id($todays_sales_product->id, $todays_sales_product->regular_price)), get_frontend_selected_currency()) !!}
               </del>
@@ -154,7 +154,7 @@
     <div class="col-lg-3 col-md-4 col-sm-6">
       <div class="product-card mb-30">
 
-        @if ( $features_product->regular_price < $features_product->regular_price )
+        @if ( $features_product->price < $features_product->regular_price )
           <div class="product-badge bg-danger">Giảm giá</div>
         @endif
         <a class="product-thumb" href="{{ route('details-page', $features_product->slug) }}">
@@ -168,7 +168,7 @@
           
           <h3 class="product-title"><a href="{{ route('details-page', $features_product->slug) }}">{!! $features_product->title !!}</a></h3>
           <h4 class="product-price">
-            @if ( $features_product->regular_price < $features_product->regular_price )
+            @if ( $features_product->price < $features_product->regular_price )
               <del>
                 {!! price_html( get_product_price_html_by_filter(get_role_based_price_by_product_id($features_product->id, $features_product->regular_price)), get_frontend_selected_currency()) !!}
               </del>
@@ -219,7 +219,7 @@
   @foreach($advancedData['recommended_items'] as $key => $recommended_product)
     <div class="col-lg-3 col-md-4 col-sm-6">
       <div class="product-card mb-30">
-        @if ( $recommended_product->regular_price < $recommended_product->regular_price )
+        @if ( $recommended_product->price < $recommended_product->regular_price )
           <div class="product-badge bg-danger">Giảm giá</div>
         @endif
         <a class="product-thumb" href="{{ route('details-page', $features_product->slug) }}">
@@ -233,7 +233,7 @@
           <!-- <div class="product-category"><a href="#">Smart home</a></div> -->
           <h3 class="product-title"><a href="{{ route('details-page', $recommended_product->slug) }}">{!! $recommended_product->title !!}</a></h3>
           <h4 class="product-price">
-            @if ( $recommended_product->regular_price < $recommended_product->regular_price )
+            @if ( $recommended_product->price < $recommended_product->regular_price )
               <del>
                 {!! price_html( get_product_price_html_by_filter(get_role_based_price_by_product_id($recommended_product->id, $recommended_product->regular_price)), get_frontend_selected_currency()) !!}
               </del>
