@@ -85,7 +85,9 @@
 
     <div class="col-lg-3 col-md-4 col-sm-6">
       <div class="product-card mb-30">
-        <div class="product-badge bg-danger">Sale</div>
+        @if ( $todays_deal_product->regular_price < $todays_deal_product->regular_price )
+          <div class="product-badge bg-danger">Giảm giá</div>
+        @endif
         <a class="product-thumb" href="{{ route('details-page', $todays_sales_product->slug) }}">
           @if(!empty($todays_sales_product->image_url))
           <img class="products-page-product-img" src="{{ get_image_url( $todays_sales_product->image_url ) }}" alt="{{ basename( get_image_url( $todays_sales_product->image_url ) ) }}" />
@@ -151,7 +153,10 @@
 
     <div class="col-lg-3 col-md-4 col-sm-6">
       <div class="product-card mb-30">
-        <div class="product-badge bg-danger">Sale</div>
+
+        @if ( $features_product->regular_price < $features_product->regular_price )
+          <div class="product-badge bg-danger">Giảm giá</div>
+        @endif
         <a class="product-thumb" href="{{ route('details-page', $features_product->slug) }}">
           @if(!empty($features_product->image_url))
           <img class="products-page-product-img" src="{{ get_image_url( $features_product->image_url ) }}" alt="{{ basename( get_image_url( $features_product->image_url ) ) }}" />
@@ -214,7 +219,9 @@
   @foreach($advancedData['recommended_items'] as $key => $recommended_product)
     <div class="col-lg-3 col-md-4 col-sm-6">
       <div class="product-card mb-30">
-        <div class="product-badge bg-danger">Sale</div>
+        @if ( $recommended_product->regular_price < $recommended_product->regular_price )
+          <div class="product-badge bg-danger">Giảm giá</div>
+        @endif
         <a class="product-thumb" href="{{ route('details-page', $features_product->slug) }}">
           @if(!empty($recommended_product->image_url))
           <img class="products-page-product-img" src="{{ get_image_url( $recommended_product->image_url ) }}" alt="{{ basename( get_image_url( $recommended_product->image_url ) ) }}" />

@@ -181,7 +181,10 @@
             
             <!-- Product-->
             <div class="product-card">
-              <!-- <div class="product-badge bg-danger">Sale</div> -->
+
+              @if ( $products['regular_price'] < $products['regular_price'] )
+                <div class="product-badge bg-danger">Giảm giá</div>
+              @endif
 
               <a class="product-thumb" href="{{ route('details-page', $products['post_slug']) }}">
                   @if($products['product_image'])
@@ -193,7 +196,7 @@
               
               <div class="product-card-body">
                 <h3 class="product-title">
-                  <a href="{{ route('details-page', $products['post_slug']) }}">{!! $products['title'] !!}</a>
+                  <a href="{{ route('details-page', $products['post_slug']) }}">{!! $products['post_title'] !!}</a>
                 </h3>
                 <h4 class="product-price">
                   @if(get_product_type($products['id']) == 'simple_product')
