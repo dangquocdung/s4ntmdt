@@ -9,7 +9,10 @@
         <!-- Products Grid-->
         <div class="col-md-4 col-sm-6">
           <div class="product-card mb-30">
-            <!-- <div class="product-badge bg-danger">Sale</div> -->
+            @if ( $products->price < $products->regular_price )
+              <div class="product-badge bg-danger">Giảm giá</div>
+            @endif
+
             <a class="product-thumb" href="{{ route('details-page', $products->slug ) }}">
               @if(!empty($products->image_url))
                 <img src="{{ get_image_url( $products->image_url ) }}" alt="{{ basename( get_image_url( $products->image_url ) ) }}" />
@@ -22,9 +25,12 @@
               <h3 class="product-title"><a href="{{ route('details-page', $products->slug ) }}">{!! $products->title !!}</a></h3>
               
               <h4 class="product-price">
-                <del>
-                  {!! price_html( get_product_price_html_by_filter(get_role_based_price_by_product_id($products->id, $products->regular_price)), get_frontend_selected_currency()) !!}
-                </del>
+
+                @if ( $products->price < $products->regular_price )
+                  <del>
+                    {!! price_html( get_product_price_html_by_filter(get_role_based_price_by_product_id($products->id, $products->regular_price)), get_frontend_selected_currency()) !!}
+                  </del>
+                @endif
 
                 @if( $products->type == 'simple_product' )
                   {!! price_html( get_product_price_html_by_filter(get_role_based_price_by_product_id($products->id, $products->price)), get_frontend_selected_currency()) !!}
@@ -83,7 +89,7 @@
             <h4 class="product-price">
 
                 @if ( $products->price < $products->regular_price )
-                  <del>dfsdfsdf
+                  <del>
                     {!! price_html( get_product_price_html_by_filter(get_role_based_price_by_product_id($products->id, $products->regular_price)), get_frontend_selected_currency()) !!}
                   </del>
                 @endif
