@@ -1767,7 +1767,7 @@ class FrontendManagerController extends Controller
 
     }else{
 
-      $seen_items;
+      $seen_items = '';
 
     }
 
