@@ -554,6 +554,6 @@ return [
 'shop_categories' => 'Danh mục',
 'store_label' => 'Thông tin gian hàng',
 'tin-tuc' => 'Tin tức',
-'sp_da_xem' => 'Bạn đã xem'
+'sp_da_xem' => 'Bạn đã xem',
 'san-pham-tuong-tu' => 'Sản phẩm tương tự'
 ];
