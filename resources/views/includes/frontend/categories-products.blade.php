@@ -25,9 +25,13 @@
                 <a href="{{ route('details-page', $products['slug'] ) }}">{!! $products['title'] !!}</a>
               </h3>
               <h4 class="product-price">
+
+              @if ( $products['regular_price'] < $products['price'] )
                 <del>
                   {!! price_html( get_product_price_html_by_filter(get_role_based_price_by_product_id($products['id'], $products['regular_price'])), get_frontend_selected_currency()) !!}
                 </del>
+              @endif
+              
                 {!! price_html( get_product_price_html_by_filter(get_role_based_price_by_product_id($products['id'], $products['price'])), get_frontend_selected_currency()) !!}
               </h4>
             </div>

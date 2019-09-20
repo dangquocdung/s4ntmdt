@@ -44,8 +44,12 @@
         <!-- Poduct Gallery-->
         <div class="col-md-6">
           <div class="product-gallery">
-            
-            <span class="product-badge text-danger"id="hasSale">30% Off</span>
+
+            @if ($single_product_details['solid_price'] < $single_product_details['offer_price'])
+
+              <span class="product-badge text-danger"id="hasSale">30% Off</span>
+
+            @endif
 
             @if($single_product_details['_product_enable_video_feature'] == 'yes')
 
@@ -228,8 +232,7 @@
                   @endfor
                 @else
 
-                `<option value="">1</option>
-
+                  <option value="1" selected>1</option>
 
                 @endif
 
@@ -238,12 +241,9 @@
             </div>
             <div class="col-sm-8">
               <div class="pt-4 hidden-sm-up"></div>
-              <button class="btn btn-primary btn-block m-0 add-to-cart-bg" data-toast data-toast-type="success" data-toast-position="topRight" data-toast-icon="icon-check-circle" data-toast-title="Product" data-toast-message="successfuly added to cart!" data-id="{{ $single_product_details['id'] }}" data-toggle="tooltip" data-placement="top" title="" data-original-title="{{ trans('frontend.add_to_cart_label') }}"><i class="icon-bag"></i> Thêm vào giỏ hàng</button>
+              <button class="btn btn-primary btn-block m-0 add-to-cart-bg" data-toast data-toast-type="success" data-toast-position="topRight" data-toast-icon="icon-check-circle" data-toast-title="Sản phẩm" data-toast-message="đã thêm vào giỏ hàng!" data-id="{{ $single_product_details['id'] }}" data-toggle="tooltip" data-placement="top" title="" data-original-title="{{ trans('frontend.add_to_cart_label') }}"><i class="icon-bag"></i> Thêm vào giỏ hàng</button>
             </div>
           </div>
-
-          <a href="" class="btn btn-sm btn-style add-to-cart-bg" data-id="{{ $single_product_details['id'] }}"><i class="fa fa-shopping-cart"></i>&nbsp;&nbsp; {{ trans('frontend.add_to_cart') }}</a>
-
 
           <div class="pt-1 mb-4"><span class="text-medium">{!! trans('frontend.sku') !!}:</span>
 

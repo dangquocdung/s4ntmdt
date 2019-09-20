@@ -152,13 +152,10 @@
             <!-- Order Summary Widget-->
             @include('pages.ajax-pages.cart-total-html')
 
-
-
             @if ($seen_items <> '')
             <!-- Featured Products Widget-->
             <section class="widget widget-featured-products">
               <h3 class="widget-title">{{ trans('frontend.sp_da_xem') }}</h3>
-
 
               @foreach($seen_items as $products)
               <?php 
@@ -170,14 +167,13 @@
               <div class="entry">
                 <div class="entry-thumb">
                   <a href="shop-single.html">
-                  
-                  @if($products['product_image'])
-            <img src="{{ get_image_url($products['product_image']) }}" alt="{{ basename($products['product_image']) }}" />
-            @else
-            <img src="{{ default_placeholder_img_src() }}" alt="" />
-            @endif
-              </a>
-            </div>
+                    @if($products['product_image'])
+                    <img src="{{ get_image_url($products['product_image']) }}" alt="{{ basename($products['product_image']) }}" />
+                    @else
+                    <img src="{{ default_placeholder_img_src() }}" alt="" />
+                    @endif
+                  </a>
+                </div>
                 <div class="entry-content">
                   <h4 class="entry-title"><a href="shop-single.html">GoPro Hero4 Silver</a></h4><span class="entry-meta">$287.99</span>
                 </div>
