@@ -60,8 +60,7 @@
                              
               </div>
             </div>
-          </div>
-          <div class="row">
+          
             <div class="col-sm-6">
               <div class="form-group">
                 <label for="inputAccountEmailAddress">{{ trans('frontend.account_email') }}</label>
@@ -74,10 +73,7 @@
                 <input type="number" class="form-control" placeholder="{{ trans('frontend.phone') }}" name="account_bill_phone_number" id="account_bill_phone_number" value="{{ old('account_bill_phone_number') }}">
               </div>
             </div>
-          </div>
-         
-          <div class="row">
-            
+          
             <input type="hidden" id="account_bill_select_country" name="account_bill_select_country" value="VN">
 
             <div class="col-sm-12">
@@ -86,9 +82,7 @@
                 <textarea class="form-control" id="account_bill_adddress_line_1" name="account_bill_adddress_line_1" placeholder="{{ trans('frontend.address_line_1') }}">{{ old('account_bill_adddress_line_1') }}</textarea>
               </div>
             </div>
-          </div>
-
-          <div class="row">
+          
             <div class="col-sm-6">
               <div class="form-group">
 
@@ -106,6 +100,8 @@
             </div>
           </div>
 
+          <br>
+
           <h4>{!! trans('frontend.shipping_address') !!}</h4>
           <hr class="padding-bottom-1x">
           <div class="form-group">
@@ -114,9 +110,86 @@
               <label class="custom-control-label" for="different_shipping_address">{{ trans('frontend.different_shipping_label') }}</label>
             </div>
           </div>
+
+          <div class="row different-shipping-address">
+
+            <div class="col-sm-6">
+              <div class="form-group">
+                <label for="inputAccountFirstName">{{ trans('frontend.account_first_name') }}</label>
+                <input type="text" class="form-control" placeholder="{{ trans('frontend.first_name') }}" name="account_bill_first_name" id="account_bill_first_name" value="{{ old('account_bill_first_name') }}">
+              </div>
+            </div>
+            <div class="col-sm-6">
+              <div class="form-group">
+                <label for="inputAccountLastName">{{ trans('frontend.account_last_name') }}</label>
+                <input type="text" class="form-control" placeholder="{{ trans('frontend.last_name') }}" name="account_bill_last_name" id="account_bill_last_name" value="{{ old('account_bill_last_name') }}">
+                             
+              </div>
+            </div>
+         
+            <div class="col-sm-6">
+              <div class="form-group">
+                <label for="inputAccountEmailAddress">{{ trans('frontend.account_email') }}</label>
+                <input type="email" class="form-control" placeholder="{{ trans('frontend.email') }}" name="account_bill_email_address" id="account_bill_email_address" value="{{ old('account_bill_email_address') }}">
+              </div>
+            </div>
+            <div class="col-sm-6">
+              <div class="form-group">
+                <label for="inputAccountPhoneNumber">{{ trans('frontend.account_phone_number') }}</label>
+                <input type="number" class="form-control" placeholder="{{ trans('frontend.phone') }}" name="account_bill_phone_number" id="account_bill_phone_number" value="{{ old('account_bill_phone_number') }}">
+              </div>
+            </div>
+          
+            <input type="hidden" id="account_bill_select_country" name="account_bill_select_country" value="VN">
+
+            <div class="col-sm-12">
+              <div class="form-group">
+                <label class="control-label" for="inputAccountAddressLine1">{{ trans('frontend.account_address_line_1') }}</label>
+                <textarea class="form-control" id="account_bill_adddress_line_1" name="account_bill_adddress_line_1" placeholder="{{ trans('frontend.address_line_1') }}">{{ old('account_bill_adddress_line_1') }}</textarea>
+              </div>
+            </div>
+          
+            <div class="col-sm-6">
+              <div class="form-group">
+
+                <label class="control-label" for="inputAccountTownCity">{{ trans('frontend.account_address_town_city') }}</label>
+                <input type="text" class="form-control" placeholder="{{ trans('frontend.town_city') }}" name="account_shipping_town_or_city" id="account_shipping_town_or_city" value="{{ old('account_shipping_town_or_city') }}">
+            
+              </div>
+            </div>
+            <div class="col-sm-6">
+              <div class="form-group">
+
+                <label class="control-label" for="inputAccountZipPostalCode">{{ trans('frontend.checkout_zip_postal_label') }}</label>
+                <input type="number" class="form-control" placeholder="{{ trans('frontend.zip_postal_code') }}" name="account_shipping_zip_or_postal_code" id="account_shipping_zip_or_postal_code" value="{{ old('account_shipping_zip_or_postal_code') }}">
+              </div>
+            </div>
+          </div>
+
+          <script>
+
+            $(document).ready(function(){
+
+              if ($('#different_shipping_address').length > 0) {
+
+                $('#different_shipping_address').on('ifChecked', function(event) {
+                    $('.different-shipping-address').show();
+                });
+                $('#different_shipping_address').on('ifUnchecked', function(event) {
+                    $('.different-shipping-address').hide();
+                });
+                
+              }
+
+            })
+
+      
+
+    </script>
+
           <div class="d-flex justify-content-between paddin-top-1x mt-4"><a class="btn btn-outline-secondary" href="cart.html"><i class="icon-arrow-left"></i><span class="hidden-xs-down">&nbsp;Back To Cart</span></a><a class="btn btn-primary" href="checkout-shipping.html"><span class="hidden-xs-down">Continue&nbsp;</span><i class="icon-arrow-right"></i></a></div>
         </div>
-        <!-- Sidebar          -->
+        <!-- Sidebar-->
         <div class="col-xl-3 col-lg-4">
           <aside class="sidebar">
             <div class="padding-top-2x hidden-lg-up"></div>
@@ -208,5 +281,9 @@
       @endif
 
     </div>
+
+
+
+    
 
 @endsection

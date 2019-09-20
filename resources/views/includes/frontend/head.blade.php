@@ -62,6 +62,20 @@
     <link rel="stylesheet" href="{{ URL::asset('/plugins/select2/select2.min.css') }}" />
     <link rel="stylesheet" href="{{ URL::asset('/dropzone/css/dropzone.css') }}" />
 
+    <!-- <link rel="stylesheet" href="{{ URL::asset('/designer/designer.css') }}" /> -->
+    <!-- <link rel="stylesheet" href="{{ URL::asset('/designer/scroll/jquery.mCustomScrollbar.css') }}" /> -->
+    <!-- <link rel="stylesheet" href="{{ URL::asset('/plugins/ionslider/ion.rangeSlider.css') }}" /> -->
+    <!-- <link rel="stylesheet" href="{{ URL::asset('/plugins/ionslider/ion.rangeSlider.skinModern.css') }}" /> -->
+    <!-- <link rel="stylesheet" href="{{ URL::asset('/plugins/bootstrap-slider/slider.css') }}" /> -->
+    <!-- <link rel="stylesheet" href="{{ URL::asset('/frontend/css/common.css') }}" /> -->
+    <!-- <link rel="stylesheet" href="{{ URL::asset('/frontend/css/price-range.css') }}" /> -->
+    <!-- <link rel="stylesheet" href="{{ URL::asset('/plugins/iCheck/square/purple.css') }}" /> -->
+    <!-- <link rel="stylesheet" href="{{ URL::asset('/modal/css/modal.css') }}" /> -->
+    <!-- <link rel="stylesheet" href="{{ URL::asset('/modal/css/modal-extra.css') }}" /> -->
+    <!-- <link rel="stylesheet" href="{{ URL::asset('/slick/slick.css') }}" /> -->
+    <!-- <link rel="stylesheet" href="{{ URL::asset('/slick/slick-theme.css') }}" /> -->
+
+
     
     <!-- Vendor Styles including: Bootstrap, Font Icons, Plugins, etc.-->
     <link rel="stylesheet" media="screen" href="{{ URL::asset('/css/vendor.min.css') }}">
@@ -86,15 +100,15 @@
     <script type="text/javascript" src="{{ URL::asset('/sweetalert/sweetalert.min.js') }}"></script>
 
 
-    <!-- <script type="text/javascript" src="{{ URL::asset('/designer/colorpicker/jscolor.js') }}"></script>
-    <script type="text/javascript" src="{{ URL::asset('/plugins/ionslider/ion.rangeSlider.min.js') }}"></script>
-    <script type="text/javascript" src="{{ URL::asset('/plugins/bootstrap-slider/bootstrap-slider.js') }}"></script>
-    <script type="text/javascript" src="{{ URL::asset('/frontend/js/products-variation.js') }}"></script>
-    <script type="text/javascript" src="{{ URL::asset('/frontend/js/products-add-to-cart.js') }}"></script>
-    <script type="text/javascript" src="{{ URL::asset('/frontend/js/price-range.js') }}"></script>
-    <script type="text/javascript" src="{{ URL::asset('/plugins/iCheck/icheck.min.js') }}"></script>
-    <script type="text/javascript" src="{{ URL::asset('/modal/js/modal.js') }}"></script>
-    <script type="text/javascript" src="{{ URL::asset('/frontend/js/jquery.validate.js') }}"></script> -->
+    <!-- <script type="text/javascript" src="{{ URL::asset('/designer/colorpicker/jscolor.js') }}"></script> -->
+    <!-- <script type="text/javascript" src="{{ URL::asset('/plugins/ionslider/ion.rangeSlider.min.js') }}"></script> -->
+    <!-- <script type="text/javascript" src="{{ URL::asset('/plugins/bootstrap-slider/bootstrap-slider.js') }}"></script> -->
+    <!-- <script type="text/javascript" src="{{ URL::asset('/frontend/js/products-variation.js') }}"></script> -->
+    <!-- <script type="text/javascript" src="{{ URL::asset('/frontend/js/products-add-to-cart.js') }}"></script> -->
+    <!-- <script type="text/javascript" src="{{ URL::asset('/frontend/js/price-range.js') }}"></script> -->
+    <!-- <script type="text/javascript" src="{{ URL::asset('/plugins/iCheck/icheck.min.js') }}"></script> -->
+    <!-- <script type="text/javascript" src="{{ URL::asset('/modal/js/modal.js') }}"></script> -->
+    <script type="text/javascript" src="{{ URL::asset('/frontend/js/jquery.validate.js') }}"></script>
 
     
     <!-- <script type="text/javascript" src="{{ URL::asset('/frontend/js/common.js') }}"></script> -->

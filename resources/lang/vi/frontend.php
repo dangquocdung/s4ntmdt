@@ -486,7 +486,7 @@ return [
 'sort_filter_new_old_label' =>  'Ngày, mới đến cũ',
 'filter_options_label' => 'Tùy chọn bộ lọc',
 'downloadable_file_label' =>  'Tệp có thể tải xuống',
-'different_shipping_label' =>'Bạn có muốn sử dụng địa chỉ khác nhau để vận chuyển không?',
+'different_shipping_label' =>'Bạn có muốn giao hàng ở 1 địa chỉ khác?',
 'user_account_download_title' =>'Tải xuống của tôi',
 'frontend_download_options_title' =>'Tải xuống của tôi',
 'upsell_title_label' =>'Bạn cũng có thể thích…',

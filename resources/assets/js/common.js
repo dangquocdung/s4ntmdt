@@ -3,6 +3,12 @@ var frontendLocalizationString;
 /*scroll to top*/
 $(document).ready(function() {
 
+    $('.shopist-iCheck').iCheck({
+        checkboxClass: 'icheckbox_square-purple',
+        radioClass: 'iradio_square-purple',
+        increaseArea: '20%'
+    });
+
     shopist_frontend.init.pageLoad();
 
     $('#productRequest').on('hidden.bs.modal', function() {
@@ -424,14 +430,14 @@ $(document).ready(function() {
     //shopist_frontend.ajaxCall.getMiniCartContent();
     //}
 
-    if ($('#different_shipping_address').length > 0) {
-        $('#different_shipping_address').on('ifChecked', function(event) {
-            $('.different-shipping-address').show();
-        });
-        $('#different_shipping_address').on('ifUnchecked', function(event) {
-            $('.different-shipping-address').hide();
-        });
-    }
+    // if ($('#different_shipping_address').length > 0) {
+    //     $('#different_shipping_address').on('ifChecked', function(event) {
+    //         $('.different-shipping-address').show();
+    //     });
+    //     $('#different_shipping_address').on('ifUnchecked', function(event) {
+    //         $('.different-shipping-address').hide();
+    //     });
+    // }
 
     //slick start
     if ($('.upsell-products').length > 0) {
