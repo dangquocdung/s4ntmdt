@@ -69,7 +69,7 @@
     <!-- <link rel="stylesheet" href="{{ URL::asset('/plugins/bootstrap-slider/slider.css') }}" /> -->
     <!-- <link rel="stylesheet" href="{{ URL::asset('/frontend/css/common.css') }}" /> -->
     <!-- <link rel="stylesheet" href="{{ URL::asset('/frontend/css/price-range.css') }}" /> -->
-    <!-- <link rel="stylesheet" href="{{ URL::asset('/plugins/iCheck/square/purple.css') }}" /> -->
+    <link rel="stylesheet" href="{{ URL::asset('/plugins/iCheck/square/purple.css') }}" />
     <!-- <link rel="stylesheet" href="{{ URL::asset('/modal/css/modal.css') }}" /> -->
     <!-- <link rel="stylesheet" href="{{ URL::asset('/modal/css/modal-extra.css') }}" /> -->
     <!-- <link rel="stylesheet" href="{{ URL::asset('/slick/slick.css') }}" /> -->

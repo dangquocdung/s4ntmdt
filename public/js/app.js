@@ -132,6 +132,7 @@ var frontendLocalizationString;
 
 $(document).ready(function () {
   $('.shopist-iCheck').iCheck({
+    // checkboxClass: 'icheckbox_square',
     checkboxClass: 'icheckbox_square-purple',
     radioClass: 'iradio_square-purple',
     increaseArea: '20%'

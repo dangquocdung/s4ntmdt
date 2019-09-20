@@ -105,13 +105,14 @@
           <h4>{!! trans('frontend.shipping_address') !!}</h4>
           <hr class="padding-bottom-1x">
           <div class="form-group">
-            <div class="custom-control custom-checkbox">
-              <input type="checkbox" name="different_shipping_address" id="different_shipping_address" class="custom-control-input shopist-iCheck" value="different_address"> 
-              <label class="custom-control-label" for="different_shipping_address">{{ trans('frontend.different_shipping_label') }}</label>
-            </div>
+
+          <input type="checkbox" name="different_shipping_address" id="different_shipping_address" class="shopist-iCheck" value="different_address"> {{ trans('frontend.different_shipping_label') }}
+
           </div>
 
-          <div class="row different-shipping-address">
+
+
+          <div class="row different-shipping-address" style="display:none">
 
             <div class="col-sm-6">
               <div class="form-group">
@@ -178,7 +179,7 @@
                 $('#different_shipping_address').on('ifUnchecked', function(event) {
                     $('.different-shipping-address').hide();
                 });
-                
+
               }
 
             })
