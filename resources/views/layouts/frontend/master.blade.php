@@ -21,17 +21,50 @@
     <!-- Site Footer-->
     @include('includes.frontend.footer')
 
-    <div class="add-to-cart-loader">
-      <img src="{{ asset('/images/loading.gif') }}" id="img-load" />
-      <!-- <div class="cart-updating-msg">{{ trans('frontend.cart_updating_msg') }}</div> -->
-    </div>
-
-    <input type="hidden" name="lang_code" id="lang_code" value="{{ $selected_lang_code }}">  
-    <input type="hidden" name="subscription_type" id="subscription_type" value="{{ $subscriptions_data['subscribe_type'] }}">
-
     <input type="hidden" name="hf_base_url" id="hf_base_url" value="{{ url('/') }}">
     <input type="hidden" name="cart_url" id="cart_url" value="{{ route('cart-page') }}">
     <input type="hidden" name="currency_symbol" id="currency_symbol" value="{{ $_currency_symbol }}">
+
+    <div id="shadow-layer"></div>
+    <div id="loader-1"></div>
+    <div id="loader-2"></div>
+    <div id="loader-3"></div>
+
+    @if(Request::is('product/customize/*') || Request::is('/san-pham/chi-tiet/*'))
+      @if(get_product_type($single_product_details['id']) == 'configurable_product' || get_product_type($single_product_details['id']) == 'customizable_product' || get_product_type($single_product_details['id']) == 'downloadable_product')
+        <input type="hidden" name="selected_variation_id" id="selected_variation_id">
+      @endif
+    @endif
+    
+    @if(Request::is('checkout') || Request::is('cart'))
+      <div class="modal fade" id="customizeImages" tabindex="-1" role="dialog" aria-labelledby="updater" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">  
+            <div class="modal-header">
+              <p class="no-margin">{!! trans('frontend.all_design_images') !!}</p>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>    
+            <div class="modal-body" style="text-align: center;"></div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-default attachtopost" data-dismiss="modal">{{ trans('frontend.close') }}</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    @endif
+
+    <div class="add-to-cart-loader">
+      <img src="{{ asset('/images/ajax-loader.gif') }}" id="img-load" />
+      <div class="cart-updating-msg">{{ trans('frontend.cart_updating_msg') }}</div>
+    </div>
+    
+    <input type="hidden" name="lang_code" id="lang_code" value="{{ $selected_lang_code }}">  
+    <input type="hidden" name="subscription_type" id="subscription_type" value="{{ $subscriptions_data['subscribe_type'] }}">
+
+
+    @if( Request::is('/san-pham/chi-tiet/*') )
 
     <!-- Photoswipe container-->
     <div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
@@ -68,6 +101,8 @@
         </div>
       </div>
     </div>
+
+    @endif
     
     <!-- Back To Top Button-->
     <a class="scroll-to-top-btn" href="#"><i class="icon-chevron-up"></i></a>
@@ -96,10 +131,7 @@
           });
           $('div.comparison-item').height(maxHeight);
 
-
         }
-
-        
 
       })
     </script>

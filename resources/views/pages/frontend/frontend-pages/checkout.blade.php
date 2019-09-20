@@ -152,39 +152,47 @@
             <!-- Order Summary Widget-->
             @include('pages.ajax-pages.cart-total-html')
 
+
+
+            @if ($seen_items <> '')
             <!-- Featured Products Widget-->
             <section class="widget widget-featured-products">
-              <h3 class="widget-title">Recently Viewed</h3>
+              <h3 class="widget-title">{{ trans('frontend.sp_da_xem') }}</h3>
+
+
+              @foreach($seen_items as $products)
+              <?php 
+                  $reviews          = get_comments_rating_details($products['id'], 'product');
+                  $reviews_settings = get_reviews_settings_data($products['id']);      
+              ?>
+
               <!-- Entry-->
               <div class="entry">
-                <div class="entry-thumb"><a href="shop-single.html"><img src="img/shop/widget/01.jpg" alt="Product"></a></div>
+                <div class="entry-thumb">
+                  <a href="shop-single.html">
+                  
+                  @if($products['product_image'])
+            <img src="{{ get_image_url($products['product_image']) }}" alt="{{ basename($products['product_image']) }}" />
+            @else
+            <img src="{{ default_placeholder_img_src() }}" alt="" />
+            @endif
+              </a>
+            </div>
                 <div class="entry-content">
                   <h4 class="entry-title"><a href="shop-single.html">GoPro Hero4 Silver</a></h4><span class="entry-meta">$287.99</span>
                 </div>
               </div>
-              <!-- Entry-->
-              <div class="entry">
-                <div class="entry-thumb"><a href="shop-single.html"><img src="img/shop/widget/02.jpg" alt="Product"></a></div>
-                <div class="entry-content">
-                  <h4 class="entry-title"><a href="shop-single.html">Puro Sound Labs BT2200</a></h4><span class="entry-meta">$95.99</span>
-                </div>
-              </div>
-              <!-- Entry-->
-              <div class="entry">
-                <div class="entry-thumb"><a href="shop-single.html"><img src="img/shop/widget/03.jpg" alt="Product"></a></div>
-                <div class="entry-content">
-                  <h4 class="entry-title"><a href="shop-single.html">HP OfficeJet Pro 8710</a></h4><span class="entry-meta">$89.70</span>
-                </div>
-              </div>
-              <!-- Entry-->
-              <div class="entry pb-2">
-                <div class="entry-thumb"><a href="shop-single.html"><img src="img/shop/widget/05.jpg" alt="Product"></a></div>
-                <div class="entry-content">
-                  <h4 class="entry-title"><a href="shop-single.html">iPhone X 256 GB Space Gray</a></h4><span class="entry-meta">$1,450.00</span>
-                </div>
-              </div>
+
+              @endforeach
+
+
+        
+              
             </section>
-            <!-- Promo Banner--><a class="card border-0 bg-secondary" href="shop-grid-ls.html">
+            @endif
+
+            <!-- Promo Banner-->
+            <a class="card border-0 bg-secondary" href="shop-grid-ls.html">
               <div class="card-body"><span class="d-block text-lg text-thin mb-2">Limited Time Deals</span>
                 <h3>Surface Pro 4</h3>
                 <p class="d-inline-block bg-warning text-white">&nbsp;&nbsp;Shop Now&nbsp;<i class="icon-chevron-right d-inline-block align-middle"></i>&nbsp;</p>

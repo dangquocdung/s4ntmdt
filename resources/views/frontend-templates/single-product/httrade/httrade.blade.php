@@ -234,6 +234,9 @@
             </div>
           </div>
 
+          <a href="" class="btn btn-sm btn-style add-to-cart-bg" data-id="{{ $single_product_details['id'] }}"><i class="fa fa-shopping-cart"></i>&nbsp;&nbsp; {{ trans('frontend.add_to_cart') }}</a>
+
+
           <div class="pt-1 mb-4"><span class="text-medium">{!! trans('frontend.sku') !!}:</span>
 
             @if ($single_product_details['post_sku'])
