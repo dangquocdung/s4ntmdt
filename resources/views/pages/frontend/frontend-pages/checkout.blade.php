@@ -166,7 +166,7 @@
                 <!-- Entry-->
                 <div class="entry">
                   <div class="entry-thumb">
-                    <a href="{{ route('details-page', $products['post_slug']) }">
+                    <a href="{{ route('details-page', $products['post_slug']) }}">
                       @if($products['product_image'])
                       <img src="{{ get_image_url($products['product_image']) }}" alt="{{ basename($products['product_image']) }}" />
                       @else
