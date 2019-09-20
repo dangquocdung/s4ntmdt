@@ -219,11 +219,19 @@
 
                 <select class="form-control" id="quantity" name="quant[1]">
 
+                @if ($qty > 1)
+
                   @for($i=1; $i<$qty; $i++)
 
                     <option value="{{ $i }}">{{ $i}}</option>
 
                   @endfor
+                @else
+
+                `<option value="">1</option>
+
+
+                @endif
 
                 </select>
               </div>
