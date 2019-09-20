@@ -29,8 +29,8 @@
         <!-- Checkout Adress-->
         <div class="col-xl-9 col-lg-8">
           <div class="steps flex-sm-nowrap mb-5">
-            <a class="step" href="{{ route('checkout-process') }}">
-              <h4 class="step-title">1. {{ trans('frontend.address') }}</h4>
+            <a class="step active" href="{{ route('checkout-process') }}">
+              <h4 class="step-title">1. Address</h4>
             </a>
             <a class="step" href="#">
               <h4 class="step-title">2. Shipping</h4>
@@ -42,76 +42,104 @@
             </a>
           </div>
 
-          <h4>{{ trans('frontend.billing_address') }}</h4>
+          <h4>Billing Address</h4>
 
           <hr class="padding-bottom-1x">
-
           <div class="row">
             <div class="col-sm-6">
+
               <div class="form-group">
-                <label for="inputAccountFirstName">{{ trans('frontend.account_first_name') }}</label>
-                <input type="text" class="form-control" placeholder="{{ trans('frontend.first_name') }}" name="account_bill_first_name" id="account_bill_first_name" value="{{ old('account_bill_first_name') }}">
+                <label for="checkout-fn">First Name</label>
+                <input class="form-control" type="text" id="checkout-fn">
               </div>
+
             </div>
             <div class="col-sm-6">
               <div class="form-group">
-                <label for="inputAccountLastName">{{ trans('frontend.account_last_name') }}</label>
-                <input type="text" class="form-control" placeholder="{{ trans('frontend.last_name') }}" name="account_bill_last_name" id="account_bill_last_name" value="{{ old('account_bill_last_name') }}">
-                             
+
+                <label for="checkout-ln">Last Name</label>
+                <input class="form-control" type="text" id="checkout-ln">
+                
               </div>
             </div>
           </div>
           <div class="row">
             <div class="col-sm-6">
               <div class="form-group">
-                <label for="inputAccountEmailAddress">{{ trans('frontend.account_email') }}</label>
-                <input type="email" class="form-control" placeholder="{{ trans('frontend.email') }}" name="account_bill_email_address" id="account_bill_email_address" value="{{ old('account_bill_email_address') }}">
+                <label for="checkout-email">E-mail Address</label>
+                <input class="form-control" type="email" id="checkout-email">
               </div>
             </div>
             <div class="col-sm-6">
               <div class="form-group">
-                <label for="inputAccountPhoneNumber">{{ trans('frontend.account_phone_number') }}</label>
-                <input type="number" class="form-control" placeholder="{{ trans('frontend.phone') }}" name="account_bill_phone_number" id="account_bill_phone_number" value="{{ old('account_bill_phone_number') }}">
+                <label for="checkout-phone">Phone Number</label>
+                <input class="form-control" type="text" id="checkout-phone">
               </div>
             </div>
           </div>
-         
-          <div class="row">
-            
-            <input type="hidden" id="account_bill_select_country" name="account_bill_select_country" value="VN">
-
-            <div class="col-sm-12">
-              <div class="form-group">
-                <label class="control-label" for="inputAccountAddressLine1">{{ trans('frontend.account_address_line_1') }}</label>
-                <textarea class="form-control" id="account_bill_adddress_line_1" name="account_bill_adddress_line_1" placeholder="{{ trans('frontend.address_line_1') }}">{{ old('account_bill_adddress_line_1') }}</textarea>
-              </div>
-            </div>
-          </div>
-
           <div class="row">
             <div class="col-sm-6">
               <div class="form-group">
-
-                <label class="control-label" for="inputAccountTownCity">{{ trans('frontend.account_address_town_city') }}</label>
-                <input type="text" class="form-control" placeholder="{{ trans('frontend.town_city') }}" name="account_shipping_town_or_city" id="account_shipping_town_or_city" value="{{ old('account_shipping_town_or_city') }}">
-            
+                <label for="checkout-company">Company</label>
+                <input class="form-control" type="text" id="checkout-company">
               </div>
             </div>
             <div class="col-sm-6">
               <div class="form-group">
-
-                <label class="control-label" for="inputAccountZipPostalCode">{{ trans('frontend.checkout_zip_postal_label') }}</label>
-                <input type="number" class="form-control" placeholder="{{ trans('frontend.zip_postal_code') }}" name="account_shipping_zip_or_postal_code" id="account_shipping_zip_or_postal_code" value="{{ old('account_shipping_zip_or_postal_code') }}">
+                <label for="checkout-country">Country</label>
+                <select class="form-control" id="checkout-country">
+                  <option>Choose country</option>
+                  <option>Australia</option>
+                  <option>Canada</option>
+                  <option>France</option>
+                  <option>Germany</option>
+                  <option>Switzerland</option>
+                  <option>USA</option>
+                </select>
               </div>
             </div>
           </div>
-
-          <h4>{!! trans('frontend.shipping_address') !!}</h4>
+          <div class="row">
+            <div class="col-sm-6">
+              <div class="form-group">
+                <label for="checkout-city">City</label>
+                <select class="form-control" id="checkout-city">
+                  <option>Choose city</option>
+                  <option>Amsterdam</option>
+                  <option>Berlin</option>
+                  <option>Geneve</option>
+                  <option>New York</option>
+                  <option>Paris</option>
+                </select>
+              </div>
+            </div>
+            <div class="col-sm-6">
+              <div class="form-group">
+                <label for="checkout-zip">ZIP Code</label>
+                <input class="form-control" type="text" id="checkout-zip">
+              </div>
+            </div>
+          </div>
+          <div class="row padding-bottom-1x">
+            <div class="col-sm-6">
+              <div class="form-group">
+                <label for="checkout-address1">Address 1</label>
+                <input class="form-control" type="text" id="checkout-address1">
+              </div>
+            </div>
+            <div class="col-sm-6">
+              <div class="form-group">
+                <label for="checkout-address2">Address 2</label>
+                <input class="form-control" type="text" id="checkout-address2">
+              </div>
+            </div>
+          </div>
+          <h4>Shipping Address</h4>
           <hr class="padding-bottom-1x">
           <div class="form-group">
             <div class="custom-control custom-checkbox">
-              <input type="checkbox" name="different_shipping_address" id="different_shipping_address" class="custom-control-input shopist-iCheck" value="different_address"> 
-              <label class="custom-control-label" for="different_shipping_address">{{ trans('frontend.different_shipping_label') }}</label>
+              <input class="custom-control-input" type="checkbox" id="same_address" checked>
+              <label class="custom-control-label" for="same_address">Same as billing address</label>
             </div>
           </div>
           <div class="d-flex justify-content-between paddin-top-1x mt-4"><a class="btn btn-outline-secondary" href="cart.html"><i class="icon-arrow-left"></i><span class="hidden-xs-down">&nbsp;Back To Cart</span></a><a class="btn btn-primary" href="checkout-shipping.html"><span class="hidden-xs-down">Continue&nbsp;</span><i class="icon-arrow-right"></i></a></div>
