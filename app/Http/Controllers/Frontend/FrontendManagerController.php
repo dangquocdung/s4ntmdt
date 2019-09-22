@@ -584,7 +584,6 @@ class FrontendManagerController extends Controller
 
       $data['seen_items'] = $this->seenProducts();
 
-      
       return view('pages.frontend.frontend-pages.product-details', $data);
 
       // return response()->json($recently_viewed);
@@ -657,13 +656,8 @@ class FrontendManagerController extends Controller
     $data['login_user_account_data'] = $user_account_parse_data;
     $data['_settings_data']   = $this->option->getSettingsData();
 
-
     $data['seen_items'] = $this->seenProducts();
 
-
-
-
-    
     return view('pages.frontend.frontend-pages.checkout', $data);
   }
   

@@ -555,5 +555,6 @@ return [
 'store_label' => 'Thông tin gian hàng',
 'tin-tuc' => 'Tin tức',
 'sp_da_xem' => 'Sản phẩm bạn đã xem',
-'san-pham-tuong-tu' => 'Sản phẩm tương tự'
+'san-pham-tuong-tu' => 'Sản phẩm tương tự',
+'clear_cart' => 'Xoá giỏ hàng'
 ];
