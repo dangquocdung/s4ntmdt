@@ -2,7 +2,26 @@
 @section('title', trans('frontend.shopist_checkout') .' | '. get_site_title() )
 
 @section('content')
-  <div id="checkout_page" class="container">
+
+  <!-- Page Title-->
+  <div class="page-title">
+    <div class="container">
+      <div class="column">
+        <h1>{{ trans('frontend.checkout') }}</h1>
+      </div>
+      <div class="column">
+        <ul class="breadcrumbs">
+          <li>
+            <a href="{{ route('home-page') }}">{{ trans('frontend.home') }}</a>
+          </li>
+          <li class="separator">&nbsp;</li>
+          <li>{{ trans('frontend.checkout') }}</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div id="checkout_page" class="container padding-bottom-3x mb-1">
       @if( Cart::count() >0 )
       <form class="form-horizontal" method="post" action="" enctype="multipart/form-data">
         <input type="hidden" name="_token" value="{{ csrf_token() }}"> 
@@ -25,93 +44,104 @@
               </div>
 
               <div id="cart_summary" class="step well">
-                <h2 class="step-title">{!! trans('frontend.shopping_cart_summary_label') !!}</h2><hr>
+                <!-- <h2 class="step-title">{!! trans('frontend.shopping_cart_summary_label') !!}</h2><hr> -->
                 <div class="shopping-cart-summary-content">
-                  <ul class="cart-data">
-                    <li class="row list-inline columnCaptions">
-                      <div class="header-items">{!! trans('frontend.cart_item') !!}</div>
-                      <div class="header-price">{!! trans('frontend.price') !!}</div>
-                      <div class="header-qty">{!! trans('frontend.quantity') !!}</div>
-                      <div class="header-line-total last-total">{!! trans('frontend.total') !!}</div>
-                    </li>
-                    @foreach(Cart::items() as $index => $items)
-                      <li class="row items-inline">
-                        <div class="itemName">
-                          @if($items->img_src)
-                            <div class="product-img">
-                              <a href="{{ route('details-page', get_product_slug($items->id)) }}">
-                                <img src="{{ get_image_url($items->img_src) }}" alt="product">
-                              </a>
-                            </div>
-                          @else
-                            <div class="product-img">
-                              <a href="{{ route('details-page', get_product_slug($items->id)) }}">
-                                <img src="{{ default_placeholder_img_src() }}" alt="product">
-                              </a>
-                            </div>
-                          @endif
-                          <div class="item-name">
-                            <a href="{{ route('details-page', get_product_slug($items->id)) }}">{!! $items->name !!}</a>
-                            <?php $count = 1; ?>
-                            @if(count($items->options) > 0)
-                            <p>
-                              @foreach($items->options as $key => $val)
-                                @if($count == count($items->options))
-                                  {!! $key .' &#8658; '. $val !!}
+                  <div class="table-responsive shopping-cart">
+                    <table class="table">
+                      <thead>
+                        <tr>
+                          <th>{!! trans('frontend.cart_item') !!}</th>
+                          <th class="text-center">{!! trans('frontend.quantity') !!}</th>
+                          <th class="text-center">{!! trans('frontend.price') !!}</th>
+                          <th class="text-center">
+                            <input type="submit" name="empty_cart" class="btn btn-sm btn-outline-danger" value="{{ trans('frontend.clear_cart') }}">  
+                          </th>
+
+                        </tr>
+                      </thead>
+                      <tbody>
+
+                        @foreach(Cart::items() as $index => $items)
+                        
+                        <tr>
+                          <td>
+                            <div class="product-item">
+                              <a class="product-thumb" href="{{ route('details-page', get_product_slug($items->id)) }}" target="_blank">
+                                @if($items->img_src)
+                                  <img src="{{ get_image_url($items->img_src) }}" alt="product">
                                 @else
-                                  {!! $key .' &#8658; '. $val. ' , ' !!}
+                                  <img src="{{ default_placeholder_img_src() }}" alt="no_image">
                                 @endif
-                                <?php $count ++ ; ?>
-                              @endforeach
-                            </p>
-                            @endif
+                              </a>
 
-                            @if(get_product_type($items->id) === 'customizable_product')
-                              @if($items->acces_token)
-                                @if(count(get_customize_images_by_access_token($items->acces_token))>0)
-                                  <button class="btn btn-block btn-xs view-customize-images" data-images="{{ json_encode( get_customize_images_by_access_token($items->acces_token) ) }}">{{ trans('frontend.design_images') }}</button>
+                              <div class="product-info">
+                                <h4 class="product-title"><a href="{{ route('details-page', get_product_slug($items->id)) }}" target="_blank">{!! $items->name !!}</a></h4>
+                                @if(count($items->options) > 0)
+                                  @foreach($items->options as $key => $val)
+                                    @if($count == count($items->options))
+                                      {!! $key .' &#8658; '. $val !!}
+                                    @else
+                                      {!! $key .' &#8658; '. $val. ' , ' !!}
+                                    @endif
+                                    <?php $count ++ ; ?>
+                                  @endforeach
                                 @endif
-                              @endif
-                            @endif
+                                @if(get_product_type($items->id) === 'customizable_product')
+                                  @if($items->acces_token)
+                                    @if(count(get_customize_images_by_access_token($items->acces_token))>0)
+                                      <button class="btn btn-block btn-sm view-customize-images" data-images="{{ json_encode( get_customize_images_by_access_token($items->acces_token) ) }}">{{ trans('frontend.design_images') }}</button>
+                                    @endif
+                                  @endif
+                                @endif
+                                
+                                @if( count(get_vendor_details_by_product_id($items->product_id)) >0 )
+                                  <p class="vendor-title"><strong>{!! trans('frontend.vendor_label') !!}</strong> : {!! get_vendor_name_by_product_id( $items->product_id) !!}</p>
+                                @endif
+                              </div>
+                            </div>
+                          </td>
 
-                            @if( count(get_vendor_details_by_product_id($items->product_id)) >0 )
-                            <p class="vendor-title"><strong>{!! trans('frontend.vendor_label') !!}</strong> : {!! get_vendor_name_by_product_id( $items->product_id) !!}</p>
-                            @endif
-                          </div>
-                        </div>  
+                          <td class="text-center">
 
-                        <div class="price">{!! price_html( get_product_price_html_by_filter($items->price) ) !!}</div>
-                        <div class="quantity"><input type="number" class="form-control cart_quantity_input" name="cart_quantity[{{ $index }}]" value="{{ $items->quantity }}" min="1"></div>
-                        <div class="price line-total last-total">{!! price_html(  get_product_price_html_by_filter(Cart::getRowPrice($items->quantity, $items->price) )) !!}</div>
-                        <div class="popbtn"><a class="cart_quantity_delete delete-extra-padding" href="{{ route('removed-item-from-cart', $index)}}"><i class="fa fa-close"></i></a></div>
-                      </li>
-                    @endforeach
+                            <!-- <input type="number" class="form-control text-center" name="cart_quantity[{{ $index }}]" value="{{ $items->quantity }}" min="1"> -->
 
-                    <li class="row cart-button-main">
-                      <div class="apply-coupon">
-                        <input type="text" class="form-control" id="apply_coupon_code" name="apply_coupon" placeholder="{{ trans('frontend.coupon_code_placeholder_text') }}">
-                        <button class="btn btn-secondary" name="apply_coupon_post" id="apply_coupon_post">{!! trans('frontend.apply_coupon_label') !!}</button>
-                        <div class="clearfix visible-xs"></div>
-                      </div>
-                      <div class="btn-cart-action">
-                        <button class="btn btn-secondary empty" type="submit" name="empty_cart" value="empty_cart">{{ trans('frontend.empty_cart') }}</button>
-                        <button class="btn btn-secondary update" type="submit" name="update_cart" value="update_cart">{{ trans('frontend.update_cart') }}</button>
-                      </div>
-                    </li>
+                            <div class="count-input">
+                              <select class="form-control" name="cart_quantity[{{ $index }}]">
+                                @for( $i=1; $i<=10; $i++)
+                                  <option {{ ($i==$items->quantity?'selected':'' )}}>{{$i}}</option>
+                                @endfor
 
-                    @include('pages.ajax-pages.cart-total-html')
-                  </ul>
+                              </select>
+                            </div>
+                          </td>
+                          <td class="text-center text-lg">
+                            {!! price_html( get_product_price_html_by_filter( $items->price ), get_frontend_selected_currency() ) !!}
+                          </td>
+                        
+                          <td class="text-center"><a class="remove-from-cart" href="{{ route('removed-item-from-cart', $index)}}" data-toggle="tooltip" title="Remove item"><i class="icon-x"></i></a></td>
+
+                        </tr>
+
+                        @endforeach
+
+                      </tbody>
+                    </table>
+                  </div>
                 </div>
               </div>
 
               @if($_settings_data['general_settings']['checkout_options']['enable_guest_user'] == true || $_settings_data['general_settings']['checkout_options']['enable_login_user'] == true)
               <div id="user_mode" class="step well">
-                <h2 class="step-title">{!! trans('frontend.user_mode_label') !!}</h2><hr>  
+                <!-- <h2 class="step-title">{!! trans('frontend.user_mode_label') !!}</h2><hr>   -->
                 <div class="checkout-process-user-mode">
-                  <ul class="nav">
+                
+                  <ul style="list-style:none">
+
                     @if($_settings_data['general_settings']['checkout_options']['enable_guest_user'] == true && $is_user_login == false)  
                       <li>
-                          <label><input type="radio" class="shopist-iCheck" name="user_checkout_complete_type" value="guest">&nbsp; {!! trans('frontend.guest_checkout') !!}</label>
+                        <label>
+                          <input type="radio" class="shopist-iCheck" name="user_checkout_complete_type" value="guest">&nbsp; {!! trans('frontend.guest_checkout') !!}
+                        </label>
                       </li>
                     @endif
                     
@@ -120,6 +150,7 @@
                         <label><input type="radio" class="shopist-iCheck" name="user_checkout_complete_type" value="login_user">&nbsp; {!! trans('frontend.login_user_checkout') !!}</label>
                       </li>
                     @endif
+
                   </ul>
                 </div>
               </div>
@@ -127,163 +158,126 @@
 
               @if($_settings_data['general_settings']['checkout_options']['enable_guest_user'] == true || ($_settings_data['general_settings']['checkout_options']['enable_guest_user'] == false && $_settings_data['general_settings']['checkout_options']['enable_login_user'] == false))
               <div id="guest_user_address" class="step well">
-                <h2 class="step-title">{!! trans('frontend.checkout_address_label') !!}</h2><hr> 
                 <div class="user-address-content">
                   <div class="address-information clearfix">
                     <div class="address-content-sub">
-                      <h3 class="page-subheading">{!! trans('frontend.billing_address') !!}</h3><hr>
                       <div class="row">
-                        <div class="col-md-12">
+                        <div class="col-sm-6">
                           <div class="form-group">
-                            <div class="row">  
-                              <div class="col-sm-4">
-                                <label class="control-label" for="inputAccountTitle">{{ trans('frontend.account_title') }}</label>
-                              
-                                <input type="text" class="form-control" placeholder="{{ trans('frontend.title') }}" name="account_bill_title" id="account_bill_title" value="{{ old('account_bill_title') }}">
-                              </div>
-                            </div>    
+                            <label for="inputAccountFirstName">{{ trans('frontend.account_first_name') }}</label>
+                            <input type="text" class="form-control" placeholder="{{ trans('frontend.first_name') }}" name="account_bill_first_name" id="account_bill_first_name" value="{{ old('account_bill_first_name') }}">
                           </div>
+                        </div>
+                        <div class="col-sm-6">
                           <div class="form-group">
-                            <div class="row">  
-                              <div class="col-sm-4">
-                                <label class="control-label" for="inputAccountCompanyName">{{ trans('frontend.checkout_company_name_label') }}</label>
-                              
-                                <input type="text" class="form-control" placeholder="{{ trans('frontend.company_name') }}" name="account_bill_company_name" id="account_bill_company_name" value="{{ old('account_bill_company_name') }}">
-                              
-                              </div>
-                            </div>    
+                            <label for="inputAccountLastName">{{ trans('frontend.account_last_name') }}</label>
+                            <input type="text" class="form-control" placeholder="{{ trans('frontend.last_name') }}" name="account_bill_last_name" id="account_bill_last_name" value="{{ old('account_bill_last_name') }}">
+                                        
                           </div>
-
-                          <div class="form-group required">
-                            <div class="row">    
-                              <div class="col-sm-4">
-                                <label class="control-label" for="inputAccountFirstName">{{ trans('frontend.account_first_name') }}</label>
-                              
-                                
-                                <input type="text" class="form-control" placeholder="{{ trans('frontend.first_name') }}" name="account_bill_first_name" id="account_bill_first_name" value="{{ old('account_bill_first_name') }}">
-                              
-                              
-                              </div>
-                            </div>    
-                          </div>
-
-                          <div class="form-group required">
-                            <div class="row">    
-                              <div class="col-sm-4">
-
-
-                            </div>
-                            </div>    
-                          </div>
-
-                          <div class="form-group required">
-                            <div class="row">    
-                              <div class="col-sm-4">
-
-                              
-                              </div>
-                            </div>    
-                          </div>
-
-                          <div class="form-group required">
-                            <div class="row">    
-                              <div class="col-sm-4">
-
-
-                              
-                              
-                              </div>
-                            </div>    
-                          </div>
-
-                          <div class="form-group required">
-                            <div class="row">    
-                              <div class="col-sm-4">
-                                <label class="control-label" for="inputAccountSelectCountry">{{ trans('frontend.checkout_select_country_label') }}</label>
-                             
-                                <select class="form-control" id="account_bill_select_country" name="account_bill_select_country">
-                                  <option value=""> {{ trans('frontend.select_country') }} </option>
-                                  @foreach(get_country_list() as $key => $val)
-                                    @if(old('account_bill_select_country') == $key)
-                                      <option selected value="{{ $key }}"> {!! $val !!}</option>
-                                    @else
-                                      <option value="{{ $key }}"> {!! $val !!}</option>
-                                    @endif
-                                  @endforeach
-                                 </select>
-                              </div>
-                            </div>    
-                          </div>
-
-                          <div class="form-group required">
-                            <div class="row">    
-                              <div class="col-sm-4">
-                                <label class="control-label" for="inputAccountAddressLine1">{{ trans('frontend.account_address_line_1') }}</label>
-                                <textarea class="form-control" id="account_bill_adddress_line_1" name="account_bill_adddress_line_1" placeholder="{{ trans('frontend.address_line_1') }}">{{ old('account_bill_adddress_line_1') }}</textarea>
-                              </div>
-                            </div>    
-                          </div>
-
+                        </div>
+                      
+                        <div class="col-sm-6">
                           <div class="form-group">
-                            <div class="row">    
-                              <div class="col-sm-4">
-                                <label class="control-label" for="inputAccountAddressLine2">{{ trans('frontend.account_address_line_2') }}</label>
-                              </div>
-                              <div class="col-sm-8">
-                                <textarea class="form-control" id="account_bill_adddress_line_2" name="account_bill_adddress_line_2" placeholder="{{ trans('frontend.address_line_2') }}">{{ old('account_bill_adddress_line_2') }}</textarea>
-                              </div>
-                            </div>    
+                            <label for="inputAccountEmailAddress">{{ trans('frontend.account_email') }}</label>
+                            <input type="email" class="form-control" placeholder="{{ trans('frontend.email') }}" name="account_bill_email_address" id="account_bill_email_address" value="{{ old('account_bill_email_address') }}">
                           </div>
-
-                          <div class="form-group required">
-                            <div class="row">    
-                              <div class="col-sm-4">
-                                <label class="control-label" for="inputAccountTownCity">{{ trans('frontend.account_address_town_city') }}</label>
-                              </div>
-                              <div class="col-sm-8">
-                                <input type="text" class="form-control" placeholder="{{ trans('frontend.town_city') }}" name="account_bill_town_or_city" id="account_bill_town_or_city" value="{{ old('account_bill_town_or_city') }}">
-                              </div>
-                            </div>    
-                          </div>
-
-                          <div class="form-group required">
-                            <div class="row">    
-                              <div class="col-sm-4">
-                                <label class="control-label" for="inputAccountZipPostalCode">{{ trans('frontend.checkout_zip_postal_label') }}</label>
-                              </div>
-                              <div class="col-sm-8">
-                                <input type="number" class="form-control" placeholder="{{ trans('frontend.zip_postal_code') }}" name="account_bill_zip_or_postal_code" id="account_bill_zip_or_postal_code" value="{{ old('account_bill_zip_or_postal_code') }}">
-                              </div>
-                            </div>    
-                          </div>
-
+                        </div>
+                        <div class="col-sm-6">
                           <div class="form-group">
-                            <div class="row">    
-                              <div class="col-sm-4">
-                                <label class="control-label" for="inputAccountFaxNumber">{{ trans('frontend.account_fax_number') }}</label>
-                              </div>
-                              <div class="col-sm-8">
-                                <input type="number" class="form-control" placeholder="{{ trans('frontend.fax') }}" name="account_bill_fax_number" id="account_bill_fax_number" value="{{ old('account_bill_fax_number') }}">
-                              </div>
-                            </div>    
-                          </div>  
+                            <label for="inputAccountPhoneNumber">{{ trans('frontend.account_phone_number') }}</label>
+                            <input type="number" class="form-control" placeholder="{{ trans('frontend.phone') }}" name="account_bill_phone_number" id="account_bill_phone_number" value="{{ old('account_bill_phone_number') }}">
+                          </div>
+                        </div>
+                      
+                        <input type="hidden" id="account_bill_select_country" name="account_bill_select_country" value="VN">
+
+                        <div class="col-sm-12">
+                          <div class="form-group">
+                            <label class="control-label" for="inputAccountAddressLine1">{{ trans('frontend.account_address_line_1') }}</label>
+                            <textarea class="form-control" id="account_bill_adddress_line_1" name="account_bill_adddress_line_1" placeholder="{{ trans('frontend.address_line_1') }}">{{ old('account_bill_adddress_line_1') }}</textarea>
+                          </div>
+                        </div>
+                      
+                        <div class="col-sm-6">
+                          <div class="form-group">
+
+                            <label class="control-label" for="inputAccountTownCity">{{ trans('frontend.account_address_town_city') }}</label>
+                            <input type="text" class="form-control" placeholder="{{ trans('frontend.town_city') }}" name="account_shipping_town_or_city" id="account_shipping_town_or_city" value="{{ old('account_shipping_town_or_city') }}">
+                        
+                          </div>
+                        </div>
+                        <div class="col-sm-6">
+                          <div class="form-group">
+
+                            <label class="control-label" for="inputAccountZipPostalCode">{{ trans('frontend.checkout_zip_postal_label') }}</label>
+                            <input type="number" class="form-control" placeholder="{{ trans('frontend.zip_postal_code') }}" name="account_shipping_zip_or_postal_code" id="account_shipping_zip_or_postal_code" value="{{ old('account_shipping_zip_or_postal_code') }}">
+                          </div>
                         </div>
                       </div>
                     </div>
+                    <br>
                     <div class="address-content-sub">
-                      <h3 class="page-subheading">{!! trans('frontend.shipping_address') !!}</h3><hr>
+
+                      <h4>{!! trans('frontend.shipping_address') !!}</h4>
                       <input type="checkbox" name="different_shipping_address" id="different_shipping_address" class="shopist-iCheck" value="different_address"> {{ trans('frontend.different_shipping_label') }}
                       <div class="row different-shipping-address">
                         <div class="col-md-12">
                           <div class="form-group">
-                            <div class="row">    
-                              <div class="col-sm-4">
-                                <label class="control-label" for="inputAccountTitle">{{ trans('frontend.account_title') }}</label>
+
+                            <div class="row">
+                              <div class="col-sm-6">
+                                <div class="form-group">
+                                  <label for="inputAccountFirstName">{{ trans('frontend.account_first_name') }}</label>
+                                  <input type="text" class="form-control" placeholder="{{ trans('frontend.first_name') }}" name="account_bill_first_name" id="account_bill_first_name" value="{{ old('account_bill_first_name') }}">
+                                </div>
                               </div>
-                              <div class="col-sm-8">
-                                <input type="text" class="form-control" placeholder="{{ trans('frontend.title') }}" name="account_shipping_title" id="account_shipping_title" value="{{ old('account_shipping_title') }}">
+                              <div class="col-sm-6">
+                                <div class="form-group">
+                                  <label for="inputAccountLastName">{{ trans('frontend.account_last_name') }}</label>
+                                  <input type="text" class="form-control" placeholder="{{ trans('frontend.last_name') }}" name="account_bill_last_name" id="account_bill_last_name" value="{{ old('account_bill_last_name') }}">
+                                              
+                                </div>
                               </div>
-                            </div>    
+                            
+                              <div class="col-sm-6">
+                                <div class="form-group">
+                                  <label for="inputAccountEmailAddress">{{ trans('frontend.account_email') }}</label>
+                                  <input type="email" class="form-control" placeholder="{{ trans('frontend.email') }}" name="account_bill_email_address" id="account_bill_email_address" value="{{ old('account_bill_email_address') }}">
+                                </div>
+                              </div>
+                              <div class="col-sm-6">
+                                <div class="form-group">
+                                  <label for="inputAccountPhoneNumber">{{ trans('frontend.account_phone_number') }}</label>
+                                  <input type="number" class="form-control" placeholder="{{ trans('frontend.phone') }}" name="account_bill_phone_number" id="account_bill_phone_number" value="{{ old('account_bill_phone_number') }}">
+                                </div>
+                              </div>
+                            
+                              <input type="hidden" id="account_bill_select_country" name="account_bill_select_country" value="VN">
+
+                              <div class="col-sm-12">
+                                <div class="form-group">
+                                  <label class="control-label" for="inputAccountAddressLine1">{{ trans('frontend.account_address_line_1') }}</label>
+                                  <textarea class="form-control" id="account_bill_adddress_line_1" name="account_bill_adddress_line_1" placeholder="{{ trans('frontend.address_line_1') }}">{{ old('account_bill_adddress_line_1') }}</textarea>
+                                </div>
+                              </div>
+                            
+                              <div class="col-sm-6">
+                                <div class="form-group">
+
+                                  <label class="control-label" for="inputAccountTownCity">{{ trans('frontend.account_address_town_city') }}</label>
+                                  <input type="text" class="form-control" placeholder="{{ trans('frontend.town_city') }}" name="account_shipping_town_or_city" id="account_shipping_town_or_city" value="{{ old('account_shipping_town_or_city') }}">
+                              
+                                </div>
+                              </div>
+                              <div class="col-sm-6">
+                                <div class="form-group">
+
+                                  <label class="control-label" for="inputAccountZipPostalCode">{{ trans('frontend.checkout_zip_postal_label') }}</label>
+                                  <input type="number" class="form-control" placeholder="{{ trans('frontend.zip_postal_code') }}" name="account_shipping_zip_or_postal_code" id="account_shipping_zip_or_postal_code" value="{{ old('account_shipping_zip_or_postal_code') }}">
+                                </div>
+                              </div>
+                            </div>
+
                           </div>
 
                           <div class="form-group">
@@ -480,7 +474,6 @@
                         <p><strong>{{ trans('admin.phone') }}:</strong> {!! $login_user_account_data->address_details->account_bill_phone_number !!}</p>
                       @endif
 
-
                       @if($login_user_account_data->address_details->account_bill_fax_number)
                         <p><strong>{{ trans('admin.fax') }}:</strong> {!! $login_user_account_data->address_details->account_bill_fax_number !!}</p>
                       @endif
@@ -517,7 +510,6 @@
                       @if($login_user_account_data->address_details->account_shipping_phone_number)
                         <p><strong>{{ trans('admin.phone') }}:</strong> {!! $login_user_account_data->address_details->account_shipping_phone_number !!}</p>
                       @endif
-
 
                       @if($login_user_account_data->address_details->account_shipping_fax_number)
                         <p><strong>{{ trans('admin.fax') }}:</strong> {!! $login_user_account_data->address_details->account_shipping_fax_number !!}</p>
@@ -702,7 +694,7 @@
               @endif
 
               <br>
-              <button class="action next btn btn-secondary">{!! trans('frontend.proceed_to_checkout_label') !!}</button>
+              <button class="action next btn btn-primary" style="float:right">{!! trans('frontend.proceed_to_checkout_label') !!}</button>
               <button name="checkout_proceed" class="action submit btn btn-secondary place-order" type="submit" value="checkout_proceed">{{ trans('frontend.place_order') }}</button>
             </div>
           </div>  

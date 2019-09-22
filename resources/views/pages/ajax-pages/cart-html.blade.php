@@ -131,7 +131,9 @@
         </div>
 
         <div class="shopping-cart-footer">
-          <div class="column"><a class="btn btn-outline-secondary" href="{{ route('shop-page') }}"><i class="icon-arrow-left"></i>&nbsp;{{ trans('frontend.return_to_shop') }}</a></div>
+          <div class="column">
+            <a class="btn btn-outline-secondary" href="{{ route('shop-page') }}"><i class="icon-arrow-left"></i>&nbsp;{{ trans('frontend.return_to_shop') }}</a>
+          </div>
 
           <div class="column">
 
