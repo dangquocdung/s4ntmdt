@@ -21,6 +21,7 @@
     </div>
   </div>
 
+  <!-- Page Content-->
   <div id="checkout_page" class="container padding-bottom-3x mb-1">
       @if( Cart::count() >0 )
       <form class="form-horizontal" method="post" action="" enctype="multipart/form-data">
@@ -131,185 +132,187 @@
               </div>
 
               @if($_settings_data['general_settings']['checkout_options']['enable_guest_user'] == true || $_settings_data['general_settings']['checkout_options']['enable_login_user'] == true)
-              <div id="user_mode" class="step well">
-                <!-- <h2 class="step-title">{!! trans('frontend.user_mode_label') !!}</h2><hr>   -->
-                <div class="checkout-process-user-mode">
-                
-                  <ul style="list-style:none">
+                <div id="user_mode" class="step well">
+                  <!-- <h2 class="step-title">{!! trans('frontend.user_mode_label') !!}</h2><hr>   -->
+                  <div class="checkout-process-user-mode">
+                  
+                    <ul style="list-style:none">
 
-                    @if($_settings_data['general_settings']['checkout_options']['enable_guest_user'] == true && $is_user_login == false)  
-                      <li>
-                        <label>
-                          <input type="radio" class="shopist-iCheck" name="user_checkout_complete_type" value="guest">&nbsp; {!! trans('frontend.guest_checkout') !!}
-                        </label>
-                      </li>
-                    @endif
-                    
-                    @if($_settings_data['general_settings']['checkout_options']['enable_login_user'] == true)
-                      <li>
-                        <label><input type="radio" class="shopist-iCheck" name="user_checkout_complete_type" value="login_user">&nbsp; {!! trans('frontend.login_user_checkout') !!}</label>
-                      </li>
-                    @endif
+                      @if($_settings_data['general_settings']['checkout_options']['enable_guest_user'] == true && $is_user_login == false)  
+                        <li>
+                          <label>
+                            <input type="radio" class="shopist-iCheck" name="user_checkout_complete_type" value="guest">&nbsp; {!! trans('frontend.guest_checkout') !!}
+                          </label>
+                        </li>
+                      @endif
+                      
+                      @if($_settings_data['general_settings']['checkout_options']['enable_login_user'] == true)
+                        <li>
+                          <label><input type="radio" class="shopist-iCheck" name="user_checkout_complete_type" value="login_user">&nbsp; {!! trans('frontend.login_user_checkout') !!}</label>
+                        </li>
+                      @endif
 
-                  </ul>
+                    </ul>
+                  </div>
                 </div>
-              </div>
               @endif
 
               @if($_settings_data['general_settings']['checkout_options']['enable_guest_user'] == true || ($_settings_data['general_settings']['checkout_options']['enable_guest_user'] == false && $_settings_data['general_settings']['checkout_options']['enable_login_user'] == false))
-              <div id="guest_user_address" class="step well">
-                <div class="user-address-content">
-                  <div class="address-information clearfix">
-                    <div class="address-content-sub">
-                      <div class="row">
-                        <div class="col-sm-6">
-                          <div class="form-group">
-                            <label for="inputAccountFirstName">{{ trans('frontend.account_first_name') }}</label>
-                            <input type="text" class="form-control" placeholder="{{ trans('frontend.first_name') }}" name="account_bill_first_name" id="account_bill_first_name" value="{{ old('account_bill_first_name') }}">
-                          </div>
-                        </div>
-                        <div class="col-sm-6">
-                          <div class="form-group">
-                            <label for="inputAccountLastName">{{ trans('frontend.account_last_name') }}</label>
-                            <input type="text" class="form-control" placeholder="{{ trans('frontend.last_name') }}" name="account_bill_last_name" id="account_bill_last_name" value="{{ old('account_bill_last_name') }}">
-                                        
-                          </div>
-                        </div>
-                      
-                        <div class="col-sm-6">
-                          <div class="form-group">
-                            <label for="inputAccountEmailAddress">{{ trans('frontend.account_email') }}</label>
-                            <input type="email" class="form-control" placeholder="{{ trans('frontend.email') }}" name="account_bill_email_address" id="account_bill_email_address" value="{{ old('account_bill_email_address') }}">
-                          </div>
-                        </div>
-                        <div class="col-sm-6">
-                          <div class="form-group">
-                            <label for="inputAccountPhoneNumber">{{ trans('frontend.account_phone_number') }}</label>
-                            <input type="number" class="form-control" placeholder="{{ trans('frontend.phone') }}" name="account_bill_phone_number" id="account_bill_phone_number" value="{{ old('account_bill_phone_number') }}">
-                          </div>
-                        </div>
-                      
-                        <input type="hidden" id="account_bill_select_country" name="account_bill_select_country" value="VN">
+                <div id="guest_user_address" class="step well">
+                  <div class="user-address-content mt-3">
+                    <div class="address-information clearfix">
+                      <div class="address-content-sub">
+                        <h4>{!! trans('frontend.thong-tin-khach-hang') !!}</h4>
 
-                        <div class="col-sm-12">
-                          <div class="form-group">
-                            <label class="control-label" for="inputAccountAddressLine1">{{ trans('frontend.account_address_line_1') }}</label>
-                            <textarea class="form-control" id="account_bill_adddress_line_1" name="account_bill_adddress_line_1" placeholder="{{ trans('frontend.address_line_1') }}">{{ old('account_bill_adddress_line_1') }}</textarea>
+                        <div class="row">
+                          <div class="col-sm-6">
+                            <div class="form-group">
+                              <label for="inputAccountFirstName">{{ trans('frontend.account_first_name') }}</label>
+                              <input type="text" class="form-control" placeholder="{{ trans('frontend.first_name') }}" name="account_bill_first_name" id="account_bill_first_name" value="{{ old('account_bill_first_name') }}">
+                            </div>
                           </div>
-                        </div>
-                      
-                        <div class="col-sm-6">
-                          <div class="form-group">
-
-                            <label class="control-label" for="inputAccountTownCity">{{ trans('frontend.account_address_town_city') }}</label>
-                            <input type="text" class="form-control" placeholder="{{ trans('frontend.town_city') }}" name="account_shipping_town_or_city" id="account_shipping_town_or_city" value="{{ old('account_shipping_town_or_city') }}">
+                          <div class="col-sm-6">
+                            <div class="form-group">
+                              <label for="inputAccountLastName">{{ trans('frontend.account_last_name') }}</label>
+                              <input type="text" class="form-control" placeholder="{{ trans('frontend.last_name') }}" name="account_bill_last_name" id="account_bill_last_name" value="{{ old('account_bill_last_name') }}">
+                                          
+                            </div>
+                          </div>
                         
+                          <div class="col-sm-6">
+                            <div class="form-group">
+                              <label for="inputAccountEmailAddress">{{ trans('frontend.account_email') }}</label>
+                              <input type="email" class="form-control" placeholder="{{ trans('frontend.email') }}" name="account_bill_email_address" id="account_bill_email_address" value="{{ old('account_bill_email_address') }}">
+                            </div>
                           </div>
-                        </div>
-                        <div class="col-sm-6">
-                          <div class="form-group">
+                          <div class="col-sm-6">
+                            <div class="form-group">
+                              <label for="inputAccountPhoneNumber">{{ trans('frontend.account_phone_number') }}</label>
+                              <input type="number" class="form-control" placeholder="{{ trans('frontend.phone') }}" name="account_bill_phone_number" id="account_bill_phone_number" value="{{ old('account_bill_phone_number') }}">
+                            </div>
+                          </div>
+                        
+                          <input type="hidden" id="account_bill_select_country" name="account_bill_select_country" value="VN">
 
-                            <label class="control-label" for="inputAccountZipPostalCode">{{ trans('frontend.checkout_zip_postal_label') }}</label>
-                            <input type="number" class="form-control" placeholder="{{ trans('frontend.zip_postal_code') }}" name="account_shipping_zip_or_postal_code" id="account_shipping_zip_or_postal_code" value="{{ old('account_shipping_zip_or_postal_code') }}">
+                          <div class="col-sm-12">
+                            <div class="form-group">
+                              <label class="control-label" for="inputAccountAddressLine1">{{ trans('frontend.account_address_line_1') }}</label>
+                              <textarea class="form-control" id="account_bill_adddress_line_1" name="account_bill_adddress_line_1" placeholder="{{ trans('frontend.address_line_1') }}">{{ old('account_bill_adddress_line_1') }}</textarea>
+                            </div>
+                          </div>
+                        
+                          <div class="col-sm-6">
+                            <div class="form-group">
+
+                              <label class="control-label" for="inputAccountTownCity">{{ trans('frontend.account_address_town_city') }}</label>
+                              <input type="text" class="form-control" placeholder="{{ trans('frontend.town_city') }}" name="account_shipping_town_or_city" id="account_shipping_town_or_city" value="{{ old('account_shipping_town_or_city') }}">
+                          
+                            </div>
+                          </div>
+                          <div class="col-sm-6">
+                            <div class="form-group">
+
+                              <label class="control-label" for="inputAccountZipPostalCode">{{ trans('frontend.checkout_zip_postal_label') }}</label>
+                              <input type="number" class="form-control" placeholder="{{ trans('frontend.zip_postal_code') }}" name="account_shipping_zip_or_postal_code" id="account_shipping_zip_or_postal_code" value="{{ old('account_shipping_zip_or_postal_code') }}">
+                            </div>
                           </div>
                         </div>
                       </div>
-                    </div>
-                    <br>
-                    <div class="address-content-sub">
+                      <br>
+                      <div class="address-content-sub">
 
-                      <h4>{!! trans('frontend.shipping_address') !!}</h4>
-                      <input type="checkbox" name="different_shipping_address" id="different_shipping_address" class="shopist-iCheck" value="different_address"> {{ trans('frontend.different_shipping_label') }}
-                      
-                      <div class="row different-shipping-address mt-3" style="display:none">
-                        <div class="col-md-12">
-                          <div class="form-group">
-                            <div class="row">
-                              <div class="col-sm-6">
-                                <div class="form-group">
-                                  <label for="inputAccountFirstName">{{ trans('frontend.account_first_name') }}</label>
-                                  <input type="text" class="form-control" placeholder="{{ trans('frontend.first_name') }}" name="account_bill_first_name" id="account_bill_first_name" value="{{ old('account_bill_first_name') }}">
+                        <h4>{!! trans('frontend.shipping_address') !!}</h4>
+                        <input type="checkbox" name="different_shipping_address" id="different_shipping_address" class="shopist-iCheck" value="different_address"> {{ trans('frontend.different_shipping_label') }}
+                        
+                        <div class="row different-shipping-address mt-3" style="display:none">
+                          <div class="col-md-12">
+                            <div class="form-group">
+                              <div class="row">
+                                <div class="col-sm-6">
+                                  <div class="form-group">
+                                    <label for="inputAccountFirstName">{{ trans('frontend.account_first_name') }}</label>
+                                    <input type="text" class="form-control" placeholder="{{ trans('frontend.first_name') }}" name="account_bill_first_name" id="account_bill_first_name" value="{{ old('account_bill_first_name') }}">
+                                  </div>
                                 </div>
-                              </div>
-                              <div class="col-sm-6">
-                                <div class="form-group">
-                                  <label for="inputAccountLastName">{{ trans('frontend.account_last_name') }}</label>
-                                  <input type="text" class="form-control" placeholder="{{ trans('frontend.last_name') }}" name="account_bill_last_name" id="account_bill_last_name" value="{{ old('account_bill_last_name') }}">
-                                              
+                                <div class="col-sm-6">
+                                  <div class="form-group">
+                                    <label for="inputAccountLastName">{{ trans('frontend.account_last_name') }}</label>
+                                    <input type="text" class="form-control" placeholder="{{ trans('frontend.last_name') }}" name="account_bill_last_name" id="account_bill_last_name" value="{{ old('account_bill_last_name') }}">
+                                                
+                                  </div>
                                 </div>
-                              </div>
-                            
-                              <div class="col-sm-6">
-                                <div class="form-group">
-                                  <label for="inputAccountEmailAddress">{{ trans('frontend.account_email') }}</label>
-                                  <input type="email" class="form-control" placeholder="{{ trans('frontend.email') }}" name="account_bill_email_address" id="account_bill_email_address" value="{{ old('account_bill_email_address') }}">
-                                </div>
-                              </div>
-                              <div class="col-sm-6">
-                                <div class="form-group">
-                                  <label for="inputAccountPhoneNumber">{{ trans('frontend.account_phone_number') }}</label>
-                                  <input type="number" class="form-control" placeholder="{{ trans('frontend.phone') }}" name="account_bill_phone_number" id="account_bill_phone_number" value="{{ old('account_bill_phone_number') }}">
-                                </div>
-                              </div>
-                            
-                              <input type="hidden" id="account_bill_select_country" name="account_bill_select_country" value="VN">
-
-                              <div class="col-sm-12">
-                                <div class="form-group">
-                                  <label class="control-label" for="inputAccountAddressLine1">{{ trans('frontend.account_address_line_1') }}</label>
-                                  <textarea class="form-control" id="account_bill_adddress_line_1" name="account_bill_adddress_line_1" placeholder="{{ trans('frontend.address_line_1') }}">{{ old('account_bill_adddress_line_1') }}</textarea>
-                                </div>
-                              </div>
-                            
-                              <div class="col-sm-6">
-                                <div class="form-group">
-
-                                  <label class="control-label" for="inputAccountTownCity">{{ trans('frontend.account_address_town_city') }}</label>
-                                  <input type="text" class="form-control" placeholder="{{ trans('frontend.town_city') }}" name="account_shipping_town_or_city" id="account_shipping_town_or_city" value="{{ old('account_shipping_town_or_city') }}">
                               
+                                <div class="col-sm-6">
+                                  <div class="form-group">
+                                    <label for="inputAccountEmailAddress">{{ trans('frontend.account_email') }}</label>
+                                    <input type="email" class="form-control" placeholder="{{ trans('frontend.email') }}" name="account_bill_email_address" id="account_bill_email_address" value="{{ old('account_bill_email_address') }}">
+                                  </div>
                                 </div>
-                              </div>
-                              <div class="col-sm-6">
-                                <div class="form-group">
+                                <div class="col-sm-6">
+                                  <div class="form-group">
+                                    <label for="inputAccountPhoneNumber">{{ trans('frontend.account_phone_number') }}</label>
+                                    <input type="number" class="form-control" placeholder="{{ trans('frontend.phone') }}" name="account_bill_phone_number" id="account_bill_phone_number" value="{{ old('account_bill_phone_number') }}">
+                                  </div>
+                                </div>
+                              
+                                <input type="hidden" id="account_bill_select_country" name="account_bill_select_country" value="VN">
 
-                                  <label class="control-label" for="inputAccountZipPostalCode">{{ trans('frontend.checkout_zip_postal_label') }}</label>
-                                  <input type="number" class="form-control" placeholder="{{ trans('frontend.zip_postal_code') }}" name="account_shipping_zip_or_postal_code" id="account_shipping_zip_or_postal_code" value="{{ old('account_shipping_zip_or_postal_code') }}">
+                                <div class="col-sm-12">
+                                  <div class="form-group">
+                                    <label class="control-label" for="inputAccountAddressLine1">{{ trans('frontend.account_address_line_1') }}</label>
+                                    <textarea class="form-control" id="account_bill_adddress_line_1" name="account_bill_adddress_line_1" placeholder="{{ trans('frontend.address_line_1') }}">{{ old('account_bill_adddress_line_1') }}</textarea>
+                                  </div>
+                                </div>
+                              
+                                <div class="col-sm-6">
+                                  <div class="form-group">
+
+                                    <label class="control-label" for="inputAccountTownCity">{{ trans('frontend.account_address_town_city') }}</label>
+                                    <input type="text" class="form-control" placeholder="{{ trans('frontend.town_city') }}" name="account_shipping_town_or_city" id="account_shipping_town_or_city" value="{{ old('account_shipping_town_or_city') }}">
+                                
+                                  </div>
+                                </div>
+                                <div class="col-sm-6">
+                                  <div class="form-group">
+
+                                    <label class="control-label" for="inputAccountZipPostalCode">{{ trans('frontend.checkout_zip_postal_label') }}</label>
+                                    <input type="number" class="form-control" placeholder="{{ trans('frontend.zip_postal_code') }}" name="account_shipping_zip_or_postal_code" id="account_shipping_zip_or_postal_code" value="{{ old('account_shipping_zip_or_postal_code') }}">
+                                  </div>
                                 </div>
                               </div>
                             </div>
                           </div>
                         </div>
+
                       </div>
 
-                    </div>
-
-                  </div>  
+                    </div>  
+                  </div>
                 </div>
-              </div>
               @endif
 
               @if($_settings_data['general_settings']['checkout_options']['enable_login_user'] == true && $is_user_login == false)
-              <div id="authentication" class="step well">
-                <h2 class="step-title">{!! trans('frontend.authentication_label') !!}</h2><hr>  
-                <div class="user-login-content">
-                  <div class="login-information clearfix">
-                    <div class="login-content-sub">
-                      <h3 class="page-subheading">{!! trans('frontend.create_an_account_label') !!}</h3>
-                      <div class="form_content">
-                        <p>{!! trans('frontend.no_user_account_msg') !!}</p>
-                        <a class="btn btn-secondary" href="{{ route('user-registration-page') }}">{!! trans('frontend.create_account_label') !!}</a>
+                <div id="authentication" class="step well">
+                  <h2 class="step-title">{!! trans('frontend.authentication_label') !!}</h2><hr>  
+                  <div class="user-login-content">
+                    <div class="login-information clearfix">
+                      <div class="login-content-sub">
+                        <h3 class="page-subheading">{!! trans('frontend.create_an_account_label') !!}</h3>
+                        <div class="form_content">
+                          <p>{!! trans('frontend.no_user_account_msg') !!}</p>
+                          <a class="btn btn-secondary" href="{{ route('user-registration-page') }}">{!! trans('frontend.create_account_label') !!}</a>
+                        </div>
                       </div>
-                    </div>
-                    <div class="login-content-sub">
-                      <h3 class="page-subheading">{!! trans('frontend.already_registered_label') !!}</h3>
-                      <div class="form_content">
-                        <p>{!! trans('frontend.has_user_account_msg') !!}</p>
-                        <a class="btn btn-secondary" href="{{ route('user-login-page') }}">{!! trans('frontend.signin_account_label') !!}</a>
+                      <div class="login-content-sub">
+                        <h3 class="page-subheading">{!! trans('frontend.already_registered_label') !!}</h3>
+                        <div class="form_content">
+                          <p>{!! trans('frontend.has_user_account_msg') !!}</p>
+                          <a class="btn btn-secondary" href="{{ route('user-login-page') }}">{!! trans('frontend.signin_account_label') !!}</a>
+                        </div>
                       </div>
-                    </div>
-                  </div>  
+                    </div>  
+                  </div>
                 </div>
-              </div>
               @endif
 
               @if($_settings_data['general_settings']['checkout_options']['enable_login_user'] == true && $is_user_login == true)
@@ -571,7 +574,7 @@
               @endif
 
               <br>
-              <button class="action next btn btn-primary" style="float:right">{!! trans('frontend.proceed_to_checkout_label') !!}</button>
+              <button class="action next btn btn-primary">{!! trans('frontend.proceed_to_checkout_label') !!}</button>
               <button name="checkout_proceed" class="action submit btn btn-secondary place-order" type="submit" value="checkout_proceed">{{ trans('frontend.place_order') }}</button>
             </div>
           </div>  
