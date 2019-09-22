@@ -1352,7 +1352,7 @@ function hideButtons(current) {
     }
 }
 
-function checkoutStepValidation() {
+function () {
     var returnVal = true;
     var visible_step = $('#checkout_page .checkout-content .step:visible');
     var msgStr = '<div class="alert alert-danger"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button><div class="message-header"><i class="fa fa-exclamation-triangle"></i>&nbsp;<strong>' + frontendLocalizationString.error_message_text + '</strong></div><p class="error-msg"></p></div>';

@@ -1473,8 +1473,10 @@ function hideButtons(current) {
 
 function checkoutStepValidation() {
   var returnVal = true;
-  var visible_step = $('#checkout_page .checkout-content .step:visible');
-  var msgStr = '<div class="alert alert-danger"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button><div class="message-header"><i class="fa fa-exclamation-triangle"></i>&nbsp;<strong>' + frontendLocalizationString.error_message_text + '</strong></div><p class="error-msg"></p></div>';
+  var visible_step = $('#checkout_page .checkout-content .step:visible'); // var msgStr = '<div class="alert alert-danger"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button><div class="message-header"><i class="fa fa-exclamation-triangle"></i>&nbsp;<strong>' + frontendLocalizationString.error_message_text + '</strong></div><p class="error-msg"></p></div>';
+
+  var msgStr = '<div class="alert alert-warning alert-dismissible fade show text-center margin-bottom-1x"><span class="alert-close" data-dismiss="alert"></span><i class="icon-alert-triangle"></i>&nbsp;&nbsp;<strong>';
+  msgStr += frontendLocalizationString.error_message_text + ' </strong><span class="error-msg"></span></div>';
   var emailMsg = '';
   removeERRORMessageFromChekoutStep();
 

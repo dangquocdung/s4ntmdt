@@ -278,11 +278,11 @@
                           <div class="form-group">
                             <div class="row">    
                               <div class="col-sm-4">
-                                <label class="control-label" for="inputAccountTitle">{{ trans('frontend.account_title') }}</label>
-                              </div>
-                              <div class="col-sm-8">
-                                <input type="text" class="form-control" placeholder="{{ trans('frontend.title') }}" name="account_shipping_title" id="account_shipping_title" value="{{ old('account_shipping_title') }}">
-                              </div>
+
+
+
+
+                            </div>
                             </div>    
                           </div>
 
@@ -300,10 +300,6 @@
                           <div class="form-group required">
                             <div class="row">    
                               <div class="col-sm-4">
-                                <label class="control-label" for="inputAccountFirstName">{{ trans('frontend.account_first_name') }}</label>
-                              </div>
-                              <div class="col-sm-8">
-                                <input type="text" class="form-control" placeholder="{{ trans('frontend.first_name') }}" name="account_shipping_first_name" id="account_shipping_first_name" value="{{ old('account_shipping_first_name') }}">
                               </div>
                             </div>    
                           </div>
@@ -311,33 +307,29 @@
                           <div class="form-group required">
                             <div class="row">    
                               <div class="col-sm-4">
-                                <label class="control-label" for="inputAccountLastName">{{ trans('frontend.account_last_name') }}</label>
-                              </div>
-                              <div class="col-sm-8">
-                                <input type="text" class="form-control" placeholder="{{ trans('frontend.last_name') }}" name="account_shipping_last_name" id="account_shipping_last_name" value="{{ old('account_shipping_last_name') }}">
-                              </div>
+
+
+
+                            </div>
                             </div>    
                           </div>
 
                           <div class="form-group required">
                             <div class="row">    
                               <div class="col-sm-4">
-                                <label class="control-label" for="inputAccountEmailAddress">{{ trans('frontend.account_email') }}</label>
-                              </div>
-                              <div class="col-sm-8">
-                                <input type="email" class="form-control" placeholder="{{ trans('frontend.email') }}" name="account_shipping_email_address" id="account_shipping_email_address" value="{{ old('account_shipping_email_address') }}">
-                              </div>
+
+
+
+                            </div>
                             </div>    
                           </div>
 
                           <div class="form-group required">
                             <div class="row">    
                               <div class="col-sm-4">
-                                <label class="control-label" for="inputAccountPhoneNumber">{{ trans('frontend.account_phone_number') }}</label>
-                              </div>
-                              <div class="col-sm-8">
-                                <input type="number" class="form-control" placeholder="{{ trans('frontend.phone') }}" name="account_shipping_phone_number" id="account_shipping_phone_number" value="{{ old('account_shipping_phone_number') }}">
-                              </div>
+
+
+                            </div>
                             </div>    
                           </div>
 
@@ -364,11 +356,9 @@
                           <div class="form-group required">
                             <div class="row">    
                               <div class="col-sm-4">
-                                <label class="control-label" for="inputAccountAddressLine1">{{ trans('frontend.account_address_line_1') }}</label>
-                              </div>
-                              <div class="col-sm-8">
-                                <textarea class="form-control" id="account_shipping_adddress_line_1" name="account_shipping_adddress_line_1" placeholder="{{ trans('frontend.address_line_1') }}">{{ old('account_shipping_adddress_line_1') }}</textarea>
-                              </div>
+
+
+                            </div>
                             </div>    
                           </div>
 
@@ -386,9 +376,9 @@
                           <div class="form-group required">
                             <div class="row">    
                               <div class="col-sm-4">
-                                <label class="control-label" for="inputAccountTownCity">{{ trans('frontend.account_address_town_city') }}</label>
-                                <input type="text" class="form-control" placeholder="{{ trans('frontend.town_city') }}" name="account_shipping_town_or_city" id="account_shipping_town_or_city" value="{{ old('account_shipping_town_or_city') }}">
-                              </div>
+
+
+                            </div>
                             </div>    
                           </div>
 
@@ -402,11 +392,9 @@
                           <div class="form-group">
                             <div class="row">    
                               <div class="col-sm-4">
-                                <label class="control-label" for="inputAccountFaxNumber">{{ trans('frontend.account_fax_number') }}</label>
-                              </div>
-                              <div class="col-sm-8">
-                                <input type="number" class="form-control" placeholder="{{ trans('frontend.fax') }}" name="account_shipping_fax_number" id="account_shipping_fax_number" value="{{ old('account_shipping_fax_number') }}">
-                              </div>
+
+
+                            </div>
                             </div>    
                           </div>
                         </div>
