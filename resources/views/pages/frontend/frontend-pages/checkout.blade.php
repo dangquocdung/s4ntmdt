@@ -220,7 +220,8 @@
 
                       <h4>{!! trans('frontend.shipping_address') !!}</h4>
                       <input type="checkbox" name="different_shipping_address" id="different_shipping_address" class="shopist-iCheck" value="different_address"> {{ trans('frontend.different_shipping_label') }}
-                      <div class="row different-shipping-address">
+                      
+                      <div class="row different-shipping-address mt-3" style="display:none">
                         <div class="col-md-12">
                           <div class="form-group">
                             <div class="row">
@@ -279,7 +280,9 @@
                           </div>
                         </div>
                       </div>
+
                     </div>
+
                   </div>  
                 </div>
               </div>
@@ -584,7 +587,9 @@
         <p>@include('pages-message.notify-msg-error')</p>
         <h2 class="cart-shopping-label">{{ trans('frontend.checkout_process') }}</h2>
         <div class="empty-cart-msg">{{ trans('frontend.empty_cart_msg') }}</div>
-        <div class="cart-return-shop"><a class="btn btn-secondary check_out" href="{{ route('shop-page') }}">{{ trans('frontend.return_to_shop') }}</a></div>
+        <div class="cart-return-shop">
+          <a class="btn btn-secondary check_out" href="{{ route('shop-page') }}">{{ trans('frontend.return_to_shop') }}</a>
+        </div>
       @endif
   </div>
 @endsection

@@ -552,15 +552,16 @@ $(document).ready(function () {
   } //if($('.mini-cart-content').length>0){
   //shopist_frontend.ajaxCall.getMiniCartContent();
   //}
-  // if ($('#different_shipping_address').length > 0) {
-  //     $('#different_shipping_address').on('ifChecked', function(event) {
-  //         $('.different-shipping-address').show();
-  //     });
-  //     $('#different_shipping_address').on('ifUnchecked', function(event) {
-  //         $('.different-shipping-address').hide();
-  //     });
-  // }
-  //slick start
+
+
+  if ($('#different_shipping_address').length > 0) {
+    $('#different_shipping_address').on('ifChecked', function (event) {
+      $('.different-shipping-address').show();
+    });
+    $('#different_shipping_address').on('ifUnchecked', function (event) {
+      $('.different-shipping-address').hide();
+    });
+  } //slick start
 
 
   if ($('.upsell-products').length > 0) {
