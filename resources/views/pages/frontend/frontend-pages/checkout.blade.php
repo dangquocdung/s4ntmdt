@@ -267,6 +267,21 @@
                             </div>
                           </div>
 
+                          <div class="col-md-6">
+                            <div class="form-group">
+                              <label class="control-label" for="inputAccountTownCity">{{ trans('frontend.account_address_town_city') }}</label>
+                              <input type="text" class="form-control" placeholder="{{ trans('frontend.town_city') }}" name="account_shipping_town_or_city" id="account_shipping_town_or_city" value="{{ old('account_shipping_town_or_city') }}">
+                            </div>
+                          </div>
+
+                          <div class="col-md-6">
+                            <div class="form-">
+                              <label class="control-label" for="inputAccountZipPostalCode">{{ trans('frontend.checkout_zip_postal_label') }}</label>
+                              <input type="number" class="form-control" placeholder="{{ trans('frontend.zip_postal_code') }}" name="account_shipping_zip_or_postal_code" id="account_shipping_zip_or_postal_code" value="{{ old('account_shipping_zip_or_postal_code') }}">
+                            </div>
+                          </div>
+
+
                           
                         </div>
 
