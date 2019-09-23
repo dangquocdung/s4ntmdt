@@ -191,7 +191,7 @@
                             </div>
                           </div>
                         
-                          <input type="hidden" id="account_bill_select_country" name="account_bill_select_country" value="VN">
+                          {{-- <input type="hidden" id="account_bill_select_country" name="account_bill_select_country" value="VN"> --}}
 
                           <div class="col-sm-12">
                             <div class="form-group">
@@ -217,26 +217,32 @@
                             </div>
                           </div>
 
+                          <script>
+
+                            if ($('#account_bill_select_country').length > 0) {
+
+                              $('#account_bill_select_country').change(function() {
+
+                                var $html='';
+                                var $html='<option value="1"> Bắc Hà </option>';
+
+                                $('#account_shipping_town_or_city').html($html);
+
+                              });
+
+                            }
+                          
+                          </script>
+
                           <div class="col-md-6">
                             <div class="form-group">
                               <label class="control-label" for="inputAccountTownCity">{{ trans('frontend.account_address_town_city') }}</label>
-                             
                               <select class="form-control" name="account_shipping_town_or_city" id="account_shipping_town_or_city">
                                 <option value=""> {{ trans('frontend.town_city') }} </option>
-                                @foreach(get_country_list() as $key => $val)
-                                    <option value="{{ $key }}"> {!! $val !!}</option>
-                                @endforeach
                               </select>
                             </div>
                           </div>
-                        
-                          <div class="col-sm-6">
-                            <div class="form-group">
 
-                              <label class="control-label" for="inputAccountZipPostalCode">{{ trans('frontend.checkout_zip_postal_label') }}</label>
-                              <input type="number" class="form-control" placeholder="{{ trans('frontend.zip_postal_code') }}" name="account_shipping_zip_or_postal_code" id="account_shipping_zip_or_postal_code" value="{{ old('account_shipping_zip_or_postal_code') }}">
-                            </div>
-                          </div>
                         </div>
                       </div>
                       <br>
@@ -303,8 +309,6 @@
                             </div>
                           </div>
 
-
-                          
                         </div>
 
                       </div>

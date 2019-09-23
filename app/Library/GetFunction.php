@@ -1440,6 +1440,23 @@ class GetFunction
       'ZW' => 'Zimbabwe'
     );
   }
+
+  public static function get_quanhuyens($tinh){
+
+    $quanhuyens_data = array();
+    
+    if(!empty($tinh)){
+      $get_quanhuyens = DB::table('dt_quanhuyens')->where(['dt_quanhuyens.matp' => $tinh])
+                    ->get()
+                    ->toArray();
+      
+      if(count($get_quanhuyens) > 0){
+        $quanhuyens_data = $get_quanhuyens;
+      }
+    }
+    
+    return $quanhuyens_data;
+  }
   
   public static function available_currency_name()
   {

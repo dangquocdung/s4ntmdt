@@ -24,6 +24,7 @@ use shopist\Models\OrdersItem;
 use shopist\Http\Controllers\VendorsController;
 use shopist\Models\SaveCustomDesign;
 
+
 class FrontendManagerController extends Controller
 {
   public $classGetFunction;
