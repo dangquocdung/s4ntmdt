@@ -348,7 +348,7 @@ $(document).ready(function() {
     if ($('#apply_coupon_post').length > 0) {
         $('#apply_coupon_post').on('click', function(e) {
             e.preventDefault();
-            
+
             if ($('#apply_coupon_code').val().length == 0 && $('#apply_coupon_code').val() == '') {
                 $('#apply_coupon_code').css({ 'border': '1px solid #f06953' });
                 return false
@@ -1110,7 +1110,7 @@ shopist_frontend.ajaxCall = {
 
                 $('.cart-total-area-overlay').hide();
                 $('#loader-1-cart').hide();
-                
+
             },
             error: function() {}
         });
@@ -1377,9 +1377,9 @@ function checkoutStepValidation() {
     // var msgStr = '<div class="alert alert-danger"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button><div class="message-header"><i class="fa fa-exclamation-triangle"></i>&nbsp;<strong>' + frontendLocalizationString.error_message_text + '</strong></div><p class="error-msg"></p></div>';
 
     var msgStr = '<div class="alert alert-warning alert-dismissible fade show text-center margin-bottom-1x"><span class="alert-close" data-dismiss="alert"></span><i class="icon-alert-triangle"></i>&nbsp;&nbsp;<strong>';
-        msgStr +=  frontendLocalizationString.error_message_text + ' </strong><span class="error-msg"></span></div>';
+    msgStr += frontendLocalizationString.error_message_text + ' </strong><span class="error-msg"></span></div>';
 
-    var emailMsg = '';   
+    var emailMsg = '';
 
     removeERRORMessageFromChekoutStep();
 
