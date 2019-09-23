@@ -33,6 +33,8 @@ use shopist\Models\Term;
 use shopist\Mail\ShopistMail;
 use shopist\Models\ProductExtra;
 use shopist\Models\Product;
+use shopist\Models\QuanHuyen;
+
 
 class GetFunction
 {
@@ -1441,20 +1443,11 @@ class GetFunction
     );
   }
 
-  public static function get_quanhuyens($tinh){
-
-    $quanhuyens_data = array();
+  public static function get_quanhuyens()
+  {
     
-    if(!empty($tinh)){
-      $get_quanhuyens = DB::table('dt_quanhuyens')->where(['dt_quanhuyens.matp' => $tinh])
-                    ->get()
-                    ->toArray();
-      
-      if(count($get_quanhuyens) > 0){
-        $quanhuyens_data = $get_quanhuyens;
-      }
-    }
-    
+    $quanhuyens_data = QuanHuyen::all()->toArray();      
+     
     return $quanhuyens_data;
   }
   

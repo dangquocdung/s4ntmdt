@@ -203,7 +203,6 @@
                           <div class="col-md-6">
                             <div class="form-group">
                               <label class="control-label" for="inputAccountSelectCountry">{{ trans('frontend.checkout_select_country_label') }}</label>
-                             
                                 <select class="form-control" id="account_bill_select_country" name="account_bill_select_country">
                                   <option value=""> {{ trans('frontend.select_country') }} </option>
                                   @foreach(get_country_list() as $key => $val)
@@ -218,20 +217,9 @@
                           </div>
 
                           <script>
-
-                            if ($('#account_bill_select_country').length > 0) {
-
-                              $('#account_bill_select_country').change(function() {
-
-                                var $html='';
-                                var $html='<option value="1"> Bắc Hà </option>';
-
-                                $('#account_shipping_town_or_city').html($html);
-
-                              });
-
-                            }
-                          
+                            $('#account_bill_select_country').change(function(){
+                              $tinh = this.value;
+                            })
                           </script>
 
                           <div class="col-md-6">
@@ -242,7 +230,6 @@
                               </select>
                             </div>
                           </div>
-
                         </div>
                       </div>
                       <br>

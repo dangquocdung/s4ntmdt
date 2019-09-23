@@ -230,6 +230,17 @@ function get_country_list()
 }
 
 /**
+ * Get function for country list
+ *
+ * @param null
+ * @return array
+ */
+function get_quanhuyen_list()
+{
+  return GetFunction::get_quanhuyens();
+}
+
+/**
  * Get function for country 
  *
  * @param Country code

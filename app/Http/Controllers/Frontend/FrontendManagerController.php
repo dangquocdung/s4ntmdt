@@ -658,7 +658,7 @@ class FrontendManagerController extends Controller
     $data['_settings_data']   = $this->option->getSettingsData();
 
     $data['seen_items'] = $this->seenProducts();
-
+    
     return view('pages.frontend.frontend-pages.checkout', $data);
   }
   
