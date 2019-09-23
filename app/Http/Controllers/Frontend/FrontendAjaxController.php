@@ -27,7 +27,6 @@ class FrontendAjaxController extends Controller
   public $option;
   public $product;
 
-
   public function __construct() 
   {
     $this->classGetFunction     = new GetFunction();
@@ -35,12 +34,36 @@ class FrontendAjaxController extends Controller
     $this->option   =  new OptionController();
     $this->product   =  new ProductsController();
     
-    
     $this->shipping = $this->option->getShippingMethodData();
     $this->settingsData   = $this->option->getSettingsData();
     $this->currency_symbol = $this->classCommonFunction->get_currency_symbol( $this->settingsData['general_settings']['currency_options']['currency_name'] );
   }
-  
+
+  /**
+   * 
+   * Post Quan Huyen
+   *
+   * @param null
+   * @return array
+   */
+  public function getQuanHuyen()
+  {
+
+    if(Request::isMethod('post') && Request::ajax() && Session::token() == Request::header('X-XSRF-TOKEN'))
+    {
+      $input = Request::all();
+       
+      // $get_posts_by_filter = Product::where(['status' => 1])-> where('title', 'LIKE', '%' .$input['data']. '%')->paginate(15);
+
+      $matp = $input['data'];
+     
+      $returnHTML = view('pages.ajax-pages.quan-huyen-html')->with(['matp' => $matp])->render();
+      
+      return response()->json(array('success' => true, 'html'=> $returnHTML));
+
+    }
+  }
+
   /**
    * 
    *Products search by products title
@@ -54,7 +77,6 @@ class FrontendAjaxController extends Controller
     {
       $input = Input::all();
       
-       
       $get_posts_by_filter = Product::where(['status' => 1])-> where('title', 'LIKE', '%' .$input['data']. '%')->paginate(15);
      
       $returnHTML = view('pages.ajax-pages.products')->with(['filter_data' => $get_posts_by_filter, '_currency_symbol' => $this->currency_symbol])->render();
@@ -161,7 +183,6 @@ class FrontendAjaxController extends Controller
         $fileName        = '';
         $upload_success  = '';
         $accessToken = uniqid (rand(), true);
-        
         
         if(count($input) >0){
           foreach($input as $key => $val){        

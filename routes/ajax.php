@@ -117,3 +117,8 @@ Route::post('/ajax/contact-with-vendor', [
   'uses' => 'Frontend\FrontendAjaxController@contactWithVendorEmail',
   'as'   => 'contact-with-vendor-message'
 ]);
+
+Route::post('/ajax/quan-huyen', [
+  'uses' => 'Frontend\FrontendAjaxController@getQuanHuyen',
+  'as'   => 'quan-huyen'
+]);
