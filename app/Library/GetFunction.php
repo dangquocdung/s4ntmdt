@@ -35,7 +35,6 @@ use shopist\Models\ProductExtra;
 use shopist\Models\Product;
 use shopist\Models\QuanHuyen;
 
-
 class GetFunction
 {
   public $str = '';
@@ -55,7 +54,6 @@ class GetFunction
   public $option;
   public $product;
   public $classCommonFunction;
-
 
   public function __construct() 
   {
@@ -511,13 +509,11 @@ class GetFunction
       $get_view_data['_subject']    =   $email_options['vendor_withdraw_request_completed']['subject'];
     }
       
-    
     if(count($get_view_data) > 0){
        Mail::to($get_view_data['_mail_to'])
              ->send(new ShopistMail( $get_view_data ));
     }
   }
-  
   
   /**
    * remove directory function
@@ -581,7 +577,6 @@ class GetFunction
     
     return $coupon_data;
   }
-  
   
   /**
    * Get coupon post meta
@@ -691,7 +686,6 @@ class GetFunction
       $coupon_update_data['parent_id']        = $get_coupon_data_by_id->parent_id;
       $coupon_update_data['post_status']      = $get_coupon_data_by_id->post_status;
       $coupon_update_data['post_type']        = $get_coupon_data_by_id->post_type;
-
 
       if(count($get_coupon_postmeta) >0){
 
@@ -832,7 +826,6 @@ class GetFunction
     }
   }
   
-  
   //*****  Start helper get function ********
   public static function title($product_id){
     $title =  '';
@@ -875,7 +868,6 @@ class GetFunction
     if(!empty($get_product)){
       $final_price  = $get_product->price;
     }
-    
     
     $get_current_user_data  =  get_current_frontend_user_info();
     
@@ -1443,10 +1435,16 @@ class GetFunction
     );
   }
 
-  public static function get_quanhuyens()
+  public static function get_quanhuyens($tinh)
   {
+    if($tinh > 0){
+
+      $quanhuyens_data = QuanHuyen::where('matp',$tinh)->get()->toArray();   
     
-    $quanhuyens_data = QuanHuyen::all()->toArray();      
+    }else
+    {
+      $quanhuyens_data = QuanHuyen::all()->toArray();   
+    }
      
     return $quanhuyens_data;
   }
@@ -2044,7 +2042,6 @@ class GetFunction
         $settings_data['home_details']['cat_name_and_products'] = array();
         $settings_data['home_details']['collection_cat_list'] = array();
       
-      
         if(isset($settings_data['home_details']['cat_list_to_display']) && count($settings_data['home_details']['cat_list_to_display']) > 0){
           $cat_name_products = array();
 
@@ -2338,7 +2335,6 @@ class GetFunction
     $get_post_meta_1 = ProductExtra::where(['product_id' => $product_id, 'key_name' => '_product_enable_reviews'])->first();
     $get_post_meta_2 = ProductExtra::where(['product_id' => $product_id, 'key_name' => '_product_enable_reviews_add_link_to_product_page'])->first();
     $get_post_meta_3 = ProductExtra::where(['product_id' => $product_id, 'key_name' => '_product_enable_reviews_add_link_to_details_page'])->first();
-    
     
     if(!empty($get_post_meta_1)){
       $details['enable_reviews'] = $get_post_meta_1->key_value;
@@ -2982,7 +2978,6 @@ class GetFunction
     
     return $get_users;
   }
-  
   
   public static function check_vendor_login(){
     $_this = new self;

@@ -235,9 +235,9 @@ function get_country_list()
  * @param null
  * @return array
  */
-function get_quanhuyen_list()
+function get_quanhuyen_list($tinh)
 {
-  return GetFunction::get_quanhuyens();
+  return GetFunction::get_quanhuyens($tinh);
 }
 
 /**
