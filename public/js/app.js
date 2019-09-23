@@ -453,6 +453,7 @@ $(document).ready(function () {
   });
 
   if ($('#checkout_page #user_mode .checkout-process-user-mode').length > 0) {
+    $('#selected_user_mode').val('guest');
     $('#checkout_page #user_mode .checkout-process-user-mode input[type="radio"]').on('ifClicked', function (event) {
       $('#selected_user_mode').val(this.value);
     });
