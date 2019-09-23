@@ -199,6 +199,23 @@
                               <textarea class="form-control" id="account_bill_adddress_line_1" name="account_bill_adddress_line_1" placeholder="{{ trans('frontend.address_line_1') }}">{{ old('account_bill_adddress_line_1') }}</textarea>
                             </div>
                           </div>
+
+                          <div class="col-md-6">
+                            <div class="form-group">
+                              <label class="control-label" for="inputAccountSelectCountry">{{ trans('frontend.checkout_select_country_label') }}</label>
+                             
+                                <select class="form-control" id="account_bill_select_country" name="account_bill_select_country">
+                                  <option value=""> {{ trans('frontend.select_country') }} </option>
+                                  @foreach(get_country_list() as $key => $val)
+                                    @if(old('account_bill_select_country') == $key)
+                                      <option selected value="{{ $key }}"> {!! $val !!}</option>
+                                    @else
+                                      <option value="{{ $key }}"> {!! $val !!}</option>
+                                    @endif
+                                  @endforeach
+                                 </select>
+                            </div>
+                          </div>
                         
                           <div class="col-sm-6">
                             <div class="form-group">
