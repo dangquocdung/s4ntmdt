@@ -207,7 +207,7 @@
                                 <select class="form-control" id="account_bill_select_country" name="account_bill_select_country">
                                   <option value=""> {{ trans('frontend.select_country') }} </option>
                                   @foreach(get_country_list() as $key => $val)
-                                    @if(old('account_bill_select_country') == $key)
+                                    @if(old('account_bill_select_country') == $key || $key==42 )
                                       <option selected value="{{ $key }}"> {!! $val !!}</option>
                                     @else
                                       <option value="{{ $key }}"> {!! $val !!}</option>
@@ -216,15 +216,20 @@
                                  </select>
                             </div>
                           </div>
-                        
-                          <div class="col-sm-6">
-                            <div class="form-group">
 
+                          <div class="col-md-6">
+                            <div class="form-group">
                               <label class="control-label" for="inputAccountTownCity">{{ trans('frontend.account_address_town_city') }}</label>
-                              <input type="text" class="form-control" placeholder="{{ trans('frontend.town_city') }}" name="account_shipping_town_or_city" id="account_shipping_town_or_city" value="{{ old('account_shipping_town_or_city') }}">
-                          
+                             
+                              <select class="form-control" name="account_shipping_town_or_city" id="account_shipping_town_or_city">
+                                <option value=""> {{ trans('frontend.town_city') }} </option>
+                                @foreach(get_country_list() as $key => $val)
+                                    <option value="{{ $key }}"> {!! $val !!}</option>
+                                @endforeach
+                              </select>
                             </div>
                           </div>
+                        
                           <div class="col-sm-6">
                             <div class="form-group">
 
