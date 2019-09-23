@@ -404,8 +404,6 @@
                             <div class="row">    
                               <div class="col-sm-4">
                                 <label class="control-label" for="inputAccountZipPostalCode">{{ trans('frontend.checkout_zip_postal_label') }}</label>
-                              </div>
-                              <div class="col-sm-8">
                                 <input type="number" class="form-control" placeholder="{{ trans('frontend.zip_postal_code') }}" name="account_shipping_zip_or_postal_code" id="account_shipping_zip_or_postal_code" value="{{ old('account_shipping_zip_or_postal_code') }}">
                               </div>
                             </div>    

@@ -356,9 +356,7 @@
                           <div class="form-group required">
                             <div class="row">    
                               <div class="col-sm-4">
-
-
-                            </div>
+                              </div>
                             </div>    
                           </div>
 
@@ -376,9 +374,9 @@
                           <div class="form-group required">
                             <div class="row">    
                               <div class="col-sm-4">
-
-
-                            </div>
+                                <label class="control-label" for="inputAccountTownCity">{{ trans('frontend.account_address_town_city') }}</label>
+                                <input type="text" class="form-control" placeholder="{{ trans('frontend.town_city') }}" name="account_shipping_town_or_city" id="account_shipping_town_or_city" value="{{ old('account_shipping_town_or_city') }}">
+                              </div>
                             </div>    
                           </div>
 
@@ -392,9 +390,11 @@
                           <div class="form-group">
                             <div class="row">    
                               <div class="col-sm-4">
-
-
-                            </div>
+                                <label class="control-label" for="inputAccountFaxNumber">{{ trans('frontend.account_fax_number') }}</label>
+                              </div>
+                              <div class="col-sm-8">
+                                <input type="number" class="form-control" placeholder="{{ trans('frontend.fax') }}" name="account_shipping_fax_number" id="account_shipping_fax_number" value="{{ old('account_shipping_fax_number') }}">
+                              </div>
                             </div>    
                           </div>
                         </div>
