@@ -276,15 +276,15 @@
 
                           <div class="col-md-6">
                             <div class="form-group">
-                              <label class="control-label" for="inputAccountTownCity">{{ trans('frontend.account_address_town_city') }}</label>
-                              <select class="form-control" name="account_shipping_town_or_city" id="account_shipping_town_or_city">
-                                <option value=""> {{ trans('frontend.town_city') }} </option>
-                                @foreach(get_xaphuong_list(42) as $val)
+                              <label class="control-label" for="inputAccountXaPhuong">{{ trans('frontend.account_address_xa_phuong') }}</label>
+                              <select class="form-control" name="account_shipping_xa_phuong" id="account_shipping_xa_phuong">
+                                <option value=""> {{ trans('frontend.xa_phuong') }} </option>
+                                @foreach(get_xaphuong_list(436) as $val)
                                   <option value="{{ $val['xaid'] }}" {{ ($loop->iteration == 1)?'selected':'' }}> {!! $val['name'] !!}</option>
                                 @endforeach
                               </select>
                             </div>
-                          </div>
+                          </div>a
 
 
                         </div>
