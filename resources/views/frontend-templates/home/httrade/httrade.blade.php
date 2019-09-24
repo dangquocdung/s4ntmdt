@@ -324,7 +324,7 @@
   <!-- CTA-->
   <section class="fw-section padding-top-4x padding-bottom-8x" style="background-image: url(img/banners/shop-banner-bg-02.jpg);"><span class="overlay" style="opacity: .7;"></span>
     <div class="container text-center">
-      <div class="d-inline-block bg-danger text-white text-lg py-2 px-3 rounded">Limited Time Offer</div>
+      <div class="d-inline-block bg-danger text-white text-lg py-2 px-3 rounded">{{ trans('frontend.limited-time-offer') }}</div>
       <div class="display-4 text-white py-4">Ultimate Printing Solution From</div>
       <div class="d-inline-block w-200 pt-2">
         <img class="d-block w-100" src="img/banners/shop-banner-logo.png" alt="Canon">

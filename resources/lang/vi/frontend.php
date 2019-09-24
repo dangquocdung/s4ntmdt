@@ -557,5 +557,6 @@ return [
 'san-pham-tuong-tu' => 'Sản phẩm tương tự',
 'clear_cart' => 'Xoá giỏ hàng',
 'thong-tin-khach-hang' => 'Thông tin khách hàng',
-'successfuly_added_to_cart' => 'đã được thêm vào giỏ hàng'
+'successfuly_added_to_cart' => 'đã được thêm vào giỏ hàng',
+'limited-time-offer' => 'Đợt khuyến mại sắp tới'
 ];
