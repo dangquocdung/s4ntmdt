@@ -198,7 +198,6 @@ return [
   'select_payment_gateway' =>'Chọn Cổng thanh toán',
   'place_order' =>'Đặt hàng',
   'notes_about_your_order' =>'Ghi chú về đơn hàng của bạn (tùy chọn)',
-
   'all_design_images' =>'Tất cả hình ảnh thiết kế',
 'cart_updating_msg' =>'Đợi - Giỏ hàng của bạn đang cập nhật ...',
 'brands' =>'Nhãn hiệu nổi bật',
@@ -557,5 +556,6 @@ return [
 'sp_da_xem' => 'Sản phẩm bạn đã xem',
 'san-pham-tuong-tu' => 'Sản phẩm tương tự',
 'clear_cart' => 'Xoá giỏ hàng',
-'thong-tin-khach-hang' => 'Thông tin khách hàng'
+'thong-tin-khach-hang' => 'Thông tin khách hàng',
+'successfuly_added_to_cart' => 'đã được thêm vào giỏ hàng'
 ];
