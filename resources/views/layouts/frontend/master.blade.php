@@ -56,9 +56,9 @@
     @endif
 
     <div class="add-to-cart-loader">
-      
-      <img src="{{ asset('/images/loading.gif') }}" id="img-load" />
-      <div class="cart-updating-msg">{{ trans('frontend.cart_updating_msg') }}</div>
+      <div class="spinner-border text-gray-dark m-2" style="width: 3rem; height: 3rem;" role="status"><span class="sr-only">Loading...</span></div>
+      <!-- <img src="{{ asset('/images/loading.gif') }}" id="img-load" />
+      <div class="cart-updating-msg">{{ trans('frontend.cart_updating_msg') }}</div> -->
     </div>
     
     <input type="hidden" name="lang_code" id="lang_code" value="{{ $selected_lang_code }}">  

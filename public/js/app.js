@@ -1474,9 +1474,8 @@ function hideButtons(current) {
 
 function checkoutStepValidation() {
   var returnVal = true;
-  var visible_step = $('#checkout_page .checkout-content .step:visible'); // var msgStr = '<div class="alert alert-danger"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button><div class="message-header"><i class="fa fa-exclamation-triangle"></i>&nbsp;<strong>' + frontendLocalizationString.error_message_text + '</strong></div><p class="error-msg"></p></div>';
-
-  var msgStr = '<div class="alert alert-warning alert-dismissible fade show text-center margin-bottom-1x"><span class="alert-close" data-dismiss="alert"></span><i class="icon-alert-triangle"></i>&nbsp;&nbsp;<strong>';
+  var visible_step = $('#checkout_page .checkout-content .step:visible');
+  var msgStr = '<div class="alert alert-danger alert-dismissible fade show text-center margin-bottom-1x"><span class="alert-close" data-dismiss="alert"></span><i class="icon-alert-triangle"></i>&nbsp;&nbsp;<strong>';
   msgStr += frontendLocalizationString.error_message_text + ' </strong><span class="error-msg"></span></div>';
   var emailMsg = '';
   removeERRORMessageFromChekoutStep();
@@ -2757,8 +2756,8 @@ jQuery(document).ready(function ($) {
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! D:\project\s4ntmdt\resources\assets\js\app.js */"./resources/assets/js/app.js");
-module.exports = __webpack_require__(/*! D:\project\s4ntmdt\resources\assets\sass\styles.scss */"./resources/assets/sass/styles.scss");
+__webpack_require__(/*! C:\Users\PC\s4ntmdt\resources\assets\js\app.js */"./resources/assets/js/app.js");
+module.exports = __webpack_require__(/*! C:\Users\PC\s4ntmdt\resources\assets\sass\styles.scss */"./resources/assets/sass/styles.scss");
 
 
 /***/ })
