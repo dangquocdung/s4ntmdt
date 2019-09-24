@@ -330,7 +330,7 @@
         <img class="d-block w-100" src="img/banners/shop-banner-logo.png" alt="Canon">
       </div>
       <div class="pt-5"></div>
-      <div class="countdown countdown-inverse" data-date-time="12/30/2019 12:00:00">
+      <div class="countdown countdown-inverse" data-date-time="9/30/2019 00:00:00">
         <div class="item">
           <div class="days">00</div><span class="days_ref">Days</span>
         </div>
