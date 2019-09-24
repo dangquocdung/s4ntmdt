@@ -48,20 +48,28 @@ class FrontendAjaxController extends Controller
    */
   public function getQuanHuyen()
   {
-
-    if(Request::isMethod('post') && Request::ajax() && Session::token() == Request::header('X-XSRF-TOKEN'))
-    {
+      
       $input = Request::all();
        
-      // $get_posts_by_filter = Product::where(['status' => 1])-> where('title', 'LIKE', '%' .$input['data']. '%')->paginate(15);
-
       $matp = $input['data'];
      
       $returnHTML = view('pages.ajax-pages.quan-huyen-html')->with(['matp' => $matp])->render();
       
       return response()->json(array('success' => true, 'html'=> $returnHTML));
 
-    }
+  }
+
+  public function getXaPhuong()
+  {
+      
+      $input = Request::all();
+       
+      $maqh = $input['data'];
+     
+      $returnHTML = view('pages.ajax-pages.xa-phuong-html')->with(['maqh' => $maqh])->render();
+      
+      return response()->json(array('success' => true, 'html'=> $returnHTML));
+
   }
 
   /**

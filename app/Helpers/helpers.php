@@ -240,6 +240,11 @@ function get_quanhuyen_list($tinh)
   return GetFunction::get_quanhuyens($tinh);
 }
 
+function get_xaphuong_list($tinh)
+{
+  return GetFunction::get_xaphuongs($tinh);
+}
+
 /**
  * Get function for country 
  *

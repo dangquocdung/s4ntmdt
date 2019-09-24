@@ -229,6 +229,8 @@
                                     if (data.success == true) {
                                       $("#account_shipping_town_or_city").empty();
                                       $("#account_shipping_town_or_city").html(data.html);
+                                    }else{
+                                      console.log('chua duoc');
                                     }
                                 },
                                 error: function() {}
@@ -243,11 +245,48 @@
                               <select class="form-control" name="account_shipping_town_or_city" id="account_shipping_town_or_city">
                                 <option value=""> {{ trans('frontend.town_city') }} </option>
                                 @foreach(get_quanhuyen_list(42) as $val)
-                                  <option value="{{ $val['maqh'] }}"> {!! $val['name'] !!}</option>
+                                  <option value="{{ $val['maqh'] }}" {{ ($loop->iteration == 1)?'selected':'' }}> {!! $val['name'] !!}</option>
                                 @endforeach
                               </select>
                             </div>
                           </div>
+
+                          <script>
+                            $('#account_shipping_town_or_city').change(function(){
+                              $.ajax({
+                                url: $('#hf_base_url').val() + '/ajax/xa-phuong',
+                                type: 'POST',
+                                cache: false,
+                                datatype: 'html',
+                                headers: { 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content') },
+                                data: { data: this.value },
+                                success: function(data) {
+                                    if (data.success == true) {
+                                      $("#account_shipping_town_or_city").empty();
+                                      $("#account_shipping_town_or_city").html(data.html);
+                                    }else{
+                                      console.log('chua duoc');
+                                    }
+                                },
+                                error: function() {}
+                              });
+
+                            })
+                          </script>
+
+                          <div class="col-md-6">
+                            <div class="form-group">
+                              <label class="control-label" for="inputAccountTownCity">{{ trans('frontend.account_address_town_city') }}</label>
+                              <select class="form-control" name="account_shipping_town_or_city" id="account_shipping_town_or_city">
+                                <option value=""> {{ trans('frontend.town_city') }} </option>
+                                @foreach(get_xaphuong_list(42) as $val)
+                                  <option value="{{ $val['xaid'] }}" {{ ($loop->iteration == 1)?'selected':'' }}> {!! $val['name'] !!}</option>
+                                @endforeach
+                              </select>
+                            </div>
+                          </div>
+
+
                         </div>
                       </div>
                       <br>

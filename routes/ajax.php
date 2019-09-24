@@ -122,3 +122,8 @@ Route::post('/ajax/quan-huyen', [
   'uses' => 'Frontend\FrontendAjaxController@getQuanHuyen',
   'as'   => 'quan-huyen'
 ]);
+
+Route::post('/ajax/xa-phuong', [
+  'uses' => 'Frontend\FrontendAjaxController@getXaPhuong',
+  'as'   => 'xa-phuong'
+]);

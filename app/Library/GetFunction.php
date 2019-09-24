@@ -34,6 +34,8 @@ use shopist\Mail\ShopistMail;
 use shopist\Models\ProductExtra;
 use shopist\Models\Product;
 use shopist\Models\QuanHuyen;
+use shopist\Models\XaPhuong;
+
 
 class GetFunction
 {
@@ -1437,16 +1439,20 @@ class GetFunction
 
   public static function get_quanhuyens($tinh)
   {
-    if($tinh > 0){
 
-      $quanhuyens_data = QuanHuyen::where('matp',$tinh)->get()->toArray();   
-    
-    }else
-    {
-      $quanhuyens_data = QuanHuyen::all()->toArray();   
-    }
-     
+    $quanhuyens_data = QuanHuyen::where('matp',$tinh)->get()->toArray();   
+
     return $quanhuyens_data;
+
+  }
+
+  public static function get_xaphuongs($qh)
+  {
+
+    $xaphuongs_data = XaPhuong::where('maqh',$qh)->get()->toArray();   
+    
+    return $xaphuongs_data;
+
   }
   
   public static function available_currency_name()
