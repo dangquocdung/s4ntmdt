@@ -217,9 +217,7 @@
                           </div>
 
                           <script>
-
                             $('#account_bill_select_country').change(function(){
-
                               $.ajax({
                                 url: $('#hf_base_url').val() + '/ajax/quan-huyen',
                                 type: 'POST',
@@ -237,9 +235,6 @@
                               });
 
                             })
-
-
-
                           </script>
 
                           <div class="col-md-6">
