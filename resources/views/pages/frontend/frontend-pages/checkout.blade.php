@@ -174,10 +174,8 @@
                             <div class="form-group">
                               <label for="inputAccountLastName">{{ trans('frontend.account_last_name') }}</label>
                               <input type="text" class="form-control" placeholder="{{ trans('frontend.last_name') }}" name="account_bill_last_name" id="account_bill_last_name" value="{{ old('account_bill_last_name') }}">
-                                          
                             </div>
                           </div>
-                        
                           <div class="col-sm-6">
                             <div class="form-group">
                               <label for="inputAccountEmailAddress">{{ trans('frontend.account_email') }}</label>
@@ -191,20 +189,10 @@
                             </div>
                           </div>
                         
-                          {{-- <input type="hidden" id="account_bill_select_country" name="account_bill_select_country" value="VN"> --}}
-
-                          <div class="col-sm-12">
-                            <div class="form-group">
-                              <label class="control-label" for="inputAccountAddressLine1">{{ trans('frontend.account_address_line_1') }}</label>
-                              <textarea class="form-control" id="account_bill_adddress_line_1" name="account_bill_adddress_line_1" placeholder="{{ trans('frontend.address_line_1') }}">{{ old('account_bill_adddress_line_1') }}</textarea>
-                            </div>
-                          </div>
-
-                          <div class="col-md-6">
+                          <div class="col-md-4">
                             <div class="form-group">
                               <label class="control-label" for="inputAccountSelectCountry">{{ trans('frontend.checkout_select_country_label') }}</label>
                                 <select class="form-control" id="account_bill_select_country" name="account_bill_select_country">
-                                  <option value=""> {{ trans('frontend.select_country') }} </option>
                                   @foreach(get_country_list() as $key => $val)
                                     @if(old('account_bill_select_country') == $key || $key==42 )
                                       <option selected value="{{ $key }}"> {!! $val !!}</option>
@@ -216,76 +204,42 @@
                             </div>
                           </div>
 
-                          <script>
-                            $('#account_bill_select_country').change(function(){
-                              $.ajax({
-                                url: $('#hf_base_url').val() + '/ajax/quan-huyen',
-                                type: 'POST',
-                                cache: false,
-                                datatype: 'html',
-                                headers: { 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content') },
-                                data: { data: this.value },
-                                success: function(data) {
-                                    if (data.success == true) {
-                                      $("#account_shipping_town_or_city").empty();
-                                      $("#account_shipping_town_or_city").html(data.html);
-                                    }else{
-                                      console.log('chua duoc');
-                                    }
-                                },
-                                error: function() {}
-                              });
-
-                            })
-                          </script>
-
-                          <div class="col-md-6">
+                          <div class="col-md-4">
                             <div class="form-group">
                               <label class="control-label" for="inputAccountTownCity">{{ trans('frontend.account_address_town_city') }}</label>
-                              <select class="form-control" name="account_shipping_town_or_city" id="account_shipping_town_or_city">
-                                <option value=""> {{ trans('frontend.town_city') }} </option>
+                              <select class="form-control" name="account_bill_town_or_city" id="account_bill_town_or_city">
                                 @foreach(get_quanhuyen_list(42) as $val)
                                   <option value="{{ $val['maqh'] }}" {{ ($loop->iteration == 1)?'selected':'' }}> {!! $val['name'] !!}</option>
+
+                                  @php 
+                                    if ($loop->iteration == 1){
+                                      $maqh =  $val['maqh'];
+                                    }
+                                  @endphp
+
                                 @endforeach
                               </select>
                             </div>
                           </div>
 
-                          <script>
-                            $('#account_shipping_town_or_city').change(function(){
-                              $.ajax({
-                                url: $('#hf_base_url').val() + '/ajax/xa-phuong',
-                                type: 'POST',
-                                cache: false,
-                                datatype: 'html',
-                                headers: { 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content') },
-                                data: { data: this.value },
-                                success: function(data) {
-                                    if (data.success == true) {
-                                      $("#account_shipping_town_or_city").empty();
-                                      $("#account_shipping_town_or_city").html(data.html);
-                                    }else{
-                                      console.log('chua duoc');
-                                    }
-                                },
-                                error: function() {}
-                              });
-
-                            })
-                          </script>
-
-                          <div class="col-md-6">
+                          <div class="col-md-4">
                             <div class="form-group">
                               <label class="control-label" for="inputAccountXaPhuong">{{ trans('frontend.account_address_xa_phuong') }}</label>
-                              <select class="form-control" name="account_shipping_xa_phuong" id="account_shipping_xa_phuong">
+                              <select class="form-control" name="account_bill_xa_phuong" id="account_bill_xa_phuong">
                                 <option value=""> {{ trans('frontend.xa_phuong') }} </option>
-                                @foreach(get_xaphuong_list(436) as $val)
+                                @foreach(get_xaphuong_list($maqh) as $val)
                                   <option value="{{ $val['xaid'] }}" {{ ($loop->iteration == 1)?'selected':'' }}> {!! $val['name'] !!}</option>
                                 @endforeach
                               </select>
                             </div>
-                          </div>a
+                          </div>
 
+                          <div class="col-md-12">
+                            <div class="form-group">
+                              <label class="control-label" for="inputAccountAddressLine1">{{ trans('frontend.account_address_line_1') }}</label>
+                              <textarea class="form-control" id="account_bill_adddress_line_1" name="account_shipping_adddress_line_1" placeholder="{{ trans('frontend.address_line_1') }}">{{ old('account_shipping_adddress_line_1') }}</textarea>
+                            </div>
+                          </div>
 
                         </div>
                       </div>
@@ -325,6 +279,50 @@
                             </div>
                           </div>
 
+                          <div class="col-md-4">
+                              <div class="form-group">
+                                <label class="control-label" for="inputAccountSelectCountry">{{ trans('frontend.checkout_select_country_label') }}</label>
+                                  <select class="form-control" id="account_shipping_select_country" name="account_shipping_select_country">
+                                    @foreach(get_country_list() as $key => $val)
+                                      @if(old('account_shipping_select_country') == $key || $key==42 )
+                                        <option selected value="{{ $key }}"> {!! $val !!}</option>
+                                      @else
+                                        <option value="{{ $key }}"> {!! $val !!}</option>
+                                      @endif
+                                    @endforeach
+                                   </select>
+                              </div>
+                            </div>
+  
+                            <div class="col-md-4">
+                              <div class="form-group">
+                                <label class="control-label" for="inputAccountTownCity">{{ trans('frontend.account_address_town_city') }}</label>
+                                <select class="form-control" name="account_shipping_town_or_city" id="account_shipping_town_or_city">
+                                  @foreach(get_quanhuyen_list(42) as $val)
+                                    <option value="{{ $val['maqh'] }}" {{ ($loop->iteration == 1)?'selected':'' }}> {!! $val['name'] !!}</option>
+  
+                                    @php 
+                                      if ($loop->iteration == 1){
+                                        $maqh =  $val['maqh'];
+                                      }
+                                    @endphp
+  
+                                  @endforeach
+                                </select>
+                              </div>
+                            </div>
+  
+                            <div class="col-md-4">
+                              <div class="form-group">
+                                <label class="control-label" for="inputAccountXaPhuong">{{ trans('frontend.account_address_xa_phuong') }}</label>
+                                <select class="form-control" name="account_shipping_xa_phuong" id="account_shipping_xa_phuong">
+                                  @foreach(get_xaphuong_list($maqh) as $val)
+                                    <option value="{{ $val['xaid'] }}" {{ ($loop->iteration == 1)?'selected':'' }}> {!! $val['name'] !!}</option>
+                                  @endforeach
+                                </select>
+                              </div>
+                            </div>
+
                           <div class="col-md-12">
                             <div class="form-group">
                               <label class="control-label" for="inputAccountAddressLine1">{{ trans('frontend.account_address_line_1') }}</label>
@@ -332,26 +330,6 @@
                             </div>
                           </div>
 
-                          <div class="col-md-6">
-                            <div class="form-group">
-                              <label class="control-label" for="inputAccountTownCity">{{ trans('frontend.account_address_town_city') }}</label>
-                              <input type="text" class="form-control" placeholder="{{ trans('frontend.town_city') }}" name="account_shipping_town_or_city" id="account_shipping_town_or_city" value="{{ old('account_shipping_town_or_city') }}">
-                            </div>
-                          </div>
-
-                          <div class="col-md-6">
-                            <div class="form-group">
-                              <label class="control-label" for="inputAccountTownCity">{{ trans('frontend.account_address_town_city') }}</label>
-                              <input type="text" class="form-control" placeholder="{{ trans('frontend.town_city') }}" name="account_shipping_town_or_city" id="account_shipping_town_or_city" value="{{ old('account_shipping_town_or_city') }}">
-                            </div>
-                          </div>
-
-                          <div class="col-md-6">
-                            <div class="form-">
-                              <label class="control-label" for="inputAccountZipPostalCode">{{ trans('frontend.checkout_zip_postal_label') }}</label>
-                              <input type="number" class="form-control" placeholder="{{ trans('frontend.zip_postal_code') }}" name="account_shipping_zip_or_postal_code" id="account_shipping_zip_or_postal_code" value="{{ old('account_shipping_zip_or_postal_code') }}">
-                            </div>
-                          </div>
 
                         </div>
 
@@ -359,6 +337,93 @@
                     </div>  
                   </div>
                 </div>
+
+                <script>
+                    $('#account_bill_select_country').on('change',function(){
+                      $.ajax({
+                        url: $('#hf_base_url').val() + '/ajax/quan-huyen',
+                        type: 'POST',
+                        cache: false,
+                        datatype: 'html',
+                        headers: { 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content') },
+                        data: { data: this.value },
+                        success: function(data) {
+                            if (data.success == true) {
+                              $("#account_bill_town_or_city").empty();
+                              $("#account_bill_town_or_city").html(data.html);
+                              $("#account_bill_xa_phuong").empty();
+                            }else{
+                              console.log('chua duoc');
+                            }
+                        },
+                        error: function() {}
+                      });
+                    });
+
+                    $('#account_bill_town_or_city').on('click',function(){
+                      $.ajax({
+                        url: $('#hf_base_url').val() + '/ajax/xa-phuong',
+                        type: 'POST',
+                        cache: false,
+                        datatype: 'html',
+                        headers: { 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content') },
+                        data: { data: this.value },
+                        success: function(data) {
+                            if (data.success == true) {
+                              $("#account_bill_xa_phuong").empty();
+                              $("#account_bill_xa_phuong").html(data.html);
+                            }else{
+                              console.log('chua duoc');
+                            }
+                        },
+                        error: function() {}
+                      });
+
+                    });
+
+                    $('#account_shipping_select_country').on('change',function(){
+                      $.ajax({
+                        url: $('#hf_base_url').val() + '/ajax/quan-huyen',
+                        type: 'POST',
+                        cache: false,
+                        datatype: 'html',
+                        headers: { 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content') },
+                        data: { data: this.value },
+                        success: function(data) {
+                            if (data.success == true) {
+                              $("#account_shipping_town_or_city").empty();
+                              $("#account_shipping_town_or_city").html(data.html);
+                              $("#account_shipping_xa_phuong").empty();
+                            }else{
+                              console.log('chua duoc');
+                            }
+                        },
+                        error: function() {}
+                      });
+
+                    });
+
+                    $('#account_shipping_town_or_city').on('click',function(){
+                      $.ajax({
+                        url: $('#hf_base_url').val() + '/ajax/xa-phuong',
+                        type: 'POST',
+                        cache: false,
+                        datatype: 'html',
+                        headers: { 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content') },
+                        data: { data: this.value },
+                        success: function(data) {
+                            if (data.success == true) {
+                              $("#account_shipping_xa_phuong").empty();
+                              $("#account_shipping_xa_phuong").html(data.html);
+                            }else{
+                              console.log('chua duoc');
+                            }
+                        },
+                        error: function() {}
+                      });
+
+                    })
+                  </script>
               @endif
 
               @if($_settings_data['general_settings']['checkout_options']['enable_login_user'] == true && $is_user_login == false)
