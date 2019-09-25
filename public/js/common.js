@@ -342,6 +342,8 @@ $(document).ready(function() {
 
                 }
 
+                console.log('current++: ' + current);
+
                 setProgress(current);
             }
 
