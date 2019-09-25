@@ -126,6 +126,18 @@
                   </tbody>
                 </table>
               </div>
+
+              <div class="shopping-cart-footer">
+                <div class="column">
+                  <div class="coupon-form">
+                    <input type="text" class="form-control form-control-sm" id="apply_coupon_code" name="apply_coupon" placeholder="{{ trans('frontend.coupon_code_placeholder_text') }}">
+                    <button class="btn btn-outline-primary btn-sm" name="apply_coupon_post" id="apply_coupon_post">{!! trans('frontend.apply_coupon_label') !!}</button>
+                  </div>
+                </div>
+
+                <div class="column text-lg">{!! trans('frontend.cart_sub_total') !!}: <span class="text-medium">{!! price_html( get_product_price_html_by_filter(Cart::getTotal()), get_frontend_selected_currency() ) !!}</span></div>
+
+              </div>
             </div>
           </div>
 
@@ -635,9 +647,17 @@
           @endif
 
           <br>
-          <button class="action next btn btn-primary" style="float:right">{!! trans('frontend.proceed_to_checkout_label') !!}</button>
-          <button name="checkout_proceed" class="action submit btn btn-secondary place-order" type="submit" value="checkout_proceed">{{ trans('frontend.place_order') }}</button>
-        </div>
+          <div class="shopping-cart-footer">
+            <div class="column">
+              <button class="action next btn btn-primary" style="float:right">{!! trans('frontend.proceed_to_checkout_label') !!}</button>
+            </div>
+            <div class="column">
+              <button name="checkout_proceed" class="action submit btn btn-secondary place-order" type="submit" value="checkout_proceed">{{ trans('frontend.place_order') }}</button>
+            </div>
+            </div>
+          
+          </div>
+
         <input type="hidden" id="selected_user_mode" name="selected_user_mode">
         <input type="hidden" id="is_user_login" name="is_user_login" value="{{ $is_user_login }}">
         <input type="hidden" id="selected_payment_method" name="selected_payment_method">

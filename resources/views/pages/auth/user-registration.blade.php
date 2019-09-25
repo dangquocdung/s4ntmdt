@@ -22,6 +22,7 @@
 </div>
 
 <!-- Page Content-->
+
 @if($settings_data['general_options']['allow_registration_for_frontend'])
 <div id="user_registration" class="container custom-extra-top-style">
   <div class="row justify-content-center">
@@ -31,62 +32,72 @@
 
       <form method="post" action="" enctype="multipart/form-data">
         <input type="hidden" name="_token" id="_token" value="{{ csrf_token() }}">
-        
-        <h2>{!! trans('frontend.please_sign_up_label') !!} <small>{!! trans('frontend.sign_up_free_label') !!}</small></h2>
-        <hr class="colorgraph">
-        
+
+        <div class="padding-top-3x hidden-md-up"></div>
+        <h3 class="margin-bottom-1x">Bạn chưa có tài khoản? Hãy đăng ký</h3>
+        <p>Việc đăng ký chỉ mất ít phút nhưng cho bạn toàn quyền kiểm soát đơn hàng.</p>
         <div class="row">
-          <div class="col-xs-12 col-sm-6 col-md-6">
-            <div class="form-group has-feedback">
+          <div class="col-sm-6">
+            <div class="form-group">
+              <label for="reg-fn">{{ trans('frontend.display_name') }}</label>
               <input type="text" placeholder="{{ trans('frontend.display_name') }}" class="form-control" value="{{ old('user_reg_display_name') }}" id="user_reg_display_name" name="user_reg_display_name">
-              <span class="fa fa-user form-control-feedback"></span>
+
             </div>
           </div>
-          <div class="col-xs-12 col-sm-6 col-md-6">
-            <div class="form-group has-feedback">
+          <div class="col-sm-6">
+            <div class="form-group">
+              <label for="reg-ln">{{ trans('frontend.user_name') }}</label>
               <input type="text" placeholder="{{ trans('frontend.user_name') }}" class="form-control" value="{{ old('user_reg_name') }}" id="user_reg_name" name="user_reg_name">
-              <span class="fa fa-user form-control-feedback"></span>
             </div>
           </div>
-        </div>
-        
-        <div class="form-group has-feedback">
-          <input type="email" placeholder="{{ ucfirst( trans('frontend.email') ) }}" class="form-control" id="reg_email_id" value="{{ old('reg_email_id') }}" name="reg_email_id">
-          <span class="fa fa-envelope form-control-feedback"></span>
-        </div>
-        
-        <div class="row">
-          <div class="col-xs-12 col-sm-6 col-md-6">
-            <div class="form-group has-feedback">
+          <div class="col-sm-6">
+            <div class="form-group">
+              <label for="reg-email">{{ ucfirst( trans('frontend.email') ) }}</label>
+              <input type="email" placeholder="{{ ucfirst( trans('frontend.email') ) }}" class="form-control" id="reg_email_id" value="{{ old('reg_email_id') }}" name="reg_email_id">
+            </div>
+          </div>
+          <div class="col-sm-6">
+            <div class="form-group">
+              <label for="reg-phone">Phone Number</label>
+              <input class="form-control" type="text" id="reg-phone" required>
+            </div>
+          </div>
+          <div class="col-sm-6">
+            <div class="form-group">
+              <label for="reg-pass">{{ ucfirst(trans('frontend.password')) }}</label>
               <input type="password" placeholder="{{ ucfirst(trans('frontend.password')) }}" class="form-control" id="reg_password" name="reg_password">
-              <span class="fa fa-lock form-control-feedback"></span>
             </div>
           </div>
-          <div class="col-xs-12 col-sm-6 col-md-6">
-            <div class="form-group has-feedback">
+          <div class="col-sm-6">
+            <div class="form-group">
+              <label for="reg-pass-confirm">{{ trans('frontend.retype_password') }}</label>
               <input type="password" placeholder="{{ trans('frontend.retype_password') }}" class="form-control" id="reg_password_confirmation" name="reg_password_confirmation">
-              <span class="fa fa-lock form-control-feedback"></span>
             </div>
           </div>
+          <div class="col-sm-12">
+            <div class="form-group">
+              <label for="reg-pass-confirm">{{ ucfirst(trans('frontend.secret_key')) }}</label>
+              <input type="text" placeholder="{{ ucfirst(trans('frontend.secret_key')) }}" class="form-control" id="reg_secret_key" name="reg_secret_key">
+            </div>
+          </div>
+
+          @if(!empty($is_enable_recaptcha) && $is_enable_recaptcha == true)
+
+            <div class="col-sm-12">
+              <div class="form-group">
+                <div class="captcha-style">{!! app('captcha')->display(); !!}</div>
+              </div>
+            </div>
+          @endif
+
+          <div class="col-12 text-center text-sm-right">
+            <input name="user_reg_submit" id="user_reg_submit" class="btn btn-secondary btn-block btn-md" value="{{ trans('frontend.registration') }}" type="submit"> 
+            <!-- <button class="btn btn-primary margin-bottom-none" type="submit">Register</button> -->
+          </div>
         </div>
-        
-        <div class="form-group has-feedback">
-          <input type="text" placeholder="{{ ucfirst(trans('frontend.secret_key')) }}" class="form-control" id="reg_secret_key" name="reg_secret_key">
-          <span class="fa fa-lock form-control-feedback"></span>
-        </div>
-        
-        @if(!empty($is_enable_recaptcha) && $is_enable_recaptcha == true)
-        <div class="form-group">
-          <div class="captcha-style">{!! app('captcha')->display(); !!}</div>
-        </div>
-        @endif
-        
-        <hr class="colorgraph">
-        <div class="row">
-          <div class="col-xs-12 col-md-6"><input name="user_reg_submit" id="user_reg_submit" class="btn btn-secondary btn-block btn-md" value="{{ trans('frontend.registration') }}" type="submit"> </div>
-          <div class="col-xs-12 col-md-6"><a href="{{ route('user-login-page') }}" class="btn btn-secondary btn-block btn-md user-reg-log-in-text">{{ trans('frontend.signin_account_label') }}</a></div>
-        </div>
+
       </form>
+
     </div>
   </div>
 </div>  
