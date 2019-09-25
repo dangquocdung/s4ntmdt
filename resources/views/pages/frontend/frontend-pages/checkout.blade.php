@@ -603,22 +603,23 @@
                           </label>
                           </li>
                         @endif
+
+
+                        @if($payment_method_data['2checkout']['enable_option'] == 'yes')
+                        <script type="text/javascript" src="https://www.2checkout.com/checkout/api/2co.min.js"></script>
+                        <input type="hidden" name="2checkout_api_data" value="{{ $twocheckout_api_data }}" id="2checkout_api_data">
+                        <li>
+                          <label>
+                            @if(old('payment_option') == '2checkout')
+                              <input type="radio" checked name="payment_option" class="shopist-iCheck" value="2checkout"> {{ $payment_method_data['2checkout']['method_title'] }}
+                            @else
+                              <input type="radio" name="payment_option" class="shopist-iCheck" value="2checkout"> {{ $payment_method_data['2checkout']['method_title'] }}
+                            @endif
+                          </label>
+                        </li>
+                        @endif
                       </ul>
 
-
-                      @if($payment_method_data['2checkout']['enable_option'] == 'yes')
-                      <script type="text/javascript" src="https://www.2checkout.com/checkout/api/2co.min.js"></script>
-                      <input type="hidden" name="2checkout_api_data" value="{{ $twocheckout_api_data }}" id="2checkout_api_data">
-                        <span>
-                        <label>
-                          @if(old('payment_option') == '2checkout')
-                            <input type="radio" checked name="payment_option" class="shopist-iCheck" value="2checkout"> {{ $payment_method_data['2checkout']['method_title'] }}
-                          @else
-                            <input type="radio" name="payment_option" class="shopist-iCheck" value="2checkout"> {{ $payment_method_data['2checkout']['method_title'] }}
-                          @endif
-                        </label>
-                        </span>
-                      @endif
 
                       @if($payment_method_data['bacs']['enable_option'] == 'yes')
                         <div id="bacsPopover">
@@ -712,10 +713,14 @@
               <!-- Order note -->
               @if($_settings_data['general_settings']['checkout_options']['enable_guest_user'] == true || ($_settings_data['general_settings']['checkout_options']['enable_login_user'] == true && $is_user_login == true) || ($_settings_data['general_settings']['checkout_options']['enable_guest_user'] == false && $_settings_data['general_settings']['checkout_options']['enable_login_user'] == false))
                 <div id="order_notes" class="step well">
-                  <h2 class="step-title">{!! trans('frontend.order_notes') !!}</h2><hr>
-                  <div class="order-extra-notes">
-                    <textarea name="checkout_order_extra_message" id="checkout_order_extra_message"  placeholder="{{ trans('frontend.notes_about_your_order') }}" class="form-control">{!! old('checkout_order_extra_message') !!}</textarea>
+                  <h4>{!! trans('frontend.order_notes') !!}</h4>
+
+                  <div class="col-md-12">
+                    <div class="form-group order-extra-notes">
+                      <textarea name="checkout_order_extra_message" id="checkout_order_extra_message"  placeholder="{{ trans('frontend.notes_about_your_order') }}" class="form-control">{!! old('checkout_order_extra_message') !!}</textarea>
+                    </div>
                   </div>
+
                 </div>
               @endif
 

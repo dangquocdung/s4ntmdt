@@ -316,6 +316,7 @@ $(document).ready(function() {
                     var get_authentication_index = parseInt($('#checkout_page .checkout-content').find('#authentication').index()) - 1;
 
                     widget.not(':eq(' + get_authentication_index + ')').hide();
+
                     is_enable_selected = true;
 
                 } else if ($('#selected_user_mode').val().length > 0 && $('#selected_user_mode').val() == 'login_user' && !is_enable_selected && $('#is_user_login').val() == true) {
@@ -324,16 +325,21 @@ $(document).ready(function() {
                     var get_payment_index = parseInt($('#checkout_page .checkout-content').find('#payment').index()) - 1;
 
                     widget.not(':eq(' + get_login_user_address_index + ')').hide();
+
                     is_enable_selected = true;
+
                     current = get_payment_index;
 
                 } else if ($('#selected_user_mode').val().length > 0 && $('#selected_user_mode').val() == 'guest' && !is_enable_selected) {
 
                     var get_guest_user_address_index = parseInt($('#checkout_page .checkout-content').find('#guest_user_address').index()) - 1;
+
                     var get_payment_index = parseInt($('#checkout_page .checkout-content').find('#payment').index()) - 1;
 
                     widget.not(':eq(' + get_guest_user_address_index + ')').hide();
+
                     is_enable_selected = true;
+                    
                     current = get_payment_index;
 
                 } else {
