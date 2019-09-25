@@ -1,8 +1,27 @@
 @extends('layouts.frontend.master')
-
 @section('title', trans('frontend.frontend_user_registration_title') .' - '. get_site_title())
+
 @section('content')
 
+<!-- Page Title-->
+<div class="page-title">
+  <div class="container">
+    <div class="column">
+      <h1>{{ trans('frontend.frontend_user_registration_title') }}</h1>
+    </div>
+    <div class="column">
+      <ul class="breadcrumbs">
+        <li>
+          <a href="{{ route('home-page') }}">{{ trans('frontend.home') }}</a>
+        </li>
+        <li class="separator">&nbsp;</li>
+        <li>{{ trans('frontend.frontend_user_registration_title') }}</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<!-- Page Content-->
 @if($settings_data['general_options']['allow_registration_for_frontend'])
 <div id="user_registration" class="container custom-extra-top-style">
   <div class="row justify-content-center">
