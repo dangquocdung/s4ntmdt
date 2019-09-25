@@ -131,6 +131,7 @@
                 </div>
               </div>
 
+              <!-- Xác định người dùng -->
               @if($_settings_data['general_settings']['checkout_options']['enable_guest_user'] == true || $_settings_data['general_settings']['checkout_options']['enable_login_user'] == true)
                 <div id="user_mode" class="step well">
                   <!-- <h2 class="step-title">{!! trans('frontend.user_mode_label') !!}</h2><hr>   -->
@@ -157,6 +158,7 @@
                 </div>
               @endif
 
+              <!-- Địa chỉ khách hàng -->
               @if($_settings_data['general_settings']['checkout_options']['enable_guest_user'] == true || ($_settings_data['general_settings']['checkout_options']['enable_guest_user'] == false && $_settings_data['general_settings']['checkout_options']['enable_login_user'] == false))
                 <div id="guest_user_address" class="step well">
                   <div class="user-address-content mt-3">
@@ -329,8 +331,6 @@
                               <textarea class="form-control" id="account_shipping_adddress_line_1" name="account_shipping_adddress_line_1" placeholder="{{ trans('frontend.address_line_1') }}">{{ old('account_shipping_adddress_line_1') }}</textarea>
                             </div>
                           </div>
-
-
                         </div>
 
                       </div>
@@ -426,6 +426,7 @@
                   </script>
               @endif
 
+              <!-- Xác thực người dùng -->
               @if($_settings_data['general_settings']['checkout_options']['enable_login_user'] == true && $is_user_login == false)
                 <div id="authentication" class="step well">
                   <h2 class="step-title">{!! trans('frontend.authentication_label') !!}</h2><hr>  
@@ -450,6 +451,7 @@
                 </div>
               @endif
 
+              <!-- Login user address -->
               @if($_settings_data['general_settings']['checkout_options']['enable_login_user'] == true && $is_user_login == true)
                 <div id="login_user_address" class="step well">
                   <h2 class="step-title">{!! trans('frontend.checkout_address_label') !!}</h2><hr> 
@@ -541,6 +543,7 @@
                 </div>
               @endif
 
+              <!-- Payment -->
               @if($_settings_data['general_settings']['checkout_options']['enable_guest_user'] == true || ($_settings_data['general_settings']['checkout_options']['enable_login_user'] == true && $is_user_login == true) || ($_settings_data['general_settings']['checkout_options']['enable_guest_user'] == false && $_settings_data['general_settings']['checkout_options']['enable_login_user'] == false))
                 <div id="payment" class="step well">
                   <h2 class="step-title">{!! trans('frontend.choose_payment') !!}</h2><hr>
@@ -699,13 +702,14 @@
                 </div>
               @endif
 
+              <!-- Order note -->
               @if($_settings_data['general_settings']['checkout_options']['enable_guest_user'] == true || ($_settings_data['general_settings']['checkout_options']['enable_login_user'] == true && $is_user_login == true) || ($_settings_data['general_settings']['checkout_options']['enable_guest_user'] == false && $_settings_data['general_settings']['checkout_options']['enable_login_user'] == false))
-              <div id="order_notes" class="step well">
-                <h2 class="step-title">{!! trans('frontend.order_notes') !!}</h2><hr>
-                <div class="order-extra-notes">
-                  <textarea name="checkout_order_extra_message" id="checkout_order_extra_message"  placeholder="{{ trans('frontend.notes_about_your_order') }}" class="form-control">{!! old('checkout_order_extra_message') !!}</textarea>
+                <div id="order_notes" class="step well">
+                  <h2 class="step-title">{!! trans('frontend.order_notes') !!}</h2><hr>
+                  <div class="order-extra-notes">
+                    <textarea name="checkout_order_extra_message" id="checkout_order_extra_message"  placeholder="{{ trans('frontend.notes_about_your_order') }}" class="form-control">{!! old('checkout_order_extra_message') !!}</textarea>
+                  </div>
                 </div>
-              </div>
               @endif
 
               <br>
