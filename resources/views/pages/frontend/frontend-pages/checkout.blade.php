@@ -132,7 +132,6 @@
           <!-- Xác định người dùng -->
           @if($_settings_data['general_settings']['checkout_options']['enable_guest_user'] == true || $_settings_data['general_settings']['checkout_options']['enable_login_user'] == true)
             <div id="user_mode" class="step well">
-              <!-- <h2 class="step-title">{!! trans('frontend.user_mode_label') !!}</h2><hr>   -->
               <div class="checkout-process-user-mode">
               
                 <ul style="list-style:none">
@@ -159,7 +158,7 @@
           <!-- Địa chỉ khách hàng -->
           @if($_settings_data['general_settings']['checkout_options']['enable_guest_user'] == true || ($_settings_data['general_settings']['checkout_options']['enable_guest_user'] == false && $_settings_data['general_settings']['checkout_options']['enable_login_user'] == false))
           <div id="guest_user_address" class="step well">
-            <h2 class="step-title">{!! trans('frontend.checkout_address_label') !!}</h2><hr> 
+            
             <div class="user-address-content">
               <div class="address-information clearfix">
 
