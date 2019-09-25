@@ -334,7 +334,7 @@ $(document).ready(function() {
 
     if ($('#checkout_page #user_mode .checkout-process-user-mode').length > 0) {
 
-        $('#selected_user_mode').val('guest');
+        // $('#selected_user_mode').val('guest');
 
         $('#checkout_page #user_mode .checkout-process-user-mode input[type="radio"]').on('ifClicked', function(event) {
             $('#selected_user_mode').val(this.value);
@@ -1371,10 +1371,6 @@ function hideButtons(current) {
     }
 }
 
-
-
-
-
 function checkoutStepValidation() {
     var returnVal = true;
     var visible_step = $('#checkout_page .checkout-content .step:visible');
@@ -1462,13 +1458,13 @@ function checkoutStepValidation() {
             errorStr.push('no_account_shipping_town_or_city');
         }
 
-        if ($('#account_bill_zip_or_postal_code').length > 0 && $('#account_bill_zip_or_postal_code').val().length == 0 && $('#account_bill_zip_or_postal_code').val() == '') {
-            errorStr.push('no_account_bill_zip_or_postal_code');
-        }
+            // if ($('#account_bill_zip_or_postal_code').length > 0 && $('#account_bill_zip_or_postal_code').val().length == 0 && $('#account_bill_zip_or_postal_code').val() == '') {
+            //     errorStr.push('no_account_bill_zip_or_postal_code');
+            // }
 
-        if (isChecked && $('#account_shipping_zip_or_postal_code').length > 0 && $('#account_shipping_zip_or_postal_code').val().length == 0 && $('#account_shipping_zip_or_postal_code').val() == '') {
-            errorStr.push('no_account_shipping_zip_or_postal_code');
-        }
+            // if (isChecked && $('#account_shipping_zip_or_postal_code').length > 0 && $('#account_shipping_zip_or_postal_code').val().length == 0 && $('#account_shipping_zip_or_postal_code').val() == '') {
+            //     errorStr.push('no_account_shipping_zip_or_postal_code');
+            // }
 
         if ($('#account_bill_email_address').val().length > 0 && !isValidEmail($('#account_bill_email_address').val())) {
             emailMsg += '<p>' + frontendLocalizationString.billing_email_not_valid_msg + '</p>';
