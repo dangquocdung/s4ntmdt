@@ -5,7 +5,7 @@
  */
 
 // require('./bootstrap');
-require('./common.js')
+// require('./common.js')
 // require('./checkout.js')
 
 require('./products-add-to-cart');
