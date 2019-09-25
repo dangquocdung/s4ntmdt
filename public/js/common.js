@@ -304,6 +304,10 @@ $(document).ready(function() {
                 widget.show();
                 // alert($('#checkout_page .checkout-content').find('#guest_user_address').index());
 
+                console.log('is_enable_selected: ' + is_enable_selected);
+                console.log('#selected_user_mode: ' + $('#selected_user_mode').val());
+                console.log('#is_user_login: ' +  $('#is_user_login').val());
+
                 if ($('#selected_user_mode').val().length > 0 && $('#selected_user_mode').val() == 'login_user' && !is_enable_selected && $('#is_user_login').val() == false) {
 
                     var get_authentication_index = parseInt($('#checkout_page .checkout-content').find('#authentication').index()) - 1;
