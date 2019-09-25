@@ -2,26 +2,6 @@
 @section('title', trans('frontend.shopist_checkout') .' | '. get_site_title() )
 
 @section('content')
-
-  <!-- Page Title-->
-  <div class="page-title">
-    <div class="container">
-      <div class="column">
-        <h1>{{ trans('frontend.checkout') }}</h1>
-      </div>
-      <div class="column">
-        <ul class="breadcrumbs">
-          <li>
-            <a href="{{ route('home-page') }}">{{ trans('frontend.home') }}</a>
-          </li>
-          <li class="separator">&nbsp;</li>
-          <li>{{ trans('frontend.checkout') }}</li>
-        </ul>
-      </div>
-    </div>
-  </div>
-
-  <!-- Page Content-->
   <div id="checkout_page" class="container">
       @if( Cart::count() >0 )
       <form class="form-horizontal" method="post" action="" enctype="multipart/form-data">
