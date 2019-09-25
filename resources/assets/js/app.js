@@ -6,7 +6,7 @@
 
 // require('./bootstrap');
 require('./common.js')
-require('./checkout.js')
+// require('./checkout.js')
 
 require('./products-add-to-cart');
 require('./unishop');
