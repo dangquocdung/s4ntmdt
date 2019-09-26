@@ -24,7 +24,7 @@
 <!-- Page Content-->
 <div class="container padding-bottom-3x mb-2">
     <div class="row">
-      <div class="col-md-6 offset-3">
+      <div class="col-6 offset-3">
         
         @include('pages-message.notify-msg-error')
         @include('pages-message.form-submit')
