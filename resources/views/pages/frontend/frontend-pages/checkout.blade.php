@@ -462,9 +462,8 @@
                         </div>
                       </div>
                     </div>
-
-                              </div>
-                              </div>
+                  </div>
+                </div>
 
               </div>
 
@@ -475,7 +474,6 @@
           <!-- Login user address -->
           @if($_settings_data['general_settings']['checkout_options']['enable_login_user'] == true && $is_user_login == true)
             <div id="login_user_address" class="step well">
-              <h2 class="step-title">{!! trans('frontend.checkout_address_label') !!}</h2><hr> 
               <div class="text-right">
                 @if(!empty($login_user_account_data) && !empty($login_user_account_data->address_details))
                   <a href="{{ route('my-address-edit-page') }}" class="btn btn-secondary btn-sm">{{ trans('frontend.edit_address') }}</a>
@@ -485,8 +483,8 @@
               </div>
               <br>
               <div class="user-address-content">
-                <div class="address-information clearfix">
-                  <div class="address-content-sub">
+                <div class="row address-information clearfix">
+                  <div class="col-md-6 address-content-sub">
                     <h3 class="page-subheading">{!! trans('frontend.billing_address') !!}</h3><br>
                     @if(!empty($login_user_account_data) && !empty($login_user_account_data->address_details))
                     <p>{!! $login_user_account_data->address_details->account_bill_first_name .' '. $login_user_account_data->address_details->account_bill_last_name !!}</p>
@@ -522,7 +520,7 @@
                     <p>{{ trans('admin.billing_address_not_available') }}</p>
                     @endif
                   </div>
-                  <div class="address-content-sub">
+                  <div class="col-md-6 address-content-sub">
                     <h3 class="page-subheading">{!! trans('frontend.shipping_address') !!}</h3><br>
 
                     @if(!empty($login_user_account_data) && !empty($login_user_account_data->address_details))
