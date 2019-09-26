@@ -76,7 +76,7 @@
       <a href="{{ route('user-login-page') }}">
         @if (Session::has('shopist_frontend_user_id'))
 
-        <div><i class="icon-user"></i><span class="text-label">{!! trans('frontend.member') !!}</span></div>
+        <div><i class="icon-user"></i><span class="text-label">{!! trans('frontend.thanh-vien') !!}</span></div>
 
         @else
 
@@ -93,7 +93,7 @@
         @if (Session::has('shopist_frontend_user_id'))
           <a class="btn btn-primary btn-sm btn-block" href="{{ route('user-account-page') }}">{!! trans('frontend.user_account_label') !!}</a>
         @else
-          <p class="text-xs mb-3 pt-2">Sign in to your account or register new one to have full control over your orders, receive bonuses and more.</p>
+          <!-- <p class="text-xs mb-3 pt-2">Sign in to your account or register new one to have full control over your orders, receive bonuses and more.</p> -->
           <a class="btn btn-primary btn-sm btn-block" href="{{ route('user-account-page') }}">{!! trans('frontend.frontend_user_login') !!}</a>
           <p class="text-xs text-muted mb-2">{{ trans('frontend.new_user') }}&nbsp;<a href="{{ route('user-registration-page') }}">{{ trans('frontend.frontend_user_registration_title') }}</a></p>
         @endif
