@@ -76,7 +76,7 @@
       <a href="{{ route('user-login-page') }}">
         @if (Session::has('shopist_frontend_user_id'))
 
-        <div><i class="icon-user"></i><span class="text-label">{{ $user_details['user_display_name'] }}</span></div>
+        <div><i class="icon-user"></i><span class="text-label">{!! trans('frontend.member') !!}</span></div>
 
         @else
 
