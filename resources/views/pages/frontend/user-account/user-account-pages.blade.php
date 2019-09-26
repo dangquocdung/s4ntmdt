@@ -2,7 +2,6 @@
 
 @php
 
-  var $title;
 
   if(Request::is('user/account')) $title = 'frontend_user_dashboard_title'
   elseif (Request::is('user/account/dashboard')) $title = 'frontend_user_dashboard_title'
