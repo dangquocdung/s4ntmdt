@@ -214,7 +214,7 @@ return [
   'product_search_by_name' =>'Tìm kiếm sản phẩm theo tên ',
   'filter' =>'Bộ lọc',
   'choose_an_options' =>'Chọn một tùy chọn ...',
-  'copyright_msg' =>'© Bản quyền 2015',
+  'copyright_msg' =>'© Bản quyền 2019',
   'page_not_found' =>'Không tìm thấy trang',
   '404' =>'404',
   'be_right_back' =>'Quay lại ngay.',
