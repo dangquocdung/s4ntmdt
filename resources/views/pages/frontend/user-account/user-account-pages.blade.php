@@ -1,5 +1,26 @@
 @extends('layouts.frontend.master')
 
+@php
+
+  var $title;
+
+  if(Request::is('user/account')) $title = 'frontend_user_dashboard_title'
+  elseif (Request::is('user/account/dashboard')) $title = 'frontend_user_dashboard_title'
+  elseif (Request::is('user/account/my-address')) $title = 'frontend_user_address_title'
+  elseif (Request::is('user/account/my-address/add')) $title = 'frontend_user_address_add_title'
+  elseif (Request::is('user/account/my-address/edit')) $title = 'frontend_user_address_edit_title'
+  elseif (Request::is('user/account/my-profile')) $title = 'frontend_user_profile_edit_title'
+  elseif (Request::is('user/account/my-orders')) $title = 'frontend_my_order_title'
+  elseif (Request::is('user/account/my-saved-items')) $title = 'frontend_wishlist_items_title'
+  elseif (Request::is('user/account/my-coupons')) $title = 'frontend_coupons_items_title'
+  elseif (Request::is('user/account/download')) $title = 'frontend_download_options_title'
+  elseif(Request::is('user/account/order-details/*')) $title = 'user_order_details_page_title'
+  endif
+
+
+
+@endphp
+
 @if(Request::is('user/account'))
   @section('title',  trans('frontend.frontend_user_dashboard_title') .' | '. get_site_title() )
 @elseif (Request::is('user/account/dashboard'))
@@ -24,32 +45,28 @@
   @section('title',  trans('frontend.user_order_details_page_title') .' | '. get_site_title() )  
 @endif
 
-@if(Request::is('user/account'))
-  @section('breadcrumbs',  trans('frontend.frontend_user_dashboard_title') )
-@elseif (Request::is('user/account/dashboard'))
-  @section('breadcrumbs',  trans('frontend.frontend_user_dashboard_title') )
-@elseif (Request::is('user/account/my-address'))
-  @section('breadcrumbs',  trans('frontend.frontend_user_address_title') )
-@elseif (Request::is('user/account/my-address/add'))
-  @section('breadcrumbs',  trans('frontend.frontend_user_address_add_title') ) 
-@elseif (Request::is('user/account/my-address/edit'))
-  @section('breadcrumbs',  trans('frontend.frontend_user_address_edit_title') )
-@elseif (Request::is('user/account/my-profile'))
-  @section('breadcrumbs',  trans('frontend.frontend_user_profile_edit_title') )
-@elseif (Request::is('user/account/my-orders'))
-  @section('breadcrumbs',  trans('frontend.frontend_my_order_title') )
-@elseif (Request::is('user/account/my-saved-items'))
-  @section('breadcrumbs',  trans('frontend.frontend_wishlist_items_title') ) 
-@elseif (Request::is('user/account/my-coupons'))
-  @section('breadcrumbs',  trans('frontend.frontend_coupons_items_title') )
-@elseif (Request::is('user/account/download'))
-  @section('breadcrumbs',  trans('frontend.frontend_download_options_title') )  
-@elseif(Request::is('user/account/order-details/*'))
-  @section('breadcrumbs',  trans('frontend.user_order_details_page_title') )  
-@endif
-
-
 @section('content')
+
+<!-- Page Title-->
+<div class="page-title">
+  <div class="container">
+    <div class="column">
+
+      <h1>{{ trans('frontend.'.$title) }}</h1>
+
+    </div>
+    <div class="column">
+      <ul class="breadcrumbs">
+        <li>
+          <a href="{{ route('home-page') }}">{{ trans('frontend.home') }}</a>
+        </li>
+        <li class="separator">&nbsp;</li>
+        <li>{{ trans('frontend.frontend_user_registration_title') }}</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
 <!-- Page Content-->
 <div class="container padding-bottom-3x mb-2">
   <div class="row">
@@ -65,7 +82,6 @@
                 <img src="{{ default_avatar_img_src() }}" alt="">
               @endif
             
-          
           </div>
           <div class="user-data">
             <h4>{{ $login_user_details['user_display_name'] }}</h4>

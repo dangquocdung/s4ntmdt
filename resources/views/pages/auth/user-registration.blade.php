@@ -35,7 +35,7 @@
 
         <div class="padding-top-3x hidden-md-up"></div>
         <h3 class="margin-bottom-1x">Bạn chưa có tài khoản? Hãy đăng ký</h3>
-        <p>Việc đăng ký chỉ mất ít phút nhưng cho bạn toàn quyền kiểm soát đơn hàng.</p>
+        <p>Thao tác đăng ký chỉ mất ít phút nhưng cho bạn toàn quyền kiểm soát đơn hàng.</p>
         <div class="row">
           <div class="col-sm-6">
             <div class="form-group">
