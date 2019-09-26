@@ -192,7 +192,7 @@ return [
   'address_line_2' =>'Địa chỉ 2',
   'town_city' =>'Quận, huyện, thị, thành *',
   'zip_postal_code' =>'Mã bưu chính / mã bưu điện',
-  'order_notes' =>'Ghi chú đặt hàng',
+  'order_notes' =>'Ghi chú đơn hàng',
   'shipping_to_bill_address' =>'Vận chuyển đến địa chỉ hóa đơn',
   'choose_payment' =>'Lựa chọn hình thức thanh toán',
   'select_payment_gateway' =>'Chọn Cổng thanh toán',
