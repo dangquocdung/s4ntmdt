@@ -485,7 +485,7 @@
               <div class="user-address-content">
                 <div class="row address-information clearfix">
                   <div class="col-md-6 address-content-sub">
-                    <h3 class="page-subheading">{!! trans('frontend.billing_address') !!}</h3><br>
+                    <h4>{!! trans('frontend.billing_address') !!}</h4><br>
                     @if(!empty($login_user_account_data) && !empty($login_user_account_data->address_details))
                     <p>{!! $login_user_account_data->address_details->account_bill_first_name .' '. $login_user_account_data->address_details->account_bill_last_name !!}</p>
 
@@ -521,7 +521,7 @@
                     @endif
                   </div>
                   <div class="col-md-6 address-content-sub">
-                    <h3 class="page-subheading">{!! trans('frontend.shipping_address') !!}</h3><br>
+                    <h4>{!! trans('frontend.shipping_address') !!}</h4><br>
 
                     @if(!empty($login_user_account_data) && !empty($login_user_account_data->address_details))
                     <p>{!! $login_user_account_data->address_details->account_shipping_first_name .' '. $login_user_account_data->address_details->account_shipping_last_name !!}</p>
