@@ -53,7 +53,7 @@
                       <th class="text-center">{!! trans('frontend.quantity') !!}</th>
                       <th class="text-center">{!! trans('frontend.price') !!}</th>
                       <th class="text-center">
-                        <input type="submit" name="empty_cart" class="btn btn-sm btn-outline-danger" value="{{ trans('frontend.clear_cart') }}">  
+                        <!-- <input type="submit" name="empty_cart" class="btn btn-sm btn-outline-danger" value="{{ trans('frontend.clear_cart') }}">   -->
                       </th>
 
                     </tr>
