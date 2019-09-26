@@ -3,18 +3,41 @@
 @php
 
 
-  if(Request::is('user/account')) $title = 'frontend_user_dashboard_title'
-  elseif (Request::is('user/account/dashboard')) $title = 'frontend_user_dashboard_title'
-  elseif (Request::is('user/account/my-address')) $title = 'frontend_user_address_title'
-  elseif (Request::is('user/account/my-address/add')) $title = 'frontend_user_address_add_title'
-  elseif (Request::is('user/account/my-address/edit')) $title = 'frontend_user_address_edit_title'
-  elseif (Request::is('user/account/my-profile')) $title = 'frontend_user_profile_edit_title'
-  elseif (Request::is('user/account/my-orders')) $title = 'frontend_my_order_title'
-  elseif (Request::is('user/account/my-saved-items')) $title = 'frontend_wishlist_items_title'
-  elseif (Request::is('user/account/my-coupons')) $title = 'frontend_coupons_items_title'
-  elseif (Request::is('user/account/download')) $title = 'frontend_download_options_title'
-  elseif(Request::is('user/account/order-details/*')) $title = 'user_order_details_page_title'
-  endif
+  if(Request::is('user/account')){
+
+    $title = 'frontend_user_dashboard_title'
+
+  } 
+  elseif (Request::is('user/account/dashboard')) {
+    $title = 'frontend_user_dashboard_title'
+  }
+  elseif (Request::is('user/account/my-address')) {
+    $title = 'frontend_user_address_title'
+  }
+  elseif (Request::is('user/account/my-address/add')) {
+    $title = 'frontend_user_address_add_title'
+  }
+  elseif (Request::is('user/account/my-address/edit')) {
+    $title = 'frontend_user_address_edit_title'
+  }
+  elseif (Request::is('user/account/my-profile')) {
+    $title = 'frontend_user_profile_edit_title'
+  }
+  elseif (Request::is('user/account/my-orders')) {
+    $title = 'frontend_my_order_title'
+  }
+  elseif (Request::is('user/account/my-saved-items')) {
+    $title = 'frontend_wishlist_items_title'
+  }
+  elseif (Request::is('user/account/my-coupons')) {
+    $title = 'frontend_coupons_items_title'
+  }
+  elseif (Request::is('user/account/download')) {
+    $title = 'frontend_download_options_title'
+  }
+  elseif(Request::is('user/account/order-details/*')) {
+    $title = 'user_order_details_page_title'
+  }
 
 
 
