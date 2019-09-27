@@ -155,9 +155,9 @@
         @endif
         
         @if(is_frontend_user_logged_in())
-        <form method="post" action="{{ route('user-logout') }}" enctype="multipart/form-data">
+        <form method="post" action="{{ route('user-logout') }}" enctype="multipart/form-data" class="text-center">
           <input type="hidden" name="_token" id="_token" value="{{ csrf_token() }}">  
-          <button type="submit" class="btn btn-default btn-block"><i class="fa fa-circle-o-notch"></i> {!! trans('admin.sign_out') !!}</button>
+          <button type="submit" class="btn btn-danger btn-sm"><i class="fa fa-circle-o-notch"></i> {!! trans('admin.sign_out') !!}</button>
         </form>
         @endif
         
