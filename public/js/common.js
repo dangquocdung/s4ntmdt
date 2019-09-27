@@ -27,7 +27,7 @@ $(document).ready(function() {
     if ($('#frontend_user_profile_picture_uploader').length > 0) {
         Dropzone.autoDiscover = false;
         $("#frontend_user_profile_picture_uploader").dropzone({
-            url: $('#hf_base_url').val() + "/upload/product-related-image",
+            url: "http://shopist.dungthinh.com/upload/product-related-image",
             paramName: "profile_picture",
             acceptedFiles: "image/*",
             uploadMultiple: false,
