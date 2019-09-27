@@ -19,69 +19,61 @@
 
             </div>
           </div>
-          
-          <div class="form-group">
-            <div class="col-sm-4">
+
+          <div class="col-md-6">
+            <div class="form-group">
               <label class="control-label" for="inputDisplayName">{{ ucfirst( trans('admin.display_name') ) }}</label>
-            </div>
-            <div class="col-sm-8">
               <input type="text" placeholder="{{ trans('admin.display_name') }}" class="form-control" value="{{ $user_details['user_display_name'] }}" id="display_name" name="display_name">
             </div>
           </div>
 
-          <div class="form-group">
-            <div class="col-sm-4">
+          <div class="col-md-6">
+            <div class="form-group">
               <label class="control-label" for="inputUserName">{{ trans('admin.user_name') }}</label>
-            </div>
-            <div class="col-sm-8">
               <input type="text" placeholder="{{ trans('admin.user_name') }}" class="form-control" value="{{ $user_details['user_name'] }}" id="user_name" name="user_name">
             </div>
           </div> 
 
-          <div class="form-group">
-            <div class="col-sm-4">
+          <div class="col-md-6">
+            <div class="form-group">
               <label class="control-label" for="inputEmail">{{ trans('admin.email') }}</label>
-            </div>
-            <div class="col-sm-8">
               <input type="text" placeholder="{{ trans('admin.email') }}" class="form-control" value="{{ $user_details['user_email'] }}" id="email_id" name="email_id">
             </div>
           </div> 
           
-          <div class="form-group">
-            <div class="col-sm-4">
+          <div class="col-md-6">
+            <div class="form-group">
               <label class="control-label" for="inputNewPassword">{{ trans('admin.new_password') }}</label>
-            </div>
-            <div class="col-sm-8">
               <input type="password" placeholder="{{ trans('admin.new_password') }}" class="form-control" value="" id="password" name="password">
             </div>
           </div>
-          
-          <div class="form-group">
-            <div class="col-sm-4">
-              <label class="control-label" for="inputProfilePicture">{{ trans('admin.profile_picture') }}</label>
-            </div>
-            <div class="col-sm-8 profile-picture-content">
-              @if($user_details['user_photo_url'])
-                <div class="profile-picture">
-                  <div class="img-div"><img src="{{ get_image_url($user_details['user_photo_url']) }}" class="user-image" alt=""/></div><br>
-                  <div class="btn-div"><button type="button" class="btn btn-default btn-sm remove-frontend-profile-picture">{{ trans('admin.remove_image') }}</button></div>
+
+          <div class="col-md-6">
+            <div class="form-group">
+                <label class="control-label" for="inputProfilePicture">{{ trans('admin.profile_picture') }}</label>
+              <div class="col-sm-8 profile-picture-content">
+                @if($user_details['user_photo_url'])
+                  <div class="profile-picture">
+                    <div class="img-div"><img src="{{ get_image_url($user_details['user_photo_url']) }}" class="user-image" alt=""/></div><br>
+                    <div class="btn-div"><button type="button" class="btn btn-default btn-sm remove-frontend-profile-picture">{{ trans('admin.remove_image') }}</button></div>
+                  </div>
+                  <div class="no-profile-picture" style="display:none;">
+                    <div class="img-div"><img src="{{ default_avatar_img_src() }}" class="user-image" alt=""/></div><br>
+                    <div class="btn-div"><button data-toggle="modal" data-target="#frontendUserUploadProfilePicture" type="button" class="btn btn-default btn-sm profile-picture-uploader">{{ trans('admin.upload_image') }}</button></div>
+                  </div>
+                @else
+                <div class="profile-picture" style="display:none;">
+                    <div class="img-div"><img src="" class="user-image" alt=""/></div><br>
+                    <div class="btn-div"><button type="button" class="btn btn-default btn-sm remove-frontend-profile-picture">{{ trans('admin.remove_image') }}</button></div>
+                  </div>
+                <div class="no-profile-picture">
+                    <div class="img-div"><img src="{{ default_avatar_img_src() }}" class="user-image" alt=""/></div><br>
+                    <div class="btn-div"><button data-toggle="modal" data-target="#frontendUserUploadProfilePicture" type="button" class="btn btn-default btn-sm profile-picture-uploader">{{ trans('admin.upload_image') }}</button></div>
                 </div>
-                <div class="no-profile-picture" style="display:none;">
-                  <div class="img-div"><img src="{{ default_avatar_img_src() }}" class="user-image" alt=""/></div><br>
-                  <div class="btn-div"><button data-toggle="modal" data-target="#frontendUserUploadProfilePicture" type="button" class="btn btn-default btn-sm profile-picture-uploader">{{ trans('admin.upload_image') }}</button></div>
-                </div>
-              @else
-              <div class="profile-picture" style="display:none;">
-                  <div class="img-div"><img src="" class="user-image" alt=""/></div><br>
-                  <div class="btn-div"><button type="button" class="btn btn-default btn-sm remove-frontend-profile-picture">{{ trans('admin.remove_image') }}</button></div>
-                </div>
-              <div class="no-profile-picture">
-                  <div class="img-div"><img src="{{ default_avatar_img_src() }}" class="user-image" alt=""/></div><br>
-                  <div class="btn-div"><button data-toggle="modal" data-target="#frontendUserUploadProfilePicture" type="button" class="btn btn-default btn-sm profile-picture-uploader">{{ trans('admin.upload_image') }}</button></div>
+                @endif
               </div>
-              @endif
-            </div>
-          </div>  
+            </div>  
+          </div>
 
           <div class="modal fade" id="frontendUserUploadProfilePicture" tabindex="-1" role="dialog" aria-labelledby="userUploadProfilePicture" aria-hidden="true">
             <div class="modal-dialog" role="document">
