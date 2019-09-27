@@ -1,7 +1,7 @@
 <form class="form-horizontal" method="post" action="" enctype="multipart/form-data">
   <input type="hidden" name="_token" id="_token" value="{{ csrf_token() }}">
-  <div class="row">
-    <div class="col-md-12">
+  <div class="user-address-content">
+    <div class="address-information clearfix">
       
       <h5><label>{{ trans('frontend.update_profile') }}</label></h5><hr>
 
