@@ -28,16 +28,11 @@
           </div>
           <div class="col-sm-6">
             <div class="form-group">
-              <label for="inputAccountEmailAddress">{{ trans('frontend.account_email') }}</label>
-              <input type="email" class="form-control" placeholder="{{ trans('frontend.email') }}" name="account_bill_email_address" id="account_bill_email_address" value="{{ old('account_bill_email_address') }}">
-            </div>
-          </div>
-          <div class="col-sm-6">
-            <div class="form-group">
               <label for="inputAccountPhoneNumber">{{ trans('frontend.account_phone_number') }}</label>
               <input type="number" class="form-control" placeholder="{{ trans('frontend.phone') }}" name="account_bill_phone_number" id="account_bill_phone_number" value="{{ old('account_bill_phone_number') }}">
             </div>
           </div>
+          <br>
         
           <div class="col-md-4">
             <div class="form-group">
