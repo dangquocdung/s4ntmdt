@@ -2,7 +2,6 @@
 
 @php
 
-
   if(Request::is('user/account')){
 
     $title = 'frontend_user_dashboard_title';
@@ -38,8 +37,6 @@
   elseif(Request::is('user/account/order-details/*')) {
     $title = 'user_order_details_page_title';
   }
-
-
 
 @endphp
 
@@ -96,13 +93,14 @@
       <aside class="user-info-wrapper">
         
         <div class="user-info">
-          <div class="user-avatar"><a class="edit-avatar" href="#"></a>
+          <div class="user-avatar">
+            
 
-              @if($login_user_details['user_photo_url'])
-                <img src="{{ get_image_url($login_user_details['user_photo_url']) }}" alt="">
-              @else
-                <img src="{{ default_avatar_img_src() }}" alt="">
-              @endif
+            @if($login_user_details['user_photo_url'])
+              <img src="{{ get_image_url($login_user_details['user_photo_url']) }}" alt="">
+            @else
+              <img src="{{ default_avatar_img_src() }}" alt="">
+            @endif
             
           </div>
           <div class="user-data">
