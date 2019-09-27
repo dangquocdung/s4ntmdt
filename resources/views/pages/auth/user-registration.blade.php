@@ -33,9 +33,7 @@
       <form method="post" action="" enctype="multipart/form-data">
         <input type="hidden" name="_token" id="_token" value="{{ csrf_token() }}">
 
-        <div class="padding-top-3x hidden-md-up"></div>
-        <h3 class="margin-bottom-1x">Bạn chưa có tài khoản? Hãy đăng ký</h3>
-        <p>Thao tác đăng ký chỉ mất ít phút nhưng cho bạn toàn quyền kiểm soát đơn hàng.</p>
+        <p>Đăng ký một lần, sử dụng mãi mãi.</p>
         <div class="row">
           <div class="col-sm-6">
             <div class="form-group">
