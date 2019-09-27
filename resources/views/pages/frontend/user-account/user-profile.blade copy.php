@@ -8,15 +8,6 @@
       @include('pages-message.notify-msg-success')
       @include('pages-message.form-submit')
       @include('pages-message.notify-msg-error')
-
-
-      <div class="col-md-6">
-        <div class="form-group">
-          <label class="control-label" for="inputDisplayName">{{ ucfirst( trans('admin.display_name') ) }}</label>
-          <input type="text"  placeholder="{{ trans('admin.display_name') }}" class="form-control" value="{{ $user_details['user_display_name'] }}" id="display_name" name="display_name">
-
-        </div>
-      </div>
       
       <div class="form-group">
         <div class="col-sm-4">
