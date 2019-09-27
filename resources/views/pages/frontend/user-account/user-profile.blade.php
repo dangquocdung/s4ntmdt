@@ -33,7 +33,7 @@
     </div>
   </div>
   <div class="col-md-6">
-    <div class="form-group">
+    <div class="form-group profile-picture">
 
       @if($user_details['user_photo_url'])
         <img class="d-block mx-auto img-thumbnail rounded-circle mb-3" src="{{ get_image_url($user_details['user_photo_url']) }}" alt="Image" style="width:50%">
@@ -79,68 +79,10 @@
         </div>
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-outline-secondary btn-sm attachtopost" data-dismiss="modal">{{ trans('admin.close') }}</button>
+        <button type="button" class="btn btn-outline-secondary btn-sm attachtopost" data-dismiss="modal">{{ trans('frontend.close') }}</button>
       </div>
     </div>
   </div>
 </div>
 <input type="hidden" name="hf_frontend_profile_picture" id="hf_frontend_profile_picture" value="">
 
-<script>
-  //upload profile image
-  if ($('#frontend_user_profile_picture_uploader').length > 0) {
-      Dropzone.autoDiscover = false;
-      $("#frontend_user_profile_picture_uploader").dropzone({
-          url: $('#hf_base_url').val() + "/upload/product-related-image",
-          paramName: "profile_picture",
-          acceptedFiles: "image/*",
-          uploadMultiple: false,
-          maxFiles: 1,
-          autoProcessQueue: true,
-          parallelUploads: 100,
-          addRemoveLinks: true,
-          maxFilesize: 1,
-          dataType: 'json',
-          headers: { 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content') },
-
-          init: function() {
-              this.on("maxfilesexceeded", function(file) {
-                  swal("", frontendLocalizationString.maxfilesexceeded_msg);
-              });
-              this.on("error", function(file, message) {
-                  if (file.size > 1 * 1024 * 1024) {
-                      swal("", frontendLocalizationString.file_larger);
-                      this.removeFile(file)
-                      return false;
-                  }
-                  if (!file.type.match('image.*')) {
-                      swal("", frontendLocalizationString.image_file_validation);
-                      this.removeFile(file)
-                      return false;
-                  }
-              });
-
-              this.on("success", function(file, responseText) {
-                  if (responseText.status === 'success') {
-                      $('.profile-picture').find('img').attr('src', $('#hf_base_url').val() + '/uploads/' + responseText.name);
-                      $('.profile-picture').show();
-                      $('.no-profile-picture').hide();
-                      $('#frontendUserUploadProfilePicture').modal('hide');
-                      $('#hf_frontend_profile_picture').val('/uploads/' + responseText.name);
-
-                      this.removeAllFiles();
-                  }
-              });
-          }
-      });
-  }
-
-  if ($('.remove-frontend-profile-picture').length > 0) {
-      $('.remove-frontend-profile-picture').on('click', function() {
-          $('.no-profile-picture').show();
-          $('.profile-picture').hide();
-          $('#hf_frontend_profile_picture').val('');
-      });
-  }
-    
-</script>
