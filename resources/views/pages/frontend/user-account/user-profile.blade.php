@@ -38,32 +38,32 @@
             </div>
           </div>
 
-          <div class="col-sm-12">
-            <div class="form-group">
-                <label class="control-label" for="inputProfilePicture">{{ trans('admin.profile_picture') }}</label>
-              <div class="col-sm-8 profile-picture-content">
-                @if($user_details['user_photo_url'])
-                  <div class="profile-picture">
-                    <div class="img-div"><img src="{{ get_image_url($user_details['user_photo_url']) }}" class="user-image" alt=""/></div><br>
-                    <div class="btn-div"><button type="button" class="btn btn-default btn-sm remove-frontend-profile-picture">{{ trans('admin.remove_image') }}</button></div>
-                  </div>
-                  <div class="no-profile-picture" style="display:none;">
-                    <div class="img-div"><img src="{{ default_avatar_img_src() }}" class="user-image" alt=""/></div><br>
-                    <div class="btn-div"><button data-toggle="modal" data-target="#frontendUserUploadProfilePicture" type="button" class="btn btn-default btn-sm profile-picture-uploader">{{ trans('admin.upload_image') }}</button></div>
-                  </div>
-                @else
-                <div class="profile-picture" style="display:none;">
-                    <div class="img-div"><img src="" class="user-image" alt=""/></div><br>
-                    <div class="btn-div"><button type="button" class="btn btn-default btn-sm remove-frontend-profile-picture">{{ trans('admin.remove_image') }}</button></div>
-                  </div>
-                <div class="no-profile-picture">
-                    <div class="img-div"><img src="{{ default_avatar_img_src() }}" class="user-image" alt=""/></div><br>
-                    <div class="btn-div"><button data-toggle="modal" data-target="#frontendUserUploadProfilePicture" type="button" class="btn btn-default btn-sm profile-picture-uploader">{{ trans('admin.upload_image') }}</button></div>
-                </div>
-                @endif
-              </div>
-            </div>  
-          </div>
+          <div class="form-group">
+        <div class="col-sm-4">
+          <label class="control-label" for="inputProfilePicture">{{ trans('admin.profile_picture') }}</label>
+        </div>
+        <div class="col-sm-8 profile-picture-content">
+           @if($user_details['user_photo_url'])
+            <div class="profile-picture">
+              <div class="img-div"><img src="{{ get_image_url($user_details['user_photo_url']) }}" class="user-image" alt=""/></div><br>
+              <div class="btn-div"><button type="button" class="btn btn-default btn-sm remove-frontend-profile-picture">{{ trans('admin.remove_image') }}</button></div>
+            </div>
+            <div class="no-profile-picture" style="display:none;">
+              <div class="img-div"><img src="{{ default_avatar_img_src() }}" class="user-image" alt=""/></div><br>
+              <div class="btn-div"><button data-toggle="modal" data-target="#frontendUserUploadProfilePicture" type="button" class="btn btn-default btn-sm profile-picture-uploader">{{ trans('admin.upload_image') }}</button></div>
+            </div>
+           @else
+           <div class="profile-picture" style="display:none;">
+              <div class="img-div"><img src="" class="user-image" alt=""/></div><br>
+              <div class="btn-div"><button type="button" class="btn btn-default btn-sm remove-frontend-profile-picture">{{ trans('admin.remove_image') }}</button></div>
+            </div>
+           <div class="no-profile-picture">
+              <div class="img-div"><img src="{{ default_avatar_img_src() }}" class="user-image" alt=""/></div><br>
+              <div class="btn-div"><button data-toggle="modal" data-target="#frontendUserUploadProfilePicture" type="button" class="btn btn-default btn-sm profile-picture-uploader">{{ trans('admin.upload_image') }}</button></div>
+           </div>
+           @endif
+        </div>
+      </div>  
 
           <div class="modal fade" id="frontendUserUploadProfilePicture" tabindex="-1" role="dialog" aria-labelledby="userUploadProfilePicture" aria-hidden="true">
             <div class="modal-dialog" role="document">
