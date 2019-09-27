@@ -78,7 +78,7 @@
 
     
     <!-- Vendor Styles including: Bootstrap, Font Icons, Plugins, etc.-->
-    <link rel="stylesheet" media="screen" href="{{ URL::asset('/css/vendor.min.css') }}">
+    <link rel="stylesheet" media="screen" href="{{ URL::asset('/css/vendor.css') }}">
 
     <!-- HTTRADE  Template Styles-->
     <link id="mainStyles" rel="stylesheet" media="screen" href="{{ mix('/css/styles.css') }}">

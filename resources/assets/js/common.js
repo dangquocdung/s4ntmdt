@@ -24,60 +24,60 @@ $(document).ready(function() {
     }
 
     //upload profile image
-    if ($('#frontend_user_profile_picture_uploader').length > 0) {
-        Dropzone.autoDiscover = false;
-        $("#frontend_user_profile_picture_uploader").dropzone({
-            url: $('#hf_base_url').val() + "/upload/product-related-image",
-            paramName: "profile_picture",
-            acceptedFiles: "image/*",
-            uploadMultiple: false,
-            maxFiles: 1,
-            autoProcessQueue: true,
-            parallelUploads: 100,
-            addRemoveLinks: true,
-            maxFilesize: 1,
-            dataType: 'json',
-            headers: { 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content') },
+    // if ($('#frontend_user_profile_picture_uploader').length > 0) {
+    //     Dropzone.autoDiscover = false;
+    //     $("#frontend_user_profile_picture_uploader").dropzone({
+    //         url: $('#hf_base_url').val() + "/upload/product-related-image",
+    //         paramName: "profile_picture",
+    //         acceptedFiles: "image/*",
+    //         uploadMultiple: false,
+    //         maxFiles: 1,
+    //         autoProcessQueue: true,
+    //         parallelUploads: 100,
+    //         addRemoveLinks: true,
+    //         maxFilesize: 1,
+    //         dataType: 'json',
+    //         headers: { 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content') },
 
-            init: function() {
-                this.on("maxfilesexceeded", function(file) {
-                    swal("", frontendLocalizationString.maxfilesexceeded_msg);
-                });
-                this.on("error", function(file, message) {
-                    if (file.size > 1 * 1024 * 1024) {
-                        swal("", frontendLocalizationString.file_larger);
-                        this.removeFile(file)
-                        return false;
-                    }
-                    if (!file.type.match('image.*')) {
-                        swal("", frontendLocalizationString.image_file_validation);
-                        this.removeFile(file)
-                        return false;
-                    }
-                });
+    //         init: function() {
+    //             this.on("maxfilesexceeded", function(file) {
+    //                 swal("", frontendLocalizationString.maxfilesexceeded_msg);
+    //             });
+    //             this.on("error", function(file, message) {
+    //                 if (file.size > 1 * 1024 * 1024) {
+    //                     swal("", frontendLocalizationString.file_larger);
+    //                     this.removeFile(file)
+    //                     return false;
+    //                 }
+    //                 if (!file.type.match('image.*')) {
+    //                     swal("", frontendLocalizationString.image_file_validation);
+    //                     this.removeFile(file)
+    //                     return false;
+    //                 }
+    //             });
 
-                this.on("success", function(file, responseText) {
-                    if (responseText.status === 'success') {
-                        $('.profile-picture').find('img').attr('src', $('#hf_base_url').val() + '/uploads/' + responseText.name);
-                        $('.profile-picture').show();
-                        $('.no-profile-picture').hide();
-                        $('#frontendUserUploadProfilePicture').modal('hide');
-                        $('#hf_frontend_profile_picture').val('/uploads/' + responseText.name);
+    //             this.on("success", function(file, responseText) {
+    //                 if (responseText.status === 'success') {
+    //                     $('.profile-picture').find('img').attr('src', $('#hf_base_url').val() + '/uploads/' + responseText.name);
+    //                     $('.profile-picture').show();
+    //                     $('.no-profile-picture').hide();
+    //                     $('#frontendUserUploadProfilePicture').modal('hide');
+    //                     $('#hf_frontend_profile_picture').val('/uploads/' + responseText.name);
 
-                        this.removeAllFiles();
-                    }
-                });
-            }
-        });
-    }
+    //                     this.removeAllFiles();
+    //                 }
+    //             });
+    //         }
+    //     });
+    // }
 
-    if ($('.remove-frontend-profile-picture').length > 0) {
-        $('.remove-frontend-profile-picture').on('click', function() {
-            $('.no-profile-picture').show();
-            $('.profile-picture').hide();
-            $('#hf_frontend_profile_picture').val('');
-        });
-    }
+    // if ($('.remove-frontend-profile-picture').length > 0) {
+    //     $('.remove-frontend-profile-picture').on('click', function() {
+    //         $('.no-profile-picture').show();
+    //         $('.profile-picture').hide();
+    //         $('#hf_frontend_profile_picture').val('');
+    //     });
+    // }
 
     $('.products-brands-list .carousel[data-type="multi"] .item').each(function() {
         var next = $(this).next();
@@ -1468,13 +1468,13 @@ function checkoutStepValidation() {
             errorStr.push('no_account_shipping_town_or_city');
         }
 
-            // if ($('#account_bill_zip_or_postal_code').length > 0 && $('#account_bill_zip_or_postal_code').val().length == 0 && $('#account_bill_zip_or_postal_code').val() == '') {
-            //     errorStr.push('no_account_bill_zip_or_postal_code');
-            // }
+        // if ($('#account_bill_zip_or_postal_code').length > 0 && $('#account_bill_zip_or_postal_code').val().length == 0 && $('#account_bill_zip_or_postal_code').val() == '') {
+        //     errorStr.push('no_account_bill_zip_or_postal_code');
+        // }
 
-            // if (isChecked && $('#account_shipping_zip_or_postal_code').length > 0 && $('#account_shipping_zip_or_postal_code').val().length == 0 && $('#account_shipping_zip_or_postal_code').val() == '') {
-            //     errorStr.push('no_account_shipping_zip_or_postal_code');
-            // }
+        // if (isChecked && $('#account_shipping_zip_or_postal_code').length > 0 && $('#account_shipping_zip_or_postal_code').val().length == 0 && $('#account_shipping_zip_or_postal_code').val() == '') {
+        //     errorStr.push('no_account_shipping_zip_or_postal_code');
+        // }
 
         if ($('#account_bill_email_address').val().length > 0 && !isValidEmail($('#account_bill_email_address').val())) {
             emailMsg += '<p>' + frontendLocalizationString.billing_email_not_valid_msg + '</p>';
