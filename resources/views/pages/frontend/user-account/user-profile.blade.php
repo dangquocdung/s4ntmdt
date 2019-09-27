@@ -10,35 +10,35 @@
           @include('pages-message.form-submit')
           @include('pages-message.notify-msg-error')
 
-          <div class="col-md-6">
+          <div class="col-sm-12">
             <div class="form-group">
               <label class="control-label" for="inputDisplayName">{{ ucfirst( trans('admin.display_name') ) }}</label>
               <input type="text" placeholder="{{ trans('admin.display_name') }}" class="form-control" value="{{ $user_details['user_display_name'] }}" id="display_name" name="display_name">
             </div>
           </div>
 
-          <div class="col-md-6">
+          <div class="col-sm-12">
             <div class="form-group">
               <label class="control-label" for="inputUserName">{{ trans('admin.user_name') }}</label>
               <input type="text" placeholder="{{ trans('admin.user_name') }}" class="form-control" value="{{ $user_details['user_name'] }}" id="user_name" name="user_name">
             </div>
           </div> 
 
-          <div class="col-md-6">
+          <div class="col-sm-12">
             <div class="form-group">
               <label class="control-label" for="inputEmail">{{ trans('admin.email') }}</label>
               <input type="text" placeholder="{{ trans('admin.email') }}" class="form-control" value="{{ $user_details['user_email'] }}" id="email_id" name="email_id">
             </div>
           </div> 
           
-          <div class="col-md-6">
+          <div class="col-sm-12">
             <div class="form-group">
               <label class="control-label" for="inputNewPassword">{{ trans('admin.new_password') }}</label>
               <input type="password" placeholder="{{ trans('admin.new_password') }}" class="form-control" value="" id="password" name="password">
             </div>
           </div>
 
-          <div class="col-md-6">
+          <div class="col-sm-12">
             <div class="form-group">
                 <label class="control-label" for="inputProfilePicture">{{ trans('admin.profile_picture') }}</label>
               <div class="col-sm-8 profile-picture-content">
