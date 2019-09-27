@@ -1238,6 +1238,16 @@
             return g.promise()
         }
     });
+    var Q = /^(Eval|Internal|Range|Reference|Syntax|Type|URI)Error$/;
+
+    r.Deferred.exceptionHook = function(b, c) {
+        a.console && a.console.warn && b && Q.test(b.name) && a.console.warn("jQuery.Deferred exception: " + b.message, b.stack, c)
+    }, r.readyException = function(b) {
+        a.setTimeout(function() {
+            throw b
+        })
+    };
+
     
     var R = r.Deferred();
     r.fn.ready = function(a) {
