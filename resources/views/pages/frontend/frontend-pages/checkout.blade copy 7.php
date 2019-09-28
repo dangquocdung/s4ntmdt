@@ -23,10 +23,6 @@
 
   <!-- Page Content-->
   <div id="checkout_page" class="container padding-bottom-3x mb-1">
-    <div class="row">
-
-      <div class="col-xl-9 col-lg-8">
-
       @if( Cart::count() >0 )
       <form class="form-horizontal" method="post" action="" enctype="multipart/form-data">
         <input type="hidden" name="_token" value="{{ csrf_token() }}"> 
@@ -148,11 +144,7 @@
           <!-- Xác định người dùng -->
           @if($_settings_data['general_settings']['checkout_options']['enable_guest_user'] == true || $_settings_data['general_settings']['checkout_options']['enable_login_user'] == true)
             <div id="user_mode" class="step well">
-
               <div class="checkout-process-user-mode">
-                <h4>{!! trans('frontend.user_mode_label') !!}</h4>
-                <hr class="padding-bottom-1x">
-
               
                 <ul style="list-style:none">
 
@@ -183,9 +175,7 @@
               <div class="address-information clearfix">
 
                 <div class="address-content-sub">
-                  <h4>{!! trans('frontend.contact-address') !!}</h4>
-                  <hr class="padding-bottom-1x">
-
+                  <h4>{!! trans('frontend.thong-tin-khach-hang') !!}</h4>
                   <div class="row">
                     <div class="col-sm-6">
                       <div class="form-group">
@@ -271,8 +261,6 @@
                 <div class="address-content-sub">
 
                   <h4>{!! trans('frontend.shipping_address') !!}</h4>
-                  <hr class="padding-bottom-1x">
-
                   <input type="checkbox" name="different_shipping_address" id="different_shipping_address" class="shopist-iCheck" value="different_address"> {{ trans('frontend.different_shipping_label') }}
                   
                   <div class="row different-shipping-address mt-3" style="display:none">
@@ -491,134 +479,91 @@
           @if($_settings_data['general_settings']['checkout_options']['enable_guest_user'] == true || ($_settings_data['general_settings']['checkout_options']['enable_login_user'] == true && $is_user_login == true) || ($_settings_data['general_settings']['checkout_options']['enable_guest_user'] == false && $_settings_data['general_settings']['checkout_options']['enable_login_user'] == false))
             <div id="payment" class="step well">
               <h4>{!! trans('frontend.choose_payment') !!}</h4>
-              <hr class="padding-bottom-1x">
-
               @if($payment_method_data['payment_option']['enable_payment_method'] == 'yes' && ($payment_method_data['bacs']['enable_option'] == 'yes' || $payment_method_data['cod']['enable_option'] == 'yes' || $payment_method_data['paypal']['enable_option'] == 'yes' || $payment_method_data['stripe']['enable_option'] == 'yes'))
-                <div class="table-responsive">
-                  <table class="table table-hover"> 
-                    <thead class="thead-default">
-                      <tr>
-                        <th></th>
-                        <th>Shipping method</th>
-                        <th>Delivery time</th>
-                        <th>Handling fee</th>
-                      </tr>
-                    </thead>
-                    <tbody>  
+                <div class="payment-options">
 
-                      @if($payment_method_data['bacs']['enable_option'] == 'yes')
-                        <tr>
-                          <td class="align-middle">
-                            <div class="custom-control custom-radio mb-0">
-                              @if(old('payment_option') == 'bacs')
-                                <input type="radio" class="custom-control-input shopist-iCheck" checked name="payment_option" value="bacs"> 
-                              @else
-                                <input type="radio" class="custom-control-input shopist-iCheck" name="payment_option" value="bacs"> 
-                              @endif
-                              <label class="custom-control-label" for="payment_option"></label>
+                  <ul style="list-style:none">
 
-                            </div>
-                          </td>
-                          <td class="align-middle">
-                            <span class="text-gray-dark">{{ $payment_method_data['bacs']['method_title'] }}</span><br>
-                            <span class="text-muted text-sm">{{ $payment_method_data['bacs']['method_description'] }}</span>
-                          </td>
-                          <td class="align-middle">2 - 4 days</td>
-                          <td class="align-middle">$26.50</td>
-                        </tr>
-                      @endif
+                    @if($payment_method_data['bacs']['enable_option'] == 'yes')
+                      <li>
+                        <label>
+                          @if(old('payment_option') == 'bacs')
+                          <input type="radio" class="shopist-iCheck" checked name="payment_option" value="bacs"> {{ $payment_method_data['bacs']['method_title'] }}
+                          @else
+                            <input type="radio" class="shopist-iCheck" name="payment_option" value="bacs"> {{ $payment_method_data['bacs']['method_title'] }}
+                          @endif
+                        </label>
+                      </li>
+                    @endif
 
-                      @if($payment_method_data['cod']['enable_option'] == 'yes')
-                        <tr>
-                          <td class="align-middle">
-                            <div class="custom-control custom-radio mb-0">
-                              @if(old('payment_option') == 'cod')
-                                <input type="radio" class="custom-control-input shopist-iCheck" checked name="payment_option" value="bacs"> 
-                              @else
-                                <input type="radio" class="custom-control-input shopist-iCheck" name="payment_option" value="bacs"> 
-                              @endif
-                              <label class="custom-control-label" for="payment_option"></label>
+                    @if($payment_method_data['cod']['enable_option'] == 'yes')
+                      <li>
+                      <label>
+                        @if(old('payment_option') == 'cod')
+                          <input type="radio" checked name="payment_option" class="shopist-iCheck" value="cod"> {{ $payment_method_data['cod']['method_title'] }}
+                        @else
+                          <input type="radio" name="payment_option" class="shopist-iCheck" value="cod"> {{ $payment_method_data['cod']['method_title'] }}
+                        @endif
+                      </label>
+                      </li>
+                    @endif
 
-                            </div>
-                          </td>
-                          <td class="align-middle">
-                            <span class="text-gray-dark">{{ $payment_method_data['cod']['method_title'] }}</span><br>
-                            <span class="text-muted text-sm">{{ $payment_method_data['bacs']['method_description'] }}</span>
-                          </td>
-                          <td class="align-middle">2 - 4 days</td>
-                          <td class="align-middle">$26.50</td>
-                        </tr>
-                      @endif
+                    @if($payment_method_data['paypal']['enable_option'] == 'yes')
+                      <li>
+                      <label>
+                        @if(old('payment_option') == 'paypal')
+                          <input type="radio" checked name="payment_option" class="shopist-iCheck" value="paypal"> {{ $payment_method_data['paypal']['method_title'] }}
+                        @else
+                          <input type="radio" name="payment_option" class="shopist-iCheck" value="paypal"> {{ $payment_method_data['paypal']['method_title'] }}
+                        @endif
+                      </label>
+                      </li>
+                    @endif
 
-                      @if($payment_method_data['paypal']['enable_option'] == 'yes')
-                        <tr>
-                          <td class="align-middle">
-                            <div class="custom-control custom-radio mb-0">
-                              @if(old('payment_option') == 'paypal')
-                                <input type="radio" class="custom-control-input shopist-iCheck" checked name="payment_option" value="bacs"> 
-                              @else
-                                <input type="radio" class="custom-control-input shopist-iCheck" name="payment_option" value="bacs"> 
-                              @endif
-                              <label class="custom-control-label" for="payment_option"></label>
+                    @if($payment_method_data['stripe']['enable_option'] == 'yes')
+                      <script src='https://js.stripe.com/v2/' type='text/javascript'></script>
+                      <input type="hidden" name="stripe_api_key" value="{{ $stripe_api_key }}" id="stripe_api_key">
+                      <li>
+                      <label>
+                        @if(old('payment_option') == 'stripe')
+                          <input type="radio" checked name="payment_option" class="shopist-iCheck" value="stripe"> {{ $payment_method_data['stripe']['method_title'] }}
+                        @else
+                          <input type="radio" name="payment_option" class="shopist-iCheck" value="stripe"> {{ $payment_method_data['stripe']['method_title'] }}
+                        @endif
+                      </label>
+                      </li>
+                    @endif
 
-                            </div>
-                          </td>
-                          <td class="align-middle">
-                            <span class="text-gray-dark">{{ $payment_method_data['paypal']['method_title'] }}</span><br>
-                            <span class="text-muted text-sm">{{ $payment_method_data['bacs']['method_description'] }}</span>
-                          </td>
-                          <td class="align-middle">2 - 4 days</td>
-                          <td class="align-middle">$26.50</td>
-                        </tr>
-                      @endif
+                    @if($payment_method_data['2checkout']['enable_option'] == 'yes')
+                    <script type="text/javascript" src="https://www.2checkout.com/checkout/api/2co.min.js"></script>
+                    <input type="hidden" name="2checkout_api_data" value="{{ $twocheckout_api_data }}" id="2checkout_api_data">
+                    <li>
+                      <label>
+                        @if(old('payment_option') == '2checkout')
+                          <input type="radio" checked name="payment_option" class="shopist-iCheck" value="2checkout"> {{ $payment_method_data['2checkout']['method_title'] }}
+                        @else
+                          <input type="radio" name="payment_option" class="shopist-iCheck" value="2checkout"> {{ $payment_method_data['2checkout']['method_title'] }}
+                        @endif
+                      </label>
+                    </li>
+                    @endif
+                  </ul>
 
-                      @if($payment_method_data['stripe']['enable_option'] == 'yes')
-                        <script src='https://js.stripe.com/v2/' type='text/javascript'></script>
-                        <input type="hidden" name="stripe_api_key" value="{{ $stripe_api_key }}" id="stripe_api_key">
-                        <tr>
-                          <td class="align-middle">
-                            <div class="custom-control custom-radio mb-0">
-                              @if(old('payment_option') == 'stripe')
-                                <input type="radio" class="custom-control-input shopist-iCheck" checked name="payment_option" value="bacs"> 
-                              @else
-                                <input type="radio" class="custom-control-input shopist-iCheck" name="payment_option" value="bacs"> 
-                              @endif
-                              <label class="custom-control-label" for="payment_option"></label>
-
-                            </div>
-                          </td>
-                          <td class="align-middle">
-                            <span class="text-gray-dark">{{ $payment_method_data['stripe']['method_title'] }}</span><br>
-                            <span class="text-muted text-sm">{{ $payment_method_data['bacs']['method_description'] }}</span>
-                          </td>
-                          <td class="align-middle">2 - 4 days</td>
-                          <td class="align-middle">$26.50</td>
-                        </tr>
-                      @endif
-
-                      @if($payment_method_data['2checkout']['enable_option'] == 'yes')
-                      <script type="text/javascript" src="https://www.2checkout.com/checkout/api/2co.min.js"></script>
-                      <input type="hidden" name="2checkout_api_data" value="{{ $twocheckout_api_data }}" id="2checkout_api_data">
-                      <tr>
-                          <td class="align-middle">
-                            <div class="custom-control custom-radio mb-0">
-                              @if(old('payment_option') == '2checkout')
-                                <input type="radio" class="custom-control-input shopist-iCheck" checked name="payment_option" value="bacs"> 
-                              @else
-                                <input type="radio" class="custom-control-input shopist-iCheck" name="payment_option" value="bacs"> 
-                              @endif
-                            </div>
-                          </td>
-                          <td class="align-middle">
-                            <span class="text-gray-dark">{{ $payment_method_data['2checkout']['method_title'] }}</span><br>
-                            <span class="text-muted text-sm">{{ $payment_method_data['bacs']['method_description'] }}</span>
-                          </td>
-                          <td class="align-middle">2 - 4 days</td>
-                          <td class="align-middle">$26.50</td>
-                        </tr>
-                      @endif
-                    </tbody>
-                  </table>
+                  @if($payment_method_data['bacs']['enable_option'] == 'yes')
+                    <div id="bacsPopover">
+                      <p>{{ $payment_method_data['bacs']['method_description'] }}</p>
+                    </div>
+                  @endif
+                  @if($payment_method_data['cod']['enable_option'] == 'yes')
+                    <div id="codPopover">
+                      <p>{{ $payment_method_data['cod']['method_description'] }}</p>
+                    </div>
+                  @endif
+                  @if($payment_method_data['paypal']['enable_option'] == 'yes')
+                    <div id="paypalPopover">
+                      <p>{{ $payment_method_data['paypal']['method_description'] }}</p>
+                    </div>
+                  @endif
 
                   @if($payment_method_data['stripe']['enable_option'] == 'yes')
                     <div id="stripePopover">
@@ -734,76 +679,5 @@
           <a class="btn btn-secondary check_out" href="{{ route('shop-page') }}">{{ trans('frontend.return_to_shop') }}</a>
         </div>
       @endif
-
-      </div>
-
-      <!-- Sidebar          -->
-      <div class="col-xl-3 col-lg-4">
-        <aside class="sidebar">
-          <div class="padding-top-2x hidden-lg-up"></div>
-          <!-- Order Summary Widget-->
-          <section class="widget widget-order-summary">
-            <h3 class="widget-title">Order Summary</h3>
-            <table class="table">
-              <tr>
-                <td>Cart Subtotal:</td>
-                <td class="text-gray-dark">$2,548.50</td>
-              </tr>
-              <tr>
-                <td>Shipping:</td>
-                <td class="text-gray-dark">$26.50</td>
-              </tr>
-              <tr>
-                <td>Estimated tax:</td>
-                <td class="text-gray-dark">$9.72</td>
-              </tr>
-              <tr>
-                <td></td>
-                <td class="text-lg text-gray-dark">$2,584.72</td>
-              </tr>
-            </table>
-          </section>
-          <!-- Featured Products Widget-->
-          <section class="widget widget-featured-products">
-            <h3 class="widget-title">Recently Viewed</h3>
-            <!-- Entry-->
-            <div class="entry">
-              <div class="entry-thumb"><a href="shop-single.html"><img src="img/shop/widget/01.jpg" alt="Product"></a></div>
-              <div class="entry-content">
-                <h4 class="entry-title"><a href="shop-single.html">GoPro Hero4 Silver</a></h4><span class="entry-meta">$287.99</span>
-              </div>
-            </div>
-            <!-- Entry-->
-            <div class="entry">
-              <div class="entry-thumb"><a href="shop-single.html"><img src="img/shop/widget/02.jpg" alt="Product"></a></div>
-              <div class="entry-content">
-                <h4 class="entry-title"><a href="shop-single.html">Puro Sound Labs BT2200</a></h4><span class="entry-meta">$95.99</span>
-              </div>
-            </div>
-            <!-- Entry-->
-            <div class="entry">
-              <div class="entry-thumb"><a href="shop-single.html"><img src="img/shop/widget/03.jpg" alt="Product"></a></div>
-              <div class="entry-content">
-                <h4 class="entry-title"><a href="shop-single.html">HP OfficeJet Pro 8710</a></h4><span class="entry-meta">$89.70</span>
-              </div>
-            </div>
-            <!-- Entry-->
-            <div class="entry pb-2">
-              <div class="entry-thumb"><a href="shop-single.html"><img src="img/shop/widget/05.jpg" alt="Product"></a></div>
-              <div class="entry-content">
-                <h4 class="entry-title"><a href="shop-single.html">iPhone X 256 GB Space Gray</a></h4><span class="entry-meta">$1,450.00</span>
-              </div>
-            </div>
-          </section>
-          <!-- Promo Banner--><a class="card border-0 bg-secondary" href="shop-grid-ls.html">
-            <div class="card-body"><span class="d-block text-lg text-thin mb-2">Limited Time Deals</span>
-              <h3>Surface Pro 4</h3>
-              <p class="d-inline-block bg-warning text-white">&nbsp;&nbsp;Shop Now&nbsp;<i class="icon-chevron-right d-inline-block align-middle"></i>&nbsp;</p>
-            </div><img class="d-block mx-auto" src="img/shop/widget/promo.jpg" alt="Surface Pro"></a>
-        </aside>
-      </div>
-
-    </div>
-      
   </div>
 @endsection

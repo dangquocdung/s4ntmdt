@@ -425,7 +425,7 @@ return [
   'already_registered_label' =>'Đã đăng ký?',
   'has_user_account_msg' =>'Nếu bạn có tài khoản, vui lòng nhấp vào liên kết để đăng nhập với tư cách thành viên.',
   'signin_account_label' =>'Đăng nhập',
-  'user_mode_label' =>'Chế độ thành viên Quy trình thanh toán',
+  'user_mode_label' =>'Chọn quy trình thanh toán',
   'checkout_address_label' =>'Địa chỉ nhà',
   'checkout_company_name_label' =>'Công ty',
   'checkout_select_country_label' =>'Tỉnh/Thành',
