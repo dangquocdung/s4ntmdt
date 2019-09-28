@@ -1,18 +1,15 @@
+@include('pages-message.form-submit')
+
+<h5>{{ trans('frontend.contact-address') }}</h5>
+<hr class="padding-bottom-1x">
+
 <form class="form-horizontal" method="post" action="" enctype="multipart/form-data">
   <input type="hidden" name="_token" id="_token" value="{{ csrf_token() }}">
   <input type="hidden" name="_account_post_type" value="address">
 
   <div class="user-address-content">
     <div class="address-information clearfix">
-
-      <div class="row">
-        <div class="col-md-12">
-          @include('pages-message.form-submit')
-        </div>
-      </div> 
-
       <div class="address-content-sub">
-        <h4>{!! trans('frontend.thong-tin-khach-hang') !!}</h4>
         <div class="row">
           <div class="col-sm-6">
             <div class="form-group">
@@ -32,7 +29,13 @@
               <input type="number" class="form-control" placeholder="{{ trans('frontend.phone') }}" name="account_bill_phone_number" id="account_bill_phone_number" value="{{ old('account_bill_phone_number') }}">
             </div>
           </div>
-          <br>
+
+          <div class="col-sm-6">
+            <div class="form-group">
+              <label for="inputAccountPhoneNumber">{{ trans('frontend.account_phone_number') }}</label>
+              <input type="number" class="form-control" placeholder="{{ trans('frontend.phone') }}" name="account_bill_phone_number" id="account_bill_phone_number" value="{{ old('account_bill_phone_number') }}">
+            </div>
+          </div>
         
           <div class="col-md-4">
             <div class="form-group">
@@ -88,29 +91,24 @@
 
         </div>
       </div>
-
       <br>
       <div class="address-content-sub">
-
-        <h4>{!! trans('frontend.shipping_address') !!}</h4>
+        <h5>{{ trans('frontend.shipping-address') }}</h5>
+        <hr class="padding-bottom-1x">
         <input type="checkbox" name="different_shipping_address" id="different_shipping_address" class="shopist-iCheck" value="different_address"> {{ trans('frontend.different_shipping_label') }}
-        
         <div class="row different-shipping-address mt-3" style="display:none">
-
           <div class="col-sm-6">
             <div class="form-group">
               <label class="control-label" for="inputAccountLastName">{{ trans('frontend.account_last_name') }}</label>
               <input type="text" class="form-control" placeholder="{{ trans('frontend.last_name') }}" name="account_shipping_last_name" id="account_shipping_last_name" value="{{ old('account_shipping_last_name') }}">
             </div>
           </div>
-
           <div class="col-sm-6">
             <div class="form-group">
               <label class="control-label" for="inputAccountFirstName">{{ trans('frontend.account_first_name') }}</label>
               <input type="text" class="form-control" placeholder="{{ trans('frontend.first_name') }}" name="account_shipping_first_name" id="account_shipping_first_name" value="{{ old('account_shipping_first_name') }}">
             </div>
           </div>
-
           <div class="col-sm-6">
             <div class="form-group">
               <label class="control-label" for="inputAccountEmailAddress">{{ trans('frontend.account_email') }}</label>

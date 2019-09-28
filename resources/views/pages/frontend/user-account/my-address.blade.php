@@ -1,95 +1,126 @@
-<div class="row" style="margin-top: 50px;">
-  <div class="col-xs-12 col-sm-12 col-md-12">
-    @include('pages-message.notify-msg-success')
-    
-    <div class="text-right">
-      @if(!empty($frontend_account_details) && !empty($frontend_account_details->address_details))
-        <a href="{{ route('my-address-edit-page') }}" class="btn btn-light btn-sm">{{ trans('frontend.edit_address') }}</a>
-      @else
-        <a href="{{ route('my-address-add-page') }}" class="btn btn-light btn-sm">{{ trans('frontend.add_address') }}</a>
-      @endif
+@include('pages-message.notify-msg-success')
+
+<h5>{{ trans('frontend.contact-address') }}</h5>
+<hr class="padding-bottom-1x">
+<form class="row">
+
+  @if(!empty($frontend_account_details) && !empty($frontend_account_details->address_details))
+
+    <div class="col-sm-6">
+      <div class="form-group">
+        <label for="account_bill_first_name">{{ trans('frontend.account_first_name') }}</label>
+        <input type="text" class="form-control" placeholder="{{ trans('frontend.first_name') }}" name="account_bill_first_name" id="account_bill_first_name" value="{{ $frontend_account_details->address_details->account_bill_first_name }}">
+      </div>
     </div>
-  </div>
-</div><br>
+    <div class="col-sm-6">
+      <div class="form-group">
+        <label for="account_bill_last_name">{{ trans('frontend.account_last_name') }}</label>
+        <input type="text" class="form-control" placeholder="{{ trans('frontend.last_name') }}" name="account_bill_last_name" id="account_bill_last_name" value="{{ $frontend_account_details->address_details->account_bill_last_name }}">
+      </div>
+    </div>
+    <div class="col-sm-6">
+      <div class="form-group">
+        <label for="account_bill_email_address">{{ trans('frontend.account_email_address') }}</label>
+        <input type="number" class="form-control" placeholder="{{ trans('frontend.email') }}" name="account_bill_email_address" id="account_bill_email_address" value="{{ $frontend_account_details->address_details->account_bill_email_address }}">
+      </div>
+    </div>
 
-<div class="row">
-  <div class="col-xs-12 col-sm-6 col-md-6">
-    <h5><label>{{ trans('frontend.billing_address') }}</label></h5><hr>
-    
-    <br>
+    <div class="col-sm-6">
+      <div class="form-group">
+        <label for="account_bill_phone_number">{{ trans('frontend.account_phone_number') }}</label>
+        <input type="number" class="form-control" placeholder="{{ trans('frontend.phone') }}" name="account_bill_phone_number" id="account_bill_phone_number" value="{{  $frontend_account_details->address_details->account_bill_phone_number }}">
+      </div>
+    </div>
+  
+    <div class="col-md-4">
+      <div class="form-group">
+        <label class="control-label" for="account_bill_tinh_thanh">{{ trans('frontend.checkout_select_country_label') }}</label>
+          <select class="form-control" id="account_bill_tinh_thanh" name="account_bill_tinh_thanh">
+            @foreach(get_country_list() as $key => $val)
+              @if(old('account_bill_select_country') == $key || $key==42 )
+                <option selected value="{{ $key }}"> {!! $val !!}</option>
+              @else
+                <option value="{{ $key }}"> {!! $val !!}</option>
+              @endif
+            @endforeach
+            </select>
+      </div>
+    </div>
+
+    <div class="col-md-4">
+      <div class="form-group">
+        <label class="control-label" for="account_bill_quan_huyen">{{ trans('frontend.account_address_town_city') }}</label>
+        <select class="form-control" name="account_bill_quan_huyen" id="account_bill_quan_huyen">
+          @foreach(get_quanhuyen_list(42) as $val)
+            <option value="{{ $val['maqh'] }}" {{ ($loop->iteration == 1)?'selected':'' }}> {!! $val['name'] !!}</option>
+
+            @php 
+              if ($loop->iteration == 1){
+                $maqh =  $val['maqh'];
+              }
+            @endphp
+
+          @endforeach
+        </select>
+      </div>
+    </div>
+
+    <div class="col-md-4">
+      <div class="form-group">
+        <label class="control-label" for="account_bill_xa_phuong">{{ trans('frontend.account_address_xa_phuong') }}</label>
+        <select class="form-control" name="account_bill_xa_phuong" id="account_bill_xa_phuong">
+          <option value=""> {{ trans('frontend.xa_phuong') }} </option>
+          @foreach(get_xaphuong_list($maqh) as $val)
+            <option value="{{ $val['xaid'] }}" {{ ($loop->iteration == 1)?'selected':'' }}> {!! $val['name'] !!}</option>
+          @endforeach
+        </select>
+      </div>
+    </div>
+
+    <div class="col-md-12">
+      <div class="form-group">
+        <label class="control-label" for="inputAccountAddressLine1">{{ trans('frontend.account_address_line_1') }}</label>
+        <textarea class="form-control" id="account_bill_adddress_line_1" name="account_bill_adddress_line_1" placeholder="{{ trans('frontend.address_line_1') }}">{{ $frontend_account_details->address_details->account_bill_adddress_line_1 }}</textarea>
+      </div>
+    </div>
+
+    <div class="col-md-12">
+      <div class="form-group">
+        <label class="control-label" for="inputAccountAddressLine1">{{ trans('frontend.account_address_line_1') }}</label>
+        <textarea class="form-control" id="account_bill_adddress_line_2" name="account_bill_adddress_line_2" placeholder="{{ trans('frontend.address_line_2') }}"> {{ $frontend_account_details->address_details->account_bill_adddress_line_2 }} </textarea>
+      </div>
+    </div>
+  
+
+  @else
+    <div class="col-md-12">
+      <p>{{ trans('frontend.contact_address_not_available') }}</p>
+    </div>
+  @endif
+
+  <div class="col-12 padding-top-1x">
+    <h5>{{ trans('frontend.shipping-address') }}</h5>
+    <hr class="padding-bottom-1x">
+
     @if(!empty($frontend_account_details) && !empty($frontend_account_details->address_details))
-      <p>{!! $frontend_account_details->address_details->account_bill_first_name .' '. $frontend_account_details->address_details->account_bill_last_name !!}</p>
 
-      @if($frontend_account_details->address_details->account_bill_company_name)
-        <p><strong>{{ trans('admin.company') }}:</strong> {!! $frontend_account_details->address_details->account_bill_company_name !!}</p>
-      @endif
-
-      <p><strong>{{ trans('admin.address_1') }}:</strong> {!! $frontend_account_details->address_details->account_bill_adddress_line_1 !!}</p>
-
-      @if($frontend_account_details->address_details->account_bill_adddress_line_2)
-        <p><strong>{{ trans('admin.address_2') }}:</strong> {!! $frontend_account_details->address_details->account_bill_adddress_line_2 !!}</p>
-      @endif
-
-      <p><strong>{{ trans('admin.city') }}:</strong> {!! $frontend_account_details->address_details->account_bill_town_or_city !!}</p>
-
-      <p><strong>{{ trans('admin.postCode') }}:</strong> {!! $frontend_account_details->address_details->account_bill_zip_or_postal_code !!}</p>
-      <p><strong>{{ trans('admin.country') }}:</strong> {!! get_country_by_code( $frontend_account_details->address_details->account_bill_select_country ) !!}</p>
-
-      <br>
-
-      @if($frontend_account_details->address_details->account_bill_phone_number)
-        <p><strong>{{ trans('admin.phone') }}:</strong> {!! $frontend_account_details->address_details->account_bill_phone_number !!}</p>
-      @endif
-
-
-      @if($frontend_account_details->address_details->account_bill_fax_number)
-        <p><strong>{{ trans('admin.fax') }}:</strong> {!! $frontend_account_details->address_details->account_bill_fax_number !!}</p>
-      @endif
-
-      <p><strong>{{ trans('admin.email') }}:</strong> {!! $frontend_account_details->address_details->account_bill_email_address !!}</p>
-    
-    @else
-      <p>{{ trans('admin.billing_address_not_available') }}</p>
-    @endif
-        
-  </div>
-  <div class="col-xs-12 col-sm-6 col-md-6">
-    <h5><label>{{ trans('frontend.shipping_address') }}</label></h5><hr>
-    
-    <br>
-    @if(!empty($frontend_account_details) && !empty($frontend_account_details->address_details))
-      <p>{!! $frontend_account_details->address_details->account_shipping_first_name .' '. $frontend_account_details->address_details->account_shipping_last_name !!}</p>
-
-      @if($frontend_account_details->address_details->account_shipping_company_name)
-        <p><strong>{{ trans('admin.company') }}:</strong> {!! $frontend_account_details->address_details->account_shipping_company_name !!}</p>
-      @endif
-
-      <p><strong>{{ trans('admin.address_1') }}:</strong> {!! $frontend_account_details->address_details->account_shipping_adddress_line_1 !!}</p>
-
-      @if($frontend_account_details->address_details->account_shipping_adddress_line_2)
-        <p><strong>{{ trans('admin.address_2') }}:</strong> {!! $frontend_account_details->address_details->account_shipping_adddress_line_2 !!}</p>
-      @endif
-
-      <p><strong>{{ trans('admin.city') }}:</strong> {!! $frontend_account_details->address_details->account_shipping_town_or_city !!}</p>
-
-      <p><strong>{{ trans('admin.postCode') }}:</strong> {!! $frontend_account_details->address_details->account_shipping_zip_or_postal_code !!}</p>
-      <p><strong>{{ trans('admin.country') }}:</strong> {!! get_country_by_code( $frontend_account_details->address_details->account_shipping_select_country ) !!}</p>
-
-      <br>
-
-      @if($frontend_account_details->address_details->account_shipping_phone_number)
-        <p><strong>{{ trans('admin.phone') }}:</strong> {!! $frontend_account_details->address_details->account_shipping_phone_number !!}</p>
-      @endif
-
-
-      @if($frontend_account_details->address_details->account_shipping_fax_number)
-        <p><strong>{{ trans('admin.fax') }}:</strong> {!! $frontend_account_details->address_details->account_shipping_fax_number !!}</p>
-      @endif
-
-      <p><strong>{{ trans('admin.email') }}:</strong> {!! $frontend_account_details->address_details->account_shipping_email_address !!}</p>
-    
+      <div class="custom-control custom-checkbox d-block">
+        <input class="custom-control-input" type="checkbox" id="same_address" checked>
+        <label class="custom-control-label" for="same_address">{{ trans('frontend.same-contact-address') }}</label>
+      </div>
+  
     @else
       <p>{{ trans('admin.shipping_address_not_available') }}</p>
     @endif
+
+    <hr class="margin-top-1x margin-bottom-1x">
+    <div class="text-right">
+
+      @if(!empty($frontend_account_details) && !empty($frontend_account_details->address_details))
+        <a href="{{ route('my-address-edit-page') }}" class="btn btn-primary margin-bottom-none">{{ trans('frontend.edit_address') }}</a>
+      @else
+        <a href="{{ route('my-address-add-page') }}" class="btn btn-primary margin-bottom-none">{{ trans('frontend.add_address') }}</a>
+      @endif
+    </div>
   </div>
-</div>
+</form>

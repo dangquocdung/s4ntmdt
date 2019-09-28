@@ -91,6 +91,11 @@
   <div class="row">
     <div class="col-lg-4">
       <aside class="user-info-wrapper">
+
+        <div class="user-cover" style="background-image: url(/img/account/user-cover-img.jpg);">
+          <div class="info-label" data-toggle="tooltip" title="Bạn đang có 0 điểm thưởng"><i class="icon-award"></i>0 điểm</div>
+        </div>
+
         
         <div class="user-info">
           <div class="user-avatar">

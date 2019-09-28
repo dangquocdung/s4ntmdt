@@ -560,5 +560,13 @@ return [
   'successfuly_added_to_cart' => 'đã được thêm vào giỏ hàng',
   'limited-time-offer' => 'Đợt khuyến mại sắp tới',
   'account_address_xa_phuong' => 'Xã, Phường',
-  'thanh-vien' => 'Thành viên'
+  'thanh-vien' => 'Thành viên',
+  'contact-address' => 'Địa chỉ liên hệ',
+  'shipping-address' => 'Địa chỉ giao hàng',
+  'same-contact-address' => 'Giống địa chỉ giao hàng',
+  'contact_address_not_available' => 'Không có địa chỉ liên hệ trong sổ địa chỉ của bạn',
+  'order_list_not_available' => 'Bạn chưa có đơn hàng nào',
+  'delete-all' => 'Xóa hết',
+  'no_coupons_items' => 'Bạn chưa có phiếu giảm giá nào',
+  'no_downloaded_items' => 'Bạn chưa có mục tải xuống nào',
 ];
