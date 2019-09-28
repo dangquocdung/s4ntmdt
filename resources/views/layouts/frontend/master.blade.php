@@ -172,10 +172,10 @@
 
     <!-- JavaScript (jQuery) libraries, plugins and custom scripts-->
     <script type="text/javascript" src="{{ URL::asset('/js/common.js') }}"></script>
-
-    <script type="text/javascript" src="{{ URL::asset('/js/vendor.min.js') }}"></script>
     <script type="text/javascript" src="{{ URL::asset('/plugins/iCheck/icheck.min.js') }}"></script>
     <script type="text/javascript" src="{{ mix('/js/app.js') }}"></script>
+    <script type="text/javascript" src="{{ URL::asset('/js/vendor.min.js') }}"></script>
+
 
     <script>
       $(document).ready(function(){
