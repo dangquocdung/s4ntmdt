@@ -1,19 +1,19 @@
-<div class="row">
-  <div class="col-12">
-    <h5><label>{{ trans('admin.frontend_user_order_list') }}</label></h5><hr>
-    <br>
-    <table id="table_user_account_order_list" class="table table-striped table-bordered dt-responsive nowrap" style="width:100%">
+<h5><label>{{ trans('admin.frontend_user_order_list') }}</label></h5>
+
+@if(count($orders_list_data) > 0) 
+
+  <div class="table-responsive">
+    <table class="table table-hover mb-0">
       <thead>
         <tr>
-          <th>{{ trans('admin.user_account_order_id') }}</th>
-          <th>{{ trans('admin.user_account_order_status') }}</th>
-          <th>{{ trans('admin.user_account_order_total') }}</th>
-          <th>{{ trans('admin.user_account_order_date') }}</th> 
-          <th>{{ trans('admin.user_account_order_action') }}</th>  
+            <th>{{ trans('admin.user_account_order_id') }}</th>
+            <th>{{ trans('admin.user_account_order_status') }}</th>
+            <th>{{ trans('admin.user_account_order_total') }}</th>
+            <th>{{ trans('admin.user_account_order_date') }}</th> 
+            <th>{{ trans('admin.user_account_order_action') }}</th>  
         </tr>
       </thead>
       <tbody>
-        @if(count($orders_list_data) > 0) 
           @foreach($orders_list_data as $row)
             <tr>
               <td>#{!! $row['_post_id'] !!}</td>
@@ -23,17 +23,14 @@
               <td><a class="btn btn-default btn-sm" href="{{ route('account-order-details-page', [$row['_post_id'], $row['_order_process_key']]) }}">{!! trans('frontend.user_account_view_label') !!}</a></td>
             </tr>
           @endforeach
-        @endif
       </tbody>
-      <tfoot>
-        <tr>
-          <th>{{ trans('admin.user_account_order_id') }}</th>
-          <th>{{ trans('admin.user_account_order_status') }}</th>
-          <th>{{ trans('admin.user_account_order_total') }}</th>
-          <th>{{ trans('admin.user_account_order_date') }}</th> 
-          <th>{{ trans('admin.user_account_order_action') }}</th>  
-        </tr>
-      </tfoot>
     </table>
+
   </div>
-</div>
+
+@else
+  <p>{{ trans('admin.order_list_not_available') }}</p>
+@endif
+
+{{-- <hr>
+<div class="text-right"><a class="btn btn-link-primary margin-bottom-none" href="#"><i class="icon-download"></i>&nbsp;Order Details</a></div> --}}
