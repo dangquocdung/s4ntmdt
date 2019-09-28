@@ -154,7 +154,7 @@
                 <hr class="padding-bottom-1x">
 
               
-                <ul style="list-style:none">
+                <ul style="list-style:none; padding-left:0!important">
 
                   @if($_settings_data['general_settings']['checkout_options']['enable_guest_user'] == true && $is_user_login == false)  
                     <li>
