@@ -509,14 +509,12 @@
                       @if($payment_method_data['bacs']['enable_option'] == 'yes')
                         <tr>
                           <td class="align-middle">
-                            <div class="custom-control custom-radio mb-0">
                               @if(old('payment_option') == 'bacs')
                                 <input type="radio" class="shopist-iCheck" checked name="payment_option" value="bacs"> 
                               @else
                                 <input type="radio" class="shopist-iCheck" name="payment_option" value="bacs"> 
                               @endif
 
-                            </div>
                           </td>
                           <td class="align-middle">
                             <span class="text-gray-dark">{{ $payment_method_data['bacs']['method_title'] }}</span><br>
@@ -530,14 +528,12 @@
                       @if($payment_method_data['cod']['enable_option'] == 'yes')
                         <tr>
                           <td class="align-middle">
-                            <div class="custom-control custom-radio mb-0">
                               @if(old('payment_option') == 'cod')
                                 <input type="radio" class="shopist-iCheck" checked name="payment_option" value="bacs"> 
                               @else
                                 <input type="radio" class="shopist-iCheck" name="payment_option" value="bacs"> 
                               @endif
 
-                            </div>
                           </td>
                           <td class="align-middle">
                             <span class="text-gray-dark">{{ $payment_method_data['cod']['method_title'] }}</span><br>
@@ -551,14 +547,12 @@
                       @if($payment_method_data['paypal']['enable_option'] == 'yes')
                         <tr>
                           <td class="align-middle">
-                            <div class="custom-control custom-radio mb-0">
                               @if(old('payment_option') == 'paypal')
                                 <input type="radio" class="shopist-iCheck" checked name="payment_option" value="bacs"> 
                               @else
                                 <input type="radio" class="shopist-iCheck" name="payment_option" value="bacs"> 
                               @endif
 
-                            </div>
                           </td>
                           <td class="align-middle">
                             <span class="text-gray-dark">{{ $payment_method_data['paypal']['method_title'] }}</span><br>
@@ -574,14 +568,12 @@
                         <input type="hidden" name="stripe_api_key" value="{{ $stripe_api_key }}" id="stripe_api_key">
                         <tr>
                           <td class="align-middle">
-                            <div class="custom-control custom-radio mb-0">
                               @if(old('payment_option') == 'stripe')
                                 <input type="radio" class="shopist-iCheck" checked name="payment_option" value="bacs"> 
                               @else
                                 <input type="radio" class="shopist-iCheck" name="payment_option" value="bacs"> 
                               @endif
 
-                            </div>
                           </td>
                           <td class="align-middle">
                             <span class="text-gray-dark">{{ $payment_method_data['stripe']['method_title'] }}</span><br>
@@ -597,13 +589,11 @@
                       <input type="hidden" name="2checkout_api_data" value="{{ $twocheckout_api_data }}" id="2checkout_api_data">
                       <tr>
                           <td class="align-middle">
-                            <div class="custom-control custom-radio mb-0">
                               @if(old('payment_option') == '2checkout')
                                 <input type="radio" class="custom-control-input shopist-iCheck" checked name="payment_option" value="bacs"> 
                               @else
                                 <input type="radio" class="custom-control-input shopist-iCheck" name="payment_option" value="bacs"> 
                               @endif
-                            </div>
                           </td>
                           <td class="align-middle">
                             <span class="text-gray-dark">{{ $payment_method_data['2checkout']['method_title'] }}</span><br>
