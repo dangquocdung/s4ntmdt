@@ -13,7 +13,7 @@ return [
   'update_cart' =>'Cập nhật giỏ hàng',
   'empty_cart_msg' =>'Giỏ hàng của bạn bây giờ trống rỗng ..',
   'return_to_shop' =>'Quay trở lại cửa hàng',
-  'cart_sub_total' =>'Tổng số giỏ hàng',
+  'cart_sub_total' =>'Giá giỏ hàng',
   'tax' =>'Thuế',
   'shipping_cost' =>'Giá vận chuyển',
   'free' =>'Miễn phí',
@@ -569,4 +569,5 @@ return [
   'delete-all' => 'Xóa hết',
   'no_coupons_items' => 'Bạn chưa có phiếu giảm giá nào',
   'no_downloaded_items' => 'Bạn chưa có mục tải xuống nào',
+  'order_summary' => 'Tóm tắt đơn hàng'
 ];

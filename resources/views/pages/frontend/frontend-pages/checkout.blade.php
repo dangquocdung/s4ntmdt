@@ -709,27 +709,8 @@
         <aside class="sidebar">
           <div class="padding-top-2x hidden-lg-up"></div>
           <!-- Order Summary Widget-->
-          <section class="widget widget-order-summary">
-            <h3 class="widget-title">Order Summary</h3>
-            <table class="table">
-              <tr>
-                <td>Cart Subtotal:</td>
-                <td class="text-gray-dark">$2,548.50</td>
-              </tr>
-              <tr>
-                <td>Shipping:</td>
-                <td class="text-gray-dark">$26.50</td>
-              </tr>
-              <tr>
-                <td>Estimated tax:</td>
-                <td class="text-gray-dark">$9.72</td>
-              </tr>
-              <tr>
-                <td></td>
-                <td class="text-lg text-gray-dark">$2,584.72</td>
-              </tr>
-            </table>
-          </section>
+          @include('pages.ajax-pages.cart-total-html')
+          
           <!-- Featured Products Widget-->
           @if ($seen_items <> '')
 
