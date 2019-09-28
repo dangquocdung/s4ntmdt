@@ -529,9 +529,9 @@
                         <tr>
                           <td class="align-middle">
                               @if(old('payment_option') == 'cod')
-                                <input type="radio" class="shopist-iCheck" checked name="payment_option" value="bacs"> 
+                                <input type="radio" class="shopist-iCheck" checked name="payment_option" value="cod"> 
                               @else
-                                <input type="radio" class="shopist-iCheck" name="payment_option" value="bacs"> 
+                                <input type="radio" class="shopist-iCheck" name="payment_option" value="cod"> 
                               @endif
 
                           </td>
@@ -548,9 +548,9 @@
                         <tr>
                           <td class="align-middle">
                               @if(old('payment_option') == 'paypal')
-                                <input type="radio" class="shopist-iCheck" checked name="payment_option" value="bacs"> 
+                                <input type="radio" class="shopist-iCheck" checked name="payment_option" value="paypal"> 
                               @else
-                                <input type="radio" class="shopist-iCheck" name="payment_option" value="bacs"> 
+                                <input type="radio" class="shopist-iCheck" name="payment_option" value="paypal"> 
                               @endif
 
                           </td>
@@ -569,9 +569,9 @@
                         <tr>
                           <td class="align-middle">
                               @if(old('payment_option') == 'stripe')
-                                <input type="radio" class="shopist-iCheck" checked name="payment_option" value="bacs"> 
+                                <input type="radio" class="shopist-iCheck" checked name="payment_option" value="stripe"> 
                               @else
-                                <input type="radio" class="shopist-iCheck" name="payment_option" value="bacs"> 
+                                <input type="radio" class="shopist-iCheck" name="payment_option" value="stripe"> 
                               @endif
 
                           </td>
@@ -590,9 +590,9 @@
                       <tr>
                           <td class="align-middle">
                               @if(old('payment_option') == '2checkout')
-                                <input type="radio" class="custom-control-input shopist-iCheck" checked name="payment_option" value="bacs"> 
+                                <input type="radio" class="custom-control-input shopist-iCheck" checked name="payment_option" value="2checkout"> 
                               @else
-                                <input type="radio" class="custom-control-input shopist-iCheck" name="payment_option" value="bacs"> 
+                                <input type="radio" class="custom-control-input shopist-iCheck" name="payment_option" value="2checkout"> 
                               @endif
                           </td>
                           <td class="align-middle">
