@@ -24,7 +24,6 @@ use shopist\Models\OrdersItem;
 use shopist\Http\Controllers\VendorsController;
 use shopist\Models\SaveCustomDesign;
 
-
 class FrontendManagerController extends Controller
 {
   public $classGetFunction;
@@ -1762,9 +1761,15 @@ class FrontendManagerController extends Controller
 
       foreach($products_id as $row){
 
-        $sp = $this->classCommonFunction->get_product_data_by_product_id_on( $row );
+        $get_post = Product :: where('id', $row)->where('status',1)->first();
+
+        if(!empty($get_post)){
+
+          $sp = $this->classCommonFunction->get_product_data_by_product_id( $row );
         
-        array_push($seen_items, $sp);
+          array_push($seen_items, $sp);
+
+        }
       }
 
     }else{
