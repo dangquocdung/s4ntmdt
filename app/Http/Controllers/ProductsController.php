@@ -2454,6 +2454,7 @@ class ProductsController extends Controller
     if(Request::is('/')){
       $get_recommended_items = DB::table('products')
                                ->select('products.*')
+                               ->where('status', 1)
                                ->join(DB::raw("(SELECT product_id FROM product_extras WHERE key_name = '_product_enable_as_recommended' AND key_value = 'yes') T1") , 'products.id', '=', 'T1.product_id')
                                ->take(8)
                                ->get()
@@ -2461,6 +2462,7 @@ class ProductsController extends Controller
 
       $get_features_items =    DB::table('products')
                                ->select('products.*')
+                               ->where('status', 1)
                                ->join(DB::raw("(SELECT product_id FROM product_extras WHERE key_name = '_product_enable_as_features' AND key_value = 'yes') T1") , 'products.id', '=', 'T1.product_id')
                                ->take(8)
                                ->get()
@@ -2469,6 +2471,7 @@ class ProductsController extends Controller
     
     $get_latest_items =      DB::table('products')
                              ->select('products.*')
+                             ->where('status', 1)
                              ->join(DB::raw("(SELECT product_id FROM product_extras WHERE key_name = '_product_enable_as_latest' AND key_value = 'yes') T1") , 'products.id', '=', 'T1.product_id')
                              ->take(5)
                              ->get()
@@ -2477,6 +2480,7 @@ class ProductsController extends Controller
     if(Request::is('/')){ 
       $get_todays_items      =  DB::table('posts')
                                 ->where('posts.post_type', 'shop_order')
+                                ->andWhere('status', 1)
                                 // ->whereDate('posts.created_at', '=', $this->carbonObject->today()->toDateString())
                                 ->join('orders_items', 'orders_items.order_id', '=', 'posts.id')
                                 ->orderBy('posts.id', 'desc')
@@ -2488,7 +2492,8 @@ class ProductsController extends Controller
     
     $get_best_sales        =  DB::table('product_extras')
                               ->select('product_id', DB::raw('max(cast(key_value as SIGNED INTEGER)) as max_number'))
-                              ->where('key_name', '_total_sales')
+                              ->where('status', 1)
+                              ->andWhere('key_name', '_total_sales')
                               ->groupBy('product_id')
                               ->orderBy('max_number', 'desc')
                               ->take(5)
