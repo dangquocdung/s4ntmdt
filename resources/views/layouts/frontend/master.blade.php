@@ -65,9 +65,6 @@
     <input type="hidden" name="lang_code" id="lang_code" value="{{ $selected_lang_code }}">  
     <input type="hidden" name="subscription_type" id="subscription_type" value="{{ $subscriptions_data['subscribe_type'] }}">
 
-    đasdasda
-
-    @if( Request::is('/san-pham/chi-tiet/*') )
 
     <!-- Photoswipe container-->
     <div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
@@ -105,7 +102,6 @@
       </div>
     </div>
 
-    @endif
     
     <!-- Back To Top Button-->
     <a class="scroll-to-top-btn" href="#"><i class="icon-chevron-up"></i></a>
