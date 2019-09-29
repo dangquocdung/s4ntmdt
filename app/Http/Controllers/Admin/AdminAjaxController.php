@@ -155,8 +155,8 @@ class AdminAjaxController extends Controller
           
           if(isset($input['product_image'])){
             $image = Input::file('product_image');
-            $fileName = time()."-"."h-250-".$image->getClientOriginalName();
-            $height = 250;
+            $fileName = time()."-"."h-400-".$image->getClientOriginalName();
+            $height = 400;
           }
           elseif(isset($input['shop_banner_image'])){
             $image = Input::file('shop_banner_image');
@@ -175,8 +175,8 @@ class AdminAjaxController extends Controller
           }
           elseif(isset($input['variation_img'])){
             $image = Input::file('variation_img');
-            $fileName = time()."-"."h-250-".$image->getClientOriginalName();
-            $height = 250;
+            $fileName = time()."-"."h-400-".$image->getClientOriginalName();
+            $height = 400;
           }
           elseif(isset($input['designer_img'])){
             $image = Input::file('designer_img');
@@ -280,7 +280,7 @@ class AdminAjaxController extends Controller
           }
           else{
             $image = $value;
-            $fileName = $count.time()."-"."h-250-".$image->getClientOriginalName();
+            $fileName = $count.time()."-"."h-400-".$image->getClientOriginalName();
             $path  = public_path('uploads/' . $fileName);
             
             $img   = Image::make($image);

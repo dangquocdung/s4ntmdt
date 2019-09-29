@@ -70,7 +70,7 @@
             <div class="product-carousel owl-carousel gallery-wrapper">
               @foreach($single_product_details['_product_related_images_url']->product_gallery_images as $key => $row)
                 <div class="gallery-item" data-hash="{{ $count }}">
-                  <a href="{{ get_image_url(get_product_image( $row->url )) }}" data-size="1000x667">
+                  <a href="{{ get_image_url($row->url) }}" data-size="1000x667">
                     @if(!empty($row->url) && (basename($row->url) !== 'no-image.png'))  
                     <img src="{{ get_image_url($row->url) }}" alt="Product">
                     @else
