@@ -1762,7 +1762,7 @@ class FrontendManagerController extends Controller
 
       foreach($products_id as $row){
 
-        $sp = $this->classCommonFunction->get_product_data_by_product_id( $row );
+        $sp = $this->classCommonFunction->get_product_data_by_product_id_on( $row );
         
         array_push($seen_items, $sp);
       }
