@@ -1891,7 +1891,7 @@ class ProductsController extends Controller
    */
   public function getProductDataById( $product_id ){
     $post_array       =   array();
-    $get_post         =   Product :: where('id', $product_id)->first();
+    $get_post         =   Product :: where('status',1)->where('id', $product_id)->first();
     $get_post_meta    =   ProductExtra :: where('product_id', $product_id)->get();
     
     if(!empty($get_post)){
