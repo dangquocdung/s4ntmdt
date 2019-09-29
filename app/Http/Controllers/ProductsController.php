@@ -1891,7 +1891,7 @@ class ProductsController extends Controller
    */
   public function getProductDataById( $product_id ){
     $post_array       =   array();
-    $get_post         =   Product :: where('status',1)->where('id', $product_id)->first();
+    $get_post         =   Product :: where('id', $product_id)->first();
     $get_post_meta    =   ProductExtra :: where('product_id', $product_id)->get();
     
     if(!empty($get_post)){
@@ -2491,6 +2491,7 @@ class ProductsController extends Controller
     
     $get_best_sales        =  DB::table('product_extras')
                               ->select('product_id', DB::raw('max(cast(key_value as SIGNED INTEGER)) as max_number'))
+                              ->where('status', 1)
                               ->where('key_name', '_total_sales')
                               ->groupBy('product_id')
                               ->orderBy('max_number', 'desc')
