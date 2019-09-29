@@ -2491,7 +2491,6 @@ class ProductsController extends Controller
     
     $get_best_sales        =  DB::table('product_extras')
                               ->select('product_id', DB::raw('max(cast(key_value as SIGNED INTEGER)) as max_number'))
-                              ->where('status', 1)
                               ->where('key_name', '_total_sales')
                               ->groupBy('product_id')
                               ->orderBy('max_number', 'desc')
