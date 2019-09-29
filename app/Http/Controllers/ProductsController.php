@@ -2479,8 +2479,8 @@ class ProductsController extends Controller
    
     if(Request::is('/')){ 
       $get_todays_items      =  DB::table('posts')
+                                ->where('status', 1)
                                 ->where('posts.post_type', 'shop_order')
-                                ->andWhere('status', 1)
                                 // ->whereDate('posts.created_at', '=', $this->carbonObject->today()->toDateString())
                                 ->join('orders_items', 'orders_items.order_id', '=', 'posts.id')
                                 ->orderBy('posts.id', 'desc')
