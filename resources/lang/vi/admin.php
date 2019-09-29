@@ -163,7 +163,7 @@ return [
   'enable_product_manufacturer' =>'Kích hoạt nhà sản xuất sản phẩm',
   'select_manufacturer' =>'Chọn nhà sản xuất',
   'no_manufacturer_yet' =>'Chưa có nhà sản xuất nào',
-  'visibility' =>'Tầm nhìn',
+  'visibility' =>'Hiện thị',
   'enable_product' =>'Kích hoạt sản phẩm',
   'enable_coupon' =>'Kích hoạt phiếu giảm giá',
   'product_categories' =>'Danh mục sản phẩm',
