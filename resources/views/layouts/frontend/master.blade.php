@@ -116,7 +116,7 @@
     <!-- Main Template Styles-->
     <script type="text/javascript" src="{{ URL::asset('/js/vendor.min.js') }}"></script>
 
-    <!-- <script type="text/javascript" src="{{ URL::asset('/dropzone/dropzone.js') }}"></script>
+    <script type="text/javascript" src="{{ URL::asset('/dropzone/dropzone.js') }}"></script>
     <script type="text/javascript" src="{{ URL::asset('/frontend/js/jquery.scrollUp.min.js') }}"></script>
     <script type="text/javascript" src="{{ URL::asset('/sweetalert/sweetalert.min.js') }}"></script>
     <script type="text/javascript" src="{{ URL::asset('/plugins/select2/select2.full.min.js') }}"></script>
@@ -124,10 +124,10 @@
     <script type="text/javascript" src="{{ URL::asset('/frontend/js/social-network.js') }}"></script>
     <script type="text/javascript" src="{{ URL::asset('/slick/slick.min.js') }}"></script>
     <script type="text/javascript" src="{{ URL::asset('/common/base64.js') }}"></script>
-     -->
-    <!-- <script type="text/javascript" src="{{ URL::asset('/plugins/iCheck/icheck.min.js') }}"></script>
+    
+    <script type="text/javascript" src="{{ URL::asset('/plugins/iCheck/icheck.min.js') }}"></script>
     <script type="text/javascript" src="{{ URL::asset('/js/common.js') }}"></script>
-    <script type="text/javascript" src="{{ mix('/js/app.js') }}"></script> -->
+    <script type="text/javascript" src="{{ mix('/js/app.js') }}"></script>
 
     <script>
 
