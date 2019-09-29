@@ -1944,6 +1944,31 @@ class ProductsController extends Controller
     
     return $post_array;
   }
+
+  public function getProductDataByIdOn( $product_id ){
+    $post_array       =   array();
+    $get_post         =   Product :: where('id', $product_id)->where('status',1)->first();
+    
+    if(!empty($get_post)){
+      $post_array['id']                       =  $get_post->id;
+      $post_array['author_id']                =  $get_post->author_id;
+      $post_array['post_content']             =  $get_post->content;
+      $post_array['post_title']               =  $get_post->title;
+      $post_array['post_slug']                =  $get_post->slug;
+      $post_array['post_status']              =  $get_post->status;
+      $post_array['post_sku']                 =  $get_post->sku;
+      $post_array['post_regular_price']       =  $get_post->regular_price;
+      $post_array['post_sale_price']          =  $get_post->sale_price;
+      $post_array['post_price']               =  $get_post->price;
+      $post_array['post_stock_qty']           =  $get_post->stock_qty;
+      $post_array['post_stock_availability']  =  $get_post->stock_availability;
+      $post_array['post_type']                =  $get_post->type;
+      $post_array['post_image_url']           =  $get_post->image_url;
+
+    }
+    
+    return $post_array;
+  }
   
   /**
    * Get function for brands products

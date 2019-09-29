@@ -914,6 +914,41 @@ class CommonFunction
       return $product_data;
     }
   }
+
+  public function get_product_data_by_product_id_on( $product_id = 0 ){
+    $_this = new self;
+    $product_data = array();
+    $product =  new ProductsController();
+    
+    if($product_id>0){
+      $get_data = $product->getProductDataByIdOn( $product_id );
+       
+      $product_data['id']                                =  $get_data['id'];
+      $product_data['author_id']                         =  $get_data['author_id'];
+      $product_data['post_title']                        =  $get_data['post_title'];
+      $product_data['post_slug']                         =  $get_data['post_slug'];
+
+      $product_data['post_status']                       =  $get_data['post_status'];
+      $product_data['post_type']                         =  $get_data['post_type'];
+      $product_data['product_image']                     =  $get_data['post_image_url'];
+      $product_data['product_type']                      =  $get_data['post_type'];
+      $product_data['product_sku']                       =  $get_data['post_sku'];
+      $product_data['product_price']                     =  $get_data['post_price'];
+      $product_data['product_regular_price']             =  $get_data['post_regular_price'];
+      $product_data['product_sale_price_start_date']     =  $get_data['_product_sale_price_start_date'];
+      $product_data['product_sale_price_end_date']       =  $get_data['_product_sale_price_end_date'];
+      $product_data['product_manage_stock']              =  $get_data['_product_manage_stock'];
+      $product_data['product_manage_stock_qty']          =  $get_data['post_stock_qty'];
+      $product_data['product_manage_stock_availability'] =  $get_data['post_stock_availability'];
+      $product_data['product_stock_back_to_order']       =  $get_data['_product_manage_stock_back_to_order'];  
+      $product_data['product_enable_as_custom_design']   =  $get_data['_product_enable_as_custom_design'];
+      $product_data['product_enable_taxes']              =  $get_data['_product_enable_taxes'];
+      $product_data['is_role_based_pricing_enable']      =  $get_data['_is_role_based_pricing_enable'];
+      $product_data['role_based_pricing']                =  $get_data['_role_based_pricing'];
+      
+      return $product_data;
+    }
+  }
   
   /**
    * Get function for products variations data
