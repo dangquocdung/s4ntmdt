@@ -116,33 +116,11 @@
     <!-- Main Template Styles-->
     <script type="text/javascript" src="{{ URL::asset('/js/vendor.min.js') }}"></script>
 
-    <!-- <script type="text/javascript" src="{{ URL::asset('/jquery/jquery-1.10.2.js') }}"></script> -->
-    <!-- <script type="text/javascript" src="{{ URL::asset('/jquery/jquery-ui-1.11.4.js') }}"></script> -->
     <script type="text/javascript" src="{{ URL::asset('/dropzone/dropzone.js') }}"></script>
-    <!-- <script type="text/javascript" src="{{ URL::asset('/bootstrap/js/popper.min.js') }}"></script> -->
-    <!-- <script type="text/javascript" src="{{ URL::asset('/bootstrap/js/bootstrap.min.js') }}"></script> -->
-    <script type="text/javascript" src="{{ URL::asset('/plugins/datatable/jquery.dataTables.min.js') }}"></script>
-    <script type="text/javascript" src="{{ URL::asset('/plugins/datatable/dataTables.bootstrap4.min.js') }}"></script>
-    <script type="text/javascript" src="{{ URL::asset('/plugins/datatable/dataTables.responsive.min.js') }}"></script>
-    <script type="text/javascript" src="{{ URL::asset('/plugins/datatable/responsive.bootstrap4.min.js') }}"></script>
     <script type="text/javascript" src="{{ URL::asset('/frontend/js/jquery.scrollUp.min.js') }}"></script>
     <script type="text/javascript" src="{{ URL::asset('/sweetalert/sweetalert.min.js') }}"></script>
     <script type="text/javascript" src="{{ URL::asset('/plugins/select2/select2.full.min.js') }}"></script>
-    <script type="text/javascript" src="{{ URL::asset('/sweetalert/sweetalert.min.js') }}"></script>
 
-
-    <!-- <script type="text/javascript" src="{{ URL::asset('/designer/colorpicker/jscolor.js') }}"></script> -->
-    <!-- <script type="text/javascript" src="{{ URL::asset('/plugins/ionslider/ion.rangeSlider.min.js') }}"></script> -->
-    <!-- <script type="text/javascript" src="{{ URL::asset('/plugins/bootstrap-slider/bootstrap-slider.js') }}"></script> -->
-    <!-- <script type="text/javascript" src="{{ URL::asset('/frontend/js/products-variation.js') }}"></script> -->
-    <!-- <script type="text/javascript" src="{{ URL::asset('/frontend/js/products-add-to-cart.js') }}"></script> -->
-    <!-- <script type="text/javascript" src="{{ URL::asset('/frontend/js/price-range.js') }}"></script> -->
-    <!-- <script type="text/javascript" src="{{ URL::asset('/plugins/iCheck/icheck.min.js') }}"></script> -->
-    <!-- <script type="text/javascript" src="{{ URL::asset('/modal/js/modal.js') }}"></script> -->
-    <!-- <script type="text/javascript" src="{{ URL::asset('/frontend/js/jquery.validate.js') }}"></script> -->
-
-    
-    <!-- <script type="text/javascript" src="{{ URL::asset('/frontend/js/common.js') }}"></script> -->
     <script type="text/javascript" src="{{ URL::asset('/frontend/js/social-network.js') }}"></script>
     <script type="text/javascript" src="{{ URL::asset('/slick/slick.min.js') }}"></script>
     <script type="text/javascript" src="{{ URL::asset('/common/base64.js') }}"></script>
