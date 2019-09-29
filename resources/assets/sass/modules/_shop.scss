@@ -58,6 +58,9 @@
     overflow: hidden;
     text-overflow: ellipsis;
 
+    display: table-cell;
+    vertical-align: middle;
+
     margin-bottom: 18px;
     font: {
       size: $product-title-font-size;
