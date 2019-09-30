@@ -331,7 +331,8 @@
               <i class="icon-shopping-cart"></i><span>{{ trans('frontend.add_to_cart_label') }}</span>
             </a>
 
-        </div>
+        
+          </div>
         </div>
       </div>  
     @endforeach
