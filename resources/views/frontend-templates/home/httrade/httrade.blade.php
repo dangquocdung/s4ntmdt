@@ -95,9 +95,9 @@
             <a href="{{ route('categories-page', $cat['slug']) }}">
 
               @if( !empty($cat['img_url']) )
-                <img class="d-block w-100 " src="{{ get_image_url($cat['img_url']) }}" alt="{!! $cat['name'] !!}"> 
+                <img class="d-block" src="{{ get_image_url($cat['img_url']) }}" alt="{!! $cat['name'] !!}"> 
               @else
-                <img class="d-block w-100 " src="{{ default_placeholder_img_src() }}" alt="{!! $cat['name'] !!}"> 
+                <img class="d-block" src="{{ default_placeholder_img_src() }}" alt="{!! $cat['name'] !!}"> 
               @endif
               
             </a>
