@@ -574,5 +574,6 @@ return [
   'share' => 'Chia sẻ',
   'ban_boi_shop' => 'Bán từ gian hàng',
   'best_from_the_blog_title' => 'Tin nhiều lượt xem',
-  'latest_from_the_blog' => 'Tin mới nhất'
+  'latest_from_the_blog' => 'Tin mới nhất',
+  'blog' => 'Tin tức'
 ];
