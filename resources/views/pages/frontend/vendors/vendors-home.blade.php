@@ -179,11 +179,11 @@
 
         <div class="col-md-4 col-sm-6">
           <div class="product-card mb-30">
-            @if ( $features_item->price < $features_item->regular_price )
+            @if ( $features_items->price < $features_items->regular_price )
 
             @php
-              $tiengiam =  $features_item->regular_price - $features_item->price;
-              $phantram = ($tiengiam/$features_item->regular_price)*100;
+              $tiengiam =  $features_items->regular_price - $features_items->price;
+              $phantram = ($tiengiam/$features_items->regular_price)*100;
             @endphp
             <div class="product-badge bg-danger">Giảm giá {{ $phantram }}%</div>
 
