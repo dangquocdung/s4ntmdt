@@ -403,7 +403,9 @@
                         <h3>{!! $best_sales_product['post_title'] !!}</h3>
 
                         @if( $best_sales_product['post_type'] == 'simple_product' )
-                          <p>{!! price_html( get_product_price_html_by_filter(get_role_based_price_by_product_id($best_sales_product['id'], $best_sales_product['post_price'])), get_frontend_selected_currency()) !!}</p>
+                          <p>
+                            {!! price_html( get_product_price_html_by_filter(get_role_based_price_by_product_id($best_sales_product['id'], $best_sales_product['post_price'])), get_frontend_selected_currency()) !!}
+                          </p>
                         @elseif( $best_sales_product['post_type'] == 'configurable_product' )
                           <p>{!! get_product_variations_min_to_max_price_html(get_frontend_selected_currency(), $best_sales_product['id']) !!}</p>
                         @elseif( $best_sales_product['post_type'] == 'customizable_product' || $best_sales_product['post_type'] == 'downloadable_product')

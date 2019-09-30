@@ -175,7 +175,7 @@ return [
   'categories_items' =>'Mục danh mục',
   'no_product_of_this_category' =>'Không có sản phẩm nào thuộc loại này',
   'features_items' =>'Mục tính năng',
-  'recommended_items' =>'Gợi ý hôm nay',
+  'recommended_items' =>'Gợi ý cho bạn',
   'latest_items' =>'Mục mới nhất',
   'no product' =>'Không có sản phẩm',
   'product_variation' =>'Giỏ hàng',
@@ -540,7 +540,7 @@ return [
   'gia-thap-nhat' => 'Giá từ',
   'view_all_products' => 'Tất cả sản phẩm',
   'features_products' => 'Đang phổ biến nhất',
-  'recommended_products' => 'Gợi ý hôm nay',
+  'recommended_products' => 'Sản phẩm đề xuất',
   'staff_picks' => 'Chúng tôi đề xuất',
   'best_sellers' => 'Bán chạy nhất',
   'news_arrivals' => 'Sản phẩm mới',
@@ -572,5 +572,5 @@ return [
   'order_summary' => 'Tóm tắt đơn hàng',
   'compare' => 'So sánh',
   'share' => 'Chia sẻ',
-  'ban_boi_shop' => 'Bán từ gian hàng'
+  'ban_boi_shop' => 'Bán từ gian hàng',
 ];
