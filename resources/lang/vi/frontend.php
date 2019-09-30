@@ -571,5 +571,6 @@ return [
   'no_downloaded_items' => 'Bạn chưa có mục tải xuống nào',
   'order_summary' => 'Tóm tắt đơn hàng',
   'compare' => 'So sánh',
-  'share' => 'Chia sẻ'
+  'share' => 'Chia sẻ',
+  'ban_boi_shop' => 'Bán từ gian hàng'
 ];

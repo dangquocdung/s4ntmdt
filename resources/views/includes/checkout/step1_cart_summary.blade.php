@@ -53,7 +53,9 @@
                         @endif
                         
                         @if( count(get_vendor_details_by_product_id($items->product_id)) >0 )
-                            <p class="vendor-title"><strong>{!! trans('frontend.vendor_label') !!}</strong> : {!! get_vendor_name_by_product_id( $items->product_id) !!}</p>
+                            <p class="vendor-title">
+                                {!! trans('frontend.ban_boi_shop') !!}: {!! get_vendor_name_by_product_id( $items->product_id) !!}
+                            </p>
                         @endif
                         </div>
                     </div>

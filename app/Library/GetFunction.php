@@ -3042,7 +3042,7 @@ class GetFunction
         
         if(!empty($get_vendor_details) && $get_vendor_details->slug == 'vendor'){
           $vendor_details = get_user_details( $get_author_id->author_id );
-          $vendor_name = '<a target="_blank" href="'. route('store-details-page-content', $vendor_details['user_name']).'"><i>'. $vendor_details['user_name'] .'</i></a>';
+          $vendor_name = '<a target="_blank" href="'. route('store-details-page-content', $vendor_details['user_name']).'" style="text-decoration:none"><strong>'. $vendor_details['user_name'] .'</strong></a>';
         }
       }
     }
