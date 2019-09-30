@@ -43,12 +43,10 @@
 
                 @php
 
-                  Carbon\Carbon::setLocale('vi')
-
                   $ngaytao = Carbon\Carbon::parse($row['created_at']);
-                    
+
                 @endphp
-                <li><i class="icon-clock"></i><a href="#">{{ $ngaytao->format('d F, Y') }}</a></li>
+                <li><i class="icon-clock"></i><a href="#">{{ $ngaytao->format('d-m-Y H:i') }}</a></li>
                 <!-- <li><i class="icon-user"></i><a href="#">Paul G.</a></li>
                 <li><i class="icon-tag"></i><a href="#">Video Games</a></li> -->
               </ul>
