@@ -2646,6 +2646,8 @@ class ProductsController extends Controller
     $advanced_arr['todays_deal']          =   $todays_deal_arr; 
      
     return $advanced_arr;
+
+    
   }
   
   /**

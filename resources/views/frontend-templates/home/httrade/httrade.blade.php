@@ -121,79 +121,7 @@
   </div>
 </section>
 
-<!-- Today sale Products-->
 
-@if (count($advancedData['todays_deal']) > 0)
-<section class="container padding-bottom-2x mb-2">
-  <h2 class="h3 pb-3 text-center">{{ trans('frontend.todays_deal') }}</h2>
-  <div class="row">
-
-  @foreach($advancedData['todays_deal'] as $key => $todays_sales_product)
-
-    <div class="col-lg-3 col-md-4 col-sm-6">
-      <div class="product-card mb-30">
-        @if ( $todays_sales_product->price < $todays_sales_product->regular_price )
-            @php
-              $tiengiam =  $todays_sales_product->regular_price - $todays_sales_product->price;
-              $phantram = ($tiengiam/$todays_sales_product->regular_price)*100;
-            @endphp
-          <div class="product-badge bg-danger">Giảm giá {{ $phantram }}%</div>
-        @endif
-        <a class="product-thumb" href="{{ route('details-page', $todays_sales_product->slug) }}">
-          @if(!empty($todays_sales_product->image_url))
-          <img class="products-page-product-img" src="{{ get_image_url( $todays_sales_product->image_url ) }}" alt="{{ basename( get_image_url( $todays_sales_product->image_url ) ) }}" />
-          @else
-          <img class="products-page-product-img" src="{{ default_placeholder_img_src() }}" alt="" />
-          @endif
-        </a>
-        <div class="product-card-body">
-          
-          <h3 class="product-title"><a href="{{ route('details-page', $todays_sales_product->slug) }}">{!! $todays_sales_product->title !!}</a></h3>
-
-          <h4 class="product-price">
-            @if ( $todays_sales_product->price < $todays_sales_product->regular_price )
-              <del>
-                {!! price_html( get_product_price_html_by_filter(get_role_based_price_by_product_id($todays_sales_product->id, $todays_sales_product->regular_price)), get_frontend_selected_currency()) !!}
-              </del>
-            @endif
-
-            @if( $todays_sales_product->type == 'simple_product' )
-              {!! price_html( get_product_price_html_by_filter(get_role_based_price_by_product_id($todays_sales_product->id, $todays_sales_product->price)), get_frontend_selected_currency()) !!}
-            @elseif( $todays_sales_product->type == 'configurable_product' )
-              {!! get_product_variations_min_to_max_price_html(get_frontend_selected_currency(), $todays_sales_product->id) !!}
-            @elseif( $todays_sales_product->type == 'customizable_product' || $todays_sales_product->type == 'downloadable_product')
-              @if(count(get_product_variations($todays_sales_product->id))>0)
-              {!! get_product_variations_min_to_max_price_html(get_frontend_selected_currency(), $todays_sales_product->id) !!}
-              @else
-              {!! price_html( get_product_price_html_by_filter(get_role_based_price_by_product_id($todays_sales_product->id, $todays_sales_product->price)), get_frontend_selected_currency()) !!}
-              @endif
-            @endif
-          </h4>
-        </div>
-        <div class="product-button-group">
-
-          <a class="product-button btn-wishlist product-wishlist" data-id="{{ $todays_sales_product->id }}" data-toggle="tooltip" title="{{ trans('frontend.add_to_wishlist_label') }}" data-original-title="{{ trans('frontend.add_to_wishlist_label') }}">
-            <i class="icon-heart"></i><span>{{ trans('frontend.add_to_wishlist_label') }}</span>
-          </a>
-          <a class="product-button btn-compare product-compare" data-id="{{ $todays_sales_product->id }}" data-toggle="tooltip" title="" data-original-title="{{ trans('frontend.add_to_compare_list_label') }}">
-            <i class="icon-repeat"></i><span>{{ trans('frontend.add_to_compare_list_label') }}</span>
-          </a>
-          <a class="product-button add-to-cart-bg" data-toast data-toast-type="success" data-toast-position="topRight" data-toast-icon="icon-check-circle" data-toast-title="Sản phẩm" data-toast-message="{{ trans('frontend.successfuly_added_to_cart') }}" data-id="{{ $todays_sales_product->id }}" data-toggle="tooltip" data-placement="top"title="" data-original-title="{{ trans('frontend.add_to_cart_label') }}">
-            <i class="icon-shopping-cart"></i><span>{{ trans('frontend.add_to_cart_label') }}</span>
-          </a>
-
-       </div>
-      </div>
-    </div>  
-  @endforeach
-  </div>
-
-  <div class="text-center">
-    <a class="btn btn-outline-secondary" href="{{ route('shop-page') }}">{{ trans('frontend.view_all_products') }}</a>
-  </div>
-
-</section>
-@endif
 
 <!-- Featured Products-->
 <section class="container padding-bottom-2x mb-2">
@@ -339,6 +267,83 @@
   </div>
 </section>
 
+<!-- Today sale Products-->
+
+{{-- @if (count($advancedData['todays_deal']) > 0) --}}
+@if(count($advancedData['todays_deal']) > 0)
+  <section class="container padding-bottom-2x mb-2">
+    <h2 class="h3 pb-3 text-center">{{ trans('frontend.todays_sale_label') }}</h2>
+    <div class="row">
+
+    {{-- @foreach($advancedData['todays_deal'] as $key => $best_sales_product) --}}
+    @foreach($advancedData['todays_deal'] as $key => $todays_sales_product)
+
+
+      <div class="col-lg-3 col-md-4 col-sm-6">
+        <div class="product-card mb-30">
+          @if ($todays_sales_product['post_price'] <$todays_sales_product['post_regular_price'] )
+              @php
+                $tiengiam = $todays_sales_product['post_regular_price'] - $todays_sales_product['post_price'];
+                $phantram = ($tiengiam/$todays_sales_product['post_regular_price'])*100;
+              @endphp
+            <div class="product-badge bg-danger">Giảm giá {{ $phantram }}%</div>
+          @endif
+          <a class="product-thumb" href="{{ route('details-page',$todays_sales_product['post_slug']) }}">
+            @if(!empty($todays_sales_product['post_image_url']))
+              <img class="products-page-product-img" src="{{ get_image_url($todays_sales_product['post_image_url'] ) }}" alt="{{ basename( get_image_url($todays_sales_product['post_image_url'] ) ) }}" />
+            @else
+              <img class="products-page-product-img" src="{{ default_placeholder_img_src() }}" alt="" />
+            @endif
+          </a>
+          <div class="product-card-body">
+            
+            <h3 class="product-title"><a href="{{ route('details-page',$todays_sales_product['post_slug']) }}">{!!$todays_sales_product['post_title'] !!}</a></h3>
+
+            <h4 class="product-price">
+              @if ($todays_sales_product['post_price'] <$todays_sales_product['post_regular_price'] )
+                <del>
+                  {!! price_html( get_product_price_html_by_filter(get_role_based_price_by_product_id($todays_sales_product['id'],$todays_sales_product['post_regular_price'])), get_frontend_selected_currency()) !!}
+                </del>
+              @endif
+
+              @if($todays_sales_product['post_type'] == 'simple_product' )
+                {!! price_html( get_product_price_html_by_filter(get_role_based_price_by_product_id($todays_sales_product['id'],$todays_sales_product['post_price'])), get_frontend_selected_currency()) !!}
+              @elseif($todays_sales_product['post_type'] == 'configurable_product' )
+                {!! get_product_variations_min_to_max_price_html(get_frontend_selected_currency(),$todays_sales_product['id']) !!}
+              @elseif($todays_sales_product['post_type'] == 'customizable_product' ||$todays_sales_product['post_type'] == 'downloadable_product')
+                @if(count(get_product_variations($todays_sales_product['id']))>0)
+                {!! get_product_variations_min_to_max_price_html(get_frontend_selected_currency(),$todays_sales_product['id']) !!}
+                @else
+                {!! price_html( get_product_price_html_by_filter(get_role_based_price_by_product_id($best_sales_product['id'],$todays_sales_product['post_sale_price'])), get_frontend_selected_currency()) !!}
+                @endif
+              @endif
+            </h4>
+          </div>
+          <div class="product-button-group">
+
+            <a class="product-button btn-wishlist product-wishlist" data-id="{{$todays_sales_product['id'] }}" data-toggle="tooltip" title="{{ trans('frontend.add_to_wishlist_label') }}" data-original-title="{{ trans('frontend.add_to_wishlist_label') }}">
+              <i class="icon-heart"></i><span>{{ trans('frontend.add_to_wishlist_label') }}</span>
+            </a>
+            <a class="product-button btn-compare product-compare" data-id="{{$todays_sales_product['id'] }}" data-toggle="tooltip" title="" data-original-title="{{ trans('frontend.add_to_compare_list_label') }}">
+              <i class="icon-repeat"></i><span>{{ trans('frontend.add_to_compare_list_label') }}</span>
+            </a>
+            <a class="product-button add-to-cart-bg" data-toast data-toast-type="success" data-toast-position="topRight" data-toast-icon="icon-check-circle" data-toast-title="Sản phẩm" data-toast-message="{{ trans('frontend.successfuly_added_to_cart') }}" data-id="{{$todays_sales_product['id'] }}" data-toggle="tooltip" data-placement="top"title="" data-original-title="{{ trans('frontend.add_to_cart_label') }}">
+              <i class="icon-shopping-cart"></i><span>{{ trans('frontend.add_to_cart_label') }}</span>
+            </a>
+
+        </div>
+        </div>
+      </div>  
+    @endforeach
+    </div>
+
+    <div class="text-center">
+      <a class="btn btn-outline-secondary" href="{{ route('shop-page') }}">{{ trans('frontend.view_all_products') }}</a>
+    </div>
+
+  </section>
+@endif
+
 @if($appearance_all_data['header_details']['slider_visibility'] == true && Request::is('/'))
   
   <!-- CTA-->
@@ -393,31 +398,40 @@
         <!-- Entry-->
         <div class="entry">
           <div class="entry-thumb">
-            <a href="{{ route('details-page', $best_product->slug) }}">
-              @if(!empty($best_product->image_url))
-              <img src="{{ get_image_url( $best_product->image_url ) }}" alt="{{ basename( get_image_url( $best_product->image_url ) ) }}" />
+            <a href="{{ route('details-page', $best_product['post_slug']) }}">
+              @if(!empty($best_product['post_image_url']))
+                <img src="{{ get_image_url( $best_product['post_image_url'] ) }}" alt="{{ basename( get_image_url( $best_product['post_image_url'] ) ) }}" />
               @else
-              <img src="{{ default_placeholder_img_src() }}" alt="" />
+                <img src="{{ default_placeholder_img_src() }}" alt="" />
               @endif
             </a>
           </div>
           <div class="entry-content">
             
             <h4 class="entry-title">
-              <a href="{{ route('details-page', $best_product->slug) }}">{!! $best_product->title !!}</a>
+              <a href="{{ route('details-page', $best_product['post_slug']) }}">{!! $best_product['post_title'] !!}</a>
             </h4>
 
             <span class="entry-meta">
 
-              @if( $best_product->type == 'simple_product' )
-                {!! price_html( get_product_price_html_by_filter(get_role_based_price_by_product_id($best_product->id, $best_product->price)), get_frontend_selected_currency()) !!}
-              @elseif( $best_product->type == 'configurable_product' )
-                {!! get_product_variations_min_to_max_price_html(get_frontend_selected_currency(), $best_product->id) !!}
-              @elseif( $best_product->type == 'customizable_product' || $best_product->type == 'downloadable_product')
-                @if(count(get_product_variations($best_product->id))>0)
-                {!! get_product_variations_min_to_max_price_html(get_frontend_selected_currency(), $best_product->id) !!}
+              @if ($best_product['post_price'] < $best_product['post_regular_price'] )
+                <del>
+                  {!! price_html( get_product_price_html_by_filter(get_role_based_price_by_product_id($best_product['id'],$best_product['post_regular_price'])), get_frontend_selected_currency()) !!}
+                </del>
+                &nbsp;
+
+              @endif
+
+
+              @if( $best_product['post_type'] == 'simple_product' )
+                {!! price_html( get_product_price_html_by_filter(get_role_based_price_by_product_id($best_product['id'], $best_product['post_price'])), get_frontend_selected_currency()) !!}
+              @elseif( $best_product['post_type'] == 'configurable_product' )
+                {!! get_product_variations_min_to_max_price_html(get_frontend_selected_currency(), $best_product['id']) !!}
+              @elseif( $best_product['post_type'] == 'customizable_product' || $best_product['post_type'] == 'downloadable_product')
+                @if(count(get_product_variations($best_product['id']))>0)
+                {!! get_product_variations_min_to_max_price_html(get_frontend_selected_currency(), $best_product['id']) !!}
                 @else
-                {!! price_html( get_product_price_html_by_filter(get_role_based_price_by_product_id($best_product->id, $best_product->price)), get_frontend_selected_currency()) !!}
+                {!! price_html( get_product_price_html_by_filter(get_role_based_price_by_product_id($best_product['id'], $best_product['post_price'])), get_frontend_selected_currency()) !!}
                 @endif
               @endif
             
@@ -451,6 +465,15 @@
             <h4 class="entry-title"><a href="{{ route('details-page', $latest_product->slug) }}">{!! $latest_product->title !!}</a></h4>
 
             <span class="entry-meta">
+
+              @if ($latest_product->price < $latest_product->regular_price )
+                <del>
+                  {!! price_html( get_product_price_html_by_filter(get_role_based_price_by_product_id($latest_product->id,$latest_product->regular_price)), get_frontend_selected_currency()) !!}
+                </del>
+                &nbsp;
+
+              @endif
+
 
               @if( $latest_product->type == 'simple_product' )
                 {!! price_html( get_product_price_html_by_filter(get_role_based_price_by_product_id($latest_product->id, $latest_product->price)), get_frontend_selected_currency()) !!}
@@ -493,6 +516,14 @@
             <h4 class="entry-title"><a href="{{ route('details-page', $latest_product->slug) }}">{!! $latest_product->title !!}</a></h4>
 
             <span class="entry-meta">
+
+              @if ($latest_product->price < $latest_product->regular_price )
+                <del>
+                  {!! price_html( get_product_price_html_by_filter(get_role_based_price_by_product_id($latest_product->id,$latest_product->regular_price)), get_frontend_selected_currency()) !!}
+                </del>
+                &nbsp;
+              @endif
+
 
               @if( $latest_product->type == 'simple_product' )
                 {!! price_html( get_product_price_html_by_filter(get_role_based_price_by_product_id($latest_product->id, $latest_product->price)), get_frontend_selected_currency()) !!}
