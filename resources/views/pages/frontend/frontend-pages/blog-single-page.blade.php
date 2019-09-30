@@ -161,27 +161,28 @@
 
       <!-- Comment Form-->
       @if($blog_details_by_slug['allow_comments_at_frontend'] == 'yes')
-      @include('pages-message.notify-msg-success')
-      @include('pages-message.notify-msg-error')
-      @include('pages-message.form-submit')
+        @include('pages-message.notify-msg-success')
+        @include('pages-message.notify-msg-error')
+        @include('pages-message.form-submit')
 
-      <h4 class="padding-top-2x padding-bottom-1x">{!! trans('frontend.add_a_review_label') !!}</h4>
-      <form class="row" id="new_comment_form" method="post" action="" enctype="multipart/form-data">
-        <input type="hidden" name="_token" id="_token" value="{{ csrf_token() }}">
-        <input type="hidden" name="comments_target" id="comments_target" value="blog">
-        <input type="hidden" name="selected_rating_value" id="selected_rating_value" value="">
-        <input type="hidden" name="object_id" id="object_id" value="{{ $blog_details_by_slug['id'] }}">
+        <h4 class="padding-top-2x padding-bottom-1x">{!! trans('frontend.add_a_review_label') !!}</h4>
+        <form class="row" id="new_comment_form" method="post" action="" enctype="multipart/form-data">
+          <input type="hidden" name="_token" id="_token" value="{{ csrf_token() }}">
+          <input type="hidden" name="comments_target" id="comments_target" value="blog">
+          <input type="hidden" name="selected_rating_value" id="selected_rating_value" value="">
+          <input type="hidden" name="object_id" id="object_id" value="{{ $blog_details_by_slug['id'] }}">
 
-        <div class="col-12">
-          <div class="form-group">
-            <label for="product_review_content">{!! trans('frontend.write_your_review_label') !!}</label>
-            <textarea name="product_review_content" id="product_review_content" class="form-control form-control-rounded" rows="7" placeholder="Write your comment here..." required></textarea>
+          <div class="col-12">
+            <div class="form-group">
+              <label for="product_review_content">{!! trans('frontend.write_your_review_label') !!}</label>
+              <textarea name="product_review_content" id="product_review_content" class="form-control form-control-rounded" rows="7" placeholder="Write your comment here..." required></textarea>
+            </div>
           </div>
-        </div>
-        <div class="col-12 text-right">
-          <input name="review_submit" id="review_submit" class="btn btn-primary btn-sm" value="{{ trans('frontend.submit_label') }}" type="submit">
-        </div>
-      </form>
+          <div class="col-12 text-right">
+            <input name="review_submit" id="review_submit" class="btn btn-primary btn-sm" value="{{ trans('frontend.submit_label') }}" type="submit">
+          </div>
+        </form>
+      @endif
     </div>
   </div>
 </div>
