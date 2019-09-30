@@ -742,7 +742,7 @@
 
                     @if ( $products['product_price'] < $products['product_regular_price'] )
                     <del>
-                        {!! price_html( get_product_price_html_by_filter(get_role_based_price_by_product_id($products['id'], $products['regular_price'])), get_frontend_selected_currency()) !!}
+                        {!! price_html( get_product_price_html_by_filter(get_role_based_price_by_product_id($products['id'], $products['product_regular_price'])), get_frontend_selected_currency()) !!}
                     </del>
                     @endif
                     @if(get_product_type($products['id']) == 'simple_product')
