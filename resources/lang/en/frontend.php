@@ -364,7 +364,7 @@ return [
     'currently_label'                                           =>  'and is currently',
     'user_order_details_page_content_title'                     =>  'Order Details',
     'user_customer_details_page_content_title'                  =>  'Customer Details',
-    'best_from_the_blog_title'                                  =>  'Best from the blog',
+    'best_from_the_blog_title'                                  =>  'Best from the bloggggg',
     'no_saved_items_yet_label'                                  =>  'No saved items yet!',
     'no_post_blog_cat_yet_label'                                =>  'No posts of this category yet', 
     'single_product_read_review_label'                          =>  'Read reviews', 
