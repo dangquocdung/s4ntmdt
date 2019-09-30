@@ -14,26 +14,26 @@
                 <div class="row">
                 <div class="col-sm-6">
                     <div class="form-group">
-                    <label for="inputAccountFirstName">{{ trans('frontend.account_first_name') }}</label>
-                    <input type="text" class="form-control" placeholder="{{ trans('frontend.first_name') }}" name="account_bill_first_name" id="account_bill_first_name" value="{{ old('account_bill_first_name') }}">
+                        <label for="inputAccountFirstName">{{ trans('frontend.account_first_name') }}</label>
+                        <input type="text" class="form-control" placeholder="{{ trans('frontend.first_name') }}" name="account_bill_first_name" id="account_bill_first_name" value="{{ old('account_bill_first_name') }}">
                     </div>
                 </div>
                 <div class="col-sm-6">
                     <div class="form-group">
-                    <label for="inputAccountLastName">{{ trans('frontend.account_last_name') }}</label>
-                    <input type="text" class="form-control" placeholder="{{ trans('frontend.last_name') }}" name="account_bill_last_name" id="account_bill_last_name" value="{{ old('account_bill_last_name') }}">
+                        <label for="inputAccountLastName">{{ trans('frontend.account_last_name') }}</label>
+                        <input type="text" class="form-control" placeholder="{{ trans('frontend.last_name') }}" name="account_bill_last_name" id="account_bill_last_name" value="{{ old('account_bill_last_name') }}">
                     </div>
                 </div>
                 <div class="col-sm-6">
                     <div class="form-group">
-                    <label for="inputAccountEmailAddress">{{ trans('frontend.account_email') }}</label>
-                    <input type="email" class="form-control" placeholder="{{ trans('frontend.email') }}" name="account_bill_email_address" id="account_bill_email_address" value="{{ old('account_bill_email_address') }}">
+                        <label for="inputAccountEmailAddress">{{ trans('frontend.account_email') }}</label>
+                        <input type="email" class="form-control" placeholder="{{ trans('frontend.email') }}" name="account_bill_email_address" id="account_bill_email_address" value="{{ old('account_bill_email_address') }}">
                     </div>
                 </div>
                 <div class="col-sm-6">
                     <div class="form-group">
-                    <label for="inputAccountPhoneNumber">{{ trans('frontend.account_phone_number') }}</label>
-                    <input type="number" class="form-control" placeholder="{{ trans('frontend.phone') }}" name="account_bill_phone_number" id="account_bill_phone_number" value="{{ old('account_bill_phone_number') }}">
+                        <label for="inputAccountPhoneNumber">{{ trans('frontend.account_phone_number') }}</label>
+                        <input type="number" class="form-control" placeholder="{{ trans('frontend.phone') }}" name="account_bill_phone_number" id="account_bill_phone_number" value="{{ old('account_bill_phone_number') }}">
                     </div>
                 </div>
                 
