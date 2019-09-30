@@ -266,11 +266,11 @@
         <div class="col-md-4 col-sm-6">
           <div class="product-card mb-30">
 
-            @if ( $recommended_item->price < $recommended_item->regular_price )
+            @if ( $recommended_items->price < $recommended_items->regular_price )
 
             @php
-              $tiengiam =  $recommended_item->regular_price - $recommended_item->price;
-              $phantram = ($tiengiam/$recommended_item->regular_price)*100;
+              $tiengiam =  $recommended_items->regular_price - $recommended_items->price;
+              $phantram = ($tiengiam/$recommended_items->regular_price)*100;
             @endphp
             <div class="product-badge bg-danger">Giảm giá {{ $phantram }}%</div>
 
