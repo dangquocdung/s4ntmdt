@@ -67,16 +67,13 @@
             @include('includes.checkout.step7_order_notes')
             @yield('order_notes')
 
-
-
-
             <br>
             <div class="shopping-cart-footer">
               <div class="column">
                 <button class="action next btn btn-primary" style="float:right">{!! trans('frontend.proceed_to_checkout_label') !!}</button>
               </div>
               <div class="column">
-                <button name="checkout_proceed" class="action submit btn btn-secondary place-order" type="submit" value="checkout_proceed">{{ trans('frontend.place_order') }}</button>
+                <button name="checkout_proceed" class="action submit btn btn-danger place-order" type="submit" value="checkout_proceed">{{ trans('frontend.place_order') }}</button>
               </div>
               </div>
             
@@ -86,7 +83,7 @@
           <input type="hidden" id="is_user_login" name="is_user_login" value="{{ $is_user_login }}">
           <input type="hidden" id="selected_payment_method" name="selected_payment_method">
           @if(!empty($login_user_account_data) && !empty($login_user_account_data->address_details))
-          <input type="hidden" id="is_login_user_address_exists" name="is_login_user_address_exists" value="address_added">
+            <input type="hidden" id="is_login_user_address_exists" name="is_login_user_address_exists" value="address_added">
           @endif
         </form>    
         @else

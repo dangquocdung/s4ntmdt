@@ -139,7 +139,7 @@ class CheckoutController extends Controller
           return redirect()->back();
         }
 								
-								if(Input::get('payment_option') === '2checkout' && !Input::has('twoCheckoutToken')){
+        if(Input::get('payment_option') === '2checkout' && !Input::has('twoCheckoutToken')){
           Session::flash('message', Lang::get('validation.twocheckout_required_msg'));
           return redirect()->back();
         }
@@ -173,7 +173,6 @@ class CheckoutController extends Controller
                  'account_bill_select_country'            =>  'required',
                  'account_bill_adddress_line_1'           =>  'required',
                  'account_bill_town_or_city'              =>  'required',
-                 'account_bill_zip_or_postal_code'        =>  'required'
                  ];
           
           $get_shipping_status = Input::get('different_shipping_address');
@@ -185,7 +184,6 @@ class CheckoutController extends Controller
             $rules['account_shipping_select_country']     = 'required';
             $rules['account_shipping_adddress_line_1']    = 'required';
             $rules['account_shipping_town_or_city']       = 'required';
-            $rules['account_shipping_zip_or_postal_code'] = 'required';
           }
           
           $messages = [
@@ -197,7 +195,6 @@ class CheckoutController extends Controller
                 'account_bill_select_country.required' => Lang::get('validation.billing_country_name_field'),
                 'account_bill_adddress_line_1.required' => Lang::get('validation.billing_address_line_1_field'),
                 'account_bill_town_or_city.required' => Lang::get('validation.billing_fill_town_city_field'),
-                'account_bill_zip_or_postal_code.required' => Lang::get('validation.billing_fill_zip_postal_field'),
               ];
           
           if(isset($get_shipping_status) && $get_shipping_status == 'different_address'){
@@ -209,7 +206,6 @@ class CheckoutController extends Controller
             $messages['account_shipping_select_country.required'] = Lang::get('validation.shipping_country_name_field');
             $messages['account_shipping_adddress_line_1.required'] = Lang::get('validation.shipping_address_line_1_field');
             $messages['account_shipping_town_or_city.required'] = Lang::get('validation.shipping_fill_town_city_field');
-            $messages['account_shipping_zip_or_postal_code.required'] = Lang::get('validation.shipping_fill_zip_postal_field');
           }
         }
       
@@ -247,7 +243,6 @@ class CheckoutController extends Controller
             $shipping_adddress_line_1       =   Input::get('account_bill_adddress_line_1');
             $shipping_address_line_2        =   Input::get('account_bill_adddress_line_2');
             $shipping_town_or_city          =   Input::get('account_bill_town_or_city');
-            $shipping_zip_or_postal_code    =   Input::get('account_bill_zip_or_postal_code');
             
             if(isset($get_shipping_status) && $get_shipping_status == 'different_address'){
               $shipping_title                 =   Input::get('account_shipping_title');
@@ -261,7 +256,6 @@ class CheckoutController extends Controller
               $shipping_adddress_line_1       =   Input::get('account_shipping_adddress_line_1');
               $shipping_address_line_2        =   Input::get('account_shipping_adddress_line_2');
               $shipping_town_or_city          =   Input::get('account_shipping_town_or_city');
-              $shipping_zip_or_postal_code    =   Input::get('account_shipping_zip_or_postal_code');
             }
             
             $this->checkoutData['billing_title']              =   Input::get('account_bill_title');
@@ -275,7 +269,6 @@ class CheckoutController extends Controller
             $this->checkoutData['bill_adddress_line_1']       =   Input::get('account_bill_adddress_line_1');
             $this->checkoutData['bill_address_line_2']        =   Input::get('account_bill_adddress_line_2');
             $this->checkoutData['bill_town_or_city']          =   Input::get('account_bill_town_or_city');
-            $this->checkoutData['bill_zip_or_postal_code']    =   Input::get('account_bill_zip_or_postal_code');
             
             $this->checkoutData['shipping_title']              =   $shipping_title;
             $this->checkoutData['shipping_first_name']         =   $shipping_first_name;
@@ -288,7 +281,6 @@ class CheckoutController extends Controller
             $this->checkoutData['shipping_adddress_line_1']    =   $shipping_adddress_line_1;
             $this->checkoutData['shipping_address_line_2']     =   $shipping_address_line_2;
             $this->checkoutData['shipping_town_or_city']       =   $shipping_town_or_city;
-            $this->checkoutData['shipping_zip_or_postal_code'] =   $shipping_zip_or_postal_code;
           }
           
           $this->checkoutData['payment_method']             =   Input::get('payment_option');
@@ -335,140 +327,6 @@ class CheckoutController extends Controller
             }
 
             return \Redirect::route('frontend-order-received', array('order_id' => $order_id['order_id'], 'order_key' => $order_id['process_id']));
-          }
-          elseif(Input::get('payment_option') === 'stripe'){
-            $stripe_key   = get_stripe_api_key();
-            $total_amount = $this->cart->getCartTotal() * 100;
-            
-            if(isset($stripe_key['secret_key']) && isset($stripe_key['publishable_key'])){
-              \Stripe\Stripe::setApiKey ( $stripe_key['secret_key'] );
-              $mailData = array();
-              $adminMailData = array();
-              
-              $order_id = $this->save_checkout_data();
-            
-              // Create a Customer:
-              $customer = \Stripe\Customer::create(array(
-                "email"  =>     Input::get('email_address'),
-                "source" =>     Input::get('stripeToken'),
-                "metadata" =>   array("order_id" => $order_id['order_id'])
-              ));
-
-              try {
-                $charge = \Stripe\Charge::create(array(
-                  "amount" =>      $total_amount,
-                  "currency" =>    get_frontend_selected_currency(),
-                  "customer" =>    $customer->id,
-                  "description" => "item charge",
-                  "metadata" =>    array("order_id" => $order_id['order_id'], 'customer_id' => $customer->id), 
-                ));
-                
-                if(!empty($charge->id)){
-                  $adminMailData['source']           =   'admin_order_confirmation';
-                  $adminMailData['data']             =   array('order_id' => $order_id['order_id']);
-
-                  if($order_id['order_id'] > 0 && $this->env === 'production'){
-                    $this->classGetFunction->sendCustomMail( $adminMailData );
-                  }
-                    
-                  if(isset($email_options['new_order']['enable_disable']) && $email_options['new_order']['enable_disable'] == true){
-                    //load mailData Array
-                    $mailData['source']           =   'order_confirmation';
-                    $mailData['data']             =   array('order_id' => $order_id['order_id']);
-
-                    if($order_id['order_id'] > 0 && $this->env === 'production'){
-                      $this->classGetFunction->sendCustomMail( $mailData );
-                    }
-                  }
-                  
-                  if($this->nexmo_data['enable_nexmo_option'] == true){
-                    $this->classCommonFunction->sendSMSToAdmin();
-                  }
-
-                  return \Redirect::route('frontend-order-received', array('order_id' => $order_id['order_id'], 'order_key' => $order_id['process_id']));
-                }  
-              } catch ( \Exception $e ) {}
-            }
-          }
-          elseif(Input::get('payment_option') === '2checkout'){
-            $checkout_details = null;
-            $twocheckout_data   = get_twocheckout_api_data();
-            $total_amount			  = $this->cart->getCartTotal();
-            
-            
-            if(isset($twocheckout_data['privateKey']) && !empty($twocheckout_data['privateKey']) && isset($twocheckout_data['sellerId']) && !empty($twocheckout_data['sellerId'])){
-              $isSandboxEnable = false;
-              if(isset($twocheckout_data['sandbox_enable_option']) && $twocheckout_data['sandbox_enable_option'] == 'yes'){
-                $isSandboxEnable = true;
-              }
-              
-              Twocheckout::privateKey($twocheckout_data['privateKey']);
-              Twocheckout::sellerId($twocheckout_data['sellerId']);
-              Twocheckout::verifySSL(false);
-              Twocheckout::sandbox($isSandboxEnable);
-              
-              if(Session::has('checkout_post_details')){
-                $checkout_details = json_decode(Session::get('checkout_post_details'));
-              }
-              
-              $mailData = array();
-              $adminMailData = array();
-              $order_id = $this->save_checkout_data();
-                            
-              try {
-                $charge = Twocheckout_Charge::auth(array(
-                    "merchantOrderId"  =>  $order_id['order_id'],
-                    "token"            =>  Input::get('twoCheckoutToken'),
-                    "currency"         =>  get_frontend_selected_currency(),
-                    "total"            =>  $total_amount,
-                    "billingAddr" => array(
-                        "name"          =>  $checkout_details->bill_first_name.' '.$checkout_details->bill_last_name,
-                        "addrLine1"     =>  $checkout_details->bill_adddress_line_1,
-                        "city"          =>  $checkout_details->bill_town_or_city,
-                        "state"         =>  '',
-                        "zipCode"       =>  $checkout_details->bill_zip_or_postal_code,
-                        "country"       =>  $checkout_details->bill_select_country,
-                        "email"         =>  $checkout_details->bill_email_address,
-                        "phoneNumber"   =>  $checkout_details->bill_phone_number
-                    ),
-                    "shippingAddr" => array(
-                        "name"          =>  $checkout_details->shipping_first_name.' '.$checkout_details->shipping_last_name,
-                        "addrLine1"     =>  $checkout_details->shipping_adddress_line_1,
-                        "city"          =>  $checkout_details->shipping_town_or_city,
-                        "state"         =>  '',
-                        "zipCode"       =>  $checkout_details->shipping_zip_or_postal_code,
-                        "country"       =>  $checkout_details->shipping_select_country,
-                        "email"         =>  $checkout_details->shipping_email_address,
-                        "phoneNumber"   =>  $checkout_details->shipping_phone_number
-                    )
-                ), 'array');
-                if ($charge['response']['responseCode'] == 'APPROVED') {
-                  
-                  $adminMailData['source']           =   'admin_order_confirmation';
-                  $adminMailData['data']             =   array('order_id' => $order_id['order_id']);
-
-                  if($order_id['order_id'] > 0 && $this->env === 'production'){
-                    $this->classGetFunction->sendCustomMail( $adminMailData );
-                  }
-                    
-                  if(isset($email_options['new_order']['enable_disable']) && $email_options['new_order']['enable_disable'] == true){
-                    //load mailData Array
-                    $mailData['source']     =   'order_confirmation';
-                    $mailData['data']       =   array('order_id' => $order_id['order_id']);
-
-                    if($order_id['order_id'] > 0 && $this->env === 'production'){
-                      $this->classGetFunction->sendCustomMail( $mailData );
-                    }
-                  }
-                  
-                  if($this->nexmo_data['enable_nexmo_option'] == true){
-                    $this->classCommonFunction->sendSMSToAdmin();
-                  }
-
-                  return \Redirect::route('frontend-order-received', array('order_id' => $order_id['order_id'], 'order_key' => $order_id['process_id']));
-                }
-              } catch (Twocheckout_Error $e) { $error = $e->getMessage(); }
-            }
           }
           elseif(Input::get('payment_option') === 'paypal'){
             //process items
@@ -947,7 +805,7 @@ class CheckoutController extends Controller
                           array(
                                   'post_id'       =>  $post->id,
                                   'key_name'      =>  '_billing_postcode',
-                                  'key_value'     =>  $checkout_details->bill_zip_or_postal_code,
+                                  'key_value'     =>  '480000',
                                   'created_at'    =>  date("y-m-d H:i:s", strtotime('now')),
                                   'updated_at'    =>  date("y-m-d H:i:s", strtotime('now'))
                                 ),
@@ -1031,7 +889,7 @@ class CheckoutController extends Controller
                           array(
                                   'post_id'       =>  $post->id,
                                   'key_name'      =>  '_shipping_postcode',
-                                  'key_value'     =>  $checkout_details->shipping_zip_or_postal_code,
+                                  'key_value'     =>  '480000',
                                   'created_at'    =>  date("y-m-d H:i:s", strtotime('now')),
                                   'updated_at'    =>  date("y-m-d H:i:s", strtotime('now'))
                                 ),        

@@ -66,7 +66,7 @@ Route::post('/gio-hang', [
 $router->get('/remove_item/{cart_id}', ['uses' => 'Frontend\FrontendManagerController@doActionForRemoveItem', 'as' => 'removed-item-from-cart']);
 $router->get('/remove_compare_product/{product_id}', ['uses' => 'Frontend\FrontendManagerController@doActionForRemoveCompareProduct', 'as' => 'remove-compare-product-from-list']);
 
-Route::post('/checkout', [
+Route::post('/thanh-toan', [
   'uses' => 'CheckoutController@doCheckoutProcess',
   'as'   => 'checkout-process'
 ]);

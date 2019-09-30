@@ -182,11 +182,7 @@
      @if($payment_method_data['bacs']['enable_option'] == 'yes')
       <span>
        <label>
-         @if(old('payment_option') == 'bacs')
-         <input type="radio" class="shopist-iCheck" checked name="payment_option" value="bacs"> {{ $payment_method_data['bacs']['method_title'] }}
-         @else
           <input type="radio" class="shopist-iCheck" name="payment_option" value="bacs"> {{ $payment_method_data['bacs']['method_title'] }}
-         @endif
        </label>
       </span>
      @endif
@@ -194,11 +190,7 @@
      @if($payment_method_data['cod']['enable_option'] == 'yes')
       <span>
        <label>
-         @if(old('payment_option') == 'cod')
-          <input type="radio" checked name="payment_option" class="shopist-iCheck" value="cod"> {{ $payment_method_data['cod']['method_title'] }}
-         @else
           <input type="radio" name="payment_option" class="shopist-iCheck" value="cod"> {{ $payment_method_data['cod']['method_title'] }}
-         @endif
        </label>
       </span>
      @endif
@@ -206,11 +198,7 @@
      @if($payment_method_data['paypal']['enable_option'] == 'yes')
       <span>
        <label>
-         @if(old('payment_option') == 'paypal')
-          <input type="radio" checked name="payment_option" class="shopist-iCheck" value="paypal"> {{ $payment_method_data['paypal']['method_title'] }}
-         @else
           <input type="radio" name="payment_option" class="shopist-iCheck" value="paypal"> {{ $payment_method_data['paypal']['method_title'] }}
-         @endif
        </label>
       </span>
      @endif
