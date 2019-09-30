@@ -38,7 +38,7 @@
               <h4 class="product-price">
                 <!-- <del>$62.00</del>$49.99 -->
 
-                @if ( $latest->regular_price <   $latest->regular_price )
+                @if ( $latest->price <   $latest->regular_price )
 
                 <del>
                   {!! price_html( get_product_price_html_by_filter(get_role_based_price_by_product_id($latest->id, $latest->regular_price)), get_frontend_selected_currency()) !!}
@@ -205,7 +205,7 @@
               <h4 class="product-price">
                 <!-- <del>$62.00</del>$49.99 -->
 
-                @if ( $features_items->regular_price <   $features_items->regular_price )
+                @if ( $features_items->price <   $features_items->regular_price )
 
                 <del>
                   {!! price_html( get_product_price_html_by_filter(get_role_based_price_by_product_id($features_items->id, $features_items->regular_price)), get_frontend_selected_currency()) !!}
@@ -293,7 +293,7 @@
               <h4 class="product-price">
                 <!-- <del>$62.00</del>$49.99 -->
 
-                @if ( $recommended_items->regular_price <   $recommended_items->regular_price )
+                @if ( $recommended_items->price <   $recommended_items->regular_price )
 
                 <del>
                   {!! price_html( get_product_price_html_by_filter(get_role_based_price_by_product_id($recommended_items->id, $recommended_items->regular_price)), get_frontend_selected_currency()) !!}
