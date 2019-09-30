@@ -1,4 +1,5 @@
 @extends('layouts.frontend.master')
+
 @if(!empty($blog_details_by_slug['blog_seo_title']))
   @section('title',  $blog_details_by_slug['blog_seo_title'] .' | '. get_site_title())
 @else
