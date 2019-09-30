@@ -369,7 +369,7 @@ return [
   'currently_label' =>'và hiện tại',
   'user_order_details_page_content_title' =>'Chi tiết đặt hàng',
   'user_customer_details_page_content_title' =>'Chi tiết khách hàng',
-  'best_from_the_tin tức_title' =>'Tin hay ',
+  'best_from_the_tin tức_title' =>'Tin nhiều lượt xem',
   'no_saved_items_yet_label' =>'Chưa có mục nào được lưu!',
   'no_post_tin tức_cat_yet_label' =>'Chưa có bài viết nào thuộc thể loại này',
   'single_product_read_review_label' =>'Đọc đánh giá',
