@@ -133,7 +133,11 @@
     <div class="col-lg-3 col-md-4 col-sm-6">
       <div class="product-card mb-30">
         @if ( $todays_deal_product->price < $todays_deal_product->regular_price )
-          <div class="product-badge bg-danger">Giảm giá</div>
+            @php
+              $tiengiam =  $todays_deal_product->regular_price - $todays_deal_product->price;
+              $phantram = ($tiengiam/$todays_deal_product->regular_price)*100;
+            @endphp
+          <div class="product-badge bg-danger">Giảm giá {{ $phantram }}%</div>
         @endif
         <a class="product-thumb" href="{{ route('details-page', $todays_sales_product->slug) }}">
           @if(!empty($todays_sales_product->image_url))
@@ -202,7 +206,15 @@
       <div class="product-card mb-30">
 
         @if ( $features_product->price < $features_product->regular_price )
-          <div class="product-badge bg-danger">Giảm giá</div>
+          @php
+
+          $tiengiam =  $features_product->regular_price - $features_product->price;
+
+          $phantram = ($tiengiam/$features_product->regular_price)*100;
+            
+        @endphp
+        <div class="product-badge bg-danger">Giảm giá {{ $phantram }}%</div>
+
         @endif
         <a class="product-thumb" href="{{ route('details-page', $features_product->slug) }}">
           @if(!empty($features_product->image_url))
@@ -267,7 +279,13 @@
     <div class="col-lg-3 col-md-4 col-sm-6">
       <div class="product-card mb-30">
         @if ( $recommended_product->price < $recommended_product->regular_price )
-          <div class="product-badge bg-danger">Giảm giá</div>
+
+            @php
+              $tiengiam =  $recommended_product->regular_price - $recommended_product->price;
+              $phantram = ($tiengiam/$recommended_product->regular_price)*100;
+            @endphp
+          <div class="product-badge bg-danger">Giảm giá {{ $phantram }}%</div>
+
         @endif
         <a class="product-thumb" href="{{ route('details-page', $features_product->slug) }}">
           @if(!empty($recommended_product->image_url))
