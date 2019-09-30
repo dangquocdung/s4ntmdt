@@ -148,6 +148,7 @@ class AdminDashboardContentController extends Controller{
         $order_data['order_date']     =   $this->carbonObject->parse($rows->created_at)->toDayDateTimeString();
 
         $order_status                 =   PostExtra::where(['post_id' => $rows->id, 'key_name' => '_order_status'])->first();
+
         if(!empty($order_status->key_value)){
           $order_data['order_status'] =   $order_status->key_value;
         }
@@ -161,6 +162,7 @@ class AdminDashboardContentController extends Controller{
         }
 
         $order_currency               =   PostExtra::where(['post_id' => $rows->id, 'key_name' => '_order_currency'])->first();
+
         if(!empty($order_currency->key_value)){
           $order_data['order_currency'] =   $order_currency->key_value;
         }
@@ -171,7 +173,7 @@ class AdminDashboardContentController extends Controller{
       $dashboard['latest_orders'] = $last2DaysData;
     }
     else{
-    $dashboard['latest_orders'] = array();
+      $dashboard['latest_orders'] = array();
     }
 
     if($lastProducts && $lastProducts->count() > 0){

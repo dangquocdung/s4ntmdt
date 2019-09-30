@@ -130,9 +130,18 @@
                     <td><a href="{{ route('admin.view_order_details', $vals['order_id']) }}">#{!! $vals['order_id'] !!}</a></td>
                     <td>{!! $vals['order_date'] !!}</td>
                     <td>
-                      @if($vals['order_status'] == 'on-hold')<span class="on-hold-label">{{ trans('admin.on_hold') }}</span>@elseif($vals['order_status'] == 'refunded') <span class="refunded-label">{{ trans('admin.refunded') }}</span>@elseif($vals['order_status'] == 'cancelled') <span class="cancelled-label">{{ trans('admin.cancelled') }}</span> @elseif($vals['order_status'] == 'pending') <span class="pending-label">{{ trans('admin.pending') }}</span> @elseif($vals['order_status'] == 'processing') <span class="processing-label">{{ trans('admin.processing') }}</span> @elseif($vals['order_status'] == 'completed') <span class="completed-label">{{ trans('admin.completed') }}</span> @elseif($vals['order_status'] == 'shipping') <span class="shipping-label">{{ trans('admin.shipping') }}</span> @endif
+                      @if($vals['order_status'] == 'on-hold')<span class="on-hold-label">{{ trans('admin.on_hold') }}</span>
+                      @elseif($vals['order_status'] == 'refunded') <span class="refunded-label">{{ trans('admin.refunded') }}</span>
+                      @elseif($vals['order_status'] == 'cancelled') <span class="cancelled-label">{{ trans('admin.cancelled') }}</span> 
+                      @elseif($vals['order_status'] == 'pending') <span class="pending-label">{{ trans('admin.pending') }}</span> 
+                      @elseif($vals['order_status'] == 'processing') <span class="processing-label">{{ trans('admin.processing') }}</span> 
+                      @elseif($vals['order_status'] == 'completed') <span class="completed-label">{{ trans('admin.completed') }}</span> 
+                      @elseif($vals['order_status'] == 'shipping') <span class="shipping-label">{{ trans('admin.shipping') }}</span>
+                      @endif
                     </td>
-                    <td>{!! price_html( $vals['order_totals'],  $vals['order_currency']) !!}</td>
+                    <td>
+                      {!! price_html( $vals['order_totals'],  $vals['order_currency']) !!}
+                    </td>
                   </tr>
                 @endforeach  
               @else
@@ -262,16 +271,18 @@
         </div>
       </form>   
     </div> 
-    <div class="box box-solid">
+
+    {{-- <div class="box box-solid">
       <div class="box-header with-border">
         <i class="fa fa-info dashbord-icon-color"></i>
         <h3 class="box-title">{{ trans('admin.info_label') }}</h3>
       </div>
       <div class="box-body">
-        <div><i class="fa fa-check"></i> &nbsp; {!! trans('admin.running_version_label') !!} : 2.4.7 </div>
+        <div><i class="fa fa-check"></i> &nbsp; {!! trans('admin.running_version_label') !!} : 1.0.0 </div>
         <div style="padding-top: 5px;"><i class="fa fa-check"></i> &nbsp; {!! trans('admin.laravel_version_label') !!} : 5.6 </div>
       </div>  
-    </div> 
+    </div>  --}}
+
   </div>
 </div>
 <script type="text/javascript">
