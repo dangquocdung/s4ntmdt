@@ -569,5 +569,6 @@ return [
   'delete-all' => 'Xóa hết',
   'no_coupons_items' => 'Bạn chưa có phiếu giảm giá nào',
   'no_downloaded_items' => 'Bạn chưa có mục tải xuống nào',
-  'order_summary' => 'Tóm tắt đơn hàng'
+  'order_summary' => 'Tóm tắt đơn hàng',
+  'compare' => 'So sánh'
 ];
