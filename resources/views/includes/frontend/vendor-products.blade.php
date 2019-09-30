@@ -11,6 +11,16 @@
         <!-- Products Grid-->
         <div class="col-md-4 col-sm-6">
           <div class="product-card mb-30">
+            @if ( $products->price < $products->regular_price )
+
+            @php
+              $tiengiam =  $products->regular_price - $products->price;
+              $phantram = ($tiengiam/$products->regular_price)*100;
+            @endphp
+            <div class="product-badge bg-danger">Giảm giá {{ $phantram }}%</div>
+
+            @endif
+
             <!-- <div class="product-badge bg-danger">Sale</div> -->
             <a class="product-thumb" href="{{ route('details-page', $products->slug ) }}">
               @if(!empty($products->image_url))
