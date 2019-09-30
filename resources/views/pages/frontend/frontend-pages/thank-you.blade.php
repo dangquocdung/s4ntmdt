@@ -21,16 +21,15 @@
       </div>
       <!-- Page Content-->
       <div class="container padding-bottom-3x mb-2">
-        <div class="card text-center">
+        <div class="card ">
           @if( count($order_details_for_thank_you_page) > 0)
 
           <div class="card-body padding-top-2x">
-            <h3 class="card-title">{{ trans('frontend.order_received') }}</h3>
-            <p class="card-text">{{ trans('frontend.thank_you_msg') }}</p>
+            <h3 class="card-title text-center">{{ trans('frontend.order_received') }}</h3>
+            <p class="card-text text-center">{{ trans('frontend.thank_you_msg') }}</p>
             </p>
             
-          </div>
-          <div class="row padding-top-1x mt-3">
+            <div class="row padding-top-1x mt-3">
               <div class="col-sm-6">
                 <h5>Shipping to:</h5>
                 <ul class="list-unstyled">
@@ -46,7 +45,6 @@
                 </ul>
               </div>
             </div>
-          <div>
             <div class="padding-top-1x padding-bottom-1x">
               <a class="btn btn-outline-secondary" href="{{ route('shop-page') }}">
                 <i class="icon-shopping-cart"></i>&nbsp;{{ trans('frontend.tiep_tuc_mua_sam') }}
