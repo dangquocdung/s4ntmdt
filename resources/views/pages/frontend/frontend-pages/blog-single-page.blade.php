@@ -58,62 +58,128 @@
         <div class="column text-right"><a class="btn btn-outline-secondary btn-sm" href="#">Next&nbsp;<i class="icon-arrow-right"></i></a></div>
       </div>
       <!-- Relevant Posts-->
-      <h3 class="padding-top-3x padding-bottom-1x">You May Also Like</h3>
-      <div class="owl-carousel" data-owl-carousel="{ &quot;nav&quot;: false, &quot;dots&quot;: true, &quot;loop&quot;: false, &quot;autoHeight&quot;: true, &quot;margin&quot;: 30, &quot;responsive&quot;: {&quot;0&quot;:{&quot;items&quot;:1},&quot;630&quot;:{&quot;items&quot;:2},&quot;991&quot;:{&quot;items&quot;:3},&quot;1200&quot;:{&quot;items&quot;:3}} }">
-        
-        <div class="widget widget-featured-posts">
-          <div class="entry">
-            <div class="entry-thumb"><a href="blog-single-rs.html"><img src="img/blog/widget/01.jpg" alt="Post"></a></div>
-            <div class="entry-content">
-              <h4 class="entry-title"><a href="blog-single-rs.html">Factors Behind Wearable Gadgets Popularity</a></h4><span class="entry-meta">by Olivia Reyes</span>
+
+      @if(count($advanced_data['latest_items']) > 0)    
+
+        <h3 class="padding-top-3x padding-bottom-1x">{!! trans('frontend.latest_from_the_blog') !!}</h3>
+        <div class="owl-carousel" data-owl-carousel="{ &quot;nav&quot;: false, &quot;dots&quot;: true, &quot;loop&quot;: false, &quot;autoHeight&quot;: true, &quot;margin&quot;: 30, &quot;responsive&quot;: {&quot;0&quot;:{&quot;items&quot;:1},&quot;630&quot;:{&quot;items&quot;:2},&quot;991&quot;:{&quot;items&quot;:3},&quot;1200&quot;:{&quot;items&quot;:3}} }">
+          
+          @foreach($advanced_data['latest_items'] as $items)
+
+          <div class="widget widget-featured-posts">
+            <div class="entry">
+              <div class="entry-thumb">
+                <a href="{{ route('blog-single-page', $items['post_slug'])}}">
+
+                  @if(!empty($items['blog_image']))  
+                    <img src="{{ get_image_url($items['blog_image']) }}"  alt="{{ basename($items['blog_image']) }}">   
+                  @else
+                    <img src="{{ default_placeholder_img_src() }}"  alt="">   
+                  @endif
+
+                </a>
+              </div>
+              <div class="entry-content">
+                <h4 class="entry-title">
+                  <a href="{{ route('blog-single-page', $items['post_slug'])}}">{!! $items['post_title'] !!}</a>
+                </h4>
+                <span class="entry-meta"> {{ Carbon\Carbon::parse($items['created_at'])->format('d F, Y') }}</span>
+              </div>
             </div>
           </div>
+
+          @endforeach
+          
         </div>
-        
-      </div>
+
+      @endif
+
+      <!-- Best Posts-->
+
+      @if(count($advanced_data['best_items']) > 0)    
+
+        <h3 class="padding-top-3x padding-bottom-1x">{!! trans('frontend.best_from_the_blog_title') !!}</h3>
+
+        <div class="owl-carousel" data-owl-carousel="{ &quot;nav&quot;: false, &quot;dots&quot;: true, &quot;loop&quot;: false, &quot;autoHeight&quot;: true, &quot;margin&quot;: 30, &quot;responsive&quot;: {&quot;0&quot;:{&quot;items&quot;:1},&quot;630&quot;:{&quot;items&quot;:2},&quot;991&quot;:{&quot;items&quot;:3},&quot;1200&quot;:{&quot;items&quot;:3}} }">
+          
+          @foreach($advanced_data['best_items'] as $items)
+
+          <div class="widget widget-featured-posts">
+            <div class="entry">
+              <div class="entry-thumb">
+                <a href="{{ route('blog-single-page', $items['post_slug'])}}">
+
+                  @if(!empty($items['blog_image']))  
+                    <img src="{{ get_image_url($items['blog_image']) }}"  alt="{{ basename($items['blog_image']) }}">   
+                  @else
+                    <img src="{{ default_placeholder_img_src() }}"  alt="">   
+                  @endif
+
+                </a>
+              </div>
+              <div class="entry-content">
+                <h4 class="entry-title">
+                  <a href="{{ route('blog-single-page', $items['post_slug'])}}">{!! $items['post_title'] !!}</a>
+                </h4>
+                <span class="entry-meta"> {{ Carbon\Carbon::parse($items['created_at'])->format('d F, Y') }}</span>
+              </div>
+            </div>
+          </div>
+
+          @endforeach
+          
+        </div>
+
+      @endif
+    
       <!-- Comments-->
-      <section class="padding-top-3x" data-offset-top="60" id="comments">
-        <h3 class="padding-bottom-1x">Comments</h3>
-        <!-- Comment-->
-        <div class="comment">
-          <div class="comment-author-ava"><img src="img/reviews/01.jpg" alt="Comment author"></div>
-          <div class="comment-body">
-            <div class="comment-header">
-              <h4 class="comment-title">Francis Burton</h4>
+      @if(count($comments_details) > 0)
+        <section class="padding-top-3x" data-offset-top="60" id="comments">
+          <h3 class="padding-bottom-1x">Comments</h3>
+          <!-- Comment-->
+          @foreach($comments_details as $comment) 
+
+          <div class="comment">
+            <div class="comment-author-ava"><img src="img/reviews/01.jpg" alt="Comment author"></div>
+            <div class="comment-body">
+              <div class="comment-header">
+                <h4 class="comment-title">Francis Burton</h4>
+              </div>
+              <p class="comment-text">At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga.</p>
+              <div class="comment-footer">
+                <div class="column"><span class="comment-meta">2 days ago</span></div>
+                <div class="column"><a class="reply-link" href="#"><i class="icon-corner-up-left"></i>Reply</a></div>
+              </div>
             </div>
-            <p class="comment-text">At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga.</p>
-            <div class="comment-footer">
-              <div class="column"><span class="comment-meta">2 days ago</span></div>
-              <div class="column"><a class="reply-link" href="#"><i class="icon-corner-up-left"></i>Reply</a></div>
-            </div>
-            
           </div>
-        </div>
-       
-      </section>
+          @endforeach
+
+        </section>
+      @else
+        <p>{!! trans('frontend.no_review_label') !!}</p>
+      @endif
+
       <!-- Comment Form-->
-      <h4 class="padding-top-2x padding-bottom-1x">Leave a Comment</h4>
-      <form class="row" method="post">
-        <div class="col-sm-6">
-          <div class="form-group">
-            <label for="comment-name">Name</label>
-            <input class="form-control form-control-rounded" type="text" id="comment-name" placeholder="John Doe" required>
-          </div>
-        </div>
-        <div class="col-sm-6">
-          <div class="form-group">
-            <label for="comment-email">E-mail</label>
-            <input class="form-control form-control-rounded" type="email" id="comment-email" placeholder="johndoe@email.com" required>
-          </div>
-        </div>
+      @if($blog_details_by_slug['allow_comments_at_frontend'] == 'yes')
+      @include('pages-message.notify-msg-success')
+      @include('pages-message.notify-msg-error')
+      @include('pages-message.form-submit')
+
+      <h4 class="padding-top-2x padding-bottom-1x">{!! trans('frontend.add_a_review_label') !!}</h4>
+      <form class="row" id="new_comment_form" method="post" action="" enctype="multipart/form-data">
+        <input type="hidden" name="_token" id="_token" value="{{ csrf_token() }}">
+        <input type="hidden" name="comments_target" id="comments_target" value="blog">
+        <input type="hidden" name="selected_rating_value" id="selected_rating_value" value="">
+        <input type="hidden" name="object_id" id="object_id" value="{{ $blog_details_by_slug['id'] }}">
+
         <div class="col-12">
           <div class="form-group">
-            <label for="comment-text">Comment</label>
-            <textarea class="form-control form-control-rounded" rows="7" id="comment-text" placeholder="Write your comment here..." required></textarea>
+            <label for="product_review_content">{!! trans('frontend.write_your_review_label') !!}</label>
+            <textarea name="product_review_content" id="product_review_content" class="form-control form-control-rounded" rows="7" placeholder="Write your comment here..." required></textarea>
           </div>
         </div>
         <div class="col-12 text-right">
-          <button class="btn btn-primary" type="submit">Post Comment</button>
+          <input name="review_submit" id="review_submit" class="btn btn-primary btn-sm" value="{{ trans('frontend.submit_label') }}" type="submit">
         </div>
       </form>
     </div>
