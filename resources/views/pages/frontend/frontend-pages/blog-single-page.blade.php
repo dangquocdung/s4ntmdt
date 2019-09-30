@@ -155,8 +155,6 @@
           @endforeach
 
         </section>
-      @else
-        <p>{!! trans('frontend.no_review_label') !!}</p>
       @endif
 
       <!-- Comment Form-->
