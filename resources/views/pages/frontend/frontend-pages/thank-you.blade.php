@@ -28,7 +28,15 @@
             <p class="card-text">{{ trans('frontend.thank_you_msg') }}</p>
               <u>You can now:</u>
             </p>
-            <div class="padding-top-1x padding-bottom-1x"><a class="btn btn-outline-secondary" href="shop-grid-ls.html">Go Back Shopping</a><a class="btn btn-outline-primary" href="order-tracking.html"><i class="icon-map-pin"></i>&nbsp;Track order</a></div>
+            <div class="padding-top-1x padding-bottom-1x">
+              <a class="btn btn-outline-secondary" href="{{ route('shop-page') }}">
+                <i class="icon-arrow-left"></i>&nbsp;{{ trans('frontend.return_to_shop') }}
+              </a>
+              <a class="btn btn-outline-primary" href="order-tracking.html">
+                <i class="icon-map-pin"></i>&nbsp;{{ trans('frontend.theo_doi_don_hang') }}
+              </a>
+            </div>
+
           </div>
 
           @endif
