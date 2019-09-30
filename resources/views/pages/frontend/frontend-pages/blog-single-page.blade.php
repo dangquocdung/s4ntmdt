@@ -54,7 +54,7 @@
       <!-- Post Navigation-->
       <div class="entry-navigation">
         <div class="column text-left"><a class="btn btn-outline-secondary btn-sm" href="#"><i class="icon-arrow-left"></i>&nbsp;Prev</a></div>
-        <div class="column"><a class="btn btn-outline-secondary view-all" href="blog-rs.html" data-toggle="tooltip" data-placement="top" title="All posts"><i class="icon-menu"></i></a></div>
+        <div class="column"><a class="btn btn-outline-secondary view-all" href="{{ route('blogs-page-content') }}" data-toggle="tooltip" data-placement="top" title="All posts"><i class="icon-menu"></i></a></div>
         <div class="column text-right"><a class="btn btn-outline-secondary btn-sm" href="#">Next&nbsp;<i class="icon-arrow-right"></i></a></div>
       </div>
       <!-- Relevant Posts-->
