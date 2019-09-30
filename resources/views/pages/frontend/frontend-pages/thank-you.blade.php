@@ -30,7 +30,7 @@
             </p>
             <div class="padding-top-1x padding-bottom-1x">
               <a class="btn btn-outline-secondary" href="{{ route('shop-page') }}">
-                <i class="icon-cart"></i>&nbsp;{{ trans('frontend.tiep_tuc_mua_sam') }}
+                <i class="icon-shopping-cart"></i>&nbsp;{{ trans('frontend.tiep_tuc_mua_sam') }}
               </a>
               <a class="btn btn-outline-primary" href="order-tracking.html">
                 <i class="icon-map-pin"></i>&nbsp;{{ trans('frontend.theo_doi_don_hang') }}
