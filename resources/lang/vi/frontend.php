@@ -575,5 +575,7 @@ return [
   'ban_boi_shop' => 'Bán từ gian hàng',
   'best_from_the_blog_title' => 'Tin nhiều lượt xem',
   'latest_from_the_blog' => 'Tin mới nhất',
-  'blog' => 'Tin tức'
+  'blog' => 'Tin tức',
+  'tiep_tuc_mua_sam' => 'Tiếp tục mua sắm',
+  'theo_doi_don_hang' => 'Theo dõi đơn hàngsa'
 ];
