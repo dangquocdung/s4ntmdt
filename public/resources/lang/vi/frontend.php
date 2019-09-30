@@ -354,7 +354,7 @@ return [
 'footer_no_tags_label' =>'Không có thẻ nào',
 'footer_powered_by' =>'Cung cấp bởi',
 'footer_powered_name' =>'Người bán hàng',
-'todays_sale_label' =>'Giảm giá hôm nay',
+'todays_sale_label' =>'Đang bán chạy',
 'todays_products_empty_label' =>'Dữ liệu bán hàng ngày hôm nay không có sẵn',
 'member_since_label' =>'Thành viên từ',
 'hi_single_label' =>'Chào,',
