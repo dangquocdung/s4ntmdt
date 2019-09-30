@@ -27,8 +27,24 @@
           <div class="card-body padding-top-2x">
             <h3 class="card-title">{{ trans('frontend.order_received') }}</h3>
             <p class="card-text">{{ trans('frontend.thank_you_msg') }}</p>
-              <u>You can now:</u>
             </p>
+            <div class="row padding-top-1x mt-3">
+              <div class="col-sm-6">
+                <h5>Shipping to:</h5>
+                <ul class="list-unstyled">
+                  <li><span class="text-muted">Client:&nbsp; </span>Daniel Adams</li>
+                  <li><span class="text-muted">Address:&nbsp; </span>44 Shirley Ave. West Chicago, IL 60185, USA</li>
+                  <li><span class="text-muted">Phone:&nbsp; </span>+1(808) 764 554 330</li>
+                </ul>
+              </div>
+              <div class="col-sm-6">
+                <h5>Payment method:</h5>
+                <ul class="list-unstyled">
+                  <li><span class="text-muted">Credit Card:&nbsp; </span>**** **** **** 5300</li>
+                </ul>
+              </div>
+            </div>
+
             <div class="padding-top-1x padding-bottom-1x">
               <a class="btn btn-outline-secondary" href="{{ route('shop-page') }}">
                 <i class="icon-shopping-cart"></i>&nbsp;{{ trans('frontend.tiep_tuc_mua_sam') }}
