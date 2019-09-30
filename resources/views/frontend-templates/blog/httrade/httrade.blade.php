@@ -40,7 +40,7 @@
             </a>
             <div class="post-body">
               <ul class="post-meta">
-                <li><i class="icon-clock"></i><a href="#">{{ Carbon\Carbon::parse($row['created_at'])->format('d F, Y') }}</a></li>
+                <li><i class="icon-clock"></i><a href="#">{{ Carbon\Carbon::parse($row['created_at'])->locale('vi')->format('d F, Y') }}</a></li>
                 <!-- <li><i class="icon-user"></i><a href="#">Paul G.</a></li>
                 <li><i class="icon-tag"></i><a href="#">Video Games</a></li> -->
               </ul>
