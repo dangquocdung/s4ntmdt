@@ -32,7 +32,7 @@
               <a class="btn btn-outline-secondary" href="{{ route('shop-page') }}">
                 <i class="icon-shopping-cart"></i>&nbsp;{{ trans('frontend.tiep_tuc_mua_sam') }}
               </a>
-              <a class="btn btn-outline-primary" href="order-tracking.html">
+              <a class="btn btn-outline-primary" href="#">
                 <i class="icon-map-pin"></i>&nbsp;{{ trans('frontend.theo_doi_don_hang') }}
               </a>
             </div>
