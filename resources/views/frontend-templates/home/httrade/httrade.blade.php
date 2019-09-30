@@ -132,10 +132,10 @@
 
     <div class="col-lg-3 col-md-4 col-sm-6">
       <div class="product-card mb-30">
-        @if ( $todays_deal_product->price < $todays_deal_product->regular_price )
+        @if ( $todays_sales_product->price < $todays_sales_product->regular_price )
             @php
-              $tiengiam =  $todays_deal_product->regular_price - $todays_deal_product->price;
-              $phantram = ($tiengiam/$todays_deal_product->regular_price)*100;
+              $tiengiam =  $todays_sales_product->regular_price - $todays_sales_product->price;
+              $phantram = ($tiengiam/$todays_sales_product->regular_price)*100;
             @endphp
           <div class="product-badge bg-danger">Giảm giá {{ $phantram }}%</div>
         @endif
