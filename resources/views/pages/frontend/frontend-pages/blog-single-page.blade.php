@@ -11,7 +11,7 @@
 <div class="page-title">
   <div class="container">
     <div class="column">
-      <h1>{!! trans('frontend.blog_details_page_label') !!}</h1>
+      <h1>{!! trans('frontend.tin-tuc') !!}</h1>
     </div>
     <div class="column">
       <ul class="breadcrumbs">
