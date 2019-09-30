@@ -90,10 +90,10 @@
         <div class="col-md-4 col-sm-6">
           <div class="product-card mb-30">
             <div class="product-badge bg-danger">Sale</div>
-            <a class="product-thumb" href="{{ route('details-page', $best_sales->slug) }}">
+            <a class="product-thumb" href="{{ route('details-page', $best_sales['slug']) }}">
 
                 @if(!empty($best_sales->image_url))  
-                <img class="products-page-product-img" src="{{ get_image_url($best_sales->image_url) }}" alt="">
+                <img class="products-page-product-img" src="{{ get_image_url($best_sales['image_url']) }}" alt="">
                 @else
                 <img class="products-page-product-img" src="{{ default_placeholder_img_src() }}" alt="">
                 @endif
