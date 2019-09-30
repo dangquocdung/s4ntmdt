@@ -85,7 +85,7 @@
     <div class="row">
     @foreach($vendor_advanced_items['best_sales'] as $best_sales)
 
-        <?php $reviews  = get_comments_rating_details($best_sales->id, 'product');?>
+        <?php $reviews  = get_comments_rating_details($best_sales['id'], 'product');?>
 
         <div class="col-md-4 col-sm-6">
           <div class="product-card mb-30">
