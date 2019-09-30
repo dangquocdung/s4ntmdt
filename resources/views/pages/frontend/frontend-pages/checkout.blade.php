@@ -49,6 +49,26 @@
             @include('includes.checkout.step1_cart_summary')
             @yield('cart_summary')
 
+            @include('includes.checkout.step2_user_mode')
+            @yield('user_mode')
+
+            @include('includes.checkout.step3_guest_user_address')
+            @yield('guest_user_address')
+
+            @include('includes.checkout.step4_authentication')
+            @yield('authentication')
+
+            @include('includes.checkout.step5_login_user_address')
+            @yield('login_user_address')
+
+            @include('includes.checkout.step6_payment')
+            @yield('payment')
+
+            @include('includes.checkout.step7_order_notes')
+            @yield('order_notes')
+
+
+
 
             <br>
             <div class="shopping-cart-footer">
