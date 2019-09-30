@@ -102,15 +102,7 @@
 
             @foreach ($selected_cat['term_details'] as $row)
 
-              <a href="{{ route('categories-page', $row['slug']) }}">{!! $row['name'] !!}
-
-              @if ( $loop->iteration < (count($selected_cat['term_details']) - 1) ) 
-
-                ,&nbsp;
-
-              @endif
-
-              </a>
+              <a href="{{ route('categories-page', $row['slug']) }}">{!! $row['name'] !!},&nbsp;</a>
 
             @endforeach
             
