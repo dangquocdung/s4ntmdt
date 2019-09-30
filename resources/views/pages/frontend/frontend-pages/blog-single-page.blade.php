@@ -39,38 +39,6 @@
         <li><i class="icon-tag"></i><a href="#">Gadgets</a></li> -->
         <li><i class="icon-message-square"></i><a class="scroll-to" href="#comments">{!! $comments_rating_details['total'] !!} {!! trans('frontend.comments_label') !!}</a></li>
       </ul>
-      <!-- Gallery-->
-      <div class="gallery-wrapper">
-        <div class="gallery-item">
-         
-
-          @if(!empty($blog_details_by_slug['featured_image']))
-          <a href="{{ get_image_url($blog_details_by_slug['featured_image']) }}" data-size="1000x353">
-            <img src="{{ get_image_url($blog_details_by_slug['featured_image']) }}" alt="{{ basename($blog_details_by_slug['featured_image']) }}">
-          </a>
-          @else
-          <a href="{{ default_placeholder_img_src() }}" data-size="1000x353">
-            <img src="{{ default_placeholder_img_src() }}" alt="media">
-          </a>
-          @endif
-
-           
-          <!-- <span class="caption">Blog single post caption 1</span> -->
-        </div>
-      </div>
-      <!-- <div class="gallery-wrapper">
-        <div class="row">
-          <div class="col-md-4 col-sm-6">
-            <div class="gallery-item"><a href="img/blog/single/01.jpg" data-type="video" data-video="&lt;div class=&quot;wrapper&quot;&gt;&lt;div class=&quot;video-wrapper&quot;&gt;&lt;iframe class=&quot;pswp__video&quot; width=&quot;960&quot; height=&quot;640&quot; src=&quot;https://www.youtube-nocookie.com/embed/zpLVsR8cSFo?rel=0&quot; frameborder=&quot;0&quot; allowfullscreen&gt;&lt;/iframe&gt;&lt;/div&gt;&lt;/div&gt;"><img src="img/blog/single/th02.jpg" alt="Image"></a><span class="caption">Blog single post caption 2</span></div>
-          </div>
-          <div class="col-md-4 col-sm-6">
-            <div class="gallery-item"><a href="img/blog/single/02.jpg" data-size="900x600"><img src="img/blog/single/th03.jpg" alt="Image"></a><span class="caption">Blog single post caption 3</span></div>
-          </div>
-          <div class="col-md-4 col-sm-6">
-            <div class="gallery-item"><a href="img/blog/single/03.jpg" data-size="900x600"><img src="img/blog/single/th04.jpg" alt="Image"></a><span class="caption">Blog single post caption 4</span></div>
-          </div>
-        </div>
-      </div> -->
       <h2 class="pt-4">{!! $blog_details_by_slug['post_title'] !!}</h2>
 
       <p>

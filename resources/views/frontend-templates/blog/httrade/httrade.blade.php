@@ -29,7 +29,7 @@
         <!-- Post-->
         <div class="grid-item">
           <div class="blog-post">
-            {{-- <a class="post-thumb" href="{{ route('blog-single-page', $row['post_slug']) }}">
+            <a class="post-thumb" href="{{ route('blog-single-page', $row['post_slug']) }}">
             
               @if(!empty($row['featured_image']))
                 <img src="{{ get_image_url($row['featured_image']) }}" alt="{{ basename($row['featured_image']) }}">
@@ -37,7 +37,7 @@
                 <img src="{{ default_placeholder_img_src() }}" alt="media">
               @endif
             
-            </a> --}}
+            </a>
             <div class="post-body">
               <ul class="post-meta">
                 <li><i class="icon-clock"></i><a href="#">{{ Carbon\Carbon::parse($row['created_at'])->format('d F, Y') }}</a></li>
