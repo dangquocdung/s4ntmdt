@@ -12,7 +12,16 @@
 
         <div class="col-md-4 col-sm-6">
           <div class="product-card mb-30">
-            <div class="product-badge bg-danger">Sale</div>
+            @if ( $latest->price < $latest->regular_price )
+
+            @php
+              $tiengiam =  $latest->regular_price - $latest->price;
+              $phantram = ($tiengiam/$latest->regular_price)*100;
+            @endphp
+            <div class="product-badge bg-danger">Giảm giá {{ $phantram }}%</div>
+
+            @endif
+
             <a class="product-thumb" href="{{ route('details-page', $latest->slug) }}">
 
                 @if(!empty($latest->image_url))  
