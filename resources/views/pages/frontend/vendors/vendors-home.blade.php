@@ -89,7 +89,14 @@
 
         <div class="col-md-4 col-sm-6">
           <div class="product-card mb-30">
-            <div class="product-badge bg-danger">Sale</div>
+            @if ($best_sales['post_price'] <$best_sales['post_regular_price'] )
+                @php
+                  $tiengiam = $best_sales['post_regular_price'] - $best_sales['post_price'];
+                  $phantram = ($tiengiam/$best_sales['post_regular_price'])*100;
+                @endphp
+              <div class="product-badge bg-danger">Giảm giá {{ $phantram }}%</div>
+            @endif
+
             <a class="product-thumb" href="{{ route('details-page', $best_sales['post_slug']) }}">
 
                 @if(!empty($best_sales['post_image_url']))  
@@ -102,42 +109,42 @@
             </a>
             <div class="product-card-body">
             
-            <h3 class="product-title"><a href="{{ route('details-page',$best_sales['post_slug']) }}">{!!$best_sales['post_title'] !!}</a></h3>
+              <h3 class="product-title"><a href="{{ route('details-page',$best_sales['post_slug']) }}">{!!$best_sales['post_title'] !!}</a></h3>
 
-            <h4 class="product-price">
-              @if ($best_sales['post_price'] <$best_sales['post_regular_price'] )
-                <del>
-                  {!! price_html( get_product_price_html_by_filter(get_role_based_price_by_product_id($best_sales['id'],$best_sales['post_regular_price'])), get_frontend_selected_currency()) !!}
-                </del>
-              @endif
-
-              @if($best_sales['post_type'] == 'simple_product' )
-                {!! price_html( get_product_price_html_by_filter(get_role_based_price_by_product_id($best_sales['id'],$best_sales['post_price'])), get_frontend_selected_currency()) !!}
-              @elseif($best_sales['post_type'] == 'configurable_product' )
-                {!! get_product_variations_min_to_max_price_html(get_frontend_selected_currency(),$best_sales['id']) !!}
-              @elseif($best_sales['post_type'] == 'customizable_product' ||$best_sales['post_type'] == 'downloadable_product')
-                @if(count(get_product_variations($best_sales['id']))>0)
-                {!! get_product_variations_min_to_max_price_html(get_frontend_selected_currency(),$best_sales['id']) !!}
-                @else
-                {!! price_html( get_product_price_html_by_filter(get_role_based_price_by_product_id($best_sales_product['id'],$best_sales['post_sale_price'])), get_frontend_selected_currency()) !!}
+              <h4 class="product-price">
+                @if ($best_sales['post_price'] <$best_sales['post_regular_price'] )
+                  <del>
+                    {!! price_html( get_product_price_html_by_filter(get_role_based_price_by_product_id($best_sales['id'],$best_sales['post_regular_price'])), get_frontend_selected_currency()) !!}
+                  </del>
                 @endif
-              @endif
-            </h4>
-          </div>
-          <div class="product-button-group">
 
-            <a class="product-button btn-wishlist product-wishlist" data-id="{{$best_sales['id'] }}" data-toggle="tooltip" title="{{ trans('frontend.add_to_wishlist_label') }}" data-original-title="{{ trans('frontend.add_to_wishlist_label') }}">
-              <i class="icon-heart"></i><span>{{ trans('frontend.add_to_wishlist_label') }}</span>
-            </a>
-            <a class="product-button btn-compare product-compare" data-id="{{$best_sales['id'] }}" data-toggle="tooltip" title="" data-original-title="{{ trans('frontend.add_to_compare_list_label') }}">
-              <i class="icon-repeat"></i><span>{{ trans('frontend.add_to_compare_list_label') }}</span>
-            </a>
-            <a class="product-button add-to-cart-bg" data-toast data-toast-type="success" data-toast-position="topRight" data-toast-icon="icon-check-circle" data-toast-title="Sản phẩm" data-toast-message="{{ trans('frontend.successfuly_added_to_cart') }}" data-id="{{$best_sales['id'] }}" data-toggle="tooltip" data-placement="top"title="" data-original-title="{{ trans('frontend.add_to_cart_label') }}">
-              <i class="icon-shopping-cart"></i><span>{{ trans('frontend.add_to_cart_label') }}</span>
-            </a>
+                @if($best_sales['post_type'] == 'simple_product' )
+                  {!! price_html( get_product_price_html_by_filter(get_role_based_price_by_product_id($best_sales['id'],$best_sales['post_price'])), get_frontend_selected_currency()) !!}
+                @elseif($best_sales['post_type'] == 'configurable_product' )
+                  {!! get_product_variations_min_to_max_price_html(get_frontend_selected_currency(),$best_sales['id']) !!}
+                @elseif($best_sales['post_type'] == 'customizable_product' ||$best_sales['post_type'] == 'downloadable_product')
+                  @if(count(get_product_variations($best_sales['id']))>0)
+                  {!! get_product_variations_min_to_max_price_html(get_frontend_selected_currency(),$best_sales['id']) !!}
+                  @else
+                  {!! price_html( get_product_price_html_by_filter(get_role_based_price_by_product_id($best_sales_product['id'],$best_sales['post_sale_price'])), get_frontend_selected_currency()) !!}
+                  @endif
+                @endif
+              </h4>
+            </div>
+            <div class="product-button-group">
 
-        
-          </div>
+              <a class="product-button btn-wishlist product-wishlist" data-id="{{$best_sales['id'] }}" data-toggle="tooltip" title="{{ trans('frontend.add_to_wishlist_label') }}" data-original-title="{{ trans('frontend.add_to_wishlist_label') }}">
+                <i class="icon-heart"></i><span>{{ trans('frontend.add_to_wishlist_label') }}</span>
+              </a>
+              <a class="product-button btn-compare product-compare" data-id="{{$best_sales['id'] }}" data-toggle="tooltip" title="" data-original-title="{{ trans('frontend.add_to_compare_list_label') }}">
+                <i class="icon-repeat"></i><span>{{ trans('frontend.add_to_compare_list_label') }}</span>
+              </a>
+              <a class="product-button add-to-cart-bg" data-toast data-toast-type="success" data-toast-position="topRight" data-toast-icon="icon-check-circle" data-toast-title="Sản phẩm" data-toast-message="{{ trans('frontend.successfuly_added_to_cart') }}" data-id="{{$best_sales['id'] }}" data-toggle="tooltip" data-placement="top"title="" data-original-title="{{ trans('frontend.add_to_cart_label') }}">
+                <i class="icon-shopping-cart"></i><span>{{ trans('frontend.add_to_cart_label') }}</span>
+              </a>
+
+          
+            </div>
           </div>
         </div>  
       @endforeach
