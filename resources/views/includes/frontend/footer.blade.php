@@ -35,7 +35,6 @@
 
         @if(count($pages_list) > 0)
 
-
         <div class="col-lg-6">
             <!-- Categories-->
             <section class="widget widget-links widget-light-skin">
@@ -65,8 +64,6 @@
         </div>
 
         @endif
-
-
 
     </div>
     <hr class="hr-light mt-2 margin-bottom-2x hidden-md-down">

@@ -472,7 +472,7 @@ class CMSController extends Controller
     if($search_val && $search_val != ''){
       $pages = Post:: where($where)
                ->where('post_title', 'LIKE', '%'. $search_val.'%')
-               ->orderBy('id', 'desc')
+               ->orderBy('id', 'asc')
                ->get()
                ->toArray();
     }
