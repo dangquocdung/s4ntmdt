@@ -179,7 +179,16 @@
 
         <div class="col-md-4 col-sm-6">
           <div class="product-card mb-30">
-            <div class="product-badge bg-danger">Sale</div>
+            @if ( $features_item->price < $features_item->regular_price )
+
+            @php
+              $tiengiam =  $features_item->regular_price - $features_item->price;
+              $phantram = ($tiengiam/$features_item->regular_price)*100;
+            @endphp
+            <div class="product-badge bg-danger">Giảm giá {{ $phantram }}%</div>
+
+            @endif
+
             <a class="product-thumb" href="{{ route('details-page', $features_items->slug) }}">
 
                 @if(!empty($features_items->image_url))  
@@ -256,7 +265,18 @@
 
         <div class="col-md-4 col-sm-6">
           <div class="product-card mb-30">
-            <div class="product-badge bg-danger">Sale</div>
+
+            @if ( $recommended_item->price < $recommended_item->regular_price )
+
+            @php
+              $tiengiam =  $recommended_item->regular_price - $recommended_item->price;
+              $phantram = ($tiengiam/$recommended_item->regular_price)*100;
+            @endphp
+            <div class="product-badge bg-danger">Giảm giá {{ $phantram }}%</div>
+
+            @endif
+
+            
             <a class="product-thumb" href="{{ route('details-page', $recommended_items->slug) }}">
 
                 @if(!empty($recommended_items->image_url))  
