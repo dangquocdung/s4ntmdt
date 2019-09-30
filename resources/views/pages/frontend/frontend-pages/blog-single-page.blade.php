@@ -46,8 +46,6 @@
         {!! string_decode($blog_details_by_slug['post_content']) !!}
       </p>
       
-
-      
       <!-- Post Tags + Share-->
       {{-- <div class="d-flex flex-wrap justify-content-between align-items-center pt-3 pb-4">
         <div class="pb-2"><a class="text-sm text-muted navi-link" href="#">#electronics,</a><a class="text-sm text-muted navi-link" href="#">&nbsp;#gadgets&nbsp;</a></div>
@@ -72,8 +70,6 @@
           </div>
         </div>
         
-      
-      
       </div>
       <!-- Comments-->
       <section class="padding-top-3x" data-offset-top="60" id="comments">
