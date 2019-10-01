@@ -34,9 +34,6 @@
                 <p><strong>{{ trans('admin.phone') }}:</strong> {!! $login_user_account_data->address_details->account_bill_phone_number !!}</p>
             @endif
 
-
-            <p><strong>{{ trans('admin.email') }}:</strong> {!! $login_user_account_data->address_details->account_bill_email_address !!}</p>
-
          @else
             <p>{{ trans('admin.billing_address_not_available') }}</p>
          @endif
@@ -67,9 +64,6 @@
          @if($login_user_account_data->address_details->account_shipping_phone_number)
              <p><strong>{{ trans('admin.phone') }}:</strong> {!! $login_user_account_data->address_details->account_shipping_phone_number !!}</p>
          @endif
-
-
-         <p><strong>{{ trans('admin.email') }}:</strong> {!! $login_user_account_data->address_details->account_shipping_email_address !!}</p>
 
          @else
          <p>{{ trans('admin.shipping_address_not_available') }}</p>
