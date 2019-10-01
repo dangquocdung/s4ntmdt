@@ -200,7 +200,7 @@ return [
   'notes_about_your_order' =>'Ghi chú về đơn hàng của bạn (tùy chọn)',
   'all_design_images' =>'Tất cả hình ảnh thiết kế',
   'cart_updating_msg' =>'Đợi - Giỏ hàng của bạn đang cập nhật ...',
-  'brands' =>'Thương hiệu tin tưởng',
+  'brands' =>'Thương hiệu hàng đầu',
   'no_brands_yet' =>'Chưa có thương hiệu nào!',
   'no_categories_yet' =>'Chưa có danh mục nào!',
   'footer_msg' =>'Bản quyền © 2019 <b>:title </ b>. Đã đăng ký Bản quyền.',
