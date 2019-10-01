@@ -350,7 +350,7 @@
         
       @foreach($related_items as $products)
 
-      @if ($loop->inteval < 10 )
+      @if ($loop->iteration < 10 )
 
 
         <?php 
