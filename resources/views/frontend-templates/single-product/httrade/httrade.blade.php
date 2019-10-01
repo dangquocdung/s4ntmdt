@@ -28,9 +28,20 @@
 
             @if ($single_product_details['solid_price'] < $single_product_details['offer_price'])
 
+
+
               <span class="product-badge text-danger"id="hasSale">30% Off</span>
 
             @endif
+
+            @if ($single_product_details['solid_price'] < $single_product_details['offer_price'])
+                @php
+                  $tiengiam = $single_product_details['offer_price'] - $single_product_details['solid_price'];
+                  $phantram = round(($tiengiam/$single_product_details['offer_price'])*100);
+                @endphp
+              <div class="product-badge bg-danger">Giảm giá {{ $phantram }}%</div>
+            @endif
+
 
             @if($single_product_details['_product_enable_video_feature'] == 'yes')
 
