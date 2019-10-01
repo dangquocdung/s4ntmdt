@@ -577,5 +577,6 @@ return [
   'latest_from_the_blog' => 'Tin mới nhất',
   'blog' => 'Tin tức',
   'tiep_tuc_mua_sam' => 'Tiếp tục mua sắm',
-  'theo_doi_don_hang' => 'Theo dõi đơn hàng'
+  'theo_doi_don_hang' => 'Theo dõi đơn hàng',
+  'blogs_page_title' => 'Tin tức'
 ];
