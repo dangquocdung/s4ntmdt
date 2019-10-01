@@ -29,7 +29,7 @@
   </div>
 
 @else
-  <p>{{ trans('admin.order_list_not_available') }}</p>
+  <p>{{ trans('frontend.order_list_not_available') }}</p>
 @endif
 
 {{-- <hr>
