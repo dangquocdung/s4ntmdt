@@ -52,11 +52,11 @@
                   @endif
                   <li><span class="text-muted">{{ trans('frontend.address_1') }}:</span> {!! $order_details_for_thank_you_page['customer_address']['_billing_address_1'] !!}</li>
                   @if($order_details_for_thank_you_page['customer_address']['_billing_address_2'])
-                    <p><strong>{{ trans('frontend.address_2') }}:</strong> {!! $order_details_for_thank_you_page['customer_address']['_billing_address_2'] !!}</p>
+                    <li><span class="text-muted">{{ trans('frontend.address_2') }}:</span> {!! $order_details_for_thank_you_page['customer_address']['_billing_address_2'] !!}</li>
                   @endif
-                  <p><strong>{{ trans('frontend.city') }}:</strong> {!! $order_details_for_thank_you_page['customer_address']['_billing_city'] !!}</p>
-                  <p><strong>{{ trans('frontend.postCode') }}:</strong> {!! $order_details_for_thank_you_page['customer_address']['_billing_postcode'] !!}</p>
-                  <p><strong>{{ trans('frontend.country') }}:</strong> {!! get_country_by_code( $order_details_for_thank_you_page['customer_address']['_billing_country'] ) !!}</p>
+                  <li><span class="text-muted">{{ trans('frontend.city') }}:</span> {!! $order_details_for_thank_you_page['customer_address']['_billing_city'] !!}</li>
+                  <li><span class="text-muted">{{ trans('frontend.postCode') }}:</span> {!! $order_details_for_thank_you_page['customer_address']['_billing_postcode'] !!}</li>
+                  <li><span class="text-muted">{{ trans('frontend.country') }}:</span> {!! get_country_by_code( $order_details_for_thank_you_page['customer_address']['_billing_country'] ) !!}</li>
 
                   <br>
 
