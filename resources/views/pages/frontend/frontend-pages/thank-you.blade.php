@@ -27,10 +27,10 @@
           <div class="card-body padding-top-2x">
             <h3 class="card-title">{{ trans('frontend.order_received') }}</h3>
             <p class="card-text">{{ trans('frontend.thank_you_msg') }}</p>
-            <p class="card-text">{{ trans('frontend.order_number') }}:&nbsp; <span class="text-medium">#{!! $order_details_for_thank_you_page['order_id'] !!}</span></p>
-            <p class="card-text">{{ trans('frontend.date') }}:&nbsp; <span class="text-medium">{!! $order_details_for_thank_you_page['order_date'] !!}</span></p>
-            <p class="card-text">{{ trans('frontend.total') }}:&nbsp; <span class="text-medium">{!! price_html( $order_details_for_thank_you_page['_final_order_total'], $order_details_for_thank_you_page['_order_currency'] ) !!}</span></p>
-            <p class="card-text">{{ trans('frontend.payment_method') }}:&nbsp; <span class="text-medium">{!! get_payment_method_title($order_details_for_thank_you_page['_payment_method']) !!}</span></p>
+            {{ trans('frontend.order_number') }}:&nbsp; <span class="text-medium">#{!! $order_details_for_thank_you_page['order_id'] !!}</span> - 
+            {{ trans('frontend.date') }}:&nbsp; <span class="text-medium">{!! $order_details_for_thank_you_page['order_date'] !!}</span> - 
+            {{ trans('frontend.total') }}:&nbsp; <span class="text-medium">{!! price_html( $order_details_for_thank_you_page['_final_order_total'], $order_details_for_thank_you_page['_order_currency'] ) !!}</span> - 
+            {{ trans('frontend.payment_method') }}:&nbsp; <span class="text-medium">{!! get_payment_method_title($order_details_for_thank_you_page['_payment_method']) !!}</span></p>
 
 
 
