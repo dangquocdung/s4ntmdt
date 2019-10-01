@@ -152,8 +152,8 @@
 
         @if (Session::has('shopist_frontend_user_id'))
           <a href="{{ route('user-account-page') }}">
-            <div><i class="icon-user"></i><span class="text-label">Sign In / Up</span></div>
-            {!! trans('frontend.user_account_label') !!}
+            <div><i class="icon-user"></i><span class="text-label">{!! trans('frontend.user_account_label') !!}</span></div>
+            
           </a>
         @else
           <a href="{{ route('user-account-page') }}">
