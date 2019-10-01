@@ -45,10 +45,8 @@
               {!! $order_data_by_id['_billing_address_2'] !!}<br>
               @endif
 
-              {!! $order_data_by_id['_billing_city'] !!}, {!! $order_data_by_id['_billing_postcode'] !!}<br>
               {!! $order_data_by_id['_billing_phone'] !!}<br>
               {!! get_country_by_code( $order_data_by_id['_billing_country'] ) !!}<br>
-              {!! $order_data_by_id['_billing_email'] !!}
             </address>
           </div>
           <div class="col text-right">
@@ -61,10 +59,8 @@
               {!! $order_data_by_id['_shipping_address_2'] !!}<br>
               @endif
 
-              {!! $order_data_by_id['_shipping_city'] !!}, {!! $order_data_by_id['_shipping_postcode'] !!}<br>
               {!! $order_data_by_id['_shipping_phone'] !!}<br>
               {!! get_country_by_code( $order_data_by_id['_shipping_country'] ) !!}<br>
-              {!! $order_data_by_id['_shipping_email'] !!}
             </address>
           </div>
         </div>
