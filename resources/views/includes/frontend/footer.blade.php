@@ -77,7 +77,7 @@
                 <li><span class="opacity-50">Thứ 2 - Thứ 6:&nbsp;</span>9.00 am - 8.00 pm</li>
                 <li><span class="opacity-50">Thứ 7:&nbsp;</span>10.00 am - 6.00 pm</li>
                 </ul>
-                <p><a class="navi-link-light" href="javascript:void(0)">hotrokhachhang@hatinhtrade.com.vn</a></p>
+                <p><a class="navi-link-light" href="mailto:hotro@hatinhtrade.com.vn">hotro@hatinhtrade.com.vn</a></p>
                 <a class="social-button shape-circle sb-facebook sb-light-skin" href="//{{ $appearance_all_data['footer_details']['follow_us_url']['fb'] }}"><i class="socicon-facebook"></i></a>
                 <a class="social-button shape-circle sb-twitter sb-light-skin" href="//{{ $appearance_all_data['footer_details']['follow_us_url']['twitter'] }}"><i class="socicon-twitter"></i></a>
                 <a class="social-button shape-circle sb-instagram sb-light-skin" href="//{{ $appearance_all_data['footer_details']['follow_us_url']['instagram'] }}"><i class="socicon-instagram"></i></a>
