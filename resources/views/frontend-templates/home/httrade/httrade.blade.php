@@ -48,35 +48,9 @@
               <div class="h2 text-body mb-2 pt-1">Siêu phẩm: Apple iPhone 11</div>
               <div class="h2 text-body mb-4 pb-1">giá từ <span class="text-medium">21.990.000đ</span></div>
             </div>
-            <a class="btn btn-primary scale-up delay-1" href="{{ route('shop-page') }}">Xem ưu đãi&nbsp;<i class="icon-arrow-right"></i></a>
+            <a class="btn btn-primary scale-up delay-1" href="/san-pham/chi-tiet/iphone-11-64gb-chinh-hang">Mua ngay&nbsp;<i class="icon-arrow-right"></i></a>
           </div>
           <div class="col-md-6 padding-bottom-2x mb-3"><img class="d-block mx-auto"  src="img/hero-slider/iphone-xi.png" alt="apple-iphone-11"></div>
-        </div>
-      </div>
-    </div>
-    <div class="item">
-      <div class="container padding-top-3x">
-        <div class="row justify-content-center align-items-center">
-          <div class="col-lg-5 col-md-6 padding-bottom-2x text-md-left text-center">
-            <div class="from-bottom"><img class="d-inline-block w-150 mb-3" src="img/hero-slider/logo01.png" alt="Sony">
-              <div class="h2 text-body mb-2 pt-1">Laptop hiện đại, mạnh mẽ</div>
-              <div class="h2 text-body mb-4 pb-1">chỉ từ <span class="text-medium">9.990.000đ</span></div>
-            </div><a class="btn btn-primary scale-up delay-1" href="{{ route('shop-page') }}">Mua ngay&nbsp;<i class="icon-arrow-right"></i></a>
-          </div>
-          <div class="col-md-6 padding-bottom-2x mb-3"><img class="d-block mx-auto" src="img/hero-slider/01.png" alt="Chuck Taylor All Star II"></div>
-        </div>
-      </div>
-    </div>
-    <div class="item">
-      <div class="container padding-top-3x">
-        <div class="row justify-content-center align-items-center">
-          <div class="col-lg-5 col-md-6 padding-bottom-2x text-md-left text-center">
-            <div class="from-bottom"><img class="d-inline-block w-150 mb-3" src="img/hero-slider/logo03.png" alt="Motorola">
-              <div class="h2 text-body mb-2 pt-1">Beats Studio chế tác bởi Dr.Dre</div>
-              <div class="h2 text-body mb-4 pb-1">chỉ từ <span class="text-medium">6.990.000đ</span></div>
-            </div><a class="btn btn-primary scale-up delay-1" href="{{ route('shop-page') }}">Mua ngay&nbsp;<i class="icon-arrow-right"></i></a>
-          </div>
-          <div class="col-md-6 padding-bottom-2x mb-3"><img class="d-block mx-auto" src="img/hero-slider/03.png" alt="Moto 360"></div>
         </div>
       </div>
     </div>

@@ -25,7 +25,7 @@
 <div class="container padding-bottom-3x mb-2">
   <div class="row justify-content-center">
     <!-- Content-->
-    <div class="col-xl-9 col-lg-8 order-lg-2">
+    <div class="col-12">
       {!! string_decode($page_data->post_content) !!}
     </div>
   </div>
