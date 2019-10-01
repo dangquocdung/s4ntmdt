@@ -364,7 +364,7 @@
           @if ($products['post_price'] < $products['post_regular_price'] )
               @php
                 $tiengiam = $products['post_regular_price'] - $products['post_price'];
-                $phantram = ($tiengiam/$products['post_regular_price'])*100;
+                $phantram = round(($tiengiam/$products['post_regular_price'])*100);
               @endphp
             <div class="product-badge bg-danger">Giảm giá {{ $phantram }}%</div>
           @endif
