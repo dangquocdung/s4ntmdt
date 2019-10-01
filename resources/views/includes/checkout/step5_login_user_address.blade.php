@@ -44,9 +44,6 @@
          @if(!empty($login_user_account_data) && !empty($login_user_account_data->address_details))
          <p>{!! $login_user_account_data->address_details->account_shipping_first_name .' '. $login_user_account_data->address_details->account_shipping_last_name !!}</p>
 
-         @if($login_user_account_data->address_details->account_shipping_company_name)
-             <p><strong>{{ trans('admin.company') }}:</strong> {!! $login_user_account_data->address_details->account_shipping_company_name !!}</p>
-         @endif
 
          <p><strong>{{ trans('admin.address_1') }}:</strong> {!! $login_user_account_data->address_details->account_shipping_adddress_line_1 !!}</p>
 
