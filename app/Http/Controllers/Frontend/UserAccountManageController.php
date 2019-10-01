@@ -320,10 +320,6 @@ class UserAccountManageController extends Controller
                  'account_bill_phone_number'                =>  'required',
                  'account_bill_select_country'              =>  'required',
                  
-                 'account_shipping_first_name'              =>  'required',
-                 'account_shipping_last_name'               =>  'required',
-                 'account_shipping_phone_number'            =>  'required',
-                 'account_shipping_select_country'          =>  'required',
                  
         ];
         
@@ -332,10 +328,6 @@ class UserAccountManageController extends Controller
                     'account_bill_last_name.required' => Lang::get('validation.account_bill_last_name'),
                     'account_bill_phone_number.required' => Lang::get('validation.account_bill_phone_number_name'),
                     'account_bill_select_country.required' => Lang::get('validation.account_bill_select_country'),
-                    'account_shipping_first_name.required' => Lang::get('validation.account_shipping_first_name'),
-                    'account_shipping_last_name.required' => Lang::get('validation.account_shipping_last_name'),
-                    'account_shipping_select_country.required' => Lang::get('validation.account_shipping_select_country'),
-                    'account_shipping_phone_number.required' => Lang::get('validation.account_shipping_phone_number_name')
         ];
       
         $validator = Validator::make(Input::all(), $rules, $messages);
