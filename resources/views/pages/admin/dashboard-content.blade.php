@@ -178,7 +178,7 @@
                   @endif
                 </div>
                 <div class="products-info">
-                  <a target="_blank" href="{{ route('details-page', $vals['id'] .'-'. string_slug_format(get_product_title($vals['id']))) }}" class="product-title">
+                  <a target="_blank" href="{{ route('details-page', string_slug_format(get_product_title($vals['id']))) }}" class="product-title">
                     {!! $vals['title'] !!} 
                     <span class="label label-warning pull-right">{!! $vals['price'] !!}</span>
                   </a>
