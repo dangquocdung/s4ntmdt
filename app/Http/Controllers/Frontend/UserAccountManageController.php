@@ -313,20 +313,17 @@ class UserAccountManageController extends Controller
   function saveUserAccountData(){
     if( Request::isMethod('post') && Session::token() == Input::get('_token') ){
       if(Input::get('_account_post_type') == 'address'){
+
         $rules = [
                  'account_bill_first_name'                  =>  'required',
                  'account_bill_last_name'                   =>  'required',
                  'account_bill_phone_number'                =>  'required',
                  'account_bill_select_country'              =>  'required',
-                 'account_bill_adddress_line_1'             =>  'required',
-                 'account_bill_town_or_city'                =>  'required',
                  
                  'account_shipping_first_name'              =>  'required',
                  'account_shipping_last_name'               =>  'required',
                  'account_shipping_phone_number'            =>  'required',
                  'account_shipping_select_country'          =>  'required',
-                 'account_shipping_adddress_line_1'         =>  'required',
-                 'account_shipping_town_or_city'            =>  'required',
                  
         ];
         
@@ -335,13 +332,9 @@ class UserAccountManageController extends Controller
                     'account_bill_last_name.required' => Lang::get('validation.account_bill_last_name'),
                     'account_bill_phone_number.required' => Lang::get('validation.account_bill_phone_number_name'),
                     'account_bill_select_country.required' => Lang::get('validation.account_bill_select_country'),
-                    'account_bill_adddress_line_1.required' => Lang::get('validation.account_bill_adddress_line_1'),
-                    'account_bill_town_or_city.required' => Lang::get('validation.account_bill_town_or_city'),
                     'account_shipping_first_name.required' => Lang::get('validation.account_shipping_first_name'),
                     'account_shipping_last_name.required' => Lang::get('validation.account_shipping_last_name'),
                     'account_shipping_select_country.required' => Lang::get('validation.account_shipping_select_country'),
-                    'account_shipping_adddress_line_1.required' => Lang::get('validation.account_shipping_adddress_line_1'),
-                    'account_shipping_town_or_city.required' => Lang::get('validation.account_shipping_town_or_city'),
                     'account_shipping_phone_number.required' => Lang::get('validation.account_shipping_phone_number_name')
         ];
       
