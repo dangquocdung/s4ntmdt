@@ -580,5 +580,6 @@ return [
   'theo_doi_don_hang' => 'Theo dõi đơn hàng',
   'blogs_page_title' => 'Tin tức',
   'chi_tiet_don_hang' => 'Chi tiết đơn hàng',
-  'ho_tro' => 'Hỗ trợ khách hàng'
+  'ho_tro' => 'Hỗ trợ khách hàng',
+  'latest_products' => 'Sản phẩm mới nhất'
 ];
