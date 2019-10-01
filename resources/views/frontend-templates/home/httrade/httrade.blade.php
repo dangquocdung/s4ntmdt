@@ -129,7 +129,7 @@
             @endphp
           <div class="product-badge bg-danger">Giảm giá {{ $phantram }}%</div>
         @endif
-        <a class="product-thumb" href="{{ route('details-page', $features_product->slug) }}">
+        <a class="product-thumb" href="{{ route('details-page', $recommended_product->slug) }}">
           @if(!empty($recommended_product->image_url))
           <img class="products-page-product-img" src="{{ get_image_url( $recommended_product->image_url ) }}" alt="{{ basename( get_image_url( $recommended_product->image_url ) ) }}" />
           @else
