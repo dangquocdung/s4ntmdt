@@ -316,42 +316,32 @@ class UserAccountManageController extends Controller
         $rules = [
                  'account_bill_first_name'                  =>  'required',
                  'account_bill_last_name'                   =>  'required',
-                 'account_bill_email_address'               =>  'required|email',
                  'account_bill_phone_number'                =>  'required',
                  'account_bill_select_country'              =>  'required',
                  'account_bill_adddress_line_1'             =>  'required',
                  'account_bill_town_or_city'                =>  'required',
-                 'account_bill_zip_or_postal_code'          =>  'required',
                  
                  'account_shipping_first_name'              =>  'required',
                  'account_shipping_last_name'               =>  'required',
-                 'account_shipping_email_address'           =>  'required|email',
                  'account_shipping_phone_number'            =>  'required',
                  'account_shipping_select_country'          =>  'required',
                  'account_shipping_adddress_line_1'         =>  'required',
                  'account_shipping_town_or_city'            =>  'required',
-                 'account_shipping_zip_or_postal_code'      =>  'required',
                  
         ];
         
         $messages = [
                     'account_bill_first_name.required' => Lang::get('validation.account_bill_first_name'),
                     'account_bill_last_name.required' => Lang::get('validation.account_bill_last_name'),
-                    'account_bill_email_address.required' => Lang::get('validation.account_bill_email_address'),
-                    'account_bill_email_address.email' => Lang::get('validation.account_bill_email_address_is_email'),
                     'account_bill_phone_number.required' => Lang::get('validation.account_bill_phone_number_name'),
                     'account_bill_select_country.required' => Lang::get('validation.account_bill_select_country'),
                     'account_bill_adddress_line_1.required' => Lang::get('validation.account_bill_adddress_line_1'),
                     'account_bill_town_or_city.required' => Lang::get('validation.account_bill_town_or_city'),
-                    'account_bill_zip_or_postal_code.required' => Lang::get('validation.account_bill_zip_or_postal_code'),
                     'account_shipping_first_name.required' => Lang::get('validation.account_shipping_first_name'),
                     'account_shipping_last_name.required' => Lang::get('validation.account_shipping_last_name'),
-                    'account_shipping_email_address.required' => Lang::get('validation.account_shipping_email_address'),
-                    'account_shipping_email_address.email' => Lang::get('validation.account_shipping_email_address_is_email'),
                     'account_shipping_select_country.required' => Lang::get('validation.account_shipping_select_country'),
                     'account_shipping_adddress_line_1.required' => Lang::get('validation.account_shipping_adddress_line_1'),
                     'account_shipping_town_or_city.required' => Lang::get('validation.account_shipping_town_or_city'),
-                    'account_shipping_zip_or_postal_code.required' => Lang::get('validation.account_shipping_zip_or_postal_code'),
                     'account_shipping_phone_number.required' => Lang::get('validation.account_shipping_phone_number_name')
         ];
       
@@ -365,31 +355,21 @@ class UserAccountManageController extends Controller
         else{
           
           $address_data_ary = array();
-          $address_data_ary['account_bill_title']                   =         Input::get('account_bill_title');
-          $address_data_ary['account_bill_company_name']            =         Input::get('account_bill_company_name');
           $address_data_ary['account_bill_first_name']              =         Input::get('account_bill_first_name');
           $address_data_ary['account_bill_last_name']               =         Input::get('account_bill_last_name');
-          $address_data_ary['account_bill_email_address']           =         Input::get('account_bill_email_address');
           $address_data_ary['account_bill_phone_number']            =         Input::get('account_bill_phone_number');
           $address_data_ary['account_bill_select_country']          =         Input::get('account_bill_select_country');
           $address_data_ary['account_bill_adddress_line_1']         =         Input::get('account_bill_adddress_line_1');
           $address_data_ary['account_bill_adddress_line_2']         =         Input::get('account_bill_adddress_line_2');
           $address_data_ary['account_bill_town_or_city']            =         Input::get('account_bill_town_or_city');
-          $address_data_ary['account_bill_zip_or_postal_code']      =         Input::get('account_bill_zip_or_postal_code');
-          $address_data_ary['account_bill_fax_number']              =         Input::get('account_bill_fax_number');
           
-          $address_data_ary['account_shipping_title']               =         Input::get('account_shipping_title');
-          $address_data_ary['account_shipping_company_name']        =         Input::get('account_shipping_company_name');
           $address_data_ary['account_shipping_first_name']          =         Input::get('account_shipping_first_name');
           $address_data_ary['account_shipping_last_name']           =         Input::get('account_shipping_last_name');
-          $address_data_ary['account_shipping_email_address']       =         Input::get('account_shipping_email_address');
           $address_data_ary['account_shipping_phone_number']        =         Input::get('account_shipping_phone_number');
           $address_data_ary['account_shipping_select_country']      =         Input::get('account_shipping_select_country');
           $address_data_ary['account_shipping_adddress_line_1']     =         Input::get('account_shipping_adddress_line_1');
           $address_data_ary['account_shipping_adddress_line_2']     =         Input::get('account_shipping_adddress_line_2');
           $address_data_ary['account_shipping_town_or_city']        =         Input::get('account_shipping_town_or_city');
-          $address_data_ary['account_shipping_zip_or_postal_code']  =         Input::get('account_shipping_zip_or_postal_code');
-          $address_data_ary['account_shipping_fax_number']          =         Input::get('account_shipping_fax_number');
           
           $address_data = array('post_type' => 'address', 'details' => $address_data_ary);
           
