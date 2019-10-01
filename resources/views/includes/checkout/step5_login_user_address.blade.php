@@ -16,37 +16,37 @@
          <div class="col-md-6 address-content-sub">
          <h4>{!! trans('frontend.billing_address') !!}</h4><br>
          @if(!empty($login_user_account_data) && !empty($login_user_account_data->address_details))
-         <p>{!! $login_user_account_data->address_details->account_bill_first_name .' '. $login_user_account_data->address_details->account_bill_last_name !!}</p>
+            <p>{!! $login_user_account_data->address_details->account_bill_first_name .' '. $login_user_account_data->address_details->account_bill_last_name !!}</p>
 
-         @if($login_user_account_data->address_details->account_bill_company_name)
-             <p><strong>{{ trans('admin.company') }}:</strong> {!! $login_user_account_data->address_details->account_bill_company_name !!}</p>
-         @endif
+            <!-- @if($login_user_account_data->address_details->account_bill_company_name)
+                <p><strong>{{ trans('admin.company') }}:</strong> {!! $login_user_account_data->address_details->account_bill_company_name !!}</p>
+            @endif -->
 
-         <p><strong>{{ trans('admin.address_1') }}:</strong> {!! $login_user_account_data->address_details->account_bill_adddress_line_1 !!}</p>
+            <p><strong>{{ trans('admin.address_1') }}:</strong> {!! $login_user_account_data->address_details->account_bill_adddress_line_1 !!}</p>
 
-         @if($login_user_account_data->address_details->account_bill_adddress_line_2)
-             <p><strong>{{ trans('admin.address_2') }}:</strong> {!! $login_user_account_data->address_details->account_bill_adddress_line_2 !!}</p>
-         @endif
+            @if($login_user_account_data->address_details->account_bill_adddress_line_2)
+                <p><strong>{{ trans('admin.address_2') }}:</strong> {!! $login_user_account_data->address_details->account_bill_adddress_line_2 !!}</p>
+            @endif
 
-         <p><strong>{{ trans('admin.city') }}:</strong> {!! $login_user_account_data->address_details->account_bill_town_or_city !!}</p>
+            <p><strong>{{ trans('admin.city') }}:</strong> {!! $login_user_account_data->address_details->account_bill_town_or_city !!}</p>
 
-         <p><strong>{{ trans('admin.postCode') }}:</strong> {!! $login_user_account_data->address_details->account_bill_zip_or_postal_code !!}</p>
-         <p><strong>{{ trans('admin.country') }}:</strong> {!! get_country_by_code( $login_user_account_data->address_details->account_bill_select_country ) !!}</p>
+            <p><strong>{{ trans('admin.postCode') }}:</strong> {!! $login_user_account_data->address_details->account_bill_zip_or_postal_code !!}</p>
+            <p><strong>{{ trans('admin.country') }}:</strong> {!! get_country_by_code( $login_user_account_data->address_details->account_bill_select_country ) !!}</p>
 
-         <br>
+            <br>
 
-         @if($login_user_account_data->address_details->account_bill_phone_number)
-             <p><strong>{{ trans('admin.phone') }}:</strong> {!! $login_user_account_data->address_details->account_bill_phone_number !!}</p>
-         @endif
+            @if($login_user_account_data->address_details->account_bill_phone_number)
+                <p><strong>{{ trans('admin.phone') }}:</strong> {!! $login_user_account_data->address_details->account_bill_phone_number !!}</p>
+            @endif
 
-         @if($login_user_account_data->address_details->account_bill_fax_number)
-             <p><strong>{{ trans('admin.fax') }}:</strong> {!! $login_user_account_data->address_details->account_bill_fax_number !!}</p>
-         @endif
+            @if($login_user_account_data->address_details->account_bill_fax_number)
+                <p><strong>{{ trans('admin.fax') }}:</strong> {!! $login_user_account_data->address_details->account_bill_fax_number !!}</p>
+            @endif
 
-         <p><strong>{{ trans('admin.email') }}:</strong> {!! $login_user_account_data->address_details->account_bill_email_address !!}</p>
+            <p><strong>{{ trans('admin.email') }}:</strong> {!! $login_user_account_data->address_details->account_bill_email_address !!}</p>
 
          @else
-         <p>{{ trans('admin.billing_address_not_available') }}</p>
+            <p>{{ trans('admin.billing_address_not_available') }}</p>
          @endif
          </div>
          <div class="col-md-6 address-content-sub">
