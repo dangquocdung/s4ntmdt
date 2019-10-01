@@ -39,7 +39,7 @@
             @if(isset($order_details_for_thank_you_page['_payment_details']['method_instructions']))  
             <div class="row">
                 <div class="col-12">
-                  <p class="payment_ins"><i>{!! $order_details_for_thank_you_page['_payment_details']['method_instructions'] !!}</i></p>
+                  <p class="payment_ins">*{!! $order_details_for_thank_you_page['_payment_details']['method_instructions'] !!}</p>
                 </div>
             </div>
             @endif
@@ -53,7 +53,7 @@
                 <ul class="list-unstyled">
                   <li><span class="text-muted">:&nbsp; </span></li>
 
-                  <p>{!! $order_details_for_thank_you_page['customer_address']['_billing_first_name'].' '. $order_details_for_thank_you_page['customer_address']['_billing_last_name']!!}</p>
+                  <li><span class="text-muted">{!! $order_details_for_thank_you_page['customer_address']['_billing_first_name'].' '. $order_details_for_thank_you_page['customer_address']['_billing_last_name']!!}</span></li>
                   @if($order_details_for_thank_you_page['customer_address']['_billing_company'])
                     <p><strong>{{ trans('frontend.company') }}:</strong> {!! $order_details_for_thank_you_page['customer_address']['_billing_company'] !!}</p>
                   @endif
