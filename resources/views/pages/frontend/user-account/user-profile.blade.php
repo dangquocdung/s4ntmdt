@@ -21,7 +21,7 @@
     <div class="form-group">
 
         <label for="email_id">{{ trans('frontend.email') }}</label>
-        <input type="text" placeholder="{{ trans('frontend.email') }}" class="form-control" value="{{ $user_details['user_email'] }}" id="email_id" name="email_id">
+        <input type="text" placeholder="{{ trans('frontend.email') }}" class="form-control" value="{{ $user_details['user_email'] }}" id="email_id" name="email_id" readonly>
 
     </div>
   </div>
