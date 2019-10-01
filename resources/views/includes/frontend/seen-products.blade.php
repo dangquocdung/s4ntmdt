@@ -15,10 +15,10 @@
     <!-- Product-->
     <div class="product-card">
 
-        @if ($products['post_price'] < $products['post_regular_price'] )
+        @if ($products['product_price'] < $products['product_regular_price'] )
               @php
-                $tiengiam = $products['post_regular_price'] - $products['post_price'];
-                $phantram = round(($tiengiam/$products['post_regular_price'])*100);
+                $tiengiam = $products['product_regular_price'] - $products['product_price'];
+                $phantram = round(($tiengiam/$products['product_regular_price'])*100);
               @endphp
             <div class="product-badge bg-danger">Giảm giá {{ $phantram }}%</div>
           @endif
