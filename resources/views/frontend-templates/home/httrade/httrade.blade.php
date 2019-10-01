@@ -130,7 +130,7 @@
 
           $tiengiam =  $features_product->regular_price - $features_product->price;
 
-          $phantram = ($tiengiam/$features_product->regular_price)*100;
+          $phantram = round(($tiengiam/$features_product->regular_price)*100);
             
         @endphp
         <div class="product-badge bg-danger">Giảm giá {{ $phantram }}%</div>
