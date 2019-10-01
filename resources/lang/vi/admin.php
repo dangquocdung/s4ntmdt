@@ -872,7 +872,7 @@ return [
   'total_download_label' =>'Tổng số lượt tải xuống',
   'sample_csv_file_label' =>'Tải xuống tệp CSV mẫu',
   'export_csv_file_label' =>'Xuất tệp CSV',
-  'add_upsells_cross_sells_label' =>'Thêm Upsells và Cross bán sản phẩm',
+  'add_upsells_cross_sells_label' =>'Thêm SP mua kèm và SP đề xuất',
   'upsells_label' =>'SP mua kèm',
   'cross_sells_label' =>'SP đề xuất',
   'upsells_cross_sells_placeholder_label' =>'Tìm kiếm sản phẩm để thêm',
