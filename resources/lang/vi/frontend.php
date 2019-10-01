@@ -109,7 +109,7 @@ return [
   'drop_your_cover_picture_here' =>'Thả ảnh bìa của bạn ở đây',
   'no_recently_uploaded_images_yet' =>'Chưa có hình ảnh được tải lên gần đây!',
   'design_preview' =>'Xem trước thiết kế',
-  'close' =>'Đónga',
+  'close' =>'Đóng',
   'save_design' =>'Lưu thiết kế',
   'remove_design' =>'Xóa thiết kế',
   'retrieve_password' =>'Lấy mật khẩu',
