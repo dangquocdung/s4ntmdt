@@ -102,7 +102,6 @@
         
         <p><strong>{{ trans('admin.phone') }}:</strong> {!! $order_data_by_id['_billing_phone'] !!}</p>
         
-        <p><strong>{{ trans('admin.email') }}:</strong> {!! $order_data_by_id['_billing_email'] !!}</p>
         
       </div>
       <div class="col-md-4">
