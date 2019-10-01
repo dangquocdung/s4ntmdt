@@ -150,7 +150,7 @@ return [
   'address_2' =>'Địa chỉ 2',
   'city' =>'Thành phố',
   'postCode' =>'Mã bưu điện',
-  'country' =>'Quốc gia',
+  'country' =>'Tỉnh, thành',
   'phone' =>'Số điện thoại',
   'fax' =>'Số fax',
   'email' =>'Địa chỉ email',
