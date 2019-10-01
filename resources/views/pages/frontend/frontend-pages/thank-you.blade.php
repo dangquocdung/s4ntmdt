@@ -39,7 +39,7 @@
             @if(isset($order_details_for_thank_you_page['_payment_details']['method_instructions']))  
             <div class="row">
                 <div class="col-12">
-                  <p class="payment_ins">{!! $order_details_for_thank_you_page['_payment_details']['method_instructions'] !!}</p>
+                  <p class="payment_ins"><i>{!! $order_details_for_thank_you_page['_payment_details']['method_instructions'] !!}</i></p>
                 </div>
             </div>
             @endif
