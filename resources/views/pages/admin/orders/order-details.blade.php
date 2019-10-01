@@ -109,15 +109,11 @@
         <h5>{{ trans('admin.shipping_address') }}</h5><hr>
         <br>
         <p>{!! $order_data_by_id['_shipping_first_name'].' '. $order_data_by_id['_shipping_last_name']!!}</p>
-        @if($order_data_by_id['_shipping_company'])
-          <p><strong>{{ trans('admin.company') }}:</strong> {!! $order_data_by_id['_shipping_company'] !!}</p>
-        @endif
         <p><strong>{{ trans('admin.address_1') }}:</strong> {!! $order_data_by_id['_shipping_address_1'] !!}</p>
         @if($order_data_by_id['_shipping_address_2'])
           <p><strong>{{ trans('admin.address_2') }}:</strong> {!! $order_data_by_id['_shipping_address_2'] !!}</p>
         @endif
         <p><strong>{{ trans('admin.city') }}:</strong> {!! $order_data_by_id['_shipping_city'] !!}</p>
-        <p><strong>{{ trans('admin.postCode') }}:</strong> {!! $order_data_by_id['_shipping_postcode'] !!}</p>
         <p><strong>{{ trans('admin.country') }}:</strong> {!! get_country_by_code( $order_data_by_id['_shipping_country'] ) !!}</p>
         
        
@@ -125,10 +121,6 @@
         
         <p><strong>{{ trans('admin.phone') }}:</strong> {!! $order_data_by_id['_shipping_phone'] !!}</p>
         
-        @if($order_data_by_id['_shipping_fax'])
-          <p><strong>{{ trans('admin.fax') }}:</strong> {!! $order_data_by_id['_shipping_fax'] !!}</p>
-        @endif
-        <p><strong>{{ trans('admin.email') }}:</strong> {!! $order_data_by_id['_shipping_email'] !!}</p>
         
       </div>
     </div>
