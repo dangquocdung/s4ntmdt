@@ -498,7 +498,7 @@ return [
   'agree_label' =>'Tôi đồng ý',
   'not_role_selected_label' => 'Chưa có vai trò nào được chọn!, Vui lòng liên hệ với quản trị viên.',
   'vendor_account_created_label'=>'Xin chúc mừng, bạn đã tạo thành công tài khoản nhà cung cấp, vui lòng đợi thư xác nhận từ quản trị viên',
-  'user_account_label' =>'Tài khoản thành viên',
+  'user_account_label' =>'Thành viên',
   'vendor_account_label' =>'Tài khoản nhà cung cấp',
   'vendor_account_all_products_label' =>'Tất cả sản phẩm',
   'vendor_account_add_product_label' =>'Thêm sản phẩm',
