@@ -14,29 +14,22 @@
           <div class="col-sm-6">
             <div class="form-group">
               <label for="inputAccountFirstName">{{ trans('frontend.account_first_name') }}</label>
-              <input type="text" class="form-control" placeholder="{{ trans('frontend.first_name') }}" name="account_bill_first_name" id="account_bill_first_name" value="{{ old('account_bill_first_name') }}">
+              <input type="text" class="form-control" placeholder="{{ trans('frontend.first_name') }}" name="account_bill_first_name" id="account_bill_first_name" value="dang">
             </div>
           </div>
           <div class="col-sm-6">
             <div class="form-group">
               <label for="inputAccountLastName">{{ trans('frontend.account_last_name') }}</label>
-              <input type="text" class="form-control" placeholder="{{ trans('frontend.last_name') }}" name="account_bill_last_name" id="account_bill_last_name" value="{{ old('account_bill_last_name') }}">
+              <input type="text" class="form-control" placeholder="{{ trans('frontend.last_name') }}" name="account_bill_last_name" id="account_bill_last_name" value="quoc dung">
             </div>
           </div>
           <div class="col-sm-6">
             <div class="form-group">
               <label for="inputAccountPhoneNumber">{{ trans('frontend.account_phone_number') }}</label>
-              <input type="number" class="form-control" placeholder="{{ trans('frontend.phone') }}" name="account_bill_phone_number" id="account_bill_phone_number" value="{{ old('account_bill_phone_number') }}">
+              <input type="number" class="form-control" placeholder="{{ trans('frontend.phone') }}" name="account_bill_phone_number" id="account_bill_phone_number" value="0986242487">
             </div>
           </div>
 
-          <div class="col-sm-6">
-            <div class="form-group">
-              <label for="inputAccountPhoneNumber">{{ trans('frontend.account_phone_number') }}</label>
-              <input type="number" class="form-control" placeholder="{{ trans('frontend.phone') }}" name="account_bill_phone_number" id="account_bill_phone_number" value="{{ old('account_bill_phone_number') }}">
-            </div>
-          </div>
-        
           <div class="col-md-4">
             <div class="form-group">
               <label class="control-label" for="inputAccountSelectCountry">{{ trans('frontend.checkout_select_country_label') }}</label>
@@ -85,7 +78,7 @@
           <div class="col-md-12">
             <div class="form-group">
               <label class="control-label" for="inputAccountAddressLine1">{{ trans('frontend.account_address_line_1') }}</label>
-              <textarea class="form-control" id="account_bill_adddress_line_1" name="account_bill_adddress_line_1" placeholder="{{ trans('frontend.address_line_1') }}">{{ old('account_shipping_adddress_line_1') }}</textarea>
+              <textarea class="form-control" id="account_bill_adddress_line_1" name="account_bill_adddress_line_1" placeholder="{{ trans('frontend.address_line_1') }}">sadasdsad asdas</textarea>
             </div>
           </div>
 
