@@ -21,7 +21,7 @@
     <div class="col-sm-6">
       <div class="form-group">
         <label for="account_bill_email_address">{{ trans('frontend.account_email_address') }}</label>
-        <input type="number" class="form-control" placeholder="{{ trans('frontend.email') }}" name="account_bill_email_address" id="account_bill_email_address" value="{{ $frontend_account_details->address_details->account_bill_email_address }}">
+        <!-- <input type="number" class="form-control" placeholder="{{ trans('frontend.email') }}" name="account_bill_email_address" id="account_bill_email_address" value="{{ $frontend_account_details->address_details->account_bill_email_address }}"> -->
       </div>
     </div>
 

@@ -563,7 +563,7 @@ return [
   'thanh-vien' => 'Thành viên',
   'contact-address' => 'Địa chỉ liên hệ',
   'shipping-address' => 'Địa chỉ giao hàng',
-  'same-contact-address' => 'Giống địa chỉ giao hàng',
+  'same-contact-address' => 'Giống địa chỉ liên hệ',
   'contact_address_not_available' => 'Không có địa chỉ liên hệ trong sổ địa chỉ của bạn',
   'order_list_not_available' => 'Bạn chưa có đơn hàng nào',
   'delete-all' => 'Xóa hết',
