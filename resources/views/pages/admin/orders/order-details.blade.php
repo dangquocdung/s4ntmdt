@@ -90,9 +90,6 @@
         <h5>{{ trans('admin.billing_address') }}</h5><hr>
         <br>
         <p>{!! $order_data_by_id['_billing_first_name'].' '. $order_data_by_id['_billing_last_name']!!}</p>
-        <!-- @if($order_data_by_id['_billing_company'])
-          <p><strong>{{ trans('admin.company') }}:</strong> {!! $order_data_by_id['_billing_company'] !!}</p>
-        @endif -->
         <p><strong>{{ trans('admin.address_1') }}:</strong> {!! $order_data_by_id['_billing_address_1'] !!}</p>
         @if($order_data_by_id['_billing_address_2'])
           <p><strong>{{ trans('admin.address_2') }}:</strong> {!! $order_data_by_id['_billing_address_2'] !!}</p>
