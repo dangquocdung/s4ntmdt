@@ -2464,6 +2464,7 @@ class ProductsController extends Controller
                                ->select('products.*')
                                ->where('products.status', 1)
                                ->join(DB::raw("(SELECT product_id FROM product_extras WHERE key_name = '_product_enable_as_features' AND key_value = 'yes') T1") , 'products.id', '=', 'T1.product_id')
+                               ->orderby('id','desc')
                                ->take(8)
                                ->get()
                                ->toArray();
@@ -3252,7 +3253,7 @@ class ProductsController extends Controller
     }
     
     return $related_products;
-    
+
   }
   
   /**
