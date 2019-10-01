@@ -349,6 +349,10 @@
       <div class="owl-carousel" data-owl-carousel="{ &quot;nav&quot;: false, &quot;dots&quot;: true, &quot;margin&quot;: 30, &quot;responsive&quot;: {&quot;0&quot;:{&quot;items&quot;:1},&quot;576&quot;:{&quot;items&quot;:2},&quot;768&quot;:{&quot;items&quot;:3},&quot;991&quot;:{&quot;items&quot;:4},&quot;1200&quot;:{&quot;items&quot;:4}} }">
         
       @foreach($related_items as $products)
+
+      @if ($loop->inteval < 10 )
+
+
         <?php 
           $reviews          = get_comments_rating_details($products['id'], 'product');
           $reviews_settings = get_reviews_settings_data($products['id']);      
@@ -356,7 +360,16 @@
         
         <!-- Product-->
         <div class="product-card">
-          <div class="product-badge bg-danger">Sale</div>
+
+          @if ($products['post_price'] < $products['post_regular_price'] )
+              @php
+                $tiengiam = $products['post_regular_price'] - $products['post_price'];
+                $phantram = ($tiengiam/$products['post_regular_price'])*100;
+              @endphp
+            <div class="product-badge bg-danger">Giảm giá {{ $phantram }}%</div>
+          @endif
+
+
 
           <a class="product-thumb" href="{{ route('details-page', $products['post_slug']) }}">
               @if($products['_product_related_images_url']->product_image)
@@ -395,6 +408,8 @@
           
           </div>
         </div>
+
+      @endif
 
       @endforeach
         

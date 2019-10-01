@@ -3170,6 +3170,7 @@ class ProductsController extends Controller
    */
   
   public function getRelatedItems($product_id){
+
     $related_items  =  array();
     $related_products  =  array();
     
@@ -3251,6 +3252,7 @@ class ProductsController extends Controller
     }
     
     return $related_products;
+    
   }
   
   /**
