@@ -314,6 +314,23 @@ class UserAccountManageController extends Controller
     if( Request::isMethod('post') && Session::token() == Input::get('_token') ){
       if(Input::get('_account_post_type') == 'address'){
         $rules = [
+                 'account_bill_first_name'                  =>  'required',
+                 'account_bill_last_name'                   =>  'required',
+                 'account_bill_email_address'               =>  'required|email',
+                 'account_bill_phone_number'                =>  'required',
+                 'account_bill_select_country'              =>  'required',
+                 'account_bill_adddress_line_1'             =>  'required',
+                 'account_bill_town_or_city'                =>  'required',
+                 'account_bill_zip_or_postal_code'          =>  'required',
+                 
+                 'account_shipping_first_name'              =>  'required',
+                 'account_shipping_last_name'               =>  'required',
+                 'account_shipping_email_address'           =>  'required|email',
+                 'account_shipping_phone_number'            =>  'required',
+                 'account_shipping_select_country'          =>  'required',
+                 'account_shipping_adddress_line_1'         =>  'required',
+                 'account_shipping_town_or_city'            =>  'required',
+                 'account_shipping_zip_or_postal_code'      =>  'required',
                  
         ];
         
