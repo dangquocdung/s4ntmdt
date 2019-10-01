@@ -2122,10 +2122,10 @@ class GetFunction
     $blog_data_array   =   array();
    
     if(isset($status)){
-      $get_post_for_blogs =  Post :: where(['post_type' => 'post-blog', 'post_status' => $status])->get()->toArray();
+      $get_post_for_blogs =  Post :: where(['post_type' => 'post-blog', 'post_status' => $status])->orderBy('id', 'desc')->get()->toArray();
     }
     else{
-      $get_post_for_blogs =  Post :: where(['post_type' => 'post-blog'])->get()->toArray();
+      $get_post_for_blogs =  Post :: where(['post_type' => 'post-blog'])->orderBy('id', 'desc')->get()->toArray();
     }
     
     if(count($get_post_for_blogs) > 0){

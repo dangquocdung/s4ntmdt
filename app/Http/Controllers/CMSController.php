@@ -478,7 +478,7 @@ class CMSController extends Controller
     }
     else{
       $pages = Post:: where($where)
-               ->orderBy('id', 'desc')
+               ->orderBy('id', 'asc')
                ->get()
                ->toArray();
     }
