@@ -5,7 +5,7 @@
     <meta content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no' name='viewport'>
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <base href="{{ asset('/') }}" />
+    <!-- <base href="{{ asset('/') }}" /> -->
 
     <!-- SEO Meta Tags-->
     @if((Request::is('san-pham/chi-tiet/*') || Request::is('san-pham/tuy-chinh/*')) && !empty($single_product_details['meta_keywords']))
@@ -49,8 +49,8 @@
     <!-- Mobile Specific Meta Tag-->
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <!-- Favicon and Apple Icons-->
-    <link rel="icon" type="image/x-icon" href="favicon.ico">
-    <link rel="icon" type="image/png" href="favicon.png">
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+    <link rel="icon" type="image/png" href="/favicon.png">
     <link rel="apple-touch-icon" href="touch-icon-iphone.png">
     <link rel="apple-touch-icon" sizes="152x152" href="touch-icon-ipad.png">
     <link rel="apple-touch-icon" sizes="180x180" href="touch-icon-iphone-retina.png">

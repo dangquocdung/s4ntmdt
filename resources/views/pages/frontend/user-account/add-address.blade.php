@@ -23,6 +23,15 @@
               <input type="text" class="form-control" placeholder="{{ trans('frontend.last_name') }}" name="account_bill_last_name" id="account_bill_last_name" value="quoc dung">
             </div>
           </div>
+
+          <div class="col-sm-6">
+            <div class="form-group">
+              <label for="account_bill_email_address">{{ trans('frontend.account_email') }}</label>
+              <input type="email" class="form-control" placeholder="{{ trans('frontend.email_address') }}" name="account_bill_email_address" id="account_bill_email_address" value="dungthinh34@gmail.com">
+            </div>
+          </div>
+
+
           <div class="col-sm-6">
             <div class="form-group">
               <label for="inputAccountPhoneNumber">{{ trans('frontend.account_phone_number') }}</label>
