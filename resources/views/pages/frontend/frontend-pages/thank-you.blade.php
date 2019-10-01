@@ -48,9 +48,9 @@
                 <ul class="list-unstyled">
                   <li><span class="text-muted">{!! $order_details_for_thank_you_page['customer_address']['_billing_first_name'].' '. $order_details_for_thank_you_page['customer_address']['_billing_last_name']!!}</span></li>
                   @if($order_details_for_thank_you_page['customer_address']['_billing_company'])
-                    <p><strong>{{ trans('frontend.company') }}:</strong> {!! $order_details_for_thank_you_page['customer_address']['_billing_company'] !!}</p>
+                    <li><span class="text-muted">{{ trans('frontend.company') }}:</span> {!! $order_details_for_thank_you_page['customer_address']['_billing_company'] !!}</li>
                   @endif
-                  <p><strong>{{ trans('frontend.address_1') }}:</strong> {!! $order_details_for_thank_you_page['customer_address']['_billing_address_1'] !!}</p>
+                  <li><span class="text-muted">{{ trans('frontend.address_1') }}:</span> {!! $order_details_for_thank_you_page['customer_address']['_billing_address_1'] !!}</li>
                   @if($order_details_for_thank_you_page['customer_address']['_billing_address_2'])
                     <p><strong>{{ trans('frontend.address_2') }}:</strong> {!! $order_details_for_thank_you_page['customer_address']['_billing_address_2'] !!}</p>
                   @endif
