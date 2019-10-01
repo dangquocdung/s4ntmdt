@@ -27,7 +27,6 @@
           <div class="card-body padding-top-2x">
             <h3 class="card-title text-center">{{ trans('frontend.order_received') }}</h3>
             <p class="card-text text-center">{{ trans('frontend.thank_you_msg') }}</p>
-            </p>
 
             @if(isset($order_details_for_thank_you_page['_payment_details']['method_instructions']))  
             <div class="row">
@@ -40,10 +39,10 @@
               <div class="col-sm-6">
                 <h5>Shipping to:</h5>
                 <ul class="list-unstyled">
-                  <li><span class="text-muted">{{ trans('frontend.order_number') }}:&nbsp;</span>#{!! $order_details_for_thank_you_page['order_id'] !!}</li>
-                  <li><span class="text-muted">{{ trans('frontend.date') }}:&nbsp;</span>{!! $order_details_for_thank_you_page['order_date'] !!}</li>
-                  <li><span class="text-muted">{{ trans('frontend.total') }}:&nbsp;</span>{!! price_html( $order_details_for_thank_you_page['_final_order_total'], $order_details_for_thank_you_page['_order_currency'] ) !!}</li>
-                  <li><span class="text-muted">{{ trans('frontend.payment_method') }}:&nbsp;</span>{!! get_payment_method_title($order_details_for_thank_you_page['_payment_method']) !!}</li>
+                  <li><span class="text-muted">{{ trans('frontend.order_number') }}:&nbsp; </span>#{!! $order_details_for_thank_you_page['order_id'] !!}</li>
+                  <li><span class="text-muted">{{ trans('frontend.date') }}:&nbsp; </span>{!! $order_details_for_thank_you_page['order_date'] !!}</li>
+                  <li><span class="text-muted">{{ trans('frontend.total') }}:&nbsp; </span>{!! price_html( $order_details_for_thank_you_page['_final_order_total'], $order_details_for_thank_you_page['_order_currency'] ) !!}</li>
+                  <li><span class="text-muted">{{ trans('frontend.payment_method') }}:&nbsp; </span>{!! get_payment_method_title($order_details_for_thank_you_page['_payment_method']) !!}</li>
                 </ul>
               </div>
               <div class="col-sm-6">
@@ -55,7 +54,7 @@
             </div>
 
             <br>
-            
+
             <div class="row">
               <div class="col-sm-6">
                 <h4>{{ trans('frontend.billing_address') }}</h4><hr>
