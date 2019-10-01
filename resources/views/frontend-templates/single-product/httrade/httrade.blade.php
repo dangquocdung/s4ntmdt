@@ -276,19 +276,19 @@
                 </div>
               </div>
               <div class="pt-3">
-                <label class="text-medium text-sm">5 stars <span class='text-muted'>- 38</span></label>
+                <label class="text-medium text-sm">5 <i class="icon-star filled"></i><span class='text-muted'>- 38</span></label>
                 <div class="progress margin-bottom-1x">
                   <div class="progress-bar bg-warning" role="progressbar" style="width: 75%; height: 2px;" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"></div>
                 </div>
-                <label class="text-medium text-sm">4 stars <span class='text-muted'>- 10</span></label>
+                <label class="text-medium text-sm">4 <i class="icon-star filled"></i><span class='text-muted'>- 10</span></label>
                 <div class="progress margin-bottom-1x">
                   <div class="progress-bar bg-warning" role="progressbar" style="width: 20%; height: 2px;" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100"></div>
                 </div>
-                <label class="text-medium text-sm">3 stars <span class='text-muted'>- 3</span></label>
+                <label class="text-medium text-sm">3 <i class="icon-star filled"></i><span class='text-muted'>- 3</span></label>
                 <div class="progress margin-bottom-1x">
                   <div class="progress-bar bg-warning" role="progressbar" style="width: 7%; height: 2px;" aria-valuenow="7" aria-valuemin="0" aria-valuemax="100"></div>
                 </div>
-                <label class="text-medium text-sm">2 stars <span class='text-muted'>- 1</span></label>
+                <label class="text-medium text-sm">2 <i class="icon-star filled"></i><span class='text-muted'>- 1</span></label>
                 <div class="progress margin-bottom-1x">
                   <div class="progress-bar bg-warning" role="progressbar" style="width: 3%; height: 2px;" aria-valuenow="3" aria-valuemin="0" aria-valuemax="100"></div>
                 </div>
@@ -297,12 +297,12 @@
                   <div class="progress-bar bg-warning" role="progressbar" style="width: 0; height: 2px;" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
                 </div>
               </div>
-              <div class="pt-2"><a class="btn btn-warning btn-block" href="#" data-toggle="modal" data-target="#leaveReview">Leave a Review</a></div>
+              <div class="pt-2"><a class="btn btn-warning btn-block" href="#" data-toggle="modal" data-target="#leaveReview">Bình chọn</a></div>
             </div>
           </div>
         </div>
         <div class="col-md-8">
-          <h3 class="padding-bottom-1x">Latest Reviews</h3>
+          <h3 class="padding-bottom-1x">Đánh giá sản phẩm</h3>
 
           @if(count($comments_details) > 0)
               @foreach($comments_details as $comment) 
