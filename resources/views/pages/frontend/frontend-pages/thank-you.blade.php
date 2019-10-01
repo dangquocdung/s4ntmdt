@@ -32,10 +32,6 @@
             {{ trans('frontend.total') }}:&nbsp; <span class="text-medium">{!! price_html( $order_details_for_thank_you_page['_final_order_total'], $order_details_for_thank_you_page['_order_currency'] ) !!}</span> - 
             {{ trans('frontend.payment_method') }}:&nbsp; <span class="text-medium">{!! get_payment_method_title($order_details_for_thank_you_page['_payment_method']) !!}</span></p>
 
-
-
-
-
             @if(isset($order_details_for_thank_you_page['_payment_details']['method_instructions']))  
             <div class="row">
                 <div class="col-12">
@@ -44,15 +40,12 @@
             </div>
             @endif
 
-            
             <div class="row padding-top-1x mt-3">
               <div class="col-sm-6">
                 <h5>{{ trans('frontend.billing_address') }}:</h5>
                 @if(!empty($order_details_for_thank_you_page['customer_address']))
 
                 <ul class="list-unstyled">
-                  <li><span class="text-muted">:&nbsp; </span></li>
-
                   <li><span class="text-muted">{!! $order_details_for_thank_you_page['customer_address']['_billing_first_name'].' '. $order_details_for_thank_you_page['customer_address']['_billing_last_name']!!}</span></li>
                   @if($order_details_for_thank_you_page['customer_address']['_billing_company'])
                     <p><strong>{{ trans('frontend.company') }}:</strong> {!! $order_details_for_thank_you_page['customer_address']['_billing_company'] !!}</p>
@@ -64,7 +57,6 @@
                   <p><strong>{{ trans('frontend.city') }}:</strong> {!! $order_details_for_thank_you_page['customer_address']['_billing_city'] !!}</p>
                   <p><strong>{{ trans('frontend.postCode') }}:</strong> {!! $order_details_for_thank_you_page['customer_address']['_billing_postcode'] !!}</p>
                   <p><strong>{{ trans('frontend.country') }}:</strong> {!! get_country_by_code( $order_details_for_thank_you_page['customer_address']['_billing_country'] ) !!}</p>
-
 
                   <br>
 
@@ -98,7 +90,6 @@
                   <p><strong>{{ trans('frontend.city') }}:</strong> {!! $order_details_for_thank_you_page['customer_address']['_billing_city'] !!}</p>
                   <p><strong>{{ trans('frontend.postCode') }}:</strong> {!! $order_details_for_thank_you_page['customer_address']['_billing_postcode'] !!}</p>
                   <p><strong>{{ trans('frontend.country') }}:</strong> {!! get_country_by_code( $order_details_for_thank_you_page['customer_address']['_billing_country'] ) !!}</p>
-
 
                   <br>
 
