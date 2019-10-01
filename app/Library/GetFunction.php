@@ -2487,7 +2487,7 @@ class GetFunction
             $user_address['_billing_first_name'] = $user_account_parse_data->address_details->account_bill_first_name;
             $user_address['_billing_last_name'] = $user_account_parse_data->address_details->account_bill_last_name;
             // $user_address['_billing_company'] = $user_account_parse_data->address_details->account_bill_company_name;
-            $user_address['_billing_email'] = $user_account_parse_data->address_details->account_bill_email_address;
+            // $user_address['_billing_email'] = $user_account_parse_data->address_details->account_bill_email_address;
             $user_address['_billing_phone'] = $user_account_parse_data->address_details->account_bill_phone_number;
             // $user_address['_billing_fax'] = $user_account_parse_data->address_details->account_bill_fax_number; 
             $user_address['_billing_country'] = $user_account_parse_data->address_details->account_bill_select_country; 
@@ -2500,7 +2500,7 @@ class GetFunction
             $user_address['_shipping_first_name'] = $user_account_parse_data->address_details->account_shipping_first_name;
             $user_address['_shipping_last_name'] = $user_account_parse_data->address_details->account_shipping_last_name;
             // $user_address['_shipping_company'] = $user_account_parse_data->address_details->account_shipping_company_name;
-            $user_address['_shipping_email'] = $user_account_parse_data->address_details->account_shipping_email_address;
+            // $user_address['_shipping_email'] = $user_account_parse_data->address_details->account_shipping_email_address;
             $user_address['_shipping_phone'] = $user_account_parse_data->address_details->account_shipping_phone_number;
             // $user_address['_shipping_fax'] = $user_account_parse_data->address_details->account_shipping_fax_number; 
             $user_address['_shipping_country'] = $user_account_parse_data->address_details->account_shipping_select_country; 
