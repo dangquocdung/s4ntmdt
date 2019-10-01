@@ -201,7 +201,7 @@
         @if ( $recommended_product->price < $recommended_product->regular_price )
             @php
               $tiengiam =  $recommended_product->regular_price - $recommended_product->price;
-              $phantram = ($tiengiam/$recommended_product->regular_price)*100;
+              $phantram = round(($tiengiam/$recommended_product->regular_price)*100);
             @endphp
           <div class="product-badge bg-danger">Giảm giá {{ $phantram }}%</div>
         @endif
