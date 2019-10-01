@@ -112,7 +112,7 @@ return [
   'features_product' =>'Sản phẩm phổ biến',
   'enable_features_product' =>'Kích hoạt',
   'latest_product' =>'Sản phẩm mới nhất',
-  'enable_latest_product' =>'Kích hoạt như một sản phẩm mới nhất',
+  'enable_latest_product' =>'Kích hoạt',
   'related_product' =>'Sản phẩm liên quan',
   'enable_related_product' =>'Kích hoạt như một sản phẩm liên quan',
   'custom_design' =>'Thiết kế tùy chỉnh',
