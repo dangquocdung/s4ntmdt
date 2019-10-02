@@ -844,7 +844,7 @@ return [
   'cat_search_placeholder' =>'Nhập tên danh mục để tìm kiếm',
   'post_title_search_placeholder' =>'Nhập tiêu đề để tìm kiếm',
   'enable_role_based_pricing_label' =>'Kích hoạt giá tuỳ chỉnh (role based)',
-  'user_pricing_top_label' =>'Thêm: user_role Vai trò Giá',
+  'user_pricing_top_label' =>'Giá theo nhóm',
   'import_label' =>'Nhập khẩu',
   'export_label' =>'Xuất khẩu',
   'import_title_label' =>'Nhập tệp CSV sản phẩm',
