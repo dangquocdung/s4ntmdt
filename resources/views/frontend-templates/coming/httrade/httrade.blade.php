@@ -1,7 +1,3 @@
-@extends('layouts.frontend.master')
-
-@section('title',trans('frontend.coming_soon') .' | '. get_site_title())
-
 @section('content')
 
 <!-- Page Content-->
