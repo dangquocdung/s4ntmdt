@@ -42,7 +42,7 @@
           </div>
 
           <div class="cart-return-shop">
-            <a class="btn btn-secondary check_out" href="{{ route('shop-page') }}" style="float:left; margin-left:0"><i class="icon-arrow-left"></i>&nbsp;{{ trans('frontend.return_to_shop') }}</a>
+            <a class="btn btn-secondary check_out" href="{{ route('home-page') }}" style="float:left; margin-left:0"><i class="icon-arrow-left"></i>&nbsp;{{ trans('frontend.return_to_home') }}</a>
             <button class="btn btn-primary" type="submit" style="float:right; margin-right:0"><i class="icon-mail"></i>&nbsp;Gửi</button>
 
           </div>
