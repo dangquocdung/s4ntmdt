@@ -932,7 +932,7 @@ return [
   'sidebar_vendor_title' =>'Quản lý gian hàng',
   'sidebar_manage_users_title' =>'Quản lý người dùng',
   'sidebar_config_title' =>'Cấu hình',
-  'sidebar_extra_features_title' =>'Quản lý nhiều tính năng hơn',
+  'sidebar_extra_features_title' =>'Tính năng nâng cao',
   'sidebar_withdraw_title' =>'Rút tiền',
   'sidebar_refund_title' =>'Yêu cầu hoàn tiền',
   'sidebar_earning_title' =>'Báo cáo thu nhập',
