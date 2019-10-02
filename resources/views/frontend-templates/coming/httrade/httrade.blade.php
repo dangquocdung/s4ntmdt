@@ -22,7 +22,7 @@
         <div class="pt-3 hidden-md-up"><a class="btn btn-primary scroll-to" href="#notify"><i class="icon-bell"></i>&nbsp;Notify Me!</a></div>
       </div>
       <div class="w-100 text-center">
-        <p class="text-white mb-2">00 33 169 7720</p><a class="navi-link-light" href="mailto:support@unishop.com">support@unishop.com</a>
+        <p class="text-white mb-2">+84 0986 242487</p><a class="navi-link-light" href="mailto:support@unishop.com">khuyenmai@hatinhtrade.com.vn</a>
         <div class="pt-3"><a class="social-button shape-circle sb-facebook sb-light-skin" href="#"><i class="socicon-facebook"></i></a><a class="social-button shape-circle sb-twitter sb-light-skin" href="#"><i class="socicon-twitter"></i></a><a class="social-button shape-circle sb-instagram sb-light-skin" href="#"><i class="socicon-instagram"></i></a><a class="social-button shape-circle sb-google-plus sb-light-skin" href="#"><i class="socicon-googleplus"></i></a></div>
       </div>
     </div>
@@ -30,16 +30,16 @@
   <div class="col-md-6 fh-section" id="notify" data-offset-top="-1">
     <div class="d-flex flex-column fh-section py-5 px-3 justify-content-center align-items-center">
       <div class="text-center" style="max-width: 500px;">
-        <div class="h1 text-normal mb-3">Notify Me!</div>
-        <h6 class="text-muted mb-4">Let me know when your website is live and I can start order goods. Here is my:</h6>
+        <div class="h1 text-normal mb-3">Nhắc tôi!</div>
+        <h6 class="text-muted mb-4">Nhắc tôi khi sự kiện diễn tra. Đây là thông tin liên hệ của tôi:</h6>
         <form>
           <div class="form-group">
-            <input class="form-control" type="text" placeholder="Name" required>
+            <input class="form-control" type="text" placeholder="Họ và tên" required>
           </div>
           <div class="form-group">
-            <input class="form-control" type="email" placeholder="Email Address" required>
+            <input class="form-control" type="email" placeholder="Địa chỉ email" required>
           </div>
-          <button class="btn btn-primary" type="submit"><i class="icon-mail"></i>&nbsp;Submit</button>
+          <button class="btn btn-primary" type="submit"><i class="icon-mail"></i>&nbsp;Gửi</button>
         </form>
       </div>
     </div>
