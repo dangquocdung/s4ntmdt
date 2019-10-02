@@ -65,7 +65,7 @@
               <div class="h2 text-body mb-2 pt-1">Siêu phẩm: Apple iPhone 11 Pro</div>
               <div class="h2 text-body mb-4 pb-1">giá từ <span class="text-medium">31.490.000đ</span></div>
             </div>
-            <a class="btn btn-primary scale-up delay-1" href="/san-pham/chi-tiet/iphone-11-64gb-chinh-hang">Mua ngay&nbsp;<i class="icon-arrow-right"></i></a>
+            <a class="btn btn-primary scale-up delay-1" href="/san-pham/chi-tiet/apple-iphone-11-pro-64-gb-brand-new-seal">Mua ngay&nbsp;<i class="icon-arrow-right"></i></a>
           </div>
           <div class="col-md-6 padding-bottom-2x mb-3"><img class="d-block mx-auto"  src="img/hero-slider/iphone-xi-pro.png" alt="apple-iphone-11"></div>
         </div>
