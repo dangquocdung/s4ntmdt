@@ -16,7 +16,7 @@
 
             @php
               $tiengiam =  $latest->regular_price - $latest->price;
-              $phantram = ($tiengiam/$latest->regular_price)*100;
+              $phantram = round(($tiengiam/$latest->regular_price)*100);
             @endphp
             <div class="product-badge bg-danger">Giảm giá {{ $phantram }}%</div>
 
@@ -101,7 +101,7 @@
             @if ($best_sales['post_price'] <$best_sales['post_regular_price'] )
                 @php
                   $tiengiam = $best_sales['post_regular_price'] - $best_sales['post_price'];
-                  $phantram = ($tiengiam/$best_sales['post_regular_price'])*100;
+                  $phantram = round(($tiengiam/$best_sales['post_regular_price'])*100);
                 @endphp
               <div class="product-badge bg-danger">Giảm giá {{ $phantram }}%</div>
             @endif
@@ -183,7 +183,7 @@
 
             @php
               $tiengiam =  $features_items->regular_price - $features_items->price;
-              $phantram = ($tiengiam/$features_items->regular_price)*100;
+              $phantram = round(($tiengiam/$features_items->regular_price)*100);
             @endphp
             <div class="product-badge bg-danger">Giảm giá {{ $phantram }}%</div>
 
@@ -270,7 +270,7 @@
 
             @php
               $tiengiam =  $recommended_items->regular_price - $recommended_items->price;
-              $phantram = ($tiengiam/$recommended_items->regular_price)*100;
+              $phantram = round(($tiengiam/$recommended_items->regular_price)*100);
             @endphp
             <div class="product-badge bg-danger">Giảm giá {{ $phantram }}%</div>
 
