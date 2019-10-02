@@ -40,6 +40,11 @@
           <div class="form-group">
             <input class="form-control" type="email" placeholder="Địa chỉ email" required>
           </div>
+          
+          <div class="cart-return-shop">
+            <a class="btn btn-secondary check_out" href="{{ route('shop-page') }}">{{ trans('frontend.return_to_shop') }}</a>
+          </div>
+
           <button class="btn btn-primary" type="submit"><i class="icon-mail"></i>&nbsp;Gửi</button>
         </form>
       </div>
