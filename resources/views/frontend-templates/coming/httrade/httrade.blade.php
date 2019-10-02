@@ -26,22 +26,12 @@
     <div class="d-flex flex-column fh-section py-5 px-3 justify-content-between">
       <div class="w-100 text-center">
         <div class="d-inline-block mb-5" style="width: 136px;"><img class="d-block" src="img/logo/logo-light.png" alt="Unishop"></div>
-        <h1 class="text-white text-normal mb-3">Coming Soon...</h1>
-        <h6 class="text-white opacity-80 mb-4">Our website is currently under construction. It goes live in:</h6>
-        <div class="countdown countdown-inverse" data-date-time="12/30/2019 12:00:00">
-          <div class="item">
-            <div class="days">00</div><span class="days_ref">Days</span>
-          </div>
-          <div class="item">
-            <div class="hours">00</div><span class="hours_ref">Hours</span>
-          </div>
-          <div class="item">
-            <div class="minutes">00</div><span class="minutes_ref">Mins</span>
-          </div>
-          <div class="item">
-            <div class="seconds">00</div><span class="seconds_ref">Secs</span>
-          </div>
-        </div>
+        <h1 class="text-white text-normal mb-3">Sắp điễn ra rồi...</h1>
+        <h6 class="text-white opacity-80 mb-4">Sự kiện của chúng tôi sẽ diễn ra trong:</h6>
+
+        @include('includes.frontend.countdown')
+        @yield('countdown')
+        
         <div class="pt-3 hidden-md-up"><a class="btn btn-primary scroll-to" href="#notify"><i class="icon-bell"></i>&nbsp;Notify Me!</a></div>
       </div>
       <div class="w-100 text-center">
