@@ -457,7 +457,7 @@
       </div>
     </div>
   </section>
-  <a class="d-block position-relative mx-auto" href="/khuyen-mai" style="max-width: 682px; margin-top: -130px; z-index: 10;">
+  <a class="d-block position-relative mx-auto" href="{{ route('khuyen-mai-sap-toi') }}" style="max-width: 682px; margin-top: -130px; z-index: 10;">
 
     <div class="owl-carousel" data-owl-carousel='{ "autoplay": true, "dots": false, "nav": false, "loop": true }'>
     @foreach(get_appearance_header_settings_data() as $img)

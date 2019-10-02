@@ -23,6 +23,12 @@ Route::get( '/chung-toi', [
   'as'   => 'chung-toi'
 ]);
 
+Route::get( '/khuyen-mai-sap-toi', [
+  'uses' => 'Frontend\FrontendManagerController@comingSoon',
+  'as'   => 'khuyen-mai-sap-toi'
+]);
+
+
 Route::get( '/cac-san-pham', [
   'uses' => 'Frontend\FrontendManagerController@productsPageContent',
   'as'   => 'shop-page'
