@@ -22,11 +22,14 @@
 </div>
 <!-- Page Content-->
 <div class="row no-gutters">
-  <div class="col-md-6 fh-section" style="background-image: url(img/coming-soon-bg.jpg);"><span class="overlay" style="background-color: #000; opacity: .7;"></span>
+  <div class="col-md-6 fh-section" style="background-image: url(img/coming-soon-bg.jpg);">
+    <span class="overlay" style="background-color: #000; opacity: .7;"></span>
     <div class="d-flex flex-column fh-section py-5 px-3 justify-content-between">
       <div class="w-100 text-center">
-        <div class="d-inline-block mb-5" style="width: 136px;"><img class="d-block" src="img/logo/logo-light.png" alt="Unishop"></div>
-        <h1 class="text-white text-normal mb-3">Sắp điễn ra rồi...</h1>
+        <div class="d-inline-block mb-5" style="width: 136px;">
+          <!-- <img class="d-block" src="img/logo/logo-light.png" alt="Unishop"> -->
+        </div>
+        <h1 class="text-white text-normal mb-3">Chúng tôi đang chuẩn bị...</h1>
         <h6 class="text-white opacity-80 mb-4">Sự kiện của chúng tôi sẽ diễn ra trong:</h6>
 
         @include('includes.frontend.countdown')
