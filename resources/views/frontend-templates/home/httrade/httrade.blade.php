@@ -49,7 +49,7 @@
               <div class="h2 text-body mb-2 pt-1">Siêu phẩm: Apple iPhone 11</div>
               <div class="h2 text-body mb-4 pb-1">giá từ <span class="text-medium">21.490.000đ</span></div>
             </div>
-            <a class="btn btn-primary scale-up delay-1" href="/san-pham/chi-tiet/iphone-11-64gb-chinh-hang">Mua ngay&nbsp;<i class="icon-arrow-right"></i></a>
+            <a class="btn btn-primary scale-up delay-1" href="/san-pham/chi-tiet/iphone-11-64gb-chinh-hang">Vào xem&nbsp;<i class="icon-arrow-right"></i></a>
           </div>
           <div class="col-md-6 padding-bottom-2x mb-3"><img class="d-block mx-auto"  src="img/hero-slider/iphone-xi.png" alt="apple-iphone-11"></div>
         </div>
@@ -63,14 +63,31 @@
             <div class="from-bottom">
               <img class="d-inline-block w-150 mb-4" src="img/hero-slider/logo-iphone.png" alt="apple-iphone-11">
               <div class="h2 text-body mb-2 pt-1">Siêu phẩm: Apple iPhone 11 Pro</div>
-              <div class="h2 text-body mb-4 pb-1">giá từ <span class="text-medium">31.490.000đ</span></div>
+              <div class="h2 text-body mb-4 pb-1">giá từ <span class="text-medium">29.990.000đ</span></div>
             </div>
-            <a class="btn btn-primary scale-up delay-1" href="/san-pham/chi-tiet/apple-iphone-11-pro-64-gb-brand-new-seal">Mua ngay&nbsp;<i class="icon-arrow-right"></i></a>
+            <a class="btn btn-primary scale-up delay-1" href="/san-pham/chi-tiet/apple-iphone-11-pro-64-gb-brand-new-seal">Vào xem&nbsp;<i class="icon-arrow-right"></i></a>
           </div>
           <div class="col-md-6 padding-bottom-2x mb-3"><img class="d-block mx-auto"  src="img/hero-slider/iphone-xi-pro.png" alt="apple-iphone-11"></div>
         </div>
       </div>
     </div>
+
+    <div class="item">
+      <div class="container padding-top-3x">
+        <div class="row justify-content-center align-items-center">
+          <div class="col-lg-5 col-md-6 padding-bottom-2x text-md-left text-center">
+            <div class="from-bottom">
+              <img class="d-inline-block w-150 mb-4" src="img/hero-slider/logo-iphone.png" alt="apple-iphone-11">
+              <div class="h2 text-body mb-2 pt-1">Siêu phẩm: Apple iPhone 11 Pro Max</div>
+              <div class="h2 text-body mb-4 pb-1">giá từ <span class="text-medium">34.490.000đ</span></div>
+            </div>
+            <a class="btn btn-primary scale-up delay-1" href="/san-pham/chi-tiet/apple-iphone-11-pro-64-gb-brand-new-seal">Vào xem&nbsp;<i class="icon-arrow-right"></i></a>
+          </div>
+          <div class="col-md-6 padding-bottom-2x mb-3"><img class="d-block mx-auto"  src="img/hero-slider/iphone-xi-pro-max.png" alt="apple-iphone-11"></div>
+        </div>
+      </div>
+    </div>
+  
 
   </div>
 </section>
