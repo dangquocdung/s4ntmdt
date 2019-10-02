@@ -4,22 +4,6 @@
 
 @section('content')
 
-<!-- Page Title-->
-<div class="page-title">
-  <div class="container">
-    <div class="column">
-      <h1>{!! trans('frontend.products') !!}</h1>
-    </div>
-    <div class="column">
-      <ul class="breadcrumbs">
-        <li>
-          <a href="{{ route('home-page') }}">{{ trans('frontend.home') }}</a>        </li>
-        <li class="separator">&nbsp;</li>
-        <li>{!! trans('frontend.products') !!}</li>
-      </ul>
-    </div>
-  </div>
-</div>
 <!-- Page Content-->
 <div class="row no-gutters">
   <div class="col-md-6 fh-section" style="background-image: url(img/coming-soon-bg.jpg);">
