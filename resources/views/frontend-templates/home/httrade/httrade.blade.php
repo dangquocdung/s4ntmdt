@@ -62,12 +62,12 @@
           <div class="col-lg-5 col-md-6 padding-bottom-2x text-md-left text-center">
             <div class="from-bottom">
               <img class="d-inline-block w-150 mb-4" src="img/hero-slider/logo-iphone.png" alt="apple-iphone-11">
-              <div class="h2 text-body mb-2 pt-1">Siêu phẩm: Apple iPhone 11</div>
-              <div class="h2 text-body mb-4 pb-1">giá từ <span class="text-medium">21.490.000đ</span></div>
+              <div class="h2 text-body mb-2 pt-1">Siêu phẩm: Apple iPhone 11 Pro</div>
+              <div class="h2 text-body mb-4 pb-1">giá từ <span class="text-medium">31.490.000đ</span></div>
             </div>
             <a class="btn btn-primary scale-up delay-1" href="/san-pham/chi-tiet/iphone-11-64gb-chinh-hang">Mua ngay&nbsp;<i class="icon-arrow-right"></i></a>
           </div>
-          <div class="col-md-6 padding-bottom-2x mb-3"><img class="d-block mx-auto"  src="img/hero-slider/iphone-xi.png" alt="apple-iphone-11"></div>
+          <div class="col-md-6 padding-bottom-2x mb-3"><img class="d-block mx-auto"  src="img/hero-slider/iphone-xi-pro.png" alt="apple-iphone-11"></div>
         </div>
       </div>
     </div>
