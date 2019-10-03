@@ -217,7 +217,8 @@ return [
         'HTML'      => 'Collective\Html\HtmlFacade',
         'Cart'      => 'Anam\Phpcart\Facades\Cart',
         'Image'     => Intervention\Image\Facades\Image::class,
-        'Nexmo' => Nexmo\Laravel\Facade\Nexmo::class
+        'Nexmo' => Nexmo\Laravel\Facade\Nexmo::class,
+        'HTMLMin' => HTMLMin\HTMLMin\Facades\HTMLMin::class,
 
     ],
 
