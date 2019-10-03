@@ -1,5 +1,4 @@
 <!-- Page Content-->
-<div class="container padding-bottom-3x mb-1">
   <div class="card mb-3">
     <div class="p-4 text-center text-white bg-dark rounded-top"><span class="text-uppercase">Tracking Order No - </span><span class="text-medium">34VB5540K83</span></div>
     <div class="d-flex flex-wrap flex-sm-nowrap justify-content-between py-3 px-2 bg-secondary">
@@ -34,4 +33,3 @@
     </div>
     <div class="text-left text-sm-right"><a class="btn btn-primary btn-sm" href="orderDetails" data-toggle="modal" data-target="#orderDetails">View Order Details</a></div>
   </div>
-</div>
