@@ -111,7 +111,6 @@
 
           <p><strong>{{ trans('frontend.phone') }}:</strong> {!! $order_details_by_order_id['customer_address']['_billing_phone'] !!}</p>
 
-          <p><strong>{{ trans('frontend.email') }}:</strong> {!! $order_details_by_order_id['customer_address']['_billing_email'] !!}</p>
         </div>
 
         <div class="col-sm-6">
@@ -128,7 +127,6 @@
 
           <p><strong>{{ trans('frontend.phone') }}:</strong> {!! $order_details_by_order_id['customer_address']['_shipping_phone'] !!}</p>
 
-          <p><strong>{{ trans('frontend.email') }}:</strong> {!! $order_details_by_order_id['customer_address']['_shipping_email'] !!}</p>
         </div>
     </div>
   </div>
