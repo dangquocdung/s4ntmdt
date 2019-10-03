@@ -100,9 +100,6 @@
         <div class="col-sm-6">
           <h4>{{ trans('frontend.billing_address') }}</h4><hr>
           <p>{!! $order_details_by_order_id['customer_address']['_billing_first_name'].' '. $order_details_by_order_id['customer_address']['_billing_last_name']!!}</p>
-          @if($order_details_by_order_id['customer_address']['_billing_company'])
-            <p><strong>{{ trans('frontend.company') }}:</strong> {!! $order_details_by_order_id['customer_address']['_billing_company'] !!}</p>
-          @endif
           <p><strong>{{ trans('frontend.address_1') }}:</strong> {!! $order_details_by_order_id['customer_address']['_billing_address_1'] !!}</p>
           @if($order_details_by_order_id['customer_address']['_billing_address_2'])
             <p><strong>{{ trans('frontend.address_2') }}:</strong> {!! $order_details_by_order_id['customer_address']['_billing_address_2'] !!}</p>
@@ -124,9 +121,6 @@
         <div class="col-sm-6">
           <h4>{{ trans('frontend.shipping_address') }}</h4><hr>
           <p>{!! $order_details_by_order_id['customer_address']['_shipping_first_name'].' '. $order_details_by_order_id['customer_address']['_shipping_last_name']!!}</p>
-          @if($order_details_by_order_id['customer_address']['_shipping_company'])
-            <p><strong>{{ trans('frontend.company') }}:</strong> {!! $order_details_by_order_id['customer_address']['_shipping_company'] !!}</p>
-          @endif
           <p><strong>{{ trans('frontend.address_1') }}:</strong> {!! $order_details_by_order_id['customer_address']['_shipping_address_1'] !!}</p>
           @if($order_details_by_order_id['customer_address']['_shipping_address_2'])
             <p><strong>{{ trans('frontend.address_2') }}:</strong> {!! $order_details_by_order_id['customer_address']['_shipping_address_2'] !!}</p>
