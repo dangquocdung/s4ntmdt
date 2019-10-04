@@ -29,17 +29,17 @@
         @include('pages-message.notify-msg-error')
         @include('pages-message.form-submit')
 
-        <form class="card" method="post" action="" enctype="multipart/form-data">
+        <form class="login-box" method="post" action="" enctype="multipart/form-data">
           <input type="hidden" name="_token" id="_token" value="{{ csrf_token() }}">
 
           <div class="row margin-bottom-1x">
-            <div class="col-sm-4"><a class="btn btn-sm btn-block facebook-btn" href="#"><i class="socicon-facebook"></i>&nbsp;Facebook login</a></div>
-            <div class="col-sm-4"><a class="btn btn-sm btn-block twitter-btn" href="#"><i class="socicon-twitter"></i>&nbsp;Twitter login</a></div>
-            <div class="col-sm-4"><a class="btn btn-sm btn-block google-btn" href="#"><i class="socicon-googleplus"></i>&nbsp;Google+ login</a></div>
+            <div class="col-sm-4"><a class="btn btn-sm btn-block facebook-btn" href="#"><i class="socicon-facebook"></i>&nbsp;Dùng Facebook</a></div>
+            <div class="col-sm-4"><a class="btn btn-sm btn-block twitter-btn" href="#"><i class="socicon-twitter"></i>&nbsp;Dùng Twitter</a></div>
+            <div class="col-sm-4"><a class="btn btn-sm btn-block google-btn" href="#"><i class="socicon-googleplus"></i>&nbsp;Dùng Google+</a></div>
           </div>
 
 
-          <h4 class="margin-bottom-1x">Or using form below</h4>
+          <h5 class="margin-bottom-1x">Hoặc dùng biểu mẫu dưới đây</h5>
 
 
           <div class="form-group input-group">
