@@ -583,5 +583,6 @@ return [
   'chi_tiet_don_hang' => 'Chi tiết đơn hàng',
   'ho_tro' => 'Hỗ trợ khách hàng',
   'latest_products' => 'Sản phẩm mới nhất',
-  'coming_soon' => 'Sự kiện sắp diễn ra...'
+  'coming_soon' => 'Sự kiện sắp diễn ra...',
+  'user_account_view_label' => 'Theo dõi'
 ];

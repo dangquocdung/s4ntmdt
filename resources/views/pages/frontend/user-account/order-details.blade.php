@@ -1,6 +1,6 @@
 <!-- Page Content-->
 
-<div class="steps flex-sm-nowrap padding-top-1x padding-bottom-1x">
+<div class="steps flex-sm-nowrap padding-bottom-1x">
   <div class="step active"><i class="icon-shopping-bag"></i>
     <h4 class="step-title">Confirmed Order</h4>
   </div>
