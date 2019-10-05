@@ -1,4 +1,23 @@
 
+<div class="steps flex-sm-nowrap padding-bottom-1x">
+  <div class="step active"><i class="icon-shopping-bag"></i>
+    <h4 class="step-title">Confirmed Order</h4>
+  </div>
+  <div class="step active"><i class="icon-settings"></i>
+    <h4 class="step-title">Processing Order</h4>
+  </div>
+  <div class="step"><i class="icon-award"></i>
+    <h4 class="step-title">Quality Check</h4>
+  </div>
+  <div class="step"><i class="icon-truck"></i>
+    <h4 class="step-title">Product Dispatched</h4>
+  </div>
+  <div class="step"><i class="icon-home"></i>
+    <h4 class="step-title">Product Delivered</h4>
+  </div>
+</div>
+
+
 @if(count($orders_list_data) > 0) 
 
   <div class="table-responsive">

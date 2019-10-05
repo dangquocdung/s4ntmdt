@@ -584,5 +584,7 @@ return [
   'ho_tro' => 'Hỗ trợ khách hàng',
   'latest_products' => 'Sản phẩm mới nhất',
   'coming_soon' => 'Sự kiện sắp diễn ra...',
-  'user_account_view_label' => 'Theo dõi'
+  'user_account_view_label' => 'Theo dõi',
+  'on_hold' =>'Chờ xác nhận',
+
 ];
