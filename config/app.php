@@ -163,7 +163,8 @@ return [
         'Anhskohbo\NoCaptcha\NoCaptchaServiceProvider',
         'Anam\Phpcart\CartServiceProvider',
         Intervention\Image\ImageServiceProvider::class,
-        Nexmo\Laravel\NexmoServiceProvider::class
+        Nexmo\Laravel\NexmoServiceProvider::class,
+        Laravel\Socialite\SocialiteServiceProvider::class,
 
     ],
 
@@ -219,6 +220,7 @@ return [
         'Image'     => Intervention\Image\Facades\Image::class,
         'Nexmo' => Nexmo\Laravel\Facade\Nexmo::class,
         'HTMLMin' => HTMLMin\HTMLMin\Facades\HTMLMin::class,
+        'Socialite' => Laravel\Socialite\Facades\Socialite::class,
 
     ],
 
