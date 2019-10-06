@@ -120,9 +120,10 @@
         </div>
         <div class="shopping-cart-footer">
           <div class="column">
-            <div class="coupon-form">
+            <div class="coupon-form apply-coupon">
               <input type="text" class="form-control form-control-sm" id="apply_coupon_code" name="apply_coupon" placeholder="{{ trans('frontend.coupon_code_placeholder_text') }}">
               <button class="btn btn-outline-primary btn-sm" name="apply_coupon_post" id="apply_coupon_post">{!! trans('frontend.apply_coupon_label') !!}</button>
+              <div class="clearfix visible-xs"></div>
             </div>
           </div>
 
