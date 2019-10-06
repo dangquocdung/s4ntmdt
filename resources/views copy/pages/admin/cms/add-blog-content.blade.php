@@ -86,7 +86,7 @@
           <div class="seo-preview-content">
             <p><i class="fa fa-eye"></i> {!! trans('admin.google_search_preview_label') !!}</p><hr>
             <h3>{!! trans('admin.product_title_label') !!}</h3>
-            <p class="link">{!! url('/') !!}/blog/<span>{!! string_slug_format( trans('admin.product_title_label') ) !!}</span></p>
+            <p class="link">{!! url('/') !!}/tin-tuc/<span>{!! string_slug_format( trans('admin.product_title_label') ) !!}</span></p>
             <p class="description">{!! trans('admin.product_seo_desc_example') !!}</p>
           </div><hr>
           <div class="seo-content">
