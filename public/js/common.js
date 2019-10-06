@@ -323,6 +323,7 @@ $(document).ready(function() {
                 return false
             } else {
                 $('#apply_coupon_code').css({ 'border': '1px solid #cccccc' });
+                alert('1234');
                 shopist_frontend.ajaxCall.applyCoupon($('#apply_coupon_code').val());
             }
         });
