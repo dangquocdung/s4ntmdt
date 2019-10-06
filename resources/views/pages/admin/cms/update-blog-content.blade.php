@@ -100,9 +100,9 @@
             @endif
             
             @if(!empty($blog_details_by_slug['blog_seo_url']))
-            <p class="link">{!! url('/') !!}/blog/<span>{!! $blog_details_by_slug['blog_seo_url'] !!}</span></p>
+            <p class="link">{!! url('/') !!}/tin-tuc/<span>{!! $blog_details_by_slug['blog_seo_url'] !!}</span></p>
             @else
-            <p class="link">{!! url('/') !!}/blog/<span>{!! string_slug_format( trans('admin.product_title_label') ) !!}</span></p>
+            <p class="link">{!! url('/') !!}/tin-tuc/<span>{!! string_slug_format( trans('admin.product_title_label') ) !!}</span></p>
             @endif
             
             @if(!empty($blog_details_by_slug['blog_seo_description']))
