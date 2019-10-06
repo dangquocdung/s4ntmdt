@@ -191,10 +191,10 @@
                   this.on("success", function(file, responseText) {
                       if (responseText.status === 'success') {
                           $('.profile-picture').find('img').attr('src', $('#hf_base_url').val() + '/uploads/' + responseText.name);
-                          // $('.profile-picture').show();
-                          // $('.no-profile-picture').hide();
-                          // $('#frontendUserUploadProfilePicture').modal('hide');
-                          // $('#hf_frontend_profile_picture').val('/uploads/' + responseText.name);
+                          $('.profile-picture').show();
+                          $('.no-profile-picture').hide();
+                          $('#frontendUserUploadProfilePicture').modal('hide');
+                          $('#hf_frontend_profile_picture').val('/uploads/' + responseText.name);
 
                           this.removeAllFiles();
                       }

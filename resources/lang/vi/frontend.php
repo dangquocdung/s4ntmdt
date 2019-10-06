@@ -585,6 +585,14 @@ return [
   'latest_products' => 'Sản phẩm mới nhất',
   'coming_soon' => 'Sự kiện sắp diễn ra...',
   'user_account_view_label' => 'Theo dõi',
-  'on_hold' =>'Chờ xác nhận',
+  'on-hold' =>'Chờ xác nhận',
+  'processing' => 'Đang xử lý',
+  'pending' => 'Chờ xử lý',
+  'completed' => 'Đã hoàn thành',
+  'cancelled' => 'Đã huỷ',
+  'refunded' => 'Đã hoàn tiền',
+  'shipping' => 'Đang vận chuyển',
+  'remove_image' => 'Xoá ảnh'
+
 
 ];

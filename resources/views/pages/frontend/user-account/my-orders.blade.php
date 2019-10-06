@@ -1,21 +1,5 @@
 
-<div class="steps flex-sm-nowrap padding-bottom-1x">
-  <div class="step active"><i class="icon-shopping-bag"></i>
-    <h4 class="step-title">Confirmed Order</h4>
-  </div>
-  <div class="step active"><i class="icon-settings"></i>
-    <h4 class="step-title">Processing Order</h4>
-  </div>
-  <div class="step"><i class="icon-award"></i>
-    <h4 class="step-title">Quality Check</h4>
-  </div>
-  <div class="step"><i class="icon-truck"></i>
-    <h4 class="step-title">Product Dispatched</h4>
-  </div>
-  <div class="step"><i class="icon-home"></i>
-    <h4 class="step-title">Product Delivered</h4>
-  </div>
-</div>
+
 
 
 @if(count($orders_list_data) > 0) 
@@ -35,7 +19,7 @@
         @foreach($orders_list_data as $row)
           <tr>
             <td>#{!! $row['_post_id'] !!}</td>
-            <td><span class="text-danger">{!!  $row['_order_status'] !!}</span></td>
+            <td><span class="text-danger">{!!  trans('frontend.'.$row['_order_status']) !!}</span></td>
             <td>{!!  price_html($row['_final_order_total'], $row['_order_currency']) !!}</td>  
             <td>{!!  Carbon\Carbon::parse($row['_order_date'])->format('F d, Y') !!}</td>  
             <td>

@@ -33,38 +33,43 @@
     </div>
   </div>
   <div class="col-8 offset-2">
-    <div class="form-group profile-picture">
+    <div class="form-group">
 
       @if($user_details['user_photo_url'])
-        <img class="d-block mx-auto img-thumbnail rounded-circle mb-3" src="{{ get_image_url($user_details['user_photo_url']) }}" alt="Image" style="width:50%">
-        <div class="text-center">
-          <button type="button" class="btn btn-secondary remove-frontend-profile-picture">{{ trans('frontend.remove_image') }}</button>
+        <div class="profile-picture">
+          <img class="d-block mx-auto img-thumbnail rounded-circle mb-3" src="{{ get_image_url($user_details['user_photo_url']) }}" alt="Image" style="width:50%">
+          <div class="text-center">
+            <button type="button" class="btn btn-secondary remove-frontend-profile-picture">{{ trans('frontend.remove_image') }}</button>
+          </div>
         </div>
+
+        <div class="no-profile-picture" style="display:none;">
+          <img class="d-block mx-auto img-thumbnail rounded-circle mb-3" src="{{ default_avatar_img_src() }}" alt="Image" style="width:50%">
+          <div class="text-center">
+            <button data-toggle="modal" data-target="#frontendUserUploadProfilePicture" type="button" class="btn btn-warning btn-sm profile-picture-uploader">{{ trans('frontend.upload_image') }}</button>
+          </div>
+        </div>
+
       @else
-        <img class="d-block mx-auto img-thumbnail rounded-circle mb-3" src="{{ default_avatar_img_src() }}" alt="Image" style="width:50%">
-        <div class="text-center">
-          <button data-toggle="modal" data-target="#frontendUserUploadProfilePicture" type="button" class="btn btn-warning btn-sm profile-picture-uploader">{{ trans('frontend.upload_image') }}</button>
+      <div class="profile-picture" style="display:none;">
+          <img class="d-block mx-auto img-thumbnail rounded-circle mb-3" src="" alt="Image" style="width:50%">
+          <div class="text-center">
+            <button type="button" class="btn btn-secondary remove-frontend-profile-picture">{{ trans('frontend.remove_image') }}</button>
+          </div>
         </div>
+
+        <div class="no-profile-picture">
+          <img class="d-block mx-auto img-thumbnail rounded-circle mb-3" src="{{ default_avatar_img_src() }}" alt="Image" style="width:50%">
+          <div class="text-center">
+            <button data-toggle="modal" data-target="#frontendUserUploadProfilePicture" type="button" class="btn btn-warning btn-sm profile-picture-uploader">{{ trans('frontend.upload_image') }}</button>
+          </div>
+        </div>
+
       @endif
     </div>
   </div>
 
-  <div class="col-12">
-    <hr class="mt-2 mb-3">
-    <div class="text-right">
-      {{-- <div class="custom-control custom-checkbox d-block">
-        <input class="custom-control-input" type="checkbox" id="subscribe_me" checked>
-        <label class="custom-control-label" for="subscribe_me">{{ trans('frontend.subscribe_to_our_newsletter') }}</label>
-      </div> --}}
-
-      <button type="submit" class="btn btn-primary margin-right-none">{{ trans('frontend.update_profile') }}</button>
-
-    </div>
-  </div>
-
-</form>
-
-<!-- Default Modal-->
+  <!-- Default Modal-->
 <div class="modal fade" id="frontendUserUploadProfilePicture" tabindex="-1" role="dialog" aria-labelledby="userUploadProfilePicture" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
@@ -86,3 +91,18 @@
   </div>
 </div>
 <input type="hidden" name="hf_frontend_profile_picture" id="hf_frontend_profile_picture" value="">
+
+  <div class="col-12">
+    <hr class="mt-2 mb-3">
+    <div class="text-right">
+      {{-- <div class="custom-control custom-checkbox d-block">
+        <input class="custom-control-input" type="checkbox" id="subscribe_me" checked>
+        <label class="custom-control-label" for="subscribe_me">{{ trans('frontend.subscribe_to_our_newsletter') }}</label>
+      </div> --}}
+
+      <button type="submit" class="btn btn-primary margin-right-none">{{ trans('frontend.update_profile') }}</button>
+
+    </div>
+  </div>
+
+</form>

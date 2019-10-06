@@ -53,6 +53,8 @@ class UserAccountManageController extends Controller
     $data = $this->classCommonFunction->get_dynamic_frontend_content_data();
     $data['dashboard_data'] =  $dashboard_total;
     $data['login_user_details'] =  get_current_frontend_user_info();
+
+    // return response()->json($data);
     
     return view('pages.frontend.user-account.user-account-pages', $data);
   }
@@ -120,6 +122,9 @@ class UserAccountManageController extends Controller
     }
     
     $data['login_user_details'] =  get_current_frontend_user_info();
+
+    // return response()->json($data);
+
     
     return view('pages.frontend.user-account.user-account-pages', $data);
   }
@@ -298,6 +303,9 @@ class UserAccountManageController extends Controller
     else{
       $data['order_details_by_order_id'] = array();
     }
+
+    // return response()->json($data);
+
     
     return view('pages.frontend.user-account.user-account-pages', $data);
   }

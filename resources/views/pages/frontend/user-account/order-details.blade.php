@@ -116,6 +116,29 @@
   </div>
 </div>
 
+<div class="steps flex-sm-nowrap padding-top-1x">
+  <div class="step active">
+    <i class="icon-shopping-bag"></i>
+    <h4 class="step-title">{!!  trans('frontend.on-hold') !!}</h4>
+  </div>
+  <div class="step active">
+    <i class="icon-settings"></i>
+    <h4 class="step-title">{!!  trans('frontend.pending') !!}</h4>
+  </div>
+  <div class="step">
+    <i class="icon-award"></i>
+    <h4 class="step-title">{!!  trans('frontend.processing') !!}</h4>
+  </div>
+  <div class="step">
+    <i class="icon-truck"></i>
+    <h4 class="step-title">{!!  trans('frontend.shipping') !!}</h4>
+  </div>
+  <div class="step">
+    <i class="icon-home"></i>
+    <h4 class="step-title">{!!  trans('frontend.completed') !!}</h4>
+  </div>
+</div>
+
 <!-- Open Ticket Modal-->
 <div class="modal-dialog modal-lg">
   <div class="modal-content">
