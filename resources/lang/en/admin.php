@@ -563,8 +563,6 @@ return [
     'example_blog_post'                                               =>  'Example - Xiaomi Mi Max review',
     'example_pages_placeholder'                                       =>  'Example - Contact Us',
     'post_description'                                                =>  'Description',
-    'blog_post_allow_characters'                                      =>  'Allow Maximum Number Characters',
-    'max_characters_msg'                                              =>  'Maximum number of characters that will appear at frontend. (Leave blank for full posts)',
     'blog_post_status'                                                =>  'Status',
     'blog_post_publish_date'                                          =>  'Publish Date',
     'blog_post_allow_comments'                                        =>  'Allow Comments',
