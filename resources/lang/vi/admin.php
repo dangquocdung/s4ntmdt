@@ -1154,5 +1154,7 @@ return [
   'order_list_label' => 'Danh sách đặt hàng',
   'product_vedio_label' =>  'Bạn chỉ có thể tải lên 1 tệp video cùng một lúc, Các phần mở rộng tệp được hỗ trợ là: mp4 và ogg',
   'back_to_login_label' =>  'Quay lại đăng nhập',
-  'compitable_label' => 'Tính năng này chỉ dành cho các mẫu tương thích'
+  'compitable_label' => 'Tính năng này chỉ dành cho các mẫu tương thích',
+  'blog_post_allow_characters' =>  'Ký tự tóm tắt tối đa',
+
 ];
