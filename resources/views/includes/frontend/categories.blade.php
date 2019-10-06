@@ -4,14 +4,21 @@
   <ul>
     <!-- expanded -->
     @foreach ($productCategoriesTree as $data)
-      <li class="{{ (count($data['children'])>0)?'has-children':'' }}">
-        <a href="#">{!! $data['name'] !!}</a>
-        <ul>
-          @foreach($data['children'] as $data)
-            @include('pages.common.product-children-category', $data)
-          @endforeach
-        </ul>
-      </li>
+
+      @if (count($data['children'])>0)
+        <li class="has-children">
+          <a href="#">{!! $data['name'] !!}</a>
+          <ul>
+            @foreach($data['children'] as $data)
+              @include('pages.common.product-children-category', $data)
+            @endforeach
+          </ul>
+        </li>
+      @else
+        <li>
+          <a href="{{ route('categories-page', $data['slug']) }}">{!! $data['name'] !!}</a>
+        </li>
+      @endif
     @endforeach
   </ul>
 @endif
