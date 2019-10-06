@@ -564,7 +564,7 @@ return [
   'example_pages_placeholder' =>'Ví dụ - Liên hệ với chúng tôi',
   'post_description' =>'Mô tả',
   'tin tức_post_allow_characters' =>'Cho phép số ký tự tối đa',
-  'max_characters_msg' =>'Số lượng ký tự tối đa sẽ xuất hiện ở frontend. (Để trống cho bài viết đầy đủ) ',
+  'max_characters_msg' =>'Số lượng ký tự tối đa sẽ xuất hiện ở giao diện. (Để trống cho bài viết đầy đủ) ',
   'tin tức_post_status' =>'Trạng thái',
   'tin tức_post_publish_date' =>'Ngày xuất bản',
   'tin tức_post_allow_comments' =>'Cho phép bình luận',
@@ -1156,5 +1156,8 @@ return [
   'back_to_login_label' =>  'Quay lại đăng nhập',
   'compitable_label' => 'Tính năng này chỉ dành cho các mẫu tương thích',
   'blog_post_allow_characters' =>  'Ký tự tóm tắt tối đa',
+  'blog_post_allow_comments' =>  'Cho phép bình luận',
+  'blog_post_allow_comments_msg' =>  'Cho phép bình luận ở bài đăng này'
+
 
 ];
