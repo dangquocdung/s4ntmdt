@@ -242,7 +242,8 @@
       <li class="{{ Request::is('chung-toi')?'active':''}}"><a href="{{ route('chung-toi') }}"><span>{!! trans('frontend.chung-toi') !!}</span></a>
 
         <ul class="sub-menu">
-        <li><a href="{{ route('categories-page', 'san-pham-chu-luc') }}">{!! trans('frontend.san-pham-chu-luc') !!}</a></li>
+          <li><a href="{{ route('chung-toi') }}"><span>{!! trans('frontend.chung-toi') !!}</span></a>
+          <li><a href="{{ route('categories-page', 'san-pham-chu-luc') }}">{!! trans('frontend.san-pham-chu-luc') !!}</a></li>
           <li><a href="{{ route('docs-page-content') }}">{!! trans('frontend.van-ban') !!}</a></li>
 
         </ul>
