@@ -208,7 +208,8 @@ return [
   'shop_title' =>'Cửa hàng trực tuyến tốt nhất',
   'currency' =>'Tiền tệ',
   'home' =>'Trang chủ',
-  'all_products_label' =>'Sản phẩm',
+  'products_label' =>'Sản phẩm',
+  'all_products_label' =>'Tất cả sản phẩm',
   'checkout' =>'Thanh toán',
   'cart' =>'Giỏ hàng',
   'tin tức' =>'Tin tức',
@@ -592,7 +593,8 @@ return [
   'cancelled' => 'Đã huỷ',
   'refunded' => 'Đã hoàn tiền',
   'shipping' => 'Đang vận chuyển',
-  'remove_image' => 'Xoá ảnh'
-
-
+  'remove_image' => 'Xoá ảnh',
+  'van-ban' => 'Văn bản hỗ trợ pháp lý',
+  'san-pham-chu-luc' => 'Sản phẩm chủ lực',
+  'truyen-thong' => 'Truyền thông'
 ];
