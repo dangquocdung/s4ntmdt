@@ -66,6 +66,7 @@
                 <input class="custom-control-input" type="checkbox" id="remember_me">
                 <label class="custom-control-label" for="remember_me">{{ trans('frontend.remember_me') }}</label>
               @endif
+              <a class="navi-link" href="{{ route('user-registration-page') }}">{{ trans('frontend.frontend_user_registration_title') }}</a>
             </div>
             <!-- <a class="navi-link" href="{{ route('user-forgot-password-page') }}">{{ trans('frontend.forgot_password') }}</a>&nbsp;&nbsp;&nbsp;&nbsp; -->
           </div>
