@@ -171,7 +171,7 @@
 
         </li>
 
-        <li class="{{ Request::is('chung-toi')?'active':''}}">
+        <li class="has-children {{ Request::is('chung-toi')?'active':''}}">
           <span>
           
             <a href="javascript:void(0)">{!! trans('frontend.chung-toi') !!}</a>
