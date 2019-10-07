@@ -592,7 +592,6 @@ return [
   'cancelled' => 'Đã huỷ',
   'refunded' => 'Đã hoàn tiền',
   'shipping' => 'Đang vận chuyển',
-  'remove_image' => 'Xoá ảnh'
-
-
+  'remove_image' => 'Xoá ảnh',
+  'van-ban' => 'Văn bản'
 ];
