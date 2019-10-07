@@ -595,5 +595,6 @@ return [
   'shipping' => 'Đang vận chuyển',
   'remove_image' => 'Xoá ảnh',
   'van-ban' => 'Văn bản hỗ trợ pháp lý',
-  'san-pham-chu-luc' => 'Sản phẩm chủ lực'
+  'san-pham-chu-luc' => 'Sản phẩm chủ lực',
+  'truyen-thong' => 'Truyền thông'
 ];
