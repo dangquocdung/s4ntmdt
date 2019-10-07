@@ -265,7 +265,15 @@
       
       <li class="{{ Request::is('gian-hang')||Request::is('gian-hang/*')?'active':''}}"><a href="{{ route('store-list-page-content') }}"><span>{!! trans('frontend.vendor_list_title_label') !!}</span></a></li>
 
-      <li class="{{ Request::is('cac-san-pham')||Request::is('san-pham/*')?'active':''}}"><a href="{{ route('shop-page') }}"><span>{!! trans('frontend.all_products_label') !!}</span></a></li>
+      <li class="{{ Request::is('cac-san-pham')||Request::is('san-pham/*')?'active':''}}"><a href="{{ route('shop-page') }}"><span>{!! trans('frontend.all_products_label') !!}</span></a>
+
+        <ul class="sub-menu">
+          <li><a href="{{ route('shop-page') }}"><span>{!! trans('frontend.all_products_label') !!}</span></a></li>
+          <li><a href="{{ route('categories-page', 'san-pham-chu-luc') }}">{!! trans('frontend.san-pham-chu-luc') !!}</a></li>
+        </ul>
+  
+      
+      </li>
 
       <li class="{{ Request::is('gio-hang')?'active':''}}"><a href="{{ route('cart-page') }}"><span>{!! trans('frontend.cart') !!}</span></a></li>
 

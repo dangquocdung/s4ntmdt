@@ -1,6 +1,6 @@
 @extends('layouts.frontend.master')
 
-@section('title',  trans('frontend.blogs_page_title') .' | '. get_site_title() )
+@section('title',  trans('frontend.van-ban') .' | '. get_site_title() )
 
 @section('content')
 
