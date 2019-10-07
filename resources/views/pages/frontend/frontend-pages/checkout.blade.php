@@ -30,7 +30,7 @@
         @if( Cart::count() >0 )
         <form class="form-horizontal" method="post" action="" enctype="multipart/form-data">
           <input type="hidden" name="_token" value="{{ csrf_token() }}"> 
-          <div class="checkout-content">
+          <div class="checkout-content cart-data">
             @if (count($errors) > 0)
               <div class="alert alert-danger">
                 <strong>{!! trans('validation.whoops') !!}</strong> {!! trans('validation.input_error') !!}<br /><br />

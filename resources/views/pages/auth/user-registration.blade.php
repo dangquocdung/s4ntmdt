@@ -24,7 +24,7 @@
 <!-- Page Content-->
 
 @if($settings_data['general_options']['allow_registration_for_frontend'])
-<div id="user_registration" class="container custom-extra-top-style">
+<div id="user_registration" class="container custom-extra-top-style padding-bottom-2x">
   <div class="row justify-content-center">
     <div class="col-xs-12 col-sm-8 col-md-6 text-center">
       @include('pages-message.notify-msg-error')
@@ -33,7 +33,6 @@
       <form method="post" action="" enctype="multipart/form-data">
         <input type="hidden" name="_token" id="_token" value="{{ csrf_token() }}">
 
-        <p>Đăng ký một lần, sử dụng mãi mãi.</p>
         <div class="row">
           <div class="col-sm-6">
             <div class="form-group">
