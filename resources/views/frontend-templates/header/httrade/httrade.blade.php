@@ -236,6 +236,7 @@
   <nav class="site-menu">
 
     <ul>
+      
       <li class="{{ Request::is('/')?'active':''}}"><a href="{{ route('home-page') }}"><span>{!! trans('frontend.home') !!}</span></a></li>
 
       <li class="{{ Request::is('chung-toi')?'active':''}}"><a href="{{ route('chung-toi') }}"><span>{!! trans('frontend.chung-toi') !!}</span></a></li>
@@ -251,7 +252,6 @@
       <li class="{{ Request::is('tin-tuc')||Request::is('tin-tuc/*')?'active':''}}"><a href="{{ route('blogs-page-content') }}"><span>{!! trans('frontend.blog') !!}</span></a></li>
 
       <li class="{{ Request::is('van-ban')||Request::is('tin-tuc/*')?'active':''}}"><a href="{{ route('docs-page-content') }}"><span>{!! trans('frontend.van-ban') !!}</span></a></li>
-
       
     </ul>
     
