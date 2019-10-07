@@ -776,7 +776,7 @@ class FrontendManagerController extends Controller
     $data['categoriesTree']  =   $this->product->get_categories(0, 'blog_cat');
     $data['advanced_data']   =   $this->CMS->get_blog_advanced_data();
     
-    return view('pages.frontend.frontend-pages.blogs-main', $data);
+    return view('pages.frontend.frontend-pages.docs-main', $data);
   }
 
   
