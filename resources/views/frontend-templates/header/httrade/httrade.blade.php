@@ -269,18 +269,25 @@
 
         <ul class="sub-menu">
           <li><a href="{{ route('categories-page', 'san-pham-chu-luc') }}">{!! trans('frontend.san-pham-chu-luc') !!}</a></li>
-          <li><a href="{{ route('shop-page') }}"><span>{!! trans('frontend.all_products_label') !!}</span></a></li>
+          <li><a href="{{ route('shop-page') }}">{!! trans('frontend.all_products_label') !!}</a></li>
 
         </ul>
   
-      
       </li>
 
       <li class="{{ Request::is('gio-hang')?'active':''}}"><a href="{{ route('cart-page') }}"><span>{!! trans('frontend.cart') !!}</span></a></li>
 
       <li class="{{ Request::is('thanh-toan')||Request::is('thanh-toan/*')?'active':''}}"><a href="{{ route('checkout-page') }}"><span>{!! trans('frontend.checkout') !!}</span></a></li>
 
-      <li class="{{ Request::is('tin-tuc')||Request::is('tin-tuc/*')?'active':''}}"><a href="{{ route('blogs-page-content') }}"><span>{!! trans('frontend.blog') !!}</span></a></li>
+      <li class="{{ Request::is('tin-tuc')||Request::is('tin-tuc/*')?'active':''}}"><a href="{{ route('blogs-page-content') }}"><span>{!! trans('frontend.blog') !!}</span></a>
+
+        <ul class="sub-menu">
+          <li><a href="{{ route('blogs-page-content') }}">{!! trans('frontend.blog') !!}</a></li>
+          <li><a href="{{ route('docs-page-content') }}">{!! trans('frontend.van-ban') !!}</a></li>
+
+        </ul>
+  
+      </li>
 
       <li class="{{ Request::is('van-ban')||Request::is('tin-tuc/*')?'active':''}}"><a href="{{ route('docs-page-content') }}"><span>{!! trans('frontend.van-ban') !!}</span></a></li>
       
