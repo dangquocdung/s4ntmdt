@@ -593,6 +593,6 @@ return [
   'refunded' => 'Đã hoàn tiền',
   'shipping' => 'Đang vận chuyển',
   'remove_image' => 'Xoá ảnh',
-  'van-ban' => 'Văn bản',
+  'van-ban' => 'Văn bản hỗ trợ pháp lý',
   'san-pham-chu-luc' => 'Sản phẩm chủ lực'
 ];
