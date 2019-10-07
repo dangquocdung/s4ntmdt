@@ -1038,6 +1038,8 @@ shopist_frontend.ajaxCall = {
             headers: { 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content') },
             success: function(data) {
 
+                // alert(msgStr);
+
                 if ($('#cart_page, #checkout_page').find('.error-msg-coupon').length > 0) {
                     $('#cart_page, #checkout_page').find('.error-msg-coupon').parents('.alert-danger').remove();
                 }

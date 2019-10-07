@@ -16,20 +16,15 @@
       </div>
     </div>
     <!-- Page Content-->
-    <div class="container padding-bottom-3x mb-1" id="checkout_page">
+    <div class="container padding-bottom-3x mb-1" id="cart_page">
 
       @if( Cart::count() >0 )
 
       <form class="form-horizontal" method="post" action="" enctype="multipart/form-data">
       <input type="hidden" name="_token" value="{{ csrf_token() }}">  
 
-      <div class="card-data">
+      <div class="cart-data">
 
-        <!-- Alert-->
-        <!-- <div class="alert alert-info alert-dismissible fade show text-center" style="margin-bottom: 30px;">
-          <span class="alert-close" data-dismiss="alert"></span>
-          <i class="icon-award"></i>&nbsp;&nbsp;With this purchase you will earn <span class='text-medium'>2,549</span> Reward Points.
-        </div> -->
 
       </div>
 
