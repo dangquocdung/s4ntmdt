@@ -11,7 +11,6 @@
 |
 */
 
-
 //frontend route
 Route::get( '/', [
   'uses' => 'Frontend\FrontendManagerController@homePageContent',
@@ -27,7 +26,6 @@ Route::get( '/khuyen-mai-sap-toi', [
   'uses' => 'Frontend\FrontendManagerController@comingSoon',
   'as'   => 'khuyen-mai-sap-toi'
 ]);
-
 
 Route::get( '/cac-san-pham', [
   'uses' => 'Frontend\FrontendManagerController@productsPageContent',
@@ -100,6 +98,12 @@ Route::get( '/tin-tuc', [
   'as'   => 'blogs-page-content'
 ]);
 
+Route::get( '/van-ban', [
+  'uses' => 'Frontend\FrontendManagerController@docsPageContent',
+  'as'   => 'docs-page-content'
+]);
+
+
 Route::get( '/gian-hang', [
   'uses' => 'Frontend\FrontendManagerController@multivendorStoreListPageContent',
   'as'   => 'store-list-page-content'
@@ -159,8 +163,6 @@ Route::post( '/blog/{blog_slug}', [
   'uses' => 'Frontend\UserCommentsController@saveUserComments',
   'as'   => 'save-user-blog-comments'
 ]);
-
-
 
 // frontend user account route
 Route::group(['prefix' => 'user', 'namespace' => 'Frontend'], function () {

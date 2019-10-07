@@ -201,7 +201,9 @@
         <li class="{{ Request::is('thanh-toan')?'active':''}}"><a href="{{ route('checkout-page') }}"><span>{!! trans('frontend.checkout') !!}</span></a></li>
   
         <li class="{{ Request::is('tin-tuc/*')?'active':''}}"><a href="{{ route('blogs-page-content') }}"><span>{!! trans('frontend.blog') !!}</span></a></li>
-      
+
+        <li class="{{ Request::is('van-ban/*')?'active':''}}"><a href="{{ route('docs-page-content') }}"><span>{!! trans('frontend.van-ban') !!}</span></a></li>
+
       </ul>
     </nav>
   </div>
