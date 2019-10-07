@@ -80,10 +80,7 @@
 
         @else
 
-
         <div><i class="icon-user"></i><span class="text-label">{!! trans('frontend.menu_my_account') !!}</span></div>
-
-
 
         @endif
       </a>
@@ -105,8 +102,6 @@
         @endif
 
         <a class="btn btn-primary btn-sm btn-block" href="{{ route('vendor-registration-page') }}">{!! trans('frontend.vendor_registration') !!}</a>
-
-       
 
       </div>
 
@@ -176,6 +171,24 @@
 
         </li>
 
+        <li class="{{ Request::is('chung-toi')?'active':''}}">
+          <span>
+          
+            <a href="{{ route('chung-toi') }}">{!! trans('frontend.chung-toi') !!}</a>
+
+            <span class="sub-menu-toggle"></span>
+
+          </span>
+
+          <ul class="slideable-submenu">
+            <li><a href="{{ route('chung-toi') }}"><span>{!! trans('frontend.chung-toi') !!}</span></a>
+            <li><a href="{{ route('categories-page', 'san-pham-chu-luc') }}">{!! trans('frontend.san-pham-chu-luc') !!}</a></li>
+            <li><a href="{{ route('docs-page-content') }}">{!! trans('frontend.van-ban') !!}</a></li>
+  
+          </ul>
+  
+        </li>
+  
         <li class="has-children {{ Request::is('danh-muc-san-pham')?'active':''}}">
           <span>
             <a href="javascript:void(0)">{{ trans('frontend.product_categories_label') }}</a>
@@ -248,7 +261,6 @@
 
         </ul>
 
-      
       </li>
       
       <li class="{{ Request::is('gian-hang')||Request::is('gian-hang/*')?'active':''}}"><a href="{{ route('store-list-page-content') }}"><span>{!! trans('frontend.vendor_list_title_label') !!}</span></a></li>
