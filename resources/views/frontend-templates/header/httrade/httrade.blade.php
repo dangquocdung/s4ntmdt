@@ -174,14 +174,14 @@
         <li class="{{ Request::is('chung-toi')?'active':''}}">
           <span>
           
-            <a href="{{ route('chung-toi') }}">{!! trans('frontend.chung-toi') !!}</a>
+            <a href="javascript:void(0)">{!! trans('frontend.chung-toi') !!}</a>
 
             <span class="sub-menu-toggle"></span>
 
           </span>
 
           <ul class="slideable-submenu">
-            <li><a href="{{ route('chung-toi') }}"><span>{!! trans('frontend.chung-toi') !!}</span></a>
+            <li><a href="{{ route('chung-toi') }}">{!! trans('frontend.chung-toi') !!}</a>
             <li><a href="{{ route('categories-page', 'san-pham-chu-luc') }}">{!! trans('frontend.san-pham-chu-luc') !!}</a></li>
             <li><a href="{{ route('docs-page-content') }}">{!! trans('frontend.van-ban') !!}</a></li>
   
