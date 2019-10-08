@@ -69,18 +69,9 @@
           
           <div class="form-group">
             <div class="row">  
-              <label class="col-sm-4 control-label" for="inputCountry">{{ trans('admin.country') }}</label>
+              <label class="col-sm-4 control-label" for="inputCity">{{ trans('admin.city') }}</label>
               <div class="col-sm-8">
-                {{-- <input type="text" class="form-control" id="inputCity" name="inputCity" value="{{ $vendors_settings->profile_details->city }}" placeholder="{{ trans('admin.city') }}"/> --}}
-                <select class="form-control" id="inputCountry" name="inputCountry">
-                  @foreach(get_country_list() as $key => $val)
-                    @if( $val==$vendors_settings->profile_details->city )
-                      <option selected value="{{ $key }}"> {!! $val !!}</option>
-                    @else
-                      <option value="{{ $key }}"> {!! $val !!}</option>
-                    @endif
-                  @endforeach
-                </select>
+                <input type="text" class="form-control" id="inputCity" name="inputCity" value="{{ $vendors_settings->profile_details->city }}" placeholder="{{ trans('admin.city') }}"/>
               </div>
             </div>  
           </div>  
@@ -89,32 +80,16 @@
             <div class="row">  
               <label class="col-sm-4 control-label" for="inputState">{{ trans('admin.vendor_state_label') }}</label>
               <div class="col-sm-8">
-                {{-- <input type="text" class="form-control" id="inputState" name="inputState" value="{{ $vendors_settings->profile_details->state }}" placeholder="{{ trans('admin.vendor_state_label') }}"/> --}}
-                <select class="form-control" id="inputState" name="inputState">
-                  @foreach(get_quanhuyen_list(42) as $val)
-                    <option value="{{ $val['maqh'] }}" {{ ($loop->iteration == 1)?'selected':'' }}> {!! $val['name'] !!}</option>
-                    @php 
-                      if ($loop->iteration == 1){
-                        $maqh =  $val['maqh'];
-                      }
-                    @endphp
-                  @endforeach
-                </select>
-  
+                <input type="text" class="form-control" id="inputState" name="inputState" value="{{ $vendors_settings->profile_details->state }}" placeholder="{{ trans('admin.vendor_state_label') }}"/>
               </div>
             </div>  
           </div>
             
           <div class="form-group">
             <div class="row">  
-              <label class="col-sm-4 control-label" for="inputCity">{{ trans('admin.city') }}</label>
+              <label class="col-sm-4 control-label" for="inputCountry">{{ trans('admin.country') }}</label>
               <div class="col-sm-8">
-                {{-- <input type="text" class="form-control" id="inputCountry" name="inputCountry" value="{{ $vendors_settings->profile_details->country }}" placeholder="{{ trans('admin.country') }}"/> --}}
-                <select class="form-control" id="inputCity" name="inputCity">
-                  @foreach(get_xaphuong_list($maqh) as $val)
-                    <option value="{{ $val['xaid'] }}" {{ ($loop->iteration == 1)?'selected':'' }}> {!! $val['name'] !!}</option>
-                  @endforeach
-                </select>
+                <input type="text" class="form-control" id="inputCountry" name="inputCountry" value="{{ $vendors_settings->profile_details->country }}" placeholder="{{ trans('admin.country') }}"/>
               </div>
             </div>  
           </div> 
