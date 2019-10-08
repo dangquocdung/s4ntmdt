@@ -58,14 +58,14 @@
             </div>  
           </div>
           
-          <div class="form-group">
+          <!-- <div class="form-group">
             <div class="row">  
               <label class="col-sm-4 control-label" for="inputAddress2">{{ trans('admin.address_2') }}</label>
               <div class="col-sm-8">
                 <textarea class="form-control" name="inputAddress2" id="inputAddress2" placeholder="{{ trans('admin.address_2') }}">{!! $vendors_settings->profile_details->address_line_2 !!}</textarea>
               </div>
             </div>  
-          </div>
+          </div> -->
           
           <div class="form-group">
             <div class="row">  
