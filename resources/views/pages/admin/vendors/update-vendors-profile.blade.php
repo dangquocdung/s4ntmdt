@@ -94,14 +94,14 @@
             </div>  
           </div> 
           
-          <div class="form-group">
+          <!-- <div class="form-group">
             <div class="row">  
               <label class="col-sm-4 control-label" for="inputZipPostalCode">{{ trans('admin.vendor_zip_postal_label') }}</label>
               <div class="col-sm-8">
                 <input type="number" class="form-control" id="inputZipPostalCode" name="inputZipPostalCode" value="{{ $vendors_settings->profile_details->zip_postal_code }}" placeholder="{{ trans('admin.vendor_zip_postal_label') }}"/>
               </div>
             </div>  
-          </div>   
+          </div>    -->
             
           <div class="form-group">
             <div class="row">  
