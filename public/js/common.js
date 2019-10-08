@@ -253,7 +253,7 @@ $(document).ready(function() {
 
                 console.log('!is_enable_selected: ' + !is_enable_selected);
                 console.log('#selected_user_mode: ' + $('#selected_user_mode').val());
-                console.log('#is_user_login: ' +  $('#is_user_login').val());
+                console.log('#is_user_login: ' + $('#is_user_login').val());
 
                 if ($('#selected_user_mode').val().length > 0 && $('#selected_user_mode').val() == 'login_user' && !is_enable_selected && $('#is_user_login').val() == false) {
 
@@ -283,7 +283,7 @@ $(document).ready(function() {
                     widget.not(':eq(' + get_guest_user_address_index + ')').hide();
 
                     is_enable_selected = true;
-                    
+
                     current = get_payment_index;
 
                 } else {
@@ -1429,13 +1429,13 @@ function checkoutStepValidation() {
             errorStr.push('no_account_shipping_town_or_city');
         }
 
-            // if ($('#account_bill_zip_or_postal_code').length > 0 && $('#account_bill_zip_or_postal_code').val().length == 0 && $('#account_bill_zip_or_postal_code').val() == '') {
-            //     errorStr.push('no_account_bill_zip_or_postal_code');
-            // }
+        // if ($('#account_bill_zip_or_postal_code').length > 0 && $('#account_bill_zip_or_postal_code').val().length == 0 && $('#account_bill_zip_or_postal_code').val() == '') {
+        //     errorStr.push('no_account_bill_zip_or_postal_code');
+        // }
 
-            // if (isChecked && $('#account_shipping_zip_or_postal_code').length > 0 && $('#account_shipping_zip_or_postal_code').val().length == 0 && $('#account_shipping_zip_or_postal_code').val() == '') {
-            //     errorStr.push('no_account_shipping_zip_or_postal_code');
-            // }
+        // if (isChecked && $('#account_shipping_zip_or_postal_code').length > 0 && $('#account_shipping_zip_or_postal_code').val().length == 0 && $('#account_shipping_zip_or_postal_code').val() == '') {
+        //     errorStr.push('no_account_shipping_zip_or_postal_code');
+        // }
 
         if ($('#account_bill_email_address').val().length > 0 && !isValidEmail($('#account_bill_email_address').val())) {
             emailMsg += '<p>' + frontendLocalizationString.billing_email_not_valid_msg + '</p>';
@@ -1640,103 +1640,52 @@ function commonReplaceUrlParam(url, paramName, paramValue) {
     return url + (url.indexOf('?') > 0 ? '&' : '?') + paramName + '=' + paramValue;
 }
 
-if ($('#account_bill_select_country').length > 0){
+if ($('#account_bill_select_country').length > 0) {
 
-    $('#account_bill_select_country').on('change',function(){
+    $('#account_bill_select_country').on('click change', function() {
         $.ajax({
-        url: $('#hf_base_url').val() + '/ajax/quan-huyen',
-        type: 'POST',
-        cache: false,
-        datatype: 'html',
-        headers: { 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content') },
-        data: { data: this.value },
-        success: function(data) {
-            if (data.success == true) {
-                $("#account_bill_town_or_city").empty();
-                $("#account_bill_town_or_city").html(data.html);
-                $("#account_bill_xa_phuong").empty();
-            }else{
-                console.log('chua duoc');
-            }
-        },
-        error: function() {}
+            url: $('#hf_base_url').val() + '/ajax/quan-huyen',
+            type: 'POST',
+            cache: false,
+            datatype: 'html',
+            headers: { 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content') },
+            data: { data: this.value },
+            success: function(data) {
+                if (data.success == true) {
+                    $("#account_bill_town_or_city").empty();
+                    $("#account_bill_town_or_city").html(data.html);
+                    $("#account_bill_xa_phuong").empty();
+                } else {
+                    console.log('chua duoc');
+                }
+            },
+            error: function() {}
         });
     });
 
 }
 
-if ($('#account_bill_town_or_city').length > 0){
+if ($('#account_bill_town_or_city').length > 0) {
 
-    $('#account_bill_town_or_city').on('click',function(){
+    $('#account_bill_town_or_city').on('click change', function() {
         $.ajax({
-        url: $('#hf_base_url').val() + '/ajax/xa-phuong',
-        type: 'POST',
-        cache: false,
-        datatype: 'html',
-        headers: { 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content') },
-        data: { data: this.value },
-        success: function(data) {
-            if (data.success == true) {
-                $("#account_bill_xa_phuong").empty();
-                $("#account_bill_xa_phuong").html(data.html);
-            }else{
-                console.log('chua duoc');
-            }
-        },
-        error: function() {}
+            url: $('#hf_base_url').val() + '/ajax/xa-phuong',
+            type: 'POST',
+            cache: false,
+            datatype: 'html',
+            headers: { 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content') },
+            data: { data: this.value },
+            success: function(data) {
+                if (data.success == true) {
+                    $("#account_bill_xa_phuong").empty();
+                    $("#account_bill_xa_phuong").html(data.html);
+                } else {
+                    console.log('chua duoc');
+                }
+            },
+            error: function() {}
         });
 
     });
-
-}
-
-if ($('#account_shipping_select_country').length > 0){
-
-    $('#account_shipping_select_country').on('change',function(){
-        $.ajax({
-        url: $('#hf_base_url').val() + '/ajax/quan-huyen',
-        type: 'POST',
-        cache: false,
-        datatype: 'html',
-        headers: { 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content') },
-        data: { data: this.value },
-        success: function(data) {
-            if (data.success == true) {
-                $("#account_shipping_town_or_city").empty();
-                $("#account_shipping_town_or_city").html(data.html);
-                $("#account_shipping_xa_phuong").empty();
-            }else{
-                console.log('chua duoc');
-            }
-        },
-        error: function() {}
-        });
-
-    });
-
-}
-
-if ($('#account_shipping_town_or_city').length > 0){
-
-    $('#account_shipping_town_or_city').on('click',function(){
-        $.ajax({
-        url: $('#hf_base_url').val() + '/ajax/xa-phuong',
-        type: 'POST',
-        cache: false,
-        datatype: 'html',
-        headers: { 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content') },
-        data: { data: this.value },
-        success: function(data) {
-            if (data.success == true) {
-                $("#account_shipping_xa_phuong").empty();
-                $("#account_shipping_xa_phuong").html(data.html);
-            }else{
-                console.log('chua duoc');
-            }
-        },
-        error: function() {}
-        });
-
-    })
 
 }
