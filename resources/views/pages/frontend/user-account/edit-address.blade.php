@@ -9,20 +9,20 @@
           <div class="col-sm-6">
             <div class="form-group">
               <label for="inputAccountFirstName">{{ trans('frontend.account_first_name') }}</label>
-              <input type="text" class="form-control" placeholder="{{ trans('frontend.first_name') }}" name="account_bill_first_name" id="account_bill_first_name" value="dang">
+              <input type="text" class="form-control" placeholder="{{ trans('frontend.first_name') }}" name="account_bill_first_name" id="account_bill_first_name" value="{{ $frontend_account_details->address_details->account_bill_first_name }}">
             </div>
           </div>
           <div class="col-sm-6">
             <div class="form-group">
               <label for="inputAccountLastName">{{ trans('frontend.account_last_name') }}</label>
-              <input type="text" class="form-control" placeholder="{{ trans('frontend.last_name') }}" name="account_bill_last_name" id="account_bill_last_name" value="quoc dung">
+              <input type="text" class="form-control" placeholder="{{ trans('frontend.last_name') }}" name="account_bill_last_name" id="account_bill_last_name" value="{{ $frontend_account_details->address_details->account_bill_last_name }}">
             </div>
           </div>
 
           <div class="col-sm-6">
             <div class="form-group">
               <label for="account_bill_email_address">{{ trans('frontend.account_email') }}</label>
-              <input type="email" class="form-control" placeholder="{{ trans('frontend.email_address') }}" name="account_bill_email_address" id="account_bill_email_address" value="dungthinh34@gmail.com">
+              {{-- <input type="email" class="form-control" placeholder="{{ trans('frontend.email') }}" name="account_bill_email_address" id="account_bill_email_address" value="{{ $frontend_account_details->address_details->account_bill_email_address }}"> --}}
             </div>
           </div>
 
@@ -30,9 +30,17 @@
           <div class="col-sm-6">
             <div class="form-group">
               <label for="inputAccountPhoneNumber">{{ trans('frontend.account_phone_number') }}</label>
-              <input type="number" class="form-control" placeholder="{{ trans('frontend.phone') }}" name="account_bill_phone_number" id="account_bill_phone_number" value="0986242487">
+              <input type="number" class="form-control" placeholder="{{ trans('frontend.phone') }}" name="account_bill_phone_number" id="account_bill_phone_number" value="{{ $frontend_account_details->address_details->account_bill_phone_number }}">
             </div>
           </div>
+
+          <div class="col-md-12">
+            <div class="form-group">
+              <label class="control-label" for="inputAccountAddressLine1">{{ trans('frontend.account_address_line_1') }}</label>
+              <textarea class="form-control" id="account_bill_adddress_line_1" name="account_bill_adddress_line_1" placeholder="{{ trans('frontend.address_line_1') }}"> {{ $frontend_account_details->address_details->account_bill_adddress_line_1 }} </textarea>
+            </div>
+          </div>
+
 
           <div class="col-md-4">
             <div class="form-group">
@@ -77,12 +85,6 @@
             </div>
           </div>
 
-          <div class="col-md-12">
-            <div class="form-group">
-              <label class="control-label" for="inputAccountAddressLine1">{{ trans('frontend.account_address_line_1') }}</label>
-              <textarea class="form-control" id="account_bill_adddress_line_1" name="account_bill_adddress_line_1" placeholder="{{ trans('frontend.address_line_1') }}">sadasdsad asdas</textarea>
-            </div>
-          </div>
 
         </div>
       </div>
@@ -90,20 +92,22 @@
       <div class="address-content-sub">
         <h5>{{ trans('frontend.shipping-address') }}</h5>
         <hr class="padding-bottom-1x">
-        <input type="checkbox" name="different_shipping_address" id="different_shipping_address" class="shopist-iCheck" value="different_address"> {{ trans('frontend.different_shipping_label') }}
-        <div class="row different-shipping-address mt-3" style="display:none">
-          <div class="col-sm-6">
-            <div class="form-group">
-              <label class="control-label" for="inputAccountLastName">{{ trans('frontend.account_last_name') }}</label>
-              <input type="text" class="form-control" placeholder="{{ trans('frontend.last_name') }}" name="account_shipping_last_name" id="account_shipping_last_name" value="{{ old('account_shipping_last_name') }}">
-            </div>
-          </div>
+        <input type="checkbox" name="same_shipping_address" id="same_shipping_address" class="shopist-iCheck" value="same_address"> {{ trans('frontend.same-contact-address') }}
+        <div class="row different-shipping-address mt-3">
           <div class="col-sm-6">
             <div class="form-group">
               <label class="control-label" for="inputAccountFirstName">{{ trans('frontend.account_first_name') }}</label>
-              <input type="text" class="form-control" placeholder="{{ trans('frontend.first_name') }}" name="account_shipping_first_name" id="account_shipping_first_name" value="{{ old('account_shipping_first_name') }}">
+              <input type="text" class="form-control" placeholder="{{ trans('frontend.first_name') }}" name="account_shipping_first_name" id="account_shipping_first_name" value="{{ $frontend_account_details->address_details->account_shipping_first_name }}">
             </div>
           </div>
+
+          <div class="col-sm-6">
+            <div class="form-group">
+              <label class="control-label" for="inputAccountLastName">{{ trans('frontend.account_last_name') }}</label>
+              <input type="text" class="form-control" placeholder="{{ trans('frontend.last_name') }}" name="account_shipping_last_name" id="account_shipping_last_name" value="{{ $frontend_account_details->address_details->account_shipping_last_name }}">
+            </div>
+          </div>
+
           <div class="col-sm-6">
             <div class="form-group">
               <label class="control-label" for="inputAccountEmailAddress">{{ trans('frontend.account_email') }}</label>
