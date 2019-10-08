@@ -43,15 +43,21 @@
 
       <tr>
         <td>{!! trans('admin.city')!!}</td>
-        <td>{!! $details['profile_details']->city !!}</td>
+        <?php $id = (int)$details['profile_details']->city ?>
+        <td>{{ get_xaphuong($id) }}</td>
+
+
       </tr>
       <tr>
         <td>{!! trans('admin.vendor_state_label')!!}</td>
-        <td>{!! $details['profile_details']->state !!}</td>
+        <?php $id = (int)$details['profile_details']->state ?>
+        <td>{{ get_quanhuyen($id) }}</td>
+
       </tr>
       <tr>
         <td>{!! trans('admin.country')!!}</td>
-        <td>{!! $details['profile_details']->country !!}</td>
+        <?php $id = (int)$details['profile_details']->country ?>
+        <td>{{ get_tinhthanh($id) }}</td>
       </tr>
       <tr>
         <td>{!! trans('admin.vendor_zip_postal_label')!!}</td>

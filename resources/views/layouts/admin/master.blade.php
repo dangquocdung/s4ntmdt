@@ -22,5 +22,60 @@
     <input type="hidden" name="site_name" id="site_name" value="admin">
     <div class="ajax-request-response-msg" style="display: none; background-color: #333;padding:20px 0px;position:fixed;width:100%;color:#DDD;bottom: 0px;z-index: 999;text-align: center;left: 0px; font-size:16px;"></div>
   </div><!-- ./wrapper -->
+
+  <script>
+
+    if ($('#inputCountry').length > 0) {
+
+      $('#inputCountry').on('click change', function() {
+          $.ajax({
+              url: $('#hf_base_url').val() + '/ajax/quan-huyen',
+              type: 'POST',
+              cache: false,
+              datatype: 'html',
+              headers: { 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content') },
+              data: { data: this.value },
+              success: function(data) {
+                  if (data.success == true) {
+                      $("#inputState").empty();
+                      $("#inputState").html(data.html);
+                      $("inputCity").empty();
+                  } else {
+                      console.log('chua duoc');
+                  }
+              },
+              error: function() {}
+          });
+      });
+
+    }
+
+    if ($('#inputState').length > 0) {
+
+      $('#inputState').on('click change', function() {
+          $.ajax({
+              url: $('#hf_base_url').val() + '/ajax/xa-phuong',
+              type: 'POST',
+              cache: false,
+              datatype: 'html',
+              headers: { 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content') },
+              data: { data: this.value },
+              success: function(data) {
+                  if (data.success == true) {
+                      $("#inputCity").empty();
+                      $("#inputCity").html(data.html);
+                  } else {
+                      console.log('chua duoc');
+                  }
+              },
+              error: function() {}
+          });
+
+      });
+
+    }
+
+  
+  </script>
 </body>
 </html>

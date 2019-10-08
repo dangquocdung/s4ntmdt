@@ -181,7 +181,7 @@ return [
   'no product' =>'Không có sản phẩm',
   'product_variation' =>'Giỏ hàng',
   'shopping_cart_summary_label' =>'Tóm tắt giỏ hàng',
-  'guest_checkout' =>'Khách',
+  'guest_checkout' =>'Khách vãng lai',
   'login_user_checkout' =>'Đăng nhập',
   'bill_to' =>'Hoa đơn để',
   'title' =>'Chức vụ',

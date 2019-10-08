@@ -49,14 +49,6 @@
             </div>  
           </div>
 
-          <div class="form-group">
-            <div class="row">  
-              <label class="col-sm-4 control-label" for="inputAddress1">{{ trans('admin.address_1') }}</label>
-              <div class="col-sm-8">
-                <textarea class="form-control" name="inputAddress1" id="inputAddress1" placeholder="{{ trans('admin.address_1') }}">{!! $vendors_settings->profile_details->address_line_1 !!}</textarea>
-              </div>
-            </div>  
-          </div>
           
           <!-- <div class="form-group">
             <div class="row">  
@@ -74,8 +66,9 @@
                 {{-- <input type="text" class="form-control" id="inputCity" name="inputCity" value="{{ $vendors_settings->profile_details->city }}" placeholder="{{ trans('admin.city') }}"/> --}}
                 <select class="form-control" id="inputCountry" name="inputCountry">
                   @foreach(get_country_list() as $key => $val)
-                    @if( $val==$vendors_settings->profile_details->city )
+                    @if( $key==(int)$vendors_settings->profile_details->country )
                       <option selected value="{{ $key }}"> {!! $val !!}</option>
+                      <?php $matt = (int)$vendors_settings->profile_details->country ?>
                     @else
                       <option value="{{ $key }}"> {!! $val !!}</option>
                     @endif
@@ -91,13 +84,14 @@
               <div class="col-sm-8">
                 {{-- <input type="text" class="form-control" id="inputState" name="inputState" value="{{ $vendors_settings->profile_details->state }}" placeholder="{{ trans('admin.vendor_state_label') }}"/> --}}
                 <select class="form-control" id="inputState" name="inputState">
-                  @foreach(get_quanhuyen_list(42) as $val)
-                    <option value="{{ $val['maqh'] }}" {{ ($loop->iteration == 1)?'selected':'' }}> {!! $val['name'] !!}</option>
-                    @php 
-                      if ($loop->iteration == 1){
-                        $maqh =  $val['maqh'];
-                      }
-                    @endphp
+                  @foreach(get_quanhuyen_list($matt) as $val)
+                    @if (  $val['maqh']== (int)$vendors_settings->profile_details->state )
+                      <option value="{{ $val['maqh'] }}" selected> {!! $val['name'] !!}</option>
+                      <?php $maqh = (int)$vendors_settings->profile_details->state ?>
+
+                    @else
+                      <option value="{{ $val['maqh'] }}"> {!! $val['name'] !!}</option>
+                    @endif
                   @endforeach
                 </select>
   
@@ -112,21 +106,36 @@
                 {{-- <input type="text" class="form-control" id="inputCountry" name="inputCountry" value="{{ $vendors_settings->profile_details->country }}" placeholder="{{ trans('admin.country') }}"/> --}}
                 <select class="form-control" id="inputCity" name="inputCity">
                   @foreach(get_xaphuong_list($maqh) as $val)
-                    <option value="{{ $val['xaid'] }}" {{ ($loop->iteration == 1)?'selected':'' }}> {!! $val['name'] !!}</option>
+
+                    @if (  $val['xaid']== (int)$vendors_settings->profile_details->city )
+                      <option value="{{ $val['xaid'] }}" selected> {!! $val['name'] !!}</option>
+                    @else
+                      <option value="{{ $val['xaid'] }}"> {!! $val['name'] !!}</option>
+                    @endif
                   @endforeach
                 </select>
               </div>
             </div>  
           </div> 
+
+          <div class="form-group">
+            <div class="row">  
+              <label class="col-sm-4 control-label" for="inputAddress1">{{ trans('admin.address_1') }}</label>
+              <div class="col-sm-8">
+                <input type="text" class="form-control"  name="inputAddress1" id="inputAddress1" placeholder="{{ trans('admin.address_1') }}" value="{!! $vendors_settings->profile_details->address_line_1 !!}"/>
+              </div>
+            </div>  
+          </div>
+  
           
-          <!-- <div class="form-group">
+          <div class="form-group">
             <div class="row">  
               <label class="col-sm-4 control-label" for="inputZipPostalCode">{{ trans('admin.vendor_zip_postal_label') }}</label>
               <div class="col-sm-8">
                 <input type="number" class="form-control" id="inputZipPostalCode" name="inputZipPostalCode" value="{{ $vendors_settings->profile_details->zip_postal_code }}" placeholder="{{ trans('admin.vendor_zip_postal_label') }}"/>
               </div>
             </div>  
-          </div>    -->
+          </div>
             
           <div class="form-group">
             <div class="row">  

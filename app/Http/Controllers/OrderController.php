@@ -117,7 +117,7 @@ class OrderController extends Controller
         elseif($postmeta_row_data->key_name == '_customer_user'){
           $user_data = unserialize($postmeta_row_data->key_value);
           if($user_data['user_mode'] == 'guest'){
-            $order_data_by_id['_member']  = array('name' => 'Guest', 'url' => '');
+            $order_data_by_id['_member']  = array('name' => 'Khách vãng lai', 'url' => '');
           }
           elseif($user_data['user_mode'] == 'login'){
             $user_details_by_id = get_user_details($user_data['user_id']);

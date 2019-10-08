@@ -465,7 +465,7 @@ return [
   'order_details' =>'Chi tiết đặt hàng',
   'order' =>'Đơn hàng',
   'member' =>'Tên thành viên',
-  'guest' =>'Khách',
+  'guest' =>'Khách vãng lai',
   'customer_ip' =>'Địa chỉ IP',
   'billing_address' =>'Địa chỉ thanh toán',
   'company' =>'Công ty',

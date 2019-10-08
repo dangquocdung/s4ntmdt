@@ -35,6 +35,8 @@ use shopist\Models\ProductExtra;
 use shopist\Models\Product;
 use shopist\Models\QuanHuyen;
 use shopist\Models\XaPhuong;
+use shopist\Models\TinhThanh;
+
 
 
 class GetFunction
@@ -1188,6 +1190,16 @@ class GetFunction
       '96'  => 'Tỉnh Cà Mau'
     );
   }
+
+  public static function get_country($id)
+  {
+
+    $ten = TinhThanh::where('matp',$id)->first();  
+
+    return $ten->name;
+
+  }
+
   
   public static function get_all_countries0()
   {
@@ -1446,12 +1458,31 @@ class GetFunction
 
   }
 
+  public static function get_qh($id)
+  {
+
+    $ten = QuanHuyen::where('maqh',$id)->first();  
+
+    return $ten->name;
+
+  }
+
+
   public static function get_xaphuongs($qh)
   {
 
     $xaphuongs_data = XaPhuong::where('maqh',$qh)->get()->toArray();   
     
     return $xaphuongs_data;
+
+  }
+
+  public static function get_xp($id)
+  {
+
+    $ten = XaPhuong::where('xaid',$id)->first();  
+
+    return $ten->name;
 
   }
   

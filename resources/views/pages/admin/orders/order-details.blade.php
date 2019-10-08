@@ -75,11 +75,11 @@
         <p><strong>{{ trans('admin.payment_method') }}:</strong> {!! get_payment_method_title( $order_data_by_id['_payment_method_title'] ) !!} 
         <p><strong>{{ trans('admin.shipping_method') }}:</strong> {!! $order_data_by_id['_order_shipping_method'] !!}   
         <p><strong>{{ trans('admin.member') }}:</strong> 
-            @if(!empty($order_data_by_id['_member']['url'])) 
+            {{-- @if(!empty($order_data_by_id['_member']['url'])) 
             <img src="{{ get_image_url($order_data_by_id['_member']['url']) }}" style="width: 32px;margin-left: 10px;">
             @else 
             <img src="{{ default_avatar_img_src() }}" style="width: 32px;margin-left: 10px;">
-            @endif
+            @endif --}}
             <b><i>{!! $order_data_by_id['_member']['name'] !!}</i></b>
         </p>  
         <p><strong>{{ trans('admin.customer_ip') }}:</strong> {!! $order_data_by_id['_customer_ip_address'] !!}</p>

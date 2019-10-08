@@ -229,6 +229,21 @@ function get_country_list()
   return GetFunction::get_all_countries();
 }
 
+function get_tinhthanh($id)
+{
+  return GetFunction::get_country($id);
+}
+function get_quanhuyen($id)
+{
+  return GetFunction::get_qh($id);
+}
+function get_xaphuong($id)
+{
+  return GetFunction::get_xp($id);
+}
+
+
+
 /**
  * Get function for country list
  *
