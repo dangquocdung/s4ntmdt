@@ -99,14 +99,12 @@
             </div>
           </div>
 
-
           <div class="col-sm-6">
             <div class="form-group">
               <label class="control-label" for="inputAccountPhoneNumber">{{ trans('frontend.account_phone_number') }}</label>
               <input type="number" class="form-control" placeholder="{{ trans('frontend.phone') }}" name="account_shipping_phone_number" id="account_shipping_phone_number" value="{{ old('account_shipping_phone_number') }}">
             </div>
           </div>
-
 
           <div class="col-md-6">
             <div class="form-group">
@@ -159,11 +157,6 @@
             </div>
           </div>
       
-
-
-
-
-
         </div>
 
       </div>

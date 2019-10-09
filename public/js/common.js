@@ -1038,12 +1038,9 @@ shopist_frontend.ajaxCall = {
             headers: { 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content') },
             success: function(data) {
 
-                // alert(msgStr);
-
                 if ($('#cart_page, #checkout_page').find('.error-msg-coupon').length > 0) {
                     $('#cart_page, #checkout_page').find('.error-msg-coupon').parents('.alert-danger').remove();
                 }
-
                 if (data.error == true && data.error_type == 'no_coupon_data') {
                     $('#cart_page .cart-data, #checkout_page .cart-data').prepend(msgStr);
                     $('#cart_page .cart-data, #checkout_page .cart-data').find('.error-msg-coupon').html(frontendLocalizationString.coupon_not_exists_msg);
@@ -1679,6 +1676,56 @@ if ($('#account_bill_quan_huyen').length > 0) {
                 if (data.success == true) {
                     $("#account_bill_xa_phuong").empty();
                     $("#account_bill_xa_phuong").html(data.html);
+                } else {
+                    console.log('chua duoc');
+                }
+            },
+            error: function() {}
+        });
+
+    });
+
+}
+
+if ($('#account_shipping_select_country').length > 0) {
+
+    $('#account_shipping_select_country').on('click change', function() {
+        $.ajax({
+            url: $('#hf_base_url').val() + '/ajax/quan-huyen',
+            type: 'POST',
+            cache: false,
+            datatype: 'html',
+            headers: { 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content') },
+            data: { data: this.value },
+            success: function(data) {
+                if (data.success == true) {
+                    $("#account_shipping_quan_huyen").empty();
+                    $("#account_shipping_quan_huyen").html(data.html);
+                    $("#account_shipping_xa_phuong").empty();
+                } else {
+                    console.log('chua duoc');
+                }
+            },
+            error: function() {}
+        });
+    });
+
+}
+
+if ($('#account_shipping_quan_huyen').length > 0) {
+
+    $('#account_shipping_quan_huyen').on('click change', function() {
+        $.ajax({
+            url: $('#hf_base_url').val() + '/ajax/xa-phuong',
+            type: 'POST',
+            cache: false,
+            datatype: 'html',
+            headers: { 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content') },
+            data: { data: this.value },
+            success: function(data) {
+                if (data.success == true) {
+                    $("#account_shipping_xa_phuong").empty();
+                    $("#account_shipping_xa_phuong").html(data.html);
                 } else {
                     console.log('chua duoc');
                 }
