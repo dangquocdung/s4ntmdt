@@ -85,6 +85,7 @@
         <hr class="padding-bottom-1x">
 
         <input type="checkbox" name="same_shipping_address" id="same_shipping_address" class="shopist-iCheck" value="same_address"> {{ trans('frontend.same-contact-address') }}
+        
         <div class="row different-shipping-address mt-3">
           <div class="col-sm-6">
             <div class="form-group">
