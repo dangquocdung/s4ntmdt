@@ -232,6 +232,19 @@
 
         }
 
+        if ($('#login-page').length > 0){
+
+          var win = $(this);
+
+          if (win.width() > 768) { 
+            $('#login-page').addClass('offset-3');
+          }
+          else
+          {
+            $('#login-page').removeClass('offset-3');
+          }
+
+        }
       })
 
     </script>
@@ -243,14 +256,14 @@
     if ($('#login-page').length > 0){
 
       var win = $(this);
+
       if (win.width() > 768) { 
         $('#login-page').addClass('offset-3');
       }
       else
       {
-          $('#login-page').removeClass('offset-3');
+        $('#login-page').removeClass('offset-3');
       }
-
     }
   });
 
