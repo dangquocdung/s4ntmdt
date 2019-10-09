@@ -108,7 +108,7 @@
             </div>
           </div>
 
-          <div class="col-md-6">
+          <div class="col-md-4">
             <div class="form-group">
                 <label class="control-label" for="inputAccountSelectCountry">{{ trans('frontend.checkout_select_country_label') }}</label>
                 <select class="form-control" id="account_shipping_select_country" name="account_shipping_tinh_thanh" >
@@ -123,7 +123,7 @@
             </div>
           </div>
       
-          <div class="col-md-6">
+          <div class="col-md-4">
             <div class="form-group">
                 <label class="control-label" for="inputAccountTownCity">{{ trans('frontend.account_address_town_city') }}</label>
                 <select class="form-control" name="account_shipping_quan_huyen" id="account_shipping_quan_huyen">
@@ -138,7 +138,7 @@
             </div>
           </div>
       
-          <div class="col-md-6">
+          <div class="col-md-4">
             <div class="form-group">
                 <label class="control-label" for="inputAccountXaPhuong">{{ trans('frontend.account_address_xa_phuong') }}</label>
                 <select class="form-control" name="account_shipping_xa_phuong" id="account_shipping_xa_phuong" >

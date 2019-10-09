@@ -1127,10 +1127,10 @@ class GetFunction
     $data = TinhThanh::all()->toArray();   
 
     return $data;
-    
+
   }
 
-  public static function get_country($id)
+  public static function get_tp($id)
   {
 
     $ten = TinhThanh::where('matp',$id)->first();  

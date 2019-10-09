@@ -17,12 +17,11 @@
          <h4>{!! trans('frontend.billing_address') !!}</h4><br>
          @if(!empty($login_user_account_data) && !empty($login_user_account_data->address_details))
 
-            <p>{!! $login_user_account_data->address_details->account_bill_first_name .' '. $login_user_account_data->address_details->account_bill_last_name !!}</p>
+            <p>{!! $login_user_account_data->address_details->account_bill_last_name .' '. $login_user_account_data->address_details->account_bill_first_name !!}</p>
 
             @if($login_user_account_data->address_details->account_bill_phone_number)
                 <p><strong>{{ trans('admin.phone') }}:</strong> {!! $login_user_account_data->address_details->account_bill_phone_number !!}</p>
             @endif
-
 
             <p><strong>{{ trans('admin.address_1') }}:</strong> {!! $login_user_account_data->address_details->account_bill_adddress_line_1 !!}</p>
 
@@ -30,17 +29,13 @@
                 <p><strong>{{ trans('admin.address_2') }}:</strong> {!! $login_user_account_data->address_details->account_bill_adddress_line_2 !!}</p>
             @endif
 
-            <p><strong>{{ trans('admin.city') }}:</strong> {!! $login_user_account_data->address_details->account_bill_town_or_city !!}</p>
+            <p><strong>{{ trans('admin.city') }}:</strong> {!! get_xaphuong($login_user_account_data->address_details->account_bill_town_or_city) !!}</p>
 
-            <p><strong>{{ trans('admin.state') }}:</strong> {!! $login_user_account_data->address_details->account_bill_select_state !!}</p>
+            <p><strong>{{ trans('frontend.account_address_town_city') }}:</strong> {!! get_quanhuyen($login_user_account_data->address_details->account_bill_select_state) !!}</p>
 
-            <p><strong>{{ trans('admin.country') }}:</strong> {{ $login_user_account_data->address_details->account_bill_select_country }}</p>
-
-
-            {{-- <p><strong>{{ trans('admin.country') }}:</strong> {!! get_country_by_code( $login_user_account_data->address_details->account_bill_select_country ) !!}</p> --}}
+            <p><strong>{{ trans('admin.country') }}:</strong> {{ get_tinhthanh($login_user_account_data->address_details->account_bill_select_country) }}</p>
 
             <br>
-
 
          @else
             <p>{{ trans('admin.billing_address_not_available') }}</p>
@@ -51,24 +46,25 @@
 
          @if(!empty($login_user_account_data) && !empty($login_user_account_data->address_details))
 
-            <p>{!! $login_user_account_data->address_details->account_shipping_first_name .' '. $login_user_account_data->address_details->account_shipping_last_name !!}</p>
-
-
-            <p><strong>{{ trans('admin.address_1') }}:</strong> {!! $login_user_account_data->address_details->account_shipping_adddress_line_1 !!}</p>
-
-            @if($login_user_account_data->address_details->account_shipping_adddress_line_2)
-                <p><strong>{{ trans('admin.address_2') }}:</strong> {!! $login_user_account_data->address_details->account_shipping_adddress_line_2 !!}</p>
-            @endif
-
-            <p><strong>{{ trans('admin.city') }}:</strong> {!! $login_user_account_data->address_details->account_shipping_town_or_city !!}</p>
-
-            {{-- <p><strong>{{ trans('admin.country') }}:</strong> {!! get_country_by_code( $login_user_account_data->address_details->account_shipping_select_country ) !!}</p> --}}
-
-            <br>
+            <p>{!! $login_user_account_data->address_details->account_shipping_last_name .' '. $login_user_account_data->address_details->account_shipping_first_name !!}</p>
 
             @if($login_user_account_data->address_details->account_shipping_phone_number)
                 <p><strong>{{ trans('admin.phone') }}:</strong> {!! $login_user_account_data->address_details->account_shipping_phone_number !!}</p>
             @endif
+
+            <p><strong>{{ trans('admin.address_1') }}:</strong> {!! $login_user_account_data->address_details->account_shipping_adddress_line_1 !!}</p>
+            
+            @if($login_user_account_data->address_details->account_shipping_adddress_line_2)
+                <p><strong>{{ trans('admin.address_2') }}:</strong> {!! $login_user_account_data->address_details->account_shipping_adddress_line_2 !!}</p>
+            @endif
+
+            <p><strong>{{ trans('admin.city') }}:</strong> {!! get_xaphuong($login_user_account_data->address_details->account_shipping_town_or_city) !!}</p>
+
+            <p><strong>{{ trans('frontend.account_address_town_city') }}:</strong> {!! get_quanhuyen($login_user_account_data->address_details->account_shipping_select_state) !!}</p>
+
+            <p><strong>{{ trans('admin.country') }}:</strong> {{ get_tinhthanh($login_user_account_data->address_details->account_shipping_select_country) }}</p>
+
+            <br>
 
          @else
             <p>{{ trans('admin.shipping_address_not_available') }}</p>

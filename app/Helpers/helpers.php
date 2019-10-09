@@ -231,7 +231,7 @@ function get_country_list()
 
 function get_tinhthanh($id)
 {
-  return GetFunction::get_country($id);
+  return GetFunction::get_tp($id);
 }
 function get_quanhuyen($id)
 {
