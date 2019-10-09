@@ -249,25 +249,25 @@
 
     </script>
 
-<script>
+    <script>
 
-  $(window).on('resize', function(){
+      $(window).on('resize', function(){
 
-    if ($('#login-page').length > 0){
+        if ($('#login-page').length > 0){
 
-      var win = $(this);
+          var win = $(this);
 
-      if (win.width() > 768) { 
-        $('#login-page').addClass('offset-3');
-      }
-      else
-      {
-        $('#login-page').removeClass('offset-3');
-      }
-    }
-  });
+          if (win.width() > 768) { 
+            $('#login-page').addClass('offset-3');
+          }
+          else
+          {
+            $('#login-page').removeClass('offset-3');
+          }
+        }
+      });
 
-</script>
+    </script>
 
 
   </body>

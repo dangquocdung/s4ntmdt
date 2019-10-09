@@ -67,9 +67,9 @@
 
 
           <div class="row margin-bottom-1x">
-            <div class="col-sm-4"><a class="btn btn-sm btn-block facebook-btn" href="#"><i class="socicon-facebook"></i>&nbsp;Dùng Facebook</a></div>
-            <div class="col-sm-4"><a class="btn btn-sm btn-block twitter-btn" href="#"><i class="socicon-twitter"></i>&nbsp;Dùng Twitter</a></div>
-            <div class="col-sm-4"><a class="btn btn-sm btn-block google-btn" href="#"><i class="socicon-googleplus"></i>&nbsp;Dùng Google+</a></div>
+            <div class="col-sm-4"><a class="btn btn-sm btn-block facebook-btn" href="javascript:void(0)"><i class="socicon-facebook"></i>&nbsp;Dùng Facebook</a></div>
+            <div class="col-sm-4"><a class="btn btn-sm btn-block twitter-btn" href="javascript:void(0)"><i class="socicon-twitter"></i>&nbsp;Dùng Twitter</a></div>
+            <div class="col-sm-4"><a class="btn btn-sm btn-block google-btn" href="javascript:void(0)"><i class="socicon-googleplus"></i>&nbsp;Dùng Google+</a></div>
           </div>
   
   
