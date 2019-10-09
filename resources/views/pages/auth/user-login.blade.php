@@ -24,22 +24,13 @@
 <!-- Page Content-->
 <div class="container padding-bottom-3x mb-2">
     <div class="row">
-      <div class="col-6 offset-3">
+      <div class="col-lg-6 col-sm-12 offset-3">
         
         @include('pages-message.notify-msg-error')
         @include('pages-message.form-submit')
 
         <form class="login-box" method="post" action="" enctype="multipart/form-data">
           <input type="hidden" name="_token" id="_token" value="{{ csrf_token() }}">
-
-          <div class="row margin-bottom-1x">
-            <div class="col-sm-4"><a class="btn btn-sm btn-block facebook-btn" href="#"><i class="socicon-facebook"></i>&nbsp;Dùng Facebook</a></div>
-            <div class="col-sm-4"><a class="btn btn-sm btn-block twitter-btn" href="#"><i class="socicon-twitter"></i>&nbsp;Dùng Twitter</a></div>
-            <div class="col-sm-4"><a class="btn btn-sm btn-block google-btn" href="#"><i class="socicon-googleplus"></i>&nbsp;Dùng Google+</a></div>
-          </div>
-
-
-          <h5 class="margin-bottom-1x">Hoặc dùng biểu mẫu dưới đây</h5>
 
 
           <div class="form-group input-group">
@@ -71,6 +62,19 @@
 
             <!-- <a class="navi-link" href="{{ route('user-forgot-password-page') }}">{{ trans('frontend.forgot_password') }}</a>&nbsp;&nbsp;&nbsp;&nbsp; -->
           </div>
+
+          <h6 class="margin-bottom-1x">Hoặc dùng tài khoản mạng xã hội:</h6>
+
+
+          <div class="row margin-bottom-1x">
+            <div class="col-sm-4"><a class="btn btn-sm btn-block facebook-btn" href="#"><i class="socicon-facebook"></i>&nbsp;Dùng Facebook</a></div>
+            <div class="col-sm-4"><a class="btn btn-sm btn-block twitter-btn" href="#"><i class="socicon-twitter"></i>&nbsp;Dùng Twitter</a></div>
+            <div class="col-sm-4"><a class="btn btn-sm btn-block google-btn" href="#"><i class="socicon-googleplus"></i>&nbsp;Dùng Google+</a></div>
+          </div>
+  
+  
+  
+  
 
           <div class="text-center text-sm-right">
             <!-- <input name="login_submit" id="login_submit" tabindex="4" class="form-control btn btn-secondary" value="{{ trans('frontend.frontend_log_in') }}" type="submit"> -->
