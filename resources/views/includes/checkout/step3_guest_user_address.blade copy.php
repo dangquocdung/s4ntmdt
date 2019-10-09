@@ -36,47 +36,51 @@
                 <input type="number" class="form-control" placeholder="{{ trans('frontend.phone') }}" name="account_bill_phone_number" id="account_bill_phone_number" value="{{ old('account_bill_phone_number') }}">
             </div>
         </div>
-
+        
+        <div class="col-md-4">
+            <div class="form-group">
+            <label class="control-label" for="inputAccountSelectCountry">{{ trans('frontend.checkout_select_country_label') }}</label>
+                <select class="form-control" id="account_bill_select_country" name="account_bill_select_country">
+                @foreach(get_country_list() as $key => $val)
+                    @if(old('account_bill_select_country') == $key || $key==42 )
+                    <option selected value="{{ $key }}"> {!! $val !!}</option>
+                    @else
+                    <option value="{{ $key }}"> {!! $val !!}</option>
+                    @endif
+                @endforeach
+                </select>
+            </div>
+        </div>
 
         <div class="col-md-4">
             <div class="form-group">
-              <label class="control-label" for="account_bill_tinh_thanh">{{ trans('frontend.checkout_select_country_label') }}</label>
-                <select class="form-control" id="account_bill_select_country" name="account_bill_tinh_thanh">
-                @foreach(get_country_list() as $val)
-                    @if( $val['matp']==42 )
-                      <option selected value="{{ $val['matp'] }}"> {!! $val['name'] !!}</option>
-                    @else
-                      <option value="{{ $val['matp'] }}"> {!! $val['name'] !!}</option>
-                    @endif
-                  @endforeach
-                  </select>
-            </div>
-          </div>
-      
-          <div class="col-md-4">
-            <div class="form-group">
-              <label class="control-label" for="account_bill_quan_huyen">{{ trans('frontend.account_address_town_city') }}</label>
-              <select class="form-control" name="account_bill_quan_huyen" id="account_bill_quan_huyen">
+            <label class="control-label" for="inputAccountTownCity">{{ trans('frontend.account_address_town_city') }}</label>
+            <select class="form-control" name="account_bill_town_or_city" id="account_bill_town_or_city">
                 @foreach(get_quanhuyen_list(42) as $val)
-                 <option value="{{ $val['maqh'] }}"> {!! $val['name'] !!}</option>
-                @endforeach
+                <option value="{{ $val['maqh'] }}" {{ ($loop->iteration == 1)?'selected':'' }}> {!! $val['name'] !!}</option>
 
-              </select>
+                @php 
+                    if ($loop->iteration == 1){
+                    $maqh =  $val['maqh'];
+                    }
+                @endphp
+
+                @endforeach
+            </select>
             </div>
-          </div>
-      
-          <div class="col-md-4">
+        </div>
+
+        <div class="col-md-4">
             <div class="form-group">
-              <label class="control-label" for="account_bill_xa_phuong">{{ trans('frontend.account_address_xa_phuong') }}</label>
-              <select class="form-control" name="account_bill_xa_phuong" id="account_bill_xa_phuong">
-                @foreach(get_xaphuong_list(436) as $val)
-                  <option value="{{ $val['xaid'] }}"> {!! $val['name'] !!}</option>
+            <label class="control-label" for="inputAccountXaPhuong">{{ trans('frontend.account_address_xa_phuong') }}</label>
+            <select class="form-control" name="account_bill_xa_phuong" id="account_bill_xa_phuong">
+                <option value=""> {{ trans('frontend.xa_phuong') }} </option>
+                @foreach(get_xaphuong_list($maqh) as $val)
+                <option value="{{ $val['xaid'] }}" {{ ($loop->iteration == 1)?'selected':'' }}> {!! $val['name'] !!}</option>
                 @endforeach
-              </select>
+            </select>
             </div>
-          </div>
-
-        
+        </div>
 
         <div class="col-md-12">
             <div class="form-group">
@@ -126,52 +130,49 @@
             </div>
         </div>
 
-        <div class="col-md-6">
+        <div class="col-md-4">
             <div class="form-group">
                 <label class="control-label" for="inputAccountSelectCountry">{{ trans('frontend.checkout_select_country_label') }}</label>
-                <select class="form-control" id="account_shipping_select_country" name="account_shipping_tinh_thanh" >
-                  @foreach(get_country_list() as $val)
-                    @if( $val['matp']==42 )
-                      <option selected value="{{ $val['matp'] }}"> {!! $val['name'] !!}</option>
+                <select class="form-control" id="account_shipping_select_country" name="account_shipping_select_country">
+                    @foreach(get_country_list() as $key => $val)
+                    @if(old('account_shipping_select_country') == $key || $key==42 )
+                        <option selected value="{{ $key }}"> {!! $val !!}</option>
                     @else
-                      <option value="{{ $val['matp'] }}"> {!! $val['name'] !!}</option>
+                        <option value="{{ $key }}"> {!! $val !!}</option>
                     @endif
-                  @endforeach
-                </select>
+                    @endforeach
+                    </select>
             </div>
-        </div>
-      
-        <div class="col-md-6">
+            </div>
+
+            <div class="col-md-4">
             <div class="form-group">
                 <label class="control-label" for="inputAccountTownCity">{{ trans('frontend.account_address_town_city') }}</label>
-                <select class="form-control" name="account_shipping_quan_huyen" id="account_shipping_quan_huyen">
+                <select class="form-control" name="account_shipping_town_or_city" id="account_shipping_town_or_city">
+                @foreach(get_quanhuyen_list(42) as $val)
+                    <option value="{{ $val['maqh'] }}" {{ ($loop->iteration == 1)?'selected':'' }}> {!! $val['name'] !!}</option>
 
-                  @foreach(get_quanhuyen_list(42) as $val)
+                    @php 
+                    if ($loop->iteration == 1){
+                        $maqh =  $val['maqh'];
+                    }
+                    @endphp
 
-                      <option value="{{ $val['maqh'] }}"> {!! $val['name'] !!}</option>
-
-                  @endforeach
-
+                @endforeach
                 </select>
             </div>
-        </div>
-      
-        <div class="col-md-6">
+            </div>
+
+            <div class="col-md-4">
             <div class="form-group">
                 <label class="control-label" for="inputAccountXaPhuong">{{ trans('frontend.account_address_xa_phuong') }}</label>
-                <select class="form-control" name="account_shipping_xa_phuong" id="account_shipping_xa_phuong" >
-
-                  @foreach(get_xaphuong_list(436) as $val)
-
-                      <option value="{{ $val['xaid'] }}"> {!! $val['name'] !!}</option>
-
-                  @endforeach
-
+                <select class="form-control" name="account_shipping_xa_phuong" id="account_shipping_xa_phuong">
+                @foreach(get_xaphuong_list($maqh) as $val)
+                    <option value="{{ $val['xaid'] }}" {{ ($loop->iteration == 1)?'selected':'' }}> {!! $val['name'] !!}</option>
+                @endforeach
                 </select>
             </div>
-        </div>
-
-
+            </div>
 
         <div class="col-md-12">
             <div class="form-group">

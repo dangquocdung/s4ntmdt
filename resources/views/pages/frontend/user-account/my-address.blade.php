@@ -30,14 +30,12 @@
       <div class="form-group">
         <label class="control-label" for="account_bill_tinh_thanh">{{ trans('frontend.checkout_select_country_label') }}</label>
           <select class="form-control" id="account_bill_tinh_thanh" name="account_bill_tinh_thanh"  disabled>
-            @foreach(get_country_list() as $key => $val)
-              @if(old('account_bill_select_country') == $key || $key==42 )
-                <option selected value="{{ $key }}"> {!! $val !!}</option>
-              @else
-                <option value="{{ $key }}"> {!! $val !!}</option>
+            @foreach(get_country_list() as $val)
+              @if( $frontend_account_details->address_details->account_bill_select_country==$val['matp'] )
+                <option selected value="{{ $val['matp'] }}"> {!! $val['name'] !!}</option>
               @endif
             @endforeach
-            </select>
+          </select>
       </div>
     </div>
 
@@ -45,16 +43,19 @@
       <div class="form-group">
         <label class="control-label" for="account_bill_quan_huyen">{{ trans('frontend.account_address_town_city') }}</label>
         <select class="form-control" name="account_bill_quan_huyen" id="account_bill_quan_huyen" disabled>
-          @foreach(get_quanhuyen_list(42) as $val)
-            <option value="{{ $val['maqh'] }}" {{ ($loop->iteration == 1)?'selected':'' }}> {!! $val['name'] !!}</option>
 
-            @php 
-              if ($loop->iteration == 1){
-                $maqh =  $val['maqh'];
-              }
-            @endphp
+          @foreach(get_quanhuyen_list($frontend_account_details->address_details->account_bill_select_country) as $val)
+
+          @if( $frontend_account_details->address_details->account_bill_select_state==$val['maqh'] )
+
+            <option selected value="{{ $val['maqh'] }}"> {!! $val['name'] !!}</option>
+
+          @endif
 
           @endforeach
+
+
+
         </select>
       </div>
     </div>
@@ -63,10 +64,19 @@
       <div class="form-group">
         <label class="control-label" for="account_bill_xa_phuong">{{ trans('frontend.account_address_xa_phuong') }}</label>
         <select class="form-control" name="account_bill_xa_phuong" id="account_bill_xa_phuong" disabled>
-          <option value=""> {{ trans('frontend.xa_phuong') }} </option>
-          @foreach(get_xaphuong_list($maqh) as $val)
-            <option value="{{ $val['xaid'] }}" {{ ($loop->iteration == 1)?'selected':'' }}> {!! $val['name'] !!}</option>
+
+          @foreach(get_xaphuong_list($frontend_account_details->address_details->account_bill_select_state) as $val)
+
+            @if( $frontend_account_details->address_details->account_bill_town_or_city==$val['xaid'] )
+
+              <option selected value="{{ $val['xaid'] }}"> {!! $val['name'] !!}</option>
+
+            @endif
+
           @endforeach
+
+
+
         </select>
       </div>
     </div>
@@ -120,13 +130,13 @@
       <div class="form-group">
           <label class="control-label" for="inputAccountSelectCountry">{{ trans('frontend.checkout_select_country_label') }}</label>
           <select class="form-control" id="account_shipping_select_country" name="account_shipping_select_country"  disabled>
-              @foreach(get_country_list() as $key => $val)
-              @if(old('account_shipping_select_country') == $key || $key==42 )
-                  <option selected value="{{ $key }}"> {!! $val !!}</option>
-              @else
-                  <option value="{{ $key }}"> {!! $val !!}</option>
+            @foreach(get_country_list() as $val)
+              @if( $frontend_account_details->address_details->account_shipping_select_country==$val['matp'] )
+                <option selected value="{{ $val['matp'] }}"> {!! $val['name'] !!}</option>
               @endif
-              @endforeach
+            @endforeach
+
+
           </select>
       </div>
     </div>
@@ -135,16 +145,18 @@
       <div class="form-group">
           <label class="control-label" for="inputAccountTownCity">{{ trans('frontend.account_address_town_city') }}</label>
           <select class="form-control" name="account_shipping_town_or_city" id="account_shipping_town_or_city"  disabled>
-          @foreach(get_quanhuyen_list(42) as $val)
-              <option value="{{ $val['name'] }}" {{ ($loop->iteration == 1)?'selected':'' }}> {!! $val['name'] !!}</option>
+            @foreach(get_quanhuyen_list($frontend_account_details->address_details->account_shipping_select_country) as $val)
 
-              @php 
-              if ($loop->iteration == 1){
-                  $maqh =  $val['maqh'];
-              }
-              @endphp
+            @if( $frontend_account_details->address_details->account_shipping_select_state==$val['maqh'] )
 
-          @endforeach
+              <option selected value="{{ $val['maqh'] }}"> {!! $val['name'] !!}</option>
+
+            @endif
+
+            @endforeach
+
+
+
           </select>
       </div>
     </div>
@@ -153,9 +165,19 @@
       <div class="form-group">
           <label class="control-label" for="inputAccountXaPhuong">{{ trans('frontend.account_address_xa_phuong') }}</label>
           <select class="form-control" name="account_shipping_xa_phuong" id="account_shipping_xa_phuong"  disabled>
-          @foreach(get_xaphuong_list($maqh) as $val)
-              <option value="{{ $val['name'] }}" {{ ($loop->iteration == 1)?'selected':'' }}> {!! $val['name'] !!}</option>
+          
+          @foreach(get_xaphuong_list($frontend_account_details->address_details->account_shipping_select_state) as $val)
+
+            @if( $frontend_account_details->address_details->account_shipping_town_or_city==$val['xaid'] )
+
+              <option selected value="{{ $val['xaid'] }}"> {!! $val['name'] !!}</option>
+
+            @endif
+
           @endforeach
+
+
+
           </select>
       </div>
     </div>

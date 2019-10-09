@@ -1736,3 +1736,36 @@ if ($('#account_shipping_quan_huyen').length > 0) {
     });
 
 }
+
+if ($('#same_shipping_address').length > 0) {
+
+    $('#same_shipping_address').on('ifChecked', function(event) {
+
+        $('#account_shipping_first_name').val($('#account_bill_first_name').val());
+        $('#account_shipping_last_name').val($('#account_bill_last_name').val());
+        $('#account_shipping_phone_number').val($('#account_bill_phone_number').val());
+        $('#account_shipping_select_country').val($('#account_bill_select_country').val());
+        $('#account_shipping_select_country').trigger('change');
+        setTimeout(function(){
+            $('#account_shipping_quan_huyen').val($('#account_bill_quan_huyen').val());
+            $('#account_shipping_quan_huyen').trigger('change');
+
+        },50);
+
+        setTimeout(function(){
+            $('#account_shipping_xa_phuong').val($('#account_bill_xa_phuong').val());
+        },500);
+
+        $('#account_shipping_adddress_line_1').val($('#account_bill_adddress_line_1').val());
+
+    });
+
+    $('#same_shipping_address').on('ifUnchecked', function(event) {
+
+        $('#account_shipping_first_name').val('');
+        $('#account_shipping_last_name').val('');
+        $('#account_shipping_phone_number').val('');
+        $('#account_shipping_adddress_line_1').val('');
+
+    });
+}

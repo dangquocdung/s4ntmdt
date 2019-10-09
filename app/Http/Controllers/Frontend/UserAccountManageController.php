@@ -54,9 +54,10 @@ class UserAccountManageController extends Controller
     $data['dashboard_data'] =  $dashboard_total;
     $data['login_user_details'] =  get_current_frontend_user_info();
 
-    // return response()->json($data);
+    // return response()->json($data['login_user_details']);
     
     return view('pages.frontend.user-account.user-account-pages', $data);
+
   }
   
   /**
@@ -76,6 +77,8 @@ class UserAccountManageController extends Controller
 
     $data['frontend_account_details'] = json_decode($get_array_shift_data['details']);
     $data['login_user_details'] =  get_current_frontend_user_info();
+
+    // return response()->json($data['frontend_account_details']);
     
     return view('pages.frontend.user-account.user-account-pages', $data);
   }
@@ -378,10 +381,7 @@ class UserAccountManageController extends Controller
           $address_data_ary['account_shipping_email_address']       =         Input::get('account_shipping_email_address');
           $address_data_ary['account_shipping_phone_number']        =         Input::get('account_shipping_phone_number');
           $address_data_ary['account_shipping_select_country']      =         Input::get('account_shipping_tinh_thanh');
-
           $address_data_ary['account_shipping_select_state']        =         Input::get('account_shipping_quan_huyen');
-
-
           $address_data_ary['account_shipping_town_or_city']        =         Input::get('account_shipping_xa_phuong');
 
           $address_data_ary['account_shipping_adddress_line_1']     =         Input::get('account_shipping_adddress_line_1');
