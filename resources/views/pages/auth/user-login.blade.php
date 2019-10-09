@@ -22,9 +22,9 @@
 </div>
 
 <!-- Page Content-->
-<div class="container padding-bottom-3x mb-2">
+<div class="container padding-bottom-3x mb-2" >
     <div class="row">
-      <div class="col-lg-6 col-sm-12 offset-3">
+      <div class="col-md-6 col-sm-12" id="login-page">
         
         @include('pages-message.notify-msg-error')
         @include('pages-message.form-submit')
@@ -87,4 +87,5 @@
       
     </div>
   </div>
+
 @endsection
