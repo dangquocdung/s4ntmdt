@@ -362,12 +362,14 @@ class UserAccountManageController extends Controller
           $address_data_ary['account_bill_last_name']               =         Input::get('account_bill_last_name');
           $address_data_ary['account_bill_email_address']           =         Input::get('account_bill_email_address');
           $address_data_ary['account_bill_phone_number']            =         Input::get('account_bill_phone_number');
-          $address_data_ary['account_bill_select_country']          =         Input::get('account_bill_select_country');
+          $address_data_ary['account_bill_select_country']          =         Input::get('account_bill_tinh_thanh');
+          $address_data_ary['account_bill_select_state']            =         Input::get('account_bill_quan_huyen');
+          $address_data_ary['account_bill_town_or_city']            =         Input::get('account_bill_xa_phuong');
+
+
           $address_data_ary['account_bill_adddress_line_1']         =         Input::get('account_bill_adddress_line_1');
           $address_data_ary['account_bill_adddress_line_2']         =         Input::get('account_bill_adddress_line_2');
-          $address_data_ary['account_bill_town_or_city']            =         Input::get('account_bill_town_or_city');
           $address_data_ary['account_bill_zip_or_postal_code']      =         Input::get('account_bill_zip_or_postal_code');
-          $address_data_ary['account_bill_fax_number']              =         Input::get('account_bill_fax_number');
           
           $address_data_ary['account_shipping_title']               =         Input::get('account_shipping_title');
           $address_data_ary['account_shipping_company_name']        =         Input::get('account_shipping_company_name');
@@ -375,12 +377,16 @@ class UserAccountManageController extends Controller
           $address_data_ary['account_shipping_last_name']           =         Input::get('account_shipping_last_name');
           $address_data_ary['account_shipping_email_address']       =         Input::get('account_shipping_email_address');
           $address_data_ary['account_shipping_phone_number']        =         Input::get('account_shipping_phone_number');
-          $address_data_ary['account_shipping_select_country']      =         Input::get('account_shipping_select_country');
+          $address_data_ary['account_shipping_select_country']      =         Input::get('account_shipping_tinh_thanh');
+
+          $address_data_ary['account_shipping_select_state']        =         Input::get('account_shipping_quan_huyen');
+
+
+          $address_data_ary['account_shipping_town_or_city']        =         Input::get('account_shipping_xa_phuong');
+
           $address_data_ary['account_shipping_adddress_line_1']     =         Input::get('account_shipping_adddress_line_1');
           $address_data_ary['account_shipping_adddress_line_2']     =         Input::get('account_shipping_adddress_line_2');
-          $address_data_ary['account_shipping_town_or_city']        =         Input::get('account_shipping_town_or_city');
           $address_data_ary['account_shipping_zip_or_postal_code']  =         Input::get('account_shipping_zip_or_postal_code');
-          $address_data_ary['account_shipping_fax_number']          =         Input::get('account_shipping_fax_number');
           
           $address_data = array('post_type' => 'address', 'details' => $address_data_ary);
           

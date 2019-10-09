@@ -9,27 +9,27 @@
     <div class="col-sm-6">
       <div class="form-group">
         <label for="account_bill_first_name">{{ trans('frontend.account_first_name') }}</label>
-        <input type="text" class="form-control" placeholder="{{ trans('frontend.first_name') }}" name="account_bill_first_name" id="account_bill_first_name" value="{{ $frontend_account_details->address_details->account_bill_first_name }}">
+        <input type="text" class="form-control" placeholder="{{ trans('frontend.first_name') }}" name="account_bill_first_name" id="account_bill_first_name" value="{{ $frontend_account_details->address_details->account_bill_first_name }}" disabled>
       </div>
     </div>
     <div class="col-sm-6">
       <div class="form-group">
         <label for="account_bill_last_name">{{ trans('frontend.account_last_name') }}</label>
-        <input type="text" class="form-control" placeholder="{{ trans('frontend.last_name') }}" name="account_bill_last_name" id="account_bill_last_name" value="{{ $frontend_account_details->address_details->account_bill_last_name }}">
+        <input type="text" class="form-control" placeholder="{{ trans('frontend.last_name') }}" name="account_bill_last_name" id="account_bill_last_name" value="{{ $frontend_account_details->address_details->account_bill_last_name }}" disabled>
       </div>
     </div>
 
     <div class="col-sm-6">
       <div class="form-group">
         <label for="account_bill_phone_number">{{ trans('frontend.account_phone_number') }}</label>
-        <input type="number" class="form-control" placeholder="{{ trans('frontend.phone') }}" name="account_bill_phone_number" id="account_bill_phone_number" value="{{  $frontend_account_details->address_details->account_bill_phone_number }}">
+        <input type="number" class="form-control" placeholder="{{ trans('frontend.phone') }}" name="account_bill_phone_number" id="account_bill_phone_number" value="{{  $frontend_account_details->address_details->account_bill_phone_number }}" disabled>
       </div>
     </div>
   
     <div class="col-md-6">
       <div class="form-group">
         <label class="control-label" for="account_bill_tinh_thanh">{{ trans('frontend.checkout_select_country_label') }}</label>
-          <select class="form-control" id="account_bill_tinh_thanh" name="account_bill_tinh_thanh">
+          <select class="form-control" id="account_bill_tinh_thanh" name="account_bill_tinh_thanh"  disabled>
             @foreach(get_country_list() as $key => $val)
               @if(old('account_bill_select_country') == $key || $key==42 )
                 <option selected value="{{ $key }}"> {!! $val !!}</option>
@@ -44,7 +44,7 @@
     <div class="col-md-6">
       <div class="form-group">
         <label class="control-label" for="account_bill_quan_huyen">{{ trans('frontend.account_address_town_city') }}</label>
-        <select class="form-control" name="account_bill_quan_huyen" id="account_bill_quan_huyen">
+        <select class="form-control" name="account_bill_quan_huyen" id="account_bill_quan_huyen" disabled>
           @foreach(get_quanhuyen_list(42) as $val)
             <option value="{{ $val['maqh'] }}" {{ ($loop->iteration == 1)?'selected':'' }}> {!! $val['name'] !!}</option>
 
@@ -62,7 +62,7 @@
     <div class="col-md-6">
       <div class="form-group">
         <label class="control-label" for="account_bill_xa_phuong">{{ trans('frontend.account_address_xa_phuong') }}</label>
-        <select class="form-control" name="account_bill_xa_phuong" id="account_bill_xa_phuong">
+        <select class="form-control" name="account_bill_xa_phuong" id="account_bill_xa_phuong" disabled>
           <option value=""> {{ trans('frontend.xa_phuong') }} </option>
           @foreach(get_xaphuong_list($maqh) as $val)
             <option value="{{ $val['xaid'] }}" {{ ($loop->iteration == 1)?'selected':'' }}> {!! $val['name'] !!}</option>
@@ -74,7 +74,7 @@
     <div class="col-md-12">
       <div class="form-group">
         <label class="control-label" for="inputAccountAddressLine1">{{ trans('frontend.account_address_line_1') }}</label>
-        <textarea class="form-control" id="account_bill_adddress_line_1" name="account_bill_adddress_line_1" placeholder="{{ trans('frontend.address_line_1') }}">{{ $frontend_account_details->address_details->account_bill_adddress_line_1 }}</textarea>
+        <input type="text" class="form-control" id="account_bill_adddress_line_1" name="account_bill_adddress_line_1" placeholder="{{ trans('frontend.address_line_1') }}" value="{{ $frontend_account_details->address_details->account_bill_adddress_line_1 }}" disabled>
       </div>
     </div>
   
@@ -98,35 +98,28 @@
     <div class="col-sm-6">
         <div class="form-group">
         <label class="control-label" for="inputAccountLastName">{{ trans('frontend.account_last_name') }}</label>
-        <input type="text" class="form-control" placeholder="{{ trans('frontend.last_name') }}" name="account_shipping_last_name" id="account_shipping_last_name" value="Ho2">
+        <input type="text" class="form-control" placeholder="{{ trans('frontend.last_name') }}" name="account_shipping_last_name" id="account_shipping_last_name" value="{{ $frontend_account_details->address_details->account_shipping_first_name }}"  disabled>
         </div>
     </div>
 
     <div class="col-sm-6">
         <div class="form-group">
         <label class="control-label" for="inputAccountFirstName">{{ trans('frontend.account_first_name') }}</label>
-        <input type="text" class="form-control" placeholder="{{ trans('frontend.first_name') }}" name="account_shipping_first_name" id="account_shipping_first_name" value="Ten2">
-        </div>
-    </div>
-
-    <div class="col-sm-6">
-        <div class="form-group">
-        <label class="control-label" for="inputAccountEmailAddress">{{ trans('frontend.account_email') }}</label>
-        <input type="email" class="form-control" placeholder="{{ trans('frontend.email') }}" name="account_shipping_email_address" id="account_shipping_email_address" value="email2@mail.com">
+        <input type="text" class="form-control" placeholder="{{ trans('frontend.first_name') }}" name="account_shipping_first_name" id="account_shipping_first_name" value="{{ $frontend_account_details->address_details->account_shipping_last_name }}"  disabled>
         </div>
     </div>
 
     <div class="col-sm-6">
         <div class="form-group">
         <label class="control-label" for="inputAccountPhoneNumber">{{ trans('frontend.account_phone_number') }}</label>
-        <input type="number" class="form-control" placeholder="{{ trans('frontend.phone') }}" name="account_shipping_phone_number" id="account_shipping_phone_number" value="02">
+        <input type="number" class="form-control" placeholder="{{ trans('frontend.phone') }}" name="account_shipping_phone_number" id="account_shipping_phone_number" value="{{ $frontend_account_details->address_details->account_shipping_phone_number }}"  disabled>
         </div>
     </div>
 
-    <div class="col-md-4">
+    <div class="col-md-6">
       <div class="form-group">
           <label class="control-label" for="inputAccountSelectCountry">{{ trans('frontend.checkout_select_country_label') }}</label>
-          <select class="form-control" id="account_shipping_select_country" name="account_shipping_select_country">
+          <select class="form-control" id="account_shipping_select_country" name="account_shipping_select_country"  disabled>
               @foreach(get_country_list() as $key => $val)
               @if(old('account_shipping_select_country') == $key || $key==42 )
                   <option selected value="{{ $key }}"> {!! $val !!}</option>
@@ -138,10 +131,10 @@
       </div>
     </div>
 
-    <div class="col-md-4">
+    <div class="col-md-6">
       <div class="form-group">
           <label class="control-label" for="inputAccountTownCity">{{ trans('frontend.account_address_town_city') }}</label>
-          <select class="form-control" name="account_shipping_town_or_city" id="account_shipping_town_or_city">
+          <select class="form-control" name="account_shipping_town_or_city" id="account_shipping_town_or_city"  disabled>
           @foreach(get_quanhuyen_list(42) as $val)
               <option value="{{ $val['name'] }}" {{ ($loop->iteration == 1)?'selected':'' }}> {!! $val['name'] !!}</option>
 
@@ -156,10 +149,10 @@
       </div>
     </div>
 
-    <div class="col-md-4">
+    <div class="col-md-6">
       <div class="form-group">
           <label class="control-label" for="inputAccountXaPhuong">{{ trans('frontend.account_address_xa_phuong') }}</label>
-          <select class="form-control" name="account_shipping_xa_phuong" id="account_shipping_xa_phuong">
+          <select class="form-control" name="account_shipping_xa_phuong" id="account_shipping_xa_phuong"  disabled>
           @foreach(get_xaphuong_list($maqh) as $val)
               <option value="{{ $val['name'] }}" {{ ($loop->iteration == 1)?'selected':'' }}> {!! $val['name'] !!}</option>
           @endforeach
@@ -170,7 +163,7 @@
     <div class="col-md-12">
       <div class="form-group">
         <label class="control-label" for="inputAccountAddressLine1">{{ trans('frontend.account_address_line_1') }}</label>
-        <textarea class="form-control" id="account_shipping_adddress_line_1" name="account_shipping_adddress_line_1" placeholder="{{ trans('frontend.address_line_1') }}">adsdsadsa</textarea>
+        <input type="text" class="form-control"  id="account_shipping_adddress_line_1" name="account_shipping_adddress_line_1" placeholder="{{ trans('frontend.address_line_1') }}" value="{{ $frontend_account_details->address_details->account_shipping_adddress_line_1 }}" disabled>
       </div>
     </div>
 

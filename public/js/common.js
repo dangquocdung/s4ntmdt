@@ -1421,8 +1421,8 @@ function checkoutStepValidation() {
             errorStr.push('no_account_shipping_adddress_line_1');
         }
 
-        if ($('#account_bill_town_or_city').length > 0 && $('#account_bill_town_or_city').val().length == 0 && $('#account_bill_town_or_city').val() == '') {
-            errorStr.push('no_account_bill_town_or_city');
+        if ($('#account_bill_quan_huyen').length > 0 && $('#account_bill_quan_huyen').val().length == 0 && $('#account_bill_quan_huyen').val() == '') {
+            errorStr.push('no_account_bill_quan_huyen');
         }
 
         if (isChecked && $('#account_shipping_town_or_city').length > 0 && $('#account_shipping_town_or_city').val().length == 0 && $('#account_shipping_town_or_city').val() == '') {
@@ -1652,8 +1652,8 @@ if ($('#account_bill_select_country').length > 0) {
             data: { data: this.value },
             success: function(data) {
                 if (data.success == true) {
-                    $("#account_bill_town_or_city").empty();
-                    $("#account_bill_town_or_city").html(data.html);
+                    $("#account_bill_quan_huyen").empty();
+                    $("#account_bill_quan_huyen").html(data.html);
                     $("#account_bill_xa_phuong").empty();
                 } else {
                     console.log('chua duoc');
@@ -1665,9 +1665,9 @@ if ($('#account_bill_select_country').length > 0) {
 
 }
 
-if ($('#account_bill_town_or_city').length > 0) {
+if ($('#account_bill_quan_huyen').length > 0) {
 
-    $('#account_bill_town_or_city').on('click change', function() {
+    $('#account_bill_quan_huyen').on('click change', function() {
         $.ajax({
             url: $('#hf_base_url').val() + '/ajax/xa-phuong',
             type: 'POST',

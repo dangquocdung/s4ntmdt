@@ -21,33 +21,16 @@
 
           <div class="col-sm-6">
             <div class="form-group">
-              <label for="account_bill_email_address">{{ trans('frontend.account_email') }}</label>
-              {{-- <input type="email" class="form-control" placeholder="{{ trans('frontend.email') }}" name="account_bill_email_address" id="account_bill_email_address" value="{{ $frontend_account_details->address_details->account_bill_email_address }}"> --}}
-            </div>
-          </div>
-
-
-          <div class="col-sm-6">
-            <div class="form-group">
               <label for="inputAccountPhoneNumber">{{ trans('frontend.account_phone_number') }}</label>
               <input type="number" class="form-control" placeholder="{{ trans('frontend.phone') }}" name="account_bill_phone_number" id="account_bill_phone_number" value="{{ $frontend_account_details->address_details->account_bill_phone_number }}">
             </div>
           </div>
-
-          <div class="col-md-12">
+          <div class="col-md-6">
             <div class="form-group">
-              <label class="control-label" for="inputAccountAddressLine1">{{ trans('frontend.account_address_line_1') }}</label>
-              <textarea class="form-control" id="account_bill_adddress_line_1" name="account_bill_adddress_line_1" placeholder="{{ trans('frontend.address_line_1') }}"> {{ $frontend_account_details->address_details->account_bill_adddress_line_1 }} </textarea>
-            </div>
-          </div>
-
-
-          <div class="col-md-4">
-            <div class="form-group">
-              <label class="control-label" for="inputAccountSelectCountry">{{ trans('frontend.checkout_select_country_label') }}</label>
-                <select class="form-control" id="account_bill_select_country" name="account_bill_select_country">
+              <label class="control-label" for="account_bill_tinh_thanh">{{ trans('frontend.checkout_select_country_label') }}</label>
+                <select class="form-control" id="account_bill_select_country" name="account_bill_tinh_thanh">
                   @foreach(get_country_list() as $key => $val)
-                    @if(old('account_bill_select_country') == $key || $key==42 )
+                    @if(old('account_bill_tinh_thanh') == $key || $key==42 )
                       <option selected value="{{ $key }}"> {!! $val !!}</option>
                     @else
                       <option value="{{ $key }}"> {!! $val !!}</option>
@@ -56,26 +39,28 @@
                   </select>
             </div>
           </div>
-
-          <div class="col-md-4">
+      
+          <div class="col-md-6">
             <div class="form-group">
-              <label class="control-label" for="inputAccountTownCity">{{ trans('frontend.account_address_town_city') }}</label>
-              <select class="form-control" name="account_bill_town_or_city" id="account_bill_town_or_city">
+              <label class="control-label" for="account_bill_quan_huyen">{{ trans('frontend.account_address_town_city') }}</label>
+              <select class="form-control" name="account_bill_quan_huyen" id="account_bill_quan_huyen">
                 @foreach(get_quanhuyen_list(42) as $val)
                   <option value="{{ $val['maqh'] }}" {{ ($loop->iteration == 1)?'selected':'' }}> {!! $val['name'] !!}</option>
+      
                   @php 
                     if ($loop->iteration == 1){
                       $maqh =  $val['maqh'];
                     }
                   @endphp
+      
                 @endforeach
               </select>
             </div>
           </div>
-
-          <div class="col-md-4">
+      
+          <div class="col-md-6">
             <div class="form-group">
-              <label class="control-label" for="inputAccountXaPhuong">{{ trans('frontend.account_address_xa_phuong') }}</label>
+              <label class="control-label" for="account_bill_xa_phuong">{{ trans('frontend.account_address_xa_phuong') }}</label>
               <select class="form-control" name="account_bill_xa_phuong" id="account_bill_xa_phuong">
                 <option value=""> {{ trans('frontend.xa_phuong') }} </option>
                 @foreach(get_xaphuong_list($maqh) as $val)
@@ -84,8 +69,14 @@
               </select>
             </div>
           </div>
-
-
+      
+          <div class="col-md-12">
+            <div class="form-group">
+              <label class="control-label" for="inputAccountAddressLine1">{{ trans('frontend.account_address_line_1') }}</label>
+              <input type="text" class="form-control" id="account_bill_adddress_line_1" name="account_bill_adddress_line_1" placeholder="{{ trans('frontend.address_line_1') }}" value="{{ $frontend_account_details->address_details->account_bill_adddress_line_1 }}">
+            </div>
+          </div>
+      
         </div>
       </div>
       <br>
@@ -108,12 +99,6 @@
             </div>
           </div>
 
-          <div class="col-sm-6">
-            <div class="form-group">
-              <label class="control-label" for="inputAccountEmailAddress">{{ trans('frontend.account_email') }}</label>
-              <input type="email" class="form-control" placeholder="{{ trans('frontend.email') }}" name="account_shipping_email_address" id="account_shipping_email_address" value="{{ old('account_shipping_email_address') }}">
-            </div>
-          </div>
 
           <div class="col-sm-6">
             <div class="form-group">
@@ -122,56 +107,63 @@
             </div>
           </div>
 
-          <div class="col-md-4">
-              <div class="form-group">
+
+          <div class="col-md-6">
+            <div class="form-group">
                 <label class="control-label" for="inputAccountSelectCountry">{{ trans('frontend.checkout_select_country_label') }}</label>
-                  <select class="form-control" id="account_shipping_select_country" name="account_shipping_select_country">
+                <select class="form-control" id="account_shipping_tinh_thanh" name="account_shipping_tinh_thanh" >
                     @foreach(get_country_list() as $key => $val)
-                      @if(old('account_shipping_select_country') == $key || $key==42 )
+                    @if(old('account_shipping_tinh_thanh') == $key || $key==42 )
                         <option selected value="{{ $key }}"> {!! $val !!}</option>
-                      @else
+                    @else
                         <option value="{{ $key }}"> {!! $val !!}</option>
-                      @endif
+                    @endif
                     @endforeach
-                    </select>
-              </div>
+                </select>
             </div>
-
-            <div class="col-md-4">
-              <div class="form-group">
+          </div>
+      
+          <div class="col-md-6">
+            <div class="form-group">
                 <label class="control-label" for="inputAccountTownCity">{{ trans('frontend.account_address_town_city') }}</label>
-                <select class="form-control" name="account_shipping_town_or_city" id="account_shipping_town_or_city">
-                  @foreach(get_quanhuyen_list(42) as $val)
-                    <option value="{{ $val['maqh'] }}" {{ ($loop->iteration == 1)?'selected':'' }}> {!! $val['name'] !!}</option>
-
+                <select class="form-control" name="account_shipping_quan_huyen" id="account_shipping_quan_huyen">
+                @foreach(get_quanhuyen_list(42) as $val)
+                    <option value="{{ $val['name'] }}" {{ ($loop->iteration == 1)?'selected':'' }}> {!! $val['name'] !!}</option>
+      
                     @php 
-                      if ($loop->iteration == 1){
+                    if ($loop->iteration == 1){
                         $maqh =  $val['maqh'];
-                      }
+                    }
                     @endphp
-
-                  @endforeach
+      
+                @endforeach
                 </select>
-              </div>
             </div>
-
-            <div class="col-md-4">
-              <div class="form-group">
+          </div>
+      
+          <div class="col-md-6">
+            <div class="form-group">
                 <label class="control-label" for="inputAccountXaPhuong">{{ trans('frontend.account_address_xa_phuong') }}</label>
-                <select class="form-control" name="account_shipping_xa_phuong" id="account_shipping_xa_phuong">
-                  @foreach(get_xaphuong_list($maqh) as $val)
-                    <option value="{{ $val['xaid'] }}" {{ ($loop->iteration == 1)?'selected':'' }}> {!! $val['name'] !!}</option>
-                  @endforeach
+                <select class="form-control" name="account_shipping_xa_phuong" id="account_shipping_xa_phuong" >
+                @foreach(get_xaphuong_list($maqh) as $val)
+                    <option value="{{ $val['name'] }}" {{ ($loop->iteration == 1)?'selected':'' }}> {!! $val['name'] !!}</option>
+                @endforeach
                 </select>
-              </div>
             </div>
-
+          </div>
+      
           <div class="col-md-12">
             <div class="form-group">
               <label class="control-label" for="inputAccountAddressLine1">{{ trans('frontend.account_address_line_1') }}</label>
-              <textarea class="form-control" id="account_shipping_adddress_line_1" name="account_shipping_adddress_line_1" placeholder="{{ trans('frontend.address_line_1') }}">{{ old('account_shipping_adddress_line_1') }}</textarea>
+              <input type="text" class="form-control"  id="account_shipping_adddress_line_1" name="account_shipping_adddress_line_1" placeholder="{{ trans('frontend.address_line_1') }}" value="{{ $frontend_account_details->address_details->account_shipping_adddress_line_1 }}">
             </div>
           </div>
+      
+
+
+
+
+
         </div>
 
       </div>
