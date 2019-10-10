@@ -147,7 +147,7 @@ return [
   'order_total' =>'Tổng số đơn hàng',
   'billing_address' =>'Địa chỉ thanh toán',
   'company' =>'Công ty',
-  'address_1' =>'Địa chỉ 1',
+  'address_1' =>'Tên đường',
   'address_2' =>'Địa chỉ 2',
   'city' =>'Thành phố',
   'postCode' =>'Mã bưu điện',
