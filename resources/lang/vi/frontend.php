@@ -149,9 +149,9 @@ return [
   'company' =>'Công ty',
   'address_1' =>'Tên đường',
   'address_2' =>'Địa chỉ 2',
-  'city' =>'Thành phố',
+  'city' =>'Xã / Phường',
   'postCode' =>'Mã bưu điện',
-  'country' =>'Tỉnh, thành',
+  'country' =>'Tỉnh / Thành phố',
   'phone' =>'Số điện thoại',
   'fax' =>'Số fax',
   'email' =>'Địa chỉ email',
@@ -596,5 +596,6 @@ return [
   'remove_image' => 'Xoá ảnh',
   'van-ban' => 'Văn bản hỗ trợ pháp lý',
   'san-pham-chu-luc' => 'Sản phẩm chủ lực',
-  'truyen-thong' => 'Truyền thông'
+  'truyen-thong' => 'Truyền thông',
+  'state' => 'Quận / Huyện'
 ];
