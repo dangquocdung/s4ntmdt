@@ -86,10 +86,9 @@
               <div class="col-sm-8">
                 {{-- <input type="text" class="form-control" id="inputState" name="inputState" value="{{ $vendors_settings->profile_details->state }}" placeholder="{{ trans('admin.vendor_state_label') }}"/> --}}
                 <select class="form-control" id="inputState" name="inputState">
-                  @foreach(get_quanhuyen_list($matt) as $val)
-                    @if (  $val['maqh']== (int)$vendors_settings->profile_details->state )
+                  @foreach(get_quanhuyen_list($vendors_settings->profile_details->country) as $val)
+                    @if (  $val['maqh']== $vendors_settings->profile_details->state )
                       <option value="{{ $val['maqh'] }}" selected> {!! $val['name'] !!}</option>
-                      <?php $maqh = (int)$vendors_settings->profile_details->state ?>
                     @else
                       <option value="{{ $val['maqh'] }}"> {!! $val['name'] !!}</option>
                     @endif
@@ -106,7 +105,7 @@
               <div class="col-sm-8">
                 {{-- <input type="text" class="form-control" id="inputCountry" name="inputCountry" value="{{ $vendors_settings->profile_details->country }}" placeholder="{{ trans('admin.country') }}"/> --}}
                 <select class="form-control" id="inputCity" name="inputCity">
-                  @foreach(get_xaphuong_list($maqh) as $val)
+                  @foreach(get_xaphuong_list($vendors_settings->profile_details->state) as $val)
 
                     @if (  $val['xaid']== (int)$vendors_settings->profile_details->city )
                       <option value="{{ $val['xaid'] }}" selected> {!! $val['name'] !!}</option>
