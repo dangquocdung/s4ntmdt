@@ -35,7 +35,8 @@
       {{-- <h3 class="margin-bottom-1x">{!! trans('frontend.please_sign_up_label') !!}</h3>
       <p>{!! trans('frontend.sign_up_free_label') !!}</p> --}}
 
-      <form method="post" action="" enctype="multipart/form-data" class="padding-top-1x>
+      <form method="post" action="" enctype="multipart/form-data" class="padding-top-1x">
+        @csrf
         <input type="hidden" name="_token" id="_token" value="{{ csrf_token() }}">
         
         <div class="row">
