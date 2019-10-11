@@ -84,11 +84,9 @@
           <div class="col-xs-12 col-sm-6 col-md-6">
             <div class="form-group">
               <label for="reg-fn">Huyện / Thị / Thành</label>
-              <input type="text" placeholder="{{ trans('frontend.country') }}" class="form-control" value="{{ old('vendor_reg_country') }}" id="vendor_reg_country" name="vendor_reg_country">
-
-              <select class="form-control" id="vendor_reg_country" name="vendor_reg_country">
+              <select class="form-control" id="vendor_country" name="vendor_reg_country">
                 @foreach(get_country_list() as $val)
-                  @if( $val['matp']=='42' )
+                  @if( $val['matp']=='42' || $val['matp']==old('vendor_reg_country') )
                     <option selected value="{{ $val['matp'] }}"> {!! $val['name'] !!}</option>
                   @else
                     <option value="{{ $val['matp'] }}"> {!! $val['name'] !!}</option>
@@ -100,11 +98,9 @@
           <div class="col-xs-12 col-sm-6 col-md-6">
             <div class="form-group">
               <label for="reg-fn">Phường / Xã</label>
-              <input type="text" placeholder="{{ trans('frontend.city') }}" class="form-control" value="{{ old('vendor_reg_city') }}" id="vendor_reg_city" name="vendor_reg_city">
-
-              <select class="form-control" id="vendor_reg_state" name="vendor_reg_state">
+              <select class="form-control" id="vendor_state" name="vendor_reg_state">
                 @foreach(get_quanhuyen_list(42) as $val)
-                  @if (  $val['maqh']== '436' )
+                  @if (  $val['maqh']== '436' || $val['maqh']== old('vendor_reg_state') )
                     <option value="{{ $val['maqh'] }}" selected> {!! $val['name'] !!}</option>
                   @else
                     <option value="{{ $val['maqh'] }}"> {!! $val['name'] !!}</option>
@@ -119,11 +115,9 @@
           <div class="col-xs-12 col-sm-6 col-md-6">
               <div class="form-group">
                 <label for="reg-fn">Phường / Xã</label>
-                <input type="text" placeholder="{{ trans('frontend.city') }}" class="form-control" value="{{ old('vendor_reg_city') }}" id="vendor_reg_city" name="vendor_reg_city">
-
-                <select class="form-control" id="vendor_reg_city" name="vendor_reg_city">
+                <select class="form-control" id="vendor_city" name="vendor_reg_city">
                   @foreach(get_xaphuong_list(436) as $val)
-                    @if (  $val['xaid']== '18070' )
+                    @if (  $val['xaid']== '18070' || $val['xaid']==old('vendor_reg_city') )
                       <option value="{{ $val['xaid'] }}" selected> {!! $val['name'] !!}</option>
                     @else
                       <option value="{{ $val['xaid'] }}"> {!! $val['name'] !!}</option>
