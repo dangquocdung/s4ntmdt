@@ -21,7 +21,6 @@
   </div>
 </div>
 
-
 <!-- Page Content-->
 <div class="container padding-bottom-3x mb-2">
   <div class="row">
@@ -74,7 +73,6 @@
 
             <div class="form-group">
               <label for="reg-fn">Số điện thoại</label>
-
               <input type="number" placeholder="{{ ucfirst(trans('frontend.phone')) }}" class="form-control" id="vendor_reg_phone_number" name="vendor_reg_phone_number" value="{{ old('vendor_reg_phone_number') }}" min="0">
             </div>
 
@@ -82,30 +80,37 @@
 
         </div>
 
-        <div class="form-group">
-          <label for="reg-fn">Địa chỉ</label>
-
-          <textarea id="vendor_reg_address_line_1" placeholder="{{ trans('frontend.address_line_1') }}" class="form-control" name="vendor_reg_address_line_1">{!! old('vendor_reg_address_line_1') !!}</textarea>
-        </div>
 
         <div class="row">
-          
           <div class="col-xs-12 col-sm-6 col-md-6">
             <div class="form-group">
               <label for="reg-fn">Huyện / Thị / Thành</label>
-
               <input type="text" placeholder="{{ trans('frontend.country') }}" class="form-control" value="{{ old('vendor_reg_country') }}" id="vendor_reg_country" name="vendor_reg_country">
             </div>
           </div>
-
           <div class="col-xs-12 col-sm-6 col-md-6">
             <div class="form-group">
               <label for="reg-fn">Phường / Xã</label>
-
               <input type="text" placeholder="{{ trans('frontend.city') }}" class="form-control" value="{{ old('vendor_reg_city') }}" id="vendor_reg_city" name="vendor_reg_city">
             </div>
           </div>
         </div>
+
+        <div class="row">
+          <div class="col-xs-12 col-sm-6 col-md-6">
+              <div class="form-group">
+                <label for="reg-fn">Phường / Xã</label>
+                <input type="text" placeholder="{{ trans('frontend.city') }}" class="form-control" value="{{ old('vendor_reg_city') }}" id="vendor_reg_city" name="vendor_reg_city">
+              </div>
+            </div>
+          <div class="col-xs-12 col-sm-6 col-md-6">
+            <div class="form-group">
+              <label for="reg-fn">Địa chỉ</label>
+              <input type="text" id="vendor_reg_address_line_1" placeholder="{{ trans('frontend.address_line_1') }}" class="form-control" name="vendor_reg_address_line_1" value="{{  old('vendor_reg_address_line_1') }}">
+            </div>
+          </div>
+        </div>
+  
 								
         <div class="row">
           <div class="col-xs-12 col-sm-6 col-md-6">
@@ -123,6 +128,8 @@
             </div>
           </div>
         </div>
+
+
 
         <div class="form-group">
           <label for="reg-fn">Khoá bí mật</label>
