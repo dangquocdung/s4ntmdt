@@ -1746,15 +1746,15 @@ if ($('#same_shipping_address').length > 0) {
         $('#account_shipping_phone_number').val($('#account_bill_phone_number').val());
         $('#account_shipping_select_country').val($('#account_bill_select_country').val());
         $('#account_shipping_select_country').trigger('change');
-        setTimeout(function(){
+        setTimeout(function() {
             $('#account_shipping_quan_huyen').val($('#account_bill_quan_huyen').val());
             $('#account_shipping_quan_huyen').trigger('change');
 
-        },50);
+        }, 50);
 
-        setTimeout(function(){
+        setTimeout(function() {
             $('#account_shipping_xa_phuong').val($('#account_bill_xa_phuong').val());
-        },500);
+        }, 500);
 
         $('#account_shipping_adddress_line_1').val($('#account_bill_adddress_line_1').val());
 
@@ -1768,4 +1768,54 @@ if ($('#same_shipping_address').length > 0) {
         $('#account_shipping_adddress_line_1').val('');
 
     });
+}
+
+if ($('#vendor_country').length > 0) {
+
+    $('#vendor_country').on('click change', function() {
+        $.ajax({
+            url: $('#hf_base_url').val() + '/ajax/quan-huyen',
+            type: 'POST',
+            cache: false,
+            datatype: 'html',
+            headers: { 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content') },
+            data: { data: this.value },
+            success: function(data) {
+                if (data.success == true) {
+                    $("#vendor_state").empty();
+                    $("#vendor_state").html(data.html);
+                    $("#vendor_city").empty();
+                } else {
+                    console.log('chua duoc');
+                }
+            },
+            error: function() {}
+        });
+    });
+
+}
+
+if ($('#vendor_state').length > 0) {
+
+    $('#vendor_state').on('click change', function() {
+        $.ajax({
+            url: $('#hf_base_url').val() + '/ajax/xa-phuong',
+            type: 'POST',
+            cache: false,
+            datatype: 'html',
+            headers: { 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content') },
+            data: { data: this.value },
+            success: function(data) {
+                if (data.success == true) {
+                    $("#vendor_city").empty();
+                    $("#vendor_city").html(data.html);
+                } else {
+                    console.log('chua duoc');
+                }
+            },
+            error: function() {}
+        });
+
+    });
+
 }
