@@ -80,7 +80,6 @@
 
         </div>
 
-
         <div class="row">
           <div class="col-xs-12 col-sm-6 col-md-6">
             <div class="form-group">
@@ -96,7 +95,6 @@
                   @endif
                 @endforeach
               </select>
-
             </div>
           </div>
           <div class="col-xs-12 col-sm-6 col-md-6">
@@ -105,15 +103,14 @@
               <input type="text" placeholder="{{ trans('frontend.city') }}" class="form-control" value="{{ old('vendor_reg_city') }}" id="vendor_reg_city" name="vendor_reg_city">
 
               <select class="form-control" id="vendor_reg_state" name="vendor_reg_state">
-                  @foreach(get_quanhuyen_list(42) as $val)
-                    @if (  $val['maqh']== '436' )
-                      <option value="{{ $val['maqh'] }}" selected> {!! $val['name'] !!}</option>
-                    @else
-                      <option value="{{ $val['maqh'] }}"> {!! $val['name'] !!}</option>
-                    @endif
-                  @endforeach
-                </select>
-
+                @foreach(get_quanhuyen_list(42) as $val)
+                  @if (  $val['maqh']== '436' )
+                    <option value="{{ $val['maqh'] }}" selected> {!! $val['name'] !!}</option>
+                  @else
+                    <option value="{{ $val['maqh'] }}"> {!! $val['name'] !!}</option>
+                  @endif
+                @endforeach
+              </select>
             </div>
           </div>
         </div>
@@ -125,15 +122,14 @@
                 <input type="text" placeholder="{{ trans('frontend.city') }}" class="form-control" value="{{ old('vendor_reg_city') }}" id="vendor_reg_city" name="vendor_reg_city">
 
                 <select class="form-control" id="vendor_reg_city" name="vendor_reg_city">
-                    @foreach(get_xaphuong_list(436) as $val)
-  
-                      @if (  $val['xaid']== '18070' )
-                        <option value="{{ $val['xaid'] }}" selected> {!! $val['name'] !!}</option>
-                      @else
-                        <option value="{{ $val['xaid'] }}"> {!! $val['name'] !!}</option>
-                      @endif
-                    @endforeach
-                  </select>
+                  @foreach(get_xaphuong_list(436) as $val)
+                    @if (  $val['xaid']== '18070' )
+                      <option value="{{ $val['xaid'] }}" selected> {!! $val['name'] !!}</option>
+                    @else
+                      <option value="{{ $val['xaid'] }}"> {!! $val['name'] !!}</option>
+                    @endif
+                  @endforeach
+                </select>
   
               </div>
             </div>
@@ -145,7 +141,6 @@
           </div>
         </div>
   
-								
         <div class="row">
           <div class="col-xs-12 col-sm-6 col-md-6">
             <div class="form-group">
@@ -162,8 +157,6 @@
             </div>
           </div>
         </div>
-
-
 
         <div class="form-group">
           <label for="reg-fn">Khoá bí mật</label>
