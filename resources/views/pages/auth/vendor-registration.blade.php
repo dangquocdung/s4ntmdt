@@ -127,7 +127,7 @@
                 <select class="form-control" id="vendor_reg_city" name="vendor_reg_city">
                     @foreach(get_xaphuong_list(436) as $val)
   
-                      @if (  $val['xaid']== (int)$vendors_settings->profile_details->city )
+                      @if (  $val['xaid']== '18070' )
                         <option value="{{ $val['xaid'] }}" selected> {!! $val['name'] !!}</option>
                       @else
                         <option value="{{ $val['xaid'] }}"> {!! $val['name'] !!}</option>
