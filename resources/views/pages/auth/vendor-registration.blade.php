@@ -37,8 +37,7 @@
 
       <form method="post" action="" enctype="multipart/form-data" class="padding-top-1x">
         @csrf
-        <input type="hidden" name="_token" id="_token" value="{{ csrf_token() }}">
-        
+                
         <div class="row">
           <div class="col-xs-12 col-sm-6 col-md-6">
             <div class="form-group">
