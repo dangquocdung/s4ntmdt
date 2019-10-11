@@ -83,7 +83,7 @@
         <div class="row">
           <div class="col-xs-12 col-sm-6 col-md-6">
             <div class="form-group">
-              <label for="reg-fn">Huyện / Thị / Thành</label>
+              <label for="reg-fn">{{ trans('frontend.country') }}</label>
               <select class="form-control" id="vendor_country" name="vendor_reg_country">
                 @foreach(get_country_list() as $val)
                   @if( $val['matp']=='42' || $val['matp']==old('vendor_reg_country') )
@@ -97,7 +97,7 @@
           </div>
           <div class="col-xs-12 col-sm-6 col-md-6">
             <div class="form-group">
-              <label for="reg-fn">Phường / Xã</label>
+              <label for="reg-fn">{{ trans('frontend.state') }}</label>
               <select class="form-control" id="vendor_state" name="vendor_reg_state">
                 @foreach(get_quanhuyen_list(42) as $val)
                   @if (  $val['maqh']== '436' || $val['maqh']== old('vendor_reg_state') )
@@ -114,7 +114,7 @@
         <div class="row">
           <div class="col-xs-12 col-sm-6 col-md-6">
               <div class="form-group">
-                <label for="reg-fn">Phường / Xã</label>
+                <label for="reg-fn">{{ trans('frontend.city') }}</label>
                 <select class="form-control" id="vendor_city" name="vendor_reg_city">
                   @foreach(get_xaphuong_list(436) as $val)
                     @if (  $val['xaid']== '18070' || $val['xaid']==old('vendor_reg_city') )
