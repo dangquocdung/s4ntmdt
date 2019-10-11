@@ -32,11 +32,11 @@
       @include('pages-message.form-submit')
       @include('pages-message.notify-msg-success')
       
-      <div class="padding-top-3x hidden-md-up"></div>
+      <div class="padding-top-1x hidden-md-up"></div>
       {{-- <h3 class="margin-bottom-1x">{!! trans('frontend.please_sign_up_label') !!}</h3>
       <p>{!! trans('frontend.sign_up_free_label') !!}</p> --}}
 
-      <form method="post" action="" enctype="multipart/form-data">
+      <form method="post" action="" enctype="multipart/form-data" class="padding-top-1x>
         <input type="hidden" name="_token" id="_token" value="{{ csrf_token() }}">
         
         <div class="row">
@@ -153,7 +153,7 @@
         <br>
         
         <div class="row">
-          <div class="col-xs-12 col-md-6"><input name="vendor_reg_submit" id="vendor_reg_submit" class="btn btn-secondary btn-block btn-md" value="{{ trans('frontend.vendor_registration') }}" type="submit"> </div>
+          <div class="col-xs-12 col-md-6"><input name="vendor_reg_submit" id="vendor_reg_submit" class="btn btn-primary btn-block btn-md" value="{{ trans('frontend.vendor_registration') }}" type="submit"> </div>
           <div class="col-xs-12 col-md-6"><a target="_blank" href="{{ route('admin.login') }}" class="btn btn-secondary btn-block btn-md vendor-reg-log-in-text">{{ trans('frontend.signin_account_label') }}</a></div>
         </div>
       </form>
