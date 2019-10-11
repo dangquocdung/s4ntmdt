@@ -64,16 +64,18 @@
               <label class="col-sm-4 control-label" for="inputCountry">{{ trans('admin.country') }}</label>
               <div class="col-sm-8">
                 {{-- <input type="text" class="form-control" id="inputCity" name="inputCity" value="{{ $vendors_settings->profile_details->city }}" placeholder="{{ trans('admin.city') }}"/> --}}
+                
                 <select class="form-control" id="inputCountry" name="inputCountry">
-                  @foreach(get_country_list() as $key => $val)
-                    @if( $key==(int)$vendors_settings->profile_details->country )
-                      <option selected value="{{ $key }}"> {!! $val !!}</option>
-                      <?php $matt = (int)$vendors_settings->profile_details->country ?>
+                  @foreach(get_country_list() as $val)
+                    @if( $val['matp']==$vendors_settings->profile_details->country )
+                      <option selected value="{{ $val['matp'] }}"> {!! $val['name'] !!}</option>
                     @else
-                      <option value="{{ $key }}"> {!! $val !!}</option>
+                      <option value="{{ $val['matp'] }}"> {!! $val['name'] !!}</option>
                     @endif
                   @endforeach
                 </select>
+
+
               </div>
             </div>  
           </div>  
@@ -88,7 +90,6 @@
                     @if (  $val['maqh']== (int)$vendors_settings->profile_details->state )
                       <option value="{{ $val['maqh'] }}" selected> {!! $val['name'] !!}</option>
                       <?php $maqh = (int)$vendors_settings->profile_details->state ?>
-
                     @else
                       <option value="{{ $val['maqh'] }}"> {!! $val['name'] !!}</option>
                     @endif
