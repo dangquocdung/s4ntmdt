@@ -31,7 +31,7 @@
 
             <p><strong>{{ trans('frontend.city') }}:</strong> {!! get_xaphuong($login_user_account_data->address_details->account_bill_town_or_city) !!}</p>
 
-            {{-- <p><strong>{{ trans('frontend.account_address_town_city') }}:</strong> {!! get_quanhuyen($login_user_account_data->address_details->account_bill_select_state) !!}</p> --}}
+            <p><strong>{{ trans('frontend.state') }}:</strong> {!! get_quanhuyen($login_user_account_data->address_details->account_bill_select_state) !!}</p>
 
             <p><strong>{{ trans('frontend.country') }}:</strong> {{ get_tinhthanh($login_user_account_data->address_details->account_bill_select_country) }}</p>
 
@@ -60,7 +60,7 @@
 
             <p><strong>{{ trans('frontend.city') }}:</strong> {!! get_xaphuong($login_user_account_data->address_details->account_shipping_town_or_city) !!}</p>
 
-            {{-- <p><strong>{{ trans('frontend.account_address_town_city') }}:</strong> {!! get_quanhuyen($login_user_account_data->address_details->account_shipping_select_state) !!}</p> --}}
+            <p><strong>{{ trans('frontend.account_address_town_city') }}:</strong> {!! get_quanhuyen($login_user_account_data->address_details->account_shipping_select_state) !!}</p>
 
             <p><strong>{{ trans('frontend.country') }}:</strong> {{ get_tinhthanh($login_user_account_data->address_details->account_shipping_select_country) }}</p>
 
