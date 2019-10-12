@@ -364,7 +364,7 @@
     @foreach($advancedData['todays_deal'] as $key => $todays_sales_product)
 
 
-      <div class="col-lg-3 col-md-4 col-6">
+      <div class="col-lg-3 col-md-4 col-sm-6">
         <div class="product-card mb-30">
           @if ($todays_sales_product['post_price'] <$todays_sales_product['post_regular_price'] )
               @php
