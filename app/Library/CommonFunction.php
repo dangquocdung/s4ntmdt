@@ -726,6 +726,7 @@ class CommonFunction
    * @return boolean
    */  
   public function frontendUserAccountDataProcess( $data = array() ){
+    
     $get_current_user_id = get_current_frontend_user_info();
     
     if(isset($get_current_user_id['user_id']) && $get_current_user_id['user_id']){
