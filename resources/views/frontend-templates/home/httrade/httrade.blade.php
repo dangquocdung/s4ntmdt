@@ -207,7 +207,7 @@
 
   @foreach($advancedData['features_items'] as $key => $features_product)
 
-    <div class="col-lg-3 col-md-4 col-sm-6">
+    <div class="col-lg-3 col-md-4 col-xs-6">
       <div class="product-card mb-30">
 
         @if ( $features_product->price < $features_product->regular_price )
