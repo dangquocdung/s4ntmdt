@@ -171,19 +171,22 @@ class CheckoutController extends Controller
                  'account_bill_email_address'             =>  'required|email',
                  'account_bill_phone_number'              =>  'required',
                  'account_bill_select_country'            =>  'required',
+                 'account_bill_select_state'              =>  'required',
+                 'account_bill_select_city'               =>  'required',
                  'account_bill_adddress_line_1'           =>  'required',
-                 'account_bill_town_or_city'              =>  'required',
                  ];
           
           $get_shipping_status = Input::get('different_shipping_address');
+
           if(isset($get_shipping_status) && $get_shipping_status == 'different_address'){
             $rules['account_shipping_first_name']         = 'required';
             $rules['account_shipping_last_name']          = 'required';
             $rules['account_shipping_email_address']      = 'required|email';
             $rules['account_shipping_phone_number']       = 'required';
             $rules['account_shipping_select_country']     = 'required';
+            $rules['account_shipping_select_state']       = 'required';
+            $rules['account_shipping_select_city']       = 'required';
             $rules['account_shipping_adddress_line_1']    = 'required';
-            $rules['account_shipping_town_or_city']       = 'required';
           }
           
           $messages = [
@@ -193,8 +196,9 @@ class CheckoutController extends Controller
                 'account_bill_email_address.email' => Lang::get('validation.billing_fill_valid_email_field'),
                 'account_bill_phone_number.required' => Lang::get('validation.billing_fill_phone_number_field'),
                 'account_bill_select_country.required' => Lang::get('validation.billing_country_name_field'),
+                'account_bill_select_state.required' => Lang::get('validation.billing_fill_state_name_field'),
+                'account_bill_select_city.required' => Lang::get('validation.billing_fill_town_city_field'),
                 'account_bill_adddress_line_1.required' => Lang::get('validation.billing_address_line_1_field'),
-                'account_bill_town_or_city.required' => Lang::get('validation.billing_fill_town_city_field'),
               ];
           
           if(isset($get_shipping_status) && $get_shipping_status == 'different_address'){
@@ -204,8 +208,9 @@ class CheckoutController extends Controller
             $messages['account_shipping_email_address.email'] = Lang::get('validation.shipping_fill_valid_email_field');
             $messages['account_shipping_phone_number.required'] = Lang::get('validation.shipping_fill_phone_number_field');
             $messages['account_shipping_select_country.required'] = Lang::get('validation.shipping_country_name_field');
+            $messages['account_shipping_select_state.required'] = Lang::get('validation.shipping_fill_state_name_field');
+            $messages['account_shipping_select_city.required'] = Lang::get('validation.shipping_fill_city_name');
             $messages['account_shipping_adddress_line_1.required'] = Lang::get('validation.shipping_address_line_1_field');
-            $messages['account_shipping_town_or_city.required'] = Lang::get('validation.shipping_fill_town_city_field');
           }
         }
       
@@ -240,9 +245,10 @@ class CheckoutController extends Controller
             $shipping_phone_number          =   Input::get('account_bill_phone_number');
             $shipping_fax_number            =   Input::get('account_bill_fax_number');
             $shipping_select_country        =   Input::get('account_bill_select_country');
+            $shipping_select_state          =   Input::get('account_bill_select_state');
+            $shipping_select_city           =   Input::get('account_bill_select_city');
             $shipping_adddress_line_1       =   Input::get('account_bill_adddress_line_1');
             $shipping_address_line_2        =   Input::get('account_bill_adddress_line_2');
-            $shipping_town_or_city          =   Input::get('account_bill_town_or_city');
             
             if(isset($get_shipping_status) && $get_shipping_status == 'different_address'){
               $shipping_title                 =   Input::get('account_shipping_title');
@@ -253,9 +259,10 @@ class CheckoutController extends Controller
               $shipping_phone_number          =   Input::get('account_shipping_phone_number');
               $shipping_fax_number            =   Input::get('account_shipping_fax_number');
               $shipping_select_country        =   Input::get('account_shipping_select_country');
+              $shipping_select_state          =   Input::get('account_shipping_select_country');
+              $shipping_select_city           =   Input::get('account_shipping_select_city');
               $shipping_adddress_line_1       =   Input::get('account_shipping_adddress_line_1');
               $shipping_address_line_2        =   Input::get('account_shipping_adddress_line_2');
-              $shipping_town_or_city          =   Input::get('account_shipping_town_or_city');
             }
             
             $this->checkoutData['billing_title']              =   Input::get('account_bill_title');
@@ -266,9 +273,10 @@ class CheckoutController extends Controller
             $this->checkoutData['bill_phone_number']          =   Input::get('account_bill_phone_number');
             $this->checkoutData['bill_fax_number']            =   Input::get('account_bill_fax_number');
             $this->checkoutData['bill_select_country']        =   Input::get('account_bill_select_country');
+            $this->checkoutData['bill_select_state']          =   Input::get('account_bill_select_states');
+            $this->checkoutData['bill_select_city']           =   Input::get('account_bill_select_city');
             $this->checkoutData['bill_adddress_line_1']       =   Input::get('account_bill_adddress_line_1');
             $this->checkoutData['bill_address_line_2']        =   Input::get('account_bill_adddress_line_2');
-            $this->checkoutData['bill_town_or_city']          =   Input::get('account_bill_town_or_city');
             
             $this->checkoutData['shipping_title']              =   $shipping_title;
             $this->checkoutData['shipping_first_name']         =   $shipping_first_name;
@@ -278,9 +286,10 @@ class CheckoutController extends Controller
             $this->checkoutData['shipping_phone_number']       =   $shipping_phone_number;
             $this->checkoutData['shipping_fax_number']         =   $shipping_fax_number;
             $this->checkoutData['shipping_select_country']     =   $shipping_select_country;
+            $this->checkoutData['shipping_select_state']      =   $shipping_select_state;
+            $this->checkoutData['shipping_select_city']       =   $shipping_select_city;
             $this->checkoutData['shipping_adddress_line_1']    =   $shipping_adddress_line_1;
             $this->checkoutData['shipping_address_line_2']     =   $shipping_address_line_2;
-            $this->checkoutData['shipping_town_or_city']       =   $shipping_town_or_city;
           }
           
           $this->checkoutData['payment_method']             =   Input::get('payment_option');
@@ -783,6 +792,13 @@ class CheckoutController extends Controller
                                 ),
                           array(
                                   'post_id'       =>  $post->id,
+                                  'key_name'      =>  '_billing_state',
+                                  'key_value'     =>  $checkout_details->bill_select_state,
+                                  'created_at'    =>  date("y-m-d H:i:s", strtotime('now')),
+                                  'updated_at'    =>  date("y-m-d H:i:s", strtotime('now'))
+                                ),
+                          array(
+                                  'post_id'       =>  $post->id,
                                   'key_name'      =>  '_billing_address_1',
                                   'key_value'     =>  $checkout_details->bill_adddress_line_1,
                                   'created_at'    =>  date("y-m-d H:i:s", strtotime('now')),
@@ -798,7 +814,7 @@ class CheckoutController extends Controller
                           array(
                                   'post_id'       =>  $post->id,
                                   'key_name'      =>  '_billing_city',
-                                  'key_value'     =>  $checkout_details->bill_town_or_city,
+                                  'key_value'     =>  $checkout_details->bill_select_city,
                                   'created_at'    =>  date("y-m-d H:i:s", strtotime('now')),
                                   'updated_at'    =>  date("y-m-d H:i:s", strtotime('now'))
                                 ),
@@ -867,6 +883,14 @@ class CheckoutController extends Controller
                                 ),
                           array(
                                   'post_id'       =>  $post->id,
+                                  'key_name'      =>  '_shipping_state',
+                                  'key_value'     =>  $checkout_details->shipping_select_state,
+                                  'created_at'    =>  date("y-m-d H:i:s", strtotime('now')),
+                                  'updated_at'    =>  date("y-m-d H:i:s", strtotime('now'))
+                                ),
+
+                          array(
+                                  'post_id'       =>  $post->id,
                                   'key_name'      =>  '_shipping_address_1',
                                   'key_value'     =>  $checkout_details->shipping_adddress_line_1,
                                   'created_at'    =>  date("y-m-d H:i:s", strtotime('now')),
@@ -882,7 +906,7 @@ class CheckoutController extends Controller
                           array(
                                   'post_id'       =>  $post->id,
                                   'key_name'      =>  '_shipping_city',
-                                  'key_value'     =>  $checkout_details->shipping_town_or_city,
+                                  'key_value'     =>  $checkout_details->shipping_select_city,
                                   'created_at'    =>  date("y-m-d H:i:s", strtotime('now')),
                                   'updated_at'    =>  date("y-m-d H:i:s", strtotime('now'))
                                 ),

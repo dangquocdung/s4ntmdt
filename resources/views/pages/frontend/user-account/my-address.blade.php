@@ -67,7 +67,7 @@
 
           @foreach(get_xaphuong_list($frontend_account_details->address_details->account_bill_select_state) as $val)
 
-            @if( $frontend_account_details->address_details->account_bill_town_or_city==$val['xaid'] )
+            @if( $frontend_account_details->address_details->account_bill_select_city==$val['xaid'] )
 
               <option selected value="{{ $val['xaid'] }}"> {!! $val['name'] !!}</option>
 
@@ -144,7 +144,7 @@
     <div class="col-md-6">
       <div class="form-group">
           <label class="control-label" for="inputAccountTownCity">{{ trans('frontend.account_address_town_city') }}</label>
-          <select class="form-control" name="account_shipping_town_or_city" id="account_shipping_town_or_city"  disabled>
+          <select class="form-control" name="account_shipping_select_city" id="account_shipping_select_city"  disabled>
             @foreach(get_quanhuyen_list($frontend_account_details->address_details->account_shipping_select_country) as $val)
 
             @if( $frontend_account_details->address_details->account_shipping_select_state==$val['maqh'] )
@@ -168,7 +168,7 @@
           
           @foreach(get_xaphuong_list($frontend_account_details->address_details->account_shipping_select_state) as $val)
 
-            @if( $frontend_account_details->address_details->account_shipping_town_or_city==$val['xaid'] )
+            @if( $frontend_account_details->address_details->account_shipping_select_city==$val['xaid'] )
 
               <option selected value="{{ $val['xaid'] }}"> {!! $val['name'] !!}</option>
 

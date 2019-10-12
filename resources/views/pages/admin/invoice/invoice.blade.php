@@ -38,29 +38,32 @@
           <div class="col">
             <address>
             <strong>{!! trans('admin.billed_to_label') !!}:</strong><br>
-              {!! $order_data_by_id['_billing_first_name'].' '. $order_data_by_id['_billing_last_name'] !!}<br>
+              {!! $order_data_by_id['_billing_last_name'].' '. $order_data_by_id['_billing_first_name'] !!}<br>
               {!! $order_data_by_id['_billing_address_1'] !!}<br>
+
+              {!! get_xaphuong($order_data_by_id['_billing_city']).' - '.get_quanhuyen($order_data_by_id['_billing_state']).' - '.get_tinhthanh($order_data_by_id['_billing_country']) !!}<br>
+
 
               @if($order_data_by_id['_billing_address_2'])
               {!! $order_data_by_id['_billing_address_2'] !!}<br>
               @endif
 
-              {!! $order_data_by_id['_billing_phone'] !!}<br>
-              {!! get_country_by_code( $order_data_by_id['_billing_country'] ) !!}<br>
+              <strong>{{ trans('admin.phone') }}:</strong>&nbsp;{!! $order_data_by_id['_billing_phone'] !!}<br>
             </address>
           </div>
           <div class="col text-right">
             <address>
               <strong>{!! trans('admin.shipped_to_label') !!}:</strong><br>
-              {!! $order_data_by_id['_shipping_first_name'].' '. $order_data_by_id['_shipping_last_name'] !!}<br>
+              {!! $order_data_by_id['_shipping_last_name'].' '. $order_data_by_id['_shipping_first_name'] !!}<br>
               {!! $order_data_by_id['_shipping_address_1'] !!}<br>
+              {!! get_xaphuong($order_data_by_id['_shipping_city']).' - '.get_quanhuyen($order_data_by_id['_shipping_state']).' - '.get_tinhthanh($order_data_by_id['_shipping_country']) !!}<br>
+
 
               @if($order_data_by_id['_shipping_address_2'])
               {!! $order_data_by_id['_shipping_address_2'] !!}<br>
               @endif
 
-              {!! $order_data_by_id['_shipping_phone'] !!}<br>
-              {!! get_country_by_code( $order_data_by_id['_shipping_country'] ) !!}<br>
+              <strong>{{ trans('admin.phone') }}:</strong>&nbsp;{!! $order_data_by_id['_shipping_phone'] !!}<br>
             </address>
           </div>
         </div>

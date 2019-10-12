@@ -307,7 +307,7 @@ class UserAccountManageController extends Controller
       $data['order_details_by_order_id'] = array();
     }
 
-    // return response()->json($data);
+    // return response()->json($data['order_details_by_order_id']);
 
     
     return view('pages.frontend.user-account.user-account-pages', $data);
@@ -336,7 +336,7 @@ class UserAccountManageController extends Controller
                     'account_bill_phone_number.required' => Lang::get('validation.account_bill_phone_number_name'),
                     'account_bill_select_country.required' => Lang::get('validation.account_bill_select_country'),
                     'account_bill_adddress_line_1.required' => Lang::get('validation.account_bill_adddress_line_1'),
-                    'account_bill_town_or_city.required' => Lang::get('validation.account_bill_town_or_city'),
+                    'account_bill_select_city.required' => Lang::get('validation.account_bill_select_city'),
                     'account_bill_zip_or_postal_code.required' => Lang::get('validation.account_bill_zip_or_postal_code'),
                     'account_shipping_first_name.required' => Lang::get('validation.account_shipping_first_name'),
                     'account_shipping_last_name.required' => Lang::get('validation.account_shipping_last_name'),
@@ -344,7 +344,7 @@ class UserAccountManageController extends Controller
                     'account_shipping_email_address.email' => Lang::get('validation.account_shipping_email_address_is_email'),
                     'account_shipping_select_country.required' => Lang::get('validation.account_shipping_select_country'),
                     'account_shipping_adddress_line_1.required' => Lang::get('validation.account_shipping_adddress_line_1'),
-                    'account_shipping_town_or_city.required' => Lang::get('validation.account_shipping_town_or_city'),
+                    'account_shipping_select_city.required' => Lang::get('validation.account_shipping_select_city'),
                     'account_shipping_zip_or_postal_code.required' => Lang::get('validation.account_shipping_zip_or_postal_code'),
                     'account_shipping_phone_number.required' => Lang::get('validation.account_shipping_phone_number_name')
         ];
@@ -365,9 +365,9 @@ class UserAccountManageController extends Controller
           $address_data_ary['account_bill_last_name']               =         Input::get('account_bill_last_name');
           $address_data_ary['account_bill_email_address']           =         Input::get('account_bill_email_address');
           $address_data_ary['account_bill_phone_number']            =         Input::get('account_bill_phone_number');
-          $address_data_ary['account_bill_select_country']          =         Input::get('account_bill_tinh_thanh');
-          $address_data_ary['account_bill_select_state']            =         Input::get('account_bill_quan_huyen');
-          $address_data_ary['account_bill_town_or_city']            =         Input::get('account_bill_xa_phuong');
+          $address_data_ary['account_bill_select_country']          =         Input::get('account_bill_select_country');
+          $address_data_ary['account_bill_select_state']            =         Input::get('account_bill_select_state');
+          $address_data_ary['account_bill_select_city']            =         Input::get('account_bill_select_city');
 
 
           $address_data_ary['account_bill_adddress_line_1']         =         Input::get('account_bill_adddress_line_1');
@@ -380,9 +380,9 @@ class UserAccountManageController extends Controller
           $address_data_ary['account_shipping_last_name']           =         Input::get('account_shipping_last_name');
           $address_data_ary['account_shipping_email_address']       =         Input::get('account_shipping_email_address');
           $address_data_ary['account_shipping_phone_number']        =         Input::get('account_shipping_phone_number');
-          $address_data_ary['account_shipping_select_country']      =         Input::get('account_shipping_tinh_thanh');
-          $address_data_ary['account_shipping_select_state']        =         Input::get('account_shipping_quan_huyen');
-          $address_data_ary['account_shipping_town_or_city']        =         Input::get('account_shipping_xa_phuong');
+          $address_data_ary['account_shipping_select_country']      =         Input::get('account_shipping_select_country');
+          $address_data_ary['account_shipping_select_state']        =         Input::get('account_shipping_select_state');
+          $address_data_ary['account_shipping_select_city']        =         Input::get('account_shipping_select_city');
 
           $address_data_ary['account_shipping_adddress_line_1']     =         Input::get('account_shipping_adddress_line_1');
           $address_data_ary['account_shipping_adddress_line_2']     =         Input::get('account_shipping_adddress_line_2');

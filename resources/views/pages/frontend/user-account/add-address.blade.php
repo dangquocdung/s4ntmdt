@@ -49,7 +49,7 @@
           <div class="col-md-6">
             <div class="form-group">
               <label class="control-label" for="account_bill_quan_huyen">{{ trans('frontend.account_address_town_city') }}</label>
-              <select class="form-control" name="account_bill_quan_huyen" id="account_bill_quan_huyen">
+              <select class="form-control" name="account_bill_select_state" id="account_bill_quan_huyen">
                 @foreach(get_quanhuyen_list(42) as $val)
                  <option value="{{ $val['maqh'] }}"> {!! $val['name'] !!}</option>
                 @endforeach
@@ -61,7 +61,7 @@
           <div class="col-md-6">
             <div class="form-group">
               <label class="control-label" for="account_bill_xa_phuong">{{ trans('frontend.account_address_xa_phuong') }}</label>
-              <select class="form-control" name="account_bill_xa_phuong" id="account_bill_xa_phuong">
+              <select class="form-control" name="account_bill_select_city" id="account_bill_xa_phuong">
                 @foreach(get_xaphuong_list(436) as $val)
                   <option value="{{ $val['xaid'] }}"> {!! $val['name'] !!}</option>
                 @endforeach
@@ -126,7 +126,7 @@
           <div class="col-md-4">
             <div class="form-group">
                 <label class="control-label" for="inputAccountTownCity">{{ trans('frontend.account_address_town_city') }}</label>
-                <select class="form-control" name="account_shipping_quan_huyen" id="account_shipping_quan_huyen">
+                <select class="form-control" name="account_shipping_select_state" id="account_shipping_quan_huyen">
 
                   @foreach(get_quanhuyen_list(42) as $val)
 
@@ -141,7 +141,7 @@
           <div class="col-md-4">
             <div class="form-group">
                 <label class="control-label" for="inputAccountXaPhuong">{{ trans('frontend.account_address_xa_phuong') }}</label>
-                <select class="form-control" name="account_shipping_xa_phuong" id="account_shipping_xa_phuong" >
+                <select class="form-control" name="account_shipping_select_city" id="account_shipping_xa_phuong" >
 
                   @foreach(get_xaphuong_list(436) as $val)
 

@@ -67,7 +67,7 @@
               <select class="form-control" name="account_bill_xa_phuong" id="account_bill_xa_phuong">
                 @foreach(get_xaphuong_list($frontend_account_details->address_details->account_bill_select_state) as $val)
 
-                  @if( $frontend_account_details->address_details->account_bill_town_or_city==$val['xaid'] )
+                  @if( $frontend_account_details->address_details->account_bill_select_city==$val['xaid'] )
 
                     <option selected value="{{ $val['xaid'] }}"> {!! $val['name'] !!}</option>
 
@@ -164,7 +164,7 @@
 
                   @foreach(get_xaphuong_list($frontend_account_details->address_details->account_shipping_select_state) as $val)
 
-                    @if( $frontend_account_details->address_details->account_shipping_town_or_city==$val['xaid'] )
+                    @if( $frontend_account_details->address_details->account_shipping_select_city==$val['xaid'] )
 
                       <option selected value="{{ $val['xaid'] }}"> {!! $val['name'] !!}</option>
 

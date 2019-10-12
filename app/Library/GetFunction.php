@@ -2393,6 +2393,9 @@ class GetFunction
               elseif($rows->key_name == '_billing_country'){
                 $user_address['_billing_country'] = $rows->key_value;
               }
+              elseif($rows->key_name == '_billing_state'){
+                $user_address['_billing_state'] = $rows->key_value;
+              }
               elseif($rows->key_name == '_billing_address_1'){
                 $user_address['_billing_address_1'] = $rows->key_value;
               }
@@ -2432,6 +2435,9 @@ class GetFunction
               elseif($rows->key_name == '_shipping_country'){
                 $user_address['_shipping_country'] = $rows->key_value;
               }
+              elseif($rows->key_name == '_shipping_state'){
+                $user_address['_shipping_state'] = $rows->key_value;
+              }
               elseif($rows->key_name == '_shipping_address_1'){
                 $user_address['_shipping_address_1'] = $rows->key_value;
               }
@@ -2461,9 +2467,11 @@ class GetFunction
             $user_address['_billing_phone'] = $user_account_parse_data->address_details->account_bill_phone_number;
             // $user_address['_billing_fax'] = $user_account_parse_data->address_details->account_bill_fax_number; 
             $user_address['_billing_country'] = $user_account_parse_data->address_details->account_bill_select_country; 
+            $user_address['_billing_state'] = $user_account_parse_data->address_details->account_bill_select_state;
+            $user_address['_billing_city'] = $user_account_parse_data->address_details->account_bill_select_city;
             $user_address['_billing_address_1'] = $user_account_parse_data->address_details->account_bill_adddress_line_1; 
             $user_address['_billing_address_2'] = $user_account_parse_data->address_details->account_bill_adddress_line_2; 
-            $user_address['_billing_city'] = $user_account_parse_data->address_details->account_bill_town_or_city;
+
             // $user_address['_billing_postcode'] = $user_account_parse_data->address_details->account_bill_zip_or_postal_code;
             
             // $user_address['_shipping_title'] = $user_account_parse_data->address_details->account_shipping_title;
@@ -2474,9 +2482,11 @@ class GetFunction
             $user_address['_shipping_phone'] = $user_account_parse_data->address_details->account_shipping_phone_number;
             // $user_address['_shipping_fax'] = $user_account_parse_data->address_details->account_shipping_fax_number; 
             $user_address['_shipping_country'] = $user_account_parse_data->address_details->account_shipping_select_country; 
+            $user_address['_shipping_state'] = $user_account_parse_data->address_details->account_shipping_select_state;
+            $user_address['_shipping_city'] = $user_account_parse_data->address_details->account_shipping_select_city;
             $user_address['_shipping_address_1'] = $user_account_parse_data->address_details->account_shipping_adddress_line_1; 
             $user_address['_shipping_address_2'] = $user_account_parse_data->address_details->account_shipping_adddress_line_2; 
-            $user_address['_shipping_city'] = $user_account_parse_data->address_details->account_shipping_town_or_city;
+
             // $user_address['_shipping_postcode'] = $user_account_parse_data->address_details->account_shipping_zip_or_postal_code;
           }
         }
