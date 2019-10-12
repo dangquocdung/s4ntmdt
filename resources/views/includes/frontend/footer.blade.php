@@ -87,7 +87,7 @@
         <div class="col-lg-3 col-6">
             <!-- Mobile App Buttons-->
             <section class="widget widget-light-skin">
-                <h3 class="widget-title">Ứng dụng di động của chúng tôi</h3>
+                <h3 class="widget-title">Ứng dụng di động</h3>
                 <a class="market-button apple-button mb-light-skin" href="javascript:void(0)">
                     <span class="mb-subtitle">Tải về trên</span>
                     <span class="mb-title">App Store</span>
