@@ -137,7 +137,7 @@
   <div class="row">
 
   @foreach($advancedData['recommended_items'] as $key => $recommended_product)
-    <div class="col-lg-3 col-md-4 col-sm-6">
+    <div class="col-lg-3 col-md-4 col-6">
       <div class="product-card mb-30">
         @if ( $recommended_product->price < $recommended_product->regular_price )
             @php
@@ -207,7 +207,7 @@
 
   @foreach($advancedData['features_items'] as $key => $features_product)
 
-    <div class="col-lg-3 col-md-4 col-sm-6">
+    <div class="col-lg-3 col-md-4 col-6">
       <div class="product-card mb-30">
 
         @if ( $features_product->price < $features_product->regular_price )
@@ -282,7 +282,7 @@
 
   @foreach($advancedData['latest_items'] as $key => $latest_product)
 
-    <div class="col-lg-3 col-md-4 col-sm-6">
+    <div class="col-lg-3 col-md-4 col-6">
       <div class="product-card mb-30">
 
         @if ( $latest_product->price < $latest_product->regular_price )
@@ -364,7 +364,7 @@
     @foreach($advancedData['todays_deal'] as $key => $todays_sales_product)
 
 
-      <div class="col-lg-3 col-md-4 col-sm-6">
+      <div class="col-lg-3 col-md-4 col-6">
         <div class="product-card mb-30">
           @if ($todays_sales_product['post_price'] <$todays_sales_product['post_regular_price'] )
               @php
@@ -645,19 +645,19 @@
 <!-- Services-->
 <section class="container padding-top-3x padding-bottom-2x">
   <div class="row">
-    <div class="col-md-3 col-sm-6 text-center mb-30"><img class="d-block w-90 img-thumbnail rounded mx-auto mb-4" src="img/services/01.png" alt="Shipping">
+    <div class="col-md-3 col-6 text-center mb-30"><img class="d-block w-90 img-thumbnail rounded mx-auto mb-4" src="img/services/01.png" alt="Shipping">
       <h6 class="mb-2">Miễn phí vận chuyển</h6>
       <p class="text-sm text-muted mb-0">Miễn phí vận chuyển nội tỉnh cho các đơn hàng có giá trị từ 100.000đ</p>
     </div>
-    <div class="col-md-3 col-sm-6 text-center mb-30"><img class="d-block w-90 img-thumbnail rounded mx-auto mb-4" src="img/services/02.png" alt="Money Back">
+    <div class="col-md-3 col-6 text-center mb-30"><img class="d-block w-90 img-thumbnail rounded mx-auto mb-4" src="img/services/02.png" alt="Money Back">
       <h6 class="mb-2">Bảo đảm hoàn tiền</h6>
       <p class="text-sm text-muted mb-0">Hoàn tiền khi sản phẩm không đúng mô tả (trong vòng 30 ngày)</p>
     </div>
-    <div class="col-md-3 col-sm-6 text-center mb-30"><img class="d-block w-90 img-thumbnail rounded mx-auto mb-4" src="img/services/03.png" alt="Support">
+    <div class="col-md-3 col-6 text-center mb-30"><img class="d-block w-90 img-thumbnail rounded mx-auto mb-4" src="img/services/03.png" alt="Support">
       <h6 class="mb-2">Hỗ trợ khách hàng 24/7</h6>
       <p class="text-sm text-muted mb-0">Hỗ trợ khách hàng, nhà cung cấp nhiệt thành, thân thiện</p>
     </div>
-    <div class="col-md-3 col-sm-6 text-center mb-30"><img class="d-block w-90 img-thumbnail rounded mx-auto mb-4" src="img/services/04.png" alt="Payment">
+    <div class="col-md-3 col-6 text-center mb-30"><img class="d-block w-90 img-thumbnail rounded mx-auto mb-4" src="img/services/04.png" alt="Payment">
       <h6 class="mb-2">Thanh toán an toàn</h6>
       <p class="text-sm text-muted mb-0">Đảm bảo các tiêu chuẩn khi thanh toán trực tuyến</p>
     </div>
