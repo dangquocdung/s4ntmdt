@@ -26,29 +26,27 @@
               </h3>
               <h4 class="product-price">
 
-              @if ( $products['regular_price'] < $products['price'] )
-                <del>
-                  {!! price_html( get_product_price_html_by_filter(get_role_based_price_by_product_id($products['id'], $products['regular_price'])), get_frontend_selected_currency()) !!}
-                </del>
-              @endif
-              
+                @if ( $products['regular_price'] < $products['price'] )
+                  <del>
+                    {!! price_html( get_product_price_html_by_filter(get_role_based_price_by_product_id($products['id'], $products['regular_price'])), get_frontend_selected_currency()) !!}
+                  </del>
+                @endif
                 {!! price_html( get_product_price_html_by_filter(get_role_based_price_by_product_id($products['id'], $products['price'])), get_frontend_selected_currency()) !!}
               </h4>
             </div>
 
             <div class="product-button-group">
-
               <a class="product-button btn-wishlist product-wishlist" data-id="{{ $products['id'] }}" data-toggle="tooltip" title="{{ trans('frontend.add_to_wishlist_label') }}" data-original-title="{{ trans('frontend.add_to_wishlist_label') }}">
-                <i class="icon-heart"></i><span>Wishlist</span>
+                <i class="icon-heart"></i><span>{{ trans('frontend.add_to_wishlist_label') }}</span>
               </a>
               <a class="product-button btn-compare product-compare" data-id="{{ $products['id'] }}" data-toggle="tooltip" title="" data-original-title="{{ trans('frontend.add_to_compare_list_label') }}">
-                <i class="icon-repeat"></i><span>Compare</span>
+                <i class="icon-repeat"></i><span>{{ trans('frontend.add_to_compare_list_label') }}</span>
               </a>
-              <a class="product-button add-to-cart-bg" data-toast data-toast-type="success" data-toast-position="topRight" data-toast-icon="icon-check-circle" data-toast-title="Product" data-toast-message="successfuly added to cart!" data-id="{{ $products['id'] }}" data-toggle="tooltip" data-placement="top" title="" data-original-title="{{ trans('frontend.add_to_cart_label') }}"><i class="icon-shopping-cart"></i><span>To Cart</span></a>             
-            
+              <a class="product-button add-to-cart-bg" data-toast data-toast-type="success" data-toast-position="topRight" data-toast-icon="icon-check-circle" data-toast-title="Product" data-toast-message="successfuly added to cart!" data-id="{{ $products['id'] }}" data-toggle="tooltip" data-placement="top" title="" data-original-title="{{ trans('frontend.add_to_cart_label') }}">
+                <i class="icon-shopping-cart"></i><span>{{ trans('frontend.add_to_cart_label') }}</span>
+              </a>             
             </div>
 
-            
           </div>
         </div>
       @endforeach
@@ -78,7 +76,9 @@
         <div class="product-card-inner">
           <div class="product-card-body">
             <!-- <div class="product-category"><a href="#">Smart home</a></div> -->
-            <h3 class="product-title"><a href="{{ route('details-page', $products['slug'] ) }}">{!! $products['title'] !!}</a></h3>
+            <h3 class="product-title">
+              <a href="{{ route('details-page', $products['slug'] ) }}">{!! $products['title'] !!}</a>
+            </h3>
             <h4 class="product-price">
                 <del>
                   {!! price_html( get_product_price_html_by_filter(get_role_based_price_by_product_id($products['id'], $products['regular_price'])), get_frontend_selected_currency()) !!}

@@ -1,17 +1,14 @@
 @if($all_products_details['products']->count() > 0)
   @if($all_products_details['selected_view'] == 'grid')
-
-    <div class="isotope-grid cols-3 mb-2">
-      <div class="gutter-sizer"></div>
-      <div class="grid-sizer"></div>
+    <div class="row">
       @foreach($all_products_details['products'] as $products)
         <?php 
         $reviews          = get_comments_rating_details($products->id, 'product');
         $reviews_settings = get_reviews_settings_data($products->id);
         ?>
         <!-- Products Grid-->
-        <div class="grid-item" style="position: absolute; left: 0px; top: 0px;">
-          <div class="product-card">
+        <div class="col-md-4 col-sm-6">
+          <div class="product-card mb-30">
             @if ( $products->price < $products->regular_price )
               <div class="product-badge bg-danger">Giảm giá</div>
             @endif

@@ -46,10 +46,11 @@
     <div class="col-xs-12 col-md-9">
       <!-- Shop Toolbar-->
       <div class="shop-toolbar padding-bottom-1x mb-2">
-          <div class="column">
-            <div class="shop-sorting">
+        <div class="row">
+          <div class="column col-8">
+            <div class="sort-filter-option">
                 <label for="sorting">{{ trans('frontend.sort_filter_label') }}:</label>
-                <select class="form-control" id="sorting">
+                <select class="form-control select2 sort-by-filter" id="sorting" style="width: 50%;">
                   @if($product_by_cat_id['sort_by'] == 'all')  
                   <option selected="selected" value="all">{{ trans('frontend.sort_filter_all_label') }}</option>
                   @else
@@ -97,32 +98,30 @@
 
             
           </div>
-          <div class="column">
+          <div class="column col-4">
             <div class="shop-view">
-                    @if($product_by_cat_id['selected_view'] == 'grid')
-                      <a class="grid-view active" href="{{ $product_by_cat_id['action_url_grid_view'] }}" data-toggle="tooltip" data-placement="top" title="{{ trans('frontend.grid_label') }}"><span></span><span></span><span></span></a> 
-                    @else  
-                      <a class="grid-view" href="{{ $product_by_cat_id['action_url_grid_view'] }}" data-toggle="tooltip" data-placement="top" title="{{ trans('frontend.grid_label') }}"><span></span><span></span><span></span></a>
-                    @endif
-  
-                    @if($product_by_cat_id['selected_view'] == 'list')
-                      <a class="list-view active" href="{{ $product_by_cat_id['action_url_list_view'] }}" data-toggle="tooltip" data-placement="top" title="{{ trans('frontend.list_label') }}"><span></span><span></span><span></span></a>
-                    @else  
-                      <a class="list-view" href="{{ $product_by_cat_id['action_url_list_view'] }}" data-toggle="tooltip" data-placement="top" title="{{ trans('frontend.list_label') }}"><span></span><span></span><span></span></a>
-                    @endif
+                @if($product_by_cat_id['selected_view'] == 'grid')
+                  <a class="grid-view active" href="{{ $product_by_cat_id['action_url_grid_view'] }}" data-toggle="tooltip" data-placement="top" title="{{ trans('frontend.grid_label') }}"><span></span><span></span><span></span></a> 
+                @else  
+                  <a class="grid-view" href="{{ $product_by_cat_id['action_url_grid_view'] }}" data-toggle="tooltip" data-placement="top" title="{{ trans('frontend.grid_label') }}"><span></span><span></span><span></span></a>
+                @endif
+
+                @if($product_by_cat_id['selected_view'] == 'list')
+                  <a class="list-view active" href="{{ $product_by_cat_id['action_url_list_view'] }}" data-toggle="tooltip" data-placement="top" title="{{ trans('frontend.list_label') }}"><span></span><span></span><span></span></a>
+                @else  
+                  <a class="list-view" href="{{ $product_by_cat_id['action_url_list_view'] }}" data-toggle="tooltip" data-placement="top" title="{{ trans('frontend.list_label') }}"><span></span><span></span><span></span></a>
+                @endif
             </div>
           </div>
         </div>
-        <!-- Products-->
-        @include('includes.frontend.categories-products')
-        <nav class="phan-trang">
-          <div class="column">
-            {!! $product_by_cat_id['products']->appends(Request::capture()->except('page'))->render() !!}
-          </div>
-        </nav>
-      
-        
-      
+      </div>
+      <!-- Products-->
+      @include('includes.frontend.categories-products')
+      <nav class="phan-trang">
+        <div class="column">
+          {!! $product_by_cat_id['products']->appends(Request::capture()->except('page'))->render() !!}
+        </div>
+      </nav>
     </div>
   </div>
 </div>

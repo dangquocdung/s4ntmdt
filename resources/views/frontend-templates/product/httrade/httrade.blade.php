@@ -21,7 +21,7 @@
   </div>
 </div>
 <!-- Page Content-->
-<div class="container padding-bottom-3x mb-1">
+<div id="product-category" class="container padding-bottom-3x mb-1">
   <div class="row">
     <!-- Products-->
     <div class="col-lg-9 order-lg-2">
@@ -35,68 +35,70 @@
         </div></a>
       <!-- Shop Toolbar-->
       <div class="shop-toolbar padding-bottom-1x mb-2">
-        <div class="column">
-          <div class="shop-sorting">
-          <label for="sorting">{{ trans('frontend.sort_filter_label') }}:</label>
-                <select class="form-control" id="sorting">
-                  @if($all_products_details['sort_by'] == 'all')  
-                  <option selected="selected" value="all">{{ trans('frontend.sort_filter_all_label') }}</option>
-                  @else
-                  <option value="all">{{ trans('frontend.sort_filter_all_label') }}</option>
-                  @endif
+        <div class="row">
+          <div class="column col-8">
+            <div class="sort-filter-option">
+              <label for="sorting">{{ trans('frontend.sort_filter_label') }}:</label>
+              <select class="form-control select2 sort-by-filter" id="sorting" style="width: 50%;">
+                @if($all_products_details['sort_by'] == 'all')  
+                <option selected="selected" value="all">{{ trans('frontend.sort_filter_all_label') }}</option>
+                @else
+                <option value="all">{{ trans('frontend.sort_filter_all_label') }}</option>
+                @endif
 
-                  @if($all_products_details['sort_by'] == 'alpaz')  
-                  <option selected="selected" value="alpaz">{{ trans('frontend.sort_filter_alpaz_label') }}</option>
-                  @else
-                  <option value="alpaz">{{ trans('frontend.sort_filter_alpaz_label') }}</option>
-                  @endif
+                @if($all_products_details['sort_by'] == 'alpaz')  
+                <option selected="selected" value="alpaz">{{ trans('frontend.sort_filter_alpaz_label') }}</option>
+                @else
+                <option value="alpaz">{{ trans('frontend.sort_filter_alpaz_label') }}</option>
+                @endif
 
-                  @if($all_products_details['sort_by'] == 'alpza')  
-                  <option selected="selected" value="alpza">{{ trans('frontend.sort_filter_alpza_label') }}</option>
-                  @else
-                  <option value="alpza">{{ trans('frontend.sort_filter_alpza_label') }}</option>
-                  @endif
+                @if($all_products_details['sort_by'] == 'alpza')  
+                <option selected="selected" value="alpza">{{ trans('frontend.sort_filter_alpza_label') }}</option>
+                @else
+                <option value="alpza">{{ trans('frontend.sort_filter_alpza_label') }}</option>
+                @endif
 
-                  @if($all_products_details['sort_by'] == 'low-high')  
-                  <option selected="selected" value="low-high">{{ trans('frontend.sort_filter_low_high_label') }}</option>
-                  @else
-                  <option value="low-high">{{ trans('frontend.sort_filter_low_high_label') }}</option>
-                  @endif
+                @if($all_products_details['sort_by'] == 'low-high')  
+                <option selected="selected" value="low-high">{{ trans('frontend.sort_filter_low_high_label') }}</option>
+                @else
+                <option value="low-high">{{ trans('frontend.sort_filter_low_high_label') }}</option>
+                @endif
 
-                  @if($all_products_details['sort_by'] == 'high-low')  
-                  <option selected="selected" value="high-low">{{ trans('frontend.sort_filter_high_low_label') }}</option>
-                  @else
-                  <option value="high-low">{{ trans('frontend.sort_filter_high_low_label') }}</option>
-                  @endif
+                @if($all_products_details['sort_by'] == 'high-low')  
+                <option selected="selected" value="high-low">{{ trans('frontend.sort_filter_high_low_label') }}</option>
+                @else
+                <option value="high-low">{{ trans('frontend.sort_filter_high_low_label') }}</option>
+                @endif
 
-                  @if($all_products_details['sort_by'] == 'old-new')  
-                  <option selected="selected" value="old-new">{{ trans('frontend.sort_filter_old_new_label') }}</option>
-                  @else
-                  <option value="old-new">{{ trans('frontend.sort_filter_old_new_label') }}</option>
-                  @endif
+                @if($all_products_details['sort_by'] == 'old-new')  
+                <option selected="selected" value="old-new">{{ trans('frontend.sort_filter_old_new_label') }}</option>
+                @else
+                <option value="old-new">{{ trans('frontend.sort_filter_old_new_label') }}</option>
+                @endif
 
-                  @if($all_products_details['sort_by'] == 'new-old')
-                  <option selected="selected" value="new-old">{{ trans('frontend.sort_filter_new_old_label') }}</option>
-                  @else
-                  <option value="new-old">{{ trans('frontend.sort_filter_new_old_label') }}</option>
-                  @endif
-                </select>
-            <!-- </select><span class="text-muted">Showing:&nbsp;</span><span>1 - 12 items</span> -->
+                @if($all_products_details['sort_by'] == 'new-old')
+                <option selected="selected" value="new-old">{{ trans('frontend.sort_filter_new_old_label') }}</option>
+                @else
+                <option value="new-old">{{ trans('frontend.sort_filter_new_old_label') }}</option>
+                @endif
+              </select>
+              <!-- </select><span class="text-muted">Showing:&nbsp;</span><span>1 - 12 items</span> -->
+            </div>
           </div>
-        </div>
-        <div class="column">
-          <div class="shop-view">
-            @if($all_products_details['selected_view'] == 'grid')
-              <a class="grid-view active" href="{{ $all_products_details['action_url_grid_view'] }}" data-toggle="tooltip" data-placement="top" title="{{ trans('frontend.grid_label') }}"><span></span><span></span><span></span></a> 
-            @else  
-              <a class="grid-view" href="{{ $all_products_details['action_url_grid_view'] }}" data-toggle="tooltip" data-placement="top" title="{{ trans('frontend.grid_label') }}"><span></span><span></span><span></span></a>
-            @endif
+          <div class="column col-4">
+            <div class="shop-view">
+              @if($all_products_details['selected_view'] == 'grid')
+                <a class="grid-view active" href="{{ $all_products_details['action_url_grid_view'] }}" data-toggle="tooltip" data-placement="top" title="{{ trans('frontend.grid_label') }}"><span></span><span></span><span></span></a> 
+              @else  
+                <a class="grid-view" href="{{ $all_products_details['action_url_grid_view'] }}" data-toggle="tooltip" data-placement="top" title="{{ trans('frontend.grid_label') }}"><span></span><span></span><span></span></a>
+              @endif
 
-            @if($all_products_details['selected_view'] == 'list')
-              <a class="list-view active" href="{{ $all_products_details['action_url_list_view'] }}" data-toggle="tooltip" data-placement="top" title="{{ trans('frontend.list_label') }}"><span></span><span></span><span></span></a>
-            @else  
-              <a class="list-view" href="{{ $all_products_details['action_url_list_view'] }}" data-toggle="tooltip" data-placement="top" title="{{ trans('frontend.list_label') }}"><span></span><span></span><span></span></a>
-            @endif
+              @if($all_products_details['selected_view'] == 'list')
+                <a class="list-view active" href="{{ $all_products_details['action_url_list_view'] }}" data-toggle="tooltip" data-placement="top" title="{{ trans('frontend.list_label') }}"><span></span><span></span><span></span></a>
+              @else  
+                <a class="list-view" href="{{ $all_products_details['action_url_list_view'] }}" data-toggle="tooltip" data-placement="top" title="{{ trans('frontend.list_label') }}"><span></span><span></span><span></span></a>
+              @endif
+            </div>
           </div>
         </div>
       </div>
