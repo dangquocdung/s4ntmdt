@@ -1157,7 +1157,8 @@ return [
   'compitable_label' => 'Tính năng này chỉ dành cho các mẫu tương thích',
   'blog_post_allow_characters' =>  'Ký tự tóm tắt tối đa',
   'blog_post_allow_comments' =>  'Cho phép bình luận',
-  'blog_post_allow_comments_msg' =>  'Cho phép bình luận ở bài đăng này'
+  'blog_post_allow_comments_msg' =>  'Cho phép bình luận ở bài đăng này',
+  'blog_manager' => 'Tin tức'
 
 
 ];
