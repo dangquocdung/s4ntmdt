@@ -24,24 +24,34 @@
                                       @endif
                                       {!! $cat['name'] !!} 
 
+                                      @if (count($cat['children'])>0)
+
                                       <i class="zmdi zmdi-chevron-right"></i>
 
+                                      @endif
+
                                     </a>
-                                    
+
+                                    @if (count($data['children'])>0)
+
                                     <div class="category-menu-dropdown">
 
                                         <div class="category-common">
                                             <h4 class="categories-subtitle"> {!! $cat['name'] !!} </h4>
                                             <ul>
-                                                <li><a href="#"> Men’s Clothing</a></li>
-                                                <li><a href="#"> Computer & Office</a></li>
-                                                <li><a href="#"> Jewelry & Watches</a></li>
-                                                <li><a href="#"> Bags & Shoes</a></li>
-                                                <li><a href="#"> Phones & Accessories</a></li>
+                                                @foreach($cat['children'] as $data)
+
+                                                <li>
+                                                    <a href="{{ route('categories-page', $data['slug']) }}"> {!! $data['name'] !!} </a>
+                                                </li>
+
+                                                @endforeach
                                             </ul>
                                         </div>
                                         
                                     </div>
+
+                                    @endif
                                 </li>
 
                                 @endforeach
