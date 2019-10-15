@@ -88,8 +88,8 @@
         </form>    
         @else
           <p>@include('pages-message.notify-msg-error')</p>
-          <h2 class="cart-shopping-label">{{ trans('frontend.checkout_process') }}</h2>
           <div class="empty-cart-msg">{{ trans('frontend.empty_cart_msg') }}</div>
+          <br>
           <div class="cart-return-shop">
             <a class="btn btn-secondary check_out" href="{{ route('shop-page') }}">{{ trans('frontend.return_to_shop') }}</a>
           </div>
@@ -159,11 +159,13 @@
             </section>
 
           @endif
-          <!-- Promo Banner--><a class="card border-0 bg-secondary" href="shop-grid-ls.html">
+          <!-- Promo Banner-->
+          {{-- <a class="card border-0 bg-secondary" href="shop-grid-ls.html">
             <div class="card-body"><span class="d-block text-lg text-thin mb-2">Limited Time Deals</span>
               <h3>Surface Pro 4</h3>
               <p class="d-inline-block bg-warning text-white">&nbsp;&nbsp;Shop Now&nbsp;<i class="icon-chevron-right d-inline-block align-middle"></i>&nbsp;</p>
-            </div><img class="d-block mx-auto" src="img/shop/widget/promo.jpg" alt="Surface Pro"></a>
+            </div><img class="d-block mx-auto" src="img/shop/widget/promo.jpg" alt="Surface Pro">
+          </a> --}}
         </aside>
       </div>
 

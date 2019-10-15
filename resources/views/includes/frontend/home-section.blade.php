@@ -32,7 +32,7 @@
 
                                     </a>
 
-                                    @if (count($data['children'])>0)
+                                    @if (count($cat['children'])>0)
 
                                     <div class="category-menu-dropdown">
 
