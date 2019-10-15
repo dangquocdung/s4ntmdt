@@ -317,34 +317,7 @@
   </section>
 @endif
 
-@if($appearance_all_data['header_details']['slider_visibility'] == true && Request::is('/'))
-  
-  <!-- CTA-->
-  <section class="fw-section padding-top-4x padding-bottom-8x" style="background-image: url(img/banners/shop-banner-bg-02.jpg);"><span class="overlay" style="opacity: .7;"></span>
-    <div class="container text-center">
-      <div class="d-inline-block bg-danger text-white text-lg py-2 px-3 rounded">{{ trans('frontend.limited-time-offer') }}</div>
-      <div class="display-4 text-white py-4">Giải pháp hình ảnh chất lượng cao của</div>
-      <div class="d-inline-block w-200 pt-2">
-        <img class="d-block w-100" src="img/banners/shop-banner-logo.png" alt="Canon">
-      </div>
-      <div class="pt-5"></div>
-      @include('includes.frontend.countdown')
-      @yield('countdown')
-
-    </div>
-  </section>
-  <a class="d-block position-relative mx-auto" href="{{ route('khuyen-mai-sap-toi') }}" style="max-width: 682px; margin-top: -130px; z-index: 10;">
-
-    <div class="owl-carousel" data-owl-carousel='{ "autoplay": true, "dots": false, "nav": false, "loop": true }'>
-    @foreach(get_appearance_header_settings_data() as $img)
-      @if($img->img_url)
-        <img src="{{ get_image_url($img->img_url) }}" class="d-block w-100" alt="slide" />
-      @endif
-    @endforeach
-    </div>
-  </a>
-
-@endif
+{{-- a --}}
 
 <!-- Staff Picks (Widgets)-->
 <section class="container padding-top-1x padding-bottom-1x">

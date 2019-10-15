@@ -63,12 +63,24 @@
                 </div>
     
             <div class="col-md-9 col-lg-9 col-sm-8 col-xs-12">
+
+                @if($appearance_all_data['header_details']['slider_visibility'] == true && Request::is('/'))
+  
+                  
                 <!-- Start Slider Area -->
                 <div class="owl-carousel dots-inside" data-owl-carousel="{ &quot;nav&quot;: true, &quot;dots&quot;: true, &quot;loop&quot;: true }">
-                    <img src="/img/components/img16.jpg" alt="Image">
-                    <img src="/img/components/img01.jpg" alt="Image">
-                    <img src="/img/components/img17.jpg" alt="Image">
+                    @foreach(get_appearance_header_settings_data() as $img)
+
+                    @if($img->img_url)
+                        <img src="{{ get_image_url($img->img_url) }}" alt="Sản phẩm nổi bật" />
+                    @endif
+
+                    @endforeach
+
                 </div>
+
+                @endif
+
                 <!-- Start Slider Area -->
             </div>
             <!-- End Left Feature -->
