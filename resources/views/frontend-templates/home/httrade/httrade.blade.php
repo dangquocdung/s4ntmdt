@@ -99,10 +99,6 @@
     </div>  
   @endforeach
   </div>
-
-  <div class="text-center">
-    <a class="btn btn-outline-secondary" href="{{ route('shop-page') }}">{{ trans('frontend.view_all_products') }}</a>
-  </div>
 </section>
 
 <!-- Featured Products-->
@@ -173,11 +169,6 @@
     </div>  
   @endforeach
   </div>
-
-  <div class="text-center">
-    <a class="btn btn-outline-secondary" href="{{ route('shop-page') }}">{{ trans('frontend.view_all_products') }}</a>
-  </div>
-
 </section>
 
 <!-- Latest Products-->
@@ -248,11 +239,6 @@
     </div>  
   @endforeach
   </div>
-
-  <div class="text-center">
-    <a class="btn btn-outline-secondary" href="{{ route('shop-page') }}">{{ trans('frontend.view_all_products') }}</a>
-  </div>
-
 </section>
 
 <!-- Today sale Products-->
