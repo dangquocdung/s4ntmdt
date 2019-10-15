@@ -29,9 +29,9 @@
                                     </a>
                                     
                                     <div class="category-menu-dropdown">
-                                        
+
                                         <div class="category-common">
-                                            <h4 class="categories-subtitle"> Jewelry & Watches</h4>
+                                            <h4 class="categories-subtitle"> {!! $cat['name'] !!} </h4>
                                             <ul>
                                                 <li><a href="#"> Men’s Clothing</a></li>
                                                 <li><a href="#"> Computer & Office</a></li>
