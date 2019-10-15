@@ -1,6 +1,6 @@
 @section('categories-slider-area')
 <!-- Start Feature Product -->
-<section class="categories-slider-area bg__white  padding-top-1x">
+<section class="categories-slider-area bg__white  padding-top-1x padding-bottom-1x">
     <div class="container">
         <div class="row">
             <!-- Start Left Feature -->
