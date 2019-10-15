@@ -18,38 +18,108 @@
                                 <li>
                                     <a href="{{ route('categories-page', $cat['slug']) }}">
                                         @if( !empty($cat['img_url']) )
-                                        <img src="{{ get_image_url($cat['img_url']) }}"> 
-                                      @else
-                                        <img src="{{ default_placeholder_img_src() }}"> 
-                                      @endif
-                                      {!! $cat['name'] !!} 
+                                            <img src="{{ get_image_url($cat['img_url']) }}"> 
+                                        @else
+                                            <img src="{{ default_placeholder_img_src() }}"> 
+                                        @endif
 
-                                      @if (count($cat['children'])>0)
+                                        {!! $cat['name'] !!} 
 
-                                      <i class="zmdi zmdi-chevron-right"></i>
+                                        @if (count($cat['children'])>0)
 
-                                      @endif
+                                        <i class="zmdi zmdi-chevron-right"></i>
+
+                                        @endif
 
                                     </a>
 
                                     @if (count($cat['children'])>0)
 
-                                    <div class="category-menu-dropdown">
+                                        <div class="category-menu-dropdown">
 
-                                        <div class="category-common">
-                                            <h4 class="categories-subtitle"> {!! $cat['name'] !!} </h4>
-                                            <ul>
-                                                @foreach($cat['children'] as $data)
+                                            @if (count($cat['children']) < 7)
 
-                                                <li>
-                                                    <a href="{{ route('categories-page', $data['slug']) }}"> {!! $data['name'] !!} </a>
-                                                </li>
+                                                <div class="category-common">
+                                                    <h4 class="categories-subtitle"> {!! $cat['name'] !!} </h4>
+                                                    <ul>
+                                                        @foreach($cat['children'] as $data)
 
-                                                @endforeach
-                                            </ul>
+                                                        <li>
+                                                            <a href="{{ route('categories-page', $data['slug']) }}"> 
+                                                                @if( !empty($data['img_url']) )
+                                                                    <img src="{{ get_image_url($data['img_url']) }}"> 
+                                                                @else
+                                                                    <img src="{{ default_placeholder_img_src() }}"> 
+                                                                @endif
+                        
+                                                                {!! $data['name'] !!} </a>
+                                                        </li>
+
+                                                        @endforeach
+                                                    </ul>
+                                                </div>  
+                                            
+                                            @else
+
+                                            <?php
+
+                                                $n = count($cat['children']);
+                                                $m= $n/2;
+
+                                            ?>
+
+
+
+                                                <div class="category-common">
+                                                    <h4 class="categories-subtitle"> {!! $cat['name'] !!} </h4>
+                                                    <ul>
+                                                        @foreach($cat['children'] as $data)
+                                                        @if ($loop->iteration <= $m)
+
+
+                                                        <li>
+                                                            <a href="{{ route('categories-page', $data['slug']) }}"> 
+                                                                @if( !empty($data['img_url']) )
+                                                                    <img src="{{ get_image_url($data['img_url']) }}"> 
+                                                                @else
+                                                                    <img src="{{ default_placeholder_img_src() }}"> 
+                                                                @endif
+                        
+                                                                {!! $data['name'] !!} </a>
+                                                        </li>
+                                                        @endif
+
+                                                        @endforeach
+                                                    </ul>
+                                                </div>  
+
+                                                <div class="category-common">
+                                                    <h4 class="categories-subtitle"> {!! $cat['name'] !!} </h4>
+                                                    <ul>
+                                                        @foreach($cat['children'] as $data)
+                                                        @if ($loop->iteration > $m)
+
+
+                                                        <li>
+                                                            <a href="{{ route('categories-page', $data['slug']) }}"> 
+                                                                @if( !empty($data['img_url']) )
+                                                                    <img src="{{ get_image_url($data['img_url']) }}"> 
+                                                                @else
+                                                                    <img src="{{ default_placeholder_img_src() }}"> 
+                                                                @endif
+                        
+                                                                {!! $data['name'] !!} </a>
+                                                        </li>
+                                                        @endif
+
+                                                        @endforeach
+                                                    </ul>
+                                                </div>  
+
+                                            @endif
+
                                         </div>
-                                        
-                                    </div>
+
 
                                     @endif
                                 </li>
