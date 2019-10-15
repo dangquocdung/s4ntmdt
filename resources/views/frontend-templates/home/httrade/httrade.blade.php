@@ -1,99 +1,7 @@
-<!-- Main Slider-->
+@include('includes.frontend.home-section')
+@yield('categories-slider-area')
 
-<!-- <section class="hero-slider" style="background-image: url(img/hero-slider/main-bg.jpg);">
-  <div class="owl-carousel large-controls dots-inside" data-owl-carousel='{ "nav": true, "dots": true, "loop": true, "autoplay": true, "autoplayTimeout": 7000 }'>
-    
-    @foreach($advancedData['recommended_items'] as $key => $recommended_product)
-
-    <div class="item">
-      <div class="container padding-top-3x">
-        <div class="row justify-content-center align-items-center">
-          <div class="col-lg-5 col-md-6 padding-bottom-2x text-md-left text-center">
-            <div class="from-bottom">
-                @if(!empty($recommended_product->image_url))
-                  <img class="d-inline-block w-150 mb-4" src="{{ get_image_url( $recommended_product->image_url ) }}" alt="{{ basename( get_image_url( $recommended_product->image_url ) ) }}" />
-                @else
-                  <img class="d-inline-block w-150 mb-4" src="{{ default_placeholder_img_src() }}" alt="" />
-                @endif
-              <div class="h2 text-body mb-2 pt-1">{!! $recommended_product->title !!}</div>
-              <div class="h2 text-body mb-4 pb-1">{{ trans('frontend.gia-thap-nhat') }} <span class="text-medium">{!! price_html( get_product_price_html_by_filter(get_role_based_price_by_product_id($recommended_product->id, $recommended_product->price)), get_frontend_selected_currency()) !!}</span></div>
-            </div>
-            <a class="btn btn-primary scale-up delay-1" href="{{ route('details-page', $recommended_product->slug ) }}">{{ trans('frontend.product_details_label') }}&nbsp;<i class="icon-arrow-right"></i></a>
-          </div>
-          <div class="col-md-6 padding-bottom-2x mb-3">
-            @if(!empty($recommended_product->image_url))
-            <img class="d-block mx-auto" src="{{ get_image_url( $recommended_product->image_url ) }}" alt="{{ basename( get_image_url( $recommended_product->image_url ) ) }}" />
-            @else
-            <img class="d-block mx-auto" src="{{ default_placeholder_img_src() }}" alt="" />
-            @endif
-          </div>
-        </div>
-      </div>
-    </div>
-
-    @endforeach
-    
-  </div>
-</section> -->
-
-<!-- Main Slider-->
-<section class="hero-slider" style="background-image: url(img/hero-slider/main-bg.jpg);">
-  <div class="owl-carousel large-controls dots-inside" data-owl-carousel="{ &quot;nav&quot;: true, &quot;dots&quot;: true, &quot;loop&quot;: true, &quot;autoplay&quot;: true, &quot;autoplayTimeout&quot;: 7000 }">
-    
-    <div class="item">
-      <div class="container padding-top-3x">
-        <div class="row justify-content-center align-items-center">
-          <div class="col-lg-5 col-md-6 padding-bottom-2x text-md-left text-center">
-            <div class="from-bottom">
-              <img class="d-inline-block w-150 mb-4" src="img/hero-slider/logo-iphone.png" alt="apple-iphone-11">
-              <div class="h2 text-body mb-2 pt-1">Siêu phẩm: Apple iPhone 11</div>
-              <div class="h2 text-body mb-4 pb-1">giá từ <span class="text-medium">21.490.000đ</span></div>
-            </div>
-            <a class="btn btn-primary scale-up delay-1" href="/san-pham/chi-tiet/iphone-11-64gb-chinh-hang">Vào xem&nbsp;<i class="icon-arrow-right"></i></a>
-          </div>
-          <div class="col-md-6 padding-bottom-2x mb-3"><img class="d-block mx-auto"  src="img/hero-slider/iphone-xi.png" alt="apple-iphone-11"></div>
-        </div>
-      </div>
-    </div>
-
-    <div class="item">
-      <div class="container padding-top-3x">
-        <div class="row justify-content-center align-items-center">
-          <div class="col-lg-5 col-md-6 padding-bottom-2x text-md-left text-center">
-            <div class="from-bottom">
-              <img class="d-inline-block w-150 mb-4" src="img/hero-slider/logo-iphone.png" alt="apple-iphone-11">
-              <div class="h2 text-body mb-2 pt-1">Siêu phẩm: Apple iPhone 11 Pro</div>
-              <div class="h2 text-body mb-4 pb-1">giá từ <span class="text-medium">29.990.000đ</span></div>
-            </div>
-            <a class="btn btn-primary scale-up delay-1" href="/san-pham/chi-tiet/apple-iphone-11-pro-64-gb-brand-new-seal">Vào xem&nbsp;<i class="icon-arrow-right"></i></a>
-          </div>
-          <div class="col-md-6 padding-bottom-2x mb-3"><img class="d-block mx-auto"  src="img/hero-slider/iphone-xi-pro.png" alt="apple-iphone-11"></div>
-        </div>
-      </div>
-    </div>
-
-    <div class="item">
-      <div class="container padding-top-3x">
-        <div class="row justify-content-center align-items-center">
-          <div class="col-lg-5 col-md-6 padding-bottom-2x text-md-left text-center">
-            <div class="from-bottom">
-              <img class="d-inline-block w-150 mb-4" src="img/hero-slider/logo-iphone.png" alt="apple-iphone-11">
-              <div class="h2 text-body mb-2 pt-1">Siêu phẩm: Apple iPhone 11 Pro Max</div>
-              <div class="h2 text-body mb-4 pb-1">giá từ <span class="text-medium">34.490.000đ</span></div>
-            </div>
-            <a class="btn btn-primary scale-up delay-1" href="/san-pham/chi-tiet/apple-iphone-11-pro-max-256gb">Vào xem&nbsp;<i class="icon-arrow-right"></i></a>
-          </div>
-          <div class="col-md-6 padding-bottom-2x mb-3"><img class="d-block mx-auto"  src="img/hero-slider/iphone-xi-pro-max.png" alt="apple-iphone-11"></div>
-        </div>
-      </div>
-    </div>
-  
-
-  </div>
-</section>
-<!-- Top Categories/Deals-->
-
-<section class="container padding-top-3x padding-bottom-2x">
+<section class="container padding-top-1x padding-bottom-1x">
   <div class="row">
   @foreach($productCategoriesTree as $cat)
 
@@ -130,9 +38,8 @@
   </div>
 </section>
 
-
 <!-- Recommended Products-->
-<section class="container padding-bottom-2x mb-2">
+<section class="container padding-bottom-1x mb-2">
   <h2 class="h3 pb-3 text-center">{{ trans('frontend.recommended_products') }}</h2>
   <div class="row">
 
@@ -198,10 +105,8 @@
   </div>
 </section>
 
-
-
 <!-- Featured Products-->
-<section class="container padding-bottom-2x mb-2">
+<section class="container padding-bottom-1x mb-2">
   <h2 class="h3 pb-3 text-center">{{ trans('frontend.features_products') }}</h2>
   <div class="row">
 
@@ -276,7 +181,7 @@
 </section>
 
 <!-- Latest Products-->
-<section class="container padding-bottom-2x mb-2">
+<section class="container padding-bottom-1x mb-2">
   <h2 class="h3 pb-3 text-center">{{ trans('frontend.latest_products') }}</h2>
   <div class="row">
 
@@ -350,19 +255,16 @@
 
 </section>
 
-
-
 <!-- Today sale Products-->
 
 {{-- @if (count($advancedData['todays_deal']) > 0) --}}
 @if(count($advancedData['todays_deal']) > 0)
-  <section class="container padding-bottom-2x mb-2">
+  <section class="container padding-bottom-1x mb-2">
     <h2 class="h3 pb-3 text-center">{{ trans('frontend.todays_sale_label') }}</h2>
     <div class="row">
 
     {{-- @foreach($advancedData['todays_deal'] as $key => $best_sales_product) --}}
     @foreach($advancedData['todays_deal'] as $key => $todays_sales_product)
-
 
       <div class="col-lg-3 col-md-4 col-sm-6">
         <div class="product-card mb-30">
@@ -416,7 +318,6 @@
               <i class="icon-shopping-cart"></i><span>{{ trans('frontend.add_to_cart_label') }}</span>
             </a>
 
-        
           </div>
         </div>
       </div>  
@@ -460,7 +361,7 @@
 @endif
 
 <!-- Staff Picks (Widgets)-->
-<section class="container padding-top-3x padding-bottom-2x">
+<section class="container padding-top-1x padding-bottom-1x">
   <h2 class="h3 pb-3 text-center">{{ trans('frontend.staff_picks') }}</h2>
 
   <div class="row pt-1">
@@ -496,7 +397,6 @@
                 &nbsp;
 
               @endif
-
 
               @if( $best_product['post_type'] == 'simple_product' )
                 {!! price_html( get_product_price_html_by_filter(get_role_based_price_by_product_id($best_product['id'], $best_product['post_price'])), get_frontend_selected_currency()) !!}
@@ -549,7 +449,6 @@
 
               @endif
 
-
               @if( $latest_product->type == 'simple_product' )
                 {!! price_html( get_product_price_html_by_filter(get_role_based_price_by_product_id($latest_product->id, $latest_product->price)), get_frontend_selected_currency()) !!}
               @elseif( $latest_product->type == 'configurable_product' )
@@ -599,7 +498,6 @@
                 &nbsp;
               @endif
 
-
               @if( $latest_product->type == 'simple_product' )
                 {!! price_html( get_product_price_html_by_filter(get_role_based_price_by_product_id($latest_product->id, $latest_product->price)), get_frontend_selected_currency()) !!}
               @elseif( $latest_product->type == 'configurable_product' )
@@ -625,7 +523,7 @@
 </section>
 <!-- Popular Brands Carousel-->
 @if(count($brands_data) > 0)  
-<section class="bg-secondary padding-top-3x padding-bottom-3x">
+<section class="bg-secondary padding-top-1x padding-bottom-1x">
   <div class="container">
     <h2 class="h3 text-center mb-30 pb-3">{!! trans('frontend.brands') !!}</h2>
     <div class="owl-carousel" data-owl-carousel='{ "nav": false, "dots": false, "loop": true, "autoplay": true, "autoplayTimeout": 4000, "responsive": {"0":{"items":2}, "470":{"items":3},"630":{"items":4},"991":{"items":5},"1200":{"items":6}} }'>

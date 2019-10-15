@@ -20,6 +20,7 @@
     @if((Request::is('san-pham/chi-tiet/*') || Request::is('san-pham/tuy-chinh/*')) && !empty($single_product_details['_product_seo_description']))
     <meta name="description" content="{{ $single_product_details['_product_seo_description'] }}">
     @endif
+
     @if((Request::is('san-pham/chi-tiet/*') || Request::is('san-pham/tuy-chinh/*')) && !empty($single_product_details['post_slug']))
     <link rel="canonical" href="{{ route('details-page', $single_product_details['post_slug']) }}">
     @endif
@@ -42,7 +43,6 @@
     <link rel="apple-touch-icon" sizes="180x180" href="touch-icon-iphone-retina.png">
     <link rel="apple-touch-icon" sizes="167x167" href="touch-icon-ipad-retina.png">
 
-    <!-- <link rel="stylesheet" href="{{ URL::asset('/bootstrap/css/bootstrap.min.css') }}" /> -->
     <link rel="stylesheet" href="{{ URL::asset('/font-awesome/css/font-awesome.min.css') }}" />
     <link rel="stylesheet" href="{{ URL::asset('/plugins/datatable/dataTables.bootstrap4.min.css') }}" />
     <link rel="stylesheet" href="{{ URL::asset('/plugins/datatable/responsive.bootstrap4.min.css') }}" />
@@ -52,8 +52,17 @@
     <link rel="stylesheet" href="{{ URL::asset('/plugins/iCheck/square/purple.css') }}" />
     <!-- Vendor Styles including: Bootstrap, Font Icons, Plugins, etc.-->
     <link rel="stylesheet" media="screen" href="{{ URL::asset('/css/vendor.css') }}">
+
+    @if(Request::is('/'))
+        <!-- This core.css file contents all plugings css file. -->
+        <link rel="stylesheet" href="css/core.css">
+    @endif
+
+
     <!-- HTTRADE  Template Styles-->
     <link id="mainStyles" rel="stylesheet" media="screen" href="{{ mix('/css/styles.css') }}">
+
+
     <!-- Modernizr-->
     <script src="{{ URL::asset('/js/modernizr.min.js') }}"></script>
     <script src='https://www.google.com/recaptcha/api.js'></script>
