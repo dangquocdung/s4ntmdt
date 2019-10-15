@@ -531,7 +531,7 @@ return [
 'lang_name' =>'Tên ngôn ngữ',
 'lang_status' =>'Chọn ngôn ngữ sẵn có',
 'lang_default_status' =>'Chọn ngôn ngữ mặc định',
-'update_language_settings' =>'Cài đặt cập nhật',
+'update_language_settings' =>'Cập nhật cài đặt',
 'update_language_settings_msg' =>'Cài đặt ngôn ngữ được cập nhật thành công',
 'download_file' =>'Tải về',
 'zip_file_success_updated_msg' =>'Tệp ngôn ngữ của bạn được cập nhật thành công',
