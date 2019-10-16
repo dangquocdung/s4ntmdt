@@ -140,7 +140,7 @@
                 </div>
             </div>
     
-            <div class="col-md-4 col-lg-9 col-sm-8 col-xs-12">
+            <div class="col-md-8 col-lg-9 col-sm-8 col-xs-12">
 
                 @if($appearance_all_data['header_details']['slider_visibility'] == true && Request::is('/'))
   
