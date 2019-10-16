@@ -42,6 +42,24 @@
       @endif
 
       <tr>
+        <td>{!! trans('admin.city')!!}</td>
+        <?php $id = (int)$details['profile_details']->city ?>
+        <td>{{ get_xaphuong($id) }}</td>
+
+
+      </tr>
+      <tr>
+        <td>{!! trans('admin.vendor_state_label')!!}</td>
+        <?php $id = (int)$details['profile_details']->state ?>
+        <td>{{ get_quanhuyen($id) }}</td>
+
+      </tr>
+      <tr>
+        <td>{!! trans('admin.country')!!}</td>
+        <?php $id = (int)$details['profile_details']->country ?>
+        <td>{{ get_tinhthanh($id) }}</td>
+      </tr>
+      <tr>
         <td>{!! trans('admin.vendor_zip_postal_label')!!}</td>
         <td>{!! $details['profile_details']->zip_postal_code !!}</td>
       </tr>
