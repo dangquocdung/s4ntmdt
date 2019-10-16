@@ -138,7 +138,7 @@
   
                   
                 <!-- Start Slider Area -->
-                <div class="owl-carousel" data-owl-carousel='{ "autoplay": true }'>
+                <div class="owl-carousel" data-owl-carousel='{ "autoplay": true, "loop": true }'>
                     @foreach(get_appearance_header_settings_data() as $img)
 
                     @if($img->img_url)
