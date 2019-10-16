@@ -42,6 +42,21 @@
       @endif
 
       <tr>
+        <td>{!! trans('admin.city')!!}</td>
+        <td>{{ $details['profile_details']->city }}</td>
+
+
+      </tr>
+      <tr>
+        <td>{!! trans('admin.vendor_state_label')!!}</td>
+        <td>{{ $details['profile_details']->state }}</td>
+
+      </tr>
+      <tr>
+        <td>{!! trans('admin.country')!!}</td>
+        <td>{{ $details['profile_details']->country }}</td>
+      </tr>
+      <tr>
         <td>{!! trans('admin.vendor_zip_postal_label')!!}</td>
         <td>{!! $details['profile_details']->zip_postal_code !!}</td>
       </tr>
