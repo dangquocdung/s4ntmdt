@@ -37,8 +37,6 @@ use shopist\Models\QuanHuyen;
 use shopist\Models\XaPhuong;
 use shopist\Models\TinhThanh;
 
-
-
 class GetFunction
 {
   public $str = '';
@@ -1139,7 +1137,6 @@ class GetFunction
 
   }
 
-  
   public static function get_all_countries0()
   {
     return array(
@@ -1406,7 +1403,6 @@ class GetFunction
 
   }
 
-
   public static function get_xaphuongs($qh)
   {
 
@@ -1418,22 +1414,15 @@ class GetFunction
 
   public static function get_xp($id)
   {
+    $xp = '';
 
     $ten = XaPhuong::where('xaid',$id)->first();  
 
-    if (!empty($ten)){
-
-      return $ten->name;
-
-
+    if(!empty($ten)){
+      $xp = $ten->name;
     }
-    else{
-
-      return null;
-
-      
-    }
-
+    
+    return $xp;
 
   }
   
