@@ -55,8 +55,11 @@
 
     @if(Request::is('/'))
         <!-- This core.css file contents all plugings css file. -->
-        <link rel="stylesheet" href="css/core.css">
+        <link rel="stylesheet" href="/css/core.css">
     @endif
+
+    <!-- Responsive css -->
+    <link rel="stylesheet" href="/css/responsive.css">
 
 
     <!-- HTTRADE  Template Styles-->
