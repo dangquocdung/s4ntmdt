@@ -66,7 +66,7 @@
         @endif
 
     </div>
-    <hr class="hr-light mt-2 margin-bottom-2x hidden-md-down">
+    {{-- <hr class="hr-light mt-2 margin-bottom-2x hidden-md-down"> --}}
     <div class="row">
         <div class="col-lg-3 col-6">
             <!-- Contact Info-->
