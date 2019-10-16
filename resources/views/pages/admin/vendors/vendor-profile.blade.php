@@ -44,7 +44,7 @@
       <tr>
         <td>{!! trans('admin.city')!!}</td>
         <?php $id = (int)$details['profile_details']->city ?>
-        <td>{{ get_xaphuong($id) }}</td>
+        {{-- <td>{{ get_xaphuong($id) }}</td> --}}
 
 
       </tr>
