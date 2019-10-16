@@ -1421,7 +1421,19 @@ class GetFunction
 
     $ten = XaPhuong::where('xaid',$id)->first();  
 
-    return $ten->name;
+    if (!empty($ten)){
+
+      return $ten->name;
+
+
+    }
+    else{
+
+      return null;
+
+      
+    }
+
 
   }
   
