@@ -172,7 +172,7 @@
     </div>
 </section>
 
-<section class="htc__product__area pb--100 bg__white">
+<section class="htc__product__area pb--100 bg__white padding-top-1x">
         <div class="container">
             <div class="row">
                 <div class="col-md-12">
