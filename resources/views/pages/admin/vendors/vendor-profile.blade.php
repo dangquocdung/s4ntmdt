@@ -59,6 +59,14 @@
         <td>{{ get_tinhthanh($id) }}</td>
       </tr>
 
+      @if(!empty($details['profile_details']->zip_postal_code))
+      <tr>
+        <td>{!! trans('admin.vendor_zip_postal_label')!!}</td>
+        <td>{!! $details['profile_details']->zip_postal_code !!}</td>
+      </tr>
+      @endif
+
+
       <tr>
         <td>{!! trans('admin.email')!!}</td>
         <td>{!! $user_email !!}</td>
@@ -68,7 +76,7 @@
         <td>{!! trans('admin.phone')!!}</td>
         <td>{!! $details['profile_details']->phone !!}</td>
       </tr>
-      
+
     </table>
   </div>  
 </div>
