@@ -58,6 +58,19 @@
                                                         @endforeach
                                                     </ul>
                                                 </div>  
+
+                                                <div class="category-menu-dropdown-right">
+                                                    <div class="menu-right-img">
+                                                            <a href="{{ route('categories-page', $cat['slug']) }}">
+                                                                @if( !empty($cat['img_url']) )
+                                                                    <img src="{{ get_image_url($cat['img_url']) }}"> 
+                                                                @else
+                                                                    <img src="{{ default_placeholder_img_src() }}"> 
+                                                                @endif
+                        
+                                                            </a>
+                                                    </div>
+                                                </div>
                                             
                                             @else
 
@@ -68,14 +81,11 @@
 
                                             ?>
 
-
-
                                                 <div class="category-common">
                                                     <h4 class="categories-subtitle"> {!! $cat['name'] !!} </h4>
                                                     <ul>
                                                         @foreach($cat['children'] as $data)
                                                         @if ($loop->iteration <= $m)
-
 
                                                         <li>
                                                             <a href="{{ route('categories-page', $data['slug']) }}"> 
@@ -99,7 +109,6 @@
                                                         @foreach($cat['children'] as $data)
                                                         @if ($loop->iteration > $m)
 
-
                                                         <li>
                                                             <a href="{{ route('categories-page', $data['slug']) }}"> 
                                                                 @if( !empty($data['img_url']) )
@@ -120,7 +129,6 @@
 
                                         </div>
 
-
                                     @endif
                                 </li>
 
@@ -136,7 +144,6 @@
 
                 @if($appearance_all_data['header_details']['slider_visibility'] == true && Request::is('/'))
   
-                  
                 <!-- Start Slider Area -->
                 <div class="owl-carousel" data-owl-carousel='{ "autoplay": true, "loop": true }'>
                     @foreach(get_appearance_header_settings_data() as $img)
