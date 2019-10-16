@@ -471,7 +471,7 @@
     color: #ff4136;
 }
 
-.product-tab-list>ul>li>a.show.active {
+a.show.active {
     color: #ff4136 !important;
 }
 
