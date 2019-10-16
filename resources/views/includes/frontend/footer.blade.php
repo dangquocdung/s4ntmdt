@@ -10,7 +10,7 @@
                     <div class="col-md-6">
                         <ul>
                         @foreach($productCategoriesTree as $cat)
-                            @if ($loop->iteration < 7)
+                            @if ($loop->iteration < 6)
                             <li>
                                 <a href="{{ route('categories-page', $cat['slug']) }}">{!! $cat['name'] !!}</a>
                             </li>
@@ -21,7 +21,7 @@
                     <div class="col-md-6">
                         <ul>
                         @foreach($productCategoriesTree as $cat)
-                            @if ($loop->iteration >= 7)
+                            @if ($loop->iteration >= 6)
                             <li>
                                 <a href="{{ route('categories-page', $cat['slug']) }}">{!! $cat['name'] !!}</a>
                             </li>
@@ -43,7 +43,7 @@
                     <div class="col-md-6">
                         <ul>
                         @foreach($pages_list as $pages)
-                            @if ($loop->iteration < 7)
+                            @if ($loop->iteration < 6)
                                 <li> <a href="{{ route('custom-page-content', $pages['post_slug']) }}">{!! $pages['post_title'] !!}</a></li>
                             @endif
 
@@ -53,7 +53,7 @@
                     <div class="col-md-6">
                         <ul>
                         @foreach($pages_list as $pages)
-                            @if ($loop->iteration >= 7)
+                            @if ($loop->iteration >= 6)
                                 <li> <a href="{{ route('custom-page-content', $pages['post_slug']) }}">{!! $pages['post_title'] !!}</a></li>
                             @endif
                         @endforeach
