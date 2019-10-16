@@ -4,7 +4,7 @@
     <div class="container">
         <div class="row">
             <!-- Start Left Feature -->
-            <div class="col-md-4 col-lg-3 col-sm-4 col-xs-12" id="categories-menu">
+            <div class="col-md-4 col-lg-3 col-sm-4 col-xs-12">
                 <div class="categories-menu mrg-xs">
                     <div class="category-heading">
                         <h3>{{ trans('frontend.product_categories_label') }}</h3>
