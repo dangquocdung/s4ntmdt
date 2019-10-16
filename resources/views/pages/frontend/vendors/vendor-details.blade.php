@@ -59,7 +59,11 @@
     <div class="col-lg-9 order-lg-2">
 
       <!-- Promo banner-->
-      <a class="alert alert-default alert-dismissible fade show fw-section mb-30" href="{{ route('shop-page') }}" style="background-image: url('{{ get_image_url( $vendor_settings->general_details->cover_img ) }}');">
+      @if( !empty($vendor_settings) && !empty($vendor_settings->general_details->cover_img) )  
+        <a class="alert alert-default alert-dismissible fade show fw-section mb-30" href="{{ route('shop-page') }}" style="background-image: url('{{ get_image_url( $vendor_settings->general_details->cover_img ) }}');">
+      @else
+        <a class="alert alert-default alert-dismissible fade show fw-section mb-30" href="{{ route('shop-page') }}" style="background-image: url('/img/banners/shop-banner-bg.jpg');">
+      @endif
       
         <div class="d-flex flex-wrap flex-md-nowrap justify-content-between align-items-center">
           <div class="mx-auto mx-md-0 px-3 pb-2 text-center text-md-left">
