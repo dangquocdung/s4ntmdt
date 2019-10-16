@@ -466,13 +466,9 @@
     margin: 0;
 }
 
-.product-tab-list ul li.active .tab-menu-text>h4,
-.product-tab-list ul li .tab-menu-text>h4:hover {
+.product-tab-list ul li a.active>.tab-menu-text>h4,
+.product-tab-list ul li a>.tab-menu-text>h4:hover {
     color: #ff4136;
-}
-
-a.show.active>.tab-menu-text>h4 {
-    color: #ff4136 !important;
 }
 
 .product-style-tab {
