@@ -1753,11 +1753,11 @@ class AdminAjaxController extends Controller
             $width    = 0;
             $height   = 0;
         
-            $fileName = $count.time()."w-1800-h-1200-".$image->getClientOriginalName();
+            $fileName = $count.time()."w-1920-h-1080-".$image->getClientOriginalName();
             $path  = public_path('uploads/' . $fileName);
             
-            $width = 1800;
-            $height = 1200;
+            $width = 1920;
+            $height = 1080;
             
             $img   = Image::make($image);
             
