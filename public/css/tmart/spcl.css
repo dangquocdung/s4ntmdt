@@ -471,7 +471,7 @@
     color: #ff4136;
 }
 
-a.show.active {
+a.show.active>.tab-menu-text>h4 {
     color: #ff4136 !important;
 }
 
