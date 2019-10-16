@@ -471,9 +471,8 @@
     color: #ff4136;
 }
 
-.product-tab-list ul li a.active .tab-menu-text>h4,
-.product-tab-list ul li a .tab-menu-text>h4:hover {
-    color: #ff4136;
+.product-tab-list ul li a.active {
+    color: #ff4136 !important;
 }
 
 .product-style-tab {
