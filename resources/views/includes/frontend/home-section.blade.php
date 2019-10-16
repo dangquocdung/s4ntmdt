@@ -138,7 +138,7 @@
   
                   
                 <!-- Start Slider Area -->
-                <div class="owl-carousel dots-inside" data-owl-carousel="{ &quot;nav&quot;: true, &quot;dots&quot;: true, &quot;loop&quot;: true }">
+                <div class="owl-carousel" data-owl-carousel="{ 'dots': 'true', 'loop': 'true' }">
                     @foreach(get_appearance_header_settings_data() as $img)
 
                     @if($img->img_url)
