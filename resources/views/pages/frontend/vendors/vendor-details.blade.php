@@ -61,40 +61,37 @@
       <!-- Promo banner-->
       @if( !empty($vendor_settings) && !empty($vendor_settings->general_details->cover_img) )  
         <a class="alert alert-default alert-dismissible fade show fw-section mb-30" href="{{ route('shop-page') }}" style="background-image: url('{{ get_image_url( $vendor_settings->general_details->cover_img ) }}');">
+          <div class="d-flex flex-wrap flex-md-nowrap justify-content-between align-items-center">
+            <div class="mx-auto mx-md-0 px-3 pb-2 text-center text-md-left">
+              <span>{!! trans('frontend.gian-hang') !!}</span>
+              <h3>{!! $vendor_settings->profile_details->store_name !!}</h3>
+              <div class="rating-stars">
+                <i class="icon-star filled"></i>
+                <i class="icon-star filled"></i>
+                <i class="icon-star filled"></i>
+                <i class="icon-star filled"></i>
+                <i class="icon-star filled"></i>
+              </div>
+          </div>
+        </a>
       @else
         <a class="alert alert-default alert-dismissible fade show fw-section mb-30" href="{{ route('shop-page') }}" style="background-image: url('/img/banners/shop-banner-bg.jpg');">
-      @endif
-      
-        <div class="d-flex flex-wrap flex-md-nowrap justify-content-between align-items-center">
-          <div class="mx-auto mx-md-0 px-3 pb-2 text-center text-md-left">
-            <span class="d-block text-lg text-thin mb-2">{!! trans('frontend.gian-hang') !!}</span>
-            <h3 class="text-gray-dark">{!! $vendor_settings->profile_details->store_name !!}</h3>
-
-            <div class="rating-stars">
-              <i class="icon-star filled"></i>
-              <i class="icon-star filled"></i>
-              <i class="icon-star filled"></i>
-              <i class="icon-star filled"></i>
-              <i class="icon-star filled"></i>
+          <a class="alert alert-default alert-dismissible fade show fw-section mb-30" href="{{ route('shop-page') }}" style="background-image: url('{{ get_image_url( $vendor_settings->general_details->cover_img ) }}');">
+            <div class="d-flex flex-wrap flex-md-nowrap justify-content-between align-items-center">
+              <div class="mx-auto mx-md-0 px-3 pb-2 text-center text-md-left">
+                <span class="d-block text-lg text-thin mb-2">{!! trans('frontend.gian-hang') !!}</span>
+                <h3 class="text-gray-dark">{!! $vendor_settings->profile_details->store_name !!}</h3>
+                <div class="rating-stars">
+                  <i class="icon-star filled"></i>
+                  <i class="icon-star filled"></i>
+                  <i class="icon-star filled"></i>
+                  <i class="icon-star filled"></i>
+                  <i class="icon-star filled"></i>
+                </div>
             </div>
+          </a>
+      @endif
 
-            <!-- <div class="vendor-review">
-              <div class="review-stars">
-                <div class="star-rating"><span style="width:{{ $vendor_reviews_rating_details['percentage'] }}%"></span></div>
-              </div>
-            </div> -->
-            <!-- <p class="d-inline-block bg-warning text-white">&nbsp;&nbsp;Shop Now&nbsp;<i class="icon-chevron-right d-inline-block align-middle"></i>&nbsp;</p> -->
-          </div>
-
-          <!-- @if( !empty($vendor_settings) && !empty($vendor_settings->general_details->cover_img) )  
-            <img class="d-block mx-auto mx-md-0" src="{{ get_image_url( $vendor_settings->general_details->cover_img ) }}" alt="{!! $vendor_settings->profile_details->store_name !!}">
-          @else
-            <img class="d-block mx-auto mx-md-0" src="{{ default_vendor_cover_img_src() }}" alt="{!! $vendor_settings->profile_details->store_name !!}">
-          @endif -->
-
-        </div>
-
-      </a>
       <!-- Shop Toolbar-->
       <div class="shop-toolbar padding-bottom-1x mb-2">
         
