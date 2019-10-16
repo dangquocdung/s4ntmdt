@@ -19,8 +19,8 @@
                     <div class="product-tab-list">
                         <!-- Nav tabs -->
                         <ul class="nav nav-tabs tab-style" role="tablist">
-                            <li class="nav-item active">
-                                <a href="#recommended_products" data-toggle="tab">
+                            <li class="nav-item">
+                                <a href="#recommended_products" data-toggle="tab" class="show active">
                                     <div class="tab-menu-text">
                                         <h4>{{ trans('frontend.recommended_products') }}</h4>
                                     </div>
