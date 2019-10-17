@@ -802,7 +802,7 @@ class FrontendManagerController extends Controller
       
       // return view('pages.frontend.frontend-pages.blog-categories-post', $data);
 
-      return view('pages.frontend.frontend-pages.blog-main', $data);
+      return view('pages.frontend.frontend-pages.blogs-main', $data);
 
     }
     else{
