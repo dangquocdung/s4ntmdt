@@ -182,7 +182,7 @@
 
           <ul class="slideable-submenu">
             <li><a href="{{ route('chung-toi') }}">{!! trans('frontend.chung-toi') !!}</a>
-            <li><a href="{{ route('categories-page', 'san-pham-chu-luc') }}">{!! trans('frontend.san-pham-chu-luc') !!}</a></li>
+            <li><a href="{{ route('san-pham-dac-trung') }}">{!! trans('frontend.san-pham-dac-trung') !!}</a></li>
             <li><a href="{{ route('docs-page-content') }}">{!! trans('frontend.van-ban') !!}</a></li>
   
           </ul>
@@ -256,7 +256,7 @@
 
         <ul class="sub-menu">
           <li><a href="{{ route('chung-toi') }}"><span>{!! trans('frontend.chung-toi') !!}</span></a>
-          <li><a href="{{ route('categories-page', 'san-pham-chu-luc') }}">{!! trans('frontend.san-pham-chu-luc') !!}</a></li>
+          <li><a href="{{route('san-pham-dac-trung') }}">{!! trans('frontend.san-pham-dac-trung') !!}</a></li>
           <li><a href="{{ route('docs-page-content') }}">{!! trans('frontend.van-ban') !!}</a></li>
 
         </ul>
@@ -268,7 +268,7 @@
       <li class="{{ Request::is('cac-san-pham')||Request::is('san-pham/*')?'active':''}}"><a href="{{ route('shop-page') }}"><span>{!! trans('frontend.products_label') !!}</span></a>
 
         <ul class="sub-menu">
-          <li><a href="{{ route('categories-page', 'san-pham-chu-luc') }}">{!! trans('frontend.san-pham-chu-luc') !!}</a></li>
+          <li><a href="{{ route('san-pham-dac-trung') }}">{!! trans('frontend.san-pham-dac-trung') !!}</a></li>
           <li><a href="{{ route('shop-page') }}">{!! trans('frontend.all_products_label') !!}</a></li>
 
         </ul>
