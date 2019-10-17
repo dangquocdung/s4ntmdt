@@ -596,6 +596,7 @@ return [
   'remove_image' => 'Xoá ảnh',
   'van-ban' => 'Văn bản hỗ trợ pháp lý',
   'san-pham-chu-luc' => 'Sản phẩm chủ lực',
+  'san-pham-dac-trung' => 'Sản phẩm đặc trưng',
   'truyen-thong' => 'Truyền thông',
   'state' => 'Quận / Huyện'
 ];
