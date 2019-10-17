@@ -182,7 +182,7 @@
 
           <ul class="slideable-submenu">
             <li><a href="{{ route('chung-toi') }}">{!! trans('frontend.chung-toi') !!}</a>
-            <li><a href="{{ route('san-pham-dac-trung') }}">{!! trans('frontend.san-pham-dac-trung') !!}</a></li>
+            <li><a href="{{ route('blog-cat-page','san-pham-dac-trung') }}">{!! trans('frontend.san-pham-dac-trung') !!}</a></li>
             <li><a href="{{ route('docs-page-content') }}">{!! trans('frontend.van-ban') !!}</a></li>
   
           </ul>
@@ -215,7 +215,6 @@
   
         <li class="{{ Request::is('tin-tuc/*')?'active':''}}"><a href="{{ route('blogs-page-content') }}"><span>{!! trans('frontend.blog') !!}</span></a></li>
 
-        <!-- <li class="{{ Request::is('van-ban/*')?'active':''}}"><a href="{{ route('docs-page-content') }}"><span>{!! trans('frontend.van-ban') !!}</span></a></li> -->
 
       </ul>
     </nav>
@@ -256,7 +255,7 @@
 
         <ul class="sub-menu">
           <li><a href="{{ route('chung-toi') }}"><span>{!! trans('frontend.chung-toi') !!}</span></a>
-          <li><a href="{{route('san-pham-dac-trung') }}">{!! trans('frontend.san-pham-dac-trung') !!}</a></li>
+          <li><a href="{{route('blog-cat-page','san-pham-dac-trung') }}">{!! trans('frontend.san-pham-dac-trung') !!}</a></li>
           <li><a href="{{ route('docs-page-content') }}">{!! trans('frontend.van-ban') !!}</a></li>
 
         </ul>
@@ -268,7 +267,7 @@
       <li class="{{ Request::is('cac-san-pham')||Request::is('san-pham/*')?'active':''}}"><a href="{{ route('shop-page') }}"><span>{!! trans('frontend.products_label') !!}</span></a>
 
         <ul class="sub-menu">
-          <li><a href="{{ route('san-pham-dac-trung') }}">{!! trans('frontend.san-pham-dac-trung') !!}</a></li>
+          <li><a href="{{ route('blog-cat-page','san-pham-dac-trung') }}">{!! trans('frontend.san-pham-dac-trung') !!}</a></li>
           <li><a href="{{ route('shop-page') }}">{!! trans('frontend.all_products_label') !!}</a></li>
 
         </ul>
