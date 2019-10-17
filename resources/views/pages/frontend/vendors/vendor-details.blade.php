@@ -60,7 +60,7 @@
 
       <!-- Promo banner-->
       @if( !empty($vendor_settings) && !empty($vendor_settings->general_details->cover_img) )  
-        <div class="store-banner">
+        <div class="store-banner mb-30">
           <img class="img-fluid" src="{{ get_image_url( $vendor_settings->general_details->cover_img ) }}">
         </div>
       @else
