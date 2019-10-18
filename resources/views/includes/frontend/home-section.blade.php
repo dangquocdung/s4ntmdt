@@ -139,11 +139,8 @@
                     @endif
                 </div>
             </div>
-    
             <div class="col-md-8 col-lg-9 col-sm-8 col-xs-12 padding-top-1x">
-
                 @if($appearance_all_data['header_details']['slider_visibility'] == true && Request::is('/'))
-  
                 <!-- Start Slider Area -->
                 <div class="owl-carousel" data-owl-carousel='{ "autoplay": true, "loop": true }'>
                     @foreach(get_appearance_header_settings_data() as $img)
