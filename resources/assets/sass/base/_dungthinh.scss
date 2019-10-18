@@ -170,3 +170,15 @@ h3.top-product {
     color: #ffffff;
     background-color: #337AB7 !important;
 }
+
+.store-name {
+    a{
+        color: #505050;
+
+        text-decoration: none;
+
+        &:hover{
+            color: #05f;
+        }
+    }
+}

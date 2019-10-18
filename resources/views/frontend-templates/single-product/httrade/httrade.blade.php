@@ -28,8 +28,6 @@
 
             @if ($single_product_details['solid_price'] < $single_product_details['offer_price'])
 
-
-
               <span class="product-badge text-danger"id="hasSale">30% Off</span>
 
             @endif
@@ -41,7 +39,6 @@
                 @endphp
               <div class="product-badge bg-danger">Giảm giá {{ $phantram }}%</div>
             @endif
-
 
             @if($single_product_details['_product_enable_video_feature'] == 'yes')
 
@@ -229,13 +226,19 @@
             </div>
           </div>
 
-          <div class="pt-1 mb-4"><span class="text-medium">{!! trans('frontend.sku') !!}:</span>
+          <div class="pt-1 mb-1"><span class="text-medium">{!! trans('frontend.sku') !!}: </span>
 
             @if ($single_product_details['post_sku'])
               #{{ $single_product_details['post_sku'] }}
             @else
               #N/A
             @endif
+
+          </div>
+
+          <div class="pt-1 mb-4 store-name"><span class="text-medium">{!! trans('frontend.gian-hang') !!}: </span>
+
+            <a href="{{ route('store-details-page-content', get_user_name_by_user_id($single_product_details['_selected_vendor'])) }}" target="_blank">{{ get_user_name_by_user_id($single_product_details['_selected_vendor']) }}</a>
 
           </div>
 
@@ -363,7 +366,6 @@
 
       @if ($loop->iteration < 10 )
 
-
         <?php 
           $reviews          = get_comments_rating_details($products['id'], 'product');
           $reviews_settings = get_reviews_settings_data($products['id']);      
@@ -379,8 +381,6 @@
               @endphp
             <div class="product-badge bg-danger">Giảm giá {{ $phantram }}%</div>
           @endif
-
-
 
           <a class="product-thumb" href="{{ route('details-page', $products['post_slug']) }}">
               @if($products['_product_related_images_url']->product_image)

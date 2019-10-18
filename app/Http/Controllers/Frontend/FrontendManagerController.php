@@ -603,7 +603,7 @@ class FrontendManagerController extends Controller
 
       return view('pages.frontend.frontend-pages.product-details', $data);
 
-      // return response()->json($recently_viewed);
+      // return response()->json($data['single_product_details']);
     }
     else{
       return view('errors.no_data');
