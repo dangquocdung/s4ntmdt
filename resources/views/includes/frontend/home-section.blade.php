@@ -1,10 +1,10 @@
 @section('categories-slider-area')
 <!-- Start Feature Product -->
-<section class="categories-slider-area bg__white  padding-top-1x">
+<section class="categories-slider-area bg__white">
     <div class="container">
         <div class="row">
             <!-- Start Left Feature -->
-            <div class="col-md-4 col-lg-3 col-sm-4 col-xs-12">
+            <div class="col-md-4 col-lg-3 col-sm-4 col-xs-12 padding-top-1x">
                 <div class="">
                     <div class="category-heading">
                         <h3>{{ trans('frontend.product_categories_label') }}</h3>
@@ -140,7 +140,7 @@
                 </div>
             </div>
     
-            <div class="col-md-8 col-lg-9 col-sm-8 col-xs-12">
+            <div class="col-md-8 col-lg-9 col-sm-8 col-xs-12 padding-top-1x">
 
                 @if($appearance_all_data['header_details']['slider_visibility'] == true && Request::is('/'))
   
