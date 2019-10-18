@@ -145,9 +145,9 @@
                 <div class="owl-carousel" data-owl-carousel='{ "autoplay": true, "loop": true }'>
                     @foreach(get_appearance_header_settings_data() as $img)
 
-                    @if($img->img_url)
-                        <img src="{{ get_image_url($img->img_url) }}" alt="Sản phẩm nổi bật" />
-                    @endif
+                        @if($img->img_url)
+                            <img src="{{ get_image_url($img->img_url) }}" alt="Sản phẩm nổi bật" />
+                        @endif
 
                     @endforeach
 

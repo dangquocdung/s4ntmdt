@@ -1,4 +1,4 @@
-<a href="{{ route('cart-page') }}">
+<a href="{{ route('cart-page') }}" class="show-mini-cart" data-id="1">
   <div>
     <span class="cart-icon">
       <i class="icon-shopping-cart"></i>

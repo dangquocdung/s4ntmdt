@@ -53,7 +53,7 @@
     <!-- Vendor Styles including: Bootstrap, Font Icons, Plugins, etc.-->
     <link rel="stylesheet" media="screen" href="{{ URL::asset('/css/vendor.css') }}">
 
-    @if(Request::is('/'))
+    @if( Request::is('/') || Request::is('gian-hang/chi-tiet/trang-chu/*') )
         <!-- This core.css file contents all plugings css file. -->
         <link rel="stylesheet" href="/css/core.css">
     @endif
