@@ -236,7 +236,9 @@
 
           </div>
 
-          <div class="pt-1 mb-4 store-name"><span class="text-medium">{!! trans('frontend.gian-hang') !!}: </span>
+          <div class="pt-1 mb-4 store-name">
+            <!-- <span class="text-medium">{!! trans('frontend.gian-hang') !!}: </span> -->
+            <i class="icon-home"></i>&nbsp;
 
             <a href="{{ route('store-details-page-content', get_user_name_by_user_id($single_product_details['_selected_vendor'])) }}" target="_blank">{{ get_user_name_by_user_id($single_product_details['_selected_vendor']) }}</a>
 
