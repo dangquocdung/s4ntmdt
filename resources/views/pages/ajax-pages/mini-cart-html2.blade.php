@@ -1,4 +1,4 @@
-<a href="" class="main show-mini-cart" data-id="2"> 
+<a href="{{ route('cart-page') }}" class="main show-mini-cart" data-id="2"> 
   <span class="d-none d-md-inline">{!! trans('frontend.menu_my_cart') !!}</span> 
   <span class="fa fa-shopping-cart"></span> 
   <span class="cart-count">
