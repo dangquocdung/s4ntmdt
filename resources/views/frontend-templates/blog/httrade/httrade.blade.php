@@ -45,7 +45,10 @@
               <ul class="post-meta">
                 <li><i class="icon-clock"></i><a href="#">{{ Carbon\Carbon::parse($row['created_at'])->format('d-m-Y H:i') }}</a></li>
                 <li><i class="icon-user"></i><a href="#">{{ $row['post_author_id'] }}</a></li>
-                <li><i class="icon-tag"></i><a href="#">Video Games</a></li>
+                @if (!empty($row['post_file']))
+                  <li><i class="icon-file"></i><a href="{{ URL::asset($row['post_file']) }}">Văn bản</a></li>
+                @endif
+
               </ul>
               <h3 class="post-title"><a href="{{ route('blog-single-page', $row['post_slug']) }}">{!! $row['post_title'] !!}</a></h3>
               <p>

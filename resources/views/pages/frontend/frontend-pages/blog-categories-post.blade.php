@@ -35,7 +35,6 @@
 
             <?php $total = get_comments_rating_details($row->id, 'blog');?>
 
-
             <!-- Post-->
             
             <div class="grid-item">
@@ -55,11 +54,7 @@
                     <li><i class="icon-user"></i><a href="#">{!! $total['total'] !!} {!! trans('frontend.comments_label') !!}</a></li>
 
                     @if (!empty($row->post_file))
-
-                    <li><i class="icon-file"></i><a href="{{ URL::asset($row->post_file) }}">Văn bản</a></li>
-
-
-
+                      <li><i class="icon-file"></i><a href="{{ URL::asset($row->post_file) }}">Văn bản</a></li>
                     @endif
                   </ul>
                   <h3 class="post-title">
