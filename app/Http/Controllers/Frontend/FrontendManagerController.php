@@ -102,7 +102,6 @@ class FrontendManagerController extends Controller
 
   }
 
-
   /**
    * 
    * Product categories single page content
@@ -259,6 +258,8 @@ class FrontendManagerController extends Controller
       $data['blog_details_by_slug']     =   $get_blog_details_by_slug;
       $data['comments_details']         =   get_comments_data_by_object_id( $object_id, 'blog' );
       $data['comments_rating_details']  =   get_comments_rating_details( $object_id, 'blog' );
+      $data['categoriesTree']           =   $this->product->get_categories(0, 'blog_cat');
+
 
       if(!Session::has('shopist_blog_count') || (Session::has('shopist_blog_count') && Session::get('shopist_blog_count') != $get_blog_details_by_slug['id'])){  
         $get_post_meta =  PostExtra::where(['post_id' => $get_blog_details_by_slug['id'], 'key_name' => '_count_visit'])->first();
@@ -768,6 +769,10 @@ class FrontendManagerController extends Controller
     $data['advanced_data']   =   $this->CMS->get_blog_advanced_data();
     
     return view('pages.frontend.frontend-pages.blogs-main', $data);
+
+    // return response()->json($data['advanced_data']);
+
+
   }
 
   public function docsPageContent(){
@@ -779,9 +784,9 @@ class FrontendManagerController extends Controller
     $data['advanced_data']   =   $this->CMS->get_blog_advanced_data();
     
     return view('pages.frontend.frontend-pages.docs-main', $data);
+
   }
 
-  
   /**
    * 
    * Blog categories page content
@@ -801,6 +806,7 @@ class FrontendManagerController extends Controller
       $data['categoriesTree']  =   $this->product->get_categories(0, 'blog_cat');
       
       return view('pages.frontend.frontend-pages.blog-categories-post', $data);
+      
 
     }
     else{

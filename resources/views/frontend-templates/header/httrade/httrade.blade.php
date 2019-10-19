@@ -174,18 +174,10 @@
         <li class="has-children {{ Request::is('chung-toi')?'active':''}}">
           <span>
           
-            <a href="javascript:void(0)">{!! trans('frontend.chung-toi') !!}</a>
+            <a href="{{ route('chung-toi') }})">{!! trans('frontend.chung-toi') !!}</a>
 
-            <span class="sub-menu-toggle"></span>
 
           </span>
-
-          <ul class="slideable-submenu">
-            <li><a href="{{ route('chung-toi') }}">{!! trans('frontend.chung-toi') !!}</a>
-            <li><a href="{{ route('blog-cat-page','san-pham-dac-trung') }}">{!! trans('frontend.san-pham-dac-trung') !!}</a></li>
-            <li><a href="{{ route('docs-page-content') }}">{!! trans('frontend.van-ban') !!}</a></li>
-  
-          </ul>
   
         </li>
   
@@ -251,26 +243,17 @@
       
       <li class="{{ Request::is('/')?'active':''}}"><a href="{{ route('home-page') }}"><span>{!! trans('frontend.home') !!}</span></a></li>
 
-      <li class="{{ Request::is('chung-toi')?'active':''}}"><a href="{{ route('chung-toi') }}"><span>{!! trans('frontend.chung-toi') !!}</span></a>
-
-        <ul class="sub-menu">
-          <li><a href="{{ route('chung-toi') }}"><span>{!! trans('frontend.chung-toi') !!}</span></a>
-          <li><a href="{{route('blog-cat-page','san-pham-dac-trung') }}">{!! trans('frontend.san-pham-dac-trung') !!}</a></li>
-          <li><a href="{{ route('docs-page-content') }}">{!! trans('frontend.van-ban') !!}</a></li>
-
-        </ul>
+      <li class="{{ Request::is('chung-toi')?'active':''}}">
+        
+        <a href="{{ route('chung-toi') }}"><span>{!! trans('frontend.chung-toi') !!}</span></a>
 
       </li>
       
       <li class="{{ Request::is('gian-hang')||Request::is('gian-hang/*')?'active':''}}"><a href="{{ route('store-list-page-content') }}"><span>{!! trans('frontend.vendor_list_title_label') !!}</span></a></li>
 
-      <li class="{{ Request::is('cac-san-pham')||Request::is('san-pham/*')?'active':''}}"><a href="{{ route('shop-page') }}"><span>{!! trans('frontend.products_label') !!}</span></a>
-
-        <ul class="sub-menu">
-          <li><a href="{{ route('blog-cat-page','san-pham-dac-trung') }}">{!! trans('frontend.san-pham-dac-trung') !!}</a></li>
-          <li><a href="{{ route('shop-page') }}">{!! trans('frontend.all_products_label') !!}</a></li>
-
-        </ul>
+      <li class="{{ Request::is('cac-san-pham')||Request::is('san-pham/*')?'active':''}}">
+      
+        <a href="{{ route('shop-page') }}"><span>{!! trans('frontend.products_label') !!}</span></a>
   
       </li>
 
@@ -278,14 +261,10 @@
 
       <li class="{{ Request::is('thanh-toan')||Request::is('thanh-toan/*')?'active':''}}"><a href="{{ route('checkout-page') }}"><span>{!! trans('frontend.checkout') !!}</span></a></li>
 
-      <li class="{{ Request::is('tin-tuc')||Request::is('tin-tuc/*')?'active':''}}"><a href="{{ route('blogs-page-content') }}"><span>{!! trans('frontend.truyen-thong') !!}</span></a>
+      <li class="{{ Request::is('tin-tuc')||Request::is('tin-tuc/*')?'active':''}}">
+      
+        <a href="{{ route('blogs-page-content') }}"><span>{!! trans('frontend.truyen-thong') !!}</span></a>
 
-        <ul class="sub-menu">
-          <li><a href="{{ route('blogs-page-content') }}">{!! trans('frontend.blog') !!}</a></li>
-          <li><a href="{{ route('docs-page-content') }}">{!! trans('frontend.van-ban') !!}</a></li>
-
-        </ul>
-  
       </li>
 
       <!-- <li class="{{ Request::is('van-ban')||Request::is('tin-tuc/*')?'active':''}}"><a href="{{ route('docs-page-content') }}"><span>{!! trans('frontend.van-ban') !!}</span></a></li> -->

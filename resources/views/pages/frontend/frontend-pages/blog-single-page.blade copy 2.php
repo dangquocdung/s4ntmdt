@@ -29,28 +29,18 @@
 </div>
 
 <!-- Page Content-->
-
-<!-- Page Content-->
 <div class="container padding-bottom-3x mb-2">
-  <div class="row"> 
+  <div class="row justify-content-center">
     <!-- Content-->
-    <div class="col-xl-9 col-lg-8">
-      <h2>{!! $blog_details_by_slug['post_title'] !!}</h2>
-
+    <div class="col-xl-9 col-lg-8 order-lg-2">
       <!-- Post Meta-->
       <ul class="post-meta mb-4">
         <li><i class="icon-clock"></i><a href="#">{{ Carbon\Carbon::parse($blog_details_by_slug['created_at'])->format('d F, Y') }}</a></li>
         <!-- <li><i class="icon-user"></i><a href="#">Gregory Smith</a></li>
         <li><i class="icon-tag"></i><a href="#">Gadgets</a></li> -->
         <li><i class="icon-message-square"></i><a class="scroll-to" href="#comments">{!! $comments_rating_details['total'] !!} {!! trans('frontend.comments_label') !!}</a></li>
-
-        @if (!empty($blog_details_by_slug['post_file']))
-
-          <li><i class="icon-file"></i><a href="{{ URL::asset($blog_details_by_slug['post_file']) }}">Văn bản</a></li>
-
-        @endif
-
       </ul>
+      <h2 class="pt-4">{!! $blog_details_by_slug['post_title'] !!}</h2>
 
       <p>
         {!! string_decode($blog_details_by_slug['post_content']) !!}
@@ -67,6 +57,80 @@
         <div class="column"><a class="btn btn-outline-secondary view-all" href="{{ route('blogs-page-content') }}" data-toggle="tooltip" data-placement="top" title="All posts"><i class="icon-menu"></i></a></div>
         <div class="column text-right"><a class="btn btn-outline-secondary btn-sm" href="#">Next&nbsp;<i class="icon-arrow-right"></i></a></div>
       </div>
+      <!-- Relevant Posts-->
+
+      @if(count($advanced_data['latest_items']) > 0)    
+
+        <h3 class="padding-top-3x padding-bottom-1x">{!! trans('frontend.latest_from_the_blog') !!}</h3>
+        <div class="owl-carousel" data-owl-carousel="{ &quot;nav&quot;: false, &quot;dots&quot;: true, &quot;loop&quot;: false, &quot;autoHeight&quot;: true, &quot;margin&quot;: 30, &quot;responsive&quot;: {&quot;0&quot;:{&quot;items&quot;:1},&quot;630&quot;:{&quot;items&quot;:2},&quot;991&quot;:{&quot;items&quot;:3},&quot;1200&quot;:{&quot;items&quot;:3}} }">
+          
+          @foreach($advanced_data['latest_items'] as $items)
+
+          <div class="widget widget-featured-posts">
+            <div class="entry">
+              <div class="entry-thumb">
+                <a href="{{ route('blog-single-page', $items['post_slug'])}}">
+
+                  @if(!empty($items['blog_image']))  
+                    <img src="{{ get_image_url($items['blog_image']) }}"  alt="{{ basename($items['blog_image']) }}">   
+                  @else
+                    <img src="{{ default_placeholder_img_src() }}"  alt="">   
+                  @endif
+
+                </a>
+              </div>
+              <div class="entry-content">
+                <h4 class="entry-title">
+                  <a href="{{ route('blog-single-page', $items['post_slug'])}}">{!! $items['post_title'] !!}</a>
+                </h4>
+                <span class="entry-meta"> {{ Carbon\Carbon::parse($items['created_at'])->format('d F, Y') }}</span>
+              </div>
+            </div>
+          </div>
+
+          @endforeach
+          
+        </div>
+
+      @endif
+
+      <!-- Best Posts-->
+
+      @if(count($advanced_data['best_items']) > 0)    
+
+        <h3 class="padding-top-3x padding-bottom-1x">{!! trans('frontend.best_from_the_blog_title') !!}</h3>
+
+        <div class="owl-carousel" data-owl-carousel="{ &quot;nav&quot;: false, &quot;dots&quot;: true, &quot;loop&quot;: false, &quot;autoHeight&quot;: true, &quot;margin&quot;: 30, &quot;responsive&quot;: {&quot;0&quot;:{&quot;items&quot;:1},&quot;630&quot;:{&quot;items&quot;:2},&quot;991&quot;:{&quot;items&quot;:3},&quot;1200&quot;:{&quot;items&quot;:3}} }">
+          
+          @foreach($advanced_data['best_items'] as $items)
+
+          <div class="widget widget-featured-posts">
+            <div class="entry">
+              <div class="entry-thumb">
+                <a href="{{ route('blog-single-page', $items['post_slug'])}}">
+
+                  @if(!empty($items['blog_image']))  
+                    <img src="{{ get_image_url($items['blog_image']) }}"  alt="{{ basename($items['blog_image']) }}">   
+                  @else
+                    <img src="{{ default_placeholder_img_src() }}"  alt="">   
+                  @endif
+
+                </a>
+              </div>
+              <div class="entry-content">
+                <h4 class="entry-title">
+                  <a href="{{ route('blog-single-page', $items['post_slug'])}}">{!! $items['post_title'] !!}</a>
+                </h4>
+                <span class="entry-meta"> {{ Carbon\Carbon::parse($items['created_at'])->format('d F, Y') }}</span>
+              </div>
+            </div>
+          </div>
+
+          @endforeach
+          
+        </div>
+
+      @endif
     
       <!-- Comments-->
       @if(count($comments_details) > 0)
@@ -95,7 +159,6 @@
 
       <!-- Comment Form-->
       @if($blog_details_by_slug['allow_comments_at_frontend'] == 'yes')
-
         @include('pages-message.notify-msg-success')
         @include('pages-message.notify-msg-error')
         @include('pages-message.form-submit')
@@ -118,15 +181,7 @@
           </div>
         </form>
       @endif
-
-    </div>
-    <!-- Sidebar          -->
-    <div class="col-xl-3 col-lg-4">
-      @include('includes.frontend.blog-categories')
-      @yield('blog-categories-content')   
-
     </div>
   </div>
 </div>
-
 @endsection
