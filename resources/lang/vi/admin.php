@@ -23,7 +23,7 @@ return [
   'paypal' =>'PayPal',
   'stripe' =>'Vạch sọc',
   'two_checkout' =>'2 Kiểm tra',
-  'manufacturers' =>'Thương hiệu mạnh',
+  'manufacturers' =>'Nhà sản xuất',
   'all_manufacturers' =>'Tất cả',
   'add_manufacturer' =>'Thêm',
   'custom_designer_elements' =>'Thành phần tùy chọn',
