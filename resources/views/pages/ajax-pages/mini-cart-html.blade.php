@@ -10,7 +10,7 @@
 
 @if( Cart::count() >0 )
 
-<div class="toolbar-dropdown cart-dropdown widget-cart hidden-on-mobile">
+<div class="toolbar-dropdown cart-dropdown widget-cart">
   @foreach(Cart::items() as $index => $items)
 
   <!-- Entry-->
