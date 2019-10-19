@@ -55,17 +55,17 @@
 
     @if( Request::is('/') || Request::is('gian-hang/chi-tiet/trang-chu/*') )
         <!-- This core.css file contents all plugings css file. -->
-        <link rel="stylesheet" href="/css/core.css">
+        <link rel="stylesheet" href="{{ URL::asset('/css/core.css') }}">
     @endif
 
     <!-- Responsive css -->
-    <link rel="stylesheet" href="/css/responsive.css">
+    <link rel="stylesheet" href="{{ URL::asset('/css/responsive.css') }}">
 
 
     <!-- HTTRADE  Template Styles-->
-    <link id="mainStyles" rel="stylesheet" media="screen" href="{{ mix('/css/styles.css') }}">
+    <link id="mainStyles" rel="stylesheet" media="screen" href="{{ URL::asset(mix('/css/styles.css')) }}">
 
 
     <!-- Modernizr-->
     <script src="{{ URL::asset('/js/modernizr.min.js') }}"></script>
-    <!-- <script src='https://www.google.com/recaptcha/api.js'></script> -->
+    <script src='https://www.google.com/recaptcha/api.js'></script>
