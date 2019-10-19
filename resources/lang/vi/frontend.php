@@ -598,5 +598,6 @@ return [
   'san-pham-chu-luc' => 'Sản phẩm chủ lực',
   'san-pham-dac-trung' => 'Sản phẩm đặc trưng',
   'truyen-thong' => 'Truyền thông',
-  'state' => 'Quận / Huyện'
+  'state' => 'Quận / Huyện',
+  'no_blogs_data_label' => 'Không có dữ liệu'
 ];
