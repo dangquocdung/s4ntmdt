@@ -40,8 +40,8 @@
       <!-- Post Meta-->
       <ul class="post-meta mb-4">
         <li><i class="icon-clock"></i><a href="#">{{ Carbon\Carbon::parse($blog_details_by_slug['created_at'])->format('d F, Y') }}</a></li>
-        <!-- <li><i class="icon-user"></i><a href="#">Gregory Smith</a></li>
-        <li><i class="icon-tag"></i><a href="#">Gadgets</a></li> -->
+        <li><i class="icon-user"></i><a href="#">{{ get_user_name_by_user_id($blog_details_by_slug['post_author_id']) }}</a></li>
+        <li><i class="icon-tag"></i><a href="#">Gadgets</a></li>
         <li><i class="icon-message-square"></i><a class="scroll-to" href="#comments">{!! $comments_rating_details['total'] !!} {!! trans('frontend.comments_label') !!}</a></li>
 
         @if (!empty($blog_details_by_slug['post_file']))

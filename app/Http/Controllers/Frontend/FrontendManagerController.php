@@ -301,7 +301,9 @@ class FrontendManagerController extends Controller
         $data['blog_details_by_slug']['meta_keywords'] = null;
       }
       
-      return view('pages.frontend.frontend-pages.blog-single-page', $data);
+      // return view('pages.frontend.frontend-pages.blog-single-page', $data);
+
+      return response()->json($data);
     }
     else{
       return view('errors.no_data');

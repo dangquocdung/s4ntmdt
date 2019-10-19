@@ -51,7 +51,7 @@
                 <div class="post-body">
                   <ul class="post-meta">
                     <li><i class="icon-clock"></i><a href="#">{{ Carbon\Carbon::parse($row->created_at)->format('d F, Y') }}</a></li>
-                    <li><i class="icon-user"></i><a href="#">{!! $total['total'] !!} {!! trans('frontend.comments_label') !!}</a></li>
+                    <li><i class="icon-user"></i><a href="#">{{ get_user_name_by_user_id($row->post_author_id) }}</a></li>
 
                     @if (!empty($row->post_file))
                       <li><i class="icon-file"></i><a href="{{ URL::asset($row->post_file) }}">Văn bản</a></li>
