@@ -27,7 +27,17 @@
           <input type="text" placeholder="{{ trans('admin.example_blog_post') }}" class="form-control" name="blog_post_title" id="blog_post_title" value="{{ old('blog_post_title') }}">
         </div>
       </div>
-        
+
+      <div class="box box-solid">
+        <div class="box-header with-border">
+          <i class="fa fa-text-width"></i>
+          <h3 class="box-title">{!! trans('admin.post_file') !!}</h3>
+        </div>
+        <div class="box-body">
+          <input type="file" name="blog_post_file" id="blog_post_file"/>
+        </div>
+      </div>
+
       <div class="box box-solid">
         <div class="box-header with-border">
           <i class="fa fa-text-width"></i>

@@ -518,7 +518,7 @@ return [
   'total' =>'Toàn bộ',
   'zip_file_confirmation' =>'Chỉ cho phép tệp zip ex - en.zip {country code.zip}',
   'download_sample_language_file' =>'Tải xuống tệp ngôn ngữ mẫu',
-  'upload_lang_zip_file' =>'Cập nhật dử liệu',
+  'upload_lang_zip_file' =>'Cập nhật dữ liệu',
   'update_lang_zip_file' =>'Cập nhật tệp',
   'zip_file_validation_msg' =>'Vui lòng chỉ tải lên tệp Zip, bạn có thể tải xuống tệp ngôn ngữ mẫu',
   'zip_file_success_msg' =>'Tệp ngôn ngữ của bạn được tải lên thành công',
