@@ -21,8 +21,8 @@ return [
   'direct_bank_transfer' =>'Chuyển tiền trực tiếp qua ngân hàng',
   'cash_on_delivery' =>'Thanh toán khi giao hàng',
   'paypal' =>'PayPal',
-  'stripe' =>'Vạch sọc',
-  'two_checkout' =>'2 Kiểm tra',
+  'stripe' =>'Stripe',
+  'two_checkout' =>'2Checkout',
   'manufacturers' =>'Nhà sản xuất',
   'all_manufacturers' =>'Tất cả',
   'add_manufacturer' =>'Thêm',
@@ -348,7 +348,7 @@ return [
   'upload_logo' =>'Tải lên Logo',
   'shipping_method_flat_rate' =>'Phương thức vận chuyển Mức phí cố định',
   'flat_rate_shipping_title' =>'Tùy chọn Giao hàng này cho phép bạn tính một mức giá cố định cho việc vận chuyển.',
-  'enable_disable' =>'Cho phép vô hiệu hóa',
+  'enable_disable' =>'Trạng thái',
   'enable_this_shipping_method' =>'Kích hoạt phương thức vận chuyển này',
   'method_title' =>'Tiêu đề phương thức',
   'title' =>'Tiêu đề',
@@ -444,8 +444,8 @@ return [
   'bank_swift' =>'Chuyển khoản ngân hàng',
   'enable_payment_method' =>'Kích hoạt phương thức thanh toán',
   'paypal' =>'Paypal',
-  'enable_stripe' =>'Kích hoạt sọc',
-  'enable_2checkout' =>'Kích hoạt 2 lần kiểm tra',
+  'enable_stripe' =>'Kích hoạt',
+  'enable_2checkout' =>'Kích hoạt',
   'paypal_app_client_id' =>'ID khách hàng ứng dụng Paypal',
   'paypal_app_secret' =>'Bí mật ứng dụng Paypal',
   'enable_disable_paypal_sandbox' =>'Kích hoạt / Vô hiệu hóa Paypal Sandbox',
@@ -459,7 +459,7 @@ return [
   '2checkout_publishableKey_label' =>'Khóa có thể xuất bản',
   '2checkout_privateKey_label' =>'Khóa riêng',
   '2checkout_sandbox_status_label' =>'Kích hoạt / Vô hiệu hóa Hộp cát',
-  'enable_disable_stripe_test_mode' =>'Bật / Tắt Chế độ kiểm tra sọc',
+  'enable_disable_stripe_test_mode' =>'Bật / Tắt Chế độ kiểm tra',
   'change_order_status' =>'Thay đổi trạng thái đơn hàng',
   'pending_payment' =>'Chờ thanh toán',
   'order_details' =>'Chi tiết đặt hàng',
@@ -1068,7 +1068,7 @@ return [
   'emails_notifications_withdraw_completed_label' =>'Hoàn thành rút tiền',
   'email_content_label' =>'Nội dung email',
   'email_new_order_received_label' =>'Nó sẽ hoạt động khi nhận được đơn đặt hàng mới của khách hàng',
-  'email_enable_disable_label' =>'Cho phép vô hiệu hóa',
+  'email_enable_disable_label' =>'Trạng thái',
   'email_heading_label' =>'Tiêu đề email',
   'select_template_label' =>'Chọn mẫu',
   'enable_notify_msg_label' =>'Kích hoạt thông báo email này',
@@ -1158,7 +1158,8 @@ return [
   'blog_post_allow_characters' =>  'Ký tự tóm tắt tối đa',
   'blog_post_allow_comments' =>  'Cho phép bình luận',
   'blog_post_allow_comments_msg' =>  'Cho phép bình luận ở bài đăng này',
-  'blog_manager' => 'Truyền thông'
+  'blog_manager' => 'Truyền thông',
+  'post_file' => 'Têp văn bản'
 
 
 ];

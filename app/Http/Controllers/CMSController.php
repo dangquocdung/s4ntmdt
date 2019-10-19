@@ -513,7 +513,8 @@ class CMSController extends Controller
       $data = Input::all();
       
       $rules = [
-                  'blog_post_title'   => 'required'
+                  'blog_post_title'   => 'required',
+                  // 'file_upload' => 'required'
                ];
         
       $validator = Validator:: make($data, $rules);
@@ -524,6 +525,7 @@ class CMSController extends Controller
         ->withErrors( $validator );
       }
       else{
+
         $allow_for_comments     =   'yes';
         $max_number_characters  =   '';
         $allow_checkbox         =   (Input::has('allow_comments_at_frontend')) ? true : false;
@@ -531,6 +533,25 @@ class CMSController extends Controller
         $url_slug               =   '';
         $post                   =   new Post;
         $post_slug              =   '';
+
+
+        if(Input::has('file_upload')){
+          $file  = Input::file('file_upload');
+          $fileName  =  $file->getClientOriginalName();
+          $get_extension  = explode('.', $fileName);
+
+          
+          if(count($get_extension) > 0 && ($get_extension[1] == 'pdf' || $get_extension[1] == 'docx')){
+            $destinationPath = public_path('uploads');
+            $file->move($destinationPath, time().'_'.$file->getClientOriginalName());
+            $uploaded_file_name = 'uploads/'.time().'_'.$file->getClientOriginalName();
+          }
+          else{
+            Session::flash('error-message', Lang::get('admin.file_format_msg'));
+            return redirect()-> back();
+          }
+        }
+
         
         if($allow_checkbox){
           $allow_for_comments = 'yes';
@@ -574,6 +595,7 @@ class CMSController extends Controller
           $post->post_content           =   string_encode(Input::get('blog_description_editor'));
           $post->post_title             =   Input::get('blog_post_title');
           $post->post_slug              =   $post_slug;
+          $post->post_file              =   $uploaded_file_name;
           $post->parent_id              =   0;
           $post->post_status            =   Input::get('blog_post_visibility');
           $post->post_type              =   'post-blog';

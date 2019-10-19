@@ -34,7 +34,7 @@
           <h3 class="box-title">{!! trans('admin.post_file') !!}</h3>
         </div>
         <div class="box-body">
-          <input type="file" name="blog_post_file" id="blog_post_file"/>
+          <input type="file" name="file_upload" id="file_upload"/>
         </div>
       </div>
 
