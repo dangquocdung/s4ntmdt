@@ -480,7 +480,9 @@
               @if( count(get_vendor_details_by_product_id($single_product_details['id'])) >0 )
               <div class="tab-pane fade" id="vendorInfo">
                 <?php  $vendor_details = get_vendor_details_by_product_id($single_product_details['id']); $parse_json = json_decode($vendor_details['details']);?>
-                <table>
+                <div class="table-responsive">
+
+                <table class="table">
                   <tr>
                     <th>{!! trans('frontend.store_name_label') !!}</th>
                     @if(!empty($parse_json->profile_details->store_name))
@@ -493,11 +495,14 @@
                   <tr><th>{!! trans('frontend.vendor_label') !!}</th><td><a target="_blank" href="{{ route('store-details-page-content', $vendor_details['user_name']) }}"><i>{!!  $vendor_details['user_name'] !!}</i></a></td></tr>
 
                   @if(!empty($parse_json->profile_details->country))
-                  <tr><th>{!! trans('frontend.country') !!}</th><td>{!! $parse_json->profile_details->country !!}</td></tr>
+                  <tr><th>{!! trans('frontend.country') !!}</th><td>{!! get_tinhthanh($parse_json->profile_details->country) !!}</td></tr>
                   @endif
 
                   <tr><th>{!! trans('frontend.vendor_rating_label') !!}</th><td><div class="review-stars"><div class="star-rating" style="text-align:left !important; margin:0px !important;"><span style="width:{{ $vendor_reviews_rating_details['percentage'] }}%"></span></div></div></td></tr>  
                 </table>
+
+
+                </div>
               </div>  
               @endif
             </div>
