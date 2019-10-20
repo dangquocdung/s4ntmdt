@@ -20,12 +20,12 @@
   .product-thumb {
     display: block;
     width: 100%;
-    padding-top: 20px;
     border: {
       top-left-radius: $border-radius-base;
       top-right-radius: $border-radius-base;
     }
     overflow: hidden;
+
     > img {
       display: block;
       // width: 80%;
@@ -36,6 +36,14 @@
       @media screen and (max-width: 768px){
         height:200px;
       }
+
+      transition: all 0.4s linear;
+      -moz-transition: all 0.4s linear;
+      -o-transition: all 0.4s linear;
+      -webkit-transition: all 0.4s linear;
+      transition: all 0.4s linear;
+      margin: 0px auto;
+    
     }
 
     &:hover {
@@ -226,6 +234,8 @@
   letter-spacing: .025em;
   line-height: 24px;
   white-space: nowrap;
+
+  z-index: 999;
 }
 
 // Product Rating

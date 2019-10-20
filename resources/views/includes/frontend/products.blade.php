@@ -13,7 +13,15 @@
         <div class="grid-item" style="position: absolute; left: 0px; top: 0px;">
           <div class="product-card">
             @if ( $products->price < $products->regular_price )
-              <div class="product-badge bg-danger">Giảm giá</div>
+              @php
+      
+                $tiengiam =  $products->regular_price - $products->price;
+      
+                $phantram = round(($tiengiam/$products->regular_price)*100);
+                  
+              @endphp
+              <div class="product-badge bg-danger">Giảm giá {{ $phantram }}%</div>
+
             @endif
 
             <a class="product-thumb" href="{{ route('details-page', $products->slug ) }}">
