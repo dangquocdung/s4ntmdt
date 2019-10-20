@@ -182,3 +182,112 @@ h3.top-product {
         }
     }
 }
+
+i.icon-heart{
+    color: red;
+}
+i.icon-shopping-cart{
+    color: #0055ff;
+}
+
+.add-user-review{
+
+    .add-reviews-title {
+        font-size: 18px;
+        font-weight: bold;
+        margin-top: 5px;
+    }
+
+    .rating-title {
+        font-weight: bold;
+        margin-top: 5px;
+        font-size: 15px;
+    }
+    
+}
+
+
+#single_product .product-reviews-content .total-users, #single_product .user-reviews-content .user-reviews-title, .add-reviews-title, .rating-title{
+    font-family: "Lato",sans-serif;
+    font-size: 15px;
+  } 
+  
+  #single_product .user-reviews-content{
+    width:100%;
+    margin-top: 50px;
+  }
+  
+  #single_product .user-reviews-content .user-reviews-title, #single_product .add-reviews-title, .rating-title{
+    font-weight: bold;
+    margin-top: 5px;    
+  }
+  
+  #single_product .add-reviews-title{
+   font-size: 18px;    
+  }
+  
+  #single_product .user-reviews-content ol{
+    list-style: none;
+    padding: 0px;
+  }
+  
+  #single_product .user-reviews-content ol li .comment-container .user-img, #single_product .user-reviews-content ol li .comment-container .comment-text{
+    float: left;    
+  } 
+  
+  #single_product .user-reviews-content ol li .comment-container .user-img{
+    width:8%;
+    text-align: center;
+  }
+  
+  #single_product .user-reviews-content ol li .comment-container .comment-text{
+    width: 90%;
+    position: relative;
+  }
+  
+  #single_product .user-reviews-content ol li .comment-container .comment-text .star-rating{
+    float: right;
+  }
+  
+  #single_product .user-reviews-content ol li .comment-container .comment-text .meta span.comment-date, #single_product .user-reviews-content ol li .comment-container .comment-text .meta span.comment-user-role, #single_product .user-reviews-content ol li .comment-container .comment-text .description{
+    font-family: "Lato",sans-serif;
+    font-size: 15px;
+  }
+  
+  #single_product .user-reviews-content ol li .comment-container .comment-text .meta span.comment-user-role{
+    font-style: italic;    
+  }
+  
+  #single_product .user-reviews-content li.comment {
+    background: #FFFFFF none repeat scroll 0 0;
+    border: 1px solid #e0e0e0;
+    margin-top: 15px;
+    padding: 10px;
+  }
+  
+  
+  #single_product .review-content fieldset {
+    border: 2px solid #f2f2f2;
+    padding: 20px;
+  }
+  
+  #single_product .review-content legend {
+    border:2px solid #f2f2f2;
+    width: auto;
+    color: #333;
+    font-size:15px;
+    padding: 5px 10px;
+    margin: 0 auto;
+    font-family: "Lato",sans-serif;
+    font-weight: bold;
+  }
+  
+  #single_product .review-content fieldset textarea{
+    width:100%;
+    height: 100px;
+    resize: none;
+    background-color: #FFFFFF;
+    border: none;
+    padding: 10px;
+  }
+  

@@ -20,7 +20,7 @@
       </div>
     </div>
     <!-- Page Content-->
-    <div class="container padding-bottom-3x">
+    <div class="container padding-bottom-3x" id="single_product">
       <div class="row">
         <!-- Poduct Gallery-->
         <div class="col-md-6">
@@ -404,7 +404,10 @@
                         </div>
                     </div>
                     <div class="user-reviews-content">
-                        <h2 class="user-reviews-title">{{ $comments_rating_details['total'] }} {{ trans('frontend.reviews_for_label') }} <i><span>{{ $single_product_details['post_title'] }}</span></i></h2>
+                        <h2 class="user-reviews-title">
+                          {{ $comments_rating_details['total'] }} {{ trans('frontend.reviews_for_label') }} 
+                          <i><span>{{ $single_product_details['post_title'] }}</span></i>
+                        </h2>
                           @if(count($comments_details) > 0)
                           <ol class="commentlist">
                             @foreach($comments_details as $comment) 
