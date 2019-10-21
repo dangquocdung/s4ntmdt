@@ -15,6 +15,10 @@
           <a href="{{ route('home-page') }}">{{ trans('frontend.home') }}</a>
         </li>
         <li class="separator">&nbsp;</li>
+        <li>
+          <a href="{{ route('blogs-page-content') }}">{!! trans('frontend.truyen-thong') !!}</a>
+        </li>
+        <li class="separator">&nbsp;</li>
         <li>{!! trans('frontend.tin-tuc') !!}</li>
       </ul>
     </div>
@@ -60,10 +64,6 @@
                   <h3 class="post-title">
                     <a href="{{ route('blog-single-page', $row->post_slug) }}">{!! $row->post_title !!}</a>
                   </h3>
-                  <p>
-                    {!! get_limit_string(string_decode(strip_tags($row->post_content)), get_blog_postmeta_data($row->id, 'allow_max_number_characters_at_frontend')) !!}
-                    <a href="{{ route('blog-single-page', $row->post_slug) }}" class="text-medium">{!! trans('frontend.read_more_label') !!}</a>
-                  </p>
                 </div>
               </div>
             </div>
