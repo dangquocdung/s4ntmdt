@@ -1,5 +1,5 @@
 @extends('layouts.frontend.master')
-@section('title',   $cat_data['name'] .' | '. get_site_title() )
+{{-- @section('title',   $blogs_cat_post['selected_cat'] .' | '. get_site_title() ) --}}
 
 @section('content')
 

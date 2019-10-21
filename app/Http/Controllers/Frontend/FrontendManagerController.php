@@ -798,7 +798,7 @@ class FrontendManagerController extends Controller
       
       return view('pages.frontend.frontend-pages.blog-categories-post', $data);
 
-      // return response()->json($data['blogs_cat_post']);
+      // return response()->json($data['categoriesTree']);
 
       
 

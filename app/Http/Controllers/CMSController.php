@@ -533,6 +533,7 @@ class CMSController extends Controller
         $url_slug               =   '';
         $post                   =   new Post;
         $post_slug              =   '';
+        $uploaded_file_name     =   '';
 
 
         if(Input::has('file_upload')){
@@ -595,7 +596,11 @@ class CMSController extends Controller
           $post->post_content           =   string_encode(Input::get('blog_description_editor'));
           $post->post_title             =   Input::get('blog_post_title');
           $post->post_slug              =   $post_slug;
-          $post->post_file              =   $uploaded_file_name;
+
+          if (str_len($uploaded_file_name) > 0){
+            $post->post_file              =   $uploaded_file_name;
+          }
+
           $post->parent_id              =   0;
           $post->post_status            =   Input::get('blog_post_visibility');
           $post->post_type              =   'post-blog';
