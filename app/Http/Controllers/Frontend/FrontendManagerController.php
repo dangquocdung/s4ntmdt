@@ -777,17 +777,6 @@ class FrontendManagerController extends Controller
 
   }
 
-  public function docsPageContent(){
-    $data = array();
-    
-    $data = $this->classCommonFunction->get_dynamic_frontend_content_data();
-    $data['blogs_all_data']  =   get_all_blogs_data(1);
-    $data['categoriesTree']  =   $this->product->get_categories(0, 'blog_cat');
-    $data['advanced_data']   =   $this->CMS->get_blog_advanced_data();
-    
-    return view('pages.frontend.frontend-pages.docs-main', $data);
-
-  }
 
   /**
    * 

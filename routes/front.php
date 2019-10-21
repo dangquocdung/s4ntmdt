@@ -98,11 +98,6 @@ Route::get( '/tin-tuc', [
   'as'   => 'blogs-page-content'
 ]);
 
-Route::get( '/van-ban', [
-  'uses' => 'Frontend\FrontendManagerController@docsPageContent',
-  'as'   => 'docs-page-content'
-]);
-
 
 Route::get( '/gian-hang', [
   'uses' => 'Frontend\FrontendManagerController@multivendorStoreListPageContent',
