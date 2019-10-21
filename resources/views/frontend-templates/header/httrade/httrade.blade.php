@@ -267,7 +267,6 @@
 
       </li>
 
-      <!-- <li class="{{ Request::is('van-ban')||Request::is('tin-tuc/*')?'active':''}}"><a href="{{ route('docs-page-content') }}"><span>{!! trans('frontend.van-ban') !!}</span></a></li> -->
       
     </ul>
     
