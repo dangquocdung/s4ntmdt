@@ -56,7 +56,7 @@
               <p>
                 {{-- {!! get_limit_string(string_decode($row['post_content']), $row['allow_max_number_characters_at_frontend']) !!} --}}
 
-                {{ strip_tags$row['post_content']) }}
+                {{ strip_tags($row['post_content']) }}
 
 
 
