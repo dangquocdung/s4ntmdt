@@ -4,26 +4,7 @@
 @section('content')
 
 <!-- Page Title-->
-<div class="page-title">
-    <div class="container">
-    <div class="column">
-      <h1>{!! trans('frontend.tin-tuc') !!}</h1>
-    </div>
-    <div class="column">
-      <ul class="breadcrumbs">
-        <li>
-          <a href="{{ route('home-page') }}">{{ trans('frontend.home') }}</a>
-        </li>
-        <li class="separator">&nbsp;</li>
-        <li>
-          <a href="{{ route('blogs-page-content') }}">{!! trans('frontend.truyen-thong') !!}</a>
-        </li>
-        <li class="separator">&nbsp;</li>
-        <li>{!! trans('frontend.tin-tuc') !!}</li>
-      </ul>
-    </div>
-  </div>
-</div>
+{!! $blogs_cat_post['breadcrumb_html'] !!}
 
 <!-- Page Content-->
 <div class="container padding-bottom-3x mb-1">

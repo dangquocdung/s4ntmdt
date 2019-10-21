@@ -1205,11 +1205,32 @@ class CMSController extends Controller
       
       if($cat_data['parent_id'] > 0){
         $parent_cat = $product->getTermDataById( $cat_data['parent_id'] );
+
+        $str .= '<div class="page-title"><div class="container">';
+        $str .= '<div class="column"><h1>' . $cat_data['name'] . '</h1></div>';
+        $str .= '<div class="column"><ul class="breadcrumbs">';
+        $str .= '<li><a href="' . route('home-page') . '">' . Lang::get('frontend.home').'</a></li>';
+        $str .= '<li class="separator">&nbsp;</li>';
+        $str .= '<li><a href="' . route('blogs-page-content') . '">' . Lang::get('frontend.blog' ) . '</a></li>';
+        $str .= '<li class="separator">&nbsp;</li>';
+        $str .= '<li><a href="'. route('blog-cat-page', $parent_cat[0]['slug']) .'">'. $parent_cat[0]['name'] . '</a></li>';
+        $str .= '<li class="separator">&nbsp;</li>';
+        $str .= '<li>' . $cat_data['name'] . '</li>';
+        $str .= '</ul></div></div></div>';
          
-        $str = '<nav aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="'. route('home-page') .'">'. Lang::get('frontend.home' ) .'</a></li><li class="breadcrumb-item"><a href="'. route('blogs-page-content') .'">'. Lang::get('frontend.blog' ) .'</a></li><li class="breadcrumb-item"><a href="'. route('blog-cat-page', $parent_cat[0]['slug']) .'">'. $parent_cat[0]['name'] .'</a></li><li class="breadcrumb-item active">'. $cat_data['name'] .'</li></ol></nav>';
       }
       else{
-        $str = '<nav aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="'. route('home-page') .'">'. Lang::get('frontend.home' ) .'</a></li><li class="breadcrumb-item"><a href="'. route('blogs-page-content') .'">'. Lang::get('frontend.blog' ) .'</a></li><li class="breadcrumb-item active">'. $cat_data['name'] .'</li></ol></nav>';
+
+        $str .= '<div class="page-title"><div class="container">';
+        $str .= '<div class="column"><h1>' . $cat_data['name'] . '</h1></div>';
+        $str .= '<div class="column"><ul class="breadcrumbs">';
+        $str .= '<li><a href="' . route('home-page') . '">' . Lang::get('frontend.home').'</a></li>';
+        $str .= '<li class="separator">&nbsp;</li>';
+        $str .= '<li><a href="' . route('blogs-page-content') . '">' . Lang::get('frontend.blog' ) . '</a></li>';
+        $str .= '<li class="separator">&nbsp;</li>';
+        $str .= '<li>' . $cat_data['name'] . '</li>';
+        $str .= '</ul></div></div></div>';
+
       }
       
       $post_array['posts'] = $posts_object;
