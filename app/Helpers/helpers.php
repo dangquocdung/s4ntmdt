@@ -241,6 +241,12 @@ function get_xaphuong($id)
 {
   return GetFunction::get_xp($id);
 }
+function get_term_name($id){
+
+  return GetFunction::get_term($id);
+
+
+}
 
 
 

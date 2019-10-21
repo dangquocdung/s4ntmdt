@@ -772,7 +772,7 @@ class FrontendManagerController extends Controller
     
     return view('pages.frontend.frontend-pages.blogs-main', $data);
 
-    // return response()->json($data['advanced_data']);
+    // return response()->json($data['blogs_all_data']);
 
 
   }
@@ -798,7 +798,7 @@ class FrontendManagerController extends Controller
       
       return view('pages.frontend.frontend-pages.blog-categories-post', $data);
 
-      // return response()->json($data['categoriesTree']);
+      // return response()->json($data);
 
       
 

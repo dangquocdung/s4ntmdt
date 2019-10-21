@@ -1425,6 +1425,16 @@ class GetFunction
     return $xp;
 
   }
+
+  public static function get_term($id)
+  {
+
+    $term= Term::where('term_id',$id)->first();
+    
+    return $term->name;
+
+  }
+
   
   public static function available_currency_name()
   {
