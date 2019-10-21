@@ -597,7 +597,7 @@ class CMSController extends Controller
           $post->post_title             =   Input::get('blog_post_title');
           $post->post_slug              =   $post_slug;
 
-          if (str_len($uploaded_file_name) > 0){
+          if (strlen($uploaded_file_name) > 0){
             $post->post_file              =   $uploaded_file_name;
           }
 
