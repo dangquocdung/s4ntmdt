@@ -51,10 +51,6 @@
 
               </ul>
               <h3 class="post-title"><a href="{{ route('blog-single-page', $row['post_slug']) }}">{!! $row['post_title'] !!}</a></h3>
-              <p>
-                {{-- {!! strip_tags(get_limit_string(string_decode($row['post_content']), $row['allow_max_number_characters_at_frontend'])) !!}
-                <a href="{{ route('blog-single-page', $row['post_slug']) }}" class="text-medium">{!! trans('frontend.read_more_label') !!}</a> --}}
-              </p>
             </div>
           </div>
         </div>
