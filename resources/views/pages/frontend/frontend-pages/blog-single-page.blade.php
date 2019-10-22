@@ -57,16 +57,52 @@
       </p>
       
       <!-- Post Tags + Share-->
-      {{-- <div class="d-flex flex-wrap justify-content-between align-items-center pt-3 pb-4">
-        <div class="pb-2"><a class="text-sm text-muted navi-link" href="#">#electronics,</a><a class="text-sm text-muted navi-link" href="#">&nbsp;#gadgets&nbsp;</a></div>
-        <div class="pb-2"><span class="d-inline-block align-middle text-sm text-muted">Share post:&nbsp;&nbsp;&nbsp;</span><a class="social-button shape-rounded sb-facebook" href="#" data-toggle="tooltip" data-placement="top" title="Facebook"><i class="socicon-facebook"></i></a><a class="social-button shape-rounded sb-twitter" href="#" data-toggle="tooltip" data-placement="top" title="Twitter"><i class="socicon-twitter"></i></a><a class="social-button shape-rounded sb-instagram" href="#" data-toggle="tooltip" data-placement="top" title="Instagram"><i class="socicon-instagram"></i></a><a class="social-button shape-rounded sb-google-plus" href="#" data-toggle="tooltip" data-placement="top" title="Google +"><i class="socicon-googleplus"></i></a></div>
-      </div> --}}
+          <div class="d-flex flex-wrap justify-content-between align-items-center pt-3 pb-4">
+            <div class="pb-2">
+              <a class="text-sm text-muted navi-link" href="#">#electronics,</a>
+              <a class="text-sm text-muted navi-link" href="#">&nbsp;#gadgets&nbsp;</a>
+            </div>
+            <div class="pb-2"><span class="d-inline-block align-middle text-sm text-muted">Share post:&nbsp;&nbsp;&nbsp;</span><a class="social-button shape-rounded sb-facebook" href="#" data-toggle="tooltip" data-placement="top" title="Facebook"><i class="socicon-facebook"></i></a><a class="social-button shape-rounded sb-twitter" href="#" data-toggle="tooltip" data-placement="top" title="Twitter"><i class="socicon-twitter"></i></a><a class="social-button shape-rounded sb-instagram" href="#" data-toggle="tooltip" data-placement="top" title="Instagram"><i class="socicon-instagram"></i></a><a class="social-button shape-rounded sb-google-plus" href="#" data-toggle="tooltip" data-placement="top" title="Google +"><i class="socicon-googleplus"></i></a></div>
+          </div>
+
       <!-- Post Navigation-->
       <div class="entry-navigation">
-        <div class="column text-left"><a class="btn btn-outline-secondary btn-sm" href="#"><i class="icon-arrow-left"></i>&nbsp;Prev</a></div>
+        <div class="column text-left">
+          <a class="btn btn-outline-secondary btn-sm" href="{{ route('blog-single-page', $blogs_data[0]['post_slug']) }}"><i class="icon-arrow-left"></i>&nbsp;Tin mới hơn</a>
+        </div>
         <div class="column"><a class="btn btn-outline-secondary view-all" href="{{ route('blogs-page-content') }}" data-toggle="tooltip" data-placement="top" title="All posts"><i class="icon-menu"></i></a></div>
-        <div class="column text-right"><a class="btn btn-outline-secondary btn-sm" href="#">Next&nbsp;<i class="icon-arrow-right"></i></a></div>
+        <div class="column text-right">
+          <a class="btn btn-outline-secondary btn-sm" href="{{ route('blog-single-page', $blogs_data[2]['post_slug']) }}"><i class="icon-arrow-right"></i>&nbsp;Tin cũ hơn</a>
+        </div>
       </div>
+
+      <!-- Relevant Posts-->
+      <h3 class="padding-top-3x padding-bottom-1x">{{ trans('frontend.latest_news') }}</h3>
+      <div class="owl-carousel" data-owl-carousel="{ &quot;nav&quot;: false, &quot;dots&quot;: true, &quot;loop&quot;: false, &quot;autoHeight&quot;: true, &quot;margin&quot;: 30, &quot;responsive&quot;: {&quot;0&quot;:{&quot;items&quot;:1},&quot;630&quot;:{&quot;items&quot;:2},&quot;991&quot;:{&quot;items&quot;:3},&quot;1200&quot;:{&quot;items&quot;:3}} }">
+        @foreach($blogs_data as $row) 
+
+        <div class="widget widget-featured-posts">
+          <div class="entry">
+
+            <div class="entry-thumb">
+              <a href="blog-single-rs.html"><img src="img/blog/widget/01.jpg" alt="Post"></a>
+            </div>
+                  
+            <div class="entry-content">
+              <h4 class="entry-title">
+                <a href="blog-single-rs.html">Factors Behind Wearable Gadgets Popularity</a>
+              </h4>
+              <span class="entry-meta">by Olivia Reyes</span>
+            </div>
+
+          </div>
+        </div>
+        
+        @endforeach
+
+
+      </div>
+
     
       <!-- Comments-->
       @if(count($comments_details) > 0)
