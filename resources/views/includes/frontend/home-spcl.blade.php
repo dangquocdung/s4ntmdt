@@ -85,6 +85,10 @@
                                           </h4>
                                         </div>
                                         <div class="product-button-group">
+
+                                          <a class="product-button btn-store" href="{{ route('store-details-page-content', get_user_name_by_user_id($latest_product->author_id)) }}" target="_blank" data-toggle="tooltip" title="{{ get_user_name_by_user_id($latest_product->author_id) }}">
+                                            <i class="icon-home"></i><span>{{ trans('frontend.gian-hang') }}</span>
+                                          </a>
                                 
                                           <a class="product-button btn-wishlist product-wishlist" data-id="{{ $latest_product->id }}" data-toggle="tooltip" title="{{ trans('frontend.add_to_wishlist_label') }}" data-original-title="{{ trans('frontend.add_to_wishlist_label') }}">
                                             <i class="icon-heart"></i><span>{{ trans('frontend.add_to_wishlist_label') }}</span>
@@ -92,6 +96,7 @@
                                           <a class="product-button btn-compare product-compare" data-id="{{ $latest_product->id }}" data-toggle="tooltip" title="" data-original-title="{{ trans('frontend.add_to_compare_list_label') }}">
                                             <i class="icon-repeat"></i><span>{{ trans('frontend.add_to_compare_list_label') }}</span>
                                           </a>
+                                          
                                           <a class="product-button add-to-cart-bg" data-toast data-toast-type="success" data-toast-position="topRight" data-toast-icon="icon-check-circle" data-toast-title="Sản phẩm" data-toast-message="{{ trans('frontend.successfuly_added_to_cart') }}" data-id="{{ $latest_product->id }}" data-toggle="tooltip" data-placement="top"title="" data-original-title="{{ trans('frontend.add_to_cart_label') }}">
                                             <i class="icon-shopping-cart"></i><span>{{ trans('frontend.add_to_cart_label') }}</span>
                                           </a>
@@ -147,16 +152,18 @@
                                             </h4>
                                         </div>
                                         <div class="product-button-group">
-
-                                            <a class="product-button btn-wishlist product-wishlist" data-id="{{$todays_sales_product['id'] }}" data-toggle="tooltip" title="{{ trans('frontend.add_to_wishlist_label') }}" data-original-title="{{ trans('frontend.add_to_wishlist_label') }}">
-                                            <i class="icon-heart"></i><span>{{ trans('frontend.add_to_wishlist_label') }}</span>
-                                            </a>
-                                            <a class="product-button btn-compare product-compare" data-id="{{$todays_sales_product['id'] }}" data-toggle="tooltip" title="" data-original-title="{{ trans('frontend.add_to_compare_list_label') }}">
-                                            <i class="icon-repeat"></i><span>{{ trans('frontend.add_to_compare_list_label') }}</span>
-                                            </a>
-                                            <a class="product-button add-to-cart-bg" data-toast data-toast-type="success" data-toast-position="topRight" data-toast-icon="icon-check-circle" data-toast-title="Sản phẩm" data-toast-message="{{ trans('frontend.successfuly_added_to_cart') }}" data-id="{{$todays_sales_product['id'] }}" data-toggle="tooltip" data-placement="top"title="" data-original-title="{{ trans('frontend.add_to_cart_label') }}">
-                                            <i class="icon-shopping-cart"></i><span>{{ trans('frontend.add_to_cart_label') }}</span>
-                                            </a>
+                                          <a class="product-button btn-store" href="{{ route('store-details-page-content', get_user_name_by_user_id($todays_sales_product['author_id'])) }}" target="_blank" data-toggle="tooltip" title="{{ get_user_name_by_user_id($todays_sales_product['author_id']) }}">
+                                            <i class="icon-home"></i><span>{{ trans('frontend.gian-hang') }}</span>
+                                          </a>
+                                          <a class="product-button btn-wishlist product-wishlist" data-id="{{$todays_sales_product['id'] }}" data-toggle="tooltip" title="{{ trans('frontend.add_to_wishlist_label') }}" data-original-title="{{ trans('frontend.add_to_wishlist_label') }}">
+                                          <i class="icon-heart"></i><span>{{ trans('frontend.add_to_wishlist_label') }}</span>
+                                          </a>
+                                          <a class="product-button btn-compare product-compare" data-id="{{$todays_sales_product['id'] }}" data-toggle="tooltip" title="" data-original-title="{{ trans('frontend.add_to_compare_list_label') }}">
+                                          <i class="icon-repeat"></i><span>{{ trans('frontend.add_to_compare_list_label') }}</span>
+                                          </a>
+                                          <a class="product-button add-to-cart-bg" data-toast data-toast-type="success" data-toast-position="topRight" data-toast-icon="icon-check-circle" data-toast-title="Sản phẩm" data-toast-message="{{ trans('frontend.successfuly_added_to_cart') }}" data-id="{{$todays_sales_product['id'] }}" data-toggle="tooltip" data-placement="top"title="" data-original-title="{{ trans('frontend.add_to_cart_label') }}">
+                                          <i class="icon-shopping-cart"></i><span>{{ trans('frontend.add_to_cart_label') }}</span>
+                                          </a>
 
                                         </div>
                                         </div>
@@ -240,6 +247,11 @@
                                               </h4>
                                             </div>
                                             <div class="product-button-group">
+
+                                              <a class="product-button btn-store" href="{{ route('store-details-page-content', get_user_name_by_user_id($recommended_product->author_id)) }}" target="_blank" data-toggle="tooltip" title="{{ get_user_name_by_user_id($recommended_product->author_id) }}">
+                                                <i class="icon-home"></i><span>{{ trans('frontend.gian-hang') }}</span>
+                                              </a>
+
                                     
                                               <a class="product-button btn-wishlist product-wishlist" data-id="{{ $recommended_product->id }}" data-toggle="tooltip" title="{{ trans('frontend.add_to_wishlist_label') }}" data-original-title="{{ trans('frontend.add_to_wishlist_label') }}">
                                                 <i class="icon-heart"></i><span>{{ trans('frontend.add_to_wishlist_label') }}</span>
@@ -306,6 +318,11 @@
                                               </h4>
                                             </div>
                                             <div class="product-button-group">
+
+                                              <a class="product-button btn-store" href="{{ route('store-details-page-content', get_user_name_by_user_id($features_product->author_id)) }}" target="_blank" data-toggle="tooltip" title="{{ get_user_name_by_user_id($features_product->author_id) }}">
+                                                <i class="icon-home"></i><span>{{ trans('frontend.gian-hang') }}</span>
+                                              </a>
+
                                     
                                               <a class="product-button btn-wishlist product-wishlist" data-id="{{ $features_product->id }}" data-toggle="tooltip" title="{{ trans('frontend.add_to_wishlist_label') }}" data-original-title="{{ trans('frontend.add_to_wishlist_label') }}">
                                                 <i class="icon-heart"></i><span>{{ trans('frontend.add_to_wishlist_label') }}</span>

@@ -67,7 +67,7 @@ class FrontendManagerController extends Controller
     
     return view('pages.frontend.frontend-pages.home', $data);
 
-    // return Response::json($data['advancedData']);
+    // return Response::json($data['advancedData']['todays_deal']);
   }
 
   public function aboutUs(){

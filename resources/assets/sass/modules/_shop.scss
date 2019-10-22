@@ -13,8 +13,7 @@
   border-radius: $border-radius-base;
   background-color: $white-color;
   .product-card-body {
-    padding: 18px;
-    padding-top: 15px;
+    padding: 10px;
     text-align: center;
   }
   .product-thumb {
@@ -93,8 +92,8 @@
   }
   .product-price {
     display: inline-block;
-    margin-bottom: 10px;
-    padding: 9px 15px;
+    margin-bottom: 5px;
+    padding: 5px 10px;
     border-radius: $border-radius-sm;
     background-color: $product-price-bg-color;
     color: $product-price-color;
@@ -116,7 +115,7 @@
     .product-button {
       display: table-cell;
       position: relative;
-      height: 62px;
+      height: 42px;
       padding: 10px;
       transition: background-color .3s;
       border: 0;
@@ -177,6 +176,12 @@
         border-radius: 50%;
         background-color: $brand-success;
         content: '';
+      }
+      &.btn-store{
+        color: purple;
+      }
+      &.btn-compare{
+        color:green;
       }
     }
   }

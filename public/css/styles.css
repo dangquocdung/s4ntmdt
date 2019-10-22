@@ -7331,8 +7331,7 @@ video {
 }
 
 .product-card .product-card-body {
-  padding: 18px;
-  padding-top: 15px;
+  padding: 10px;
   text-align: center;
 }
 
@@ -7404,10 +7403,10 @@ video {
 
 .product-card .product-price {
   display: inline-block;
-  margin-bottom: 10px;
-  padding: 9px 15px;
+  margin-bottom: 5px;
+  padding: 5px 10px;
   border-radius: 4px;
-  background-color: #fff6e3;
+  background-color: yellow;
   color: #232323;
   font-size: 16px;
   font-weight: normal;
@@ -7429,7 +7428,7 @@ video {
 .product-card .product-button-group .product-button {
   display: table-cell;
   position: relative;
-  height: 62px;
+  height: 42px;
   padding: 10px;
   transition: background-color 0.3s;
   border: 0;
@@ -7502,6 +7501,14 @@ video {
   border-radius: 50%;
   background-color: #4caf50;
   content: "";
+}
+
+.product-card .product-button-group .product-button.btn-store {
+  color: purple;
+}
+
+.product-card .product-button-group .product-button.btn-compare {
+  color: green;
 }
 
 .product-card .product-badge {
