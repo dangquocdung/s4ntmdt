@@ -3931,19 +3931,19 @@ a.card {
 }
 
 .tooltip.bs-tooltip-top .arrow::before {
-  border-top-color: #191919;
+  border-top-color: #fff6e3;
 }
 
 .tooltip.bs-tooltip-right .arrow::before {
-  border-right-color: #191919;
+  border-right-color: #fff6e3;
 }
 
 .tooltip.bs-tooltip-bottom .arrow::before {
-  border-bottom-color: #191919;
+  border-bottom-color: #fff6e3;
 }
 
 .tooltip.bs-tooltip-left .arrow::before {
-  border-left-color: #191919;
+  border-left-color: #fff6e3;
 }
 
 .tooltip.show {
@@ -3952,7 +3952,7 @@ a.card {
 
 .tooltip-inner {
   border-radius: 3px;
-  background-color: #191919;
+  background-color: #fff6e3;
   color: #ffffff;
   font-size: 12px;
 }
