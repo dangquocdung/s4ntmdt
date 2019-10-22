@@ -10,7 +10,7 @@
         </section> -->
         <!-- Widget Categories-->
         @if (count($categoriesTree) > 0)
-
+    
         <section class="widget widget-categories">
           <h3 class="widget-title">{{ trans('frontend.category_label') }}</h3>
           <ul>
