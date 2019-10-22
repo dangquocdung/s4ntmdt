@@ -261,7 +261,7 @@
 </div>
 <!-- Product Details-->
 
-<div class="container">
+<div class="container padding-bottom-3x">
 
   <div id="product_description_bottom_tab" class="product-description-bottom-tab">
     <div class="row">
