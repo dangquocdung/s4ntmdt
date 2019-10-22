@@ -86,9 +86,6 @@
                                         </div>
                                         <div class="product-button-group">
 
-                                          <a class="product-button btn-store" href="{{ route('store-details-page-content', get_user_name_by_user_id($latest_product->author_id)) }}" target="_blank" title="{{ get_user_name_by_user_id($latest_product->author_id) }}">
-                                            <i class="icon-home"></i><span>{{ trans('frontend.gian-hang') }}</span>
-                                          </a>
                                 
                                           <a class="product-button btn-wishlist product-wishlist" data-id="{{ $latest_product->id }}" data-toggle="tooltip" title="{{ trans('frontend.add_to_wishlist_label') }}" data-original-title="{{ trans('frontend.add_to_wishlist_label') }}">
                                             <i class="icon-heart"></i><span>{{ trans('frontend.add_to_wishlist_label') }}</span>
