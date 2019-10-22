@@ -3953,7 +3953,7 @@ a.card {
 .tooltip-inner {
   border-radius: 3px;
   background-color: #fff6e3;
-  color: #ffffff;
+  color: #191919;
   font-size: 12px;
 }
 
@@ -7460,6 +7460,7 @@ video {
   position: relative;
   margin-top: 5px;
   font-size: 18px;
+  padding: 8px 0;
 }
 
 .product-card .product-button-group .product-button > span {

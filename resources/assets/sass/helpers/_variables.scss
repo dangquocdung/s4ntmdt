@@ -256,7 +256,8 @@ $pagination-link-active-bg:    $brand-primary;
 $tooltip-opacity:    		1;
 $tooltip-bg: #fff6e3;
 // $tooltip-bg: 				 		darken($gray-darker, 4%);
-$tooltip-color:         $white-color;
+$tooltip-color:         darken($gray-darker, 4%);
+// $tooltip-color:         $white-color;
 $tooltip-arrow-color: 	$tooltip-bg;
 
 //== Carousel
