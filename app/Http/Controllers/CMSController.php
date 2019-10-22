@@ -1073,7 +1073,7 @@ class CMSController extends Controller
                         ->where('key_name', '_count_visit')
                         ->groupBy('post_id')
                         ->orderBy('max_number', 'desc')
-                        ->limit(3)
+                        ->limit(6)
                         ->get()
                         ->toArray();
     
