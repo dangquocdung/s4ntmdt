@@ -86,10 +86,10 @@
 
             <div class="entry-thumb">
               <a href="{{ route('blog-single-page', $row['post_slug']) }}">
-                @if(!empty($row['featured_image']))
-                  <img src="{{ get_image_url($row['featured_image']) }}" alt="{{ basename($row['featured_image']) }}">
+                @if(!empty($row['blog_image']))
+                  <img src="{{ get_image_url($row['blog_image']) }}" alt="{{ $row['post_title'] }}">
                 @else
-                  <img src="{{ default_placeholder_img_src() }}" alt="Blog Post">
+                  <img src="{{ default_placeholder_img_src() }}" alt="{!! $row['post_title'] !!}">
                 @endif              
               </a>
             </div>
