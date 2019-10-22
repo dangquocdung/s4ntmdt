@@ -77,39 +77,76 @@
       </div>
 
       <!-- Relevant Posts-->
-      <h3 class="padding-top-3x padding-bottom-1x">{{ trans('frontend.latest_news') }}</h3>
-      <div class="owl-carousel" data-owl-carousel="{ &quot;nav&quot;: false, &quot;dots&quot;: true, &quot;loop&quot;: false, &quot;autoHeight&quot;: true, &quot;margin&quot;: 30, &quot;responsive&quot;: {&quot;0&quot;:{&quot;items&quot;:1},&quot;630&quot;:{&quot;items&quot;:2},&quot;991&quot;:{&quot;items&quot;:3},&quot;1200&quot;:{&quot;items&quot;:3}} }">
-        @foreach($blogs_data as $row) 
+      @if(count($advanced_data['latest_items']) > 0)  
+        <h3 class="padding-top-3x padding-bottom-1x">{{ trans('frontend.latest_from_the_blog') }}</h3>
 
-        <div class="widget widget-featured-posts">
-          <div class="entry">
+        <div class="owl-carousel" data-owl-carousel="{ 'nav': false, 'dots': true, 'loop': false, 'autoHeight': true, 'margin': 30, 'responsive': {'0':{'items':1},'630':{'items':2},'991':{'items':3},'1200':{'items':3}} }">
 
-            <div class="entry-thumb">
-              <a href="{{ route('blog-single-page', $row['post_slug']) }}">
-                @if(!empty($row['blog_image']))
-                  <img src="{{ get_image_url($row['blog_image']) }}" alt="{{ $row['post_title'] }}">
-                @else
-                  <img src="{{ default_placeholder_img_src() }}" alt="{!! $row['post_title'] !!}">
-                @endif              
-              </a>
+        @foreach($advanced_data['latest_items'] as $row)
+
+          <div class="widget widget-featured-posts">
+            <div class="entry">
+
+              <div class="entry-thumb">
+                <a href="{{ route('blog-single-page', $items['post_slug'])}}">
+                    @if(!empty($items['blog_image']))  
+                      <img class="img-responsive" src="{{ get_image_url($items['blog_image']) }}"  alt="{{ basename($items['blog_image']) }}">          
+                    @else
+                      <img class="img-responsive" src="{{ default_placeholder_img_src() }}"  alt="">         
+                    @endif
+                  </a>
+              </div>
+                    
+              <div class="entry-content">
+                <h4 class="entry-title">
+                  <a href="{{ route('blog-single-page', $row['post_slug']) }}">{!! $row['post_title'] !!}</a>
+                </h4>
+                <!-- <span class="entry-meta">by Oliasvia Reyes</span> -->
+              </div>
+
             </div>
-                  
-            <div class="entry-content">
-              <h4 class="entry-title">
-                <a href="{{ route('blog-single-page', $row['post_slug']) }}">{!! $row['post_title'] !!}</a>
-              </h4>
-              <!-- <span class="entry-meta">by Oliasvia Reyes</span> -->
-            </div>
-
           </div>
+          @endforeach
+
         </div>
+      @endif
 
-        @endforeach
+      <!-- Relevant Posts-->
+      @if(count($advanced_data['best_items']) > 0)  
+        <h3 class="padding-top-3x padding-bottom-1x">{{ trans('frontend.lbest_from_the_blog_title') }}</h3>
+
+        <div class="owl-carousel" data-owl-carousel="{ 'nav': false, 'dots': true, 'loop': false, 'autoHeight': true, 'margin': 30, 'responsive': {'0':{'items':1},'630':{'items':2},'991':{'items':3},'1200':{'items':3}} }">
+
+        @foreach($advanced_data['best_items'] as $row)
+
+          <div class="widget widget-featured-posts">
+            <div class="entry">
+
+              <div class="entry-thumb">
+                <a href="{{ route('blog-single-page', $items['post_slug'])}}">
+                    @if(!empty($items['blog_image']))  
+                      <img class="img-responsive" src="{{ get_image_url($items['blog_image']) }}"  alt="{{ basename($items['blog_image']) }}">          
+                    @else
+                      <img class="img-responsive" src="{{ default_placeholder_img_src() }}"  alt="">         
+                    @endif
+                  </a>
+              </div>
+                    
+              <div class="entry-content">
+                <h4 class="entry-title">
+                  <a href="{{ route('blog-single-page', $row['post_slug']) }}">{!! $row['post_title'] !!}</a>
+                </h4>
+                <!-- <span class="entry-meta">by Oliasvia Reyes</span> -->
+              </div>
+
+            </div>
+          </div>
+          @endforeach
+
+        </div>
+      @endif
 
 
-      </div>
-
-    
       <!-- Comments-->
       @if(count($comments_details) > 0)
         <section class="padding-top-3x" data-offset-top="60" id="comments">
