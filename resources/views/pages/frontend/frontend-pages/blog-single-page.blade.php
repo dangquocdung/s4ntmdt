@@ -85,19 +85,25 @@
           <div class="entry">
 
             <div class="entry-thumb">
-              <a href="blog-single-rs.html"><img src="img/blog/widget/01.jpg" alt="Post"></a>
+              <a href="{{ route('blog-single-page', $row['post_slug']) }}">
+                @if(!empty($row['featured_image']))
+                  <img src="{{ get_image_url($row['featured_image']) }}" alt="{{ basename($row['featured_image']) }}">
+                @else
+                  <img src="{{ default_placeholder_img_src() }}" alt="Blog Post">
+                @endif              
+              </a>
             </div>
                   
             <div class="entry-content">
               <h4 class="entry-title">
-                <a href="blog-single-rs.html">Factors Behind Wearable Gadgets Popularity</a>
+                <a href="{{ route('blog-single-page', $row['post_slug']) }}">{!! $row['post_title'] !!}</a>
               </h4>
-              <span class="entry-meta">by Olivia Reyes</span>
+              <!-- <span class="entry-meta">by Oliasvia Reyes</span> -->
             </div>
 
           </div>
         </div>
-        
+
         @endforeach
 
 
