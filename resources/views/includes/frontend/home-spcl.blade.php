@@ -1,6 +1,6 @@
 @section('product_area')
 <section class="htc__product__area">
-    <div class="container padding-bottom-3x">
+    <div class="container padding-bottom-2x">
         <div class="row">
             {{-- <div class="col-md-3">
                 <div class="product-categories-all">
@@ -180,7 +180,7 @@
 </section>
 
 <section class="htc__product__area">
-        <div class="container padding-bottom-3x">
+        <div class="container padding-bottom-2x">
             <div class="row">
                 <div class="col-md-12">
                     <div class="product-style-tab">
