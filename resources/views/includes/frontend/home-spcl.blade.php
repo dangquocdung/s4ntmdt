@@ -86,7 +86,7 @@
                                         </div>
                                         <div class="product-button-group">
 
-                                          <a class="product-button btn-store" href="{{ route('store-details-page-content', get_user_name_by_user_id($latest_product->author_id)) }}" target="_blank" data-toggle="tooltip" title="{{ get_user_name_by_user_id($latest_product->author_id) }}">
+                                          <a class="product-button btn-store" href="{{ route('store-details-page-content', get_user_name_by_user_id($latest_product->author_id)) }}" target="_blank" title="{{ get_user_name_by_user_id($latest_product->author_id) }}">
                                             <i class="icon-home"></i><span>{{ trans('frontend.gian-hang') }}</span>
                                           </a>
                                 
