@@ -12,7 +12,7 @@
 <div class="page-title">
   <div class="container">
     <div class="column">
-      <h1>{!! trans('frontend.tin-tuc') !!}</h1>
+      <h1>{!! trans('frontend.truyen-thong') !!}</h1>
     </div>
     <div class="column">
       <ul class="breadcrumbs">
@@ -21,7 +21,7 @@
         </li>
         <li class="separator">&nbsp;</li>
         <li>
-          <a href="{{ route('blogs-page-content') }}">{{ trans('frontend.tin-tuc') }}</a>
+          <a href="{{ route('blogs-page-content') }}">{{ trans('frontend.truyen-thong') }}</a>
         </li>
       </ul>
     </div>

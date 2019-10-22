@@ -2,7 +2,7 @@
 <div class="page-title">
     <div class="container">
     <div class="column">
-      <h1>{!! trans('frontend.tin-tuc') !!}</h1>
+      <h1>{!! trans('frontend.truyen-thong') !!}</h1>
     </div>
     <div class="column">
       <ul class="breadcrumbs">
@@ -10,7 +10,7 @@
           <a href="{{ route('home-page') }}">{{ trans('frontend.home') }}</a>
         </li>
         <li class="separator">&nbsp;</li>
-        <li>{!! trans('frontend.tin-tuc') !!}</li>
+        <li>{!! trans('frontend.truyen-thong') !!}</li>
       </ul>
     </div>
   </div>
