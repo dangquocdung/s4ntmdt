@@ -73,7 +73,6 @@
                                           </h4>
                                         </div>
                                         <div class="product-button-group">
-                                
                                           <a class="product-button btn-wishlist product-wishlist" data-id="{{ $latest_product->id }}" data-toggle="tooltip" title="{{ trans('frontend.add_to_wishlist_label') }}" data-original-title="{{ trans('frontend.add_to_wishlist_label') }}">
                                             <i class="icon-heart"></i><span>{{ trans('frontend.add_to_wishlist_label') }}</span>
                                           </a>
@@ -226,7 +225,7 @@
                                           </h4>
                                         </div>
                                         <div class="product-button-group">
-                                
+
                                           <a class="product-button btn-wishlist product-wishlist" data-id="{{ $recommended_product->id }}" data-toggle="tooltip" title="{{ trans('frontend.add_to_wishlist_label') }}" data-original-title="{{ trans('frontend.add_to_wishlist_label') }}">
                                             <i class="icon-heart"></i><span>{{ trans('frontend.add_to_wishlist_label') }}</span>
                                           </a>
@@ -292,7 +291,7 @@
                                           </h4>
                                         </div>
                                         <div class="product-button-group">
-                                
+
                                           <a class="product-button btn-wishlist product-wishlist" data-id="{{ $features_product->id }}" data-toggle="tooltip" title="{{ trans('frontend.add_to_wishlist_label') }}" data-original-title="{{ trans('frontend.add_to_wishlist_label') }}">
                                             <i class="icon-heart"></i><span>{{ trans('frontend.add_to_wishlist_label') }}</span>
                                           </a>
@@ -316,5 +315,4 @@
         </div>
 </section>
     
-
 @stop

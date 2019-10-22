@@ -75,15 +75,18 @@
 
                 <div class="product-button-group">
 
-                <a class="product-button btn-wishlist product-wishlist" data-id="{{ $products['id'] }}" data-toggle="tooltip" title="{{ trans('frontend.add_to_wishlist_label') }}" data-original-title="{{ trans('frontend.add_to_wishlist_label') }}">
-                    <i class="icon-heart"></i><span>{{ trans('frontend.add_to_wishlist_label') }}</span>
-                </a>
-                <a class="product-button btn-compare product-compare" data-id="{{ $products['id'] }}" data-toggle="tooltip" title="" data-original-title="{{ trans('frontend.add_to_compare_list_label') }}">
-                    <i class="icon-repeat"></i><span>{{ trans('frontend.add_to_compare_list_label') }}</span>
-                </a>
-                <a class="product-button add-to-cart-bg" data-toast data-toast-type="success" data-toast-position="topRight" data-toast-icon="icon-check-circle" data-toast-title="Product" data-toast-message="successfuly added to cart!" data-id="{{ $products['id'] }}" data-toggle="tooltip" data-placement="top" title="" data-original-title="{{ trans('frontend.add_to_cart_label') }}"><i class="icon-shopping-cart"></i>
-                    <span>{{ trans('frontend.add_to_cart_label') }}</span>
-                </a>             
+                    <a class="product-button btn-store" href="{{ route('store-details-page-content', get_user_name_by_user_id($products['author_id'])) }}" target="_blank" data-toggle="tooltip" title="{{ get_user_name_by_user_id($products['author_id']) }}" data-original-title="{{ trans('frontend.gian-hang') }}">
+                        <i class="icon-home"></i><span>{{ trans('frontend.gian-hang') }}</span>
+                    </a>
+                    <a class="product-button btn-wishlist product-wishlist" data-id="{{ $products['id'] }}" data-toggle="tooltip" title="{{ trans('frontend.add_to_wishlist_label') }}" data-original-title="{{ trans('frontend.add_to_wishlist_label') }}">
+                        <i class="icon-heart"></i><span>{{ trans('frontend.add_to_wishlist_label') }}</span>
+                    </a>
+                    <a class="product-button btn-compare product-compare" data-id="{{ $products['id'] }}" data-toggle="tooltip" title="" data-original-title="{{ trans('frontend.add_to_compare_list_label') }}">
+                        <i class="icon-repeat"></i><span>{{ trans('frontend.add_to_compare_list_label') }}</span>
+                    </a>
+                    <a class="product-button add-to-cart-bg" data-toast data-toast-type="success" data-toast-position="topRight" data-toast-icon="icon-check-circle" data-toast-title="Product" data-toast-message="successfuly added to cart!" data-id="{{ $products['id'] }}" data-toggle="tooltip" data-placement="top" title="" data-original-title="{{ trans('frontend.add_to_cart_label') }}"><i class="icon-shopping-cart"></i>
+                        <span>{{ trans('frontend.add_to_cart_label') }}</span>
+                    </a>             
                 
                 </div>
             </div>

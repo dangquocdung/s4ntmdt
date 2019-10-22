@@ -127,5 +127,4 @@
   <p class="not-available">{!! trans('frontend.product_not_available') !!}</p>
 @endif
 
-
 @endsection

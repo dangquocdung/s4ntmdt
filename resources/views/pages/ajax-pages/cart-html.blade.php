@@ -16,7 +16,7 @@
       </div>
     </div>
     <!-- Page Content-->
-    <div class="container padding-bottom-3x mb-1" id="cart_page">
+    <div class="container padding-bottom-3x mb-30" id="cart_page">
 
       @if( Cart::count() >0 )
 
@@ -163,8 +163,12 @@
         
       @endif
 
-      <!-- Seen Products Carousel-->
+    </div>
 
+    <div class="container mt-30 padding-bottom-3x">
+      <!-- Seen Products Carousel-->
       @include('includes.frontend.seen-products')
       @yield('seen-products')
     </div>
+
+
