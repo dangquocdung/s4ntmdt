@@ -155,7 +155,7 @@ $('.product-reviews-content .rating-select .btn').click(function () {
     }
   }
 });
-$('.product-share-content ul li a, .vendor-share-list ul li a').on('click', function (e) {
+$('#share-content>a').on('click', function (e) {
   e.preventDefault();
   var share_url = null;
   var window_url = null;

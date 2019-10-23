@@ -56,12 +56,12 @@
         <div class="d-flex flex-wrap justify-content-between align-items-center">
           <div class="pb-2">
           </div>
-          <div class="pb-2">
+          <div class="pb-2" id="share-content">
             <span class="d-inline-block align-middle text-sm text-muted">{{ trans('frontend.share') }}:&nbsp;&nbsp;&nbsp;</span>
-            <a class="social-button shape-rounded sb-facebook" href="#" data-toggle="tooltip" data-placement="top" title="Facebook"><i class="socicon-facebook"></i></a>
-            <a class="social-button shape-rounded sb-twitter" href="#" data-toggle="tooltip" data-placement="top" title="Twitter"><i class="socicon-twitter"></i></a>
-            <a class="social-button shape-rounded sb-instagram" href="#" data-toggle="tooltip" data-placement="top" title="Instagram"><i class="socicon-instagram"></i></a>
-            <a class="social-button shape-rounded sb-google-plus" href="#" data-toggle="tooltip" data-placement="top" title="Google +"><i class="socicon-googleplus"></i></a>
+            <a class="social-button shape-rounded sb-facebook" href="//" data-toggle="tooltip" data-placement="top" title="Facebook" data-name="fb"><i class="socicon-facebook"></i></a>
+            <a class="social-button shape-rounded sb-twitter" href="//" data-toggle="tooltip" data-placement="top" title="Twitter" data-name="tweet"><i class="socicon-twitter"></i></a>
+            <a class="social-button shape-rounded sb-instagram" href="//" data-toggle="tooltip" data-placement="top" title="Instagram" data-name="insta"><i class="socicon-instagram"></i></a>
+            <a class="social-button shape-rounded sb-google-plus" href="//" data-toggle="tooltip" data-placement="top" title="Google +" data-name="gplus"><i class="socicon-googleplus"></i></a>
           </div>
         </div>
 
