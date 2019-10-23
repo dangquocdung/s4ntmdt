@@ -111,7 +111,7 @@
                         <div class="tab-pane fade" id="todays_sale" role="tabpanel">
                             <div class="row">
                                 @foreach($advancedData['todays_deal'] as $key => $todays_sales_product)
-                                    <div class="col-lg-3 col-md-4 col-sm-6">
+                                    <div class="col-lg-2 col-md-3 col-6">
                                         <div class="product-card mb-30">
                                         @if ($todays_sales_product['post_price'] <$todays_sales_product['post_regular_price'] )
                                             @php
@@ -208,7 +208,7 @@
                             <div class="tab-pane fade show active" id="recommended_products" role="tabpanel">
                                 <div class="row">
                                         @foreach($advancedData['recommended_items'] as $key => $recommended_product)
-                                        <div class="col-lg-3 col-md-4 col-sm-6">
+                                        <div class="col-lg-2 col-md-3 col-6">
                                           <div class="product-card mb-30">
                                             @if ( $recommended_product->price < $recommended_product->regular_price )
                                                 @php
@@ -273,7 +273,7 @@
                             <div class="tab-pane fade" id="features_products" role="tabpanel">
                                 <div class="row">
                                     @foreach($advancedData['features_items'] as $key => $features_product)
-                                        <div class="col-lg-3 col-md-4 col-sm-6">
+                                        <div class="col-lg-2 col-md-3 col-6">
                                           <div class="product-card mb-30">
                                     
                                             @if ( $features_product->price < $features_product->regular_price )

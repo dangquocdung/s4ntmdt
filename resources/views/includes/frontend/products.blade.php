@@ -1,7 +1,7 @@
 @if($all_products_details['products']->count() > 0)
   @if($all_products_details['selected_view'] == 'grid')
 
-    <div class="isotope-grid cols-3 mb-2">
+    <div class="isotope-grid cols-4 mb-2">
       <div class="gutter-sizer"></div>
       <div class="grid-sizer"></div>
       @foreach($all_products_details['products'] as $products)

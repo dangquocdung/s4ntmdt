@@ -28,7 +28,7 @@
                         <div class="tab-pane fade show active" id="latest_products" role="tabpanel">
                             <div class="row">
                                 @foreach($vendor_advanced_items['latest_items'] as $key => $latest_product)
-                                    <div class="col-md-4 col-sm-6">
+                                    <div class="col-md-3 col-6">
                                       <div class="product-card mb-30">
                                 
                                         @if ( $latest_product->price < $latest_product->regular_price )
@@ -93,7 +93,7 @@
                         <div class="tab-pane fade" id="todays_sale" role="tabpanel">
                             <div class="row">
                                 @foreach($vendor_advanced_items['best_sales'] as $key => $todays_sales_product)
-                                    <div class="col-md-4 col-sm-6">
+                                    <div class="col-md-3 col-6">
                                         <div class="product-card mb-30">
                                         @if ($todays_sales_product['post_price'] <$todays_sales_product['post_regular_price'] )
                                             @php
@@ -186,7 +186,7 @@
                         <div class="tab-pane fade show active" id="recommended_products" role="tabpanel">
                             <div class="row">
                                     @foreach($vendor_advanced_items['recommended_items'] as $key => $recommended_product)
-                                    <div class="col-md-4 col-sm-6">
+                                    <div class="col-md-3 col-6">
                                       <div class="product-card mb-30">
                                         @if ( $recommended_product->price < $recommended_product->regular_price )
                                             @php
@@ -246,7 +246,7 @@
                         <div class="tab-pane fade" id="features_products" role="tabpanel">
                             <div class="row">
                                 @foreach($vendor_advanced_items['features_items'] as $key => $features_product)
-                                    <div class="col-md-4 col-sm-6">
+                                    <div class="col-md-3 col-6">
                                       <div class="product-card mb-30">
                                 
                                         @if ( $features_product->price < $features_product->regular_price )

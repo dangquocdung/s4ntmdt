@@ -209,7 +209,7 @@ return [
   'currency' =>'Tiền tệ',
   'home' =>'Trang chủ',
   'products_label' =>'Sản phẩm',
-  'all_products_label' =>'Tất cả sản phẩm',
+  'all_products_label' =>'Sản phẩm',
   'checkout' =>'Thanh toán',
   'cart' =>'Giỏ hàng',
   'tin tức' =>'Tin tức',
