@@ -134,40 +134,165 @@
           <h3 class="widget-title">{{ trans('frontend.price_range_label') }}</h3>
           <form action="{{ $all_products_details['action_url'] }}" method="get" class="price-range-slider" data-start-min="{{ $all_products_details['min_price'] }}" data-start-max="{{ $all_products_details['max_price'] }}" data-min="{{ get_appearance_settings()['general']['filter_price_min'] }}" data-max="{{ get_appearance_settings()['general']['filter_price_max'] }}" data-step="1000">
             <div class="ui-range-slider"></div>
-              <footer class="ui-range-slider-footer">
-                <div class="column">
-                  <button class="btn btn-outline-primary btn-sm" type="submit">{{ trans('frontend.filter_label') }}</button>
-                </div>
-                <div class="column">
-                  <div class="ui-range-values">
-                    <div class="ui-range-value-min"><span></span>đ
-                      <input name="price_min" id="price_min" value="{{ $all_products_details['min_price'] }}" type="hidden">
-                    </div>&nbsp;-&nbsp;
-                    <div class="ui-range-value-max"><span></span>đ
-                      <input name="price_max" id="price_max" value="{{ $all_products_details['max_price'] }}" type="hidden">
-                    </div>
+            <footer class="ui-range-slider-footer">
+              <div class="column">
+                <button class="btn btn-outline-primary btn-sm" type="submit">{{ trans('frontend.filter_label') }}</button>
+              </div>
+              <div class="column">
+                <div class="ui-range-values">
+                  <div class="ui-range-value-min"><span></span>đ
+                    <input name="price_min" id="price_min" value="{{ $all_products_details['min_price'] }}" type="hidden">
+                  </div>&nbsp;-&nbsp;
+                  <div class="ui-range-value-max"><span></span>đ
+                    <input name="price_max" id="price_max" value="{{ $all_products_details['max_price'] }}" type="hidden">
                   </div>
                 </div>
-              </footer>
+              </div>
+            </footer>
+
+            @if(count($colors_list_data) > 0)
+              <div class="colors-filter">
+                <h2>{{ trans('frontend.choose_color_label') }} <span class="responsive-accordian"></span></h2>
+                <div class="colors-filter-option">
+                  @foreach($colors_list_data as $terms)
+                  <div class="colors-filter-elements">
+                    <div class="chk-filter">
+                      @if(count($all_products_details['selected_colors']) > 0 && in_array($terms['slug'], $all_products_details['selected_colors']))  
+                      <input type="checkbox" checked class="shopist-iCheck chk-colors-filter" value="{{ $terms['slug'] }}">
+                      @else
+                      <input type="checkbox" class="shopist-iCheck chk-colors-filter" value="{{ $terms['slug'] }}">
+                      @endif
+                    </div>
+                    <div class="filter-terms">
+                      <div class="filter-terms-appearance"><span style="background-color:#{{ $terms['color_code'] }};width:21px;height:20px;display:block;"></span></div>
+                      <div class="filter-terms-name">&nbsp; {!! $terms['name'] !!}</div>
+                    </div>
+                  </div>
+                  @endforeach
+                </div>
+                @if($all_products_details['selected_colors_hf'])
+                <input name="selected_colors" id="selected_colors" value="{{ $all_products_details['selected_colors_hf'] }}" type="hidden">
+                @endif
+              </div>
+            @endif
+
+            @if(count($sizes_list_data) > 0)
+              <div class="size-filter">
+                <h2>{{ trans('frontend.choose_size_label') }} <span class="responsive-accordian"></span></h2>
+                <div class="size-filter-option">
+                  @foreach($sizes_list_data as $terms)
+                  <div class="size-filter-elements">
+                    <div class="chk-filter">
+                      @if(count($all_products_details['selected_sizes']) > 0 && in_array($terms['slug'], $all_products_details['selected_sizes']))  
+                      <input type="checkbox" checked class="shopist-iCheck chk-size-filter" value="{{ $terms['slug'] }}">
+                      @else
+                      <input type="checkbox" class="shopist-iCheck chk-size-filter" value="{{ $terms['slug'] }}">
+                      @endif
+                    </div>
+                    <div class="filter-terms">
+                      <div class="filter-terms-name">{!! $terms['name'] !!}</div>
+                    </div>
+                  </div>
+                  @endforeach
+                </div> 
+                @if($all_products_details['selected_sizes_hf'])
+                <input name="selected_sizes" id="selected_sizes" value="{{ $all_products_details['selected_sizes_hf'] }}" type="hidden">
+                @endif
+              </div>
+            @endif
+
           </form>
         </section>
         
-        <!-- Widget Brand Filter-->
-        @if(count($brands_data) > 0)  
-        <section class="widget">
-          <h3 class="widget-title">{{ trans('frontend.brands') }}</h3>
-
-          @foreach($brands_data as $brand)  
-
-          <div class="custom-control custom-checkbox">
-            <input class="custom-control-input" type="checkbox" id="{{ $brand['term_id'] }}">
-            <label class="custom-control-label" for="apple">{{ $brand['name'] }}</label>
+        @if(count($popular_tags_list) > 0)
+        <div class="tags-product-list">
+          <h2>{{ trans('frontend.popular_tags_label') }} <span class="responsive-accordian"></span></h2>
+          <div class="tag-list">
+            <ul>
+              @foreach($popular_tags_list as $tags)
+                <li><a href="{{ route('tag-single-page', $tags['slug']) }}"><i class="fa fa-angle-right"></i> {{ ucfirst($tags['name']) }}</a></li>
+              @endforeach
+            </ul>
           </div>
-
-          @endforeach
-
-        </section>
+        </div>
         @endif
+
+        <!-- Widget Brand Filter-->
+        @if(count($brands_data) > 0)
+          <section class="widget">
+            <h3 class="widget-title">{{ trans('frontend.brands') }}</h3>
+
+            <div class="owl-carousel" data-owl-carousel='{ "autoplay": true, "loop": true, "dots":false }'>
+              @foreach($brands_data as $brand_name)
+
+              <a href="{{ route('brands-single-page', $brand_name['slug']) }}">
+
+                @if(!empty($brand_name['brand_logo_img_url']))
+                <img src="{{ get_image_url($brand_name['brand_logo_img_url']) }}" class="img-fluid" width="100%">
+                @else
+                <img src="{{ default_placeholder_img_src() }}" class="img-fluid">
+                @endif
+              </a>
+
+              @endforeach
+
+            </div>
+          </section>
+
+        @endif
+
+        @if(count($advancedData['best_sales']) > 0)
+
+          <section class="widget widget-featured-posts">
+            <h3 class="widget-title">{{ trans('frontend.brands') }}</h3>
+
+              @foreach($advancedData['best_sales'] as $key => $row)
+
+              <div class="entry">
+                <div class="entry-thumb" style="width:80px">
+
+                  <a href="{{ route('details-page', $row['post_slug'])}}">
+                    @if(!empty($row['post_image_url']))
+                    <img class="d-block w-100" src="{{ get_image_url( $row['post_image_url'] ) }}" alt="{{ basename( get_image_url( $row['post_image_url'] ) ) }}" />
+                    @else
+                    <img class="d-block w-100" src="{{ default_placeholder_img_src() }}" alt="" />
+                    @endif
+                  </a>
+                </div>
+                <div class="entry-content">
+                  <h4 class="entry-title mb-1">
+                    <a href="{{ route('details-page', $row['post_slug'])}}">{!! $row['post_title'] !!}</a>
+                  </h4>
+                  @if($row['post_type'] == 'simple_product')
+                    <p><strong>{!! price_html( get_product_price_html_by_filter(get_role_based_price_by_product_id($row['id'], $row['post_price'])), get_frontend_selected_currency())  !!}</strong></p>
+                  @elseif($row['post_type'] == 'configurable_product')
+                    <p><strong>{!! get_product_variations_min_to_max_price_html(get_frontend_selected_currency(), $row['id']) !!}</strong></p>
+                  @elseif($row['post_type'] == 'customizable_product' || $row['post_type'] == 'downloadable_product')
+                    @if(count(get_product_variations($row['id']))>0)
+                      <p><strong>{!! get_product_variations_min_to_max_price_html(get_frontend_selected_currency(), $row['id']) !!}</strong></p>
+                    @else
+                      <p><strong>{!! price_html( get_product_price_html_by_filter(get_role_based_price_by_product_id($row['id'], $row['post_price'])), get_frontend_selected_currency()) !!}</strong></p>
+                    @endif
+                  @endif
+
+                </div>
+              </div>
+
+              @endforeach
+
+          </section>
+        @else
+          <p class="not-available">{!! trans('frontend.best_sales_products_empty_label') !!}</p>
+        @endif
+
+        <section class="widget">
+          <h3 class="widget-title">{{ trans('frontend.advertisement_label') }}</h3>
+
+          <div class="advertisement-content text-center">
+            <img class="d-block w-100" src="{{ asset('/images/add-sample/shipping.jpg') }}" alt="">
+          </div>
+        </section>
+
       </aside>
     </div>
   </div>

@@ -83,7 +83,7 @@ Route::get('/checkout/status', array(
   'uses' => 'CheckoutController@getPaymentStatus',
 ));
 
-Route::get( '/brand/{brands_name}', [
+Route::get( '/thuong-hieu/{brands_name}', [
   'uses' => 'Frontend\FrontendManagerController@brandSinglePageContent',
   'as'   => 'brands-single-page'
 ]);
