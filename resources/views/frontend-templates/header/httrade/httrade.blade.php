@@ -205,7 +205,10 @@
         <li class="{{ Request::is('thanh-toan')?'active':''}}"><a href="{{ route('checkout-page') }}"><span>{!! trans('frontend.checkout') !!}</span></a></li>
   
         <li class="has-children {{ Request::is('tin-tuc/*')?'active':''}}">
-          <a href="{{ route('blogs-page-content') }}"><span>{!! trans('frontend.blog') !!}</span></a>
+          <span>
+            <a href="{{ route('blogs-page-content') }}"><span>{!! trans('frontend.blog') !!}</span></a>
+            <span class="sub-menu-toggle"></span>
+          </span>
           <ul class="sub-menu">
             <li><a href="{{ asset('chuyen-muc/truyen-thong/san-pham-dac-trung') }}">Sản phẩm đặc trưng</a></li>
             <li><a href="{{ asset('chuyen-muc/truyen-thong/van-ban-qppl') }}">Văn bản QPPL</a></li>
