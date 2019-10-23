@@ -50,7 +50,6 @@
 
         @endif
 
-
       </ul>
 
         <!-- Post Tags + Share-->
@@ -65,9 +64,6 @@
             <a class="social-button shape-rounded sb-google-plus" href="#" data-toggle="tooltip" data-placement="top" title="Google +"><i class="socicon-googleplus"></i></a>
           </div>
         </div>
-
-
-
 
       <p>
         {!! string_decode($blog_details_by_slug['post_content']) !!}
@@ -98,34 +94,46 @@
 
       <!-- Relevant Posts-->
       @if(count($advanced_data['latest_items']) > 0)  
-        <h3 class="padding-top-3x padding-bottom-1x">{{ trans('frontend.latest_from_the_blog') }}</h3>
+        <div class="product-tab-list margin-top-2x">
+            <!-- Nav tabs -->
+            <ul class="nav nav-tabs tab-style" role="tablist">
+                <li class="nav-item">
+                    <a href="#sp_daxem" data-toggle="tab" class="show active">
+                        <div class="tab-menu-text">
+                            <h4>{{ trans('frontend.latest_from_the_blog') }}</h4>
+                        </div>
+                    </a>
+                </li>
+                
+            </ul>
+        </div>
 
-        <div class="owl-carousel" data-owl-carousel='{ "nav": false, "dots": true, "autoplay": true, "loop": true, "autoHeight": true, "margin": 30, "responsive": {"0":{"items":1},"630":{"items":2},"991":{"items":3},"1200":{"items":3}} }'>
+        <div class="owl-carousel padding-top-1x padding-bottom-2x" data-owl-carousel='{ "nav": false, "dots": true, "autoplay": true, "loop": true, "autoHeight": true, "margin": 30, "responsive": {"0":{"items":1},"630":{"items":2},"991":{"items":3},"1200":{"items":3}} }'>
 
-        @foreach($advanced_data['latest_items'] as $row)
+          @foreach($advanced_data['latest_items'] as $row)
 
-          <div class="widget widget-featured-posts">
-            <div class="entry">
+            <div class="widget widget-featured-posts">
+              <div class="entry">
 
-              <div class="entry-thumb">
-                <a href="{{ route('blog-single-page', ['post_slug'])}}">
-                    @if(!empty($row['blog_image']))  
-                      <img class="img-responsive" src="{{ get_image_url($row['blog_image']) }}"  alt="{{ basename($row['blog_image']) }}">          
-                    @else
-                      <img class="img-responsive" src="{{ default_placeholder_img_src() }}"  alt="">         
-                    @endif
-                  </a>
+                <div class="entry-thumb">
+                  <a href="{{ route('blog-single-page', ['post_slug'])}}">
+                      @if(!empty($row['blog_image']))  
+                        <img class="img-responsive" src="{{ get_image_url($row['blog_image']) }}"  alt="{{ basename($row['blog_image']) }}">          
+                      @else
+                        <img class="img-responsive" src="{{ default_placeholder_img_src() }}"  alt="">         
+                      @endif
+                    </a>
+                </div>
+                      
+                <div class="entry-content">
+                  <h4 class="entry-title">
+                    <a href="{{ route('blog-single-page', $row['post_slug']) }}">{!! $row['post_title'] !!}</a>
+                  </h4>
+                  <!-- <span class="entry-meta">by Oliasvia Reyes</span> -->
+                </div>
+
               </div>
-                    
-              <div class="entry-content">
-                <h4 class="entry-title">
-                  <a href="{{ route('blog-single-page', $row['post_slug']) }}">{!! $row['post_title'] !!}</a>
-                </h4>
-                <!-- <span class="entry-meta">by Oliasvia Reyes</span> -->
-              </div>
-
             </div>
-          </div>
           @endforeach
 
         </div>
@@ -133,9 +141,22 @@
 
       <!-- Relevant Posts-->
       @if(count($advanced_data['best_items']) > 0)  
-        <h3 class="padding-top-3x padding-bottom-1x">{{ trans('frontend.best_from_the_blog_title') }}</h3>
 
-        <div class="owl-carousel" data-owl-carousel='{ "nav": false, "dots": true, "loop": false, "autoHeight": true, "margin": 30, "responsive": {"0":{"items":1},"630":{"items":2},"991":{"items":3},"1200":{"items":3}} }'>
+        <div class="product-tab-list">
+              <!-- Nav tabs -->
+              <ul class="nav nav-tabs tab-style" role="tablist">
+                  <li class="nav-item">
+                      <a href="#sp_daxem" data-toggle="tab" class="show active">
+                          <div class="tab-menu-text">
+                              <h4>{{ trans('frontend.best_from_the_blog_title') }}</h4>
+                          </div>
+                      </a>
+                  </li>
+                  
+              </ul>
+          </div>
+
+        <div class="owl-carousel padding-top-1x padding-bottom-2x" data-owl-carousel='{ "nav": false, "dots": true, "loop": false, "autoHeight": true, "margin": 30, "responsive": {"0":{"items":1},"630":{"items":2},"991":{"items":3},"1200":{"items":3}} }'>
 
         @foreach($advanced_data['best_items'] as $row)
 
@@ -165,7 +186,6 @@
 
         </div>
       @endif
-
 
       <!-- Comments-->
       @if(count($comments_details) > 0)
