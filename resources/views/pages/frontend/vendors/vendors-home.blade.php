@@ -1,7 +1,6 @@
 @section('vendors-home-page-content')
 
 <section>
-        <div class="row">
             <div class="col-md-12">
                 <div class="product-style-tab">
                     <div class="product-tab-list">
@@ -155,11 +154,9 @@
                     </div>
                 </div>
             </div>
-        </div>
 </section>
 
 <section>
-        <div class="row">
             <div class="col-md-12">
                 <div class="product-style-tab">
                     <div class="product-tab-list">
@@ -240,7 +237,6 @@
                                       </div>
                                     </div>  
                                   @endforeach
-                                
                             </div>
                         </div>
                         <div class="tab-pane fade" id="features_products" role="tabpanel">
@@ -312,7 +308,6 @@
                     </div>
                 </div>
             </div>
-        </div>
 </section>
     
 @stop
