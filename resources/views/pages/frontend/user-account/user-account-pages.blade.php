@@ -80,7 +80,7 @@
           <a href="{{ route('home-page') }}">{{ trans('frontend.home') }}</a>
         </li>
         <li class="separator">&nbsp;</li>
-        <li>{{ trans('frontend.frontend_user_registration_title') }}</li>
+        <li>{{ trans('frontend.user_account_label') }}</li>
       </ul>
     </div>
   </div>
