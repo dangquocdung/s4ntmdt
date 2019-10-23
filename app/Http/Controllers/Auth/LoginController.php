@@ -81,6 +81,8 @@ class LoginController extends Controller
     );
     
     return view('pages.auth.admin-login')->with('data', $data);
+
+    // return response()->json($data);
   }
   
   /**
@@ -121,6 +123,9 @@ class LoginController extends Controller
     $data['settings_data'] =  global_settings_data();
     
     return view('pages.auth.user-login')->with( $data );
+
+    // return response()->json($data);
+
   }
   
   

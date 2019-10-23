@@ -245,7 +245,7 @@ class CommonFunction
     $data_ary['currency_symbol']              =   $get_settings_option['general_settings']['currency_options']['currency_name'];
     $data_ary['appearance_settings']          =   current_appearance_settings();
     $data_ary['appearance_all_data']          =   get_appearance_settings();
-    $data_ary['dynamic_menu']                 =   $this->frontendMenuHTML( $get_cat_tree );
+    // $data_ary['dynamic_menu']                 =   $this->frontendMenuHTML( $get_cat_tree );
     $data_ary['blogs_data']                   =   $CMS->get_latest_blogs();
     $data_ary['popular_tags_list']            =   $product->getTermData( 'product_tag', false, null, 1 );
     $data_ary['productCategoriesTree']        =   $get_cat_tree;
