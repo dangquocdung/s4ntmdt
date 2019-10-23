@@ -18,7 +18,7 @@
         <!-- Widget Price Range-->
         <section class="widget widget-categories">
           <h3 class="widget-title">{{ trans('frontend.price_range_label') }}</h3>
-          <form action="{{ $product_by_cat_id['action_url'] }}" method="get" class="price-range-slider" data-start-min="{{ $all_products_details['min_price'] }}" data-start-max="{{ $all_products_details['max_price'] }}" data-min="{{ get_appearance_settings()['general']['filter_price_min'] }}" data-max="{{ get_appearance_settings()['general']['filter_price_max'] }}" data-step="1000">
+          <form action="{{ $product_by_cat_id['action_url'] }}" method="get" class="price-range-slider" data-start-min="{{ $product_by_cat_id['min_price'] }}" data-start-max="{{ $product_by_cat_id['max_price'] }}" data-min="{{ get_appearance_settings()['general']['filter_price_min'] }}" data-max="{{ get_appearance_settings()['general']['filter_price_max'] }}" data-step="1000">
             <div class="ui-range-slider"></div>
             <footer class="ui-range-slider-footer">
               <div class="column">
