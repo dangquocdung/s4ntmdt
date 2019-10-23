@@ -9,7 +9,7 @@
     <meta name="keywords" content="{{ $single_product_details['meta_keywords'] }}">
     @elseif( Request::is('/truyen-thong/*') && !empty($blog_details_by_slug['meta_keywords']))
     <meta name="keywords" content="{{ $blog_details_by_slug['meta_keywords'] }}">
-    @elseif((Request::is('/gian-hang/chi-tiet/trang-chu/*') || Request::is('/gian-hang/chi-tiet/san-pham/*') || Request::is('/gian-hang/chi-tiet/danh-gia/*') || Request::is('/gian-hang/chi-tiet/danh-muc/san-pham/*')) && !empty($store_seo_meta_keywords))
+    @elseif((Request::is('/gian-hang/chi-tiet/trang-chu/*') || Request::is('/gian-hang/chi-tiet/san-pham/*') || Request::is('/gian-hang/chi-tiet/danh-gia/*') || Request::is('/ gian-hang/chi-tiet/danh-muc/san-pham/*')) && !empty($store_seo_meta_keywords))
     <meta name="keywords" content="{{ $store_seo_meta_keywords }}">
     @elseif(!empty($seo_data) && $seo_data['meta_tag']['meta_keywords'])
     <meta name="keywords" content="{{ $seo_data['meta_tag']['meta_keywords']}}">
