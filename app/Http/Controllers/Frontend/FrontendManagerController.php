@@ -325,9 +325,9 @@ class FrontendManagerController extends Controller
       $data = $this->classCommonFunction->get_dynamic_frontend_content_data();
       $data['brand_details_by_slug'] = $get_brand_details_by_slug;
       
-      // return view('pages.frontend.frontend-pages.brand-single-page', $data);
+      return view('pages.frontend.frontend-pages.brand-single-page', $data);
 
-      return response()->json($data);
+      // return response()->json($data);
 
 
     }
