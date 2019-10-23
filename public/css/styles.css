@@ -1273,6 +1273,22 @@ figure figcaption {
   padding-bottom: 30px !important;
 }
 
+.mb-10 {
+  margin-bottom: 10px !important;
+}
+
+.mt-10 {
+  margin-top: 10px !important;
+}
+
+.pt-10 {
+  padding-top: 10px !important;
+}
+
+.pb-10 {
+  padding-bottom: 10px !important;
+}
+
 .hidden-xs-up {
   display: none !important;
 }
