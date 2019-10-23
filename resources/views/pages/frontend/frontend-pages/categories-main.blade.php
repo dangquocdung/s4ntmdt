@@ -17,27 +17,29 @@
 
         <!-- Widget Price Range-->
         <section class="widget widget-categories">
-            <h3 class="widget-title">{{ trans('frontend.price_range_label') }}</h3>
-            <form action="{{$product_by_cat_id['action_url'] }}" method="get" class="price-range-slider" data-start-min="1" data-start-max="1000000" data-min="0" data-max="5000000" data-step="1000">
-              <div class="ui-range-slider"></div>
-              <footer class="ui-range-slider-footer">
-                <div class="column">
-                  <button class="btn btn-outline-primary btn-sm" type="submit">{{ trans('frontend.filter_label') }}</button>
+          <h3 class="widget-title">{{ trans('frontend.price_range_label') }}</h3>
+          <form action="{{ $product_by_cat_id['action_url'] }}" method="get" class="price-range-slider" data-start-min="{{ $all_products_details['min_price'] }}" data-start-max="{{ $all_products_details['max_price'] }}" data-min="{{ get_appearance_settings()['general']['filter_price_min'] }}" data-max="{{ get_appearance_settings()['general']['filter_price_max'] }}" data-step="1000">
+            <div class="ui-range-slider"></div>
+            <footer class="ui-range-slider-footer">
+              <div class="column">
+                <button class="btn btn-outline-primary btn-sm" type="submit">{{ trans('frontend.filter_label') }}</button>
 
-                </div>
-                <div class="column">
-                  <div class="ui-range-values">
-                    <div class="ui-range-value-min"><span></span>đ
-                      <input name="price_min" id="price_min" value="{{$product_by_cat_id['min_price'] }}" type="hidden">
-                    </div>&nbsp;-&nbsp;
-                    <div class="ui-range-value-max"><span></span>đ
-                      <input name="price_max" id="price_max" value="{{$product_by_cat_id['max_price'] }}" type="hidden">
-                    </div>
+              </div>
+              <div class="column">
+                <div class="ui-range-values">
+                  <div class="ui-range-value-min"><span></span>đ
+                    <input name="price_min" id="price_min" value="{{$product_by_cat_id['min_price'] }}" type="hidden">
+                  </div>&nbsp;-&nbsp;
+                  <div class="ui-range-value-max"><span></span>đ
+                    <input name="price_max" id="price_max" value="{{$product_by_cat_id['max_price'] }}" type="hidden">
                   </div>
                 </div>
-              </footer>
-            </form>
-          </section>
+              </div>
+            </footer>
+          </form>
+        </section>
+
+
       </div>
 			
       
