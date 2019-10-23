@@ -50,23 +50,43 @@
 
         @endif
 
+
       </ul>
+
+        <!-- Post Tags + Share-->
+        <div class="d-flex flex-wrap justify-content-between align-items-center">
+          <div class="pb-2">
+          </div>
+          <div class="pb-2">
+            <span class="d-inline-block align-middle text-sm text-muted">{{ trans('frontend.share') }}:&nbsp;&nbsp;&nbsp;</span>
+            <a class="social-button shape-rounded sb-facebook" href="#" data-toggle="tooltip" data-placement="top" title="Facebook"><i class="socicon-facebook"></i></a>
+            <a class="social-button shape-rounded sb-twitter" href="#" data-toggle="tooltip" data-placement="top" title="Twitter"><i class="socicon-twitter"></i></a>
+            <a class="social-button shape-rounded sb-instagram" href="#" data-toggle="tooltip" data-placement="top" title="Instagram"><i class="socicon-instagram"></i></a>
+            <a class="social-button shape-rounded sb-google-plus" href="#" data-toggle="tooltip" data-placement="top" title="Google +"><i class="socicon-googleplus"></i></a>
+          </div>
+        </div>
+
+
+
 
       <p>
         {!! string_decode($blog_details_by_slug['post_content']) !!}
       </p>
       
       <!-- Post Tags + Share-->
-          <div class="d-flex flex-wrap justify-content-between align-items-center pt-3 pb-4">
-            <div class="pb-2">
-              <a class="text-sm text-muted navi-link" href="#">#electronics,</a>
-              <a class="text-sm text-muted navi-link" href="#">&nbsp;#gadgets&nbsp;</a>
-            </div>
-            <div class="pb-2"><span class="d-inline-block align-middle text-sm text-muted">Share post:&nbsp;&nbsp;&nbsp;</span><a class="social-button shape-rounded sb-facebook" href="#" data-toggle="tooltip" data-placement="top" title="Facebook"><i class="socicon-facebook"></i></a><a class="social-button shape-rounded sb-twitter" href="#" data-toggle="tooltip" data-placement="top" title="Twitter"><i class="socicon-twitter"></i></a><a class="social-button shape-rounded sb-instagram" href="#" data-toggle="tooltip" data-placement="top" title="Instagram"><i class="socicon-instagram"></i></a><a class="social-button shape-rounded sb-google-plus" href="#" data-toggle="tooltip" data-placement="top" title="Google +"><i class="socicon-googleplus"></i></a></div>
-          </div>
+      <!-- <div class="d-flex flex-wrap justify-content-between align-items-center pt-3 pb-4">
+        <div class="pb-2">
+          <a class="text-sm text-muted navi-link" href="#">#electronics,</a>
+          <a class="text-sm text-muted navi-link" href="#">&nbsp;#gadgets&nbsp;</a>
+        </div>
+        <div class="pb-2">
+          <span class="d-inline-block align-middle text-sm text-muted">Share post:&nbsp;&nbsp;&nbsp;</span>
+          <a class="social-button shape-rounded sb-facebook" href="#" data-toggle="tooltip" data-placement="top" title="Facebook"><i class="socicon-facebook"></i></a>
+          <a class="social-button shape-rounded sb-twitter" href="#" data-toggle="tooltip" data-placement="top" title="Twitter"><i class="socicon-twitter"></i></a><a class="social-button shape-rounded sb-instagram" href="#" data-toggle="tooltip" data-placement="top" title="Instagram"><i class="socicon-instagram"></i></a><a class="social-button shape-rounded sb-google-plus" href="#" data-toggle="tooltip" data-placement="top" title="Google +"><i class="socicon-googleplus"></i></a></div>
+      </div> -->
 
       <!-- Post Navigation-->
-      <div class="entry-navigation">
+      <!-- <div class="entry-navigation">
         <div class="column text-left">
           <a class="btn btn-outline-secondary btn-sm" href="{{ route('blog-single-page', $blogs_data[0]['post_slug']) }}"><i class="icon-arrow-left"></i>&nbsp;Tin mới hơn</a>
         </div>
@@ -74,7 +94,7 @@
         <div class="column text-right">
           <a class="btn btn-outline-secondary btn-sm" href="{{ route('blog-single-page', $blogs_data[2]['post_slug']) }}"><i class="icon-arrow-right"></i>&nbsp;Tin cũ hơn</a>
         </div>
-      </div>
+      </div> -->
 
       <!-- Relevant Posts-->
       @if(count($advanced_data['latest_items']) > 0)  

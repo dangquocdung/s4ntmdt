@@ -176,7 +176,6 @@
           
             <a href="{{ route('chung-toi') }})">{!! trans('frontend.chung-toi') !!}</a>
 
-
           </span>
   
         </li>
@@ -205,11 +204,14 @@
 
         <li class="{{ Request::is('thanh-toan')?'active':''}}"><a href="{{ route('checkout-page') }}"><span>{!! trans('frontend.checkout') !!}</span></a></li>
   
-        <li class="{{ Request::is('tin-tuc/*')?'active':''}}">
+        <li class="has-children {{ Request::is('tin-tuc/*')?'active':''}}">
           <a href="{{ route('blogs-page-content') }}"><span>{!! trans('frontend.blog') !!}</span></a>
-        
+          <ul class="sub-menu">
+            <li><a href="{{ asset('chuyen-muc/truyen-thong/san-pham-dac-trung') }}">Sản phẩm đặc trưng</a></li>
+            <li><a href="{{ asset('chuyen-muc/truyen-thong/van-ban-qppl') }}">Văn bản QPPL</a></li>
+            <li><a href="{{ asset('chuyen-muc/truyen-thong/tin-tuc') }}">Tin tức</a></li>
+          </ul>
         </li>
-
 
       </ul>
     </nav>
@@ -270,18 +272,14 @@
 
         <ul class="sub-menu">
 
-            <li><a href="{{ asset('categories/blog/san-pham-dac-trung') }}">Sản phẩm đặc trưng</a></li>
-            <li><a href="{{ asset('categories/blog/van-ban-qppl') }}">Văn bản QPPL</a></li>
-            <li><a href="{{ asset('categories/blog/tin-tuc') }}">Tin tức</a></li>
+            <li><a href="{{ asset('chuyen-muc/truyen-thong/san-pham-dac-trung') }}">Sản phẩm đặc trưng</a></li>
+            <li><a href="{{ asset('chuyen-muc/truyen-thong/van-ban-qppl') }}">Văn bản QPPL</a></li>
+            <li><a href="{{ asset('chuyen-muc/truyen-thong/tin-tuc') }}">Tin tức</a></li>
 
-
-            
         </ul>
-
 
       </li>
 
-      
     </ul>
     
   </nav>

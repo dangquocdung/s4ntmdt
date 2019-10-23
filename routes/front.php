@@ -93,7 +93,7 @@ Route::get( '/testimonial/{testimonial_slug}', [
   'as'   => 'testimonial-single-page'
 ]);
 
-Route::get( '/tin-tuc', [
+Route::get( '/truyen-thong', [
   'uses' => 'Frontend\FrontendManagerController@blogsPageContent',
   'as'   => 'blogs-page-content'
 ]);
@@ -128,12 +128,12 @@ Route::get( '/gian-hang/chi-tiet/danh-muc/san-pham/{product_cat}/{store_user_nam
   'as'   => 'store-products-cat-page-content'
 ]);
 
-Route::get( '/tin-tuc/{blog_slug}', [
+Route::get( '/truyen-thong/{blog_slug}', [
   'uses' => 'Frontend\FrontendManagerController@blogSinglePageContent',
   'as'   => 'blog-single-page'
 ]);
 
-Route::get( '/categories/blog/{blog_cat_slug}', [
+Route::get( '/chuyen-muc/truyen-thong/{blog_cat_slug}', [
   'uses' => 'Frontend\FrontendManagerController@blogCategoriesPageContent',
   'as'   => 'blog-cat-page'
 ]);
