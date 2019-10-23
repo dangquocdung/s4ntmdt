@@ -2855,8 +2855,8 @@ class ProductsController extends Controller
       $str    = '';
       $cat_id = $get_term->term_id;
       
-      $post_array['min_price']          =  0;
-      $post_array['max_price']          =  300;
+      $post_array['min_price']          =  1000;
+      $post_array['max_price']          =  1000000;
       $post_array['selected_colors']    =  array();
       $post_array['selected_sizes']     =  array();
       $post_array['selected_colors_hf'] =  '';
