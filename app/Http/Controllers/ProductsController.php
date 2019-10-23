@@ -2245,8 +2245,8 @@ class ProductsController extends Controller
     $get_posts_for_product = null;
     $final_data = array();
     
-    $product_data['min_price']          =   0;
-    $product_data['max_price']          =   300;
+    $product_data['min_price']          =   1000;
+    $product_data['max_price']          =   3000000;
     $product_data['selected_colors']    =  array();
     $product_data['selected_sizes']     =  array();
     $product_data['selected_colors_hf'] =  '';
@@ -2667,8 +2667,8 @@ class ProductsController extends Controller
     $get_posts_for_product = null;
     $final_data = array();
     
-    $product_data['min_price']          =   0;
-    $product_data['max_price']          =   300;
+    $product_data['min_price']          =   1000;
+    $product_data['max_price']          =   3000000;
     $product_data['selected_colors']    =  array();
     $product_data['selected_sizes']     =  array();
     $product_data['selected_colors_hf'] =  '';
@@ -2856,7 +2856,7 @@ class ProductsController extends Controller
       $cat_id = $get_term->term_id;
       
       $post_array['min_price']          =  1000;
-      $post_array['max_price']          =  1000000;
+      $post_array['max_price']          =  3000000;
       $post_array['selected_colors']    =  array();
       $post_array['selected_sizes']     =  array();
       $post_array['selected_colors_hf'] =  '';
