@@ -44,7 +44,8 @@
 
           @if($frontend_login_data['is_enable_recaptcha'] == true)
             <div class="form-group">
-              <div class="captcha-style">{!! app('captcha')->display(); !!}</div>
+              <!-- <div class="captcha-style">{!! app('captcha')->display(); !!}</div> -->
+              <div class="g-recaptcha" id="feedback-recaptcha" data-sitekey="{{ env('GOOGLE_RECAPTCHA_KEY')  }}"></div>
             </div>
           @endif
 
