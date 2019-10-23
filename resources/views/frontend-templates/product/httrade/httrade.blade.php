@@ -219,24 +219,37 @@
 
         <!-- Widget Brand Filter-->
         @if(count($brands_data) > 0)
-          <section class="widget">
+        <section class="widget widget-featured-posts">
             <h3 class="widget-title">{{ trans('frontend.brands') }}</h3>
 
-            <div class="owl-carousel" data-owl-carousel='{ "autoplay": true, "loop": true, "dots":false }'>
               @foreach($brands_data as $brand_name)
 
-              <a href="{{ route('brands-single-page', $brand_name['slug']) }}">
+              
+              <div class="entry">
+                <div class="entry-thumb" style="width:80px">
 
-                @if(!empty($brand_name['brand_logo_img_url']))
-                <img src="{{ get_image_url($brand_name['brand_logo_img_url']) }}" class="img-fluid" width="100%">
-                @else
-                <img src="{{ default_placeholder_img_src() }}" class="img-fluid">
-                @endif
-              </a>
+                  <a href="{{ route('brands-single-page', $brand_name['slug']) }}">
+                    @if(!empty($brand_name['brand_logo_img_url']))
+                    <img src="{{ get_image_url($brand_name['brand_logo_img_url']) }}" class="img-fluid" width="100%">
+                    @else
+                    <img src="{{ default_placeholder_img_src() }}" class="img-fluid">
+                    @endif
+                  </a>
+
+                </div>
+                <div class="entry-content">
+                  <h4 class="entry-title mt-1">
+                    <a href="{{ route('brands-single-page', $brand_name['slug']) }}">{!! $brand_name['name'] !!}</a>
+                  </h4>
+                  <span class="entry-meta">
+                    <i class="icon-map-pin text-muted"></i> {!! $brand_name['brand_country_name'] !!}
+                  </span>
+                </div>
+              </div>
+
 
               @endforeach
 
-            </div>
           </section>
 
         @endif
@@ -244,7 +257,7 @@
         @if(count($advancedData['best_sales']) > 0)
 
           <section class="widget widget-featured-posts">
-            <h3 class="widget-title">{{ trans('frontend.brands') }}</h3>
+            <h3 class="widget-title">{{ trans('frontend.best_sales_label') }}</h3>
 
               @foreach($advancedData['best_sales'] as $key => $row)
 
