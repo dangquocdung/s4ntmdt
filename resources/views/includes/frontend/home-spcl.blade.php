@@ -40,7 +40,7 @@
                         <div class="tab-pane fade show active" id="latest_products" role="tabpanel">
                             <div class="row">
                                 @foreach($advancedData['latest_items'] as $key => $latest_product)
-                                    <div class="col-lg-3 col-md-4 col-sm-6">
+                                    <div class="col-lg-2 col-md-3 col-6">
                                       <div class="product-card mb-30">
                                 
                                         @if ( $latest_product->price < $latest_product->regular_price )
