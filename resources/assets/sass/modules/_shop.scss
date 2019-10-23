@@ -29,7 +29,7 @@
             margin-right: auto;
             height: 150px;
             @media screen and (max-width: 768px) {
-                height: 200px;
+                max-height: 180px;
             }
             transition: all 0.4s linear;
             -moz-transition: all 0.4s linear;

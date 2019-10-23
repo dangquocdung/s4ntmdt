@@ -7355,7 +7355,7 @@ video {
 
 @media screen and (max-width: 768px) {
   .product-card .product-thumb > img {
-    height: 200px;
+    max-height: 180px;
   }
 }
 
