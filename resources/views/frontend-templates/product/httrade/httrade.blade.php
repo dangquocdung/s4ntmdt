@@ -298,13 +298,13 @@
           <p class="not-available">{!! trans('frontend.best_sales_products_empty_label') !!}</p>
         @endif
 
-        <section class="widget">
+        <!-- <section class="widget">
           <h3 class="widget-title">{{ trans('frontend.advertisement_label') }}</h3>
 
           <div class="advertisement-content text-center">
             <img class="d-block w-100" src="{{ asset('/images/add-sample/shipping.jpg') }}" alt="">
           </div>
-        </section>
+        </section> -->
 
       </aside>
     </div>
