@@ -209,7 +209,7 @@
             <a href="{{ route('blogs-page-content') }}"><span>{!! trans('frontend.blog') !!}</span></a>
             <span class="sub-menu-toggle"></span>
           </span>
-          <ul class="sub-menu">
+          <ul class="slideable-submenu">
             <li><a href="{{ asset('chuyen-muc/truyen-thong/san-pham-dac-trung') }}">Sản phẩm đặc trưng</a></li>
             <li><a href="{{ asset('chuyen-muc/truyen-thong/van-ban-qppl') }}">Văn bản QPPL</a></li>
             <li><a href="{{ asset('chuyen-muc/truyen-thong/tin-tuc') }}">Tin tức</a></li>
