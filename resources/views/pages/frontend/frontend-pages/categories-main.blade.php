@@ -35,9 +35,105 @@
                   </div>
                 </div>
               </div>
+
+              @if(count($colors_list_data) > 0)
+              <div class="colors-filter">
+                <h2>{{ trans('frontend.choose_color_label') }} <span class="responsive-accordian"></span></h2>
+                <div class="colors-filter-option">
+                  @foreach($colors_list_data as $terms)
+                  <div class="colors-filter-elements">
+                    <div class="chk-filter">
+                      @if(count($all_products_details['selected_colors']) > 0 && in_array($terms['slug'], $all_products_details['selected_colors']))  
+                      <input type="checkbox" checked class="shopist-iCheck chk-colors-filter" value="{{ $terms['slug'] }}">
+                      @else
+                      <input type="checkbox" class="shopist-iCheck chk-colors-filter" value="{{ $terms['slug'] }}">
+                      @endif
+                    </div>
+                    <div class="filter-terms">
+                      <div class="filter-terms-appearance"><span style="background-color:#{{ $terms['color_code'] }};width:21px;height:20px;display:block;"></span></div>
+                      <div class="filter-terms-name">&nbsp; {!! $terms['name'] !!}</div>
+                    </div>
+                  </div>
+                  @endforeach
+                </div>
+                @if($all_products_details['selected_colors_hf'])
+                <input name="selected_colors" id="selected_colors" value="{{ $all_products_details['selected_colors_hf'] }}" type="hidden">
+                @endif
+              </div>
+            @endif
+
+            @if(count($sizes_list_data) > 0)
+              <div class="size-filter">
+                <h2>{{ trans('frontend.choose_size_label') }} <span class="responsive-accordian"></span></h2>
+                <div class="size-filter-option">
+                  @foreach($sizes_list_data as $terms)
+                  <div class="size-filter-elements">
+                    <div class="chk-filter">
+                      @if(count($all_products_details['selected_sizes']) > 0 && in_array($terms['slug'], $all_products_details['selected_sizes']))  
+                      <input type="checkbox" checked class="shopist-iCheck chk-size-filter" value="{{ $terms['slug'] }}">
+                      @else
+                      <input type="checkbox" class="shopist-iCheck chk-size-filter" value="{{ $terms['slug'] }}">
+                      @endif
+                    </div>
+                    <div class="filter-terms">
+                      <div class="filter-terms-name">{!! $terms['name'] !!}</div>
+                    </div>
+                  </div>
+                  @endforeach
+                </div> 
+                @if($all_products_details['selected_sizes_hf'])
+                <input name="selected_sizes" id="selected_sizes" value="{{ $all_products_details['selected_sizes_hf'] }}" type="hidden">
+                @endif
+              </div>
+            @endif
+
+
+
             </footer>
           </form>
         </section>
+
+        <!-- Widget Brand Filter-->
+        @if(count($brands_data) > 0)
+        <section class="widget widget-featured-posts">
+            <h3 class="widget-title">{{ trans('frontend.brands') }}</h3>
+
+              @foreach($brands_data as $brand_name)
+
+              
+              <div class="entry">
+                <div class="entry-thumb" style="width:80px">
+
+                  <a href="{{ route('brands-single-page', $brand_name['slug']) }}">
+                    @if(!empty($brand_name['brand_logo_img_url']))
+                    <img src="{{ get_image_url($brand_name['brand_logo_img_url']) }}" class="img-fluid" width="100%">
+                    @else
+                    <img src="{{ default_placeholder_img_src() }}" class="img-fluid">
+                    @endif
+                  </a>
+
+                </div>
+                <div class="entry-content">
+                  <h4 class="entry-title mt-1">
+                    <a href="{{ route('brands-single-page', $brand_name['slug']) }}">{!! $brand_name['name'] !!}</a>
+                  </h4>
+                  <span class="entry-meta">
+                    <i class="icon-map-pin text-muted"></i> {!! $brand_name['brand_country_name'] !!}
+                  </span>
+                </div>
+              </div>
+
+
+              @endforeach
+
+          </section>
+
+        @endif
+
+
+        @include('includes.frontend.seen-products-list')
+        @yield('seen-products-list')   
+
 
 
       </div>

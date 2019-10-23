@@ -298,6 +298,10 @@
           <p class="not-available">{!! trans('frontend.best_sales_products_empty_label') !!}</p>
         @endif
 
+        @include('includes.frontend.seen-products-list')
+        @yield('seen-products-list')   
+
+
         <!-- <section class="widget">
           <h3 class="widget-title">{{ trans('frontend.advertisement_label') }}</h3>
 

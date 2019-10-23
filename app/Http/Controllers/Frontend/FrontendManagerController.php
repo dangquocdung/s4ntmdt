@@ -184,6 +184,8 @@ class FrontendManagerController extends Controller
         }
       }
 
+      $data['seen_items'] = $this->seenProducts();
+
       //Dũng thêm
 
       // $data['all_products_details']=$data['product_by_cat_id'];
@@ -422,6 +424,11 @@ class FrontendManagerController extends Controller
           $data['all_products_details']['selected_view'] = 'grid';
         }
       }
+
+      $data['seen_items'] = $this->seenProducts();
+
+      // return view('pages.frontend.frontend-pages.product-details', $data);
+
 
       // return response()->json($data['all_products_details']);
       

@@ -118,13 +118,15 @@
 
                 <!-- Entry-->
                 <div class="entry">
-                  <div class="entry-thumb"><a href="{{ route('details-page', $products['post_slug']) }}">
-                    @if($products['product_image'])
-                      <img src="{{ get_image_url($products['product_image']) }}" alt="{{ basename($products['product_image']) }}" />
-                    @else
-                      <img src="{{ default_placeholder_img_src() }}" alt="" />
-                    @endif
-                  </a></div>
+                  <div class="entry-thumb" style="width:80px"> 
+                    <a href="{{ route('details-page', $products['post_slug']) }}">
+                      @if($products['product_image'])
+                        <img src="{{ get_image_url($products['product_image']) }}" alt="{{ basename($products['product_image']) }}" />
+                      @else
+                        <img src="{{ default_placeholder_img_src() }}" alt="" />
+                      @endif
+                    </a>
+                  </div>
                   <div class="entry-content">
                     <h4 class="entry-title">
                       <a href="{{ route('details-page', $products['post_slug']) }}">{!! $products['post_title'] !!}</a>
