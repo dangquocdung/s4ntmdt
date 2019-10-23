@@ -29,7 +29,7 @@
             margin-right: auto;
             height: 150px;
             @media screen and (max-width: 768px) {
-                max-height: 180px;
+                max-height: 120px;
             }
             transition: all 0.4s linear;
             -moz-transition: all 0.4s linear;
@@ -84,7 +84,7 @@
     }
     .product-price {
         display: inline-block;
-        margin-bottom: 5px;
+        margin-bottom: 1px;
         padding: 5px 10px;
         border-radius: $border-radius-sm;
         background-color: $product-price-bg-color;

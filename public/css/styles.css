@@ -7371,7 +7371,7 @@ video {
 
 @media screen and (max-width: 768px) {
   .product-card .product-thumb > img {
-    max-height: 180px;
+    max-height: 120px;
   }
 }
 
@@ -7419,7 +7419,7 @@ video {
 
 .product-card .product-price {
   display: inline-block;
-  margin-bottom: 5px;
+  margin-bottom: 1px;
   padding: 5px 10px;
   border-radius: 4px;
   background-color: yellow;
