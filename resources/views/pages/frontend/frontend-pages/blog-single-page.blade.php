@@ -69,7 +69,7 @@
 
 
       <div class="pdf-viewer">
-        <iframe src ="{{ asset('/laraview/#../'.$blog_details_by_slug['post_file']) }}" width="1000px" height="600px"></iframe>
+        <iframe src ="{{ URL::asset($blog_details_by_slug['post_file']) }}" width="1000px" height="600px"></iframe>
       </div>
 
       @endif
