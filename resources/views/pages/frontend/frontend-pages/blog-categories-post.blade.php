@@ -18,52 +18,57 @@
 
     <!-- Blog Posts-->
     <div class="col-lg-9">
-      <div class="isotope-grid cols-3 mb-4">
-        <div class="gutter-sizer"></div>
-        <div class="grid-sizer"></div>
+      <div class="col-12">
 
-        @if(count($blogs_cat_post['posts']) > 0)  
-          @foreach($blogs_cat_post['posts'] as $row)
+        <div class="isotope-grid cols-3 mb-4">
+          <div class="gutter-sizer"></div>
+          <div class="grid-sizer"></div>
 
-            <?php $total = get_comments_rating_details($row->id, 'blog');?>
+          @if(count($blogs_cat_post['posts']) > 0)  
+            @foreach($blogs_cat_post['posts'] as $row)
 
-            <!-- Post-->
-            
-            <div class="grid-item">
-              <div class="blog-post">
-                <a class="post-thumb" href="{{ route('blog-single-page', $row->post_slug) }}">
+              <?php $total = get_comments_rating_details($row->id, 'blog');?>
 
-                  @if(get_blog_postmeta_data($row->id, 'featured_image'))
-                    <img class="img-responsive" src="{{ get_image_url(get_blog_postmeta_data($row->id, 'featured_image')) }}" alt="{{ basename(get_blog_postmeta_data($row->id, 'featured_image')) }}">
-                  @else
-                    <img class="img-responsive" src="{{ default_placeholder_img_src() }}"  alt=""> 
-                  @endif
+              <!-- Post-->
+              
+              <div class="grid-item">
+                <div class="blog-post">
+                  <a class="post-thumb" href="{{ route('blog-single-page', $row->post_slug) }}">
 
-                </a>
-                <div class="post-body">
-                  <ul class="post-meta">
-                    <li><i class="icon-clock"></i><a href="#">{{ Carbon\Carbon::parse($row->created_at)->format('d F, Y') }}</a></li>
-                    <li><i class="icon-user"></i><a href="#">{{ get_user_name_by_user_id($row->post_author_id) }}</a></li>
-
-                    @if (!empty($row->post_file))
-                      <li><i class="icon-file"></i><a href="{{ URL::asset($row->post_file) }}">Văn bản</a></li>
+                    @if(get_blog_postmeta_data($row->id, 'featured_image'))
+                      <img class="img-responsive" src="{{ get_image_url(get_blog_postmeta_data($row->id, 'featured_image')) }}" alt="{{ basename(get_blog_postmeta_data($row->id, 'featured_image')) }}">
+                    @else
+                      <img class="img-responsive" src="{{ default_placeholder_img_src() }}"  alt=""> 
                     @endif
-                  </ul>
-                  <h3 class="post-title">
-                    <a href="{{ route('blog-single-page', $row->post_slug) }}">{!! $row->post_title !!}</a>
-                  </h3>
+
+                  </a>
+                  <div class="post-body">
+                    <ul class="post-meta">
+                      <li><i class="icon-clock"></i><a href="#">{{ Carbon\Carbon::parse($row->created_at)->format('d F, Y') }}</a></li>
+                      <li><i class="icon-user"></i><a href="#">{{ get_user_name_by_user_id($row->post_author_id) }}</a></li>
+
+                      @if (!empty($row->post_file))
+                        <li><i class="icon-file"></i><a href="{{ URL::asset($row->post_file) }}">Văn bản</a></li>
+                      @endif
+                    </ul>
+                    <h3 class="post-title">
+                      <a href="{{ route('blog-single-page', $row->post_slug) }}">{!! $row->post_title !!}</a>
+                    </h3>
+                  </div>
                 </div>
               </div>
-            </div>
 
-          @endforeach
+            @endforeach
 
-        @else
-          <p>{!! trans('frontend.no_blogs_data_label') !!}</p>
+          @else
+            <p>{!! trans('frontend.no_blogs_data_label') !!}</p>
 
-        @endif
+          @endif
+
+        </div>
 
       </div>
+
      
     </div>
   </div>
