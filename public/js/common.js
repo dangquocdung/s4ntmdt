@@ -1640,6 +1640,8 @@ function commonReplaceUrlParam(url, paramName, paramValue) {
 if ($('#account_bill_select_country').length > 0) {
 
     $('#account_bill_select_country').on('click change', function() {
+
+        alert('123');
         $.ajax({
             url: $('#hf_base_url').val() + '/ajax/quan-huyen',
             type: 'POST',
