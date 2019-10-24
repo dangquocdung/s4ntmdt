@@ -7396,8 +7396,8 @@ video {
 }
 
 .product-card .product-title {
-  height: 45px;
-  line-height: 22px;
+  height: 40px;
+  line-height: 18px;
   overflow: hidden;
   text-overflow: ellipsis;
   display: table-cell;
@@ -7486,7 +7486,7 @@ video {
   left: 0;
   width: 100%;
   transform: translateY(12px);
-  font-size: 12px;
+  font-size: 10px;
   white-space: nowrap;
   opacity: 0;
 }
