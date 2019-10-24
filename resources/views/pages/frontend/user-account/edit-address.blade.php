@@ -29,12 +29,11 @@
             <div class="form-group">
               <label class="control-label" for="account_bill_tinh_thanh">{{ trans('frontend.checkout_select_country_label') }}</label>
                 <select class="form-control" id="account_bill_select_country" name="account_bill_tinh_thanh">
-                <option>{!! trans('frontend.chon-tinh-thanh') !!}</option>
+                  <option>{!! trans('frontend.chon-tinh-thanh') !!}</option>
 
                   @foreach(get_country_list() as $val)
 
-                    @if ( empty($frontend_account_details->address_details->account_bill_select_country) )
-                    @elseif ( $frontend_account_details->address_details->account_bill_select_country == $val['matp'] )
+                    @if ( $frontend_account_details->address_details->account_bill_select_country == $val['matp'] )
                       <option selected value="{{ $val['matp'] }}"> {!! $val['name'] !!}</option>
                     @else
                       <option value="{{ $val['matp'] }}"> {!! $val['name'] !!}</option>
