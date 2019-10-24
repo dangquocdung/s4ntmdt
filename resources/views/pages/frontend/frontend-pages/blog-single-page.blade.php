@@ -66,14 +66,10 @@
       </div>
 
       @if (!empty($blog_details_by_slug['post_file']))
-
-
-      <div class="pdf-viewer">
-        <iframe src ="{{ URL::asset($blog_details_by_slug['post_file']) }}" width="1000px" height="600px"></iframe>
-      </div>
-
+        <div class="embed-responsive embed-responsive-16by9">
+          <iframe class="embed-responsive-item" src="{{ URL::asset($blog_details_by_slug['post_file']) }}" allowfullscreen=""></iframe>
+        </div>
       @endif
-
 
       <p>
         {!! string_decode($blog_details_by_slug['post_content']) !!}
