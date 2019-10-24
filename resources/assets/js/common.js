@@ -23,62 +23,6 @@ $(document).ready(function() {
         });
     }
 
-    //upload profile image
-    // if ($('#frontend_user_profile_picture_uploader').length > 0) {
-    //     Dropzone.autoDiscover = false;
-    //     $("#frontend_user_profile_picture_uploader").dropzone({
-    //         url: $('#hf_base_url').val() + "/upload/product-related-image",
-    //         paramName: "profile_picture",
-    //         acceptedFiles: "image/*",
-    //         uploadMultiple: false,
-    //         maxFiles: 1,
-    //         autoProcessQueue: true,
-    //         parallelUploads: 100,
-    //         addRemoveLinks: true,
-    //         maxFilesize: 1,
-    //         dataType: 'json',
-    //         headers: { 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content') },
-
-    //         init: function() {
-    //             this.on("maxfilesexceeded", function(file) {
-    //                 swal("", frontendLocalizationString.maxfilesexceeded_msg);
-    //             });
-    //             this.on("error", function(file, message) {
-    //                 if (file.size > 1 * 1024 * 1024) {
-    //                     swal("", frontendLocalizationString.file_larger);
-    //                     this.removeFile(file)
-    //                     return false;
-    //                 }
-    //                 if (!file.type.match('image.*')) {
-    //                     swal("", frontendLocalizationString.image_file_validation);
-    //                     this.removeFile(file)
-    //                     return false;
-    //                 }
-    //             });
-
-    //             this.on("success", function(file, responseText) {
-    //                 if (responseText.status === 'success') {
-    //                     $('.profile-picture').find('img').attr('src', $('#hf_base_url').val() + '/uploads/' + responseText.name);
-    //                     $('.profile-picture').show();
-    //                     $('.no-profile-picture').hide();
-    //                     $('#frontendUserUploadProfilePicture').modal('hide');
-    //                     $('#hf_frontend_profile_picture').val('/uploads/' + responseText.name);
-
-    //                     this.removeAllFiles();
-    //                 }
-    //             });
-    //         }
-    //     });
-    // }
-
-    // if ($('.remove-frontend-profile-picture').length > 0) {
-    //     $('.remove-frontend-profile-picture').on('click', function() {
-    //         $('.no-profile-picture').show();
-    //         $('.profile-picture').hide();
-    //         $('#hf_frontend_profile_picture').val('');
-    //     });
-    // }
-
     $('.products-brands-list .carousel[data-type="multi"] .item').each(function() {
         var next = $(this).next();
         if (!next.length) {
@@ -304,11 +248,19 @@ $(document).ready(function() {
                 widget.show();
                 // alert($('#checkout_page .checkout-content').find('#guest_user_address').index());
 
+                console.log('current: ' + current);
+                console.log('widget.length: ' + widget.length);
+
+                console.log('!is_enable_selected: ' + !is_enable_selected);
+                console.log('#selected_user_mode: ' + $('#selected_user_mode').val());
+                console.log('#is_user_login: ' + $('#is_user_login').val());
+
                 if ($('#selected_user_mode').val().length > 0 && $('#selected_user_mode').val() == 'login_user' && !is_enable_selected && $('#is_user_login').val() == false) {
 
                     var get_authentication_index = parseInt($('#checkout_page .checkout-content').find('#authentication').index()) - 1;
 
                     widget.not(':eq(' + get_authentication_index + ')').hide();
+
                     is_enable_selected = true;
 
                 } else if ($('#selected_user_mode').val().length > 0 && $('#selected_user_mode').val() == 'login_user' && !is_enable_selected && $('#is_user_login').val() == true) {
@@ -317,16 +269,21 @@ $(document).ready(function() {
                     var get_payment_index = parseInt($('#checkout_page .checkout-content').find('#payment').index()) - 1;
 
                     widget.not(':eq(' + get_login_user_address_index + ')').hide();
+
                     is_enable_selected = true;
+
                     current = get_payment_index;
 
                 } else if ($('#selected_user_mode').val().length > 0 && $('#selected_user_mode').val() == 'guest' && !is_enable_selected) {
 
                     var get_guest_user_address_index = parseInt($('#checkout_page .checkout-content').find('#guest_user_address').index()) - 1;
+
                     var get_payment_index = parseInt($('#checkout_page .checkout-content').find('#payment').index()) - 1;
 
                     widget.not(':eq(' + get_guest_user_address_index + ')').hide();
+
                     is_enable_selected = true;
+
                     current = get_payment_index;
 
                 } else {
@@ -334,6 +291,8 @@ $(document).ready(function() {
                     widget.not(':eq(' + (current++) + ')').hide();
 
                 }
+
+                console.log('current++: ' + current);
 
                 setProgress(current);
             }
@@ -1064,7 +1023,7 @@ shopist_frontend.ajaxCall = {
 
         // var msgStr = '<div class="alert alert-danger" style="margin-left:-15px; margin-right:15px;"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button><div class="message-header"><i class="fa fa-exclamation-triangle"></i>&nbsp;<strong>' + frontendLocalizationString.error_message_text + '</strong></div><p class="error-msg-coupon"></p></div>';
 
-        var msgStr = '<div class="alert alert-info alert-dismissible fade show text-center" style="margin-bottom: 30px;"><span class="alert-close" data-dismiss="alert"></span><i class="icon-award"></i>' + frontendLocalizationString.error_message_text + '</div>';
+        var msgStr = '<div class="alert alert-danger alert-dismissible fade show text-center" style="margin-bottom: 30px;"><span class="alert-close" data-dismiss="alert"></span><i class="icon-award"></i>' + frontendLocalizationString.error_message_text + ':&nbsp;<span class="error-msg-coupon"></span></div>';
 
         $('.cart-total-area-overlay').show();
 
@@ -1082,7 +1041,6 @@ shopist_frontend.ajaxCall = {
                 if ($('#cart_page, #checkout_page').find('.error-msg-coupon').length > 0) {
                     $('#cart_page, #checkout_page').find('.error-msg-coupon').parents('.alert-danger').remove();
                 }
-
                 if (data.error == true && data.error_type == 'no_coupon_data') {
                     $('#cart_page .cart-data, #checkout_page .cart-data').prepend(msgStr);
                     $('#cart_page .cart-data, #checkout_page .cart-data').find('.error-msg-coupon').html(frontendLocalizationString.coupon_not_exists_msg);
@@ -1460,8 +1418,8 @@ function checkoutStepValidation() {
             errorStr.push('no_account_shipping_adddress_line_1');
         }
 
-        if ($('#account_bill_town_or_city').length > 0 && $('#account_bill_town_or_city').val().length == 0 && $('#account_bill_town_or_city').val() == '') {
-            errorStr.push('no_account_bill_town_or_city');
+        if ($('#account_bill_select_state').length > 0 && $('#account_bill_select_state').val().length == 0 && $('#account_bill_select_state').val() == '') {
+            errorStr.push('no_account_bill_select_state');
         }
 
         if (isChecked && $('#account_shipping_town_or_city').length > 0 && $('#account_shipping_town_or_city').val().length == 0 && $('#account_shipping_town_or_city').val() == '') {
@@ -1677,4 +1635,198 @@ function commonReplaceUrlParam(url, paramName, paramValue) {
         return url.replace(pattern, '$1' + paramValue + '$2');
     }
     return url + (url.indexOf('?') > 0 ? '&' : '?') + paramName + '=' + paramValue;
+}
+
+if ($('#account_bill_select_country').length > 0) {
+
+    $('#account_bill_select_country').on('click change', function() {
+
+        $.ajax({
+            url: $('#hf_base_url').val() + '/ajax/quan-huyen',
+            type: 'POST',
+            cache: false,
+            datatype: 'html',
+            headers: { 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content') },
+            data: { data: this.value },
+            success: function(data) {
+                if (data.success == true) {
+                    $("#account_bill_select_state").empty();
+                    $("#account_bill_select_state").html(data.html);
+                    $("#account_bill_select_city").empty();
+                } else {
+                    console.log('chua duoc');
+                }
+            },
+            error: function() {}
+        });
+    });
+
+}
+
+if ($('#account_bill_select_state').length > 0) {
+
+    $('#account_bill_select_state').on('click change', function() {
+        $.ajax({
+            url: $('#hf_base_url').val() + '/ajax/xa-phuong',
+            type: 'POST',
+            cache: false,
+            datatype: 'html',
+            headers: { 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content') },
+            data: { data: this.value },
+            success: function(data) {
+                if (data.success == true) {
+                    $("#account_bill_select_city").empty();
+                    $("#account_bill_select_city").html(data.html);
+                } else {
+                    console.log('chua duoc');
+                }
+            },
+            error: function() {}
+        });
+
+    });
+
+}
+
+if ($('#account_shipping_select_country').length > 0) {
+
+    $('#account_shipping_select_country').on('click change', function() {
+        $.ajax({
+            url: $('#hf_base_url').val() + '/ajax/quan-huyen',
+            type: 'POST',
+            cache: false,
+            datatype: 'html',
+            headers: { 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content') },
+            data: { data: this.value },
+            success: function(data) {
+                if (data.success == true) {
+                    $("#account_shipping_select_state").empty();
+                    $("#account_shipping_select_state").html(data.html);
+                    $("#account_shipping_select_city").empty();
+                } else {
+                    console.log('chua duoc');
+                }
+            },
+            error: function() {}
+        });
+    });
+
+}
+
+if ($('#account_shipping_select_state').length > 0) {
+
+    $('#account_shipping_select_state').on('click change', function() {
+        $.ajax({
+            url: $('#hf_base_url').val() + '/ajax/xa-phuong',
+            type: 'POST',
+            cache: false,
+            datatype: 'html',
+            headers: { 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content') },
+            data: { data: this.value },
+            success: function(data) {
+                if (data.success == true) {
+                    $("#account_shipping_select_city").empty();
+                    $("#account_shipping_select_city").html(data.html);
+                } else {
+                    console.log('chua duoc');
+                }
+            },
+            error: function() {}
+        });
+
+    });
+
+}
+
+if ($('#same_shipping_address').length > 0) {
+
+    $('#same_shipping_address').on('ifChecked', function(event) {
+
+        $('#account_shipping_first_name').val($('#account_bill_first_name').val());
+        $('#account_shipping_last_name').val($('#account_bill_last_name').val());
+        $('#account_shipping_email_address').val($('#account_bill_email_address').val());
+        $('#account_shipping_phone_number').val($('#account_bill_phone_number').val());
+        // $('#account_shipping_select_state').val($('#account_bill_select_state').val());
+        // $('#account_shipping_select_city').val($('#account_bill_select_city').val());
+
+        setTimeout(function() {
+            $('#account_shipping_select_country').val($('#account_bill_select_country').val());
+            $('#account_shipping_select_country').trigger('change');
+
+        }, 50);
+
+        $('#account_shipping_select_country').trigger('change');
+
+        setTimeout(function() {
+            $('#account_shipping_select_state').val($('#account_bill_select_state').val());
+            $('#account_shipping_select_state').trigger('change');
+
+        }, 50);
+
+        setTimeout(function() {
+            $('#account_shipping_select_city').val($('#account_bill_select_city').val());
+        }, 500);
+
+        $('#account_shipping_adddress_line_1').val($('#account_bill_adddress_line_1').val());
+
+    });
+
+    // $('#same_shipping_address').on('ifUnchecked', function(event) {
+
+    //     $('#account_shipping_first_name').val('');
+    //     $('#account_shipping_last_name').val('');
+    //     $('#account_shipping_phone_number').val('');
+    //     $('#account_shipping_adddress_line_1').val('');
+
+    // });
+}
+
+if ($('#vendor_country').length > 0) {
+
+    $('#vendor_country').on('click change', function() {
+        $.ajax({
+            url: $('#hf_base_url').val() + '/ajax/quan-huyen',
+            type: 'POST',
+            cache: false,
+            datatype: 'html',
+            headers: { 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content') },
+            data: { data: this.value },
+            success: function(data) {
+                if (data.success == true) {
+                    $("#vendor_state").empty();
+                    $("#vendor_state").html(data.html);
+                    $("#vendor_city").empty();
+                } else {
+                    console.log('chua duoc');
+                }
+            },
+            error: function() {}
+        });
+    });
+
+}
+
+if ($('#vendor_state').length > 0) {
+
+    $('#vendor_state').on('click change', function() {
+        $.ajax({
+            url: $('#hf_base_url').val() + '/ajax/xa-phuong',
+            type: 'POST',
+            cache: false,
+            datatype: 'html',
+            headers: { 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content') },
+            data: { data: this.value },
+            success: function(data) {
+                if (data.success == true) {
+                    $("#vendor_city").empty();
+                    $("#vendor_city").html(data.html);
+                } else {
+                    console.log('chua duoc');
+                }
+            },
+            error: function() {}
+        });
+
+    });
+
 }
