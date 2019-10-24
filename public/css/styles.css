@@ -6443,12 +6443,12 @@ video {
 
 .isotope-grid.cols-3 .grid-sizer,
 .isotope-grid.cols-3 .grid-item {
-  width: calc((100% / 3));
+  width: calc((100% / 3) - 10px);
 }
 
 .isotope-grid.cols-4 .grid-sizer,
 .isotope-grid.cols-4 .grid-item {
-  width: calc((100% / 4));
+  width: calc((100% / 4) - 22.5px);
 }
 
 .isotope-grid.cols-5 .grid-sizer,
