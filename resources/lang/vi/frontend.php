@@ -11,7 +11,7 @@ return [
   'design_images' =>'Xem hình ảnh thiết kế',
   'empty_cart' =>'Giỏ hàng trống',
   'update_cart' =>'Cập nhật giỏ hàng',
-  'empty_cart_msg' =>'Giỏ hàng của bạn bây giờ trống rỗng ..',
+  'empty_cart_msg' =>'Giỏ hàng chưa có sản phẩm',
   'return_to_shop' =>'Quay trở lại cửa hàng',
   'return_to_home' =>'Quay trở lại trang chủ',
   'cart_sub_total' =>'Giá giỏ hàng',
