@@ -28,8 +28,8 @@
   
     <div class="col-md-6">
       <div class="form-group">
-        <label class="control-label" for="account_bill_tinh_thanh">{{ trans('frontend.checkout_select_country_label') }}</label>
-          <select class="form-control" id="account_bill_tinh_thanh" name="account_bill_tinh_thanh"  disabled>
+        <label class="control-label" for="account_bill_select_country">{{ trans('frontend.checkout_select_country_label') }}</label>
+          <select class="form-control" id="account_bill_select_country" name="account_bill_select_country"  disabled>
             @foreach(get_country_list() as $val)
               @if( $frontend_account_details->address_details->account_bill_select_country==$val['matp'] )
                 <option selected value="{{ $val['matp'] }}"> {!! $val['name'] !!}</option>
@@ -41,8 +41,8 @@
 
     <div class="col-md-6">
       <div class="form-group">
-        <label class="control-label" for="account_bill_quan_huyen">{{ trans('frontend.account_address_town_city') }}</label>
-        <select class="form-control" name="account_bill_quan_huyen" id="account_bill_quan_huyen" disabled>
+        <label class="control-label" for="account_bill_select_state">{{ trans('frontend.account_address_town_city') }}</label>
+        <select class="form-control" name="account_bill_select_state" id="account_bill_select_state" disabled>
 
           @foreach(get_quanhuyen_list($frontend_account_details->address_details->account_bill_select_country) as $val)
 
@@ -62,8 +62,8 @@
 
     <div class="col-md-6">
       <div class="form-group">
-        <label class="control-label" for="account_bill_xa_phuong">{{ trans('frontend.account_address_xa_phuong') }}</label>
-        <select class="form-control" name="account_bill_xa_phuong" id="account_bill_xa_phuong" disabled>
+        <label class="control-label" for="account_bill_select_city">{{ trans('frontend.account_address_select_city') }}</label>
+        <select class="form-control" name="account_bill_select_city" id="account_bill_select_city" disabled>
 
           @foreach(get_xaphuong_list($frontend_account_details->address_details->account_bill_select_state) as $val)
 
@@ -163,8 +163,8 @@
 
     <div class="col-md-6">
       <div class="form-group">
-          <label class="control-label" for="inputAccountXaPhuong">{{ trans('frontend.account_address_xa_phuong') }}</label>
-          <select class="form-control" name="account_shipping_xa_phuong" id="account_shipping_xa_phuong"  disabled>
+          <label class="control-label" for="inputAccountXaPhuong">{{ trans('frontend.account_address_select_city') }}</label>
+          <select class="form-control" name="account_shipping_select_city" id="account_shipping_select_city"  disabled>
           
           @foreach(get_xaphuong_list($frontend_account_details->address_details->account_shipping_select_state) as $val)
 

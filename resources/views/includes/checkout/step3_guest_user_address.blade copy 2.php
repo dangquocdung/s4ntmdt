@@ -72,9 +72,9 @@
     
                 <div class="col-md-4">
                     <div class="form-group">
-                    <label class="control-label" for="inputAccountXaPhuong">{{ trans('frontend.account_address_xa_phuong') }}</label>
-                    <select class="form-control" name="account_bill_xa_phuong" id="account_bill_xa_phuong">
-                        <option value=""> {{ trans('frontend.xa_phuong') }} </option>
+                    <label class="control-label" for="inputAccountXaPhuong">{{ trans('frontend.account_address_select_city') }}</label>
+                    <select class="form-control" name="account_bill_select_city" id="account_bill_select_city">
+                        <option value=""> {{ trans('frontend.select_city') }} </option>
                         @foreach(get_xaphuong_list($maqh) as $val)
                         <option value="{{ $val['name'] }}" {{ ($loop->iteration == 1)?'selected':'' }}> {!! $val['name'] !!}</option>
                         @endforeach
@@ -165,8 +165,8 @@
     
                     <div class="col-md-4">
                     <div class="form-group">
-                        <label class="control-label" for="inputAccountXaPhuong">{{ trans('frontend.account_address_xa_phuong') }}</label>
-                        <select class="form-control" name="account_shipping_xa_phuong" id="account_shipping_xa_phuong">
+                        <label class="control-label" for="inputAccountXaPhuong">{{ trans('frontend.account_address_select_city') }}</label>
+                        <select class="form-control" name="account_shipping_select_city" id="account_shipping_select_city">
                         @foreach(get_xaphuong_list($maqh) as $val)
                             <option value="{{ $val['name'] }}" {{ ($loop->iteration == 1)?'selected':'' }}> {!! $val['name'] !!}</option>
                         @endforeach

@@ -561,7 +561,7 @@ return [
   'thong-tin-khach-hang' => 'Thông tin khách hàng',
   'successfuly_added_to_cart' => 'đã được thêm vào giỏ hàng',
   'limited-time-offer' => 'Đợt khuyến mại sắp tới',
-  'account_address_xa_phuong' => 'Xã, Phường',
+  'account_address_select_city' => 'Xã, Phường',
   'thanh-vien' => 'Thành viên',
   'contact-address' => 'Địa chỉ liên hệ',
   'shipping-address' => 'Địa chỉ giao hàng',

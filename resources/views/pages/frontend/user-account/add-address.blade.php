@@ -33,8 +33,8 @@
           </div>
           <div class="col-md-6">
             <div class="form-group">
-              <label class="control-label" for="account_bill_tinh_thanh">{{ trans('frontend.checkout_select_country_label') }}</label>
-                <select class="form-control" id="account_bill_select_country" name="account_bill_tinh_thanh">
+              <label class="control-label" for="account_bill_select_country">{{ trans('frontend.checkout_select_country_label') }}</label>
+                <select class="form-control" id="account_bill_select_country" name="account_bill_select_country">
                 @foreach(get_country_list() as $val)
                     @if( $val['matp']==42 )
                       <option selected value="{{ $val['matp'] }}"> {!! $val['name'] !!}</option>
@@ -48,8 +48,8 @@
       
           <div class="col-md-6">
             <div class="form-group">
-              <label class="control-label" for="account_bill_quan_huyen">{{ trans('frontend.account_address_town_city') }}</label>
-              <select class="form-control" name="account_bill_select_state" id="account_bill_quan_huyen">
+              <label class="control-label" for="account_bill_select_state">{{ trans('frontend.account_address_town_city') }}</label>
+              <select class="form-control" name="account_bill_select_state" id="account_bill_select_state">
                 @foreach(get_quanhuyen_list(42) as $val)
                  <option value="{{ $val['maqh'] }}"> {!! $val['name'] !!}</option>
                 @endforeach
@@ -60,8 +60,8 @@
       
           <div class="col-md-6">
             <div class="form-group">
-              <label class="control-label" for="account_bill_xa_phuong">{{ trans('frontend.account_address_xa_phuong') }}</label>
-              <select class="form-control" name="account_bill_select_city" id="account_bill_xa_phuong">
+              <label class="control-label" for="account_bill_select_city">{{ trans('frontend.account_address_select_city') }}</label>
+              <select class="form-control" name="account_bill_select_city" id="account_bill_select_city">
                 @foreach(get_xaphuong_list(436) as $val)
                   <option value="{{ $val['xaid'] }}"> {!! $val['name'] !!}</option>
                 @endforeach
@@ -111,7 +111,7 @@
           <div class="col-md-4">
             <div class="form-group">
                 <label class="control-label" for="inputAccountSelectCountry">{{ trans('frontend.checkout_select_country_label') }}</label>
-                <select class="form-control" id="account_shipping_select_country" name="account_shipping_tinh_thanh" >
+                <select class="form-control" id="account_shipping_select_country" name="account_shipping_select_country" >
                   @foreach(get_country_list() as $val)
                     @if( $val['matp']==42 )
                       <option selected value="{{ $val['matp'] }}"> {!! $val['name'] !!}</option>
@@ -126,7 +126,7 @@
           <div class="col-md-4">
             <div class="form-group">
                 <label class="control-label" for="inputAccountTownCity">{{ trans('frontend.account_address_town_city') }}</label>
-                <select class="form-control" name="account_shipping_select_state" id="account_shipping_quan_huyen">
+                <select class="form-control" name="account_shipping_select_state" id="account_shipping_select_state">
 
                   @foreach(get_quanhuyen_list(42) as $val)
 
@@ -140,8 +140,8 @@
       
           <div class="col-md-4">
             <div class="form-group">
-                <label class="control-label" for="inputAccountXaPhuong">{{ trans('frontend.account_address_xa_phuong') }}</label>
-                <select class="form-control" name="account_shipping_select_city" id="account_shipping_xa_phuong" >
+                <label class="control-label" for="inputAccountXaPhuong">{{ trans('frontend.account_address_select_city') }}</label>
+                <select class="form-control" name="account_shipping_select_city" id="account_shipping_select_city" >
 
                   @foreach(get_xaphuong_list(436) as $val)
 
