@@ -49,13 +49,17 @@
   // 3 Columns
   &.cols-3 {
     .grid-sizer,
-    .grid-item { width: calc((100% / 3) - 20px); }
+    // .grid-item { width: calc((100% / 3) - 20px); }
+    .grid-item { width: calc((100% / 3)); }
+
   }
 
   // 4 Columns
   &.cols-4 {
     .grid-sizer,
-    .grid-item { width: calc((100% / 4) - 22.5px); }
+    // .grid-item { width: calc((100% / 4) - 22.5px); }
+    .grid-item { width: calc((100% / 4)); }
+
   }
 
   // 5 Columns
