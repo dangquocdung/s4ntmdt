@@ -148,7 +148,8 @@
                 left: 0;
                 width: 100%;
                 transform: translateY(12px);
-                font-size: $font-size-xs; // ~12px
+                // font-size: $font-size-xs; // ~12px
+                font-size: 8px;
                 white-space: nowrap;
                 opacity: 0;
             }
