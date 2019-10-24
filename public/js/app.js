@@ -1167,8 +1167,8 @@ jQuery(document).ready(function ($) {
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! D:\project\s4ntmdt\resources\assets\js\app.js */"./resources/assets/js/app.js");
-module.exports = __webpack_require__(/*! D:\project\s4ntmdt\resources\assets\sass\styles.scss */"./resources/assets/sass/styles.scss");
+__webpack_require__(/*! C:\Users\PC\s4ntmdt\resources\assets\js\app.js */"./resources/assets/js/app.js");
+module.exports = __webpack_require__(/*! C:\Users\PC\s4ntmdt\resources\assets\sass\styles.scss */"./resources/assets/sass/styles.scss");
 
 
 /***/ })
