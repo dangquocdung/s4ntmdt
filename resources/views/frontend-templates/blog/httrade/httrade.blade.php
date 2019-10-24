@@ -20,6 +20,13 @@
 <!-- Page Content-->
 <div class="container padding-bottom-3x mb-1">
   <div class="row">
+
+    <!-- Sidebar -->
+    <div class="col-lg-3">
+      @include('includes.frontend.blog-categories')
+      @yield('blog-categories-content')   
+    </div>
+
     <!-- Blog Posts-->
     <div class="col-lg-9">
       <div class="isotope-grid cols-3 mb-4">
@@ -72,11 +79,6 @@
 
       </div>
      
-    </div>
-    <!-- Sidebar          -->
-    <div class="col-lg-3">
-      @include('includes.frontend.blog-categories')
-      @yield('blog-categories-content')   
     </div>
   </div>
 </div>
