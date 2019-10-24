@@ -70,7 +70,8 @@
         vertical-align: middle;
         margin-bottom: 18px;
         font: {
-            size: $product-title-font-size;
+            // size: $product-title-font-size;
+            size: 0.8rem;
             weight: normal;
         }
         >a {
@@ -487,8 +488,7 @@
             margin-bottom: floor($grid-vertical-step / 4);
             padding-top: 5px;
             font: {
-                // size: $font-size-base;
-                size: 0.8rem;
+                size: $font-size-base;
                 weight: normal;
             }
             >a {
