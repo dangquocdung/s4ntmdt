@@ -49,6 +49,8 @@
               <label class="control-label" for="account_bill_select_state">{{ trans('frontend.account_address_town_city') }}</label>
               <select class="form-control" name="account_bill_select_state" id="account_bill_select_state">
                 @foreach(get_quanhuyen_list($frontend_account_details->address_details->account_bill_select_country) as $val)
+                  <option>{!! trans('frontend.chon-quan-huyen') !!}</option>
+
 
                   @if( $frontend_account_details->address_details->account_bill_select_state==$val['maqh'] )
 
@@ -69,6 +71,8 @@
             <div class="form-group">
               <label class="control-label" for="account_bill_select_city">{{ trans('frontend.account_address_xa_phuong') }}</label>
               <select class="form-control" name="account_bill_select_city" id="account_bill_select_city">
+                <option>{!! trans('frontend.chon-xa-phuong') !!}</option>
+
                 @foreach(get_xaphuong_list($frontend_account_details->address_details->account_bill_select_state) as $val)
 
                   @if( $frontend_account_details->address_details->account_bill_select_city==$val['xaid'] )
