@@ -6443,7 +6443,7 @@ video {
 
 .isotope-grid.cols-3 .grid-sizer,
 .isotope-grid.cols-3 .grid-item {
-  width: calc((100% / 3) - 30px);
+  width: calc((100% / 3) - 20px);
 }
 
 .isotope-grid.cols-4 .grid-sizer,
