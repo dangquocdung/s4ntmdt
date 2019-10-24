@@ -1743,31 +1743,36 @@ if ($('#same_shipping_address').length > 0) {
 
         $('#account_shipping_first_name').val($('#account_bill_first_name').val());
         $('#account_shipping_last_name').val($('#account_bill_last_name').val());
+        $('#account_shipping_email_address').val($('#account_bill_email_address').val());
         $('#account_shipping_phone_number').val($('#account_bill_phone_number').val());
         $('#account_shipping_select_country').val($('#account_bill_select_country').val());
-        $('#account_shipping_select_country').trigger('change');
-        setTimeout(function() {
-            $('#account_shipping_select_state').val($('#account_bill_select_state').val());
-            $('#account_shipping_select_state').trigger('change');
+        $('#account_shipping_select_state').val($('#account_bill_select_state').val());
+        $('#account_shipping_select_city').val($('#account_bill_select_city').val());
 
-        }, 50);
+        // $('#account_shipping_select_country').trigger('change');
 
-        setTimeout(function() {
-            $('#account_shipping_select_city').val($('#account_bill_select_city').val());
-        }, 500);
+        // setTimeout(function() {
+        //     $('#account_shipping_select_state').val($('#account_bill_select_state').val());
+        //     $('#account_shipping_select_state').trigger('change');
+
+        // }, 50);
+
+        // setTimeout(function() {
+        //     $('#account_shipping_select_city').val($('#account_bill_select_city').val());
+        // }, 500);
 
         $('#account_shipping_adddress_line_1').val($('#account_bill_adddress_line_1').val());
 
     });
 
-    $('#same_shipping_address').on('ifUnchecked', function(event) {
+    // $('#same_shipping_address').on('ifUnchecked', function(event) {
 
-        $('#account_shipping_first_name').val('');
-        $('#account_shipping_last_name').val('');
-        $('#account_shipping_phone_number').val('');
-        $('#account_shipping_adddress_line_1').val('');
+    //     $('#account_shipping_first_name').val('');
+    //     $('#account_shipping_last_name').val('');
+    //     $('#account_shipping_phone_number').val('');
+    //     $('#account_shipping_adddress_line_1').val('');
 
-    });
+    // });
 }
 
 if ($('#vendor_country').length > 0) {
