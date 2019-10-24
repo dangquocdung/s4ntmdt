@@ -206,6 +206,7 @@
     .entry-thumb {
       width: $widget-entry-thumb-size + 12;
       padding-right: 12px;
+      padding-top: 3px;
       > a {
         display: block;
         border-radius: $border-radius-base;

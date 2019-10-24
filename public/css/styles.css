@@ -5848,6 +5848,7 @@ video {
 .widget-cart > .entry .entry-thumb {
   width: 62px;
   padding-right: 12px;
+  padding-top: 3px;
 }
 
 .widget-featured-posts > .entry .entry-thumb > a,
