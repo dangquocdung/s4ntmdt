@@ -28,7 +28,7 @@
           <div class="col-md-6">
             <div class="form-group">
               <label class="control-label" for="account_bill_tinh_thanh">{{ trans('frontend.checkout_select_country_label') }}</label>
-                <select class="form-control" id="account_bill_select_country" name="account_bill_tinh_thanh">
+                <select class="form-control" id="account_bill_select_country" name="account_bill_select_country">
                   <option>{!! trans('frontend.chon-tinh-thanh') !!}</option>
 
                   @foreach(get_country_list() as $val)
@@ -46,8 +46,8 @@
       
           <div class="col-md-6">
             <div class="form-group">
-              <label class="control-label" for="account_bill_quan_huyen">{{ trans('frontend.account_address_town_city') }}</label>
-              <select class="form-control" name="account_bill_quan_huyen" id="account_bill_quan_huyen">
+              <label class="control-label" for="account_bill_select_state">{{ trans('frontend.account_address_town_city') }}</label>
+              <select class="form-control" name="account_bill_select_state" id="account_bill_select_state">
                 @foreach(get_quanhuyen_list($frontend_account_details->address_details->account_bill_select_country) as $val)
 
                   @if( $frontend_account_details->address_details->account_bill_select_state==$val['maqh'] )
@@ -67,8 +67,8 @@
       
           <div class="col-md-6">
             <div class="form-group">
-              <label class="control-label" for="account_bill_xa_phuong">{{ trans('frontend.account_address_xa_phuong') }}</label>
-              <select class="form-control" name="account_bill_xa_phuong" id="account_bill_xa_phuong">
+              <label class="control-label" for="account_bill_select_city">{{ trans('frontend.account_address_xa_phuong') }}</label>
+              <select class="form-control" name="account_bill_select_city" id="account_bill_select_city">
                 @foreach(get_xaphuong_list($frontend_account_details->address_details->account_bill_select_state) as $val)
 
                   @if( $frontend_account_details->address_details->account_bill_select_city==$val['xaid'] )
