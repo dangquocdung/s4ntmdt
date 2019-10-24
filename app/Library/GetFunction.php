@@ -1131,9 +1131,15 @@ class GetFunction
   public static function get_tp($id)
   {
 
+    $data ='';
+
     $ten = TinhThanh::where('matp',$id)->first();  
 
-    return $ten->name;
+    if (!empty($ten)){
+      $data = $ten->name;
+    }
+
+    return $data;
 
   }
 
