@@ -542,7 +542,7 @@ class CMSController extends Controller
           $get_extension  = explode('.', $fileName);
 
           
-          if(count($get_extension) > 0 && ($get_extension[1] == 'pdf' || $get_extension[1] == 'docx')){
+          if(count($get_extension) > 0 && ($get_extension[1] == 'pdf' || $get_extension[1] == 'doc' || $get_extension[1] == 'docx')){
             $destinationPath = public_path('uploads');
             $file->move($destinationPath, time().'_'.$file->getClientOriginalName());
             $uploaded_file_name = 'uploads/'.time().'_'.$file->getClientOriginalName();
