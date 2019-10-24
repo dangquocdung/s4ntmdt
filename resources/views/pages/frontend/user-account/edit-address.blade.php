@@ -32,7 +32,7 @@
                   @foreach(get_country_list() as $val)
 
                     @if ( empty($frontend_account_details->address_details->account_bill_select_country) )
-                      <option> {!! trans('frontend.chon-tinh-thanh') !!}</option>
+                      <option selected>{!! trans('frontend.chon-tinh-thanh') !!}</option>
                     @elseif ( $frontend_account_details->address_details->account_bill_select_country == $val['matp'] )
                       <option selected value="{{ $val['matp'] }}"> {!! $val['name'] !!}</option>
                     @else
