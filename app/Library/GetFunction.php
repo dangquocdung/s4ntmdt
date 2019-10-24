@@ -1397,9 +1397,15 @@ class GetFunction
   public static function get_qh($id)
   {
 
+    $data ='';
+
     $ten = QuanHuyen::where('maqh',$id)->first();  
 
-    return $ten->name;
+    if (!empty($ten)){
+      $data = $ten->name;
+    }
+
+    return $data;
 
   }
 
@@ -1435,7 +1441,6 @@ class GetFunction
 
   }
 
-  
   public static function available_currency_name()
   {
     return array(
