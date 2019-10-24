@@ -65,9 +65,15 @@
         </div>
       </div>
 
+      @if (!empty($blog_details_by_slug['post_file']))
+
+
       <div class="pdf-viewer">
         <iframe src ="{{ asset('/laraview/#../$blog_details_by_slug['post_file']) }}" width="1000px" height="600px"></iframe>
       </div>
+
+      @endif
+
 
       <p>
         {!! string_decode($blog_details_by_slug['post_content']) !!}
