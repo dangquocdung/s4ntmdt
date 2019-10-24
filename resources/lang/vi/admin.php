@@ -1159,7 +1159,8 @@ return [
   'blog_post_allow_comments' =>  'Cho phép bình luận',
   'blog_post_allow_comments_msg' =>  'Cho phép bình luận ở bài đăng này',
   'blog_manager' => 'Truyền thông',
-  'post_file' => 'Têp văn bản'
+  'post_file' => 'Têp văn bản',
+  'state' => 'Quận, Huyện',
 
 
 ];
