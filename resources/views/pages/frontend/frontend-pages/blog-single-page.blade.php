@@ -66,7 +66,7 @@
       </div>
 
       @if (!empty($blog_details_by_slug['post_file']))
-        <div class="embed-responsive embed-responsive-16by9">
+        <div class="embed-responsive embed-responsive-1by1">
           <iframe class="embed-responsive-item" src="{{ URL::asset($blog_details_by_slug['post_file']) }}" allowfullscreen=""></iframe>
         </div>
       @endif
