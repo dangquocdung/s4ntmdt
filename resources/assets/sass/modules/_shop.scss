@@ -487,7 +487,8 @@
             margin-bottom: floor($grid-vertical-step / 4);
             padding-top: 5px;
             font: {
-                size: $font-size-base;
+                // size: $font-size-base;
+                size: 0.8rem;
                 weight: normal;
             }
             >a {
