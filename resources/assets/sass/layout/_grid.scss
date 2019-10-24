@@ -49,7 +49,7 @@
   // 3 Columns
   &.cols-3 {
     .grid-sizer,
-    .grid-item { width: calc((100% / 3) - 10px); }
+    .grid-item { width: calc((100% / 3) - 30px); }
 
   }
 
