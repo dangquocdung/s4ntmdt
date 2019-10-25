@@ -1743,42 +1743,63 @@ if ($('#same_shipping_address').length > 0) {
     $('#same_shipping_address').on('ifChecked', function(event) {
 
         $('#account_shipping_first_name').val($('#account_bill_first_name').val());
+        $('#account_shipping_first_name').prop('disabled', true);
+
         $('#account_shipping_last_name').val($('#account_bill_last_name').val());
+        $('#account_shipping_last_name').prop('disabled', true);
+
         $('#account_shipping_email_address').val($('#account_bill_email_address').val());
+        $('#account_shipping_email_address').prop('disabled', true);
+
         $('#account_shipping_phone_number').val($('#account_bill_phone_number').val());
+        $('#account_shipping_phone_number').prop('disabled', true);
+
         // $('#account_shipping_select_state').val($('#account_bill_select_state').val());
         // $('#account_shipping_select_city').val($('#account_bill_select_city').val());
 
+        $('#account_shipping_select_country').val($('#account_bill_select_country').val());
+        
         setTimeout(function() {
-            $('#account_shipping_select_country').val($('#account_bill_select_country').val());
             $('#account_shipping_select_country').trigger('change');
+            $('#account_shipping_select_country').prop('disabled', true);
 
         }, 50);
+        
+        setTimeout(function() {
 
-        $('#account_shipping_select_country').trigger('change');
+            $('#account_shipping_select_state').val($('#account_bill_select_state').val());
+        
+        }, 100);
 
         setTimeout(function() {
-            $('#account_shipping_select_state').val($('#account_bill_select_state').val());
             $('#account_shipping_select_state').trigger('change');
+            $('#account_shipping_select_state').prop('disabled', true);
 
-        }, 50);
+        }, 150);
 
         setTimeout(function() {
             $('#account_shipping_select_city').val($('#account_bill_select_city').val());
-        }, 500);
+            $('#account_shipping_select_city').prop('disabled', true);
+
+        }, 200);
 
         $('#account_shipping_adddress_line_1').val($('#account_bill_adddress_line_1').val());
+        $('#account_shipping_adddress_line_1').prop('disabled', true);
 
     });
 
-    // $('#same_shipping_address').on('ifUnchecked', function(event) {
+    $('#same_shipping_address').on('ifUnchecked', function(event) {
 
-    //     $('#account_shipping_first_name').val('');
-    //     $('#account_shipping_last_name').val('');
-    //     $('#account_shipping_phone_number').val('');
-    //     $('#account_shipping_adddress_line_1').val('');
+        $('#account_shipping_first_name').prop('disabled', false);
+        $('#account_shipping_last_name').prop('disabled', false);
+        $('#account_shipping_email_address').prop('disabled', false);
+        $('#account_shipping_phone_number').prop('disabled', false);
+        $('#account_shipping_select_country').prop('disabled', false);
+        $('#account_shipping_select_state').prop('disabled', false);
+        $('#account_shipping_select_city').prop('disabled', false);
+        $('#account_shipping_adddress_line_1').prop('disabled', false);
 
-    // });
+    });
 }
 
 if ($('#vendor_country').length > 0) {
