@@ -8359,6 +8359,10 @@ a.badge:focus {
     content: "\e9d5"
 }
 
+.icon-stars:before {
+    content: "\e9d5\e9d5\e9d5\e9d5\e9d5"
+}
+
 .icon-stop-circle:before {
     content: "\e9d6"
 }
@@ -8566,7 +8570,6 @@ a.badge:focus {
 .icon-zoom-out:before {
     content: "\ea09"
 }
-
 
 /* * iziToast | v1.1.2 * http://izitoast.marcelodolce.com * by Marcelo Dolce. */
 
@@ -9786,7 +9789,6 @@ a.badge:focus {
     content: "\e67f"
 }
 
-
 /*! PhotoSwipe main CSS by Dmitry Semenov | photoswipe.com | MIT license */
 
 .pswp,
@@ -9973,7 +9975,6 @@ a.badge:focus {
     text-decoration: none;
     color: #000
 }
-
 
 /*! PhotoSwipe Default UI CSS by Dmitry Semenov | photoswipe.com | MIT license */
 

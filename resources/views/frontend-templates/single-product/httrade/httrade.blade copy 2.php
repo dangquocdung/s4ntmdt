@@ -270,8 +270,7 @@
           <!-- Nav tabs -->
           <ul class="nav nav-tabs tab-style" role="tablist">
 
-            <li class="nav-item">
-              <a class="show" href="#features" data-toggle="tab">
+            <li class="nav-item"><a <?php if(!old('comments_target')){?>class="show active" <?php }?> href="#features" data-toggle="tab">
               <div class="tab-menu-text">
                   <h4>{{ trans('frontend.features_label') }}</h4>
               </div>
@@ -287,11 +286,12 @@
 
             @if($single_product_details['_product_enable_reviews'] == 'yes')
               <li class="nav-item">
-                <a class="show active" href="#reviews" data-toggle="tab">
+                <a class="show <?php if(old('comments_target')){?>active <?php }?>" href="#reviews" data-toggle="tab">
                 <div class="tab-menu-text">
                     <h4>{{ trans('frontend.reviews_label') }} ({!! $comments_rating_details['total'] !!})</h4>
                 </div>
 
+                  
                 </a>
               </li>
             @endif
@@ -307,7 +307,7 @@
         </div>
 
         <div class="tab-content">
-          <div class="tab-pane fade" id="features">
+          <div class="tab-pane fade <?php if(!old('comments_target')){?>show active<?php }?>" id="features">
             @if($single_product_details['_product_extra_features'])  
               {!! string_decode($single_product_details['_product_extra_features']) !!}
             @else
@@ -320,7 +320,7 @@
           </div>
 
           @if($single_product_details['_product_enable_reviews'] == 'yes')
-          <div class="tab-pane fade show active" id="reviews">
+          <div class="tab-pane fade <?php if(old('comments_target')){?>show active<?php }?>" id="reviews">
               <div class="product-reviews-content">
                 <div class="rating-box clearfix">
                     <div class="score-box">
@@ -483,18 +483,10 @@
                       <div class="card border-default">
                         <div class="card-body">
                           <div class="text-center">
-                            <div class="d-inline align-baseline display-3 mr-1">{{ $comments_rating_details['average'] }}</div>
+                            <div class="d-inline align-baseline display-3 mr-1">4.2</div>
                             <div class="d-inline align-baseline text-sm text-warning mr-1">
-
-                              
-
-                                <div class="rating-stars">
-                                  <div class="star-rating"><span style="width:{{ $comments_rating_details['percentage'] }}%"></span></div>
-                                    <!-- <i class="icon-stars">
-                                      <span style="width:{{ $comments_rating_details['percentage'] }}%"></span>
-                                    </i> -->
+                                <div class="rating-stars"><i class="icon-star filled"></i><i class="icon-star filled"></i><i class="icon-star filled"></i><i class="icon-star filled"></i><i class="icon-star"></i>
                                 </div>
-
                             </div>
                           </div>
                           <div class="pt-3">
@@ -562,6 +554,8 @@
             </div>
           </div>
 
+
+          
           @endif
 
           @if( count(get_vendor_details_by_product_id($single_product_details['id'])) >0 )
@@ -587,6 +581,7 @@
 
               <tr><th>{!! trans('frontend.vendor_rating_label') !!}</th><td><div class="review-stars"><div class="star-rating" style="text-align:left !important; margin:0px !important;"><span style="width:{{ $vendor_reviews_rating_details['percentage'] }}%"></span></div></div></td></tr>  
             </table>
+
 
             </div>
           </div>  
@@ -668,6 +663,7 @@
           <a class="product-button btn-store" href="{{ route('store-details-page-content', get_user_name_by_user_id($products['author_id'])) }}" target="_blank" data-toggle="tooltip" title="{{ get_user_name_by_user_id($products['author_id']) }}" data-original-title="{{ trans('frontend.gian-hang') }}">
             <i class="icon-home"></i><span>{{ trans('frontend.gian-hang') }}</span>
           </a>
+
 
           <a class="product-button btn-wishlist product-wishlist" data-id="{{ $products['id'] }}" data-toggle="tooltip" title="{{ trans('frontend.add_to_wishlist_label') }}" data-original-title="{{ trans('frontend.add_to_wishlist_label') }}">
             <i class="icon-heart"></i><span>{{ trans('frontend.add_to_wishlist_label') }}</span>

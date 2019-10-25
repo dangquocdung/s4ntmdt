@@ -1761,30 +1761,28 @@ if ($('#same_shipping_address').length > 0) {
         
         setTimeout(function() {
             $('#account_shipping_select_country').trigger('change');
-            $('#account_shipping_select_country').prop('disabled', true);
-
         }, 50);
-        
-        setTimeout(function() {
 
+        setTimeout(function() {
             $('#account_shipping_select_state').val($('#account_bill_select_state').val());
-        
         }, 100);
 
         setTimeout(function() {
             $('#account_shipping_select_state').trigger('change');
-            $('#account_shipping_select_state').prop('disabled', true);
-
         }, 150);
 
         setTimeout(function() {
             $('#account_shipping_select_city').val($('#account_bill_select_city').val());
-            $('#account_shipping_select_city').prop('disabled', true);
-
         }, 200);
 
         $('#account_shipping_adddress_line_1').val($('#account_bill_adddress_line_1').val());
-        $('#account_shipping_adddress_line_1').prop('disabled', true);
+
+        setTimeout(function() {
+            $('#account_shipping_select_country').prop('disabled', true);
+            $('#account_shipping_select_state').prop('disabled', true);
+            $('#account_shipping_select_city').prop('disabled', true);
+            $('#account_shipping_adddress_line_1').prop('disabled', true);
+        }, 250);
 
     });
 

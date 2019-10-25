@@ -148,7 +148,7 @@ Route::get( '/san-pham/so-sanh-san-pham', [
   'as'   => 'product-comparison-page'
 ]);
 
-Route::post( '/product/details/{details_slug}', [
+Route::post( '/san-pham/chi-tiet/{details_slug}', [
   'uses' => 'Frontend\UserCommentsController@saveUserComments',
   'as'   => 'save-user-comments'
 ]);
