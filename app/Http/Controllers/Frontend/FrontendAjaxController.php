@@ -650,16 +650,24 @@ class FrontendAjaxController extends Controller
    * @return response
    */
   public function contactWithVendorEmail(){
-    if(Request::isMethod('post') && Request::ajax() && Session::token() == Request::header('X-CSRF-TOKEN')){
-      $input = Request::all(); 
-      $mailData = array();
-      
-      $mailData['source']           =   'contact_to_vendor_mail';
-      $mailData['data']             =   array('_mail_to' => base64_decode($input['vendor_mail']), '_mail_from' => base64_decode($input['customer_email']), '_subject' => base64_decode($input['name']), '_message' => base64_decode($input['message']));
 
-      $this->classGetFunction->sendCustomMail( $mailData );
+    if(Request::isMethod('post') && Request::ajax() && Session::token() == Request::header('X-CSRF-TOKEN')){
+
+      $input = Request::all(); 
+      // $mailData = array();
       
-      return response()->json(array('status' => 'success'));
+      // $mailData['source']           =   'contact_to_vendor_mail';
+      // $mailData['data']             =   array('_mail_to' => base64_decode($input['vendor_mail']), '_mail_from' => base64_decode($input['customer_email']), '_subject' => base64_decode($input['name']), '_message' => base64_decode($input['message']));
+
+      // $this->classGetFunction->sendCustomMail( $mailData );
+      
+      // return response()->json(array('status' => 'success'));
+
+      return response()->json($input);
+
+
     }
+
+
   }
 }

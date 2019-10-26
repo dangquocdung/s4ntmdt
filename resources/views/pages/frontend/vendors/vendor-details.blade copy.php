@@ -270,7 +270,7 @@
                   <input class="form-control" name="contact_name" id="contact_name" placeholder="{{ trans('frontend.enter_name_label') }}" type="text">
                 </div>
                 <div class="form-group">
-                  <input class="form-control" name="contact_email_id" id="contact_email_id" placeholder="{{ trans('frontend.enter_email_label') }}" type="text">
+                  <input class="form-control" name="contact_email_id" id="contact_email_id" placeholder="{{ trans('frontend.enter_email_label') }}" type="email">
                 </div>
                 <div class="form-group">
                   <textarea class="form-control" name="contact_message" id="contact_message" placeholder="{{ trans('frontend.enter_your_message_label') }}"></textarea>
@@ -367,39 +367,44 @@
 
 <script type="text/javascript">
   $(document).ready(function(){
-    $('#sendVendorContactMessage').on('click', function(){
-      if($('#contact_name').val() == '' || $('#contact_name').val() == null){
-        alert('please insert name!');
-        return false;
-      }
-      
-      if($('#contact_email_id').val() == '' || $('#contact_email_id').val() == null){
-        alert('please insert valid email id!');
-        return false;
-      }
-      
-      if($('#contact_message').val() == '' || $('#contact_message').val() == null){
-        alert('please insert message!');
-        return false;
-      }
-      
-      if($('#contact_name').val().length> 0 && $('#contact_email_id').val().length> 0 && $('#contact_message').val().length>0){
-        $.ajax({
-              url: $('#hf_base_url').val() + '/ajax/contact-with-vendor',
-              type: 'POST',
-              cache: false,
-              datatype: 'json',
-              data: {vendor_mail:Base64.encode($('#vendor_email').val()), name: Base64.encode($('#contact_name').val()), customer_email: Base64.encode($('#contact_email_id').val()), message: Base64.encode($('#contact_message').val())},
-              headers: { 'X-CSRF-TOKEN' : $('meta[name="csrf-token"]').attr('content') },
-              success: function(data){
-                if(data && data.status == 'success'){
-                  alert("your message successfully sent to the vendor");
-                }
-              },
-              error:function(){alert('Something wrong!');}
-        });
-      }
-    });
+
+    if($('#sendVendorContactMessage').length>0){
+
+      $('#sendVendorContactMessage').on('click', function(){
+        if($('#contact_name').val() == '' || $('#contact_name').val() == null){
+          alert('please insert name!');
+          return false;
+        }
+        
+        if($('#contact_email_id').val() == '' || $('#contact_email_id').val() == null){
+          alert('please insert valid email id!');
+          return false;
+        }
+        
+        if($('#contact_message').val() == '' || $('#contact_message').val() == null){
+          alert('please insert message!');
+          return false;
+        }
+        
+        if($('#contact_name').val().length> 0 && $('#contact_email_id').val().length> 0 && $('#contact_message').val().length>0){
+          $.ajax({
+                url: $('#hf_base_url').val() + '/ajax/contact-with-vendor',
+                type: 'POST',
+                cache: false,
+                datatype: 'json',
+                data: {vendor_mail:Base64.encode($('#vendor_email').val()), name: Base64.encode($('#contact_name').val()), customer_email: Base64.encode($('#contact_email_id').val()), message: Base64.encode($('#contact_message').val())},
+                headers: { 'X-CSRF-TOKEN' : $('meta[name="csrf-token"]').attr('content') },
+                success: function(data){
+                  if(data && data.status == 'success'){
+                    alert("your message successfully sent to the vendor");
+                  }
+                },
+                error:function(){alert('Something wrong!');}
+          });
+        }
+      });
+
+    }
     
     if($('#store_details #price_range').length>0){
       $('#store_details #price_range').slider();
