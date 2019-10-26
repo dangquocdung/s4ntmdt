@@ -1977,6 +1977,48 @@ $('#share-content>a').on('click', function (e) {
     window.print();
   }
 });
+$('#sendVendorContactMessage').on('click', function () {
+  if ($('#contact_name').val() == '' || $('#contact_name').val() == null) {
+    alert('please insert name!');
+    return false;
+  }
+
+  if ($('#contact_email_id').val() == '' || $('#contact_email_id').val() == null) {
+    alert('please insert valid email id!');
+    return false;
+  }
+
+  if ($('#contact_message').val() == '' || $('#contact_message').val() == null) {
+    alert('please insert message!');
+    return false;
+  }
+
+  if ($('#contact_name').val().length > 0 && $('#contact_email_id').val().length > 0 && $('#contact_message').val().length > 0) {
+    $.ajax({
+      url: $('#hf_base_url').val() + '/ajax/contact-with-vendor',
+      type: 'POST',
+      cache: false,
+      datatype: 'json',
+      data: {
+        vendor_mail: Base64.encode($('#vendor_email').val()),
+        name: Base64.encode($('#contact_name').val()),
+        customer_email: Base64.encode($('#contact_email_id').val()),
+        message: Base64.encode($('#contact_message').val())
+      },
+      headers: {
+        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+      },
+      success: function success(data) {
+        if (data && data.status == 'success') {
+          alert("your message successfully sent to the vendor");
+        }
+      },
+      error: function error() {
+        alert('Something wrong!');
+      }
+    });
+  }
+});
 
 /***/ }),
 

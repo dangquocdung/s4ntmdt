@@ -293,7 +293,7 @@ class GetFunction
   public function sendCustomMail($data){
     $view          =  '';
     $get_view_data =  array();
-    $site_title    =  'Dungthinh';
+    $site_title    =  'SanGD-TMDT';
     $email         =  'yourEmail@domain.com';
     $logo          =  default_placeholder_img_src();
     $appearance    =  array();
