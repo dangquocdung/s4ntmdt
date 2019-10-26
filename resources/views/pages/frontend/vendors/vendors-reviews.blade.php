@@ -89,8 +89,8 @@
             </div>
           </div>
           <div class="col-md-8">
-            @if(count($comments_details) > 0)
-              @foreach($comments_details as $comment) 
+          @if(count($comments_details) > 0)
+            @foreach($comments_details as $comment) 
                 <!-- Review-->
                 <div class="comment">
                   <div class="comment-author-ava">

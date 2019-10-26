@@ -2217,9 +2217,11 @@ class GetFunction
   }
   
   public static function comments_data_by_object_id($object_id, $target){
+
     $comments_data = array();
-    
+
     if(!empty($object_id) && $object_id >0 && !empty($target)){
+
       if($target == 'product'){
         $get_comments = DB::table('comments')
                       ->where(['comments.object_id' => $object_id, 'comments.target' => $target, 'comments.status' => 1])
@@ -2232,9 +2234,9 @@ class GetFunction
       else{
         $get_comments = DB::table('comments')
                       ->where(['comments.object_id' => $object_id, 'comments.target' => $target, 'comments.status' => 1])
-                      ->join('posts', 'comments.object_id', '=', 'posts.id')
+                      // ->join('posts', 'comments.object_id', '=', 'posts.id')
                       ->join('users', 'comments.user_id', '=', 'users.id')
-                      ->select('comments.*', 'posts.post_title', 'posts.post_slug', 'users.display_name', 'users.user_photo_url', DB::raw("((comments.rating/5)*100) as percentage"), DB::raw("((comments.rating/5)*100) as percentage"))
+                      ->select('comments.*', 'users.display_name', 'users.user_photo_url', DB::raw("((comments.rating/5)*100) as percentage"), DB::raw("((comments.rating/5)*100) as percentage"))
                       ->get()
                       ->toArray();
       }

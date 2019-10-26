@@ -1165,6 +1165,9 @@ class FrontendManagerController extends Controller
       $data['user_name']                      =  $user;
       
       return view('pages.frontend.vendors.vendor-details', $data);
+
+      // return response()->json($data['comments_details']);
+
     }
     else{
       return view('errors.no_data');
