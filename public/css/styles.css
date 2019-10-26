@@ -8479,7 +8479,7 @@ i.icon-shopping-cart {
 }
 
 .star-rating span::before {
-  color: #1fc0a0;
+  color: #ffa000;
   content: "\E9D5\E9D5\E9D5\E9D5\E9D5";
   font-size: 13px;
   left: 0;
