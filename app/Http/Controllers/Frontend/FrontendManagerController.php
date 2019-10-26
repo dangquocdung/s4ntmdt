@@ -617,7 +617,7 @@ class FrontendManagerController extends Controller
 
       return view('pages.frontend.frontend-pages.product-details', $data);
 
-      // return response()->json($data['single_product_details']);
+      // return response()->json($data['comments_details']);
     }
     else{
       return view('errors.no_data');

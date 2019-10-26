@@ -91,11 +91,11 @@
             <li class="nav-item"><a class="nav-link" href="{{ route('store-products-page-content', $vendor_info->name) }}" ><i class="icon-search"></i>&nbsp;{!! trans('frontend.all_products_label') !!}</a></li>
           @endif
 
-          <!-- @if(Request::is('gian-hang/chi-tiet/danh-gia/*'))  
+          @if(Request::is('gian-hang/chi-tiet/danh-gia/*'))  
             <li class="nav-item"><a class="nav-link active" href="{{ route('store-reviews-page-content', $vendor_info->name) }}" ><i class="icon-mail"></i>&nbsp;{!! trans('frontend.reviews_label') !!}</a></li>
           @else  
             <li class="nav-item"><a class="nav-link" href="{{ route('store-reviews-page-content', $vendor_info->name) }}" ><i class="icon-mail"></i>&nbsp;{!! trans('frontend.reviews_label') !!}</a></li>
-          @endif -->
+          @endif
         </ul>
 
         <div class="tab-content">

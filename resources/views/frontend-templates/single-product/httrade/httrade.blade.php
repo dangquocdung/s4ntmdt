@@ -271,7 +271,7 @@
           <ul class="nav nav-tabs tab-style" role="tablist">
 
             <li class="nav-item">
-              <a class="show" href="#features" data-toggle="tab">
+              <a class="show {{ !old('comments_target')?'active':'' }}" href="#features" data-toggle="tab">
               <div class="tab-menu-text">
                   <h4>{{ trans('frontend.features_label') }}</h4>
               </div>
@@ -287,7 +287,7 @@
 
             @if($single_product_details['_product_enable_reviews'] == 'yes')
               <li class="nav-item">
-                <a class="show active" href="#reviews" data-toggle="tab">
+                <a class="show {{ old('comments_target')?'active':'' }}" href="#reviews" data-toggle="tab">
                 <div class="tab-menu-text">
                     <h4>{{ trans('frontend.reviews_label') }} ({!! $comments_rating_details['total'] !!})</h4>
                 </div>
@@ -307,7 +307,7 @@
         </div>
 
         <div class="tab-content">
-          <div class="tab-pane fade" id="features">
+          <div class="tab-pane fade {{ !old('comments_target')?'show active':'' }}" id="features">
             @if($single_product_details['_product_extra_features'])  
               {!! string_decode($single_product_details['_product_extra_features']) !!}
             @else
@@ -320,7 +320,7 @@
           </div>
 
           @if($single_product_details['_product_enable_reviews'] == 'yes')
-          <div class="tab-pane fade show active" id="reviews">
+          <div class="tab-pane fade {{ old('comments_target')?'show active':'' }}" id="reviews">
               <div class="product-reviews-content">
 
                 @include('pages-message.notify-msg-success')
@@ -365,7 +365,6 @@
                   </div>
                 </form>
 
-
                 <div class="padding-top-2x">
                   <div class="row">
                     <div class="col-md-4 mb-4">
@@ -375,15 +374,10 @@
                             <div class="d-inline align-baseline display-3 mr-1">{{ $comments_rating_details['average'] }}</div>
                             <div class="d-inline align-baseline text-sm text-warning mr-1">
 
-                              
-
                                 <div class="rating-stars">
                                   <div class="star-rating">
                                     <span style="width:{{ $comments_rating_details['percentage'] }}%"></span>
                                   </div>
-                                    <!-- <i class="icon-stars">
-                                      <span style="width:{{ $comments_rating_details['percentage'] }}%"></span>
-                                    </i> -->
                                 </div>
 
                             </div>
@@ -410,7 +404,7 @@
                               <div class="progress-bar bg-warning" role="progressbar" style="width: {{ $comments_rating_details[1] }}; height: 2px;" aria-valuenow="{{ $comments_rating_details[1] }}" aria-valuemin="0" aria-valuemax="100"></div>
                             </div>
                           </div>
-                          <div class="pt-2"><a class="btn btn-warning btn-block" href="#" data-toggle="modal" data-target="#leaveReview">Leave a Review</a></div>
+                          <div class="pt-2"><a class="btn btn-warning btn-block" href="#" data-toggle="modal" data-target="#leaveReview">{{ trans('frontend.add_a_review_label') }}</a></div>
                         </div>
                       </div>
                     </div>

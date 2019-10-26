@@ -236,7 +236,7 @@ $(document).ready(function() {
     // Init buttons and UI
     widget.not(':eq(0)').hide();
     hideButtons(current);
-    setProgress(current);
+    // setProgress(current);
 
     // Next button click action
     btnnext.click(function(e) {
@@ -294,7 +294,7 @@ $(document).ready(function() {
 
                 console.log('current++: ' + current);
 
-                setProgress(current);
+                // setProgress(current);
             }
 
             hideButtons(current);

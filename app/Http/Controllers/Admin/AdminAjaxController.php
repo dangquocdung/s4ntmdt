@@ -194,7 +194,9 @@ class AdminAjaxController extends Controller
           elseif(isset($input['profile_picture'])){
             $image = Input::file('profile_picture');
             $fileName = time()."-"."h-100-".$image->getClientOriginalName();
+            $width  = 100;
             $height = 100;
+
           }
           elseif(isset($input['site_picture'])){
             $image = Input::file('site_picture');

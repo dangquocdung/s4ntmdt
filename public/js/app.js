@@ -361,8 +361,8 @@ $(document).ready(function () {
   btnsubmit = $("#checkout_page .submit"); // Init buttons and UI
 
   widget.not(':eq(0)').hide();
-  hideButtons(current);
-  setProgress(current); // Next button click action
+  hideButtons(current); // setProgress(current);
+  // Next button click action
 
   btnnext.click(function (e) {
     e.preventDefault();
@@ -397,8 +397,7 @@ $(document).ready(function () {
           widget.not(':eq(' + current++ + ')').hide();
         }
 
-        console.log('current++: ' + current);
-        setProgress(current);
+        console.log('current++: ' + current); // setProgress(current);
       }
 
       hideButtons(current);

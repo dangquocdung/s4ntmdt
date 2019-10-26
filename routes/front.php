@@ -118,7 +118,7 @@ Route::get( '/gian-hang/chi-tiet/danh-gia/{store_user_name}', [
   'as'   => 'store-reviews-page-content'
 ]);
 
-Route::post( '/store/details/reviews/{store_user_name}', [
+Route::post( '/gian-hang/chi-tiet/danh-gia/{store_user_name}', [
   'uses' => 'VendorsController@saveVendorComments',
   'as'   => 'vendor-reviews-save'
 ]);

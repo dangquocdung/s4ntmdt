@@ -3362,7 +3362,7 @@ button:focus {
 }
 
 .nav-pills + .tab-content {
-  padding: 24px 0 0;
+  padding: 10px;
   border: 0;
   border-radius: 0;
 }
@@ -8455,11 +8455,11 @@ i.icon-shopping-cart {
   overflow: hidden;
   position: relative;
   text-align: center;
-  width: 78px;
+  width: 73px;
 }
 
 .star-rating::before {
-  color: #333;
+  color: #bfbfbf;
   content: "\E9D5\E9D5\E9D5\E9D5\E9D5";
   float: left;
   font-size: 13px;

@@ -99,7 +99,8 @@
     cursor: default;
   }
   & + .tab-content {
-    padding: $grid-vertical-step 0 0;
+    // padding: $grid-vertical-step 0 0;
+    padding: 10px;
     border: 0;
     border-radius: 0;
   }
