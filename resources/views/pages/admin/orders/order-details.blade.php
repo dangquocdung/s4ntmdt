@@ -11,6 +11,13 @@
         <div class="row">  
           <div class="col-sm-3">
             <select id="change_order_status" name="change_order_status" style="width:100%;">
+
+              @if($order_data_by_id['_order_status'] == 'on-hold')
+                <option selected value="on-hold">{{ trans('admin.on-hold') }}</option>
+              @else 
+                <option value="on-hold">{{ trans('admin.on-hold') }}</option>
+              @endif
+
               @if($order_data_by_id['_order_status'] == 'pending')
                 <option selected value="pending">{{ trans('admin.pending_payment') }}</option>
               @else 
@@ -23,11 +30,13 @@
                 <option value="processing">{{ trans('admin.processing') }}</option>
               @endif
 
-              @if($order_data_by_id['_order_status'] == 'on-hold')
-                <option selected value="on-hold">{{ trans('admin.on_hold') }}</option>
+              @if($order_data_by_id['_order_status'] == 'shipping')
+                <option selected value="shipping">{{ trans('admin.shipping') }}</option>
               @else 
-                <option value="on-hold">{{ trans('admin.on_hold') }}</option>
+                <option value="shipping">{{ trans('admin.shipping') }}</option>
               @endif
+
+
 
               @if($order_data_by_id['_order_status'] == 'completed')
                 <option selected value="completed">{{ trans('admin.completed') }}</option>
@@ -47,11 +56,6 @@
                 <option value="refunded">{{ trans('admin.refunded') }}</option>
               @endif
 
-              @if($order_data_by_id['_order_status'] == 'shipping')
-                <option selected value="shipping">{{ trans('admin.shipping') }}</option>
-              @else 
-                <option value="shipping">{{ trans('admin.shipping') }}</option>
-              @endif
             </select>
           </div>
           <div class="col-sm-9">
@@ -68,8 +72,8 @@
   <div class="box-body">
     <div class="row">
       <div class="col-md-4">
-        <h5>{{ trans('admin.order_details') }}</h5><hr>
-        <br>
+        <h5>{{ trans('admin.order_details') }}</h5>
+        <hr>
         <p><strong>{{ trans('admin.order') }} #:</strong> {!! $order_data_by_id['_order_id'] !!}
         <p><strong>{{ trans('admin.order_date') }}:</strong> {!! $order_data_by_id['_order_date'] !!}
         <p><strong>{{ trans('admin.payment_method') }}:</strong> {!! get_payment_method_title( $order_data_by_id['_payment_method_title'] ) !!} 
@@ -87,9 +91,11 @@
       </div>
       <div class="col-md-4">
           
-        <h5>{{ trans('admin.billing_address') }}</h5><hr>
-        <br>
+        <h5>{{ trans('admin.billing_address') }}</h5>
+        <hr>
         <p>{!! $order_data_by_id['_billing_first_name'].' '. $order_data_by_id['_billing_last_name']!!}</p>
+        <p><strong>{{ trans('admin.phone') }}:</strong> {!! $order_data_by_id['_billing_phone'] !!}</p>
+
         <p><strong>{{ trans('admin.address_1') }}:</strong> {!! $order_data_by_id['_billing_address_1'] !!}</p>
         @if($order_data_by_id['_billing_address_2'])
           <p><strong>{{ trans('admin.address_2') }}:</strong> {!! $order_data_by_id['_billing_address_2'] !!}</p>
@@ -98,15 +104,15 @@
         <p><strong>{{ trans('admin.state') }}:</strong> {!! get_quanhuyen($order_data_by_id['_billing_state']) !!}</p>
         <p><strong>{{ trans('admin.country') }}:</strong> {!!  get_tinhthanh($order_data_by_id['_billing_country'])  !!}</p>
         <p><strong>{{ trans('admin.email') }}:</strong> {!! $order_data_by_id['_billing_email'] !!}</p>
-        <p><strong>{{ trans('admin.phone') }}:</strong> {!! $order_data_by_id['_billing_phone'] !!}</p>
         
         
       </div>
       <div class="col-md-4">
           
-        <h5>{{ trans('admin.shipping_address') }}</h5><hr>
-        <br>
+        <h5>{{ trans('admin.shipping_address') }}</h5>
+        <hr>
         <p>{!! $order_data_by_id['_shipping_first_name'].' '. $order_data_by_id['_shipping_last_name']!!}</p>
+        <p><strong>{{ trans('admin.phone') }}:</strong> {!! $order_data_by_id['_shipping_phone'] !!}</p>
         <p><strong>{{ trans('admin.address_1') }}:</strong> {!! $order_data_by_id['_shipping_address_1'] !!}</p>
         @if($order_data_by_id['_shipping_address_2'])
           <p><strong>{{ trans('admin.address_2') }}:</strong> {!! $order_data_by_id['_shipping_address_2'] !!}</p>
@@ -115,7 +121,6 @@
         <p><strong>{{ trans('admin.state') }}:</strong> {!! get_quanhuyen($order_data_by_id['_shipping_state']) !!}</p>
         <p><strong>{{ trans('admin.country') }}:</strong> {!! get_tinhthanh($order_data_by_id['_shipping_country'])  !!}</p>
         <p><strong>{{ trans('admin.email') }}:</strong> {!! $order_data_by_id['_shipping_email'] !!}</p>
-        <p><strong>{{ trans('admin.phone') }}:</strong> {!! $order_data_by_id['_shipping_phone'] !!}</p>
         
         
       </div>

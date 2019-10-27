@@ -213,8 +213,6 @@
     </div>
   </section> 
 </div>  
-
-
 @endif
 
 <hr class="mb-3">
@@ -244,6 +242,19 @@
 </div>
 
 
+@if(!empty($order_details_by_order_id['_order_notes']))
+
+<div class="d-flex flex-wrap flex-sm-nowrap justify-content-between py-3 px-2 bg-secondary margin-top-1x">
+  <div class="w-100">
+    <span class='text-medium'>{{ trans('frontend.order_notes') }}:</span> {!! $order_details_by_order_id['_order_notes'] !!}</div>
+</div>
+
+@endif
+
+
+
+
+
 <!-- Open Ticket Modal-->
 <div class="modal-dialog modal-lg">
   <div class="modal-content">
@@ -270,6 +281,7 @@
       <h6>{{ trans('frontend.shipping_address') }}</h6>
       <p><strong>{{ trans('frontend.nguoi-nhan') }}:</strong> {!! $order_details_by_order_id['customer_address']['_shipping_last_name'].' '. $order_details_by_order_id['customer_address']['_shipping_first_name']!!}</p>
       <p><strong>{{ trans('frontend.phone') }}:</strong> {!! $order_details_by_order_id['customer_address']['_shipping_phone'] !!}</p>
+      <p><strong>{{ trans('frontend.email') }}:</strong> {!! $order_details_by_order_id['customer_address']['_shipping_email'] !!}</p>
       <p><strong>{{ trans('frontend.address_1') }}:</strong> {!! $order_details_by_order_id['customer_address']['_shipping_address_1'] !!}</p>
       @if($order_details_by_order_id['customer_address']['_shipping_address_2'])
         <p><strong>{{ trans('frontend.address_2') }}:</strong> {!! $order_details_by_order_id['customer_address']['_shipping_address_2'] !!}</p>

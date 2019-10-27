@@ -307,7 +307,7 @@ class UserAccountManageController extends Controller
       $data['order_details_by_order_id'] = array();
     }
 
-    return response()->json($data['order_details_by_order_id']);
+    // return response()->json($data['order_details_by_order_id']);
 
     
     return view('pages.frontend.user-account.user-account-pages', $data);
