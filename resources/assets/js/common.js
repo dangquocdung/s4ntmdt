@@ -1743,16 +1743,16 @@ if ($('#same_shipping_address').length > 0) {
     $('#same_shipping_address').on('ifChecked', function(event) {
 
         $('#account_shipping_first_name').val($('#account_bill_first_name').val());
-        $('#account_shipping_first_name').prop('disabled', true);
+        $('#account_shipping_first_name').prop('readonly', true);
 
         $('#account_shipping_last_name').val($('#account_bill_last_name').val());
-        $('#account_shipping_last_name').prop('disabled', true);
+        $('#account_shipping_last_name').prop('readonly', true);
 
         $('#account_shipping_email_address').val($('#account_bill_email_address').val());
-        $('#account_shipping_email_address').prop('disabled', true);
+        $('#account_shipping_email_address').prop('readonly', true);
 
         $('#account_shipping_phone_number').val($('#account_bill_phone_number').val());
-        $('#account_shipping_phone_number').prop('disabled', true);
+        $('#account_shipping_phone_number').prop('readonly', true);
 
         // $('#account_shipping_select_state').val($('#account_bill_select_state').val());
         // $('#account_shipping_select_city').val($('#account_bill_select_city').val());
@@ -1778,24 +1778,24 @@ if ($('#same_shipping_address').length > 0) {
         $('#account_shipping_adddress_line_1').val($('#account_bill_adddress_line_1').val());
 
         setTimeout(function() {
-            $('#account_shipping_select_country').prop('disabled', true);
-            $('#account_shipping_select_state').prop('disabled', true);
-            $('#account_shipping_select_city').prop('disabled', true);
-            $('#account_shipping_adddress_line_1').prop('disabled', true);
+            $('#account_shipping_select_country').prop('readonly', true);
+            $('#account_shipping_select_state').prop('readonly', true);
+            $('#account_shipping_select_city').prop('readonly', true);
+            $('#account_shipping_adddress_line_1').prop('readonly', true);
         }, 250);
 
     });
 
     $('#same_shipping_address').on('ifUnchecked', function(event) {
 
-        $('#account_shipping_first_name').prop('disabled', false);
-        $('#account_shipping_last_name').prop('disabled', false);
-        $('#account_shipping_email_address').prop('disabled', false);
-        $('#account_shipping_phone_number').prop('disabled', false);
-        $('#account_shipping_select_country').prop('disabled', false);
-        $('#account_shipping_select_state').prop('disabled', false);
-        $('#account_shipping_select_city').prop('disabled', false);
-        $('#account_shipping_adddress_line_1').prop('disabled', false);
+        $('#account_shipping_first_name').prop('readonly', false);
+        $('#account_shipping_last_name').prop('readonly', false);
+        $('#account_shipping_email_address').prop('readonly', false);
+        $('#account_shipping_phone_number').prop('readonly', false);
+        $('#account_shipping_select_country').prop('readonly', false);
+        $('#account_shipping_select_state').prop('readonly', false);
+        $('#account_shipping_select_city').prop('readonly', false);
+        $('#account_shipping_adddress_line_1').prop('readonly', false);
 
     });
 }

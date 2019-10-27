@@ -1,5 +1,132 @@
 <!-- Page Content-->
-<div class="d-flex flex-wrap flex-sm-nowrap justify-content-between py-3 px-2 bg-secondary ">
+
+<div class="steps flex-sm-nowrap">
+@switch($order_details_by_order_id['_order_status'])
+    @case('on-hold')
+      <div class="step active">
+        <i class="icon-shopping-bag"></i>
+        <h4 class="step-title">{!!  trans('frontend.on-hold') !!}</h4>
+      </div>
+      <div class="step">
+        <i class="icon-settings"></i>
+        <h4 class="step-title">{!!  trans('frontend.pending') !!}</h4>
+      </div>
+      <div class="step">
+        <i class="icon-award"></i>
+        <h4 class="step-title">{!!  trans('frontend.processing') !!}</h4>
+      </div>
+      <div class="step">
+        <i class="icon-truck"></i>
+        <h4 class="step-title">{!!  trans('frontend.shipping') !!}</h4>
+      </div>
+      <div class="step">
+        <i class="icon-home"></i>
+        <h4 class="step-title">{!!  trans('frontend.completed') !!}</h4>
+      </div>
+
+      @break
+    @case('pending')
+      <div class="step active">
+        <i class="icon-shopping-bag"></i>
+        <h4 class="step-title">{!!  trans('frontend.holded') !!}</h4>
+      </div>
+      <div class="step active">
+        <i class="icon-settings"></i>
+        <h4 class="step-title">{!!  trans('frontend.pending') !!}</h4>
+      </div>
+      <div class="step">
+        <i class="icon-award"></i>
+        <h4 class="step-title">{!!  trans('frontend.processing') !!}</h4>
+      </div>
+      <div class="step">
+        <i class="icon-truck"></i>
+        <h4 class="step-title">{!!  trans('frontend.shipping') !!}</h4>
+      </div>
+      <div class="step">
+        <i class="icon-home"></i>
+        <h4 class="step-title">{!!  trans('frontend.completed') !!}</h4>
+      </div>
+      @break
+    @case('processing')
+      <div class="step active">
+        <i class="icon-shopping-bag"></i>
+        <h4 class="step-title">{!!  trans('frontend.holded') !!}</h4>
+      </div>
+      <div class="step active">
+        <i class="icon-settings"></i>
+        <h4 class="step-title">{!!  trans('frontend.pended') !!}</h4>
+      </div>
+      <div class="step active">
+        <i class="icon-award"></i>
+        <h4 class="step-title">{!!  trans('frontend.processing') !!}</h4>
+      </div>
+      <div class="step">
+        <i class="icon-truck"></i>
+        <h4 class="step-title">{!!  trans('frontend.shipping') !!}</h4>
+      </div>
+      <div class="step">
+        <i class="icon-home"></i>
+        <h4 class="step-title">{!!  trans('frontend.completed') !!}</h4>
+      </div>
+
+      @break
+    @case('shipping')
+    <div class="step active">
+        <i class="icon-shopping-bag"></i>
+        <h4 class="step-title">{!!  trans('frontend.holded') !!}</h4>
+      </div>
+      <div class="step active">
+        <i class="icon-settings"></i>
+        <h4 class="step-title">{!!  trans('frontend.pended') !!}</h4>
+      </div>
+      <div class="step active">
+        <i class="icon-award"></i>
+        <h4 class="step-title">{!!  trans('frontend.processed') !!}</h4>
+      </div>
+      <div class="step active">
+        <i class="icon-truck"></i>
+        <h4 class="step-title">{!!  trans('frontend.shipping') !!}</h4>
+      </div>
+      <div class="step">
+        <i class="icon-home"></i>
+        <h4 class="step-title">{!!  trans('frontend.completed') !!}</h4>
+      </div>
+
+      @break
+    @case('completed')
+    <div class="step active">
+        <i class="icon-shopping-bag"></i>
+        <h4 class="step-title">{!!  trans('frontend.holded') !!}</h4>
+      </div>
+      <div class="step active">
+        <i class="icon-settings"></i>
+        <h4 class="step-title">{!!  trans('frontend.pended') !!}</h4>
+      </div>
+      <div class="step active">
+        <i class="icon-award"></i>
+        <h4 class="step-title">{!!  trans('frontend.processed') !!}</h4>
+      </div>
+      <div class="step active">
+        <i class="icon-truck"></i>
+        <h4 class="step-title">{!!  trans('frontend.shipped') !!}</h4>
+      </div>
+      <div class="step active">
+        <i class="icon-home"></i>
+        <h4 class="step-title">{!!  trans('frontend.completed') !!}</h4>
+      </div>
+      @break
+    @default
+      <div class="step active">
+        <i class="icon-home"></i>
+        <h4 class="step-title">{!!  trans('frontend.'.$order_details_by_order_id['_order_status']) !!}</h4>
+      </div>
+@endswitch
+
+</div>
+
+
+
+<div class="d-flex flex-wrap flex-sm-nowrap justify-content-between py-3 px-2 bg-secondary margin-top-1x">
   <div class="w-100 text-center py-1 px-2"><span class='text-medium'>{{ trans('frontend.order_number') }}:</span> #{!! $order_details_by_order_id['order_id'] !!}</div>
   <div class="w-100 text-center py-1 px-2"><span class='text-medium'>{{ trans('frontend.payment_method') }}:</span> {{ get_payment_method_title($order_details_by_order_id['_payment_method']) }}</div>
   <div class="w-100 text-center py-1 px-2"><span class='text-medium'>{{ trans('frontend.date') }}:</span> {!! $order_details_by_order_id['order_date'] !!}</div>
@@ -116,28 +243,6 @@
   </div>
 </div>
 
-<div class="steps flex-sm-nowrap padding-top-1x">
-  <div class="step active">
-    <i class="icon-shopping-bag"></i>
-    <h4 class="step-title">{!!  trans('frontend.on-hold') !!}</h4>
-  </div>
-  <div class="step active">
-    <i class="icon-settings"></i>
-    <h4 class="step-title">{!!  trans('frontend.pending') !!}</h4>
-  </div>
-  <div class="step">
-    <i class="icon-award"></i>
-    <h4 class="step-title">{!!  trans('frontend.processing') !!}</h4>
-  </div>
-  <div class="step">
-    <i class="icon-truck"></i>
-    <h4 class="step-title">{!!  trans('frontend.shipping') !!}</h4>
-  </div>
-  <div class="step">
-    <i class="icon-home"></i>
-    <h4 class="step-title">{!!  trans('frontend.completed') !!}</h4>
-  </div>
-</div>
 
 <!-- Open Ticket Modal-->
 <div class="modal-dialog modal-lg">
@@ -145,8 +250,12 @@
     <div class="row modal-body">
 
     <div class="col-sm-6">
-      <h5>{{ trans('frontend.billing_address') }}</h5><hr>
-      <p>{!! $order_details_by_order_id['customer_address']['_billing_last_name'].' '. $order_details_by_order_id['customer_address']['_billing_first_name']!!}</p>
+      <h6>{{ trans('frontend.billing_address') }}</h6>
+      <p><strong>{{ trans('frontend.nguoi-tt') }}:</strong> {!! $order_details_by_order_id['customer_address']['_billing_last_name'].' '. $order_details_by_order_id['customer_address']['_billing_first_name']!!}</p>
+      <p><strong>{{ trans('frontend.phone') }}:</strong> {!! $order_details_by_order_id['customer_address']['_billing_phone'] !!}</p>
+      <p><strong>{{ trans('frontend.email') }}:</strong> {!! $order_details_by_order_id['customer_address']['_billing_email'] !!}</p>
+
+
       <p><strong>{{ trans('frontend.address_1') }}:</strong> {!! $order_details_by_order_id['customer_address']['_billing_address_1'] !!}</p>
       @if($order_details_by_order_id['customer_address']['_billing_address_2'])
         <p><strong>{{ trans('frontend.address_2') }}:</strong> {!! $order_details_by_order_id['customer_address']['_billing_address_2'] !!}</p>
@@ -154,13 +263,13 @@
       <p><strong>{{ trans('frontend.city') }}:</strong> {!! get_xaphuong($order_details_by_order_id['customer_address']['_billing_city']) !!}</p>
       <p><strong>{{ trans('frontend.state') }}:</strong> {!! get_quanhuyen($order_details_by_order_id['customer_address']['_billing_state']) !!}</p>
       <p><strong>{{ trans('frontend.country') }}:</strong> {!! get_tinhthanh( $order_details_by_order_id['customer_address']['_billing_country'] ) !!}</p>
-      <p><strong>{{ trans('frontend.phone') }}:</strong> {!! $order_details_by_order_id['customer_address']['_billing_phone'] !!}</p>
 
     </div>
 
     <div class="col-sm-6">
-      <h5>{{ trans('frontend.shipping_address') }}</h5><hr>
-      <p>{!! $order_details_by_order_id['customer_address']['_shipping_last_name'].' '. $order_details_by_order_id['customer_address']['_shipping_first_name']!!}</p>
+      <h6>{{ trans('frontend.shipping_address') }}</h6>
+      <p><strong>{{ trans('frontend.nguoi-nhan') }}:</strong> {!! $order_details_by_order_id['customer_address']['_shipping_last_name'].' '. $order_details_by_order_id['customer_address']['_shipping_first_name']!!}</p>
+      <p><strong>{{ trans('frontend.phone') }}:</strong> {!! $order_details_by_order_id['customer_address']['_shipping_phone'] !!}</p>
       <p><strong>{{ trans('frontend.address_1') }}:</strong> {!! $order_details_by_order_id['customer_address']['_shipping_address_1'] !!}</p>
       @if($order_details_by_order_id['customer_address']['_shipping_address_2'])
         <p><strong>{{ trans('frontend.address_2') }}:</strong> {!! $order_details_by_order_id['customer_address']['_shipping_address_2'] !!}</p>
@@ -168,7 +277,6 @@
       <p><strong>{{ trans('frontend.city') }}:</strong> {!! get_xaphuong($order_details_by_order_id['customer_address']['_shipping_city']) !!}</p>
       <p><strong>{{ trans('frontend.state') }}:</strong> {!! get_quanhuyen($order_details_by_order_id['customer_address']['_shipping_state']) !!}</p>
       <p><strong>{{ trans('frontend.country') }}:</strong> {!! get_tinhthanh( $order_details_by_order_id['customer_address']['_shipping_country'] ) !!}</p>
-      <p><strong>{{ trans('frontend.phone') }}:</strong> {!! $order_details_by_order_id['customer_address']['_shipping_phone'] !!}</p>
 
     </div>
 

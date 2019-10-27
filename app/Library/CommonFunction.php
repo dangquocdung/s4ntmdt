@@ -620,7 +620,8 @@ class CommonFunction
   * @return array
   */
   public function get_order_details_by_order_id($order = array()){
-				$order_data = array();
+    
+    $order_data = array();
     $option  =  new OptionController();
     $order_id = $order['order_id'];
     $order_process_id = $order['order_process_id'];
