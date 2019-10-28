@@ -2767,7 +2767,7 @@ class ProductsController extends Controller
         $get_posts_for_product->orderBy('created_at', 'DESC');
       }
       
-      $get_posts_for_product = $get_posts_for_product->paginate(12);
+      $get_posts_for_product = $get_posts_for_product->paginate(36);
     }
     
     if( isset($filter['price_min']) && isset($filter['price_max']) && $filter['price_min'] >= 0 && $filter['price_max'] >=0){
@@ -2822,7 +2822,7 @@ class ProductsController extends Controller
       
       $currentPage = LengthAwarePaginator::resolveCurrentPage();
       $col = new Collection( $final_data );
-      $perPage = 10;
+      $perPage = 36;
       $currentPageSearchResults = $col->slice(($currentPage - 1) * $perPage, $perPage)->all();
       $posts_object = new LengthAwarePaginator($currentPageSearchResults, count($col), $perPage);
       $posts_object->setPath( route('shop-page') );
