@@ -259,7 +259,12 @@
           <section class="widget widget-featured-posts">
             <h3 class="widget-title">{{ trans('frontend.best_sales_label') }}</h3>
 
-              @foreach($advancedData['best_sales'] as $key => $row)
+              @foreach($advancedData['best_sales'] as => $row)
+
+
+              @if ($loop->iteration < 10)
+
+
 
               <div class="entry">
                 <div class="entry-thumb" style="width:80px">
@@ -290,6 +295,8 @@
 
                 </div>
               </div>
+
+              @endif
 
               @endforeach
 
