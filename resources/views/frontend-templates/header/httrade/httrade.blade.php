@@ -154,6 +154,11 @@
         @endif
       </div>
 
+      <div class="toolbar-item">
+          <a href="{{ route('vendor-registration-page') }}">
+            <div><i class="icon-user"></i><span class="text-label">{!! trans('frontend.vendor_registration') !!}</span></div>
+          </a>
+      </div>
 
     </div>
     <!-- Slideable (Mobile) Menu-->
