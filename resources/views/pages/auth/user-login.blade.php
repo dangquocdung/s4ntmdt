@@ -24,11 +24,13 @@
 <!-- Page Content-->
 <div class="container padding-bottom-3x mb-2" id="login-page">
 
-    @include('pages-message.notify-msg-error')
-    @include('pages-message.form-submit')
 
     <div class="row">
       <div class="col-md-6">
+
+        @include('pages-message.notify-msg-error')
+        @include('pages-message.form-submit')
+
         <form class="card" method="post" action="" enctype="multipart/form-data">
           <input type="hidden" name="_token" id="_token" value="{{ csrf_token() }}">
 
