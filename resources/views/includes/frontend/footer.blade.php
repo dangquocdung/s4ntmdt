@@ -68,7 +68,7 @@
     </div>
     {{-- <hr class="hr-light mt-2 margin-bottom-2x hidden-md-down"> --}}
     <div class="row">
-        <div class="col-lg-3 col-6">
+        <div class="col-6">
             <!-- Contact Info-->
             <section class="widget widget-light-skin">
 
@@ -104,7 +104,6 @@
             <!-- Subscription-->
             <section class="widget widget-light-skin">
                 <h3 class="widget-title">Nhận thông báo</h3>
-                <form class="row" action="#" method="post" target="_blank" novalidate>
                 <div class="col-sm-9">
                     <div class="input-group input-light">
                         <input class="form-control" type="email" id="subscribe_options_email"  placeholder="{{ trans('frontend.enter_email_label') }}" />
@@ -121,8 +120,16 @@
                 <div class="col-sm-3">
                     <button class="btn btn-primary btn-block mt-0" id="subscribtion_submit" type="button">Đăng kí</button>
                 </div>
-                </form>
-                <div class="pt-3"><img class="d-block" style="width: 324px;" alt="Cerdit Cards" src="{{ URL::asset('img/credit-cards-footer.png') }}"></div>
+
+                <a class="market-button apple-button mb-light-skin" href="javascript:void(0)">
+                    <span class="mb-subtitle">Tải về trên</span>
+                    <span class="mb-title">App Store</span>
+                </a>
+                <a class="market-button google-button mb-light-skin" href="javascript:void(0)">
+                    <span class="mb-subtitle">Tải về trên</span>
+                    <span class="mb-title">Google Play</span>
+                </a>
+            
             </section>
         </div>
     </div>
