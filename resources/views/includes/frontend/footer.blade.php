@@ -71,7 +71,9 @@
         <div class="col-lg-3 col-6">
             <!-- Contact Info-->
             <section class="widget widget-light-skin">
+
                 <h3 class="widget-title">Thông tin liên hệ</h3>
+                <p class="text-white"> * Phiên bản Sàn GDTMĐT đang chạy thử nghiệm</p>
                 <p class="text-white">Điện thoại: +84 (098) 624 2487</p>
                 <ul class="list-unstyled text-sm text-white">
                 <li><span class="opacity-50">Thứ 2 - Thứ 6:&nbsp;</span>9.00 am - 8.00 pm</li>
@@ -105,7 +107,7 @@
                 <form class="row" action="#" method="post" target="_blank" novalidate>
                 <div class="col-sm-9">
                     <div class="input-group input-light">
-                        <input class="form-control" type="email" name="EMAIL" placeholder="Your e-mail">
+                        <input class="form-control" type="email" id="subscribe_options_email"  placeholder="{{ trans('frontend.enter_email_label') }}" />
                         <span class="input-group-addon"><i class="icon-mail"></i></span>
                     </div>
                     <!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups-->
@@ -117,7 +119,7 @@
                     </p>
                 </div>
                 <div class="col-sm-3">
-                    <button class="btn btn-primary btn-block mt-0" type="submit">Đăng kí</button>
+                    <button class="btn btn-primary btn-block mt-0" id="subscribtion_submit" type="button">Đăng kí</button>
                 </div>
                 </form>
                 <div class="pt-3"><img class="d-block" style="width: 324px;" alt="Cerdit Cards" src="{{ URL::asset('img/credit-cards-footer.png') }}"></div>
