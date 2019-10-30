@@ -32,7 +32,6 @@
         <form class="login-box" method="post" action="" enctype="multipart/form-data">
           <input type="hidden" name="_token" id="_token" value="{{ csrf_token() }}">
 
-
           <div class="form-group input-group">
             <input name="login_username" id="login_username" tabindex="1" class="form-control" placeholder="{{ trans('frontend.frontend_username_placeholder') }}" value="{{ $frontend_login_data['user'] }}" type="text">
             <span class="input-group-addon"><i class="icon-mail"></i></span>
@@ -63,25 +62,19 @@
             <!-- <a class="navi-link" href="{{ route('user-forgot-password-page') }}">{{ trans('frontend.forgot_password') }}</a>&nbsp;&nbsp;&nbsp;&nbsp; -->
           </div>
 
+          <div class="text-center text-sm-right">
+            <button class="btn btn-primary margin-bottom-none" type="submit" name="login_submit" id="login_submit" tabindex="4">{{ trans('frontend.frontend_log_in') }}</button>
+          </div>
+        </form>
+
+        <div class="social-login">
           <h6 class="margin-bottom-1x">Hoặc dùng tài khoản mạng xã hội:</h6>
-
-
           <div class="row margin-bottom-1x">
             <div class="col-6"><a class="btn btn-sm btn-block facebook-btn" href="javascript:void(0)"><i class="socicon-facebook"></i>&nbsp;Dùng Facebook</a></div>
             <div class="col-6"><a class="btn btn-sm btn-block twitter-btn" href="javascript:void(0)"><i class="socicon-twitter"></i>&nbsp;Dùng Zalo</a></div>
           </div>
-  
-  
-  
-  
+        </div>
 
-          <div class="text-center text-sm-right">
-            <!-- <input name="login_submit" id="login_submit" tabindex="4" class="form-control btn btn-secondary" value="{{ trans('frontend.frontend_log_in') }}" type="submit"> -->
-
-            <button class="btn btn-primary margin-bottom-none" type="submit" name="login_submit" id="login_submit" tabindex="4">{{ trans('frontend.frontend_log_in') }}</button>
-
-          </div>
-        </form>
       </div>
       
     </div>
