@@ -73,7 +73,7 @@
             <section class="widget widget-light-skin">
 
                 <h3 class="widget-title">Thông tin liên hệ</h3>
-                <p class="text-white"> * Phiên bản Sàn GDTMĐT đang chạy thử nghiệm</p>
+                <p class="text-white"><em>* Phiên bản Sàn GDTMĐT đang chạy thử nghiệm. Mọi chi tiết và yêu cầu hỗ trợ vui lòng liên hệ với ban quản trị.</em></p>
                 <p class="text-white">Điện thoại: +84 (098) 624 2487</p>
                 <ul class="list-unstyled text-sm text-white">
                 <li><span class="opacity-50">Thứ 2 - Thứ 6:&nbsp;</span>9.00 am - 8.00 pm</li>
