@@ -47,33 +47,42 @@
               <input type="text" placeholder="{{ trans('frontend.user_name') }}" class="form-control" value="{{ old('user_reg_name') }}" id="user_reg_name" name="user_reg_name">
             </div>
           </div>
+
+          <div class="col-sm-12">
+            <div class="form-group">
+              <label for="reg-phone_id">{{ ucfirst(trans('frontend.phone')) }}</label>
+              <input type="text" placeholder="{{ ucfirst(trans('frontend.phone')) }}" class="form-control" id="reg_phone_id" name="reg_phone_id">
+            </div>
+          </div>
+
+
           <div class="col-sm-6">
             <div class="form-group">
-              <label for="reg-email">{{ ucfirst( trans('frontend.email') ) }}</label>
+              <label for="reg-email_id">{{ ucfirst( trans('frontend.email') ) }}</label>
               <input type="email" placeholder="{{ ucfirst( trans('frontend.email') ) }}" class="form-control" id="reg_email_id" value="{{ old('reg_email_id') }}" name="reg_email_id">
             </div>
           </div>
-          <div class="col-sm-6">
+          <!-- <div class="col-sm-6">
             <div class="form-group">
               <label for="reg-phone">Phone Number</label>
               <input class="form-control" type="text" id="reg-phone" required>
             </div>
-          </div>
+          </div> -->
           <div class="col-sm-6">
             <div class="form-group">
-              <label for="reg-pass">{{ ucfirst(trans('frontend.password')) }}</label>
+              <label for="reg_password_id">{{ ucfirst(trans('frontend.password')) }}</label>
               <input type="password" placeholder="{{ ucfirst(trans('frontend.password')) }}" class="form-control" id="reg_password" name="reg_password">
             </div>
           </div>
           <div class="col-sm-6">
             <div class="form-group">
-              <label for="reg-pass-confirm">{{ trans('frontend.retype_password') }}</label>
+              <label for="reg_password_confirmation">{{ trans('frontend.retype_password') }}</label>
               <input type="password" placeholder="{{ trans('frontend.retype_password') }}" class="form-control" id="reg_password_confirmation" name="reg_password_confirmation">
             </div>
           </div>
           <div class="col-sm-12">
             <div class="form-group">
-              <label for="reg-pass-confirm">{{ ucfirst(trans('frontend.secret_key')) }}</label>
+              <label for="reg_secret_key">{{ ucfirst(trans('frontend.secret_key')) }}</label>
               <input type="text" placeholder="{{ ucfirst(trans('frontend.secret_key')) }}" class="form-control" id="reg_secret_key" name="reg_secret_key">
             </div>
           </div>
