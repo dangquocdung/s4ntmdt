@@ -67,7 +67,7 @@
           </div>
         </form>
 
-        <div class="social-login">
+        <div class="social-login padding-top-1x">
           <h6 class="margin-bottom-1x">Hoặc dùng tài khoản mạng xã hội:</h6>
           <div class="row margin-bottom-1x">
             <div class="col-4"><a class="btn btn-sm btn-block facebook-btn" href="javascript:void(0)"><i class="socicon-facebook"></i>&nbsp;Facebook</a></div>
