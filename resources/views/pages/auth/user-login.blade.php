@@ -65,6 +65,9 @@
               </div>
             @endif
 
+            <a class="navi-link" href="{{ route('user-registration-page') }}">{{ trans('frontend.frontend_user_registration_title') }}</a>
+
+
             <div class="text-center text-sm-right">
               <button class="btn btn-primary margin-bottom-none" type="submit" name="login_submit" id="login_submit" tabindex="4">{{ trans('frontend.frontend_log_in') }}</button>
             </div>
@@ -72,7 +75,7 @@
         </form>
       </div>
 
-     
+      
       
     </div>
   </div>
