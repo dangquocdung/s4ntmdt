@@ -30,6 +30,9 @@
     <div class="row">
       <div class="col-md-6">
         <form class="card" method="post" action="" enctype="multipart/form-data">
+          <input type="hidden" name="_token" id="_token" value="{{ csrf_token() }}">
+
+        
           <div class="card-body">
             <div class="row margin-bottom-1x">
               <div class="col-xl-4 col-md-6 col-sm-4"><a class="btn btn-sm btn-block facebook-btn" href="#"><i class="socicon-facebook"></i>&nbsp;Facebook login</a></div>
