@@ -70,8 +70,9 @@
         <div class="social-login">
           <h6 class="margin-bottom-1x">Hoặc dùng tài khoản mạng xã hội:</h6>
           <div class="row margin-bottom-1x">
-            <div class="col-6"><a class="btn btn-sm btn-block facebook-btn" href="javascript:void(0)"><i class="socicon-facebook"></i>&nbsp;Dùng Facebook</a></div>
-            <div class="col-6"><a class="btn btn-sm btn-block twitter-btn" href="javascript:void(0)"><i class="socicon-twitter"></i>&nbsp;Dùng Zalo</a></div>
+            <div class="col-4"><a class="btn btn-sm btn-block facebook-btn" href="javascript:void(0)"><i class="socicon-facebook"></i>&nbsp;Facebook</a></div>
+            <div class="col-4"><a class="btn btn-sm btn-block twitter-btn" href="javascript:void(0)"><i class="socicon-google"></i>&nbsp;Google+</a></div>
+            <div class="col-4"><a class="btn btn-sm btn-block twitter-btn" href="javascript:void(0)"><i class="socicon-twitter"></i>&nbsp;Dùng Zalo</a></div>
           </div>
         </div>
 
