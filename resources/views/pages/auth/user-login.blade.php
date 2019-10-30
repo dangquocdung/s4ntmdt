@@ -31,7 +31,7 @@
         @include('pages-message.notify-msg-error')
         @include('pages-message.form-submit')
 
-        <form class="card" method="post" action="" enctype="multipart/form-data">
+        <form class="card margin-top-1x" method="post" action="" enctype="multipart/form-data">
           <input type="hidden" name="_token" id="_token" value="{{ csrf_token() }}">
 
         
