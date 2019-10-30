@@ -106,6 +106,18 @@
       </div>
 
     </div>
+    <div class="toolbar-item hidden-on-mobile">
+      <a href="#">
+        <div>
+          <i class="flag-icon">
+            <img alt="{!! get_frontend_selected_languages_data()['lang_name'] !!}" src="{{ get_image_url(get_frontend_selected_languages_data()['lang_sample_img']) }}">
+          </i>
+          <span class="text-label">VNĐ</span>
+        </div>
+      </a>
+      
+    </div>
+
     <div class="toolbar-item mini-cart-content">
       @include('pages.ajax-pages.mini-cart-html')
     </div>
