@@ -310,7 +310,7 @@ body {
   background-repeat: no-repeat;
   background-size: cover;
   color: #505050;
-  font-family: "Rubik", Helvetica, Arial, sans-serif;
+  font-family: "Roboto", Helvetica, Arial, sans-serif;
   font-size: 14px;
   font-weight: normal;
   line-height: 1.5;
@@ -1709,7 +1709,7 @@ kbd {
   border-radius: 5px;
   background-color: #ffffff;
   color: #505050;
-  font-family: "Rubik", Helvetica, Arial, sans-serif;
+  font-family: "Roboto", Helvetica, Arial, sans-serif;
   font-size: 14px;
   -webkit-appearance: none;
   -moz-appearance: none;
@@ -2290,7 +2290,7 @@ select.form-control.input-light option {
   background-color: transparent;
   background-image: none;
   color: #505050;
-  font-family: "Rubik", Helvetica, Arial, sans-serif;
+  font-family: "Roboto", Helvetica, Arial, sans-serif;
   font-size: 14px;
   font-style: normal;
   font-weight: 400 !important;
@@ -3943,7 +3943,7 @@ a.card {
 }
 
 .tooltip {
-  font-family: "Rubik", Helvetica, Arial, sans-serif;
+  font-family: "Roboto", Helvetica, Arial, sans-serif;
 }
 
 .tooltip.bs-tooltip-top .arrow::before {
@@ -3976,7 +3976,7 @@ a.card {
 .popover {
   border-radius: 5px;
   border-color: #e5e5e5;
-  font-family: "Rubik", Helvetica, Arial, sans-serif;
+  font-family: "Roboto", Helvetica, Arial, sans-serif;
 }
 
 .popover.bs-popover-top .arrow::before {
