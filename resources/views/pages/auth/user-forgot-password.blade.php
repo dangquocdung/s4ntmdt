@@ -54,12 +54,9 @@
             <span class="fa fa-lock form-control-feedback"></span>
           </div>
 
-
-          @if($frontend_login_data['is_enable_recaptcha'] == true)
-            <div class="form-group">
-              <div class="captcha-style">{!! NoCaptcha::display() !!}</div>
-            </div>
-          @endif
+          <div class="form-group">
+            <div class="captcha-style">{!! NoCaptcha::display() !!}</div>
+          </div>
 
           <a class="navi-link" href="{{ route('user-registration-page') }}">{{ trans('frontend.frontend_user_registration_title') }}</a>
 
