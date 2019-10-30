@@ -4,7 +4,17 @@
 
 <div class="login-box">
   <div class="login-logo">
-    {{ trans('admin.shopist') }} <b>{{ trans('admin.login') }}</b>
+    {{-- {{ trans('admin.shopist') }} <b>{{ trans('admin.login') }}</b> --}}
+    <div class="site-branding d-flex">
+      <a class="site-logo align-self-center" href="{{ route('home-page') }}">
+  
+      @if(get_site_logo_image())      
+        <img src="{{ get_site_logo_image() }}" alt="{{ trans('frontend.your_store_label') }}">
+      @else
+        <img src="img/logo/logo.png" alt="{{ trans('frontend.your_store_label') }}">
+      @endif
+      </a>
+    </div>
   </div>
   
   <div class="login-box-body">
