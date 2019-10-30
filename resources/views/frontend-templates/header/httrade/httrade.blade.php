@@ -120,18 +120,7 @@
     </div>
     <!-- Toolbar-->
     <div class="toolbar">
-      <div class="toolbar-item">
-        <a href="#">
-          <div>
-            <i class="flag-icon">
-              <img alt="{!! get_frontend_selected_languages_data()['lang_name'] !!}" src="{{ get_image_url(get_frontend_selected_languages_data()['lang_sample_img']) }}">
-            </i>
-            <span class="text-label">VNĐ</span>
-          </div>
 
-        </a>
-        
-      </div>
       <div class="toolbar-item">
         <a href="{{ route('product-comparison-page') }}">
           <div><span class="compare-icon"><i class="icon-repeat"></i><span class="count-label">{{ $total_compare_item }}</span></span><span class="text-label">{!! trans('frontend.compare_label') !!}</span></div>
@@ -154,18 +143,15 @@
       </div>
 
       <div class="toolbar-item">
-
-        @if (Session::has('shopist_frontend_user_id'))
-          <a href="{{ route('user-account-page') }}">
-            <div><i class="icon-user"></i><span class="text-label">{!! trans('frontend.user_account_label') !!}</span></div>
-            
+        @if (Session::has('shopist_admin_user_id') && !empty(get_current_vendor_user_info()['user_role_slug']) && get_current_vendor_user_info()['user_role_slug'] == 'vendor')
+          <a href="{{ route('admin.dashboard') }}">
+            <div><i class="icon-user"></i><span class="text-label">{!! trans('frontend.vendor_account_label') !!}</span></div>
           </a>
         @else
-          <a href="{{ route('user-account-page') }}">
-          <div><i class="icon-user"></i><span class="text-label">{!! trans('frontend.frontend_user_login') !!}</span></div>
+          <a href="{{ route('admin.login') }}">
+            <div><i class="icon-user"></i><span class="text-label">{!! trans('frontend.frontend_vendor_login') !!}</span></div>
           </a>
         @endif
-
       </div>
 
 
