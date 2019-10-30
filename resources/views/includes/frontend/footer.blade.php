@@ -86,7 +86,6 @@
                 <a class="social-button shape-circle sb-google-plus sb-light-skin" href="//{{ $appearance_all_data['footer_details']['follow_us_url']['youtube'] }}"><i class="socicon-youtube"></i></a>
             </section>
         </div>
-
         <div class="col-6">
             <!-- Subscription-->
             <section class="widget widget-light-skin">
@@ -109,6 +108,7 @@
                     <button class="btn btn-primary btn-block mt-0" id="subscribtion_submit" type="button">Đăng kí</button>
                 </div>
                 </form>
+                <h3 class="widget-title">Ứng dụng di động</h3>
                 <a class="market-button apple-button mb-light-skin" href="javascript:void(0)">
                     <span class="mb-subtitle">Tải về trên</span>
                     <span class="mb-title">App Store</span>
