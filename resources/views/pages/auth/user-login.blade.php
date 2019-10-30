@@ -41,12 +41,6 @@
             <span class="input-group-addon"><i class="icon-lock"></i></span>
           </div>
 
-          @if($frontend_login_data['is_enable_recaptcha'] == true)
-            <div class="form-group">
-              <div class="captcha-style">{!! NoCaptcha::display() !!}</div>
-            </div>
-          @endif
-
           <div class="d-flex flex-wrap justify-content-between padding-bottom-1x">
             <div class="custom-control custom-checkbox">
               @if (Cookie::has('frontend_remember_me_data'))
@@ -62,6 +56,11 @@
             <!-- <a class="navi-link" href="{{ route('user-forgot-password-page') }}">{{ trans('frontend.forgot_password') }}</a>&nbsp;&nbsp;&nbsp;&nbsp; -->
           </div>
 
+          @if($frontend_login_data['is_enable_recaptcha'] == true)
+            <div class="form-group">
+              <div class="captcha-style">{!! NoCaptcha::display() !!}</div>
+            </div>
+          @endif
           <div class="text-center text-sm-right">
             <button class="btn btn-primary margin-bottom-none" type="submit" name="login_submit" id="login_submit" tabindex="4">{{ trans('frontend.frontend_log_in') }}</button>
           </div>
