@@ -63,6 +63,13 @@
             <!-- <a class="navi-link" href="{{ route('user-forgot-password-page') }}">{{ trans('frontend.forgot_password') }}</a>&nbsp;&nbsp;&nbsp;&nbsp; -->
           </div>
 
+          <h6 class="margin-bottom-1x">Hoặc dùng tài khoản mạng xã hội:</h6>
+
+
+          <div class="row margin-bottom-1x">
+            <div class="col-6"><a class="btn btn-sm btn-block facebook-btn" href="javascript:void(0)"><i class="socicon-facebook"></i>&nbsp;Dùng Facebook</a></div>
+            <div class="col-6"><a class="btn btn-sm btn-block twitter-btn" href="javascript:void(0)"><i class="socicon-twitter"></i>&nbsp;Dùng Zalo</a></div>
+          </div>
   
   
   
@@ -75,17 +82,6 @@
 
           </div>
         </form>
-
-        <hr>
-
-        <h6 class="margin-bottom-1x">Hoặc dùng tài khoản mạng xã hội:</h6>
-
-
-        <div class="row margin-bottom-1x">
-          <div class="col-6"><a class="btn btn-sm btn-block facebook-btn" href="javascript:void(0)"><i class="socicon-facebook"></i>&nbsp;Dùng Facebook</a></div>
-          <div class="col-6"><a class="btn btn-sm btn-block twitter-btn" href="javascript:void(0)"><i class="socicon-twitter"></i>&nbsp;Dùng Zalo</a></div>
-        </div>
-
       </div>
       
     </div>
