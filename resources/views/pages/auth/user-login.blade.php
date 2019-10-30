@@ -70,7 +70,7 @@
             </div>
           @endif
 
-          <a class="navi-link" href="{{ route('user-registration-page') }}">{{ trans('frontend.frontend_user_registration_title') }}</a>
+          <!-- <a class="navi-link" href="{{ route('user-registration-page') }}">{{ trans('frontend.frontend_user_registration_title') }}</a> -->
 
 
           <div class="text-center text-sm-right">

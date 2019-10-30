@@ -88,8 +88,7 @@
           @endif
 
           <div class="col-12 text-center text-sm-right">
-            <input name="user_reg_submit" id="user_reg_submit" class="btn btn-secondary btn-block btn-md" value="{{ trans('frontend.registration') }}" type="submit"> 
-            <!-- <button class="btn btn-primary margin-bottom-none" type="submit">Register</button> -->
+            <button name="user_reg_submit" id="user_reg_submit" class="btn btn-primary margin-bottom-none" type="submit">{{ trans('frontend.registration') }}</button>
           </div>
         </div>
 
