@@ -20,22 +20,22 @@
             <i class="icon-menu text-lg"></i>&nbsp;{{ trans('frontend.product_categories_label') }}
           </button>
           @if(count($productCategoriesTree) > 0)
-          <div class="dropdown-menu mega-dropdown">
-              <div class="row">
-                @foreach($productCategoriesTree as $cat)
-                <div class="col-sm-3">
-                  <a class="d-block navi-link text-center mb-30" href="{{ route('categories-page', $cat['slug']) }}">
-                    @if( !empty($cat['img_url']) )
-                      <img src="{{ get_image_url($cat['img_url']) }}"> 
-                    @else
-                      <img src="{{ default_placeholder_img_src() }}"> 
-                    @endif
-                    <span class="text-gray-dark">{!! $cat['name'] !!}</span>
-                  </a>
+            <div class="dropdown-menu mega-dropdown">
+                <div class="row">
+                  @foreach($productCategoriesTree as $cat)
+                  <div class="col-sm-3">
+                    <a class="d-block navi-link text-center mb-30" href="{{ route('categories-page', $cat['slug']) }}">
+                      @if( !empty($cat['img_url']) )
+                        <img src="{{ get_image_url($cat['img_url']) }}"> 
+                      @else
+                        <img src="{{ default_placeholder_img_src() }}"> 
+                      @endif
+                      <span class="text-gray-dark">{!! $cat['name'] !!}</span>
+                    </a>
+                  </div>
+                  @endforeach
                 </div>
-                @endforeach
-              </div>
-          </div>
+            </div>
           @endif
         </div>
         <form class="input-group" action="{{ route('shop-page') }}" method="get">
@@ -64,7 +64,6 @@
           <span class="text-label">VNĐ</span>
         </div>
       </a>
-      
     </div>
     <div class="toolbar-item hidden-on-mobile">
       <a href="{{ route('product-comparison-page') }}">
@@ -75,18 +74,13 @@
     <div class="toolbar-item hidden-on-mobile">
       <a href="{{ route('user-login-page') }}">
         @if (Session::has('shopist_frontend_user_id'))
-
         <div><i class="icon-user"></i><span class="text-label">{!! trans('frontend.thanh-vien') !!}</span></div>
-
         @else
-
         <div><i class="icon-user"></i><span class="text-label">{!! trans('frontend.menu_my_account') !!}</span></div>
-
         @endif
       </a>
 
       <div class="toolbar-dropdown text-center px-3">
-
         @if (Session::has('shopist_frontend_user_id'))
           <a class="btn btn-primary btn-sm btn-block" href="{{ route('user-account-page') }}">{!! trans('frontend.user_account_label') !!}</a>
         @else
@@ -105,17 +99,6 @@
 
       </div>
 
-    </div>
-    <div class="toolbar-item hidden-on-mobile">
-      <a href="#">
-        <div>
-          <i class="flag-icon">
-            <img alt="{!! get_frontend_selected_languages_data()['lang_name'] !!}" src="{{ get_image_url(get_frontend_selected_languages_data()['lang_sample_img']) }}">
-          </i>
-          <span class="text-label">VNĐ</span>
-        </div>
-      </a>
-      
     </div>
 
     <div class="toolbar-item mini-cart-content">
@@ -169,6 +152,22 @@
         @endif
         
       </div>
+
+      <div class="toolbar-item">
+
+        @if (Session::has('shopist_frontend_user_id'))
+          <a href="{{ route('user-account-page') }}">
+            <div><i class="icon-user"></i><span class="text-label">{!! trans('frontend.user_account_label') !!}</span></div>
+            
+          </a>
+        @else
+          <a href="{{ route('user-account-page') }}">
+          <div><i class="icon-user"></i><span class="text-label">{!! trans('frontend.frontend_user_login') !!}</span></div>
+          </a>
+        @endif
+
+      </div>
+
 
     </div>
     <!-- Slideable (Mobile) Menu-->
