@@ -82,10 +82,6 @@
 
                 <p class="text-white"><em>* Phiên bản Sàn GDTMĐT đang chạy thử nghiệm. Mọi chi tiết và yêu cầu hỗ trợ vui lòng liên hệ với ban quản trị.</em></p>
 
-                <a class="social-button shape-circle sb-facebook sb-light-skin" href="//{{ $appearance_all_data['footer_details']['follow_us_url']['fb'] }}"><i class="socicon-facebook"></i></a>
-                <a class="social-button shape-circle sb-twitter sb-light-skin" href="//{{ $appearance_all_data['footer_details']['follow_us_url']['twitter'] }}"><i class="socicon-twitter"></i></a>
-                <a class="social-button shape-circle sb-instagram sb-light-skin" href="//{{ $appearance_all_data['footer_details']['follow_us_url']['instagram'] }}"><i class="socicon-instagram"></i></a>
-                <a class="social-button shape-circle sb-google-plus sb-light-skin" href="//{{ $appearance_all_data['footer_details']['follow_us_url']['youtube'] }}"><i class="socicon-youtube"></i></a>
             </section>
         </div>
         <div class="col-6">
@@ -111,10 +107,6 @@
                 </div>
                 </form>
                 <!-- <h3 class="widget-title">Ứng dụng di động</h3> -->
-                <a class="social-button shape-circle sb-facebook sb-light-skin" href="//{{ $appearance_all_data['footer_details']['follow_us_url']['fb'] }}"><i class="socicon-facebook"></i></a>
-                <a class="social-button shape-circle sb-twitter sb-light-skin" href="//{{ $appearance_all_data['footer_details']['follow_us_url']['twitter'] }}"><i class="socicon-twitter"></i></a>
-                <a class="social-button shape-circle sb-instagram sb-light-skin" href="//{{ $appearance_all_data['footer_details']['follow_us_url']['instagram'] }}"><i class="socicon-instagram"></i></a>
-                <a class="social-button shape-circle sb-google-plus sb-light-skin" href="//{{ $appearance_all_data['footer_details']['follow_us_url']['youtube'] }}"><i class="socicon-youtube"></i></a>
 
 
                 <a class="market-button apple-button mb-light-skin" href="javascript:void(0)">
@@ -125,6 +117,14 @@
                     <span class="mb-subtitle">Tải về trên</span>
                     <span class="mb-title">Google Play</span>
                 </a>
+
+                <div style="float:right">
+                    <a class="social-button shape-circle sb-facebook sb-light-skin" href="//{{ $appearance_all_data['footer_details']['follow_us_url']['fb'] }}"><i class="socicon-facebook"></i></a>
+                    <a class="social-button shape-circle sb-twitter sb-light-skin" href="//{{ $appearance_all_data['footer_details']['follow_us_url']['twitter'] }}"><i class="socicon-twitter"></i></a>
+                    <a class="social-button shape-circle sb-instagram sb-light-skin" href="//{{ $appearance_all_data['footer_details']['follow_us_url']['instagram'] }}"><i class="socicon-instagram"></i></a>
+                    <a class="social-button shape-circle sb-google-plus sb-light-skin" href="//{{ $appearance_all_data['footer_details']['follow_us_url']['youtube'] }}"><i class="socicon-youtube"></i></a>
+                </div>
+
 
             </section>
         </div>
