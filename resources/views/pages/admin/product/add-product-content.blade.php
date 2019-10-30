@@ -922,8 +922,8 @@
               <label class="col-sm-7 control-label" for="inputVisibility">{!! trans('admin.enable_product') !!}</label>
               <div class="col-sm-5">
                 <select class="form-control select2" name="product_visibility" style="width: 100%;" disabled>
-                  <option selected="selected" value="0">{!! trans('admin.enable') !!}</option>
-                  <option value="1">{!! trans('admin.disable') !!}</option>                  
+                  <option selected="selected" value="0">{!! trans('admin.disable') !!}</option>                  
+                  <option value="1">{!! trans('admin.enable') !!}</option>
                 </select>                                         
               </div>
             </div>  
