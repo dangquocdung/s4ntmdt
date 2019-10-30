@@ -174,7 +174,13 @@
               <li class="nav-item general"><a class="nav-link active" href="#tab_general" data-toggle="tab">{!! trans('admin.general') !!}</a></li>
               <li class="nav-item inventory"><a class="nav-link" href="#tab_stock" data-toggle="tab">{!! trans('admin.inventory') !!}</a></li>
               <li class="nav-item features"><a class="nav-link" href="#tab_features" data-toggle="tab">{!! trans('admin.features') !!}</a></li>
-              <li class="nav-item advanced"><a class="nav-link" href="#tab_advanced" data-toggle="tab">{!! trans('admin.advanced') !!}</a></li>
+
+              @if(in_array('select_advance_product', $user_permission_list))  
+
+                <li class="nav-item advanced"><a class="nav-link" href="#tab_advanced" data-toggle="tab">{!! trans('admin.advanced') !!}</a></li>
+
+              @endif
+
               <li class="nav-item attribute" style="display:none;"><a class="nav-link" href="#tab_attribute" data-toggle="tab">{!! trans('admin.attributes') !!}</a></li>
               <li class="nav-item variations" style="display:none;"><a class="nav-link" href="#tab_variations" data-toggle="tab">{!! trans('admin.variations') !!}</a></li>
               <li class="nav-item custom-design" style="display:none;"><a class="nav-link" href="#tab_custom_design" data-toggle="tab">{!! trans('admin.add_design_elements') !!}</a></li>
