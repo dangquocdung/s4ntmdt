@@ -73,13 +73,15 @@
             <section class="widget widget-light-skin">
 
                 <h3 class="widget-title">Thông tin liên hệ</h3>
-                <p class="text-white"><em>* Phiên bản Sàn GDTMĐT đang chạy thử nghiệm. Mọi chi tiết và yêu cầu hỗ trợ vui lòng liên hệ với ban quản trị.</em></p>
                 <p class="text-white">Điện thoại: +84 (098) 624 2487</p>
                 <ul class="list-unstyled text-sm text-white">
-                <li><span class="opacity-50">Thứ 2 - Thứ 6:&nbsp;</span>9.00 am - 8.00 pm</li>
-                <li><span class="opacity-50">Thứ 7:&nbsp;</span>10.00 am - 6.00 pm</li>
+                    <li><span class="opacity-50">Thứ 2 - Thứ 6:&nbsp;</span>9.00 am - 8.00 pm</li>
+                    <li><span class="opacity-50">Thứ 7:&nbsp;</span>10.00 am - 6.00 pm</li>
                 </ul>
                 <p><a class="navi-link-light" href="mailto:hotro@hatinhtrade.com.vn">hotro@hatinhtrade.com.vn</a></p>
+
+                <p class="text-white"><em>* Phiên bản Sàn GDTMĐT đang chạy thử nghiệm. Mọi chi tiết và yêu cầu hỗ trợ vui lòng liên hệ với ban quản trị.</em></p>
+
                 <a class="social-button shape-circle sb-facebook sb-light-skin" href="//{{ $appearance_all_data['footer_details']['follow_us_url']['fb'] }}"><i class="socicon-facebook"></i></a>
                 <a class="social-button shape-circle sb-twitter sb-light-skin" href="//{{ $appearance_all_data['footer_details']['follow_us_url']['twitter'] }}"><i class="socicon-twitter"></i></a>
                 <a class="social-button shape-circle sb-instagram sb-light-skin" href="//{{ $appearance_all_data['footer_details']['follow_us_url']['instagram'] }}"><i class="socicon-instagram"></i></a>
