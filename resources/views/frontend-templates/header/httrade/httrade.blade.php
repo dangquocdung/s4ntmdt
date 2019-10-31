@@ -90,7 +90,7 @@
         @endif
 
         @if (Session::has('shopist_admin_user_id') && !empty(get_current_vendor_user_info()['user_role_slug']) && get_current_vendor_user_info()['user_role_slug'] == 'vendor')
-          <a class="btn btn-primary btn-sm btn-block" target="_blank" href="{{ route('admin.dashboard') }}">{!! trans('frontend.vendor_account_label') !!}</a>
+          <a class="btn btn-primary btn-sm btn-block" target="_blank" href="{{ route('admin.dashboard') }}">{!! trans('frontend.dashboard_admin') !!}</a>
         @else
           <a class="btn btn-primary btn-sm btn-block" target="_blank" href="{{ route('admin.login') }}">{!! trans('frontend.frontend_vendor_login') !!}</a>
         @endif
@@ -134,7 +134,7 @@
 
         @if (Session::has('shopist_frontend_user_id'))
           <a href="{{ route('user-account-page') }}">
-            <div><i class="icon-user"></i><span class="text-label">{!! trans('frontend.user_account_label') !!}</span></div>
+            <div><i class="icon-user"></i><span class="text-label">{!! trans('frontend.dashboard') !!}</span></div>
             
           </a>
         @else
@@ -148,7 +148,7 @@
       <div class="toolbar-item">
         @if (Session::has('shopist_admin_user_id') && !empty(get_current_vendor_user_info()['user_role_slug']) && get_current_vendor_user_info()['user_role_slug'] == 'vendor')
           <a href="{{ route('admin.dashboard') }}">
-            <div><i class="icon-users"></i><span class="text-label">{!! trans('frontend.vendor_account_label') !!}</span></div>
+            <div><i class="icon-users"></i><span class="text-label">{!! trans('frontend.dashboard_admin') !!}</span></div>
           </a>
         @else
           <a href="{{ route('admin.login') }}">
