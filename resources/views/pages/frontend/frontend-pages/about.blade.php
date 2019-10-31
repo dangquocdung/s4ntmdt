@@ -69,7 +69,7 @@
 
 
   <div class="row align-items-center padding-top-2x padding-bottom-2x">
-    <div class="col-md-5"><img class="d-block m-auto img-thumbnail" src="img/banners/about-01.jpg" alt="Online Shopping"></div>
+    <div class="col-md-5"><img class="d-block m-auto img-thumbnail" src="img/banners/about-01.png" alt="Online Shopping"></div>
     <div class="col-md-7 text-md-left text-center">
       <div class="mt-30 hidden-md-up"></div>
       <h2>Tìm kiếm, lựa chọn, mua và bán trực tuyến.</h2>
