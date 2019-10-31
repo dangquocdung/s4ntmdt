@@ -1,7 +1,9 @@
 <?php
 namespace shopist\Models;
 
-use Illuminate\Database\Eloquent\Model;
+use Eloquent;
+
+// use Illuminate\Database\Eloquent\Model;
 
 use Illuminate\Contracts\Auth\Authenticatable;
 use Illuminate\Auth\Authenticatable as AuthenticableTrait;
