@@ -548,7 +548,7 @@ return [
   'news_arrivals' => 'Mới đăng',
   'top_rated' => 'Được đánh giá cao',
   'address_label' => 'Địa chỉ',
-  'chung-toi' => 'Giới thiệu',
+  'ban-quan-tri' => 'Giới thiệu',
   'about_us' => 'Về chúng tôi',
   'gian-hang' => 'Gian hàng',
   'lk-mxh' => 'Liên kết',

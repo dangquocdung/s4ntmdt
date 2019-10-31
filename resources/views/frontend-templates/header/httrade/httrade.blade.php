@@ -176,10 +176,10 @@
 
         </li>
 
-        <li class="has-children {{ Request::is('chung-toi')?'active':''}}">
+        <li class="has-children {{ Request::is('ban-quan-tri')?'active':''}}">
           <span>
           
-            <a href="{{ route('chung-toi') }})">{!! trans('frontend.chung-toi') !!}</a>
+            <a href="{{ route('ban-quan-tri') }})">{!! trans('frontend.ban-quan-tri') !!}</a>
 
           </span>
   
@@ -256,9 +256,9 @@
       
       <li class="{{ Request::is('/')?'active':''}}"><a href="{{ route('home-page') }}"><span>{!! trans('frontend.home') !!}</span></a></li>
 
-      <li class="{{ Request::is('chung-toi')?'active':''}}">
+      <li class="{{ Request::is('ban-quan-tri')?'active':''}}">
         
-        <a href="{{ route('chung-toi') }}"><span>{!! trans('frontend.chung-toi') !!}</span></a>
+        <a href="{{ route('ban-quan-tri') }}"><span>{!! trans('frontend.ban-quan-tri') !!}</span></a>
 
       </li>
       

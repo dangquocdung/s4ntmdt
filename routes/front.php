@@ -17,9 +17,9 @@ Route::get( '/', [
   'as'   => 'home-page'
 ]);
 
-Route::get( '/chung-toi', [
+Route::get( '/ban-quan-tri', [
   'uses' => 'Frontend\FrontendManagerController@aboutUs',
-  'as'   => 'chung-toi'
+  'as'   => 'ban-quan-tri'
 ]);
 
 Route::get( '/khuyen-mai-sap-toi', [
