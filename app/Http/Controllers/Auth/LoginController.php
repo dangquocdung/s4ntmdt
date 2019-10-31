@@ -352,7 +352,7 @@ class LoginController extends Controller
       // Chỗ này để check xem nó có chạy hay không
       // dd($user);
 
-      Auth::login($authUser, true);
+      // Auth::login($authUser, true);
 
       return redirect()->route('home-page');
   }
