@@ -337,8 +337,16 @@ class LoginController extends Controller
    */
 
 
-  public function redirectToProvider(){
-      return Socialite::driver('facebook')->redirect();
+  public function redirectToProvider($provider){
+      // return Socialite::driver('facebook')->redirect();
+
+    if(!Session::has('pre_url')){
+        Session::put('pre_url', URL::previous());
+    }else{
+        if(URL::previous() != URL::to('login')) Session::put('pre_url', URL::previous());
+    }
+    return Socialite::driver($provider)->redirect();
+
   }
 
     /**
@@ -346,21 +354,26 @@ class LoginController extends Controller
    *
    * @return \Illuminate\Http\Response
    */
-  public function handleProviderCallback(){
+  public function handleProviderCallback($provider){
 
-      $user = Socialite::driver('facebook')->user();
+    $user = Socialite::driver($provider)->user();
 
-      $authUser = $this->findOrCreateUser($user);
-      
-      // Chỗ này để check xem nó có chạy hay không
-      // dd($user);
+    $authUser = $this->findOrCreateUser($user, $provider);
 
-      // Auth::login($authUser, true);
+    Auth::login($authUser, true);
 
-      return redirect()->route('home-page');
+    return Redirect::to(Session::get('pre_url'));
+
+
+
+    // $user = Socialite::driver('facebook')->user();
+
+    // $authUser = $this->findOrCreateUser($user);
+
+    // return redirect()->route('home-page');
   }
 
-  private function findOrCreateUser($facebookUser){
+  private function findOrCreateUser($user, $provider){
 
     $User =       new User;
     $Role =       new Role;
@@ -369,7 +382,7 @@ class LoginController extends Controller
     
     $get_role = Role::where(['slug' => $this->settingsData['_settings_data']['general_settings']['general_options']['default_role_slug_for_site']])->first();
 
-    $authUser = User::where('provider_id', $facebookUser->id)->first();
+    $authUser = User::where('provider_id', $user->id)->first();
 
     if($authUser){
 
@@ -383,13 +396,14 @@ class LoginController extends Controller
         return redirect()->route('home-page');
     }
     else{
-      $User->display_name       =    $facebookUser->name;
-      $User->name               =    $facebookUser->email;
-      $User->email              =    $facebookUser->email;
-      $User->password           =    $facebookUser->token;
+      $User->display_name       =    $user->name;
+      $User->name               =    $user->email;
+      $User->email              =    $user->email;
       $User->user_photo_url     =    '';
       $User->user_status        =    1;
-      $User->provider_id        =    $facebookUser->id;
+      $User->provider_id        =    $user->id;
+      $User->provider           =    $provider;
+
 
       if($User->save()){
         $Roleuser->user_id    =    $User->id;
