@@ -15,6 +15,8 @@ use shopist\Library\CommonFunction;
 use shopist\Http\Controllers\ProductsController;
 use shopist\Http\Controllers\OptionController;
 
+use Socialite;
+
 class LoginController extends Controller
 {
     /*
