@@ -102,14 +102,7 @@
             
 
             @if($login_user_details['user_photo_url'])
-              @if (!empty($login_user_details['provider']))
-
-                <img src="{{ $login_user_details['user_photo_url'] }}" alt="">
-
-
-              @else
-                <img src="{{ get_image_url($login_user_details['user_photo_url']) }}" alt="">
-              @endif
+              <img src="{{ $login_user_details['user_photo_url'] }}" alt="">
             @else
               <img src="{{ default_avatar_img_src() }}" alt="">
             @endif
