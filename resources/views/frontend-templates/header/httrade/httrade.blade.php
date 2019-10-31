@@ -75,18 +75,19 @@
       <a href="{{ route('user-login-page') }}">
         @if (Session::has('shopist_frontend_user_id') && !empty($user_info))
         <div>
+          <i class="flag-icon">
 
-          <div class="user-avatar-header">
             @if($user_info['user_photo_url'])
-              <img src="{{ $user_info['user_photo_url'] }}" alt="">
+              <img src="{{ $user_info['user_photo_url'] }}">
             @else
               <img src="{{ default_avatar_img_src() }}" alt="">
             @endif
+          </i>
 
-            <!-- <i class="icon-user" style="color:red"></i> -->
-          </div>
           <span class="text-label">{!! $user_info['user_display_name'] !!}</span>
 
+            <!-- <i class="icon-user" style="color:red"></i> -->
+          
         </div>
 
         @else
