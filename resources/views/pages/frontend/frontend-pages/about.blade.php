@@ -7,20 +7,65 @@
 <div class="page-title">
   <div class="container">
     <div class="column">
-      <h1>{{ trans('frontend.chung-toi') }}</h1>
+      <h1>{{ trans('frontend.ban-quan-tri') }}</h1>
     </div>
     <div class="column">
       <ul class="breadcrumbs">
         <li><a href="{{ route('home-page') }}">{{ trans('frontend.home') }}</a>
         </li>
         <li class="separator">&nbsp;</li>
-        <li>{{ trans('frontend.chung-toi') }}</li>
+        <li>{{ trans('frontend.ban-quan-tri') }}</li>
       </ul>
     </div>
   </div>
 </div>
 <!-- Page Content-->
 <div class="container padding-bottom-2x mb-2">
+
+<div class="text-center padding-top-3x mb-30">
+    <h2 class="mb-3">Ban Quản trị</h2>
+    <p class="text-muted">Những người hỗ trợ bạn trong quá trình mua bán trên sàn.</p>
+  </div>
+  <div class="row">
+    <div class="col-md-3 col-sm-6 mb-30 text-center"><img class="d-block w-150 mx-auto img-thumbnail rounded-circle mb-2" src="img/team/01.jpg" alt="Team">
+      <h6>Mr. Bùi Đắc Thế</h6>
+      <p class="text-muted mb-2">Phó Giám đốc phụ trách Sở Thông tin & Truyền thông</p>
+      <div class="social-bar">
+        <a class="social-button shape-circle sb-facebook" href="#" data-toggle="tooltip" data-placement="top" title="Facebook"><i class="socicon-facebook"></i></a>
+        <a class="social-button shape-circle sb-twitter" href="#" data-toggle="tooltip" data-placement="top" title="Twitter"><i class="socicon-twitter"></i></a>
+        <a class="social-button shape-circle sb-google-plus" href="#" data-toggle="tooltip" data-placement="top" title="Google +"><i class="socicon-googleplus"></i></a>
+      </div>
+    </div>
+    <div class="col-md-3 col-sm-6 mb-30 text-center"><img class="d-block w-150 mx-auto img-thumbnail rounded-circle mb-2" src="img/team/02.jpg" alt="Team">
+      <h6>Mr. Đặng Quốc Dũng</h6>
+      <p class="text-muted mb-2">Phó Giám đốc Trung tâm CNTT & Truyền thông</p>
+      <div class="social-bar">
+        <a class="social-button shape-circle sb-facebook" href="#" data-toggle="tooltip" data-placement="top" title="Facebook"><i class="socicon-facebook"></i></a>
+        <a class="social-button shape-circle sb-twitter" href="#" data-toggle="tooltip" data-placement="top" title="Twitter"><i class="socicon-twitter"></i></a>
+        <a class="social-button shape-circle sb-google-plus" href="#" data-toggle="tooltip" data-placement="top" title="Google +"><i class="socicon-googleplus"></i></a>
+      </div>
+    </div>
+    <div class="col-md-3 col-sm-6 mb-30 text-center"><img class="d-block w-150 mx-auto img-thumbnail rounded-circle mb-2" src="img/team/03.jpg" alt="Team">
+      <h6>Mrs. Nguyễn Thị Thảo</h6>
+      <p class="text-muted mb-2">Chuyên viên Sở Thông tin & Truyền thông</p>
+      <div class="social-bar">
+        <a class="social-button shape-circle sb-facebook" href="#" data-toggle="tooltip" data-placement="top" title="Facebook"><i class="socicon-facebook"></i></a>
+        <a class="social-button shape-circle sb-twitter" href="#" data-toggle="tooltip" data-placement="top" title="Twitter"><i class="socicon-twitter"></i></a>
+        <a class="social-button shape-circle sb-google-plus" href="#" data-toggle="tooltip" data-placement="top" title="Google +"><i class="socicon-googleplus"></i></a>
+      </div>
+    </div>
+    <div class="col-md-3 col-sm-6 mb-30 text-center"><img class="d-block w-150 mx-auto img-thumbnail rounded-circle mb-2" src="img/team/04.jpg" alt="Team">
+      <h6>Mrs. Phạm Thị Phương</h6>
+      <p class="text-muted mb-2">Cán bộ Trung tâm CNTT & Truyền thông</p>
+      <div class="social-bar">
+        <a class="social-button shape-circle sb-facebook" href="#" data-toggle="tooltip" data-placement="top" title="Facebook"><i class="socicon-facebook"></i></a>
+        <a class="social-button shape-circle sb-twitter" href="#" data-toggle="tooltip" data-placement="top" title="Twitter"><i class="socicon-twitter"></i></a>
+        <a class="social-button shape-circle sb-google-plus" href="#" data-toggle="tooltip" data-placement="top" title="Google +"><i class="socicon-googleplus"></i></a>
+      </div>    
+    </div>
+  </div>
+
+
   <div class="row align-items-center padding-bottom-2x">
     <div class="col-md-5"><img class="d-block m-auto img-thumbnail" src="img/banners/about-01.jpg" alt="Online Shopping"></div>
     <div class="col-md-7 text-md-left text-center">
@@ -75,48 +120,6 @@
     </div>
   </div>
   <hr>
-  <div class="text-center padding-top-3x mb-30">
-    <h2 class="mb-3">Ban Quản trị</h2>
-    <p class="text-muted">People behind your awesome shopping experience.</p>
-  </div>
-  <div class="row">
-    <div class="col-md-3 col-sm-6 mb-30 text-center"><img class="d-block w-150 mx-auto img-thumbnail rounded-circle mb-2" src="img/team/01.jpg" alt="Team">
-      <h6>Mr. Bùi Đắc Thế</h6>
-      <p class="text-muted mb-2">Phó Giám đốc Sở Thông tin & Truyền thông</p>
-      <div class="social-bar">
-        <a class="social-button shape-circle sb-facebook" href="#" data-toggle="tooltip" data-placement="top" title="Facebook"><i class="socicon-facebook"></i></a>
-        <a class="social-button shape-circle sb-twitter" href="#" data-toggle="tooltip" data-placement="top" title="Twitter"><i class="socicon-twitter"></i></a>
-        <a class="social-button shape-circle sb-google-plus" href="#" data-toggle="tooltip" data-placement="top" title="Google +"><i class="socicon-googleplus"></i></a>
-      </div>
-    </div>
-    <div class="col-md-3 col-sm-6 mb-30 text-center"><img class="d-block w-150 mx-auto img-thumbnail rounded-circle mb-2" src="img/team/02.jpg" alt="Team">
-      <h6>Mr. Đặng Quốc Dũng</h6>
-      <p class="text-muted mb-2">Phó Giám đốc Trung tâm CNTT & Truyền thông</p>
-      <div class="social-bar">
-        <a class="social-button shape-circle sb-facebook" href="#" data-toggle="tooltip" data-placement="top" title="Facebook"><i class="socicon-facebook"></i></a>
-        <a class="social-button shape-circle sb-twitter" href="#" data-toggle="tooltip" data-placement="top" title="Twitter"><i class="socicon-twitter"></i></a>
-        <a class="social-button shape-circle sb-google-plus" href="#" data-toggle="tooltip" data-placement="top" title="Google +"><i class="socicon-googleplus"></i></a>
-      </div>
-    </div>
-    <div class="col-md-3 col-sm-6 mb-30 text-center"><img class="d-block w-150 mx-auto img-thumbnail rounded-circle mb-2" src="img/team/03.jpg" alt="Team">
-      <h6>Mrs. Nguyễn Thị Thảo</h6>
-      <p class="text-muted mb-2">Chuyên viên Sở Thông tin & Truyền thông</p>
-      <div class="social-bar">
-        <a class="social-button shape-circle sb-facebook" href="#" data-toggle="tooltip" data-placement="top" title="Facebook"><i class="socicon-facebook"></i></a>
-        <a class="social-button shape-circle sb-twitter" href="#" data-toggle="tooltip" data-placement="top" title="Twitter"><i class="socicon-twitter"></i></a>
-        <a class="social-button shape-circle sb-google-plus" href="#" data-toggle="tooltip" data-placement="top" title="Google +"><i class="socicon-googleplus"></i></a>
-      </div>
-    </div>
-    <div class="col-md-3 col-sm-6 mb-30 text-center"><img class="d-block w-150 mx-auto img-thumbnail rounded-circle mb-2" src="img/team/04.jpg" alt="Team">
-      <h6>Mrs. Phạm Thị Phương</h6>
-      <p class="text-muted mb-2">Cán bộ Trung tâm CNTT & Truyền thông</p>
-      <div class="social-bar">
-        <a class="social-button shape-circle sb-facebook" href="#" data-toggle="tooltip" data-placement="top" title="Facebook"><i class="socicon-facebook"></i></a>
-        <a class="social-button shape-circle sb-twitter" href="#" data-toggle="tooltip" data-placement="top" title="Twitter"><i class="socicon-twitter"></i></a>
-        <a class="social-button shape-circle sb-google-plus" href="#" data-toggle="tooltip" data-placement="top" title="Google +"><i class="socicon-googleplus"></i></a>
-      </div>    
-    </div>
-  </div>
 </div>
   
 @endsection
