@@ -37,7 +37,7 @@
       
         <div class="card-body">
           <div class="row margin-bottom-1x">
-            <div class="col-xl-4 col-md-6 col-sm-4"><a class="btn btn-sm btn-block facebook-btn" href="#"><i class="socicon-facebook"></i>&nbsp;Facebook</a></div>
+            <div class="col-xl-4 col-md-6 col-sm-4"><a class="btn btn-sm btn-block facebook-btn" href="{{ route('facebook.login') }}"><i class="socicon-facebook"></i>&nbsp;Facebook</a></div>
             <div class="col-xl-4 col-md-6 col-sm-4"><a class="btn btn-sm btn-block twitter-btn" href="#"><i class="socicon-twitter"></i>&nbsp;Zalo</a></div>
             <div class="col-xl-4 col-md-6 col-sm-4"><a class="btn btn-sm btn-block google-btn" href="#"><i class="socicon-googleplus"></i>&nbsp;Google+</a></div>
           </div>
