@@ -22,7 +22,7 @@
 <!-- Page Content-->
 <div class="container padding-bottom-2x mb-2">
 
-  <div class="text-center padding-top-3x mb-30">
+  <div class="text-center mb-30">
     <h2 class="mb-3">Ban Quản trị</h2>
     <p class="text-muted">Những người hỗ trợ bạn trong quá trình mua bán trên sàn.</p>
   </div>
@@ -64,6 +64,8 @@
       </div>    
     </div>
   </div>
+
+  <hr>
 
 
   <div class="row align-items-center padding-bottom-2x">
