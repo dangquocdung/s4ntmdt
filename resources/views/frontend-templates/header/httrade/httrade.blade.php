@@ -78,9 +78,9 @@
 
           <i class="flag-icon">
             @if($user_info['user_photo_url'])
-              <img src="{{ $user_info['user_photo_url'] }}">
+              <img src="{{ $user_info['user_photo_url'] }}" style="border-radius: 50%">
             @else
-              <img src="{{ default_avatar_img_src() }}" alt="">
+              <img src="{{ default_avatar_img_src() }}" style="border-radius: 50%">
             @endif
           </i>
 
