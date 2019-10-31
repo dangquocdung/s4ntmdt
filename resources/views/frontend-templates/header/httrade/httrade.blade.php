@@ -74,15 +74,15 @@
     <div class="toolbar-item hidden-on-mobile">
       <a href="{{ route('user-login-page') }}">
         @if (Session::has('shopist_frontend_user_id'))
-        <div><i class="icon-user"></i><span class="text-label">{!! $user_info['user_display_name'] !!}</span></div>
+          <div><i class="icon-user" style="color:red"></i><span class="text-label">{!! $user_info['user_display_name'] !!}</span></div>
         @else
-        <div><i class="icon-user"></i><span class="text-label">{!! trans('frontend.menu_my_account') !!}</span></div>
+          <div><i class="icon-user"></i><span class="text-label">{!! trans('frontend.menu_my_account') !!}</span></div>
         @endif
       </a>
 
       <div class="toolbar-dropdown text-center px-3">
         @if (Session::has('shopist_frontend_user_id'))
-          <a class="btn btn-primary btn-sm btn-block" href="{{ route('user-account-page') }}">{!! $user_info['user_display_name'] !!}</a>
+          <a class="btn btn-primary btn-sm btn-block" href="{{ route('user-account-page') }}">{!! trans('frontend.user_account_label') !!}</a>
         @else
           <!-- <p class="text-xs mb-3 pt-2">Sign in to your account or register new one to have full control over your orders, receive bonuses and more.</p> -->
           <a class="btn btn-primary btn-sm btn-block" href="{{ route('user-account-page') }}">{!! trans('frontend.frontend_user_login') !!}</a>
