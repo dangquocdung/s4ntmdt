@@ -380,10 +380,9 @@ class LoginController extends Controller
         elseif(!Session::has('shopist_frontend_user_id')){
           Session::put('shopist_frontend_user_id', $authUser->id);
         }
-        return redirect()->route('user-account-page');
+        return redirect()->route('home-page');
     }
-
-    if(!empty($get_role->id)){
+    else{
       $User->display_name       =    $facebookUser->name;
       $User->name               =    $facebookUser->email;
       $User->email              =    $facebookUser->email;
@@ -400,10 +399,6 @@ class LoginController extends Controller
           return redirect()->route('home-page');
         }
       }
-    }
-    else{
-      Session::flash('error-message', Lang::get('frontend.user_role_not_selected_msg'));
-      return redirect()-> back();
     }
 
 
