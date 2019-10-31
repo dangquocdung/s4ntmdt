@@ -353,13 +353,11 @@ class LoginController extends Controller
 
     $user = Socialite::driver($provider)->user();
 
-    // $authUser = $this->findOrCreateUser($user, $provider);
+    $authUser = $this->findOrCreateUser($user, $provider);
 
     // Auth::login($authUser, true);
 
-    return response()->json($user);
-
-    // return redirect()->route('home-page');
+    return redirect()->route('home-page');
 
   }
 
@@ -389,7 +387,7 @@ class LoginController extends Controller
       $User->display_name       =    $user->name;
       $User->name               =    $user->email;
       $User->email              =    $user->email;
-      $User->user_photo_url     =    '';
+      $User->user_photo_url     =    $user->avatar;
       $User->user_status        =    1;
       $User->provider_id        =    $user->id;
       $User->provider           =    $provider;
