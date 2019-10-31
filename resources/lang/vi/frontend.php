@@ -363,7 +363,7 @@ return [
   'todays_products_empty_label' =>'Dữ liệu bán hàng ngày hôm nay không có sẵn',
   'member_since_label' =>'Thành viên từ',
   'hi_single_label' =>'Chào,',
-  'user_db_notice_label' =>'Đây là khả năng của bạn để xem ảnh chụp nhanh về hoạt động tài khoản gần đây của bạn hoặc những gì mà xảy ra với tài khoản của bạn ngay bây giờ!',
+  'user_db_notice_label' =>'Đây là bảng điều khiển của bạn, cho phép bạn xem nhanh thông tin tài khoản của mình!',
   'product_not_available' =>'Không tìm thấy dữ liệu nào!',
   'user_order_details_page_title' =>'Chi tiết đặt hàng',
   'user_order_label' =>'Gọi món #',
