@@ -82,8 +82,9 @@
             @endif
 
             <!-- <i class="icon-user" style="color:red"></i> -->
-            <span class="text-label">{!! $user_info['user_display_name'] !!}</span>
           </div>
+          <span class="text-label">{!! $user_info['user_display_name'] !!}</span>
+
         @else
           <div><i class="icon-user"></i><span class="text-label">{!! trans('frontend.menu_my_account') !!}</span></div>
         @endif
