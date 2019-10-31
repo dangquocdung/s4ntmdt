@@ -118,3 +118,14 @@
   }
   & + .list-group .list-group-item:first-child { border-radius: 0; }
 }
+
+.user-avatar-header {
+  position: relative;
+  width: $user-ava-size;
+  > img {
+    display: block;
+    width: 100%;
+    border: 5px solid $white-color;
+    border-radius: 50%;
+  }
+}

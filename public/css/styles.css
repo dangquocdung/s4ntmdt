@@ -7338,6 +7338,18 @@ video {
   border-radius: 0;
 }
 
+.user-avatar-header {
+  position: relative;
+  width: 115px;
+}
+
+.user-avatar-header > img {
+  display: block;
+  width: 100%;
+  border: 5px solid #ffffff;
+  border-radius: 50%;
+}
+
 .product-card {
   display: block;
   position: relative;
