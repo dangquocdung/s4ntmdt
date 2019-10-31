@@ -37,9 +37,9 @@
       
         <div class="card-body">
           <div class="row margin-bottom-1x">
-            <div class="col-xl-4 col-md-6 col-sm-4"><a class="btn btn-sm btn-block facebook-btn" href="{{ route('facebook.login') }}"><i class="socicon-facebook"></i>&nbsp;Facebook</a></div>
-            <div class="col-xl-4 col-md-6 col-sm-4"><a class="btn btn-sm btn-block twitter-btn" href="#"><i class="socicon-twitter"></i>&nbsp;Zalo</a></div>
-            <div class="col-xl-4 col-md-6 col-sm-4"><a class="btn btn-sm btn-block google-btn" href="#"><i class="socicon-googleplus"></i>&nbsp;Google+</a></div>
+            <div class="col-md-6"><a class="btn btn-sm btn-block facebook-btn" href="{{ URL::to('auth/facebook') }}"><i class="socicon-facebook"></i>&nbsp;Facebook</a></div>
+            <!-- <div class="col-xl-4 col-md-6 col-sm-4"><a class="btn btn-sm btn-block twitter-btn" href="#"><i class="socicon-twitter"></i>&nbsp;Zalo</a></div> -->
+            <div class="col-md-6"><a class="btn btn-sm btn-block google-btn" href="{{ URL::to('auth/google') }}"><i class="socicon-googleplus"></i>&nbsp;Google+</a></div>
           </div>
           <h4 class="margin-bottom-1x">Hoặc điền thông tin vào biểu mẫu</h4>
           <div class="form-group input-group">
