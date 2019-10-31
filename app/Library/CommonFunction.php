@@ -250,17 +250,17 @@ class CommonFunction
     $data_ary['popular_tags_list']            =   $product->getTermData( 'product_tag', false, null, 1 );
     $data_ary['productCategoriesTree']        =   $get_cat_tree;
     
-    if(Request::is('/')){
-      $data_ary['dynamic_vertical_megamenu']  =   $this->frontendVerticalMenuHTML();
+    // if(Request::is('/')){
+    //   $data_ary['dynamic_vertical_megamenu']  =   $this->frontendVerticalMenuHTML();
 
-      $data_ary['dynamic_categories_megabox']  =   $this->frontendCategoriesBoxHTML();
+    //   $data_ary['dynamic_categories_megabox']  =   $this->frontendCategoriesBoxHTML();
 
-    }
-    else{
-      $data_ary['dynamic_vertical_megamenu']  =  '';
+    // }
+    // else{
+    //   $data_ary['dynamic_vertical_megamenu']  =  '';
 
-      $data_ary['dynamic_categories_megabox']  = '';
-    }
+    //   $data_ary['dynamic_categories_megabox']  = '';
+    // }
     
     $get_frontend_selected_lang = get_frontend_selected_languages_data();
     $data_ary['selected_lang_code']    =    $get_frontend_selected_lang['lang_code'];
