@@ -73,7 +73,7 @@
 
     <div class="toolbar-item hidden-on-mobile">
       <a href="{{ route('user-login-page') }}">
-        @if (Session::has('shopist_frontend_user_id'))
+        @if (Session::has('shopist_frontend_user_id') && !empty($user_info))
           <div><i class="icon-user" style="color:red"></i><span class="text-label">{!! $user_info['user_display_name'] !!}</span></div>
         @else
           <div><i class="icon-user"></i><span class="text-label">{!! trans('frontend.menu_my_account') !!}</span></div>
