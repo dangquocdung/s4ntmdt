@@ -66,7 +66,7 @@ class FrontendManagerController extends Controller
     $data['testimonials_data']   =   get_all_testimonial_data();
 
     
-    return Response::json($data['user_info']);
+    // return Response::json($data['user_info']);
 
     
     return view('pages.frontend.frontend-pages.home', $data);
