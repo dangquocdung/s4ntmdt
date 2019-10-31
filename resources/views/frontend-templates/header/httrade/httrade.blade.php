@@ -132,10 +132,9 @@
       
       <div class="toolbar-item">
 
-        @if (Session::has('shopist_frontend_user_id'))
+        @if ( Session::has('shopist_frontend_user_id') && !empty($user_info) )
           <a href="{{ route('user-account-page') }}">
-            <div><i class="icon-user"></i><span class="text-label">{!! trans('frontend.dashboard') !!}</span></div>
-            
+            <div><i class="icon-user" style="color:red"></i><span class="text-label">{!! $user_info['user_display_name'] !!}</span></div>
           </a>
         @else
           <a href="{{ route('user-account-page') }}">
