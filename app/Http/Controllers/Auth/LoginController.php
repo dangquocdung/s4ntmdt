@@ -370,7 +370,7 @@ class LoginController extends Controller
     
     $get_role = Role::where(['slug' => $this->settingsData['_settings_data']['general_settings']['general_options']['default_role_slug_for_site']])->first();
 
-    $authUser = User::where('provider_id', $user->id)->first();
+    $authUser = User::where('email', $user->email)->first();
 
     if($authUser){
 
