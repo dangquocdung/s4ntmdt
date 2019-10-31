@@ -81,7 +81,7 @@
       </a>
 
       <div class="toolbar-dropdown text-center px-3">
-        @if (Session::has('shopist_frontend_user_id'))
+        @if (Session::has('shopist_frontend_user_id') && !empty($user_info))
           <a class="btn btn-primary btn-sm btn-block" href="{{ route('user-account-page') }}">{!! trans('frontend.user_account_label') !!}</a>
         @else
           <!-- <p class="text-xs mb-3 pt-2">Sign in to your account or register new one to have full control over your orders, receive bonuses and more.</p> -->
