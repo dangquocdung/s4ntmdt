@@ -358,16 +358,6 @@ class LoginController extends Controller
 
     return redirect()->route('home-page');
 
-
-    // return Redirect::to(Session::get('pre_url'));
-
-
-
-    // $user = Socialite::driver('facebook')->user();
-
-    // $authUser = $this->findOrCreateUser($user);
-
-    // return redirect()->route('home-page');
   }
 
   private function findOrCreateUser($user, $provider){
