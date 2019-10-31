@@ -73,7 +73,7 @@ Route::group(['namespace' => 'Auth'], function () {
     'as'   => 'user-registration-page'
   ]);
 
-  Route::get( '/vendor/registration', [
+  Route::get( '/gian-hang/registration', [
     'uses' => 'RegisterController@redirectToVendorRegistrationProcess',
     'as'   => 'vendor-registration-page'
   ]);
@@ -83,7 +83,7 @@ Route::group(['namespace' => 'Auth'], function () {
     'as'   => 'user-registration-post'
   ]);
 
-  Route::post( '/vendor/registration', [
+  Route::post( '/gian-hang/registration', [
     'uses' => 'RegisterController@vendorRegistration',
     'as'   => 'vendor-registration-post'
   ]);
