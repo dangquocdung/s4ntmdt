@@ -1,17 +1,10 @@
 <?php
 namespace shopist\Models;
 
-use Eloquent;
+use Illuminate\Database\Eloquent\Model;
 
-// use Illuminate\Database\Eloquent\Model;
-
-use Illuminate\Contracts\Auth\Authenticatable;
-use Illuminate\Auth\Authenticatable as AuthenticableTrait;
-
-class User extends Eloquent implements Authenticatable
+class User extends Model
 {
-
-  use AuthenticableTrait;
    
   protected $table = 'users';
   protected $fillable = ['display_name','name', 'email', 'password', 'provider', 'provider_id','user_status'];
