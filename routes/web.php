@@ -29,72 +29,72 @@ Route::group(['namespace' => 'Auth'], function () {
   ]);
 
   //admin login route
-  Route::get( '/admin/login', [
+  Route::get( '/quan-tri/dang-nhap', [
     'uses' => 'LoginController@goToAdminLoginPage',
     'as'   => 'admin.login'
   ]);
 
-  Route::post( '/admin/login' , [
+  Route::post( '/quan-tri/dang-nhap' , [
     'uses' => 'LoginController@postAdminLogin',
     'as'   => 'admin.post_login'
   ]);
 
   //admin logout route
-  Route::post( '/admin/logout', [
+  Route::post( '/quan-tri/dang-xuat', [
     'uses' => 'LoginController@logoutFromLogin',
     'as'   => 'admin.logout'
   ]);
 
   //admin forgot password route 
-  Route::get( '/admin/forgot-password', [
+  Route::get( '/quan-tri/forgot-password', [
     'uses' => 'ForgotPasswordController@redirectForgotPassword',
     'as' => 'forgotPassword'
   ]);
 
-  Route::post( '/admin/forgot-password', [
+  Route::post( '/quan-tri/forgot-password', [
     'uses' => 'ForgotPasswordController@postForgotPassword',
     'as' => 'forgotPasswordUpdate'
   ]);
 
   //frontend user and vendor login route
-  Route::get( '/user/login', [
+  Route::get( '/thanh-vien/dang-nhap', [
     'uses' => 'LoginController@goToFrontendLoginPage',
     'as'   => 'user-login-page'
   ]);
 
-  Route::post( '/user/login', [
+  Route::post( '/thanh-vien/dang-nhap', [
     'uses' => 'LoginController@postFrontendLogin',
     'as'   => 'user-login-post'
   ]);
 
   //frontend user and vendor registration route
-  Route::get( '/user/registration', [
+  Route::get( '/thanh-vien/dang-ky', [
     'uses' => 'RegisterController@redirectToUserRegistrationProcess',
     'as'   => 'user-registration-page'
   ]);
 
-  Route::get( '/gian-hang/registration', [
+  Route::get( '/gian-hang/dang-ky', [
     'uses' => 'RegisterController@redirectToVendorRegistrationProcess',
     'as'   => 'vendor-registration-page'
   ]);
 
-  Route::post( '/user/registration', [
+  Route::post( '/thanh-vien/dang-ky', [
     'uses' => 'RegisterController@userRegistration',
     'as'   => 'user-registration-post'
   ]);
 
-  Route::post( '/gian-hang/registration', [
+  Route::post( '/gian-hang/dang-ky', [
     'uses' => 'RegisterController@vendorRegistration',
     'as'   => 'vendor-registration-post'
   ]);
 
   //frontend forgot password route
-  Route::get( '/user/forgot-password', [
+  Route::get( '/thanh-vien/forgot-password', [
     'uses' => 'ForgotPasswordController@redirectForgotPassword',
     'as'   => 'user-forgot-password-page' 
   ]);
 
-  Route::post( '/user/forgot-password', [
+  Route::post( '/thanh-vien/forgot-password', [
     'uses' => 'ForgotPasswordController@manageFrontendUserForgotPassword',
     'as'   => 'user-forgot-password-post'
   ]);
