@@ -74,6 +74,8 @@
     <div class="toolbar-item hidden-on-mobile">
       <a href="{{ route('user-login-page') }}">
         @if (Session::has('shopist_frontend_user_id') && !empty($user_info))
+        <div>
+
           <div class="user-avatar-header">
             @if($user_info['user_photo_url'])
               <img src="{{ $user_info['user_photo_url'] }}" alt="">
@@ -84,6 +86,8 @@
             <!-- <i class="icon-user" style="color:red"></i> -->
           </div>
           <span class="text-label">{!! $user_info['user_display_name'] !!}</span>
+
+        </div>
 
         @else
           <div><i class="icon-user"></i><span class="text-label">{!! trans('frontend.menu_my_account') !!}</span></div>
