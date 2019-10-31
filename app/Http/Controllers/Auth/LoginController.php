@@ -358,20 +358,43 @@ class LoginController extends Controller
   }
 
   private function findOrCreateUser($facebookUser){
-      $authUser = User::where('provider_id', $facebookUser->id)->first();
 
-      if($authUser){
+    $User =       new User;
+    $Role =       new Role;
+    $Roleuser =   new RoleUser;
+    $email_options = get_emails_option_data();
+    
+    $get_role = Role::where(['slug' => $this->settingsData['_settings_data']['general_settings']['general_options']['default_role_slug_for_site']])->first();
+
+    $authUser = User::where('provider_id', $facebookUser->id)->first();
+
+    if($authUser){
+        return redirect()->route('user-account-page');
+    }
+
+    if(!empty($get_role->id)){
+      $User->display_name       =    $facebookUser->name;
+      $User->name               =    $facebookUser->email;
+      $User->email              =    $facebookUser->email;
+      $User->password           =    $facebookUser->token;
+      $User->user_photo_url     =    '';
+      $User->user_status        =    1;
+      $User->provider_id        =    $facebookUser->id;
+
+      if($User->save()){
+        $Roleuser->user_id    =    $User->id;
+        $Roleuser->role_id    =    $get_role->id;
+
+        if($Roleuser->save()){
           return redirect()->route('user-account-page');
+        }
       }
+    }
+    else{
+      Session::flash('error-message', Lang::get('frontend.user_role_not_selected_msg'));
+      return redirect()-> back();
+    }
 
-      return User::create([
-          'display_name' => $facebookUser->name,
-          'name' => $facebookUser->name,
-          'email' => $facebookUser->email,
-          'password' => $facebookUser->token,
-          'user_status' => 1,
-          'provider_id' => $facebookUser->id,
-          'provider' => $facebookUser->id,
-      ]);
+
   }
 }
