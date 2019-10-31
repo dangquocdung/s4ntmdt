@@ -612,4 +612,8 @@ return [
   'chon-xa-phuong' => '-- Chọn Xã, Phường -- *',
   'nguoi-nhan' => 'Người nhận',
   'nguoi-tt' => 'Người thanh toán',
+
+  'billing_address_not_available' =>'Không có địa chỉ thanh toán trong sổ địa chỉ của bạn',
+  'shipping_address_not_available' =>'Không có địa chỉ giao hàng trong sổ địa chỉ của bạn',
+
 ];
