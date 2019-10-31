@@ -18,6 +18,7 @@ use shopist\Http\Controllers\OptionController;
 use Socialite;
 use shopist\Models\Role;
 use shopist\Models\RoleUser;
+use URL;
 
 
 class LoginController extends Controller
