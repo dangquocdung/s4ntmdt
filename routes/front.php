@@ -246,5 +246,5 @@ Route::get( '/download/file/{product_id}/{order_id}/{file_id}/{target}', [
   'as'   => 'downloadable-product-download'
 ]);
 
-Route::get('auth/facebook', 'LoginController@redirectToProvider')->name('facebook.login') ;
-Route::get('auth/facebook/callback', 'FacebookAuthController@handleProviderCallback');
+Route::get('auth/facebook', 'Auth\LoginController@redirectToProvider')->name('facebook.login') ;
+Route::get('auth/facebook/callback', 'Auth\LoginController@handleProviderCallback');
