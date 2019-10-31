@@ -980,7 +980,7 @@ return [
   'total_vendors_label' =>'Tổng số gian hàng',
   'active_vendors_label' =>'gian hàng hoạt động',
   'pending_vendors_label' =>'gian hàng đang chờ xử lý',
-  'pending_withdraw_label' =>'Sắp rút lui',
+  'pending_withdraw_label' =>'Chờ rút tiền',
   'completed_withdraw_label' =>'Hoàn thành rút tiền',
   'cancelled_withdraw_label' =>'Hủy bỏ rút tiền',
   'withdraw_requests_list_label' =>'Danh sách yêu cầu rút tiền',
