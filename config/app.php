@@ -221,7 +221,6 @@ return [
         'Nexmo' => Nexmo\Laravel\Facade\Nexmo::class,
         'HTMLMin' => HTMLMin\HTMLMin\Facades\HTMLMin::class,
         'Socialite' => Laravel\Socialite\Facades\Socialite::class,
-
     ],
 
 ];
