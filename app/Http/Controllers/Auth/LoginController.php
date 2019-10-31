@@ -397,7 +397,7 @@ class LoginController extends Controller
         $Roleuser->role_id    =    $get_role->id;
 
         if($Roleuser->save()){
-          return redirect()->route('user-account-page');
+          return redirect()->route('home-page');
         }
       }
     }
