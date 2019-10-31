@@ -7341,7 +7341,6 @@ video {
 .user-avatar-header {
   position: relative;
   width: 115px;
-  text-align: center;
 }
 
 .user-avatar-header > img {
@@ -7349,7 +7348,12 @@ video {
   max-width: 50px;
   border: 5px solid #ffffff;
   border-radius: 50%;
-  vertical-align: middle;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
 }
 
 .product-card {
