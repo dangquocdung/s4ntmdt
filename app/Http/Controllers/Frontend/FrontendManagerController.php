@@ -66,7 +66,7 @@ class FrontendManagerController extends Controller
     $data['testimonials_data']   =   get_all_testimonial_data();
 
     
-    // return Response::json($data);
+    return Response::json($data['user_info']);
 
     
     return view('pages.frontend.frontend-pages.home', $data);
@@ -474,6 +474,7 @@ class FrontendManagerController extends Controller
       $data = array();
 
       $product_id  = $get_product->id;
+
       $get_current_user_data  =  get_current_frontend_user_info();
       
       $data = $this->classCommonFunction->get_dynamic_frontend_content_data();

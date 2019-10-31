@@ -284,6 +284,8 @@ class CommonFunction
     $data_ary['current_parent_cat'] = get_product_parent_categories();
     $data_ary['pages_list'] = $CMS->get_pages(false, null, 1);
     $data_ary['seo_data'] = get_seo_data();
+
+    $data_ary['user_info'] = get_current_frontend_user_info();
     
     return $data_ary;
   }
