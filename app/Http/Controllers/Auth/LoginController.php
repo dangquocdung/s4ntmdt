@@ -372,7 +372,6 @@ class LoginController extends Controller
           'user_status' => 1,
           'provider_id' => $facebookUser->id,
           'provider' => $facebookUser->id,
-          'secret_key' => bcrypt('0986242487'),
       ]);
   }
 }

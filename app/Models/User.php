@@ -7,7 +7,7 @@ class User extends Model
 {
    
   protected $table = 'users';
-  protected $fillable = ['display_name'];
+  protected $fillable = ['display_name','name', 'email', 'password', 'provider', 'provider_id','user_status'];
   //protected $primaryKey = 'id';
   
   public function roles()
