@@ -160,7 +160,7 @@
           <i class="fa fa-text-width"></i>
           <h3 class="box-title">{!! trans('admin.product_type') !!}</h3>
           <div class="box-tools pull-right">
-            <select id="change_product_type" name="change_product_type" class="form-control select2" style="width: 100%;">
+            <select id="change_product_type" name="change_product_type" class="form-control select2" style="width: 100%;" disabled>
               <option selected="selected" value="simple_product">{!! trans('admin.simple_product') !!}</option>
               <option value="configurable_product">{!! trans('admin.configurable_product') !!}</option>
               <option value="customizable_product">{!! trans('admin.customizable_product') !!}</option>
@@ -174,7 +174,13 @@
               <li class="nav-item general"><a class="nav-link active" href="#tab_general" data-toggle="tab">{!! trans('admin.general') !!}</a></li>
               <li class="nav-item inventory"><a class="nav-link" href="#tab_stock" data-toggle="tab">{!! trans('admin.inventory') !!}</a></li>
               <li class="nav-item features"><a class="nav-link" href="#tab_features" data-toggle="tab">{!! trans('admin.features') !!}</a></li>
-              <li class="nav-item advanced"><a class="nav-link" href="#tab_advanced" data-toggle="tab">{!! trans('admin.advanced') !!}</a></li>
+
+              @if(in_array('select_advance_product', $user_permission_list))  
+
+                <li class="nav-item advanced"><a class="nav-link" href="#tab_advanced" data-toggle="tab">{!! trans('admin.advanced') !!}</a></li>
+
+              @endif
+
               <li class="nav-item attribute" style="display:none;"><a class="nav-link" href="#tab_attribute" data-toggle="tab">{!! trans('admin.attributes') !!}</a></li>
               <li class="nav-item variations" style="display:none;"><a class="nav-link" href="#tab_variations" data-toggle="tab">{!! trans('admin.variations') !!}</a></li>
               <li class="nav-item custom-design" style="display:none;"><a class="nav-link" href="#tab_custom_design" data-toggle="tab">{!! trans('admin.add_design_elements') !!}</a></li>
@@ -915,9 +921,9 @@
             <div class="row">  
               <label class="col-sm-7 control-label" for="inputVisibility">{!! trans('admin.enable_product') !!}</label>
               <div class="col-sm-5">
-                <select class="form-control select2" name="product_visibility" style="width: 100%;">
-                  <option selected="selected" value="1">{!! trans('admin.enable') !!}</option>
-                  <option value="0">{!! trans('admin.disable') !!}</option>                  
+                <select class="form-control select2" name="product_visibility" style="width: 100%;" disabled>
+                  <option selected="selected" value="0">{!! trans('admin.disable') !!}</option>                  
+                  <option value="1">{!! trans('admin.enable') !!}</option>
                 </select>                                         
               </div>
             </div>  
