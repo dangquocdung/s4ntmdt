@@ -75,8 +75,8 @@
       <a href="{{ route('user-login-page') }}">
         @if (Session::has('shopist_frontend_user_id') && !empty($user_info))
         <div>
-          <i class="flag-icon" style="width:30px; border-radius:3px">
 
+          <i class="flag-icon">
             @if($user_info['user_photo_url'])
               <img src="{{ $user_info['user_photo_url'] }}">
             @else
