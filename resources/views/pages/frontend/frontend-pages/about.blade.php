@@ -22,11 +22,11 @@
 <!-- Page Content-->
 <div class="container padding-bottom-2x mb-2">
 
-<div class="text-center padding-top-3x mb-30">
+  <div class="text-center padding-top-3x mb-30">
     <h2 class="mb-3">Ban Quản trị</h2>
     <p class="text-muted">Những người hỗ trợ bạn trong quá trình mua bán trên sàn.</p>
   </div>
-  <div class="row">
+  <div class="row padding-bottom-2x">
     <div class="col-md-3 col-sm-6 mb-30 text-center"><img class="d-block w-150 mx-auto img-thumbnail rounded-circle mb-2" src="img/team/01.jpg" alt="Team">
       <h6>Mr. Bùi Đắc Thế</h6>
       <p class="text-muted mb-2">Phó Giám đốc phụ trách Sở Thông tin & Truyền thông</p>
