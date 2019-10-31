@@ -372,6 +372,14 @@ class LoginController extends Controller
     $authUser = User::where('provider_id', $facebookUser->id)->first();
 
     if($authUser){
+
+        if(Session::has('shopist_frontend_user_id')){
+          Session::forget('shopist_frontend_user_id');
+          Session::put('shopist_frontend_user_id', $authUser->id);
+        }
+        elseif(!Session::has('shopist_frontend_user_id')){
+          Session::put('shopist_frontend_user_id', $authUser->id);
+        }
         return redirect()->route('user-account-page');
     }
 
