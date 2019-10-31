@@ -18,7 +18,6 @@ use shopist\Http\Controllers\OptionController;
 use Socialite;
 use shopist\Models\Role;
 use shopist\Models\RoleUser;
-use URL;
 
 
 class LoginController extends Controller
@@ -339,13 +338,7 @@ class LoginController extends Controller
 
 
   public function redirectToProvider($provider){
-      // return Socialite::driver('facebook')->redirect();
 
-    if(!Session::has('pre_url')){
-        Session::put('pre_url', URL::previous());
-    }else{
-        if(URL::previous() != URL::to('login')) Session::put('pre_url', URL::previous());
-    }
     return Socialite::driver($provider)->redirect();
 
   }
@@ -363,7 +356,10 @@ class LoginController extends Controller
 
     Auth::login($authUser, true);
 
-    return Redirect::to(Session::get('pre_url'));
+    return redirect()->route('home-page');
+
+
+    // return Redirect::to(Session::get('pre_url'));
 
 
 
