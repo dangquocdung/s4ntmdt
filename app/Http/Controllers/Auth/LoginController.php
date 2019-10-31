@@ -361,7 +361,7 @@ class LoginController extends Controller
       $authUser = User::where('provider_id', $facebookUser->id)->first();
 
       if($authUser){
-          return $authUser;
+          return redirect()->route('user-account-page');
       }
 
       return User::create([
