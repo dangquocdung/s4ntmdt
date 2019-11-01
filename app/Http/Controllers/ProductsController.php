@@ -1215,7 +1215,8 @@ class ProductsController extends Controller
           $post->content            =   string_encode(Input::get('eb_description_editor'));
           $post->title              =   Input::get('product_name');
           $post->slug               =   $post_slug;
-          $post->status             =   Input::get('product_visibility');
+          // $post->status             =   Input::get('product_visibility');
+          $post->status             =   0;
           $post->sku                =   Input::get('ProductSKU');
           $post->regular_price      =   $regular_price;
           $post->sale_price         =   $sale_price;
