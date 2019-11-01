@@ -175,7 +175,8 @@
               <li class="nav-item inventory"><a class="nav-link" href="#tab_stock" data-toggle="tab">{!! trans('admin.inventory') !!}</a></li>
               <li class="nav-item features"><a class="nav-link" href="#tab_features" data-toggle="tab">{!! trans('admin.features') !!}</a></li>
 
-              @if(in_array('select_advance_product', $user_permission_list))  
+              <!-- @if(in_array('select_advance_product', $user_permission_list))   -->
+              @if ($user_data['user_role_id'] <> 3)
 
                 <li class="nav-item advanced"><a class="nav-link" href="#tab_advanced" data-toggle="tab">{!! trans('admin.advanced') !!}</a></li>
 
@@ -367,7 +368,7 @@
                     </div>
                   </div>  
                 </div>
-                <div class="form-group enable-custom-design" {!! $tabSettings['btnCustomize'] !!}>
+                <div class="form-group enable-custom-design {!! $tabSettings['btnCustomize'] !!}">
                   <div class="row">  
                     <label class="col-sm-6 control-label" for="inputEnableForCustomDesignProduct">{!! trans('admin.custom_design') !!}</label>
                     <div class="col-sm-6">
@@ -921,10 +922,13 @@
             <div class="row">  
               <label class="col-sm-7 control-label" for="inputVisibility">{!! trans('admin.enable_product') !!}</label>
               <div class="col-sm-5">
-                <select class="form-control select2" name="product_visibility" style="width: 100%;" disabled>
-                  <option selected="selected" value="0">{!! trans('admin.disable') !!}</option>                  
-                  <option value="1">{!! trans('admin.enable') !!}</option>
-                </select>                                         
+
+                @if ($user_data['user_role_id'] <> 3)
+                  <select class="form-control select2" name="product_visibility" style="width: 100%;">
+                    <option selected="selected" value="0">{!! trans('admin.disable') !!}</option>                  
+                    <option value="1">{!! trans('admin.enable') !!}</option>
+                  </select>  
+                @endif
               </div>
             </div>  
           </div>
