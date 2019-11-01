@@ -930,7 +930,6 @@
                     <option selected="selected" value="0">{!! trans('admin.disable') !!}</option>                  
                     <option value="1">{!! trans('admin.enable') !!}</option>
                   </select>  
-                @endif
               </div>
             </div>  
           </div>
