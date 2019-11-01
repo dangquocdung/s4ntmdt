@@ -2569,6 +2569,7 @@ class ProductsController extends Controller
     
     $get_recommended_items = DB::table('products')
                              ->where('products.author_id', $vendor_id) 
+                             ->where('products.status', 1)
                              ->select('products.*')
                              ->join(DB::raw("(SELECT product_id FROM product_extras WHERE key_name = '_product_enable_as_recommended' AND key_value = 'yes') T1") , 'products.id', '=', 'T1.product_id')
                              ->take(8)
@@ -2577,6 +2578,7 @@ class ProductsController extends Controller
 
     $get_features_items =    DB::table('products')
                              ->where('products.author_id', $vendor_id) 
+                             ->where('products.status', 1)
                              ->select('products.*')
                              ->join(DB::raw("(SELECT product_id FROM product_extras WHERE key_name = '_product_enable_as_features' AND key_value = 'yes') T1") , 'products.id', '=', 'T1.product_id')
                              ->take(8)
@@ -2585,6 +2587,7 @@ class ProductsController extends Controller
     
     $get_latest_items =      DB::table('products')
                              ->where('products.author_id', $vendor_id) 
+                             ->where('products.status', 1)
                              ->select('products.*')
                              ->join(DB::raw("(SELECT product_id FROM product_extras WHERE key_name = '_product_enable_as_latest' AND key_value = 'yes') T1") , 'products.id', '=', 'T1.product_id')
                              ->take(5)
