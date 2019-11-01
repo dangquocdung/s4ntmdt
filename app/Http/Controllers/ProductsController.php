@@ -52,9 +52,9 @@ class ProductsController extends Controller
     $data = $this->classCommonFunction->commonDataForAllPages();
     $get_data = $this->createProductContentData( $data );
 
-    return response()->json($get_data);
+    // return response()->json($get_data);
      
-    // return view('pages.admin.product.add-product-content', $get_data);
+    return view('pages.admin.product.add-product-content', $get_data);
 
 
   }
