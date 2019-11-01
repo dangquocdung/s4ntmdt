@@ -924,6 +924,9 @@
 
                 @if ($user_data['user_role_id'] <> 3)
                   <select class="form-control select2" name="product_visibility" style="width: 100%;" disabled>
+                @else
+                  <select class="form-control select2" name="product_visibility" style="width: 100%;">
+                @endif
                     <option selected="selected" value="0">{!! trans('admin.disable') !!}</option>                  
                     <option value="1">{!! trans('admin.enable') !!}</option>
                   </select>  
