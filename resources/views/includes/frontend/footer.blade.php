@@ -90,7 +90,7 @@
             <section class="widget widget-light-skin">
                 <h3 class="widget-title">Chứng nhận</h3>
                 <a href="http://online.gov.vn/HomePage/WebsiteDisplay.aspx?DocId=19094">
-                    <img alt="" src="http://online.gov.vn/seals/2ZgbypVobA+pgtjkpLPKdw==.jpgx" style="float:right" /></a>
+                    <img src="http://online.gov.vn/seals/2ZgbypVobA+pgtjkpLPKdw==.jpgx"/></a>
             </section>
         </div>
     </div>
