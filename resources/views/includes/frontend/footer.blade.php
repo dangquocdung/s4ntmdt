@@ -68,7 +68,7 @@
     </div>
     {{-- <hr class="hr-light mt-2 margin-bottom-2x hidden-md-down"> --}}
     <div class="row">
-        <div class="col-md-5">
+        <div class="col-md-8">
             <!-- Contact Info-->
             <section class="widget widget-light-skin">
 
@@ -87,41 +87,10 @@
             </section>
         </div>
         <div class="col-md-4">
-            <!-- Subscription-->
-            <section class="widget widget-light-skin">
-                <h3 class="widget-title">Nhận thông báo</h3>
-                <form class="row" action="#" method="post" target="_blank" novalidate>
-                <div class="col-sm-9">
-                    <div class="input-group input-light">
-                        <input class="form-control" type="email" id="subscribe_options_email"  placeholder="{{ trans('frontend.enter_email_label') }}" />
-                        <span class="input-group-addon"><i class="icon-mail"></i></span>
-                    </div>
-                    <!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups-->
-                    <div style="position: absolute; left: -5000px;" aria-hidden="true">
-                        <input type="text" name="b_c7103e2c981361a6639545bd5_1194bb7544" tabindex="-1">
-                    </div>
-                </div>
-                <div class="col-sm-3">
-                    <button class="btn btn-primary btn-block mt-0" id="subscribtion_submit" type="button">Đăng kí</button>
-                </div>
-                </form>
-                <!-- <h3 class="widget-title">Ứng dụng di động</h3> -->
-
-                {{-- <a class="market-button apple-button mb-light-skin" href="javascript:void(0)">
-                    <span class="mb-subtitle">Tải về trên</span>
-                    <span class="mb-title">App Store</span>
-                </a>
-                <a class="market-button google-button mb-light-skin" href="javascript:void(0)">
-                    <span class="mb-subtitle">Tải về trên</span>
-                    <span class="mb-title">Google Play</span>
-                </a> --}}
-
-            </section>
-        </div>
-        <div class="col-md-3">
             <section class="widget widget-light-skin">
                 <h3 class="widget-title">Chứng nhận</h3>
-                <a href="http://online.gov.vn/HomePage/WebsiteDisplay.aspx?DocId=19094"><img alt="" src="http://online.gov.vn/seals/2ZgbypVobA+pgtjkpLPKdw==.jpgx" style="float:left" /></a>
+                <a href="http://online.gov.vn/HomePage/WebsiteDisplay.aspx?DocId=19094">
+                    <img alt="" src="http://online.gov.vn/seals/2ZgbypVobA+pgtjkpLPKdw==.jpgx" style="float:right" /></a>
             </section>
         </div>
     </div>
