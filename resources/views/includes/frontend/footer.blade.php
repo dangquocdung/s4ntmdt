@@ -79,11 +79,9 @@
                     <li><span class="opacity-50">Cơ quan chủ quản:&nbsp;</span>Sở Th&ocirc;ng tin v&agrave; Truyền th&ocirc;ng H&agrave; Tĩnh</li>
                     <li><span class="opacity-50">Cơ quan quản trị:&nbsp;</span>Trung t&acirc;m C&ocirc;ng nghệ th&ocirc;ng tin v&agrave; Truyền th&ocirc;ng H&agrave; Tĩnh</li>
                     <li><span class="opacity-50">Địa chỉ:&nbsp;</span>Số 18, đường 26/3, th&agrave;nh phố H&agrave; Tĩnh, tỉnh H&agrave; Tĩnh</li>
-                    <li><span class="opacity-50">Điện thoại:&nbsp;</span> 0239&nbsp;895589, <span class="opacity-50">Email:&nbsp;</span><a href="mailto:ttcntt-tt@hatinh.gov.vn">ttcntt-tt@hatinh.gov.vn</a></li>
-                    <li></li>
+                    <li><span class="opacity-50">Điện thoại:&nbsp;</span> 0239&nbsp;895589,&nbsp;&nbsp;&nbsp;<span class="opacity-50">Email:&nbsp;</span><a href="mailto:ttcntt-tt@hatinh.gov.vn">ttcntt-tt@hatinh.gov.vn</a></li>
+                    <li><em>* Phiên bản Sàn GDTMĐT đang chạy thử nghiệm. Mọi chi tiết và yêu cầu hỗ trợ vui lòng liên hệ với ban quản trị.</li>
                 </ul>
-        
-                <p class="opacity-50"><em>* Phiên bản Sàn GDTMĐT đang chạy thử nghiệm. Mọi chi tiết và yêu cầu hỗ trợ vui lòng liên hệ với ban quản trị.</em></p>
             </section>
         </div>
         <div class="col-md-4">
