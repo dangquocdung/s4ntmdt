@@ -23,7 +23,7 @@ return [
   'local_delivery' =>'Giao hàng địa phương',
   'check_out' =>'Thanh toán',
   'products' =>'Các sản phẩm',
-  'add_to_cart' =>'Giỏ hàng',
+  'add_to_cart' =>'Thêm vào giỏ hàng',
   'select_options' =>'Lựa chọn các phương án',
   'customize' =>'Tùy chỉnh',
   'customize_it' =>'Điều chỉnh nó',
@@ -310,7 +310,7 @@ return [
   'list_label' =>'Danh sách',
   'quick_view_label' =>'Xem lướt qua',
   'quick_view_popup_title' =>'Mô tả ngắn về sản phẩm',
-  'add_to_cart_label' =>'Giỏ hàng',
+  'add_to_cart_label' =>'Thêm vào giỏ hàng',
   'add_to_wishlist_label' =>'Yêu thích',
   'add_to_compare_list_label' =>'So sánh',
   'product_details_label' =>'Thông tin chi tiết sản phẩm',
@@ -615,5 +615,6 @@ return [
 
   'billing_address_not_available' =>'Không có địa chỉ thanh toán trong sổ địa chỉ của bạn',
   'shipping_address_not_available' =>'Không có địa chỉ giao hàng trong sổ địa chỉ của bạn',
+  'quick_view' => 'Xem nhanh',
 
 ];

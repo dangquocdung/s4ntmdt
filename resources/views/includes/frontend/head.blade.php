@@ -50,6 +50,10 @@
     <link rel="stylesheet" href="{{ URL::asset('/plugins/select2/select2.min.css') }}" />
     <link rel="stylesheet" href="{{ URL::asset('/dropzone/css/dropzone.css') }}" />
     <link rel="stylesheet" href="{{ URL::asset('/plugins/iCheck/square/purple.css') }}" />
+    <link rel="stylesheet" href="{{ URL::asset('/modal/css/modal.css') }}" />
+    <link rel="stylesheet" href="{{ URL::asset('/modal/css/modal-extra.css') }}" />
+
+
     <!-- Vendor Styles including: Bootstrap, Font Icons, Plugins, etc.-->
     <link rel="stylesheet" media="screen" href="{{ URL::asset('/css/vendor.css') }}">
 
