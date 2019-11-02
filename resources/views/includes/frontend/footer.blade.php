@@ -68,23 +68,20 @@
     </div>
     {{-- <hr class="hr-light mt-2 margin-bottom-2x hidden-md-down"> --}}
     <div class="row">
-        <div class="col-6">
+        <div class="col-md-4">
             <!-- Contact Info-->
             <section class="widget widget-light-skin">
 
                 <h3 class="widget-title">Thông tin liên hệ</h3>
-                <p class="text-white">Điện thoại: +84 (098) 624 2487</p>
-                <ul class="list-unstyled text-sm text-white">
-                    <li><span class="opacity-50">Thứ 2 - Thứ 6:&nbsp;</span>9.00 am - 8.00 pm</li>
-                    <li><span class="opacity-50">Thứ 7:&nbsp;</span>10.00 am - 6.00 pm</li>
-                </ul>
-                <p><a class="navi-link-light" href="mailto:hotro@hatinhtrade.com.vn">hotro@hatinhtrade.com.vn</a></p>
-
+                <p class="text-white">MST/ĐKKD/QĐTL: Số 1889/QĐ-UBND</p>
+                <p class="text-white">Cơ quan chủ quản: Sở Th&ocirc;ng tin v&agrave; Truyền th&ocirc;ng H&agrave; Tĩnh</p>
+                <p class="text-white">Cơ quan quản trị: Trung t&acirc;m C&ocirc;ng nghệ th&ocirc;ng tin v&agrave; Truyền th&ocirc;ng H&agrave; Tĩnh</p>
+                <p class="text-white">Địa chỉ: Số 18, đường 26/3, th&agrave;nh phố H&agrave; Tĩnh, tỉnh H&agrave; Tĩnh</p>
+                <p class="text-white">Điện thoại: 0239&nbsp;895589. Fax: 0239&nbsp;853962. Hotline: 0916334566, Email:<a href="mailto:ttcntt-tt@hatinh.gov.vn">ttcntt-tt@hatinh.gov.vn</a></p>
                 <p class="text-white"><em>* Phiên bản Sàn GDTMĐT đang chạy thử nghiệm. Mọi chi tiết và yêu cầu hỗ trợ vui lòng liên hệ với ban quản trị.</em></p>
-
             </section>
         </div>
-        <div class="col-6">
+        <div class="col-md-4">
             <!-- Subscription-->
             <section class="widget widget-light-skin">
                 <h3 class="widget-title">Nhận thông báo</h3>
@@ -98,16 +95,12 @@
                     <div style="position: absolute; left: -5000px;" aria-hidden="true">
                         <input type="text" name="b_c7103e2c981361a6639545bd5_1194bb7544" tabindex="-1">
                     </div>
-                    <p class="form-text text-sm text-white opacity-50 pt-2">
-                        Đăng ký nhận bản tin của chúng tôi. Đừng bỏ lỡ hàng ngàn sản phẩm và chương trình siêu hấp dẫn.
-                    </p>
                 </div>
                 <div class="col-sm-3">
                     <button class="btn btn-primary btn-block mt-0" id="subscribtion_submit" type="button">Đăng kí</button>
                 </div>
                 </form>
                 <!-- <h3 class="widget-title">Ứng dụng di động</h3> -->
-
 
                 <a class="market-button apple-button mb-light-skin" href="javascript:void(0)">
                     <span class="mb-subtitle">Tải về trên</span>
@@ -118,16 +111,12 @@
                     <span class="mb-title">Google Play</span>
                 </a>
 
-                <div style="float:right">
-                    <a class="social-button shape-circle sb-facebook sb-light-skin" href="//{{ $appearance_all_data['footer_details']['follow_us_url']['fb'] }}"><i class="socicon-facebook"></i></a>
-                    <a class="social-button shape-circle sb-twitter sb-light-skin" href="//{{ $appearance_all_data['footer_details']['follow_us_url']['twitter'] }}"><i class="socicon-twitter"></i></a>
-                    <a class="social-button shape-circle sb-instagram sb-light-skin" href="//{{ $appearance_all_data['footer_details']['follow_us_url']['instagram'] }}"><i class="socicon-instagram"></i></a>
-                    <a class="social-button shape-circle sb-google-plus sb-light-skin" href="//{{ $appearance_all_data['footer_details']['follow_us_url']['youtube'] }}"><i class="socicon-youtube"></i></a>
-                </div>
-
-
             </section>
         </div>
+        <div class="col-md-4">
+            <a href="http://online.gov.vn/HomePage/WebsiteDisplay.aspx?DocId=19094"><img alt="" src="http://online.gov.vn/seals/2ZgbypVobA+pgtjkpLPKdw==.jpgx" style="float:left" /></a>
+        </div>
+
     </div>
 </div>
 </footer>
