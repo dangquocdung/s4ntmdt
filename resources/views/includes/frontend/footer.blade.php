@@ -68,16 +68,20 @@
     </div>
     {{-- <hr class="hr-light mt-2 margin-bottom-2x hidden-md-down"> --}}
     <div class="row">
-        <div class="col-md-4">
+        <div class="col-md-5">
             <!-- Contact Info-->
             <section class="widget widget-light-skin">
 
                 <h3 class="widget-title">Thông tin liên hệ</h3>
-                <p class="text-white">MST/ĐKKD/QĐTL: Số 1889/QĐ-UBND</p>
-                <p class="text-white">Cơ quan chủ quản: Sở Th&ocirc;ng tin v&agrave; Truyền th&ocirc;ng H&agrave; Tĩnh</p>
-                <p class="text-white">Cơ quan quản trị: Trung t&acirc;m C&ocirc;ng nghệ th&ocirc;ng tin v&agrave; Truyền th&ocirc;ng H&agrave; Tĩnh</p>
-                <p class="text-white">Địa chỉ: Số 18, đường 26/3, th&agrave;nh phố H&agrave; Tĩnh, tỉnh H&agrave; Tĩnh</p>
-                <p class="text-white">Điện thoại: 0239&nbsp;895589. Fax: 0239&nbsp;853962. Hotline: 0916334566, Email:<a href="mailto:ttcntt-tt@hatinh.gov.vn">ttcntt-tt@hatinh.gov.vn</a></p>
+
+                <ul class="list-unstyled text-sm text-white">
+                    <li><span class="opacity-50">MST/ĐKKD/QĐTL:&nbsp;</span>Số 1889/QĐ-UBND</li>
+                    <li><span class="opacity-50">Cơ quan chủ quản:&nbsp;</span></li>
+                    <li><span class="opacity-50">Cơ quan quản trị:&nbsp;</span></li>
+                    <li><span class="opacity-50">Địa chỉ:&nbsp;</span></li>
+                    <li><span class="opacity-50">&nbsp;</span>Điện thoại: 0239&nbsp;895589. Fax: 0239&nbsp;853962. Hotline: 0916334566, Email:<a href="mailto:ttcntt-tt@hatinh.gov.vn">ttcntt-tt@hatinh.gov.vn</a></li>
+                </ul>
+        
                 <p class="text-white"><em>* Phiên bản Sàn GDTMĐT đang chạy thử nghiệm. Mọi chi tiết và yêu cầu hỗ trợ vui lòng liên hệ với ban quản trị.</em></p>
             </section>
         </div>
@@ -113,10 +117,11 @@
 
             </section>
         </div>
-        <div class="col-md-4">
-            <a href="http://online.gov.vn/HomePage/WebsiteDisplay.aspx?DocId=19094"><img alt="" src="http://online.gov.vn/seals/2ZgbypVobA+pgtjkpLPKdw==.jpgx" style="float:left" /></a>
+        <div class="col-md-3">
+            <section class="widget widget-light-skin">
+                <a href="http://online.gov.vn/HomePage/WebsiteDisplay.aspx?DocId=19094"><img alt="" src="http://online.gov.vn/seals/2ZgbypVobA+pgtjkpLPKdw==.jpgx" style="float:left" /></a>
+            </section>
         </div>
-
     </div>
 </div>
 </footer>
