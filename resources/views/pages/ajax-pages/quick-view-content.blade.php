@@ -97,8 +97,6 @@
           </div>
         </div>
 
-
-
         <div class="model__quick_view_product_price">
           @if(get_product_type($single_product_details['id']) == 'simple_product')
           @if($single_product_details['post_regular_price'] && $single_product_details['post_regular_price'] >0 && $single_product_details['post_sale_price'] && $single_product_details['post_sale_price']>0 && $single_product_details['post_regular_price'] > $single_product_details['post_sale_price'] )
@@ -136,72 +134,61 @@
 
         @if($single_product_details['post_content'])
         <p class="text-muted">
-        {!! get_limit_string(string_decode($single_product_details['post_content']),200) !!}
-        <!-- <a href='#details' class='scroll-to'>More info</a> -->
+          {!! get_limit_string(string_decode($single_product_details['post_content']),200) !!}
         </p>
-        <!-- <p class="product-description">{!! get_limit_string(string_decode($single_product_details['post_content']), 200) !!}</p> -->
         <hr>
         @endif
 
+        <div class="row align-items-end pt-4 pb-4">
+          <div class="col-sm-4">
+            <div class="form-group mb-0">
+            <label for="quantity">{!! trans('frontend.quantity') !!}</label>
 
-        
+              @php
 
-      <div class="row align-items-end pb-4">
-        <div class="col-sm-4">
-          <div class="form-group mb-0">
-          <label for="quantity">{!! trans('frontend.quantity') !!}</label>
+                $qty = ''; 
 
-            @php
+                if($single_product_details['_product_manage_stock_back_to_order'] == 'not_allow' && $single_product_details['post_stock_qty']>0){
+                  $qty = $single_product_details['post_stock_qty'];
+                }
 
-              $qty = ''; 
+              @endphp
 
-              if($single_product_details['_product_manage_stock_back_to_order'] == 'not_allow' && $single_product_details['post_stock_qty']>0){
-                $qty = $single_product_details['post_stock_qty'];
-              }
+              <select class="form-control" id="quantity" name="quant[1]">
 
-            @endphp
+              @if ($qty > 1)
 
-            <select class="form-control" id="quantity" name="quant[1]">
+                @for($i=1; $i<$qty; $i++)
 
-            @if ($qty > 1)
+                  <option value="{{ $i }}">{{ $i}}</option>
 
-              @for($i=1; $i<$qty; $i++)
+                @endfor
+              @else
 
-                <option value="{{ $i }}">{{ $i}}</option>
+                <option value="1" selected>1</option>
 
-              @endfor
-            @else
+              @endif
 
-              <option value="1" selected>1</option>
-
-            @endif
-
-            </select>
+              </select>
+            </div>
+          </div>
+          <div class="col-sm-8">
+            <div class="pt-4 hidden-sm-up"></div>
+            <button class="btn btn-primary btn-block m-0 add-to-cart-bg" data-toast data-toast-type="success" data-toast-position="topRight" data-toast-icon="icon-check-circle" data-toast-title="Sản phẩm" data-toast-message="đã thêm vào giỏ hàng!" data-id="{{ $single_product_details['id'] }}" data-toggle="tooltip" data-placement="top" title="" data-original-title="{{ trans('frontend.add_to_cart_label') }}"><i class="icon-bag"></i> Thêm vào giỏ hàng</button>
           </div>
         </div>
-        <div class="col-sm-8">
-          <div class="pt-4 hidden-sm-up"></div>
-          <button class="btn btn-primary btn-block m-0 add-to-cart-bg" data-toast data-toast-type="success" data-toast-position="topRight" data-toast-icon="icon-check-circle" data-toast-title="Sản phẩm" data-toast-message="đã thêm vào giỏ hàng!" data-id="{{ $single_product_details['id'] }}" data-toggle="tooltip" data-placement="top" title="" data-original-title="{{ trans('frontend.add_to_cart_label') }}"><i class="icon-bag"></i> Thêm vào giỏ hàng</button>
+
+        <div class="pt-1 mb-1 store-name">
+          <span class="text-medium">{!! trans('frontend.gian-hang') !!}: </span>
+          <a href="{{ route('store-details-page-content', get_user_name_by_user_id($single_product_details['_selected_vendor'])) }}" target="_blank">{{ get_user_name_by_user_id($single_product_details['_selected_vendor']) }}</a>
         </div>
-      </div>
 
-      <div class="pt-1 mb-1 store-name">
-        <span class="text-medium">{!! trans('frontend.gian-hang') !!}: </span>
-        <a href="{{ route('store-details-page-content', get_user_name_by_user_id($single_product_details['_selected_vendor'])) }}" target="_blank">{{ get_user_name_by_user_id($single_product_details['_selected_vendor']) }}</a>
-      </div>
-
-      <div class="pt-1 mb-4"><span class="text-medium">{!! trans('frontend.sku') !!}: </span>
         @if ($single_product_details['post_sku'])
-          #{{ $single_product_details['post_sku'] }}
-        @else
-          #N/A
+          <div class="pt-1 mb-4"><span class="text-medium">{!! trans('frontend.sku') !!}: </span>
+              #{{ $single_product_details['post_sku'] }}
+          </div>
         @endif
-      </div>
 
-   
-        
-
-       
       </div>
     </div>    
   </div>      
