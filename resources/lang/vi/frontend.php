@@ -314,7 +314,6 @@ return [
   'add_to_wishlist_label' =>'Yêu thích',
   'add_to_compare_list_label' =>'So sánh',
   'product_details_label' =>'Thông tin chi tiết sản phẩm',
-  'add_to_cart_label' =>'Giỏ hàng',
   'latest_label' =>'Mới nhất',
   'latest_products_empty_label' =>'Sản phẩm mới nhất không có sẵn!',
   'best_sales_label' =>'Đang bán chạy',

@@ -170,7 +170,7 @@
 </section>
 
 <section class="product-area pt-50">
-        <div class="container">
+        <div class="container padding-bottom-2x">
             <div class="row">
                 <div class="col-md-12">
                     <div class="product-style-tab">
