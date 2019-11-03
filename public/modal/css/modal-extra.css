@@ -139,17 +139,17 @@
 }
 
 .model__quick_view_product_info .star-rating{
-  font-family: "FontAwesome";
+  font-family: feather!important;
   font-size: 18px;
   height: 20px;
   overflow: hidden;
   position: relative;
-  width: 78px;
+  width: 82px;
 }
 
 .model__quick_view_product_info .star-rating::before{
   color: #333;
-  content: "\f005\f005\f005\f005\f005";
+  content: "\e9d5\e9d5\e9d5\e9d5\e9d5";
   float: left;
   font-size: 15px;
   left: 0;
@@ -169,7 +169,7 @@
 
 .model__quick_view_product_info .star-rating span::before{
   color: #1fc0a0;
-  content: "\f005\f005\f005\f005\f005";
+  content: "\e9d5\e9d5\e9d5\e9d5\e9d5";
   font-size: 15px;
   left: 0;
   letter-spacing: 2px;
