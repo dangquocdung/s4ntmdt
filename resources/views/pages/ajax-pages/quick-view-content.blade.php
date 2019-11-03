@@ -78,13 +78,70 @@
 <div class="container-fluid">
   <div class="row">
     <div class="col-xs-12 col-sm-5 col-md-5">
-      <div class="model__quick_view_product_image">
-        @if( !empty($single_product_details['post_image_url']) && $single_product_details['_product_related_images_url']->product_image != '/images/upload.png')
-          <img src="{{ get_image_url($single_product_details['post_image_url']) }}" alt="{{ basename($single_product_details['post_image_url']) }}" class="img-responsive"/>
-        @else
-          <img src="{{ default_placeholder_img_src() }}" alt="" class="img-responsive" />
+
+      <div class="product-gallery">
+
+        @if($single_product_details['_product_enable_video_feature'] == 'yes')
+
+        <div class="gallery-wrapper" id="hasVideo">
+          @if($single_product_details['_product_video_feature_source'] == 'embedded_code')
+            @include('pages.frontend.frontend-pages.video-source-embedded-url')
+            @yield('embedded-content')
+          @elseif($single_product_details['_product_video_feature_source'] == 'online_url')
+            @include('pages.frontend.frontend-pages.video-source-online-url')
+            @yield('online-url-content')
+          @endif
+        </div>
+        @endif
+
+        @if(count($single_product_details['_product_related_images_url']->product_gallery_images) > 0)
+        <?php $count = 1;?>
+
+        <div class="product-carousel owl-carousel gallery-wrapper">
+          @foreach($single_product_details['_product_related_images_url']->product_gallery_images as $key => $row)
+            <div class="gallery-item" data-hash="{{ $count }}">
+              <a href="{{ get_image_url($row->url) }}" data-size="1000x667">
+                @if(!empty($row->url) && (basename($row->url) !== 'no-image.png'))  
+                <img src="{{ get_image_url($row->url) }}" alt="Product">
+                @else
+                <img src="{{ default_placeholder_img_src() }}" alt="Product"/>
+                @endif
+              </a>
+            </div>
+            <?php $count ++;?>
+          @endforeach
+        </div>
+        <ul class="product-thumbnails">
+          <?php $count = 1;?>
+          @foreach($single_product_details['_product_related_images_url']->product_gallery_images as $key => $row)
+          @if($count == 1)
+          <li class="active">
+            <a href="#{{ $count }}">
+                @if(!empty($row->url) && (basename($row->url) !== 'no-image.png'))  
+                <img src="{{ get_image_url($row->url) }}" alt="Product">
+                @else
+                <img src="{{ default_placeholder_img_src() }}" alt="Product"/>
+                @endif
+            </a>
+          </li>
+          @else
+          <li>
+            <a href="#{{ $count }}">
+                @if(!empty($row->url) && (basename($row->url) !== 'no-image.png'))  
+                <img src="{{ get_image_url($row->url) }}" alt="Product">
+                @else
+                <img src="{{ default_placeholder_img_src() }}" alt="Product"/>
+                @endif
+            </a>
+          </li>
+          @endif
+          <?php $count ++;?>
+          @endforeach
+          
+        </ul>
         @endif
       </div>
+
     </div>      
 
     <div class="col-xs-12 col-sm-7 col-md-7">
