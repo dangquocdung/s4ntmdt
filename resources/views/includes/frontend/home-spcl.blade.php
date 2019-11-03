@@ -14,7 +14,7 @@
             </div>
             <div class="tab-content another-product-style jump">
                 <div class="tab-pane fade show active" id="latest_products" role="tabpanel">
-                  <div class="isotope-grid cols-4 mb-2">
+                  <div class="isotope-grid cols-5 mb-2">
                     <div class="gutter-sizer"></div>
                     <div class="grid-sizer"></div>
                         @foreach($advancedData['latest_items'] as $item)
@@ -97,7 +97,7 @@
                 </div>
 
                 <div class="tab-pane fade" id="todays_sale" role="tabpanel">
-                  <div class="isotope-grid cols-4 mb-2">
+                  <div class="isotope-grid cols-5 mb-2">
                     <div class="gutter-sizer"></div>
                     <div class="grid-sizer"></div>
                         @foreach($advancedData['todays_deal'] as $item)
@@ -191,7 +191,7 @@
             
                         <div class="tab-content another-product-style jump">
                             <div class="tab-pane fade show active" id="recommended_products" role="tabpanel">
-                              <div class="isotope-grid cols-4 mb-2">
+                              <div class="isotope-grid cols-5 mb-2">
                                 <div class="gutter-sizer"></div>
                                 <div class="grid-sizer"></div>
                                     @foreach($advancedData['recommended_items'] as $item)
@@ -273,7 +273,7 @@
                                 </div>
                             </div>
                             <div class="tab-pane fade" id="features_products" role="tabpanel">
-                              <div class="isotope-grid cols-4 mb-2">
+                              <div class="isotope-grid cols-5 mb-2">
                                 <div class="gutter-sizer"></div>
                                 <div class="grid-sizer"></div>
                                     @foreach($advancedData['features_items'] as $item)
