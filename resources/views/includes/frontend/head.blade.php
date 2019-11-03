@@ -50,13 +50,20 @@
     <link rel="stylesheet" href="{{ URL::asset('/plugins/select2/select2.min.css') }}" />
     <link rel="stylesheet" href="{{ URL::asset('/dropzone/css/dropzone.css') }}" />
     <link rel="stylesheet" href="{{ URL::asset('/plugins/iCheck/square/purple.css') }}" />
+    <link rel="stylesheet" href="{{ URL::asset('/modal/css/modal.css') }}" />
+    <link rel="stylesheet" href="{{ URL::asset('/modal/css/modal-extra.css') }}" />
+
+
     <!-- Vendor Styles including: Bootstrap, Font Icons, Plugins, etc.-->
     <link rel="stylesheet" media="screen" href="{{ URL::asset('/css/vendor.css') }}">
 
-    @if( Request::is('/') || Request::is('gian-hang/chi-tiet/trang-chu/*') || Request::is('san-pham/chi-tiet/*') || Request::is('gio-hang') || Request::is('truyen-thong/*') )
+    <!-- @if( Request::is('/') || Request::is('gian-hang/chi-tiet/trang-chu/*') || Request::is('san-pham/chi-tiet/*') || Request::is('gio-hang') || Request::is('truyen-thong/*') ) -->
         <!-- This core.css file contents all plugings css file. -->
-        <link rel="stylesheet" href="{{ URL::asset('/css/core.css') }}">
-    @endif
+        <!-- <link rel="stylesheet" href="{{ URL::asset('/css/core.css') }}"> -->
+    <!-- @endif -->
+
+    <link rel="stylesheet" href="{{ URL::asset('/css/core.css') }}">
+
 
     <!-- Responsive css -->
     <link rel="stylesheet" href="{{ URL::asset('/css/responsive.css') }}">

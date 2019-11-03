@@ -317,20 +317,6 @@ body {
   text-transform: none;
 }
 
-a {
-  color: #0055ff;
-  text-decoration: underline;
-}
-
-a:hover {
-  color: #0055ff;
-  text-decoration: none;
-}
-
-a:focus {
-  outline: none;
-}
-
 .small,
 small {
   font-size: 85%;
@@ -3304,22 +3290,6 @@ button:focus {
 .nav-tabs .nav-link.active {
   border-color: #e5e5e5 #e5e5e5 #ffffff;
   color: #919191;
-}
-
-.tab-content {
-  padding: 24px;
-  border-right: 1px solid #e5e5e5;
-  border-bottom: 1px solid #e5e5e5;
-  border-left: 1px solid #e5e5e5;
-  border-bottom-left-radius: 6px;
-  border-bottom-right-radius: 6px;
-  overflow: hidden;
-}
-
-.tab-content p:last-child,
-.tab-content ul:last-child,
-.tab-content ol:last-child {
-  margin-bottom: 0;
 }
 
 .nav-pills .nav-link {
@@ -8265,6 +8235,10 @@ video {
   color: #0055ff;
 }
 
+a {
+  text-decoration: none;
+}
+
 .add-to-cart-loader {
   width: 300px;
   position: fixed;
@@ -8473,14 +8447,14 @@ i.icon-shopping-cart {
   overflow: hidden;
   position: relative;
   text-align: center;
-  width: 73px;
+  width: 100px;
 }
 
 .star-rating::before {
   color: #bfbfbf;
   content: "\E9D5\E9D5\E9D5\E9D5\E9D5";
   float: left;
-  font-size: 13px;
+  font-size: 18px;
   left: 0;
   letter-spacing: 2px;
   position: absolute;

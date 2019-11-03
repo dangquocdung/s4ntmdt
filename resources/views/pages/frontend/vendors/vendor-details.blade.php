@@ -76,7 +76,7 @@
       @endif
 
       <!-- Shop Toolbar-->
-      <div class="shop-toolbar padding-bottom-1x mb-2">
+      <div class="padding-bottom-1x mb-2">
         
         <ul class="nav nav-pills" role="tablist">
           @if(Request::is('gian-hang/chi-tiet/trang-chu/*'))  
@@ -98,29 +98,27 @@
           @endif
         </ul>
 
-        <div class="tab-content">
 
-          @if(Request::is('gian-hang/chi-tiet/trang-chu/*'))
-            @include('pages.frontend.vendors.vendors-home')
-            @yield('vendors-home-page-content')
-          @endif
+        @if(Request::is('gian-hang/chi-tiet/trang-chu/*'))
+          @include('pages.frontend.vendors.vendors-home')
+          @yield('vendors-home-page-content')
+        @endif
 
-          @if(Request::is('gian-hang/chi-tiet/san-pham/*'))
-            @include('pages.frontend.vendors.vendors-products')
-            @yield('vendors-products-page-content')
-          @endif
-          
-          @if(Request::is('sian-hang/chi-tiet/cat/san-pham/*'))
-            @include('pages.frontend.vendors.vendors-category-products')
-            @yield('vendors-categoty-products-page-content')
-          @endif
+        @if(Request::is('gian-hang/chi-tiet/san-pham/*'))
+          @include('pages.frontend.vendors.vendors-products')
+          @yield('vendors-products-page-content')
+        @endif
+        
+        @if(Request::is('sian-hang/chi-tiet/cat/san-pham/*'))
+          @include('pages.frontend.vendors.vendors-category-products')
+          @yield('vendors-categoty-products-page-content')
+        @endif
 
-          @if(Request::is('gian-hang/chi-tiet/danh-gia/*'))
-            @include('pages.frontend.vendors.vendors-reviews')
-            @yield('vendors-reviews-page-content')  
-          @endif
+        @if(Request::is('gian-hang/chi-tiet/danh-gia/*'))
+          @include('pages.frontend.vendors.vendors-reviews')
+          @yield('vendors-reviews-page-content')  
+        @endif
 
-        </div>
 
       </div>
 
@@ -141,45 +139,46 @@
     </div>
     <!-- Sidebar-->
     <div class="col-lg-3 order-lg-1">
+      <div class="sidebar-toggle position-left"><i class="icon-filter"></i></div>
+      <aside class="sidebar sidebar-offcanvas position-left"><span class="sidebar-close"><i class="icon-x"></i></span>
 
-      <section class="widget">
-        <h3 class="widget-title">{!! trans('frontend.store_label') !!}</h3>
 
-        <ul class="list-icon" style="list-style:none">
-          <li> <i class="icon-map-pin text-muted"></i> {!! $vendor_settings->profile_details->address_line_1 !!}</li>
-          <li> <i class="icon-phone text-muted"></i> {!! $vendor_settings->profile_details->phone !!}</li>
-          <li> <i class="icon-mail text-muted"></i>
-            <a class="navi-link" href="mailto:{!! $vendor_info->email !!}"> {!! $vendor_info->email !!}</a>
-          </li>
-          <li> <i class="icon-calendar text-muted"></i> {!! Carbon\Carbon::parse( $vendor_info->created_at )->format('d-m-Y') !!}</li>
-        </ul>
+        <section class="widget">
+          <h3 class="widget-title">{!! trans('frontend.store_label') !!}</h3>
 
-          @if($vendor_package_details->show_social_media_share_btn_on_store_page == true)  
-            <div class="d-flex flex-wrap justify-content-between">
-              <div class="mt-2 mb-2">
-                <span class="text-muted">{!! trans('frontend.lk-mxh') !!}:&nbsp;&nbsp;</span>
+          <ul class="list-icon" style="list-style:none">
+            <li> <i class="icon-map-pin text-muted"></i> {!! $vendor_settings->profile_details->address_line_1 !!}</li>
+            <li> <i class="icon-phone text-muted"></i> {!! $vendor_settings->profile_details->phone !!}</li>
+            <li> <i class="icon-mail text-muted"></i>
+              <a class="navi-link" href="mailto:{!! $vendor_info->email !!}"> {!! $vendor_info->email !!}</a>
+            </li>
+            <li> <i class="icon-calendar text-muted"></i> {!! Carbon\Carbon::parse( $vendor_info->created_at )->format('d-m-Y') !!}</li>
+          </ul>
 
-                <div class="d-inline-block">
-                  <a class="social-button shape-rounded sb-facebook" href="//{{ $vendor_settings->social_media->fb_follow_us_url }}" data-name="fb"><i class="socicon-facebook"></i></a>
-                  <a class="social-button shape-rounded sb-facebook" href="//{{ $vendor_settings->social_media->fb_follow_us_url }}" data-name="gplus"><i class="socicon-twitter"></i></a>
-                  <a class="social-button shape-rounded sb-facebook" href="//{{ $vendor_settings->social_media->fb_follow_us_url }}" data-name="instagram"><i class="socicon-instagram"></i></a>
-                  <a class="social-button shape-rounded sb-facebook" href="//{{ $vendor_settings->social_media->fb_follow_us_url }}" data-name="youtube"><i class="socicon-youtube"></i></a>
-                </div> 
-              </div>
-            </div> 
-          @endif 
+            @if($vendor_package_details->show_social_media_share_btn_on_store_page == true)  
+              <div class="d-flex flex-wrap justify-content-between">
+                <div class="mt-2 mb-2">
+                  <span class="text-muted">{!! trans('frontend.lk-mxh') !!}:&nbsp;&nbsp;</span>
 
-      </section>
+                  <div class="d-inline-block">
+                    <a class="social-button shape-rounded sb-facebook" href="//{{ $vendor_settings->social_media->fb_follow_us_url }}" data-name="fb"><i class="socicon-facebook"></i></a>
+                    <a class="social-button shape-rounded sb-facebook" href="//{{ $vendor_settings->social_media->fb_follow_us_url }}" data-name="gplus"><i class="socicon-twitter"></i></a>
+                    <a class="social-button shape-rounded sb-facebook" href="//{{ $vendor_settings->social_media->fb_follow_us_url }}" data-name="instagram"><i class="socicon-instagram"></i></a>
+                    <a class="social-button shape-rounded sb-facebook" href="//{{ $vendor_settings->social_media->fb_follow_us_url }}" data-name="youtube"><i class="socicon-youtube"></i></a>
+                  </div> 
+                </div>
+              </div> 
+            @endif 
 
-      @if(Request::is('gian-hang/chi-tiet/san-pham/*') || Request::is('gian-hang/chi-tiet/danh-muc/san-pham/*'))  
+        </section>
 
-          <section class="widget widget-categories">
-            @include('includes.frontend.vendor-categories', array('user_name' => $vendor_info->name))
-            @yield('vendor-categories-content')  
-          </section>
+        @if(Request::is('gian-hang/chi-tiet/san-pham/*') || Request::is('gian-hang/chi-tiet/danh-muc/san-pham/*'))  
+            <section class="widget widget-categories">
+              @include('includes.frontend.vendor-categories', array('user_name' => $vendor_info->name))
+              @yield('vendor-categories-content')  
+            </section>
+        @endif
           
-      @else
-        
         @if($vendor_package_details->show_map_on_store_page == true)
 
         <section class="widget">
@@ -206,12 +205,12 @@
             </div> 
             
             <button class="btn btn-primary pull-right" type="button" id="sendVendorContactMessage" name="sendVendorContactMessage">{!! trans('frontend.send_label') !!} <i class="fa fa-arrow-circle-right"></i></button>  
-             
+            
           </section>
 
         @endif
 
-      @endif
+      </aside>
       
     </div>
   </div>

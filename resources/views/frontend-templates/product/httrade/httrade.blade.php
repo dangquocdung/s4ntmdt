@@ -127,6 +127,7 @@
       <div class="sidebar-toggle position-left"><i class="icon-filter"></i></div>
       <aside class="sidebar sidebar-offcanvas position-left"><span class="sidebar-close"><i class="icon-x"></i></span>
         <!-- Widget Categories-->
+        
         @include('includes.frontend.categories')
         
         <!-- Widget Price Range-->
@@ -219,12 +220,11 @@
 
         <!-- Widget Brand Filter-->
         @if(count($brands_data) > 0)
-        <section class="widget widget-featured-posts">
+          <section class="widget widget-featured-posts">
             <h3 class="widget-title">{{ trans('frontend.brands') }}</h3>
 
               @foreach($brands_data as $brand_name)
 
-              
               <div class="entry">
                 <div class="entry-thumb" style="width:80px">
 
@@ -247,7 +247,6 @@
                 </div>
               </div>
 
-
               @endforeach
 
           </section>
@@ -255,17 +254,10 @@
         @endif
 
         @if(count($advancedData['best_sales']) > 0)
-
           <section class="widget widget-featured-posts">
             <h3 class="widget-title">{{ trans('frontend.best_sales_label') }}</h3>
-
               @foreach($advancedData['best_sales'] as $row)
-
-
               @if ($loop->iteration < 10)
-
-
-
               <div class="entry">
                 <div class="entry-thumb" style="width:80px">
 
@@ -301,13 +293,10 @@
               @endforeach
 
           </section>
-        @else
-          <p class="not-available">{!! trans('frontend.best_sales_products_empty_label') !!}</p>
         @endif
 
         @include('includes.frontend.seen-products-list')
         @yield('seen-products-list')   
-
 
         <!-- <section class="widget">
           <h3 class="widget-title">{{ trans('frontend.advertisement_label') }}</h3>

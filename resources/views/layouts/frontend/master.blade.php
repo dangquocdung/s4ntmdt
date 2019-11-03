@@ -95,6 +95,8 @@
     <input type="hidden" name="lang_code" id="lang_code" value="{{ $selected_lang_code }}">  
     <input type="hidden" name="subscription_type" id="subscription_type" value="{{ $subscriptions_data['subscribe_type'] }}">
 
+    
+
 
     <!-- Photoswipe container-->
     <div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
@@ -132,6 +134,9 @@
       </div>
     </div>
 
+    @include('modal.quick-view')
+
+
     
     <!-- Back To Top Button-->
     <a class="scroll-to-top-btn" href="#"><i class="icon-chevron-up"></i></a>
@@ -148,14 +153,153 @@
     <script type="text/javascript" src="{{ URL::asset('/frontend/js/jquery.scrollUp.min.js') }}"></script>
     <script type="text/javascript" src="{{ URL::asset('/sweetalert/sweetalert.min.js') }}"></script>
     <script type="text/javascript" src="{{ URL::asset('/plugins/select2/select2.full.min.js') }}"></script>
+    <script type="text/javascript" src="{{ URL::asset('/modal/js/modal.js') }}"></script>
+
 
     <script type="text/javascript" src="{{ URL::asset('/frontend/js/social-network.js') }}"></script>
     <script type="text/javascript" src="{{ URL::asset('/slick/slick.min.js') }}"></script>
     <script type="text/javascript" src="{{ URL::asset('/common/base64.js') }}"></script>
-    
     <script type="text/javascript" src="{{ URL::asset('/plugins/iCheck/icheck.min.js') }}"></script>
+
+    {{-- <script type="text/javascript" src="{{ URL::asset('assets/js/neha/isotope.pkgd.min.js') }}"></script> --}}
+
+
+
     {{-- <script type="text/javascript" src="{{ URL::asset('/js/common.js') }}"></script> --}}
     <script type="text/javascript" src="{{ mix('/js/app.js') }}"></script>
+
+    <script type="text/javascript">
+      var modalRequestProduct   = document.getElementById('request_product_modal');
+      var modalQuickView        = document.getElementById('quick_view_modal');
+      var modalProductVideo     = document.getElementById('product_video_modal');
+      var modalSubscription     = document.getElementById('subscriptions_modal');
+  
+      if (typeof(modalRequestProduct) != 'undefined' && modalRequestProduct != null){
+        var modalRequestProductInst = new Modal( modalRequestProduct );
+        modalRequestProductInst.init();
+      }
+      
+      if (typeof(modalQuickView) != 'undefined' && modalQuickView != null){
+        var modalQuickViewInst = new Modal( modalQuickView );
+        modalQuickViewInst.init();
+      }
+      
+      if (typeof(modalProductVideo) != 'undefined' && modalProductVideo != null){
+        var modalProductVideoInst = new Modal( modalProductVideo, {
+          openCallback:function(){
+            if($('#product_youtube_video').length>0 && $('#product_youtube_video_url').length>0 && !$('#product_youtube_video').attr('src')){
+              $('#product_youtube_video').attr('src', $('#product_youtube_video_url').val());
+            }
+            
+            if($('#product_video').length>0 && $('#product_video_url').length>0){
+              if($('#product_video_extension').val() == 'mp4'){
+                $("#product_video").html('<source src="'+ $('#product_video_url').val() +'" type="video/mp4"></source>' );
+              }
+              else if($('#product_video_extension').val() == 'ogv'){
+                $("#product_video").html('<source src="'+ $('#product_video_url').val() +'" type="video/ogg"></source>' );
+              }
+            } 
+          },
+          closeCallback:function(){
+            if($('#product_youtube_video').length>0 && $('#product_youtube_video').attr('src')){
+              $('#product_youtube_video').attr('src', '');
+            }
+            
+            if($('#product_video').length>0 && $('#product_video').find('source')){
+              $('#product_video').html('');
+            }
+          }
+        });
+        modalProductVideoInst.init();
+      }
+      
+      if (typeof(modalSubscription) != 'undefined' && modalSubscription != null){
+        var modalSubscriptionInst = new Modal( modalSubscription );
+        modalSubscriptionInst.init();
+      }
+      
+      $(document).ready(function(){
+        if($('.request-product').length>0){
+          $('.request-product').on('click', function(){
+            if($('#request_product_name').length>0){
+              $('#request_product_name').val('');
+            }
+            if($('#request_product_email').length>0){
+              $('#request_product_email').val('');
+            }
+            if($('#request_product_phone_number').length>0){
+              $('#request_product_phone_number').val('');
+            }
+            if($('#request_product_description').length>0){
+              $('#request_product_description').val('');
+            }
+            if($('.request-field-message').length>0){
+              $('.request-field-message').remove();
+            }
+            
+            modalRequestProductInst.openModal();
+          });
+        }
+        
+        if($('.quick-view-popup').length>0){
+          $('.quick-view-popup').on('click', function(){
+            
+            $.ajax({
+                url: $('#hf_base_url').val() + '/ajax/get-quick-view-data-by-product-id',
+                type: 'POST',
+                cache: false,
+                datatype: 'json',
+                headers: { 'X-CSRF-TOKEN' : $('meta[name="csrf-token"]').attr('content') },
+                data: { product_id: $(this).data('id') },
+                success: function(data){
+                  if(data.success == true){
+                    $('#quick_view_modal').find('.modal__content').html( data.html );
+                     modalQuickViewInst.openModal();
+                  }
+                },
+                error:function(){}
+            });
+          });
+        }
+        
+        if($('.product-video').length>0){
+          $('.product-video').on('click', function(){
+             modalProductVideoInst.openModal();
+          });
+        }
+        
+        if($('#subscriptions_modal').length>0){
+          @if($subscriptions_data['subscription_visibility'] == true && !$is_subscribe_cookie_exists && (!empty(get_current_page_name()) && is_array($subscriptions_data['popup_display_page']) && count($subscriptions_data['popup_display_page']) > 0 && in_array(get_current_page_name(), $subscriptions_data['popup_display_page'])))
+            setTimeout(function(){ modalSubscriptionInst.openModal(); }, 3000);
+          @endif
+        }
+        
+        if($('.set-popup-cookie').length>0){
+          $('.set-popup-cookie').on('click', function(e){
+            e.preventDefault();
+            setCookieForSubscriptionPopup();
+          });
+        }
+        
+         var setCookieForSubscriptionPopup = function(){
+          $.ajax({
+                url: $('#hf_base_url').val() + '/ajax/set_subscription_popup_cookie',
+                type: 'POST',
+                cache: false,
+                dataType: 'json',
+                headers: { 'X-CSRF-TOKEN' : $('meta[name="csrf-token"]').attr('content') },
+                success: function(data)
+                {
+                  if(data.status == 'saved'){
+                    modalSubscriptionInst.closeModal();
+                  }
+                },
+                error:function(){}
+          });
+        }
+      });
+    </script>
+
 
     <script>
 

@@ -1,46 +1,9 @@
 @include('includes.frontend.home-section')
 @yield('categories-slider-area')
 
-<section class="container padding-top-1x padding-bottom-1x">
-  <div class="row">
-  @foreach($productCategoriesTree as $cat)
-
-  @if ( in_array($cat['id'],[8,14,18,]) )
-
-    <div class="col-lg-4 col-sm-6">
-      <div class="card border-0 bg-secondary mb-30">
-        <div class="card-body d-table w-100">
-          <div class="d-table-cell align-middle">
-            <a href="{{ route('categories-page', $cat['slug']) }}">
-
-              @if( !empty($cat['img_url']) )
-                <img class="d-block" src="{{ get_image_url($cat['img_url']) }}" alt="{!! $cat['name'] !!}"> 
-              @else
-                <img class="d-block" src="{{ default_placeholder_img_src() }}" alt="{!! $cat['name'] !!}"> 
-              @endif
-              
-            </a>
-          </div>
-          <div class="d-table-cell align-middle pl-2">
-            <h3 class="h6 text-thin top-product">
-              {!! $cat['name'] !!}
-            </h3>
-            <a class="text-decoration-none" href="{{ route('categories-page', $cat['slug']) }}">Chi tiết&nbsp;<i class="icon-chevron-right d-inline-block align-middle text-lg"></i></a>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    @endif
-
-    @endforeach
-    
-  </div>
-</section>
-
 @include('includes.frontend.home-spcl')
-@yield('product_area')
 
+@yield('product_area')
 
 <!-- Popular Brands Carousel-->
 @if(count($brands_data) > 0)  

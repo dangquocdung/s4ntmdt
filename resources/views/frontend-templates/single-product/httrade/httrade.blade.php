@@ -268,42 +268,35 @@
       <div class="col-12">  
       <div class="product-tab-list">
           <!-- Nav tabs -->
-          <ul class="nav nav-tabs tab-style" role="tablist">
 
-            <li class="nav-item">
-              <a class="show {{ !old('comments_target')?'active':'' }}" href="#features" data-toggle="tab">
-              <div class="tab-menu-text">
-                  <h4>{{ trans('frontend.features_label') }}</h4>
-              </div>
-
-            </a></li>  
-            <li class="nav-item">
-              <a class="show" href="#shippingInfo" data-toggle="tab">
-                <div class="tab-menu-text">
-                    <h4>{{ trans('frontend.shipping_info_label') }}</h4>
-                </div>
+          <div class="product-tab-list text-center mb-45 nav product-menu-mrg">
+              <!-- Nav tabs -->
+              <a class="{{ !old('comments_target')?'active':'' }}" href="#features" data-toggle="tab" role="tab" aria-selected="false" aria-controls="home1">
+                <h4>{{ trans('frontend.features_label') }}&nbsp;</h4>
               </a>
-          </li>
 
-            @if($single_product_details['_product_enable_reviews'] == 'yes')
-              <li class="nav-item">
-                <a class="show {{ old('comments_target')?'active':'' }}" href="#reviews" data-toggle="tab">
-                <div class="tab-menu-text">
-                    <h4>{{ trans('frontend.reviews_label') }} ({!! $comments_rating_details['total'] !!})</h4>
-                </div>
+              <a href="#shippingInfo" data-toggle="tab" role="tab" aria-selected="false" aria-controls="home1">
+                <h4>{{ trans('frontend.shipping_info_label') }}&nbsp;</h4>
+              </a>
 
-                </a>
-              </li>
-            @endif
+              @if($single_product_details['_product_enable_reviews'] == 'yes')
 
-            @if( count(get_vendor_details_by_product_id($single_product_details['id'])) >0 )
-            <li class="nav-item"><a class="show" href="#vendorInfo" data-toggle="tab">
-            <div class="tab-menu-text">
-                    <h4>{{ trans('frontend.vendor_info_label') }}</h4>
-                </div>
-              </a></li>
-            @endif
-          </ul>
+              <a class="{{ old('comments_target')?'active':'' }}" href="#reviews" data-toggle="tab" role="tab" aria-selected="false" aria-controls="home1">
+                <h4>{{ trans('frontend.reviews_label') }} ({!! $comments_rating_details['total'] !!})&nbsp;</h4>
+              </a>
+
+              @endif
+
+              @if( count(get_vendor_details_by_product_id($single_product_details['id'])) >0 )
+
+              <a href="#vendorInfo" data-toggle="tab" role="tab" aria-selected="false" aria-controls="home1">
+                <h4>{{ trans('frontend.vendor_info_label') }})&nbsp;</h4>
+              </a>
+
+              @endif
+
+          </div>
+
         </div>
 
         <div class="tab-content">
@@ -486,89 +479,82 @@
 
     <div class="product-tab-list">
         <!-- Nav tabs -->
-        <ul class="nav nav-tabs tab-style" role="tablist">
-            <li class="nav-item">
-                <a href="#latest_products" data-toggle="tab" class="show active">
-                    <div class="tab-menu-text">
-                        <h4>{{ trans('frontend.san-pham-tuong-tu') }}</h4>
-                    </div>
-                </a>
-            </li>
-            
-        </ul>
+
+        <div class="product-tab-list text-center mb-45 nav product-menu-mrg">
+            <!-- Nav tabs -->
+            <a class="active" href="#latest_products" data-toggle="tab" role="tab" aria-selected="false" aria-controls="home1">
+                <h4>{{ trans('frontend.san-pham-tuong-tu') }}&nbsp;</h4>
+            </a>
+
+        </div>
+
     </div>
     <div class="tab-content another-product-style jump">
         <div class="tab-pane fade show active" id="latest_products" role="tabpanel">
-        <div class="owl-carousel" data-owl-carousel="{ &quot;nav&quot;: false, &quot;dots&quot;: true, &quot;margin&quot;: 30, &quot;responsive&quot;: {&quot;0&quot;:{&quot;items&quot;:1},&quot;576&quot;:{&quot;items&quot;:2},&quot;768&quot;:{&quot;items&quot;:3},&quot;991&quot;:{&quot;items&quot;:4},&quot;1200&quot;:{&quot;items&quot;:4}} }">
-        
-        @foreach($related_items as $products)
+          <div class="owl-carousel" data-owl-carousel="{ &quot;nav&quot;: false, &quot;dots&quot;: true, &quot;margin&quot;: 30, &quot;responsive&quot;: {&quot;0&quot;:{&quot;items&quot;:1},&quot;576&quot;:{&quot;items&quot;:2},&quot;768&quot;:{&quot;items&quot;:3},&quot;991&quot;:{&quot;items&quot;:4},&quot;1200&quot;:{&quot;items&quot;:5}} }">
+            @foreach($related_items as $item)
+              <div class="single-product mb-35">
+                  <div class="product-img">
+                      <a href="{{ route('details-page', $item['post_slug']) }}">
+                        @if(!empty($item['_product_related_images_url']->product_image))
+                          <img src="{{ get_image_url( $item['_product_related_images_url']->product_image ) }}" alt="{{ basename( get_image_url( $item['_product_related_images_url']->product_image ) ) }}" style="max-height:200px"/>
+                        @else
+                          <img  src="{{ default_placeholder_img_src() }}" alt="" />
+                        @endif
+                      </a>
+                      @if ( $item['post_price'] < $item['post_regular_price'] )
+                        @php
+              
+                          $tiengiam =  $item['post_regular_price'] - $item['post_price'];
+                
+                          $phantram = round(($tiengiam/$item['post_regular_price'])*100);
+                            
+                        @endphp
+                        <span>Giảm giá {{ $phantram }}%</span>
+              
+                      @endif
 
-        @if ($loop->iteration < 10 )
+                      <div class="product-action">
 
-          <?php 
-            $reviews          = get_comments_rating_details($products['id'], 'product');
-            $reviews_settings = get_reviews_settings_data($products['id']);      
-          ?>
-          
-          <!-- Product-->
-          <div class="product-card">
+                          <a class="animate-left product-wishlist" data-id="{{ $item['id'] }}" data-toggle="tooltip" title="{{ trans('frontend.add_to_wishlist_label') }}" data-original-title="{{ trans('frontend.add_to_wishlist_label') }}">
+                            <i class="ion-ios-heart-outline"></i>
+                          </a>
 
-            @if ($products['post_price'] < $products['post_regular_price'] )
-                @php
-                  $tiengiam = $products['post_regular_price'] - $products['post_price'];
-                  $phantram = round(($tiengiam/$products['post_regular_price'])*100);
-                @endphp
-              <div class="product-badge bg-danger">Giảm giá {{ $phantram }}%</div>
-            @endif
+                          <a class="animate-right product-compare" data-id="{{ $item['id'] }}" data-toggle="tooltip" title="{{ trans('frontend.add_to_compare_list_label') }}" data-original-title="{{ trans('frontend.add_to_compare_list_label') }}">
+                              <i class="ion-ios-analytics-outline"></i>
+                            </a>
 
-            <a class="product-thumb" href="{{ route('details-page', $products['post_slug']) }}">
-                @if($products['_product_related_images_url']->product_image)
-                  <img src="{{ get_image_url($products['_product_related_images_url']->product_image) }}" alt="{{ basename($products['_product_related_images_url']->product_image) }}" />
-                @else
-                  <img src="{{ default_placeholder_img_src() }}" alt="" />
-                @endif
-              </a>
-            
-            <div class="product-card-body">
-              <h3 class="product-title"><a href="{{ route('details-page', $products['post_slug']) }}">{!! $products['post_title'] !!}</a></h3>
-              <h4 class="product-price">
-                @if(get_product_type($products['id']) == 'simple_product')
-                  {!! price_html( get_product_price($products['id']), get_frontend_selected_currency() ) !!}
-                @elseif(get_product_type($products['id']) == 'configurable_product')
-                  {!! get_product_variations_min_to_max_price_html(get_frontend_selected_currency(), $products['id']) !!}
-                @elseif(get_product_type($products['id']) == 'customizable_product' || get_product_type($products['id']) == 'downloadable_product')
-                  @if(count(get_product_variations($products['id']))>0)
-                    {!! get_product_variations_min_to_max_price_html(get_frontend_selected_currency(), $products['id']) !!}
-                  @else
-                    {!! price_html( get_product_price($products['id']), get_frontend_selected_currency() ) !!}
-                  @endif
-                @endif
-              </h4>
-            </div>
+                          <a class="animate-left quick-view-popup" data-id="{{ $item['id'] }}" data-toggle="tooltip" title="{{ trans('frontend.quick_view') }}" data-original-title="{{ trans('frontend.quick_view') }}">
+                            <i class="ion-ios-eye-outline"></i>
+                          </a>
 
-            <div class="product-button-group">
-
-              <a class="product-button btn-store" href="{{ route('store-details-page-content', get_user_name_by_user_id($products['author_id'])) }}" target="_blank" data-toggle="tooltip" title="{{ get_user_name_by_user_id($products['author_id']) }}" data-original-title="{{ trans('frontend.gian-hang') }}">
-                <i class="icon-home"></i><span>{{ trans('frontend.gian-hang') }}</span>
-              </a>
-
-              <a class="product-button btn-wishlist product-wishlist" data-id="{{ $products['id'] }}" data-toggle="tooltip" title="{{ trans('frontend.add_to_wishlist_label') }}" data-original-title="{{ trans('frontend.add_to_wishlist_label') }}">
-                <i class="icon-heart"></i><span>{{ trans('frontend.add_to_wishlist_label') }}</span>
-              </a>
-              <a class="product-button btn-compare product-compare" data-id="{{ $products['id'] }}" data-toggle="tooltip" title="" data-original-title="{{ trans('frontend.add_to_compare_list_label') }}">
-                <i class="icon-repeat"></i><span>{{ trans('frontend.add_to_compare_list_label') }}</span>
-              </a>
-              <a class="product-button add-to-cart-bg" data-toast data-toast-type="success" data-toast-position="topRight" data-toast-icon="icon-check-circle" data-toast-title="Product" data-toast-message="successfuly added to cart!" data-id="{{ $products['id'] }}" data-toggle="tooltip" data-placement="top" title="" data-original-title="{{ trans('frontend.add_to_cart_label') }}"><i class="icon-shopping-cart"></i>
-                <span>{{ trans('frontend.add_to_cart_label') }}</span>
-              </a>             
-            </div>
+                      </div>
+                  </div>
+                  <div class="product-content">
+                      <div class="product-title-price">
+                          <div class="product-title">
+                              <h4><a href="{{ route('details-page', $item['post_slug']) }}">{!! $item['post_title'] !!}</a></h4>
+                          </div>
+                          <div class="product-price">
+                              <span>
+                                  {!! price_html( get_product_price_html_by_filter(get_role_based_price_by_product_id($item['id'], $item['post_price'])), get_frontend_selected_currency()) !!}
+                              </span>
+                          </div>
+                      </div>
+                      <div class="product-cart-categori">
+                          <div class="product-cart">
+                              <span>{{ get_user_name_by_user_id($item['author_id']) }}</span>
+                          </div>
+                          <div class="product-categori">
+                              <a class="add-to-cart-bg" data-toast data-toast-type="success" data-toast-position="topRight" data-toast-icon="icon-check-circle" data-toast-title="Sản phẩm" data-toast-message="{{ trans('frontend.successfuly_added_to_cart') }}" data-id="{{ $item['id'] }}" data-toggle="tooltip" data-placement="top"title="" data-original-title="{{ trans('frontend.add_to_cart_label') }}">
+                                <i class="ion-bag"></i>{{ trans('frontend.add_to_cart_label') }}
+                              </a>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+            @endforeach
           </div>
-
-        @endif
-
-        @endforeach
-          
-        </div>
 
         </div>
     </div>

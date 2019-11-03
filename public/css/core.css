@@ -13,7 +13,8 @@
 @import url("tmart/default.css");
 @import url("tmart/header.css");
 @import url("tmart/slider.css");
-@import url("tmart/spcl.css");
+
+/* @import url("tmart/spcl.css"); */
 
 /* @import url("plugins/animate.css");
 @import url("plugins/animate-slider.css");
@@ -25,3 +26,14 @@
 @import url("plugins/meanmenu.css");
 
 @import url('https://fonts.googleapis.com/css?family=Dosis:300,400,500,600,700|Poppins:300,400,500,600,700'); */
+
+/* @import url("neha/bootstrap.min.css"); */
+@import url("neha/magnific-popup.css");
+@import url("neha/animate.css");
+@import url("neha/owl.carousel.min.css");
+@import url("neha/slinky.min.css");
+@import url("neha/slick.css");
+@import url("neha/ionicons.min.css");
+@import url("neha/bundle.css");
+@import url("neha/style.css");
+@import url("neha/responsive.css");

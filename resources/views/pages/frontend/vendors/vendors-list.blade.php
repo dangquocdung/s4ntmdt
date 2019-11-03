@@ -27,14 +27,16 @@
 
   @if(count($vendors_list) > 0)
 
-  <div class="row">
+  <div class="isotope-grid cols-4 mb-2">
+      <div class="gutter-sizer"></div>
+      <div class="grid-sizer"></div>
 
   @foreach($vendors_list as $vendor)
     @if($vendor->user_status == 1 && !is_vendor_expired($vendor->id))
     <?php $details = json_decode($vendor->details);?>
 
 
-    <div class="col-md-3 col-sm-6">
+    <div class="grid-item" style="position: absolute; left: 0px; top: 0px;">
       <div class="card mb-30 gian-hang">
 
       
@@ -50,18 +52,6 @@
           <a href="{{ route('store-details-page-content', $vendor->name) }}">{!! $details->profile_details->store_name !!}</a>
         </div>  
 
-        <div class="card-body">
-          <ul class="list-icon">
-            <li> <i class="icon-map-pin text-muted"></i> {!! $details->profile_details->address_line_1 !!}</li>
-            <li> <i class="icon-phone text-muted"></i> {!! $details->profile_details->phone !!}</li>
-            <li> <i class="icon-mail text-muted"></i>
-              <a class="navi-link" href="mailto:{!! $vendor->email !!}"> {!! $vendor->email !!}</a>
-            </li>
-            <li> <i class="icon-calendar text-muted"></i> {!! Carbon\Carbon::parse(  $vendor->created_at )->format('d-m-Y') !!}</li>
-
-
-          </ul>
-        </div>
       </div>
     </div>
     @endif
