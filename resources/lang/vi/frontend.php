@@ -382,7 +382,7 @@ return [
   'condition_label' =>'Điều kiện',
   'new_label' =>'Mới',
   'features_label' =>'Tính năng, đặc điểm',
-  'shipping_info_label' =>'Thông tin vận chuyển',
+  'shipping_info_label' =>'Giao hàng',
   'reviews_label' =>'Nhận xét',
   'no_features_label' =>'Chưa có tính năng nào',
   'no_shippingInfo_label' =>'Chưa có thông tin giao hàng nào',

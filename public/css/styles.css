@@ -8235,6 +8235,10 @@ video {
   color: #0055ff;
 }
 
+a {
+  text-decoration: none;
+}
+
 .add-to-cart-loader {
   width: 300px;
   position: fixed;
