@@ -152,7 +152,7 @@
       &.cols-3,
       &.cols-2 {
         .grid-sizer,
-        .grid-item { width: 100%; }
+        .grid-item { width: (100% / 2); }
       }
     }
   }
