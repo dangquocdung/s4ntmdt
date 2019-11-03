@@ -23,7 +23,7 @@
                               <div class="product-img">
                                   <a href="{{ route('details-page', $item->slug) }}">
                                     @if(!empty($item->image_url))
-                                      <img src="{{ get_image_url( $item->image_url ) }}" alt="{{ basename( get_image_url( $item->image_url ) ) }}" style="max-height:200px"/>
+                                      <img src="{{ get_image_url( $item->image_url ) }}" alt="{{ basename( get_image_url( $item->image_url ) ) }}" />
                                     @else
                                       <img  src="{{ default_placeholder_img_src() }}" alt="" />
                                     @endif
@@ -106,7 +106,7 @@
                               <div class="product-img">
                                   <a href="{{ route('details-page', $item['post_slug']) }}">
                                     @if(!empty($item['image_url']))
-                                      <img src="{{ get_image_url( $item['post_image_url'] ) }}" alt="{{ basename( get_image_url( $item['post_image_url'] ) ) }}" style="max-height:200px"/>
+                                      <img src="{{ get_image_url( $item['post_image_url'] ) }}" alt="{{ basename( get_image_url( $item['post_image_url'] ) ) }}" />
                                     @else
                                       <img  src="{{ default_placeholder_img_src() }}" alt="" />
                                     @endif
@@ -196,7 +196,7 @@
                             <div class="product-img">
                                 <a href="{{ route('details-page', $item->slug) }}">
                                   @if(!empty($item->image_url))
-                                    <img src="{{ get_image_url( $item->image_url ) }}" alt="{{ basename( get_image_url( $item->image_url ) ) }}" style="max-height:200px"/>
+                                    <img src="{{ get_image_url( $item->image_url ) }}" alt="{{ basename( get_image_url( $item->image_url ) ) }}" />
                                   @else
                                     <img  src="{{ default_placeholder_img_src() }}" alt="" />
                                   @endif
@@ -278,7 +278,7 @@
                               <div class="product-img">
                                   <a href="{{ route('details-page', $item->slug) }}">
                                     @if(!empty($item->image_url))
-                                      <img src="{{ get_image_url( $item->image_url ) }}" alt="{{ basename( get_image_url( $item->image_url ) ) }}" style="max-height:200px"/>
+                                      <img src="{{ get_image_url( $item->image_url ) }}" alt="{{ basename( get_image_url( $item->image_url ) ) }}" />
                                     @else
                                       <img  src="{{ default_placeholder_img_src() }}" alt="" />
                                     @endif
