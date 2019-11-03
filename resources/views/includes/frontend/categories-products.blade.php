@@ -8,19 +8,19 @@
         <div class="grid-item" style="position: absolute; left: 0px; top: 0px;">
           <div class="single-product mb-35">
               <div class="product-img">
-                  <a href="{{ route('details-page', $item['post_slug']) }}">
+                  <a href="{{ route('details-page', $item['slug']) }}">
                     @if(!empty($item['image_url']))
-                      <img src="{{ get_image_url( $item['post_image_url'] ) }}" alt="{{ basename( get_image_url( $item['post_image_url'] ) ) }}" style="max-height:200px"/>
+                      <img src="{{ get_image_url( $item['image_url'] ) }}" alt="{{ basename( get_image_url( $item['image_url'] ) ) }}" style="max-height:200px"/>
                     @else
                       <img  src="{{ default_placeholder_img_src() }}" alt="" />
                     @endif
                   </a>
-                  @if ( $item['post_price'] < $item['post_regular_price'] )
+                  @if ( $item['price'] < $item['regular_price'] )
                     @php
           
-                      $tiengiam =  $item['post_regular_price'] - $item['post_price'];
+                      $tiengiam =  $item['regular_price'] - $item['price'];
             
-                      $phantram = round(($tiengiam/$item['post_regular_price'])*100);
+                      $phantram = round(($tiengiam/$item['regular_price'])*100);
                         
                     @endphp
                     <span>Giảm giá {{ $phantram }}%</span>
@@ -46,11 +46,11 @@
               <div class="product-content">
                   <div class="product-title-price">
                       <div class="product-title">
-                          <h4><a href="{{ route('details-page', $item['post_slug']) }}">{!! $item['post_title'] !!}</a></h4>
+                          <h4><a href="{{ route('details-page', $item['slug']) }}">{!! $item['title'] !!}</a></h4>
                       </div>
                       <div class="product-price">
                           <span>
-                              {!! price_html( get_product_price_html_by_filter(get_role_based_price_by_product_id($item['id'], $item['post_price'])), get_frontend_selected_currency()) !!}
+                              {!! price_html( get_product_price_html_by_filter(get_role_based_price_by_product_id($item['id'], $item['price'])), get_frontend_selected_currency()) !!}
                           </span>
                       </div>
                   </div>
@@ -69,6 +69,8 @@
         </div>
       @endforeach
 
+    
+    
     </div>
   @endif
 

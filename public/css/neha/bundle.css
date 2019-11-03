@@ -239,8 +239,6 @@ textarea {
   color: #ffffff;
 }
 
-
-
 /*************************
          button
 *************************/
@@ -409,7 +407,6 @@ textarea {
     border-color: #fff;
 }
 
-
 /*************************
         button small
 *************************/
@@ -488,7 +485,6 @@ a.button-small:hover::after { width: 100% }
 
 .social-icon.socile-icon-style-3 ul li a { color: #fff; background: transparent; border:1px solid #fff; }
 .social-icon.socile-icon-style-3 ul li a:hover { background: #EB3B60; border-color:#EB3B60; }
-
 
 /*************************
         Text color
@@ -796,7 +792,6 @@ textarea:focus {
 .pl-155 { padding-left: 155px }
 .pl-190 { padding-left: 190px }
 
-
 /***************************
     Page section padding 
 ****************************/
@@ -859,8 +854,6 @@ textarea:focus {
         Extra class
 *************************/
 .pricing .container .row [class*="col-"] { }
-
-
 
 /*Custom cloumn*/
 
@@ -1007,74 +1000,6 @@ textarea:focus {
   /*pattern background*/
 .pattern-bg { background:url(../../images/pattern/pattern-bg.png) repeat; background-position: top right; background-color: rgba(236, 239, 247, 1); }
 
-
-
-
-
-
-
-
-/*separator*/
-.separator{
-    position: relative;
-    display: inline-block;
-    clear: both;
-    background: rgba(0, 0, 0, 0.07) none repeat scroll 0 0;
-    bottom: 0;
-    height: 1px;
-    width: 33%;
-}
-.separator::before {
-  background: #4fc1f0 none repeat scroll 0 0;
-  content: "";
-  display: block;
-  height: 1px;
-  position: absolute;
-  transition: all 0.4s ease 0s;
-  width: 100px;
-}
-
-.section-title:hover .separator::before {
-  width: 75%;
-}
-
-.separator i {
-  background: #ECEFF7 none repeat scroll 0 0;
-  color: #4fc1f0;
-  display: block;
-  font-size: 20px;
-  height: 40px;
-  line-height: 40px;
-  position: absolute;
-  text-align: center;
-  top: -20px;
-  width: 40px;
-}
-.separator span {
-  background: #ffffff none repeat scroll 0 0;
-  border: 1px solid #4fc1f0;
-  border-radius: 100%;
-  display: block;
-  height: 10px;
-  position: absolute;
-  top: -5px;
-  width: 10px;
-}
-.separator i, .separator span {
-  left: 0;
-  transform: none;
-}
-.text-center .separator::before, .text-center .separator i, .text-center .separator span  {
-  left: 50%;
-  transform: translateX(-50%);
-}
-
-.text-right .separator::before, .text-right .separator i, .text-right .separator span  {
-  left: auto;
-  transform: none;
-  right: 0;
-}
-
 /*tooltip*/
 .socile-icon-tooltip [data-tooltip], .socile-icon-tooltip .tooltip {
     cursor: pointer;
@@ -1133,7 +1058,6 @@ textarea:focus {
     outline: -mos-focus-ring-color auto 0px;
 }
 
-
 button:focus {
   outline: none;
 }
@@ -1142,27 +1066,21 @@ button:focus {
     position: relative;
 }
 
-
 .border-bottom-1{
     border-bottom: 1px solid #d5d5d5;
 }
-
 
 .border-top-1 {
   border-top: 1px solid #dcdcdc;
 }
 
-
 .overly-style{
     position: relative;
 }
 
-
 .overly-style:before{
     position: relative;
 }
-
-
 
 .custom .row {
   margin-left: -5px;
@@ -1172,32 +1090,3 @@ button:focus {
   padding-left: 5px;
   padding-right: 5px;
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
