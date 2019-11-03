@@ -1281,7 +1281,7 @@
         width: 100%;
     }
     .product-tab-list {
-        display: block;
+        /* display: block; */
         overflow: hidden;
     }
     .category-menu-list ul li .category-menu-dropdown {
