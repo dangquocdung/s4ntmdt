@@ -6477,7 +6477,7 @@ video {
   .isotope-grid.cols-3 .grid-item,
   .isotope-grid.cols-2 .grid-sizer,
   .isotope-grid.cols-2 .grid-item {
-    width: 100%;
+    width: 50%;
   }
 }
 
