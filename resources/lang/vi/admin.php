@@ -1162,6 +1162,7 @@ return [
   'blog_manager' => 'Truyền thông',
   'post_file' => 'Têp văn bản',
   'state' => 'Quận, Huyện',
+  'pending' => 'Đang chờ',
 
 
 ];
