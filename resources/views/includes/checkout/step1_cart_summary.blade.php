@@ -34,6 +34,7 @@
 
                         <div class="product-info">
                         <h4 class="product-title"><a href="{{ route('details-page', get_product_slug($items->id)) }}" target="_blank">{!! $items->name !!}</a></h4>
+                        
                         @if(count($items->options) > 0)
                             @foreach($items->options as $key => $val)
                             @if($count == count($items->options))
@@ -61,21 +62,23 @@
                     </div>
                     </td>
 
-                    <td class="text-center">
+                    <td class="text-center text-lg">
+
+                     {{ $items->quantity }}
 
                     <!-- <input type="number" class="form-control text-center" name="cart_quantity[{{ $index }}]" value="{{ $items->quantity }}" min="1"> -->
 
-                    <div class="count-input">
+                    <!-- <div class="count-input">
                         <select class="form-control" name="cart_quantity[{{ $index }}]">
                         @for( $i=1; $i<=10; $i++)
                             <option {{ ($i==$items->quantity?'selected':'' )}}>{{$i}}</option>
                         @endfor
 
                         </select>
-                    </div>
+                    </div> -->
                     </td>
                     <td class="text-center text-lg">
-                    {!! price_html( get_product_price_html_by_filter( $items->price ), get_frontend_selected_currency() ) !!}
+                        {!! price_html( get_product_price_html_by_filter( $items->price ), get_frontend_selected_currency() ) !!}
                     </td>
                 
                     <td class="text-center"><a class="remove-from-cart" href="{{ route('removed-item-from-cart', $index)}}" data-toggle="tooltip" title="Xoá sản phẩm"><i class="icon-x"></i></a></td>
@@ -89,12 +92,12 @@
             </div>
 
             <div class="shopping-cart-footer">
-            <div class="column">
+            <!-- <div class="column">
                 <div class="coupon-form">
                 <input type="text" class="form-control form-control-sm" id="apply_coupon_code" name="apply_coupon" placeholder="{{ trans('frontend.coupon_code_placeholder_text') }}">
                 <button class="btn btn-outline-primary btn-sm" name="apply_coupon_post" id="apply_coupon_post">{!! trans('frontend.apply_coupon_label') !!}</button>
                 </div>
-            </div>
+            </div> -->
 
             <div class="column text-lg">{!! trans('frontend.cart_sub_total') !!}: <span class="text-medium">{!! price_html( get_product_price_html_by_filter(Cart::getTotal()), get_frontend_selected_currency() ) !!}</span></div>
 
