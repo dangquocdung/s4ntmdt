@@ -18,4 +18,3 @@
     <div class="modal__content"></div>
   </div>
 </div>
-

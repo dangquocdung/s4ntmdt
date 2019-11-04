@@ -706,6 +706,7 @@
 .product-img img {
   width: 100%;
 }
+
 .single-product , .product-img {
   position: relative;
 }
@@ -739,7 +740,8 @@
   transition: all 0.3s ease 0s;
 }
 .product-action > a {
-  background-color: #fff;
+  background: #fff none repeat scroll 0 0;
+  opacity: 0.8;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   color: #474747;
   display: inline-block;
@@ -752,6 +754,11 @@
 .product-action > a:hover {
   color: #fff;
   background-color: #ee3333;
+}
+
+.product-action > a:hover >i {
+  color: yellow;
+  
 }
 
 .product-action > a i {
@@ -911,13 +918,15 @@
 }
 .product-tab-list a h4 {
   color: #454545;
-  font-size: 14px;
-  font-weight: 600;
+  font-size: 18px;
+  font-weight: 500;
   margin: 0;
   text-transform: uppercase;
 }
 .product-tab-list a.active h4 {
   color: #ee3333;
+  font-weight: 600;
+
 }
 .product-menu-mrg {
   padding-top: 3px;

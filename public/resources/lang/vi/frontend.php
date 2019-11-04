@@ -307,7 +307,7 @@ return [
 'quick_view_popup_title' =>'Mô tả ngắn về sản phẩm',
 'add_to_cart_label' =>'Thêm vào giỏ hàng',
 'add_to_wishlist_label' =>'Thêm vào danh sách mong muốn',
-'add_to_compare_list_label' =>'Thêm vào danh sách so sánh',
+'add_to_compare_list_label' =>'Thêm vào DS so sánh',
 'product_details_label' =>'Thông tin chi tiết sản phẩm',
 'add_to_cart_label' =>'Thêm vào giỏ hàng',
 'latest_label' =>'Sản phẩm mới nhất',

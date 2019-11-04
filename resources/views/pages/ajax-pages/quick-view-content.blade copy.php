@@ -78,81 +78,19 @@
 <div class="container-fluid">
   <div class="row">
     <div class="col-xs-12 col-sm-5 col-md-5">
-
-      <div class="product-gallery">
-
-        @if($single_product_details['_product_enable_video_feature'] == 'yes')
-
-        <div class="gallery-wrapper" id="hasVideo">
-          @if($single_product_details['_product_video_feature_source'] == 'embedded_code')
-            @include('pages.frontend.frontend-pages.video-source-embedded-url')
-            @yield('embedded-content')
-          @elseif($single_product_details['_product_video_feature_source'] == 'online_url')
-            @include('pages.frontend.frontend-pages.video-source-online-url')
-            @yield('online-url-content')
-          @endif
-        </div>
-        @endif
-
-        @if(count($single_product_details['_product_related_images_url']->product_gallery_images) > 0)
-        <?php $count = 1;?>
-
-        <div class="product-carousel owl-carousel gallery-wrapper">
-          @foreach($single_product_details['_product_related_images_url']->product_gallery_images as $key => $row)
-            <div class="gallery-item" data-hash="{{ $count }}">
-              <a href="{{ get_image_url($row->url) }}" data-size="1000x667">
-                @if(!empty($row->url) && (basename($row->url) !== 'no-image.png'))  
-                <img src="{{ get_image_url($row->url) }}" alt="Product">
-                @else
-                <img src="{{ default_placeholder_img_src() }}" alt="Product"/>
-                @endif
-              </a>
-            </div>
-            <?php $count ++;?>
-          @endforeach
-        </div>
-        <ul class="product-thumbnails">
-          <?php $count = 1;?>
-          @foreach($single_product_details['_product_related_images_url']->product_gallery_images as $key => $row)
-          @if($count == 1)
-          <li class="active">
-            <a href="#{{ $count }}">
-                @if(!empty($row->url) && (basename($row->url) !== 'no-image.png'))  
-                <img src="{{ get_image_url($row->url) }}" alt="Product">
-                @else
-                <img src="{{ default_placeholder_img_src() }}" alt="Product"/>
-                @endif
-            </a>
-          </li>
-          @else
-          <li>
-            <a href="#{{ $count }}">
-                @if(!empty($row->url) && (basename($row->url) !== 'no-image.png'))  
-                <img src="{{ get_image_url($row->url) }}" alt="Product">
-                @else
-                <img src="{{ default_placeholder_img_src() }}" alt="Product"/>
-                @endif
-            </a>
-          </li>
-          @endif
-          <?php $count ++;?>
-          @endforeach
-          
-        </ul>
+      <div class="model__quick_view_product_image">
+        @if( !empty($single_product_details['post_image_url']) && $single_product_details['_product_related_images_url']->product_image != '/images/upload.png')
+          <img src="{{ get_image_url($single_product_details['post_image_url']) }}" alt="{{ basename($single_product_details['post_image_url']) }}" class="img-responsive"/>
+        @else
+          <img src="{{ default_placeholder_img_src() }}" alt="" class="img-responsive" />
         @endif
       </div>
-
     </div>      
 
     <div class="col-xs-12 col-sm-7 col-md-7">
       <div class="model__quick_view_product_info">
         <h2 class="product-title">{{ $single_product_details['post_title'] }}</h2>
-
-        <div class="rating-stars">
-          <div class="star-rating">
-            <span style="width:{{ $comments_rating_details['percentage'] }}%"></span>
-          </div>
-        </div>
+        <div class="star-rating"><span style="width:{{ $comments_rating_details['percentage'] }}%"></span></div>
 
         <div class="model__quick_view_product_price">
           @if(get_product_type($single_product_details['id']) == 'simple_product')
@@ -190,62 +128,69 @@
         </div> <hr>
 
         @if($single_product_details['post_content'])
-        <p class="text-muted">
-          {!! get_limit_string(string_decode($single_product_details['post_content']),200) !!}
-        </p>
+        <p class="product-description">{!! get_limit_string(string_decode($single_product_details['post_content']), 200) !!}</p>
         <hr>
         @endif
 
-        <div class="row align-items-end pt-4 pb-4">
-          <div class="col-sm-4">
-            <div class="form-group mb-0">
-            <label for="quantity">{!! trans('frontend.quantity') !!}</label>
-
-              @php
-
-                $qty = ''; 
-
-                if($single_product_details['_product_manage_stock_back_to_order'] == 'not_allow' && $single_product_details['post_stock_qty']>0){
-                  $qty = $single_product_details['post_stock_qty'];
-                }
-
-              @endphp
-
-              <select class="form-control" id="quantity" name="quant[1]">
-
-              @if ($qty > 1)
-
-                @for($i=1; $i<$qty; $i++)
-
-                  <option value="{{ $i }}">{{ $i}}</option>
-
-                @endfor
-              @else
-
-                <option value="1" selected>1</option>
-
-              @endif
-
-              </select>
-            </div>
-          </div>
-          <div class="col-sm-8">
-            <div class="pt-4 hidden-sm-up"></div>
-            <button class="btn btn-primary btn-block m-0 add-to-cart-bg" data-toast data-toast-type="success" data-toast-position="topRight" data-toast-icon="icon-check-circle" data-toast-title="Sản phẩm" data-toast-message="đã thêm vào giỏ hàng!" data-id="{{ $single_product_details['id'] }}" data-toggle="tooltip" data-placement="top" title="" data-original-title="{{ trans('frontend.add_to_cart_label') }}"><i class="icon-bag"></i> Thêm vào giỏ hàng</button>
-          </div>
-        </div>
-
-        <div class="pt-1 mb-1 store-name">
-          <span class="text-medium">{!! trans('frontend.gian-hang') !!}: </span>
-          <a href="{{ route('store-details-page-content', get_user_name_by_user_id($single_product_details['_selected_vendor'])) }}" target="_blank">{{ get_user_name_by_user_id($single_product_details['_selected_vendor']) }}</a>
-        </div>
-
-        @if ($single_product_details['post_sku'])
-          <div class="pt-1 mb-4"><span class="text-medium">{!! trans('frontend.sku') !!}: </span>
-              #{{ $single_product_details['post_sku'] }}
-          </div>
+        @if(get_product_type($single_product_details['id']) == 'configurable_product')
+          <a href="{{ route('details-page', $single_product_details['post_slug']) }}" class="btn btn-xs select-options-bg"><i class="fa fa-hand-o-up"></i> {{ trans('frontend.select_options') }}</a>
+        @endif
+        
+        @if(get_product_type($single_product_details['id']) == 'customizable_product')
+          <a href="{{ route('customize-page', $single_product_details['post_slug']) }}" class="btn btn-xs product-customize-bg"><i class="fa fa-gears"></i> {{ trans('frontend.customize') }}</a>
         @endif
 
+        @if(get_product_type($single_product_details['id']) == 'simple_product' && ($single_product_details['post_stock_availability'] == 'in_stock' || ($single_product_details['_product_manage_stock'] == 'yes' && $single_product_details['_product_manage_stock_back_to_order'] == 'only_allow' && $single_product_details['post_stock_availability'] == 'in_stock') || ($single_product_details['_product_manage_stock'] == 'yes' && $single_product_details['_product_manage_stock_back_to_order'] == 'allow_notify_customer' && $single_product_details['post_stock_availability'] == 'in_stock')))
+<!--        <div class="product-add-to-cart-content add-to-cart-content">  
+          <div class="product-add-to-cart-button-content">
+            <ul>
+              <li>
+                <div class="input-group">
+                  <span class="input-group-btn">
+                    <button type="button" class="btn btn-default btn-number" disabled="disabled" data-type="minus" data-field="quant[1]">
+                      <span class="fa fa-minus"></span>
+                    </button>
+                  </span>
+                    <input type="text" id="quantity" name="quant[1]" class="form-control input-number" value="1" min="1" max="10" style="width:55px;"/>
+                  <span class="input-group-btn">
+                    <button type="button" class="btn btn-default btn-number" data-type="plus" data-field="quant[1]">
+                      <span class="fa fa-plus"></span>
+                    </button>
+                  </span>
+                </div>
+              </li>  
+              <li>
+                <a href="" class="btn btn-default btn-md add-to-cart-bg" data-target="quick_view" data-id=""><i class="fa fa-shopping-cart"></i></a>
+              </li>
+              <li>
+                <a href="" class="btn btn-default btn-md product-wishlist" data-id=""><i class="fa fa-heart"></i></a>
+              </li>
+            </ul>
+          </div>  
+        </div>-->
+        @endif
+
+        <div class="model__quick_view_product_meta">
+          @if($single_product_details['post_sku'])  
+            <p><label>{{ trans('frontend.sku') }}:</label> <span>{{ $single_product_details['post_sku'] }}</span></p>
+          @endif
+
+          @if($single_product_details['_product_enable_as_latest'] == 'yes')
+            <p><label>{{ trans('frontend.condition_label') }}:</label> <span>{{ trans('frontend.new_label') }}</span></p>
+          @endif
+
+          @if(count(get_product_brands_lists($single_product_details['id'])) > 0)
+            <p><label>{{ trans('frontend.brand_label') }}:</label> <span>{{ get_single_page_product_brands_lists( get_product_brands_lists($single_product_details['id']) ) }}</span></p>
+          @endif
+
+          @if(get_single_page_product_categories_lists($single_product_details['id']))
+            <p><label>{{ trans('frontend.category_label') }}:</label> <span>{{ get_single_page_product_categories_lists($single_product_details['id']) }}</span></p>
+          @endif
+
+          @if(count(get_product_tags_lists($single_product_details['id']))>0)
+            <p><label>{{ trans('frontend.tag_label') }}:</label> <span>{{ get_single_page_product_tags_lists(get_product_tags_lists($single_product_details['id'])) }}</span></p>
+          @endif
+        </div>
       </div>
     </div>    
   </div>      

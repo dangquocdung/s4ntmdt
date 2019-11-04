@@ -231,13 +231,11 @@
         <a href="{{ route('store-details-page-content', get_user_name_by_user_id($single_product_details['_selected_vendor'])) }}" target="_blank">{{ get_user_name_by_user_id($single_product_details['_selected_vendor']) }}</a>
       </div>
 
-      <div class="pt-1 mb-4"><span class="text-medium">{!! trans('frontend.sku') !!}: </span>
-        @if ($single_product_details['post_sku'])
-          #{{ $single_product_details['post_sku'] }}
-        @else
-          #N/A
-        @endif
-      </div>
+      @if ($single_product_details['post_sku'])
+        <div class="pt-1 mb-4"><span class="text-medium">{!! trans('frontend.sku') !!}: </span>
+            #{{ $single_product_details['post_sku'] }}
+        </div>
+      @endif
 
       <hr class="mb-2">
       <div class="d-flex flex-wrap justify-content-between">
@@ -497,7 +495,7 @@
                   <div class="product-img">
                       <a href="{{ route('details-page', $item['post_slug']) }}">
                         @if(!empty($item['_product_related_images_url']->product_image))
-                          <img src="{{ get_image_url( $item['_product_related_images_url']->product_image ) }}" alt="{{ basename( get_image_url( $item['_product_related_images_url']->product_image ) ) }}" style="max-height:200px"/>
+                          <img src="{{ get_image_url( $item['_product_related_images_url']->product_image ) }}" alt="{{ basename( get_image_url( $item['_product_related_images_url']->product_image ) ) }}" />
                         @else
                           <img  src="{{ default_placeholder_img_src() }}" alt="" />
                         @endif
@@ -516,17 +514,17 @@
 
                       <div class="product-action">
 
-                          <a class="animate-left product-wishlist" data-id="{{ $item['id'] }}" data-toggle="tooltip" title="{{ trans('frontend.add_to_wishlist_label') }}" data-original-title="{{ trans('frontend.add_to_wishlist_label') }}">
-                            <i class="ion-ios-heart-outline"></i>
-                          </a>
+                        <a class="animate-left quick-view-popup" data-id="{{ $item['id'] }}" data-toggle="tooltip" title="{{ trans('frontend.quick_view') }}" data-original-title="{{ trans('frontend.quick_view') }}">
+                          <i class="ion-eye"></i>
+                        </a>
 
-                          <a class="animate-right product-compare" data-id="{{ $item['id'] }}" data-toggle="tooltip" title="{{ trans('frontend.add_to_compare_list_label') }}" data-original-title="{{ trans('frontend.add_to_compare_list_label') }}">
-                              <i class="ion-ios-analytics-outline"></i>
-                            </a>
+                        <a class="animate-right add-to-cart-bg" data-toast data-toast-type="success" data-toast-position="topRight" data-toast-icon="icon-check-circle" data-toast-title="Sản phẩm" data-toast-message="{{ trans('frontend.successfuly_added_to_cart') }}" data-id="{{ $item['id'] }}" data-toggle="tooltip" data-placement="top" title="{{ trans('frontend.add_to_cart_label') }}" data-original-title="{{ trans('frontend.add_to_cart_label') }}">
+                          <i class="ion-bag"></i>
+                        </a>
 
-                          <a class="animate-left quick-view-popup" data-id="{{ $item['id'] }}" data-toggle="tooltip" title="{{ trans('frontend.quick_view') }}" data-original-title="{{ trans('frontend.quick_view') }}">
-                            <i class="ion-ios-eye-outline"></i>
-                          </a>
+                        <a class="animate-left product-wishlist" data-id="{{ $item['id'] }}" data-toggle="tooltip" title="{{ trans('frontend.add_to_wishlist_label') }}" data-original-title="{{ trans('frontend.add_to_wishlist_label') }}">
+                          <i class="ion-heart"></i>
+                        </a>
 
                       </div>
                   </div>
@@ -546,9 +544,9 @@
                               <span>{{ get_user_name_by_user_id($item['author_id']) }}</span>
                           </div>
                           <div class="product-categori">
-                              <a class="add-to-cart-bg" data-toast data-toast-type="success" data-toast-position="topRight" data-toast-icon="icon-check-circle" data-toast-title="Sản phẩm" data-toast-message="{{ trans('frontend.successfuly_added_to_cart') }}" data-id="{{ $item['id'] }}" data-toggle="tooltip" data-placement="top"title="" data-original-title="{{ trans('frontend.add_to_cart_label') }}">
-                                <i class="ion-bag"></i>{{ trans('frontend.add_to_cart_label') }}
-                              </a>
+                          <a class="product-compare" data-id="{{ $item['id'] }}" data-toggle="tooltip" title="{{ trans('frontend.add_to_compare_list_label') }}" data-original-title="{{ trans('frontend.add_to_compare_list_label') }}">
+                                                <i class="ion-ios-list-outline"></i>{{ trans('frontend.add_to_compare_list_label') }}
+                                              </a>
                           </div>
                       </div>
                   </div>
