@@ -132,7 +132,7 @@
 
           <div class="column">
 
-            <input type="submit" name="update_cart" class="btn btn-primary update" value="{{ trans('frontend.update_cart') }}">   
+            <input type="submit" name="update_cart" class="btn btn-outline-warning update" value="{{ trans('frontend.update_cart') }}">   
 
             <a class="btn btn-primary" href="{{ route('checkout-page') }}">{!! trans('frontend.checkout') !!}</a>
   

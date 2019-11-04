@@ -509,7 +509,7 @@ input {
     padding-left: 10px;
     font-size: 14px;
     color: #626262;
-    width: 100%;
+    /* width: 100%; */
 }
 select {
     width: 100%;
