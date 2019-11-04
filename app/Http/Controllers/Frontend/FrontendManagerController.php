@@ -65,10 +65,8 @@ class FrontendManagerController extends Controller
     
     $data['testimonials_data']   =   get_all_testimonial_data();
 
-    
     // return Response::json($data['advancedData']);
 
-    
     return view('pages.frontend.frontend-pages.home', $data);
 
   }
@@ -266,7 +264,6 @@ class FrontendManagerController extends Controller
       $data['comments_rating_details']  =   get_comments_rating_details( $object_id, 'blog' );
       $data['categoriesTree']           =   $this->product->get_categories(0, 'blog_cat');
 
-
       if(!Session::has('shopist_blog_count') || (Session::has('shopist_blog_count') && Session::get('shopist_blog_count') != $get_blog_details_by_slug['id'])){  
         $get_post_meta =  PostExtra::where(['post_id' => $get_blog_details_by_slug['id'], 'key_name' => '_count_visit'])->first();
 
@@ -334,7 +331,6 @@ class FrontendManagerController extends Controller
       return view('pages.frontend.frontend-pages.brand-single-page', $data);
 
       // return response()->json($data);
-
 
     }
     else{
@@ -432,7 +428,6 @@ class FrontendManagerController extends Controller
       $data['seen_items'] = $this->seenProducts();
 
       // return view('pages.frontend.frontend-pages.product-details', $data);
-
 
       // return response()->json($data['all_products_details']);
       
@@ -791,9 +786,7 @@ class FrontendManagerController extends Controller
 
     // return response()->json($data['blogs_all_data']);
 
-
   }
-
 
   /**
    * 
@@ -816,8 +809,6 @@ class FrontendManagerController extends Controller
       return view('pages.frontend.frontend-pages.blog-categories-post', $data);
 
       // return response()->json($data);
-
-      
 
     }
     else{
@@ -1591,6 +1582,16 @@ class FrontendManagerController extends Controller
    */
   public function thankyouPageContent( $params, $params2 ){
     $data = array();
+
+    $is_user_login = false;
+    $get_user_login_data = get_current_frontend_user_info();
+
+    if(Session::has('shopist_frontend_user_id') && isset($get_user_login_data['user_id'])){
+      $is_user_login = true;
+    }
+
+    $data['is_user_login'] = $is_user_login;
+
     $get_order_data = $this->classCommonFunction->get_order_details_by_order_id(array('order_id' => $params, 'order_process_id' => $params2));
     $data = $this->classCommonFunction->get_dynamic_frontend_content_data();
     
