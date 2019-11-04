@@ -1591,7 +1591,6 @@ class FrontendManagerController extends Controller
       $is_user_login = true;
     }
 
-    $data['is_user_login'] = true;
 
     $get_order_data = $this->classCommonFunction->get_order_details_by_order_id(array('order_id' => $params, 'order_process_id' => $params2));
     $data = $this->classCommonFunction->get_dynamic_frontend_content_data();
@@ -1603,6 +1602,9 @@ class FrontendManagerController extends Controller
     else{
       $data['order_details_for_thank_you_page'] = array();
     }
+
+    $data['is_user_login'] = true;
+
 
     return response()->json($data['is_user_login']);
     
