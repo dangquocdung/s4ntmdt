@@ -509,7 +509,7 @@
     </div>
     <div class="col-md-3 col-6 text-center mb-30"><img class="d-block w-90 img-thumbnail rounded mx-auto mb-4" src="img/services/03.png" alt="Support">
       <h6 class="mb-2">Hỗ trợ khách hàng 24/7</h6>
-      <p class="text-sm text-muted mb-0">Hỗ trợ khách hàng, nhà cung cấp nhiệt thành, thân thiện</p>
+      <p class="text-sm text-muted mb-0">Hỗ trợ khách hàng, gian hàng nhiệt thành, thân thiện</p>
     </div>
     <div class="col-md-3 col-6 text-center mb-30"><img class="d-block w-90 img-thumbnail rounded mx-auto mb-4" src="img/services/04.png" alt="Payment">
       <h6 class="mb-2">Thanh toán an toàn</h6>
