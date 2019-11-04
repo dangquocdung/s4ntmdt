@@ -79,9 +79,9 @@
                                           <span>{{ get_user_name_by_user_id($item->author_id) }}</span>
                                       </div>
                                       <div class="product-categori">
-                                          <a class="add-to-cart-bg" data-toast data-toast-type="success" data-toast-position="topRight" data-toast-icon="icon-check-circle" data-toast-title="Sản phẩm" data-toast-message="{{ trans('frontend.successfuly_added_to_cart') }}" data-id="{{ $item->id }}" data-toggle="tooltip" data-placement="top"title="" data-original-title="{{ trans('frontend.add_to_cart_label') }}">
-                                            <i class="ion-bag"></i>{{ trans('frontend.add_to_cart_label') }}
-                                          </a>
+                                      <a class="product-compare" data-id="{{ $item->id }}" data-toggle="tooltip" title="{{ trans('frontend.add_to_compare_list_label') }}" data-original-title="{{ trans('frontend.add_to_compare_list_label') }}">
+                                              <i class="ion-ios-list-outline"></i>{{ trans('frontend.add_to_compare_list_label') }}
+                                            </a>
                                       </div>
                                   </div>
                               </div>
@@ -152,9 +152,9 @@
                                           <span>{{ get_user_name_by_user_id($item['author_id']) }}</span>
                                       </div>
                                       <div class="product-categori">
-                                          <a class="add-to-cart-bg" data-toast data-toast-type="success" data-toast-position="topRight" data-toast-icon="icon-check-circle" data-toast-title="Sản phẩm" data-toast-message="{{ trans('frontend.successfuly_added_to_cart') }}" data-id="{{ $item['id'] }}" data-toggle="tooltip" data-placement="top"title="" data-original-title="{{ trans('frontend.add_to_cart_label') }}">
-                                            <i class="ion-bag"></i>{{ trans('frontend.add_to_cart_label') }}
-                                          </a>
+                                      <a class="product-compare" data-id="{{ $item['id'] }}" data-toggle="tooltip" title="{{ trans('frontend.add_to_compare_list_label') }}" data-original-title="{{ trans('frontend.add_to_compare_list_label') }}">
+                                                <i class="ion-ios-list-outline"></i>{{ trans('frontend.add_to_compare_list_label') }}
+                                              </a>
                                       </div>
                                   </div>
                               </div>
@@ -249,9 +249,9 @@
                                         <span>{{ get_user_name_by_user_id($item->author_id) }}</span>
                                     </div>
                                     <div class="product-categori">
-                                        <a class="add-to-cart-bg" data-toast data-toast-type="success" data-toast-position="topRight" data-toast-icon="icon-check-circle" data-toast-title="Sản phẩm" data-toast-message="{{ trans('frontend.successfuly_added_to_cart') }}" data-id="{{ $item->id }}" data-toggle="tooltip" data-placement="top"title="" data-original-title="{{ trans('frontend.add_to_cart_label') }}">
-                                          <i class="ion-bag"></i>{{ trans('frontend.add_to_cart_label') }}
-                                        </a>
+                                    <a class="product-compare" data-id="{{ $item->id }}" data-toggle="tooltip" title="{{ trans('frontend.add_to_compare_list_label') }}" data-original-title="{{ trans('frontend.add_to_compare_list_label') }}">
+                                              <i class="ion-ios-list-outline"></i>{{ trans('frontend.add_to_compare_list_label') }}
+                                            </a>
                                     </div>
                                 </div>
                             </div>
@@ -328,9 +328,9 @@
                                           <span>{{ get_user_name_by_user_id($item->author_id) }}</span>
                                       </div>
                                       <div class="product-categori">
-                                          <a class="add-to-cart-bg" data-toast data-toast-type="success" data-toast-position="topRight" data-toast-icon="icon-check-circle" data-toast-title="Sản phẩm" data-toast-message="{{ trans('frontend.successfuly_added_to_cart') }}" data-id="{{ $item->id }}" data-toggle="tooltip" data-placement="top"title="" data-original-title="{{ trans('frontend.add_to_cart_label') }}">
-                                            <i class="ion-bag"></i>{{ trans('frontend.add_to_cart_label') }}
-                                          </a>
+                                      <a class="product-compare" data-id="{{ $item->id }}" data-toggle="tooltip" title="{{ trans('frontend.add_to_compare_list_label') }}" data-original-title="{{ trans('frontend.add_to_compare_list_label') }}">
+                                              <i class="ion-ios-list-outline"></i>{{ trans('frontend.add_to_compare_list_label') }}
+                                            </a>
                                       </div>
                                   </div>
                               </div>
