@@ -1603,12 +1603,12 @@ class FrontendManagerController extends Controller
       $data['order_details_for_thank_you_page'] = array();
     }
 
-    $data['is_user_login'] = true;
+    $data['is_user_login'] = $is_user_login;
 
 
-    return response()->json($data['is_user_login']);
+    // return response()->json($data['is_user_login']);
     
-    // return view('pages.frontend.frontend-pages.thank-you', $data);
+    return view('pages.frontend.frontend-pages.thank-you', $data);
   }
 
   /**
