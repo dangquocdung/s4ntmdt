@@ -1603,7 +1603,7 @@ class FrontendManagerController extends Controller
       $data['order_details_for_thank_you_page'] = array();
     }
 
-    return response()->json($data);
+    return response()->json($data['is_user_login']);
     
     return view('pages.frontend.frontend-pages.thank-you', $data);
   }
