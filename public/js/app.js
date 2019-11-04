@@ -100,8 +100,8 @@
  */
 // require('./bootstrap');
 // require('./common.js')
-// require('./checkout.js')
-__webpack_require__(/*! ./common.js */ "./resources/assets/js/common.js");
+__webpack_require__(/*! ./common.js */ "./resources/assets/js/common.js"); // require('./checkout.js')
+
 
 __webpack_require__(/*! ./products-add-to-cart */ "./resources/assets/js/products-add-to-cart.js");
 
@@ -397,7 +397,8 @@ $(document).ready(function () {
           widget.not(':eq(' + current++ + ')').hide();
         }
 
-        console.log('current++: ' + current); // setProgress(current);
+        console.log('current++: ' + current);
+        setProgress(current);
       }
 
       hideButtons(current);
