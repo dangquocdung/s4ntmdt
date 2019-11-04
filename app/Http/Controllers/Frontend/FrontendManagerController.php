@@ -1581,6 +1581,7 @@ class FrontendManagerController extends Controller
    * @return void 
    */
   public function thankyouPageContent( $params, $params2 ){
+
     $data = array();
 
     $is_user_login = false;
@@ -1590,7 +1591,7 @@ class FrontendManagerController extends Controller
       $is_user_login = true;
     }
 
-    $data['is_user_login'] = $is_user_login;
+    $data['is_user_login'] = true;
 
     $get_order_data = $this->classCommonFunction->get_order_details_by_order_id(array('order_id' => $params, 'order_process_id' => $params2));
     $data = $this->classCommonFunction->get_dynamic_frontend_content_data();
@@ -1605,7 +1606,7 @@ class FrontendManagerController extends Controller
 
     return response()->json($data['is_user_login']);
     
-    return view('pages.frontend.frontend-pages.thank-you', $data);
+    // return view('pages.frontend.frontend-pages.thank-you', $data);
   }
 
   /**
