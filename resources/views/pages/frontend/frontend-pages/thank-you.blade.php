@@ -44,9 +44,13 @@
               <a class="btn btn-outline-secondary" href="{{ route('shop-page') }}">
                 <i class="icon-shopping-cart"></i>&nbsp;{{ trans('frontend.tiep_tuc_mua_sam') }}
               </a>
-              <a class="btn btn-outline-primary" href="{{ route('my-orders-page') }}">
-                <i class="icon-shopping-bag"></i>&nbsp;{{ trans('frontend.chi_tiet_don_hang') }}
-              </a>
+
+              @if( $is_user_login == true )  
+                <a class="btn btn-outline-primary" href="{{ route('my-orders-page') }}">
+                  <i class="icon-shopping-bag"></i>&nbsp;{{ trans('frontend.chi_tiet_don_hang') }}
+                </a>
+              @endif
+
             </div>
 
           </div>

@@ -23,43 +23,43 @@
                 
                 <tr>
                     <td>
-                    <div class="product-item">
-                        <a class="product-thumb" href="{{ route('details-page', get_product_slug($items->id)) }}" target="_blank">
-                        @if($items->img_src)
-                            <img src="{{ get_image_url($items->img_src) }}" alt="product">
-                        @else
-                            <img src="{{ default_placeholder_img_src() }}" alt="no_image">
-                        @endif
-                        </a>
-
-                        <div class="product-info">
-                        <h4 class="product-title"><a href="{{ route('details-page', get_product_slug($items->id)) }}" target="_blank">{!! $items->name !!}</a></h4>
-                        
-                        @if(count($items->options) > 0)
-                            @foreach($items->options as $key => $val)
-                            @if($count == count($items->options))
-                                {!! $key .' &#8658; '. $val !!}
+                        <div class="product-item">
+                            <a class="product-thumb" href="{{ route('details-page', get_product_slug($items->id)) }}" target="_blank">
+                            @if($items->img_src)
+                                <img src="{{ get_image_url($items->img_src) }}" alt="product">
                             @else
-                                {!! $key .' &#8658; '. $val. ' , ' !!}
+                                <img src="{{ default_placeholder_img_src() }}" alt="no_image">
                             @endif
-                            <?php $count ++ ; ?>
-                            @endforeach
-                        @endif
-                        @if(get_product_type($items->id) === 'customizable_product')
-                            @if($items->acces_token)
-                            @if(count(get_customize_images_by_access_token($items->acces_token))>0)
-                                <button class="btn btn-block btn-sm view-customize-images" data-images="{{ json_encode( get_customize_images_by_access_token($items->acces_token) ) }}">{{ trans('frontend.design_images') }}</button>
+                            </a>
+
+                            <div class="product-info">
+                            <h4 class="product-title"><a href="{{ route('details-page', get_product_slug($items->id)) }}" target="_blank">{!! $items->name !!}</a></h4>
+                            
+                            @if(count($items->options) > 0)
+                                @foreach($items->options as $key => $val)
+                                @if($count == count($items->options))
+                                    {!! $key .' &#8658; '. $val !!}
+                                @else
+                                    {!! $key .' &#8658; '. $val. ' , ' !!}
+                                @endif
+                                <?php $count ++ ; ?>
+                                @endforeach
                             @endif
+                            @if(get_product_type($items->id) === 'customizable_product')
+                                @if($items->acces_token)
+                                @if(count(get_customize_images_by_access_token($items->acces_token))>0)
+                                    <button class="btn btn-block btn-sm view-customize-images" data-images="{{ json_encode( get_customize_images_by_access_token($items->acces_token) ) }}">{{ trans('frontend.design_images') }}</button>
+                                @endif
+                                @endif
                             @endif
-                        @endif
-                        
-                        @if( count(get_vendor_details_by_product_id($items->product_id)) >0 )
-                            <p class="vendor-title">
-                                {!! trans('frontend.ban_boi_shop') !!}: {!! get_vendor_name_by_product_id( $items->product_id) !!}
-                            </p>
-                        @endif
+                            
+                            @if( count(get_vendor_details_by_product_id($items->product_id)) >0 )
+                                <p class="vendor-title">
+                                    {!! trans('frontend.ban_boi_shop') !!}: {!! get_vendor_name_by_product_id( $items->product_id) !!}
+                                </p>
+                            @endif
+                            </div>
                         </div>
-                    </div>
                     </td>
 
                     <td class="text-center text-lg">
@@ -80,6 +80,7 @@
                     <td class="text-center text-lg">
                         {!! price_html( get_product_price_html_by_filter( $items->price ), get_frontend_selected_currency() ) !!}
                     </td>
+
                 
                     <td class="text-center"><a class="remove-from-cart" href="{{ route('removed-item-from-cart', $index)}}" data-toggle="tooltip" title="Xoá sản phẩm"><i class="icon-x"></i></a></td>
 

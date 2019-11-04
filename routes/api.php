@@ -1,18 +1,24 @@
 <?php
 
-use Illuminate\Http\Request;
-
 /*
 |--------------------------------------------------------------------------
-| API Routes
+| Front Routes
 |--------------------------------------------------------------------------
 |
-| Here is where you can register API routes for your application. These
-| routes are loaded by the RouteServiceProvider within a group which
-| is assigned the "api" middleware group. Enjoy building your API!
+| This file is where you may define all of the routes that are handled
+| by your application. Just tell Laravel the URIs it should respond
+| to using a Closure or controller method. Build something great!
 |
 */
 
-Route::middleware('auth:api')->get('/user', function (Request $request) {
-    return $request->user();
+//API frontend route
+
+Route::group(['prefix' => 'api', 'namespace' => 'Frontend'], function () {
+
+    Route::get('/thanh-toan', [
+    'uses' => 'APIFrontendManagerController@checkoutPageContent',
+    'as'   => 'api-checkout-page'
+    ]);
+
+
 });

@@ -248,3 +248,8 @@ Route::get( '/download/file/{product_id}/{order_id}/{file_id}/{target}', [
 
 Route::get('/auth/{provider}', 'Auth\LoginController@redirectToProvider');
 Route::get('/auth/{provide}/callback', 'Auth\LoginController@handleProviderCallback');
+
+Route::group(['prefix' => 'api', 'namespace' => 'Frontend'], function () {
+
+
+});
