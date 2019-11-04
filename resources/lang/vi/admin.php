@@ -48,7 +48,7 @@ return [
   'colors_name_example' =>'ví dụ tên màu - đỏ hoặc xanh dương hoặc xanh lục',
   'size_name_example' =>'ví dụ tên kích thước - nhỏ hoặc trung bình hoặc lớn',
   'enable' =>'Kích hoạt',
-  'disable' =>'Vô hiệu hóa',
+  'disable' =>'Chưa kích hoạt',
   'add_new_product' =>'Thêm sản phẩm mới',
   'update_product' =>'Cập nhật sản phẩm',
   'update' =>'Cập nhật',
