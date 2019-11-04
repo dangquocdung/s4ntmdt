@@ -162,7 +162,7 @@ return [
     'select_rating' =>'vui lòng chọn xếp hạng',
     'write_review' =>'Hãy viết đánh giá của bạn',
     'coupon_removed_from_cart_msg' =>'Phiếu giảm giá đã bị xóa khỏi giỏ hàng vì một số điều kiện sai',
-    'vendor_reg_store_name' =>'vui lòng điền tên cửa hàng',
+    'vendor_reg_store_name' =>'vui lòng điền tên gian hàng',
     'vendor_reg_address_line_1' =>'vui lòng điền vào Dòng địa chỉ 1',
     'vendor_reg_city' =>'vui lòng điền vào Thành phố',
     'vendor_reg_state' =>'vui lòng điền vào tiểu bang',
