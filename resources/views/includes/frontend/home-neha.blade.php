@@ -30,15 +30,15 @@
                       <div class="product-action">
 
                           <a class="animate-left product-wishlist" data-id="{{ $item->id }}" data-toggle="tooltip" title="{{ trans('frontend.add_to_wishlist_label') }}" data-original-title="{{ trans('frontend.add_to_wishlist_label') }}">
-                            <i class="ion-ios-heart-outline"></i>
+                            <i class="ion-heart"></i>
                           </a>
 
                           <a class="animate-right product-compare" data-id="{{ $item->id }}" data-toggle="tooltip" title="{{ trans('frontend.add_to_compare_list_label') }}" data-original-title="{{ trans('frontend.add_to_compare_list_label') }}">
-                              <i class="ion-ios-analytics-outline"></i>
+                              <i class="ion-ios-list-outline"></i>
                             </a>
   
                           <a class="animate-left quick-view-popup" data-id="{{ $item->id }}" data-toggle="tooltip" title="{{ trans('frontend.add_to_compare_list_label') }}" data-original-title="{{ trans('frontend.add_to_compare_list_label') }}">
-                            <i class="ion-ios-eye-outline"></i>
+                            <i class="ion-eye"></i>
                           </a>
 
                       </div>
