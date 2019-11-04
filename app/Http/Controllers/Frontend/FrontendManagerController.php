@@ -1602,6 +1602,8 @@ class FrontendManagerController extends Controller
     else{
       $data['order_details_for_thank_you_page'] = array();
     }
+
+    return response()->json($data);
     
     return view('pages.frontend.frontend-pages.thank-you', $data);
   }
