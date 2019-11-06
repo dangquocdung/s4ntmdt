@@ -204,13 +204,6 @@
     <nav class="slideable-menu">
       <ul class="menu" data-initial-height="385">
 
-        <li class="{{ Request::is('/')?'active':''}}">
-          <span>
-            <a href="{{ route('home-page') }}">{!! trans('frontend.home') !!}</a>
-
-          </span>
-
-        </li>
 
         <li class="has-children {{ Request::is('ban-quan-tri')?'active':''}}">
           <span>
@@ -245,9 +238,9 @@
 
         <li class="{{ Request::is('thanh-toan')?'active':''}}"><a href="{{ route('checkout-page') }}"><span>{!! trans('frontend.checkout') !!}</span></a></li>
   
-        <li class="has-children {{ Request::is('tin-tuc/*')?'active':''}}">
+        <li class="has-children {{ Request::is('truyen-thong/*')?'active':''}}">
           <span>
-            <a href="{{ route('blogs-page-content') }}"><span>{!! trans('frontend.truyen-thong') !!}</span></a>
+            <a href="javascript:void(0)">{!! trans('frontend.truyen-thong') !!}</a>
             <span class="sub-menu-toggle"></span>
           </span>
           <ul class="slideable-submenu">
@@ -256,6 +249,8 @@
             <li><a href="{{ asset('chuyen-muc/truyen-thong/tin-tuc') }}">Tin tức</a></li>
           </ul>
         </li>
+
+        
 
       </ul>
     </nav>
