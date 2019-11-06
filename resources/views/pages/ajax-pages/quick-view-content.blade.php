@@ -231,7 +231,7 @@
           </div>
           <div class="col-sm-8">
             <div class="pt-4 hidden-sm-up"></div>
-            <button class="btn btn-primary btn-block m-0 add-to-cart-bg" data-toast data-toast-type="success" data-toast-position="topRight" data-toast-icon="icon-check-circle" data-toast-title="Sản phẩm" data-toast-message="đã thêm vào giỏ hàng!" data-id="{{ $single_product_details['id'] }}" data-toggle="tooltip" data-placement="top" title="" data-original-title="{{ trans('frontend.add_to_cart_label') }}"><i class="icon-bag"></i> Thêm vào giỏ hàng</button>
+            <button class="btn btn-primary btn-block m-0 add-to-cart-bg" data-target="quick_view" data-id=""><i class="icon-bag"></i> Thêm vào giỏ hàng</button>
           </div>
         </div>
 
