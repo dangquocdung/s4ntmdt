@@ -54,7 +54,7 @@ return [
   'update' =>'Cập nhật',
   'products_list' =>'Danh sách sản phẩm',
   'comments_list' =>'Danh sách bình luận',
-  'product_name' =>'Chức vụ',
+  'product_name' =>'Tên sản phẩm',
   'example_red_t_shirt' =>'Ví dụ - Áo phông đỏ',
   'product_description' =>'Mô tả tóm tắt sản phẩm',
   'product_description_placeholder' =>'Mô tả Sản phẩm......',
