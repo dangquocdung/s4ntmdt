@@ -61,7 +61,7 @@
           <span class="compare-icon">
             <i class="ion-ios-book-outline"></i>
           </span>
-          <span class="text-label">Hướng dẫn</span>
+          <span class="text-label">Hướng dẫn SD</span>
         </div>
       </a>
     </div>
@@ -157,7 +157,7 @@
         <a href="{{ route('product-comparison-page') }}">
           <div>
             <span class="compare-icon"><i class="ion-ios-list-outline"></i><span class="count-label">{{ $total_compare_item }}</span></span>
-            <span class="text-label">{!! trans('frontend.compare_label') !!}</span>
+            <span class="text-label">So sánh sản phẩm</span>
           </div>
         </a>
       </div>
