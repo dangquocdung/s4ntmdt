@@ -160,7 +160,7 @@
           <i class="fa fa-text-width"></i>
           <h3 class="box-title">{!! trans('admin.product_type') !!}</h3>
           <div class="box-tools pull-right">
-            <select id="change_product_type" name="change_product_type" class="form-control select2" style="width: 100%;" disabled>
+            <select id="change_product_type" name="change_product_type" class="form-control select2" style="width: 100%;">
               <option selected="selected" value="simple_product">{!! trans('admin.simple_product') !!}</option>
               <option value="configurable_product">{!! trans('admin.configurable_product') !!}</option>
               <option value="customizable_product">{!! trans('admin.customizable_product') !!}</option>
@@ -921,12 +921,7 @@
             <div class="row">  
               <label class="col-sm-7 control-label" for="inputVisibility">{!! trans('admin.enable_product') !!}</label>
               <div class="col-sm-5">
-
-                @if ($user_data['user_role_id'] == 3)
-                  <select class="form-control select2" name="product_visibility" style="width: 100%;" disabled>
-                @else
                   <select class="form-control select2" name="product_visibility" style="width: 100%;">
-                @endif
                     <option selected="selected" value="0">{!! trans('admin.disable') !!}</option>                  
                     <option value="1">{!! trans('admin.enable') !!}</option>
                   </select>  
