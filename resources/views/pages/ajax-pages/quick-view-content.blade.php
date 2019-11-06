@@ -77,6 +77,8 @@
 </script>
 <div class="container-fluid">
   <div class="row">
+    @if(count($single_product_details['_product_related_images_url']->product_gallery_images) > 0)
+
     <div class="col-xs-12 col-sm-5 col-md-5">
 
       <div class="product-gallery">
@@ -142,9 +144,11 @@
         @endif
       </div>
 
-    </div>      
+    </div>  
 
-    <div class="col-xs-12 col-sm-7 col-md-7">
+    @endif    
+
+    <div class="col-xs-12 {{ (count($single_product_details['_product_related_images_url']->product_gallery_images) > 0)?:'col-sm-7 col-md-7':'' }}">
       <div class="model__quick_view_product_info">
         <h2 class="product-title">{{ $single_product_details['post_title'] }}</h2>
 
