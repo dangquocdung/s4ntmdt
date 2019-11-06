@@ -59,7 +59,7 @@
       <a href="#">
         <div>
           <span class="compare-icon">
-            <i class="icon-book"></i>
+            <i class="ion-ios-book-outline"></i>
           </span>
           <span class="text-label">Hướng dẫn</span>
         </div>
@@ -67,7 +67,12 @@
     </div>
     <div class="toolbar-item hidden-on-mobile">
       <a href="{{ route('product-comparison-page') }}">
-        <div><span class="compare-icon"><i class="icon-repeat"></i><span class="count-label">{{ $total_compare_item }}</span></span><span class="text-label">{!! trans('frontend.compare_label') !!}</span></div>
+        <div>
+          <span class="compare-icon">
+            <i class="ion-ios-list-outline"></i><span class="count-label">{{ $total_compare_item }}</span>
+          </span>
+          <span class="text-label">{!! trans('frontend.compare_label') !!}</span>
+        </div>
       </a>
     </div>
 
@@ -140,7 +145,7 @@
         <a href="#">
           <div>
             <span class="compare-icon">
-              <i class="icon-book"></i>
+              <i class="ion-ios-book-outline"></i>
             </span>
             <span class="text-label">Hướng dẫn sử dụng</span>
           </div>
@@ -151,7 +156,7 @@
       <div class="toolbar-item">
         <a href="{{ route('product-comparison-page') }}">
           <div>
-            <span class="compare-icon"><i class="icon-repeat"></i><span class="count-label">{{ $total_compare_item }}</span></span>
+            <span class="compare-icon"><i class="ion-ios-list-outline"></i><span class="count-label">{{ $total_compare_item }}</span></span>
             <span class="text-label">{!! trans('frontend.compare_label') !!}</span>
           </div>
         </a>
@@ -175,7 +180,7 @@
           </a>
         @else
           <a href="{{ route('user-account-page') }}">
-          <div><i class="icon-user"></i><span class="text-label">{!! trans('frontend.frontend_user_login') !!}</span></div>
+          <div><i class="ion-ios-contact-outline"></i><span class="text-label">{!! trans('frontend.frontend_user_login') !!}</span></div>
           </a>
         @endif
         
@@ -184,18 +189,18 @@
       <div class="toolbar-item">
         @if (Session::has('shopist_admin_user_id') && !empty(get_current_vendor_user_info()['user_role_slug']) && get_current_vendor_user_info()['user_role_slug'] == 'vendor')
           <a href="{{ route('admin.dashboard') }}">
-            <div><i class="icon-users"></i><span class="text-label">{!! trans('frontend.dashboard_admin') !!}</span></div>
+            <div><i class="ion-ios-people"></i><span class="text-label">{!! trans('frontend.dashboard_admin') !!}</span></div>
           </a>
         @else
           <a href="{{ route('admin.login') }}">
-            <div><i class="icon-users"></i><span class="text-label">{!! trans('frontend.frontend_vendor_login') !!}</span></div>
+            <div><i class="ion-ios-people"></i><span class="text-label">{!! trans('frontend.frontend_vendor_login') !!}</span></div>
           </a>
         @endif
       </div>
 
       <div class="toolbar-item">
           <a href="{{ route('vendor-registration-page') }}">
-            <div><i class="icon-users"></i><span class="text-label">{!! trans('frontend.vendor_registration') !!}</span></div>
+            <div><i class="ion-person-add"></i><span class="text-label">{!! trans('frontend.vendor_registration') !!}</span></div>
           </a>
       </div>
 
