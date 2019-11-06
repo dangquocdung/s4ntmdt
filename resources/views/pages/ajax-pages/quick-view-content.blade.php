@@ -77,74 +77,82 @@
 </script>
 <div class="container-fluid">
   <div class="row">
-    <div class="col-xs-12 col-sm-5 col-md-5">
+    @if(count($single_product_details['_product_related_images_url']->product_gallery_images) > 0)
 
-      <div class="product-gallery">
+      <div class="col-xs-12 col-sm-5 col-md-5">
 
-        @if($single_product_details['_product_enable_video_feature'] == 'yes')
+        <div class="product-gallery">
 
-        <div class="gallery-wrapper" id="hasVideo">
-          @if($single_product_details['_product_video_feature_source'] == 'embedded_code')
-            @include('pages.frontend.frontend-pages.video-source-embedded-url')
-            @yield('embedded-content')
-          @elseif($single_product_details['_product_video_feature_source'] == 'online_url')
-            @include('pages.frontend.frontend-pages.video-source-online-url')
-            @yield('online-url-content')
+          @if($single_product_details['_product_enable_video_feature'] == 'yes')
+
+          <div class="gallery-wrapper" id="hasVideo">
+            @if($single_product_details['_product_video_feature_source'] == 'embedded_code')
+              @include('pages.frontend.frontend-pages.video-source-embedded-url')
+              @yield('embedded-content')
+            @elseif($single_product_details['_product_video_feature_source'] == 'online_url')
+              @include('pages.frontend.frontend-pages.video-source-online-url')
+              @yield('online-url-content')
+            @endif
+          </div>
           @endif
-        </div>
-        @endif
 
-        @if(count($single_product_details['_product_related_images_url']->product_gallery_images) > 0)
-        <?php $count = 1;?>
+          @if(count($single_product_details['_product_related_images_url']->product_gallery_images) > 0)
+            <?php $count = 1;?>
 
-        <div class="product-carousel owl-carousel gallery-wrapper">
-          @foreach($single_product_details['_product_related_images_url']->product_gallery_images as $key => $row)
-            <div class="gallery-item" data-hash="{{ $count }}">
-              <a href="{{ get_image_url($row->url) }}" data-size="1000x667">
-                @if(!empty($row->url) && (basename($row->url) !== 'no-image.png'))  
-                <img src="{{ get_image_url($row->url) }}" alt="Product">
-                @else
-                <img src="{{ default_placeholder_img_src() }}" alt="Product"/>
-                @endif
-              </a>
+            <div class="product-carousel owl-carousel gallery-wrapper">
+              @foreach($single_product_details['_product_related_images_url']->product_gallery_images as $key => $row)
+                <div class="gallery-item" data-hash="{{ $count }}">
+                  <a href="{{ get_image_url($row->url) }}" data-size="1000x667">
+                    @if(!empty($row->url) && (basename($row->url) !== 'no-image.png'))  
+                    <img src="{{ get_image_url($row->url) }}" alt="Product">
+                    @else
+                    <img src="{{ default_placeholder_img_src() }}" alt="Product"/>
+                    @endif
+                  </a>
+                </div>
+                <?php $count ++;?>
+              @endforeach
             </div>
-            <?php $count ++;?>
-          @endforeach
-        </div>
-        <ul class="product-thumbnails">
-          <?php $count = 1;?>
-          @foreach($single_product_details['_product_related_images_url']->product_gallery_images as $key => $row)
-          @if($count == 1)
-          <li class="active">
-            <a href="#{{ $count }}">
-                @if(!empty($row->url) && (basename($row->url) !== 'no-image.png'))  
-                <img src="{{ get_image_url($row->url) }}" alt="Product">
+            <ul class="product-thumbnails">
+              <?php $count = 1;?>
+              @foreach($single_product_details['_product_related_images_url']->product_gallery_images as $key => $row)
+                @if($count == 1)
+                  <li class="active">
+                    <a href="#{{ $count }}">
+                        @if(!empty($row->url) && (basename($row->url) !== 'no-image.png'))  
+                        <img src="{{ get_image_url($row->url) }}" alt="Product">
+                        @else
+                        <img src="{{ default_placeholder_img_src() }}" alt="Product"/>
+                        @endif
+                    </a>
+                  </li>
                 @else
-                <img src="{{ default_placeholder_img_src() }}" alt="Product"/>
+                  <li>
+                    <a href="#{{ $count }}">
+                        @if(!empty($row->url) && (basename($row->url) !== 'no-image.png'))  
+                        <img src="{{ get_image_url($row->url) }}" alt="Product">
+                        @else
+                        <img src="{{ default_placeholder_img_src() }}" alt="Product"/>
+                        @endif
+                    </a>
+                  </li>
                 @endif
-            </a>
-          </li>
-          @else
-          <li>
-            <a href="#{{ $count }}">
-                @if(!empty($row->url) && (basename($row->url) !== 'no-image.png'))  
-                <img src="{{ get_image_url($row->url) }}" alt="Product">
-                @else
-                <img src="{{ default_placeholder_img_src() }}" alt="Product"/>
-                @endif
-            </a>
-          </li>
+                <?php $count ++;?>
+              @endforeach
+              
+            </ul>
           @endif
-          <?php $count ++;?>
-          @endforeach
-          
-        </ul>
-        @endif
-      </div>
+        </div>
 
-    </div>      
+      </div>  
 
-    <div class="col-xs-12 col-sm-7 col-md-7">
+    @endif    
+
+    @if(count($single_product_details['_product_related_images_url']->product_gallery_images) > 0)
+      <div class="col-xs-12 col-sm-7 col-md-7">
+    @else
+      <div class="col-12">
+    @endif
       <div class="model__quick_view_product_info">
         <h2 class="product-title">{{ $single_product_details['post_title'] }}</h2>
 
