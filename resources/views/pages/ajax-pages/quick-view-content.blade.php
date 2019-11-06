@@ -204,7 +204,7 @@
           <hr>
         @endif
 
-        <div class="pt-1 mb-1 store-name">
+        <div class="pt-20 mb-1 store-name">
           <span class="text-medium">{!! trans('frontend.gian-hang') !!}: </span>
           <a href="{{ route('store-details-page-content', get_user_name_by_user_id($single_product_details['_selected_vendor'])) }}" target="_blank">{{ get_user_name_by_user_id($single_product_details['_selected_vendor']) }}</a>
         </div>
