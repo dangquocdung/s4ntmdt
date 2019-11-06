@@ -921,12 +921,7 @@
             <div class="row">  
               <label class="col-sm-7 control-label" for="inputVisibility">{!! trans('admin.enable_product') !!}</label>
               <div class="col-sm-5">
-
-                @if ($user_data['user_role_id'] == 3)
-                  <select class="form-control select2" name="product_visibility" style="width: 100%;" disabled>
-                @else
                   <select class="form-control select2" name="product_visibility" style="width: 100%;">
-                @endif
                     <option selected="selected" value="0">{!! trans('admin.disable') !!}</option>                  
                     <option value="1">{!! trans('admin.enable') !!}</option>
                   </select>  
