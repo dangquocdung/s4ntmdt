@@ -183,7 +183,7 @@
       </div>
       
       <div class="box box-solid product-type-details">
-        <div class="box-header with-border">
+        <div class="box-header with-border" style="display:none">
           <i class="fa fa-text-width"></i>
           <h3 class="box-title">{!! trans('admin.product_type') !!}</h3>
           <div class="box-tools pull-right">
@@ -1528,7 +1528,7 @@
     </div>
     
     <div class="col-md-4">
-      <div class="box box-solid visibility-product">
+      <div class="box box-solid visibility-product" style="{{ (user_data['user_role_id'] == 3)?'display:none':'' }}">
         <div class="box-header with-border">
           <i class="fa fa-eye"></i>
           <h3 class="box-title">{!! trans('admin.visibility') !!}</h3>
