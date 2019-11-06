@@ -58,16 +58,21 @@
     <div class="toolbar-item hidden-on-mobile">
       <a href="#">
         <div>
-          <i class="flag-icon">
-            <img alt="{!! get_frontend_selected_languages_data()['lang_name'] !!}" src="{{ get_image_url(get_frontend_selected_languages_data()['lang_sample_img']) }}">
-          </i>
-          <span class="text-label">VNĐ</span>
+          <span class="compare-icon">
+            <i class="ion-ios-book-outline"></i>
+          </span>
+          <span class="text-label">Hướng dẫn</span>
         </div>
       </a>
     </div>
     <div class="toolbar-item hidden-on-mobile">
       <a href="{{ route('product-comparison-page') }}">
-        <div><span class="compare-icon"><i class="icon-repeat"></i><span class="count-label">{{ $total_compare_item }}</span></span><span class="text-label">{!! trans('frontend.compare_label') !!}</span></div>
+        <div>
+          <span class="compare-icon">
+            <i class="ion-ios-list-outline"></i><span class="count-label">{{ $total_compare_item }}</span>
+          </span>
+          <span class="text-label">{!! trans('frontend.compare_label') !!}</span>
+        </div>
       </a>
     </div>
 
@@ -137,9 +142,21 @@
     <div class="toolbar">
 
       <div class="toolbar-item">
+        <a href="#">
+          <div>
+            <span class="compare-icon">
+              <i class="ion-ios-book-outline"></i>
+            </span>
+            <span class="text-label">Hướng dẫn sử dụng</span>
+          </div>
+        </a>
+      </div>
+
+
+      <div class="toolbar-item">
         <a href="{{ route('product-comparison-page') }}">
           <div>
-            <span class="compare-icon"><i class="icon-repeat"></i><span class="count-label">{{ $total_compare_item }}</span></span>
+            <span class="compare-icon"><i class="ion-ios-list-outline"></i><span class="count-label">{{ $total_compare_item }}</span></span>
             <span class="text-label">{!! trans('frontend.compare_label') !!}</span>
           </div>
         </a>
@@ -163,7 +180,7 @@
           </a>
         @else
           <a href="{{ route('user-account-page') }}">
-          <div><i class="icon-user"></i><span class="text-label">{!! trans('frontend.frontend_user_login') !!}</span></div>
+          <div><i class="ion-ios-contact-outline"></i><span class="text-label">{!! trans('frontend.frontend_user_login') !!}</span></div>
           </a>
         @endif
         
@@ -172,18 +189,18 @@
       <div class="toolbar-item">
         @if (Session::has('shopist_admin_user_id') && !empty(get_current_vendor_user_info()['user_role_slug']) && get_current_vendor_user_info()['user_role_slug'] == 'vendor')
           <a href="{{ route('admin.dashboard') }}">
-            <div><i class="icon-users"></i><span class="text-label">{!! trans('frontend.dashboard_admin') !!}</span></div>
+            <div><i class="ion-ios-people"></i><span class="text-label">{!! trans('frontend.dashboard_admin') !!}</span></div>
           </a>
         @else
           <a href="{{ route('admin.login') }}">
-            <div><i class="icon-users"></i><span class="text-label">{!! trans('frontend.frontend_vendor_login') !!}</span></div>
+            <div><i class="ion-ios-people"></i><span class="text-label">{!! trans('frontend.frontend_vendor_login') !!}</span></div>
           </a>
         @endif
       </div>
 
       <div class="toolbar-item">
           <a href="{{ route('vendor-registration-page') }}">
-            <div><i class="icon-users"></i><span class="text-label">{!! trans('frontend.vendor_registration') !!}</span></div>
+            <div><i class="ion-person-add"></i><span class="text-label">{!! trans('frontend.vendor_registration') !!}</span></div>
           </a>
       </div>
 
@@ -192,13 +209,6 @@
     <nav class="slideable-menu">
       <ul class="menu" data-initial-height="385">
 
-        <li class="{{ Request::is('/')?'active':''}}">
-          <span>
-            <a href="{{ route('home-page') }}">{!! trans('frontend.home') !!}</a>
-
-          </span>
-
-        </li>
 
         <li class="has-children {{ Request::is('ban-quan-tri')?'active':''}}">
           <span>
@@ -233,9 +243,9 @@
 
         <li class="{{ Request::is('thanh-toan')?'active':''}}"><a href="{{ route('checkout-page') }}"><span>{!! trans('frontend.checkout') !!}</span></a></li>
   
-        <li class="has-children {{ Request::is('tin-tuc/*')?'active':''}}">
+        <li class="has-children {{ Request::is('truyen-thong/*')?'active':''}}">
           <span>
-            <a href="{{ route('blogs-page-content') }}"><span>{!! trans('frontend.blog') !!}</span></a>
+            <a href="javascript:void(0)">{!! trans('frontend.truyen-thong') !!}</a>
             <span class="sub-menu-toggle"></span>
           </span>
           <ul class="slideable-submenu">
@@ -244,6 +254,8 @@
             <li><a href="{{ asset('chuyen-muc/truyen-thong/tin-tuc') }}">Tin tức</a></li>
           </ul>
         </li>
+
+        
 
       </ul>
     </nav>
