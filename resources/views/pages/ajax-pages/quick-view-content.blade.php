@@ -190,10 +190,10 @@
         </div> <hr>
 
         @if($single_product_details['post_content'])
-        <p class="text-muted">
-          {!! get_limit_string(string_decode($single_product_details['post_content']),200) !!}
-        </p>
-        <hr>
+          <p class="text-muted">
+            {!! string_decode($single_product_details['post_content']) !!}
+          </p>
+          <hr>
         @endif
 
         <div class="pt-1 mb-1 store-name">
