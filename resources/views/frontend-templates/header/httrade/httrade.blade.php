@@ -58,10 +58,10 @@
     <div class="toolbar-item hidden-on-mobile">
       <a href="#">
         <div>
-          <i class="flag-icon">
-            <img alt="{!! get_frontend_selected_languages_data()['lang_name'] !!}" src="{{ get_image_url(get_frontend_selected_languages_data()['lang_sample_img']) }}">
-          </i>
-          <span class="text-label">VNĐ</span>
+          <span class="compare-icon">
+            <i class="icon-book"></i>
+          </span>
+          <span class="text-label">Hướng dẫn</span>
         </div>
       </a>
     </div>
@@ -135,6 +135,18 @@
     </div>
     <!-- Toolbar-->
     <div class="toolbar">
+
+      <div class="toolbar-item">
+        <a href="#">
+          <div>
+            <span class="compare-icon">
+              <i class="icon-book"></i>
+            </span>
+            <span class="text-label">Hướng dẫn sử dụng</span>
+          </div>
+        </a>
+      </div>
+
 
       <div class="toolbar-item">
         <a href="{{ route('product-comparison-page') }}">
@@ -235,7 +247,7 @@
   
         <li class="has-children {{ Request::is('tin-tuc/*')?'active':''}}">
           <span>
-            <a href="{{ route('blogs-page-content') }}"><span>{!! trans('frontend.blog') !!}</span></a>
+            <a href="{{ route('blogs-page-content') }}"><span>{!! trans('frontend.truyen-thong') !!}</span></a>
             <span class="sub-menu-toggle"></span>
           </span>
           <ul class="slideable-submenu">
