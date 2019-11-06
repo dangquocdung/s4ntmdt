@@ -160,7 +160,7 @@
           <i class="fa fa-text-width"></i>
           <h3 class="box-title">{!! trans('admin.product_type') !!}</h3>
           <div class="box-tools pull-right">
-            <select id="change_product_type" name="change_product_type" class="form-control select2" style="width: 100%;" disabled>
+            <select id="change_product_type" name="change_product_type" class="form-control select2" style="width: 100%;">
               <option selected="selected" value="simple_product">{!! trans('admin.simple_product') !!}</option>
               <option value="configurable_product">{!! trans('admin.configurable_product') !!}</option>
               <option value="customizable_product">{!! trans('admin.customizable_product') !!}</option>
