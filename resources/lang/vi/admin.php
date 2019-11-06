@@ -87,7 +87,7 @@ return [
   'add_design_elements' =>'Quản lý hình ảnh thiết kế',
   'manage_download_files' =>'Quản lý tệp tải xuống',
   'sku' =>'SKU',
-  'unique_field' =>'Trường định danh (duy nhất)',
+  'unique_field' =>'Mã sản phẩm (không được trùng)',
   'regular_price' =>'Giá bán',
   'sale_price' =>'Giá khuyến mãi',
   'create_schedule' =>'Tạo lịch biểu',
