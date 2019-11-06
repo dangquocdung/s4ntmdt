@@ -913,7 +913,7 @@
     <div class="col-md-4">
 
 
-      <div class="box box-solid visibility-product" style="{{ (user_data['user_role_id'] == 3)?'display:none':'' }}">
+      <div class="box box-solid visibility-product" style="{{ ($user_data['user_role_id'] == 3)?'display:none':'' }}">
         <div class="box-header with-border">
           <i class="fa fa-eye"></i>
           <h3 class="box-title">{!! trans('admin.visibility') !!}</h3>
