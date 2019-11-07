@@ -56,7 +56,7 @@ return [
   'comments_list' =>'Danh sách bình luận',
   'product_name' =>'Tên sản phẩm',
   'example_red_t_shirt' =>'Ví dụ - Áo phông đỏ',
-  'product_description' =>'Mô tả tóm tắt sản phẩm',
+  'product_description' =>'Mô tả tóm tắt',
   'product_description_placeholder' =>'Mô tả Sản phẩm......',
   'product_image' =>'Hình ảnh sản phẩm',
   'user_image' =>'Hình ảnh người dùng',
