@@ -48,10 +48,10 @@
       </div>
 
       <div class="box box-solid product-type-details">
-        <div class="box-header with-border" style="display:none">
+        <div class="box-header with-border">
           <i class="fa fa-text-width"></i>
           <h3 class="box-title">{!! trans('admin.product_type') !!}</h3>
-          <div class="box-tools pull-right">
+          <div class="box-tools pull-right" style="display:none">
             <select id="change_product_type" name="change_product_type" class="form-control select2" style="width: 100%;">
               @if($product_post_data['post_type'] == 'simple_product')
                 <option selected="selected" value="simple_product">{!! trans('admin.simple_product') !!}</option>
