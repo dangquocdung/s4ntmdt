@@ -38,123 +38,7 @@
           <textarea id="eb_description_editor" name="eb_description_editor" class="dynamic-editor" placeholder="{{ trans('admin.product_description_placeholder') }}"></textarea>
         </div>
       </div>
-      
-      <div class="box box-solid">
-        <div class="box-header with-border">
-          <i class="fa fa-upload"></i>
-          <h3 class="box-title">{!! trans('admin.product_image') !!}</h3>
-          <div class="box-tools pull-right">
-            <div data-toggle="modal" data-dropzone_id="eb_dropzone_file_upload" data-target="#productUploader" class="icon product-uploader">{!! trans('admin.upload_image') !!}</div>
-          </div>
-        </div>
-        <div class="box-body">
-          <div class="uploaded-product-image">
-            <div class="product-sample-img"><img class="upload-icon img-responsive" src="{{ default_upload_sample_img_src() }}"></div>
-            <div class="product-uploaded-image"><img class="img-responsive"><div class="remove-img-link"><button type="button" data-target="product_image" class="btn btn-default attachtopost">{!! trans('admin.remove_image') !!}</button></div></div>
-          </div>
-            
-          <div class="modal fade" id="productUploader" tabindex="-1" role="dialog" aria-labelledby="updater" aria-hidden="true">
-            <div class="modal-dialog">
-              <div class="modal-content">
-                <div class="modal-header">
-                  <p class="no-margin">{!! trans('admin.you_can_upload_1_image') !!}</p>
-                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                  </button>
-                </div>   
-                <div class="modal-body">             
-                  <div class="uploadform dropzone no-margin dz-clickable eb_dropzone_file_upload" id="eb_dropzone_file_upload" name="eb_dropzone_file_upload">
-                    <div class="dz-default dz-message">
-                      <span>{!! trans('admin.drop_your_cover_picture_here') !!}</span>
-                    </div>
-                  </div>
-                </div>
-                <div class="modal-footer">
-                  <button type="button" class="btn btn-default attachtopost" data-dismiss="modal">{!! trans('admin.close') !!}</button>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      
-      <div class="box box-solid">
-        <div class="box-header with-border">
-          <i class="fa fa-upload"></i>
-          <h3 class="box-title">{!! trans('admin.gallery_images') !!}</h3>
-          <div class="box-tools pull-right">
-            <div data-toggle="modal" data-dropzone_id="eb_dropzone_gallery_image_file_upload" data-target="#productGalleryUploader" class="icon product-gallery-uploader">{!! trans('admin.upload_image') !!}</div>
-          </div>
-        </div>
-        <div class="box-body">
-          <div class="uploaded-product-gallery-image">
-            <div class="product-gallery-sample-img"><img class="gallery-upload-icon img-responsive" src="{{ default_upload_sample_img_src() }}"></div>
-            <div class="product-uploaded-gallery-image"></div>
-          </div>  
-          <div class="modal fade" id="productGalleryUploader" tabindex="-1" role="dialog" aria-labelledby="updater" aria-hidden="true">
-            <div class="modal-dialog">
-              <div class="modal-content">
-                <div class="modal-header">
-                  <p class="no-margin">{!! trans('admin.you_can_upload_10_image') !!}</p>
-                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                  </button>
-                </div>   
-                <div class="modal-body">             
-                  <div class="uploadform dropzone no-margin dz-clickable eb_dropzone_gallery_image_file_upload" id="eb_dropzone_gallery_image_file_upload" name="eb_dropzone_gallery_image_file_upload">
-                    <div class="dz-default dz-message">
-                      <span>{!! trans('admin.drop_your_cover_picture_here') !!}</span>
-                    </div>
-                  </div>
-                </div>
-                <div class="modal-footer">
-                  <button type="button" class="btn btn-default attachtopost" data-dismiss="modal">{!! trans('admin.close') !!}</button>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      
-      <div class="box box-solid">
-        <div class="box-header with-border">
-          <i class="fa fa-upload"></i>
-          <h3 class="box-title">{!! trans('admin.shop_banner') !!}</h3>
-          <div class="box-tools pull-right">
-            <div data-toggle="modal" data-dropzone_id="eb_dropzone_banner_file_upload" data-target="#shopbannerUploader" class="icon shop-banner-uploader">{!! trans('admin.upload_image') !!}</div>
-          </div>
-        </div>
-        <div class="box-body">
-          <div class="uploaded-banner-image">
-            <div class="banner-sample-img"><img class="banner-upload-icon img-responsive" src="{{ default_upload_sample_img_src() }}"></div>
-            <div class="banner-uploaded-image"><img class="img-responsive"><div class="remove-img-link banner-img-remove"><button type="button" class="btn btn-default attachtopost">{!! trans('admin.remove_image') !!}</button></div></div>
-          </div>
-            
-          <div class="modal fade" id="shopbannerUploader" tabindex="-1" role="dialog" aria-labelledby="updater" aria-hidden="true">
-            <div class="modal-dialog">
-              <div class="modal-content">
-                <div class="modal-header">
-                  <p class="no-margin">{!! trans('admin.you_can_upload_1_image') !!}</p>
-                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                  </button>
-                </div>   
-                <div class="modal-body">             
-                  <div class="uploadform dropzone no-margin dz-clickable eb_dropzone_banner_file_upload" id="eb_dropzone_banner_file_upload" name="eb_dropzone_banner_file_upload">
-                    <div class="dz-default dz-message">
-                      <span>{!! trans('admin.drop_your_cover_picture_here') !!}</span>
-                    </div>
-                  </div>
-                </div>
-                <div class="modal-footer">
-                  <button type="button" class="btn btn-default attachtopost" data-dismiss="modal">{!! trans('admin.close') !!}</button>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      
+
       <div class="box box-solid product-type-details">
         <div class="box-header with-border">
           <i class="fa fa-text-width"></i>
@@ -663,6 +547,124 @@
           </div>
         </div>
       </div>
+
+      
+      <div class="box box-solid">
+        <div class="box-header with-border">
+          <i class="fa fa-upload"></i>
+          <h3 class="box-title">{!! trans('admin.product_image') !!}</h3>
+          <div class="box-tools pull-right">
+            <div data-toggle="modal" data-dropzone_id="eb_dropzone_file_upload" data-target="#productUploader" class="icon product-uploader">{!! trans('admin.upload_image') !!}</div>
+          </div>
+        </div>
+        <div class="box-body">
+          <div class="uploaded-product-image">
+            <div class="product-sample-img"><img class="upload-icon img-responsive" src="{{ default_upload_sample_img_src() }}"></div>
+            <div class="product-uploaded-image"><img class="img-responsive"><div class="remove-img-link"><button type="button" data-target="product_image" class="btn btn-default attachtopost">{!! trans('admin.remove_image') !!}</button></div></div>
+          </div>
+            
+          <div class="modal fade" id="productUploader" tabindex="-1" role="dialog" aria-labelledby="updater" aria-hidden="true">
+            <div class="modal-dialog">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <p class="no-margin">{!! trans('admin.you_can_upload_1_image') !!}</p>
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>   
+                <div class="modal-body">             
+                  <div class="uploadform dropzone no-margin dz-clickable eb_dropzone_file_upload" id="eb_dropzone_file_upload" name="eb_dropzone_file_upload">
+                    <div class="dz-default dz-message">
+                      <span>{!! trans('admin.drop_your_cover_picture_here') !!}</span>
+                    </div>
+                  </div>
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-default attachtopost" data-dismiss="modal">{!! trans('admin.close') !!}</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="box box-solid">
+        <div class="box-header with-border">
+          <i class="fa fa-upload"></i>
+          <h3 class="box-title">{!! trans('admin.gallery_images') !!}</h3>
+          <div class="box-tools pull-right">
+            <div data-toggle="modal" data-dropzone_id="eb_dropzone_gallery_image_file_upload" data-target="#productGalleryUploader" class="icon product-gallery-uploader">{!! trans('admin.upload_image') !!}</div>
+          </div>
+        </div>
+        <div class="box-body">
+          <div class="uploaded-product-gallery-image">
+            <div class="product-gallery-sample-img"><img class="gallery-upload-icon img-responsive" src="{{ default_upload_sample_img_src() }}"></div>
+            <div class="product-uploaded-gallery-image"></div>
+          </div>  
+          <div class="modal fade" id="productGalleryUploader" tabindex="-1" role="dialog" aria-labelledby="updater" aria-hidden="true">
+            <div class="modal-dialog">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <p class="no-margin">{!! trans('admin.you_can_upload_10_image') !!}</p>
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>   
+                <div class="modal-body">             
+                  <div class="uploadform dropzone no-margin dz-clickable eb_dropzone_gallery_image_file_upload" id="eb_dropzone_gallery_image_file_upload" name="eb_dropzone_gallery_image_file_upload">
+                    <div class="dz-default dz-message">
+                      <span>{!! trans('admin.drop_your_cover_picture_here') !!}</span>
+                    </div>
+                  </div>
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-default attachtopost" data-dismiss="modal">{!! trans('admin.close') !!}</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="box box-solid" style="display:none">
+        <div class="box-header with-border">
+          <i class="fa fa-upload"></i>
+          <h3 class="box-title">{!! trans('admin.shop_banner') !!}</h3>
+          <div class="box-tools pull-right">
+            <div data-toggle="modal" data-dropzone_id="eb_dropzone_banner_file_upload" data-target="#shopbannerUploader" class="icon shop-banner-uploader">{!! trans('admin.upload_image') !!}</div>
+          </div>
+        </div>
+        <div class="box-body">
+          <div class="uploaded-banner-image">
+            <div class="banner-sample-img"><img class="banner-upload-icon img-responsive" src="{{ default_upload_sample_img_src() }}"></div>
+            <div class="banner-uploaded-image"><img class="img-responsive"><div class="remove-img-link banner-img-remove"><button type="button" class="btn btn-default attachtopost">{!! trans('admin.remove_image') !!}</button></div></div>
+          </div>
+            
+          <div class="modal fade" id="shopbannerUploader" tabindex="-1" role="dialog" aria-labelledby="updater" aria-hidden="true">
+            <div class="modal-dialog">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <p class="no-margin">{!! trans('admin.you_can_upload_1_image') !!}</p>
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>   
+                <div class="modal-body">             
+                  <div class="uploadform dropzone no-margin dz-clickable eb_dropzone_banner_file_upload" id="eb_dropzone_banner_file_upload" name="eb_dropzone_banner_file_upload">
+                    <div class="dz-default dz-message">
+                      <span>{!! trans('admin.drop_your_cover_picture_here') !!}</span>
+                    </div>
+                  </div>
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-default attachtopost" data-dismiss="modal">{!! trans('admin.close') !!}</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      
 						
       <div class="box box-solid">
           <div class="box-header with-border">
