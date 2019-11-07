@@ -152,7 +152,10 @@
         color: $nav-link-color;
         font-size: $widget-link-font-size;
         text-decoration: none;
-        &:hover { color: $nav-link-hover-color; }
+        &:hover { 
+          color: $nav-link-hover-color; 
+          font-weight: 600;
+        }
       }
       &.active > a { color: $nav-link-active-color; }
       > span {
@@ -172,7 +175,14 @@
               background-color: darken($border-color, 1%);
               color: transparent;
             }
-            a { font-size: $widget-link-font-size; }
+            a { 
+              font-size: $widget-link-font-size; 
+              &:hover { 
+                color: $nav-link-hover-color; 
+                font-weight: 600;
+              }
+      
+            }
           }
           ul > li { margin-bottom: 0; }
         }
