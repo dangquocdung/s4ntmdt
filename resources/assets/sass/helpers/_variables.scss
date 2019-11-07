@@ -129,8 +129,8 @@ $navbar-stuck-shadow: 0 7px 30px -6px rgba(0, 0, 0, .15);
 $nav-link-font-size: ceil($font-size-base * .9375); // 15px
 $nav-link-font-weight: normal;
 $nav-link-color: $gray-dark;
-$nav-link-hover-color: $brand-primary;
-$nav-link-active-color: $brand-primary;
+$nav-link-hover-color: $brand-danger;
+$nav-link-active-color: $brand-danger;
 // Sub Menu / Mega Menu
 $sub-menu-width: 200px;
 $sub-menu-shadow: 0 7px 22px -5px rgba($black-color, .2);
