@@ -73,7 +73,7 @@ return [
   'close' =>'Hủy',
   'gallery_images' =>'Thư viện ảnh',
   'shop_banner' =>'Biểu ngữ gian hàng',
-  'product_type' =>'Loại sản phẩm',
+  'product_type' =>'Tính năng, đặc điểm sản phẩm',
   'simple_product' =>'Sản phẩm đơn giản',
   'configurable_product' =>'Sản phẩm có thể định cấu hình',
   'customizable_product' =>'Sản phẩm có thể tùy chỉnh',
