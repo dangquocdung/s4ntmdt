@@ -46,142 +46,7 @@
           </textarea>
         </div>
       </div>
-      
-      <div class="box box-solid">
-        <div class="box-header with-border">
-          <i class="fa fa-upload"></i>
-          <h3 class="box-title">{!! trans('admin.product_image') !!}</h3>
-          <div class="box-tools pull-right">
-            <div data-toggle="modal" data-dropzone_id="eb_dropzone_file_upload" data-target="#productUploader" class="icon product-uploader">{!! trans('admin.upload_image') !!}</div>
-          </div>
-        </div>
-        <div class="box-body">
-          <div class="uploaded-product-image">
-            @if($product_post_data['_product_related_images_url']->product_image && $product_post_data['_product_related_images_url']->product_image != '/images/upload.png')
-            <div class="product-sample-img" style="display:none;"><img class="upload-icon img-responsive" src="{{ default_upload_sample_img_src() }}"></div>
-            <div class="product-uploaded-image" style="display:block;"><img class="img-responsive" src="{{ get_image_url($product_post_data['_product_related_images_url']->product_image) }}"><div class="remove-img-link"><button type="button" data-target="product_image" class="btn btn-default attachtopost">{!! trans('admin.remove_image') !!}</button></div></div>
-            @else
-            <div class="product-sample-img" style="display:block;"><img class="upload-icon img-responsive" src="{{ default_upload_sample_img_src() }}"></div>
-            <div class="product-uploaded-image" style="display:none;"><img class="img-responsive"><div class="remove-img-link"><button type="button" data-target="product_image" class="btn btn-default attachtopost">{!! trans('admin.remove_image') !!}</button></div></div>
-            @endif
-          </div>
-            
-          <div class="modal fade" id="productUploader" tabindex="-1" role="dialog" aria-labelledby="updater" aria-hidden="true">
-            <div class="modal-dialog">
-              <div class="modal-content">
-                <div class="modal-header">
-                  <p class="no-margin">{!! trans('admin.you_can_upload_1_image') !!}</p>
-                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                  </button>
-                </div> 
-                <div class="modal-body">             
-                  <div class="uploadform dropzone no-margin dz-clickable eb_dropzone_file_upload" id="eb_dropzone_file_upload" name="eb_dropzone_file_upload">
-                    <div class="dz-default dz-message">
-                      <span>{!! trans('admin.drop_your_cover_picture_here') !!}</span>
-                    </div>
-                  </div>
-                </div>
-                <div class="modal-footer">
-                  <button type="button" class="btn btn-default attachtopost" data-dismiss="modal">{!! trans('admin.close') !!}</button>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      
-      <div class="box box-solid">
-        <div class="box-header with-border">
-          <i class="fa fa-upload"></i>
-          <h3 class="box-title">{!! trans('admin.gallery_images') !!}</h3>
-          <div class="box-tools pull-right">
-            <div data-toggle="modal" data-dropzone_id="eb_dropzone_gallery_image_file_upload" data-target="#productGalleryUploader" class="icon product-gallery-uploader">{!! trans('admin.upload_image') !!}</div>
-          </div>
-        </div>
-        <div class="box-body">
-          <div class="uploaded-product-gallery-image">
-            @if(count($product_post_data['_product_related_images_url']->product_gallery_images)>0)
-            <div class="product-uploaded-gallery-image" style="display:block;">
-              @foreach($product_post_data['_product_related_images_url']->product_gallery_images as $data)
-              <div class="gallery-image-single-container"><img class="img-responsive" src="{{ get_image_url($data->url) }}"><div data-id="{{ $data->id }}" class="remove-gallery-img-link"></div></div>
-              @endforeach
-            </div>
-            <div class="product-gallery-sample-img" style="display:none;"><img class="gallery-upload-icon img-responsive" src="{{ default_upload_sample_img_src() }}"></div>
-            @else
-            <div class="product-gallery-sample-img"><img class="gallery-upload-icon img-responsive" src="{{ default_upload_sample_img_src() }}"></div>
-            <div class="product-uploaded-gallery-image"></div>
-            @endif
-          </div>  
-          <div class="modal fade" id="productGalleryUploader" tabindex="-1" role="dialog" aria-labelledby="updater" aria-hidden="true">
-            <div class="modal-dialog">
-              <div class="modal-content">
-                <div class="modal-header">
-                  <p class="no-margin">{!! trans('admin.you_can_upload_10_image') !!}</p>
-                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                  </button>
-                </div> 
-                <div class="modal-body">             
-                  <div class="uploadform dropzone no-margin dz-clickable eb_dropzone_gallery_image_file_upload" id="eb_dropzone_gallery_image_file_upload" name="eb_dropzone_gallery_image_file_upload">
-                    <div class="dz-default dz-message">
-                      <span>{!! trans('admin.drop_your_cover_picture_here') !!}</span>
-                    </div>
-                  </div>
-                </div>
-                <div class="modal-footer">
-                  <button type="button" class="btn btn-default attachtopost" data-dismiss="modal">{!! trans('admin.close') !!}</button>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      
-      <div class="box box-solid">
-        <div class="box-header with-border">
-          <i class="fa fa-upload"></i>
-          <h3 class="box-title">{!! trans('admin.shop_banner') !!}</h3>
-          <div class="box-tools pull-right">
-            <div data-toggle="modal" data-dropzone_id="eb_dropzone_banner_file_upload" data-target="#shopbannerUploader" class="icon shop-banner-uploader">{!! trans('admin.upload_image') !!}</div>
-          </div>
-        </div>
-        <div class="box-body">
-          <div class="uploaded-banner-image">
-            @if($product_post_data['_product_related_images_url']->shop_banner_image && $product_post_data['_product_related_images_url']->shop_banner_image != '/images/upload.png')
-            <div class="banner-uploaded-image" style="display:block;"><img class="img-responsive" src="{{ get_image_url($product_post_data['_product_related_images_url']->shop_banner_image) }}"><div class="remove-img-link banner-img-remove"><button type="button" class="btn btn-default attachtopost">{!! trans('admin.remove_image') !!}</button></div></div>
-            <div class="banner-sample-img" style="display:none;"><img class="banner-upload-icon img-responsive" src="{{ default_upload_sample_img_src() }}"></div>
-            @else
-            <div class="banner-sample-img"><img class="banner-upload-icon img-responsive" src="{{ default_upload_sample_img_src() }}"></div>
-            <div class="banner-uploaded-image"><img class="img-responsive"><div class="remove-img-link banner-img-remove"><button type="button" class="btn btn-default attachtopost">{!! trans('admin.remove_image') !!}</button></div></div>
-            @endif
-          </div>
-            
-          <div class="modal fade" id="shopbannerUploader" tabindex="-1" role="dialog" aria-labelledby="updater" aria-hidden="true">
-            <div class="modal-dialog">
-              <div class="modal-content">
-                <div class="modal-header">
-                  <p class="no-margin">{!! trans('admin.you_can_upload_1_image') !!}</p>
-                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                  </button>
-                </div> 
-                <div class="modal-body">             
-                  <div class="uploadform dropzone no-margin dz-clickable eb_dropzone_banner_file_upload" id="eb_dropzone_banner_file_upload" name="eb_dropzone_banner_file_upload">
-                    <div class="dz-default dz-message">
-                      <span>{!! trans('admin.drop_your_cover_picture_here') !!}</span>
-                    </div>
-                  </div>
-                </div>
-                <div class="modal-footer">
-                  <button type="button" class="btn btn-default attachtopost" data-dismiss="modal">{!! trans('admin.close') !!}</button>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      
+
       <div class="box box-solid product-type-details">
         <div class="box-header with-border" style="display:none">
           <i class="fa fa-text-width"></i>
@@ -970,7 +835,8 @@
                     </table>
                   </div>
                 </div>
-              </div><!-- /.tab-pane -->
+              </div>
+              <!-- /.tab-pane -->
               
               <div class="tab-custom-design tab-pane fade" id="tab_custom_design">          
                 <div class="form-group">
@@ -1184,10 +1050,146 @@
                 </div>
               </div>
             </div>
-<!--          </div> nav-tabs-custom -->
           </div>
         </div>
       </div>
+
+      
+      <div class="box box-solid">
+        <div class="box-header with-border">
+          <i class="fa fa-upload"></i>
+          <h3 class="box-title">{!! trans('admin.product_image') !!}</h3>
+          <div class="box-tools pull-right">
+            <div data-toggle="modal" data-dropzone_id="eb_dropzone_file_upload" data-target="#productUploader" class="icon product-uploader">{!! trans('admin.upload_image') !!}</div>
+          </div>
+        </div>
+        <div class="box-body">
+          <div class="uploaded-product-image">
+            @if($product_post_data['_product_related_images_url']->product_image && $product_post_data['_product_related_images_url']->product_image != '/images/upload.png')
+            <div class="product-sample-img" style="display:none;"><img class="upload-icon img-responsive" src="{{ default_upload_sample_img_src() }}"></div>
+            <div class="product-uploaded-image" style="display:block;"><img class="img-responsive" src="{{ get_image_url($product_post_data['_product_related_images_url']->product_image) }}"><div class="remove-img-link"><button type="button" data-target="product_image" class="btn btn-default attachtopost">{!! trans('admin.remove_image') !!}</button></div></div>
+            @else
+            <div class="product-sample-img" style="display:block;"><img class="upload-icon img-responsive" src="{{ default_upload_sample_img_src() }}"></div>
+            <div class="product-uploaded-image" style="display:none;"><img class="img-responsive"><div class="remove-img-link"><button type="button" data-target="product_image" class="btn btn-default attachtopost">{!! trans('admin.remove_image') !!}</button></div></div>
+            @endif
+          </div>
+            
+          <div class="modal fade" id="productUploader" tabindex="-1" role="dialog" aria-labelledby="updater" aria-hidden="true">
+            <div class="modal-dialog">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <p class="no-margin">{!! trans('admin.you_can_upload_1_image') !!}</p>
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </div> 
+                <div class="modal-body">             
+                  <div class="uploadform dropzone no-margin dz-clickable eb_dropzone_file_upload" id="eb_dropzone_file_upload" name="eb_dropzone_file_upload">
+                    <div class="dz-default dz-message">
+                      <span>{!! trans('admin.drop_your_cover_picture_here') !!}</span>
+                    </div>
+                  </div>
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-default attachtopost" data-dismiss="modal">{!! trans('admin.close') !!}</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="box box-solid">
+        <div class="box-header with-border">
+          <i class="fa fa-upload"></i>
+          <h3 class="box-title">{!! trans('admin.gallery_images') !!}</h3>
+          <div class="box-tools pull-right">
+            <div data-toggle="modal" data-dropzone_id="eb_dropzone_gallery_image_file_upload" data-target="#productGalleryUploader" class="icon product-gallery-uploader">{!! trans('admin.upload_image') !!}</div>
+          </div>
+        </div>
+        <div class="box-body">
+          <div class="uploaded-product-gallery-image">
+            @if(count($product_post_data['_product_related_images_url']->product_gallery_images)>0)
+            <div class="product-uploaded-gallery-image" style="display:block;">
+              @foreach($product_post_data['_product_related_images_url']->product_gallery_images as $data)
+              <div class="gallery-image-single-container"><img class="img-responsive" src="{{ get_image_url($data->url) }}"><div data-id="{{ $data->id }}" class="remove-gallery-img-link"></div></div>
+              @endforeach
+            </div>
+            <div class="product-gallery-sample-img" style="display:none;"><img class="gallery-upload-icon img-responsive" src="{{ default_upload_sample_img_src() }}"></div>
+            @else
+            <div class="product-gallery-sample-img"><img class="gallery-upload-icon img-responsive" src="{{ default_upload_sample_img_src() }}"></div>
+            <div class="product-uploaded-gallery-image"></div>
+            @endif
+          </div>  
+          <div class="modal fade" id="productGalleryUploader" tabindex="-1" role="dialog" aria-labelledby="updater" aria-hidden="true">
+            <div class="modal-dialog">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <p class="no-margin">{!! trans('admin.you_can_upload_10_image') !!}</p>
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </div> 
+                <div class="modal-body">             
+                  <div class="uploadform dropzone no-margin dz-clickable eb_dropzone_gallery_image_file_upload" id="eb_dropzone_gallery_image_file_upload" name="eb_dropzone_gallery_image_file_upload">
+                    <div class="dz-default dz-message">
+                      <span>{!! trans('admin.drop_your_cover_picture_here') !!}</span>
+                    </div>
+                  </div>
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-default attachtopost" data-dismiss="modal">{!! trans('admin.close') !!}</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="box box-solid" style="display:none">
+        <div class="box-header with-border">
+          <i class="fa fa-upload"></i>
+          <h3 class="box-title">{!! trans('admin.shop_banner') !!}</h3>
+          <div class="box-tools pull-right">
+            <div data-toggle="modal" data-dropzone_id="eb_dropzone_banner_file_upload" data-target="#shopbannerUploader" class="icon shop-banner-uploader">{!! trans('admin.upload_image') !!}</div>
+          </div>
+        </div>
+        <div class="box-body">
+          <div class="uploaded-banner-image">
+            @if($product_post_data['_product_related_images_url']->shop_banner_image && $product_post_data['_product_related_images_url']->shop_banner_image != '/images/upload.png')
+            <div class="banner-uploaded-image" style="display:block;"><img class="img-responsive" src="{{ get_image_url($product_post_data['_product_related_images_url']->shop_banner_image) }}"><div class="remove-img-link banner-img-remove"><button type="button" class="btn btn-default attachtopost">{!! trans('admin.remove_image') !!}</button></div></div>
+            <div class="banner-sample-img" style="display:none;"><img class="banner-upload-icon img-responsive" src="{{ default_upload_sample_img_src() }}"></div>
+            @else
+            <div class="banner-sample-img"><img class="banner-upload-icon img-responsive" src="{{ default_upload_sample_img_src() }}"></div>
+            <div class="banner-uploaded-image"><img class="img-responsive"><div class="remove-img-link banner-img-remove"><button type="button" class="btn btn-default attachtopost">{!! trans('admin.remove_image') !!}</button></div></div>
+            @endif
+          </div>
+            
+          <div class="modal fade" id="shopbannerUploader" tabindex="-1" role="dialog" aria-labelledby="updater" aria-hidden="true">
+            <div class="modal-dialog">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <p class="no-margin">{!! trans('admin.you_can_upload_1_image') !!}</p>
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </div> 
+                <div class="modal-body">             
+                  <div class="uploadform dropzone no-margin dz-clickable eb_dropzone_banner_file_upload" id="eb_dropzone_banner_file_upload" name="eb_dropzone_banner_file_upload">
+                    <div class="dz-default dz-message">
+                      <span>{!! trans('admin.drop_your_cover_picture_here') !!}</span>
+                    </div>
+                  </div>
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-default attachtopost" data-dismiss="modal">{!! trans('admin.close') !!}</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      
       
       <div class="box box-solid">
         <div class="box-header with-border">
