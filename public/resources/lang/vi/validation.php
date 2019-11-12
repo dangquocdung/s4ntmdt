@@ -126,7 +126,7 @@ return [
     'shipping_fill_zip_postal_field' =>'vui lòng điền vào vận chuyển Zip hoặc trường Mã bưu điện',
     'shipping_fill_phone_number_field' =>'vui lòng điền vào trường Số điện thoại vận chuyển',
     'fill_payment_gateway' =>'vui lòng chọn Cổng thanh toán',
-    'stripe_required_msg' =>'Khóa mã thông báo sọc cần tiếp tục quá trình',
+    'stripe_required_msg' =>'Khóa mã thông báo thanh toán thẻ quốc tế cần tiếp tục quá trình',
     'twocheckout_required_msg' =>'Key Khóa mã thông báo TwoCheckout cần tiếp tục quá trình',
     'display_name_required' =>'Vui lòng điền vào trường Tên hiển thị',
     'user_name_required' =>'Vui lòng điền vào trường Tên người dùng',

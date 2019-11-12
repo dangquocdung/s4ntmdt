@@ -1,6 +1,6 @@
 {
     "proceed_to_payPal": "Tiếp tục với PayPal",
-    "proceed_to_stripe": "Tiến hành sọc",
+    "proceed_to_stripe": "Tiến hành thanh toán thẻ quốc tế",
     "proceed_to_2checkout": "Tiếp tục với 2 lần kiểm tra",
     "place_order": "Đặt hàng",
     "please_enter_valid_email": "Vui lòng nhập email hợp lệ",
@@ -38,7 +38,7 @@
     "coupon_added_msg": "Phiếu giảm giá của bạn đã được thêm thành công",
     "coupon_label": "Giảm giá",
     "remove_coupon_label": "Xóa phiếu giảm giá",
-    "stripe_api_empty_msg": "Cần khóa bí mật sọc và khóa có thể xuất bản để tiếp tục quá trình tiếp theo",
+    "stripe_api_empty_msg": "Cần khóa bí mật thanh toán thẻ quốc tế và khóa có thể xuất bản để tiếp tục quá trình tiếp theo",
     "twocheckout_api_empty_msg": "Cần 2 người bán hoặc số tài khoản và khóa có thể xuất bản để tiếp tục quá trình tiếp theo",
     "compare_data_saved_msg": "Mục này được thêm thành công vào danh sách so sánh",
     "compare_data_exists_msg": "Mục này đã được thêm vào danh sách so sánh",
