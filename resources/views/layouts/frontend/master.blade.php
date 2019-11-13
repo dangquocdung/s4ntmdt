@@ -160,7 +160,7 @@
     <script type="text/javascript" src="{{ URL::asset('/common/base64.js') }}"></script>
     <script type="text/javascript" src="{{ URL::asset('/plugins/iCheck/icheck.min.js') }}"></script>
 
-    <script type='text/javascript' src='http://docs.dungthinh.com/embed-doc.js'></script>
+    <script type='text/javascript' src='http://docs.dungthinh.com/dist/js/embed-docsyard-app.min.js'></script>
     <script type='text/javascript'>Docsyard.load("e888050a-a8c8-4112-a293-1ab7bd6d00d1");</script>
             
 
