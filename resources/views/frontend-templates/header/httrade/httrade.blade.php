@@ -224,7 +224,7 @@
             </li>
             <li>
               <a href="http://docs.dungthinh.com/docs/san-gdtmdt-ha-tinh/2.1" target="_blank">
-                <span>{!! trans('frontend.ban-quan-tri') !!}</span>
+                <span>Tài liệu Hướng dẫn sử dụng</span>
               </a>
             </li>
 
@@ -314,7 +314,7 @@
           </li>
           <li>
             <a href="http://docs.dungthinh.com/docs/san-gdtmdt-ha-tinh/2.1" target="_blank">
-              <span>{!! trans('frontend.ban-quan-tri') !!}</span>
+              <span>Tài liệu Hướng dẫn sử dụng</span>
             </a>
           </li>
 
