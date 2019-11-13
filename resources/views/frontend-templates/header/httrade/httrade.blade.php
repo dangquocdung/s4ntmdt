@@ -56,7 +56,7 @@
       </a>
     </div>
     <div class="toolbar-item hidden-on-mobile">
-      <a href="javascript:void(0)" id="docsyardButton">
+      <a href="http://docs.dungthinh.com/docs/san-gdtmdt-ha-tinh/2.1" target="_blank">
         <div>
           <span class="compare-icon">
             <i class="ion-ios-book-outline"></i>
@@ -142,7 +142,7 @@
     <div class="toolbar">
 
       <div class="toolbar-item">
-        <a href="#">
+        <a href="http://docs.dungthinh.com/docs/san-gdtmdt-ha-tinh/2.1" target="_blank">
           <div>
             <span class="compare-icon">
               <i class="ion-ios-book-outline"></i>
