@@ -56,7 +56,7 @@
       </a>
     </div>
     <div class="toolbar-item hidden-on-mobile">
-      <a href="#">
+      <a href="javascript:void(0)" id="docsyardButton">
         <div>
           <span class="compare-icon">
             <i class="ion-ios-book-outline"></i>
