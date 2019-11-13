@@ -59,7 +59,7 @@
       <a href="http://docs.dungthinh.com/docs/san-gdtmdt-ha-tinh/2.1" target="_blank">
         <div>
           <span class="compare-icon">
-            <i class="ion-ios-book-outline"></i>
+            <i class="ion-ios-book" style="color:red"></i>
           </span>
           <span class="text-label">Hướng dẫn SD</span>
         </div>
@@ -145,13 +145,12 @@
         <a href="http://docs.dungthinh.com/docs/san-gdtmdt-ha-tinh/2.1" target="_blank">
           <div>
             <span class="compare-icon">
-              <i class="ion-ios-book-outline"></i>
+              <i class="ion-ios-book" style="color:red"></i>
             </span>
             <span class="text-label">Hướng dẫn sử dụng</span>
           </div>
         </a>
       </div>
-
 
       <div class="toolbar-item">
         <a href="{{ route('product-comparison-page') }}">
@@ -209,14 +208,28 @@
     <nav class="slideable-menu">
       <ul class="menu" data-initial-height="385">
 
-
         <li class="has-children {{ Request::is('ban-quan-tri')?'active':''}}">
           <span>
           
-            <a href="{{ route('ban-quan-tri') }})">{!! trans('frontend.ban-quan-tri') !!}</a>
+            <a href="javascript:void(0)">{!! trans('frontend.gioi-thieu') !!}</a>
+            <span class="sub-menu-toggle"></span>
+
 
           </span>
-  
+
+          <ul class="slideable-submenu">
+
+            <li>
+              <a href="{{ route('ban-quan-tri') }}"><span>{!! trans('frontend.ban-quan-tri') !!}</span></a>
+            </li>
+            <li>
+              <a href="http://docs.dungthinh.com/docs/san-gdtmdt-ha-tinh/2.1" target="_blank">
+                <span>{!! trans('frontend.ban-quan-tri') !!}</span>
+              </a>
+            </li>
+
+          </ul>
+
         </li>
   
         <li class="has-children {{ Request::is('danh-muc-san-pham')?'active':''}}">
@@ -255,8 +268,6 @@
           </ul>
         </li>
 
-        
-
       </ul>
     </nav>
   </div>
@@ -294,7 +305,20 @@
 
       <li class="{{ Request::is('ban-quan-tri')?'active':''}}">
         
-        <a href="{{ route('ban-quan-tri') }}"><span>{!! trans('frontend.ban-quan-tri') !!}</span></a>
+        <a href="javascript:void(0)"><span>{!! trans('frontend.gioi-thieu') !!}</span></a>
+
+        <ul class="sub-menu">
+
+          <li>
+            <a href="{{ route('ban-quan-tri') }}"><span>{!! trans('frontend.ban-quan-tri') !!}</span></a>
+          </li>
+          <li>
+            <a href="http://docs.dungthinh.com/docs/san-gdtmdt-ha-tinh/2.1" target="_blank">
+              <span>{!! trans('frontend.ban-quan-tri') !!}</span>
+            </a>
+          </li>
+
+        </ul>
 
       </li>
       
