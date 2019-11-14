@@ -215,7 +215,7 @@ return [
   'name' =>'Tên',
   'slug' =>'Đường dẫn thân thiện SEO',
   'enter_unique_slug_name' =>'Nhập đường dẫn thân thiện SEO',
-  'description' =>'Mô tả',
+  'description' =>'Nội dung',
   'status' =>'Trạng thái',
   'create_tag' =>'Tạo thẻ',
   'create_attrs' =>'Tạo thuộc tính',
