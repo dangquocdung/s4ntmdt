@@ -43,6 +43,9 @@ class RouteServiceProvider extends ServiceProvider
 
         $this->mapAjaxRoutes();
 
+        $this->mapAppRoutes();
+
+
         //
     }
 
@@ -73,6 +76,14 @@ class RouteServiceProvider extends ServiceProvider
              ->namespace($this->namespace)
              ->group(base_path('routes/ajax.php'));
     }
+
+    protected function mapAppRoutes()
+    {
+        Route::middleware('web')
+             ->namespace($this->namespace)
+             ->group(base_path('routes/mobileapp.php'));
+    }
+
 
     /**
      * Define the "api" routes for the application.
