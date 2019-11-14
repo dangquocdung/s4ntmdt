@@ -68,7 +68,7 @@
     </div>
     {{-- <hr class="hr-light mt-2 margin-bottom-2x hidden-md-down"> --}}
     <div class="row">
-        <div class="col-md-8">
+        <div class="col-md-7">
             <!-- Contact Info-->
             <section class="widget widget-light-skin">
 
@@ -97,7 +97,7 @@
             </section>
         </div>
     
-        <div class="col-md-2">
+        <div class="col-md-3">
             <section class="widget widget-light-skin">
                 <h3 class="widget-title">Chứng nhận</h3>
                 <a href="http://online.gov.vn/HomePage/WebsiteDisplay.aspx?DocId=19094">
