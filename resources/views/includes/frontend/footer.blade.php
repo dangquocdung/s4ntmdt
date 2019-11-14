@@ -84,11 +84,25 @@
                 </ul>
             </section>
         </div>
-        <div class="col-md-4">
+        <div class="col-md-2">
+            <section class="widget widget-light-skin">
+                <h3 class="widget-title">Ứng dụng di động</h3>
+                <a class="market-button apple-button mb-light-skin" href="#">
+                    <span class="mb-subtitle">Download on the</span><span class="mb-title">App Store</span>
+                </a>
+                <a class="market-button google-button mb-light-skin" href="#">
+                    <span class="mb-subtitle">Download on the</span><span class="mb-title">Google Play</span>
+                </a>
+
+            </section>
+        </div>
+    
+        <div class="col-md-2">
             <section class="widget widget-light-skin">
                 <h3 class="widget-title">Chứng nhận</h3>
                 <a href="http://online.gov.vn/HomePage/WebsiteDisplay.aspx?DocId=19094">
-                    <img src="http://online.gov.vn/seals/2ZgbypVobA+pgtjkpLPKdw==.jpgx"/></a>
+                    <img src="http://online.gov.vn/seals/2ZgbypVobA+pgtjkpLPKdw==.jpgx"/>
+                </a>
             </section>
         </div>
     </div>
