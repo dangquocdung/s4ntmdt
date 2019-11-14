@@ -21,7 +21,7 @@ shopist.pageLoad = {
                 minHeight: null,
                 maxHeight: null,
                 focus: false,
-                placeholder: 'Content here...'
+                placeholder: 'Nhập nội dung ở đây...'
             });
         }
 
