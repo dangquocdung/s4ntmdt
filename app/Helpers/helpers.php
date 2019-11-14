@@ -1,5 +1,7 @@
 <?php
 use shopist\Library\GetFunction;
+use shopist\Library\GetFunctionMB;
+
 
 /**
  * Get function for product title
@@ -21,6 +23,7 @@ function get_product_title($product_id = '')
 function get_product_slug($product_id = '')
 {
   return GetFunction::product_slug($product_id);
+  
 }
 
 /**
@@ -1080,6 +1083,12 @@ function get_users_by_display_name($role_id, $extra_search_term = null, $flag = 
 {
   return GetFunction::users_by_display_name($role_id, $extra_search_term, $flag);
 }
+
+function get_users_by_display_name_mb($role_id, $extra_search_term = null, $flag = null)
+{
+  return GetFunctionMB::users_by_display_name($role_id, $extra_search_term, $flag);
+}
+
 
 /**
  * Get vendor details by product id
