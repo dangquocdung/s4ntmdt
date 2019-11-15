@@ -45,11 +45,11 @@ class ForgotPasswordController extends Controller
    * @return response
    */
   public function redirectForgotPassword(){ 
-    if(Request::is('admin/forgot-password')){
+    if(Request::is('quan-tri/quen-mat-khau')){
       $this->classCommonFunction->set_admin_lang();
       return view('pages.auth.forgot-password');
     }
-    elseif(Request::is('user/forgot-password')){
+    elseif(Request::is('user/quen-mat-khau')){
       $this->classCommonFunction->set_frontend_lang();
       
       $data = array(); 
@@ -59,7 +59,7 @@ class ForgotPasswordController extends Controller
       
       return view('pages.auth.user-forgot-password')->with($get_data);
     }
-    elseif(Request::is('vendor/forgot-password')){
+    elseif(Request::is('vendor/quen-mat-khau')){
       $this->classCommonFunction->set_frontend_lang();
       
       $data   = array(); 

@@ -46,12 +46,12 @@ Route::group(['namespace' => 'Auth'], function () {
   ]);
 
   //admin forgot password route 
-  Route::get( '/quan-tri/forgot-password', [
+  Route::get( '/quan-tri/quen-mat-khau', [
     'uses' => 'ForgotPasswordController@redirectForgotPassword',
     'as' => 'forgotPassword'
   ]);
 
-  Route::post( '/quan-tri/forgot-password', [
+  Route::post( '/quan-tri/quen-mat-khau', [
     'uses' => 'ForgotPasswordController@postForgotPassword',
     'as' => 'forgotPasswordUpdate'
   ]);
@@ -89,12 +89,12 @@ Route::group(['namespace' => 'Auth'], function () {
   ]);
 
   //frontend forgot password route
-  Route::get( '/thanh-vien/forgot-password', [
+  Route::get( '/thanh-vien/quen-mat-khau', [
     'uses' => 'ForgotPasswordController@redirectForgotPassword',
     'as'   => 'user-forgot-password-page' 
   ]);
 
-  Route::post( '/thanh-vien/forgot-password', [
+  Route::post( '/thanh-vien/quen-mat-khau', [
     'uses' => 'ForgotPasswordController@manageFrontendUserForgotPassword',
     'as'   => 'user-forgot-password-post'
   ]);
