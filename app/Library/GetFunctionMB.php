@@ -173,12 +173,12 @@ class GetFunctionMB
       array_push($vendors, $user_data);
     }
 
+    // return $get_users;
+
     // return $parse_user_data;
 
     return $vendors;
     
-    return $get_users;
-
   }
 
   public function get_orders_by_date_range($start_date, $end_date)
