@@ -31,11 +31,11 @@ class LoginFilterMiddleware
         }
       }
        
-      if ( Session::has('shopist_admin_user_id') && ( $request->is('admin/login') || $request->is('installation') || $request->is('admin/forgot-password') ) ) {
+      if ( Session::has('shopist_admin_user_id') && ( $request->is('admin/login') || $request->is('installation') || $request->is('quan-tri/quen-mat-khau') ) ) {
         return redirect()->route('admin.dashboard');
       }
       
-      if ( Session::has('shopist_frontend_user_id') && ( $request->is('user/login') || $request->is('user/forgot-password') ) ) {
+      if ( Session::has('shopist_frontend_user_id') && ( $request->is('user/login') || $request->is('user/quen-mat-khau') ) ) {
         return redirect()->route('user-dashboard-page');
       }
        
