@@ -121,6 +121,7 @@ class GetFunctionMB
     $vendors = array();
 
     foreach ($get_users as $row){
+
       $user_data = array();
 
       $parse_user_data = json_decode($row->details,true);
@@ -133,52 +134,59 @@ class GetFunctionMB
       $user_data['address'] = $parse_user_data['profile_details']['address_line_1'];
 
       $user_data['coordinate'] =  '';
-      $user_data['lat'] = "0.000000";
-      $user_data['lng'] = "0.000000";
-      $user_data['paypal_email'] = '';
+      $user_data['lat'] = $parse_user_data['general_details']['latitude'];
+      $user_data['lng'] = $parse_user_data['general_details']['longitude'];
+
+      $user_data['paypal_enabled'] = strval((int)$parse_user_data['payment_method']['paypal']['status']);
+      $user_data['stripe_enabled'] = strval((int)$parse_user_data['payment_method']['stripe']['status']);
+      $user_data['cod_enabled'] = strval((int)$parse_user_data['payment_method']['cod']['status']);
+      $user_data['banktransfer_enabled'] = strval((int)$parse_user_data['payment_method']['dbt']['status']);
+
+      $user_data['paypal_email'] = $parse_user_data['payment_method']['paypal']['email_id'];
       $user_data['paypal_environment'] = '';
       $user_data['paypal_appid_live'] = '';
       $user_data['paypal_merchantname'] = '';
       $user_data['paypal_customerid'] = '';
       $user_data['paypal_ipnurl'] = '';
       $user_data['paypal_memo'] = '';
-      $user_data['bank_account'] = '';
-      $user_data['bank_name'] = '';
-      $user_data['bank_code'] = '';
-      $user_data['branch_code'] = '';
-      $user_data['swift_code'] = '';
-      $user_data['cod_email'] = '';
+      
+      $user_data['bank_account'] = $parse_user_data['payment_method']['dbt']['account_number'];
+      $user_data['bank_name'] = $parse_user_data['payment_method']['dbt']['bank_name'];
+      $user_data['bank_code'] = $parse_user_data['payment_method']['dbt']['short_code'];
+      $user_data['branch_code'] = $parse_user_data['payment_method']['dbt']['IBAN'];
+      $user_data['swift_code'] = $parse_user_data['payment_method']['dbt']['SWIFT'];
+
+      $user_data['cod_email'] = $parse_user_data['payment_method']['cod']['title'];
+
       $user_data['stripe_publishable_key'] = '';
       $user_data['stripe_secret_key'] = '';
-      $user_data['currency_symbol'] = '';
-      $user_data['currency_short_form'] = '';
+
+      $user_data['currency_symbol'] = '₫';
+      $user_data['currency_short_form'] = 'VNĐ';
       $user_data['sender_email'] = '';
       $user_data['added'] = $row->created_at;
-      $user_data['tatus'] = "1";
-      $user_data['paypal_enabled'] = '0';
-      $user_data['stripe_enabled'] = '0';
-      $user_data['cod_enabled'] = '0';
-      $user_data['banktransfer_enabled'] = '0';
+      $user_data['status'] = strval($row->user_status);
       $user_data['item_count'] = '0';
       $user_data['category_count'] = '0';
       $user_data['sub_category_count'] = '0';
       $user_data['follow_count'] = '0';
-      $user_data['categories'] = null;
       $user_data['price_decimal_place'] = '0';
       $user_data['cover_image_file'] = $parse_user_data['general_details']['cover_img'];
-      $user_data['cover_image_width'] = '820';
-      $user_data['cover_image_height'] = '547';
+      $user_data['cover_image_width'] = '600';
+      $user_data['cover_image_height'] = '400';
       $user_data['cover_image_description'] = $parse_user_data['profile_details']['store_name'];
+      $user_data['categories'] = null;
+
 
       array_push($vendors, $user_data);
     }
+
+    // return $get_users;
 
     // return $parse_user_data;
 
     return $vendors;
     
-    return $get_users;
-
   }
 
   public function get_orders_by_date_range($start_date, $end_date)
