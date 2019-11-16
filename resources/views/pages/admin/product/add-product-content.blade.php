@@ -548,7 +548,6 @@
         </div>
       </div>
 
-      
       <div class="box box-solid">
         <div class="box-header with-border">
           <i class="fa fa-upload"></i>
@@ -665,7 +664,6 @@
         </div>
       </div>
       
-						
       <div class="box box-solid">
           <div class="box-header with-border">
             <i class="fa fa-text-width"></i>
@@ -912,8 +910,6 @@
       @endif
     </div>
 
-    
-    
     <div class="col-md-4">
       <div class="box box-solid visibility-product" style="{{ ($user_data['user_role_id'] == 3)?'display:none':'' }}">
         <div class="box-header with-border">
@@ -958,8 +954,8 @@
       </div> 
       @endif
 
+      @if(is_vendor_login())  
 
-      
       <div class="box box-solid product-categories">
         <div class="box-header with-border">
           <i class="fa fa-camera"></i>
@@ -994,6 +990,8 @@
           </div>
         </div>
       </div>
+
+      @endif
       
       <div class="box box-solid product-tags">
         <div class="box-header with-border">
@@ -1085,7 +1083,6 @@
     </div>
   </div>
 
- 
   <input type="hidden" name="hf_uploaded_all_images" id="hf_uploaded_all_images" value="{{ $product_all_images_json }}">
   <input type="hidden" name="hf_selected_variation_attr" id="hf_selected_variation_attr" value="">
   <input type="hidden" name="hf_variation_data" id="hf_variation_data" value="">
