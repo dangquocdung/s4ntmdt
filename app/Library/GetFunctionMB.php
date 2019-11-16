@@ -30,6 +30,8 @@ use shopist\Http\Controllers\Admin\UserController;
 use shopist\Http\Controllers\ProductsController;
 use shopist\Library\CommonFunction;
 use shopist\Models\Term;
+use shopist\Models\TermExtra;
+
 use shopist\Mail\ShopistMail;
 use shopist\Models\ProductExtra;
 use shopist\Models\Product;
@@ -189,9 +191,80 @@ class GetFunctionMB
         
         if(count($vendor_home_cats) > 0){
           foreach($vendor_home_cats as $cat){
+
             $explod_val = explode('#', $cat);
             $get_id = end($explod_val);
-            array_push($user_data['categories'], $get_id);
+
+            $get_categories_details   =   Term::where('term_id', $get_id)->first();
+
+            $categories_details = array();
+
+            $categories_details['id'] = $get_categories_details['term_id'];
+            $categories_details['shop_id'] = $row->id;
+            $categories_details['name'] = $get_categories_details['name'];
+            $categories_details['is_published'] = $get_categories_details['status'];
+            // $categories_details['added'] = $get_categories_details['created_at'];
+
+            $term_extra = TermExtra:: where(['term_id' => $get_categories_details['term_id']])->get();
+            if(!empty($term_extra) && $term_extra->count() > 0){
+              foreach($term_extra as $term_extra_row){
+                
+                if(!empty($term_extra_row) && $term_extra_row->key_name == '_category_img_url'){
+                  if(!empty($term_extra_row->key_value)){
+                    $categories_details['cover_image_file'] = $term_extra_row->key_value;
+                  }
+                  else{
+                    $categories_details['cover_image_file'] = '';
+                  }
+                }
+              }
+            }
+    
+            $categories_details['cover_image_width'] = '292';
+            $categories_details['cover_image_height'] = '173';
+
+            $categories_details['sub_categories'] = array();
+
+            $get_sub_categories_details   =   Term::where('parent', $get_id)->get();
+
+            if(!empty($get_sub_categories_details) && $get_sub_categories_details->count() > 0){
+
+              foreach($get_sub_categories_details as $get_sub_categories_detail){
+
+                $sub_categories_details = array();
+
+                $sub_categories_details['id'] = $get_sub_categories_detail['term_id'];
+                $sub_categories_details['shop_id'] = $row->id;
+                $sub_categories_details['name'] = $get_sub_categories_detail['name'];
+                $sub_categories_details['is_published'] = $get_sub_categories_detail['status'];
+                // $categories_details['added'] = $get_categories_details['created_at'];
+    
+                $sub_term_extra = TermExtra:: where(['term_id' => $get_sub_categories_detail['term_id']])->get();
+                if(!empty($sub_term_extra) && $sub_term_extra->count() > 0){
+                  foreach($sub_term_extra as $sub_term_extra_row){
+                    
+                    if(!empty($sub_term_extra_row) && $sub_term_extra_row->key_name == '_category_img_url'){
+                      if(!empty($sub_term_extra_row->key_value)){
+                        $sub_categories_details['cover_image_file'] = $sub_term_extra_row->key_value;
+                      }
+                      else{
+                        $sub_categories_details['cover_image_file'] = '';
+                      }
+                    }
+                  }
+                }
+                $sub_categories_details['cover_image_width'] = '292';
+                $sub_categories_details['cover_image_height'] = '173';
+    
+
+                array_push($categories_details['sub_categories'], $sub_categories_details);
+
+    
+              }
+
+            }
+
+            array_push($user_data['categories'], $categories_details);
           }
         }
       }
