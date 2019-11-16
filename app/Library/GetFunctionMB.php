@@ -175,8 +175,26 @@ class GetFunctionMB
       $user_data['cover_image_width'] = '600';
       $user_data['cover_image_height'] = '400';
       $user_data['cover_image_description'] = $parse_user_data['profile_details']['store_name'];
-      $user_data['categories'] = null;
+      $user_data['categories'] = array();
 
+      $user_details = get_user_account_details_by_user_id( $row->id );
+
+      if(count($user_details) > 0){
+        $get_user_details = json_decode($user_details[0]['details']);
+      } 
+
+      if(!empty($get_user_details->general_details->vendor_home_page_cats)){
+        
+        $vendor_home_cats = json_decode($get_user_details->general_details->vendor_home_page_cats);
+        
+        if(count($vendor_home_cats) > 0){
+          foreach($vendor_home_cats as $cat){
+            $explod_val = explode('#', $cat);
+            $get_id = end($explod_val);
+            array_push($user_data['categories'], $get_id);
+          }
+        }
+      }
 
       array_push($vendors, $user_data);
     }
