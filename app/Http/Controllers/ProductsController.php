@@ -643,6 +643,7 @@ class ProductsController extends Controller
    * @return array
    */
   public function get_categories($cat_id = 0, $cat_type){
+    
     $get_categories_data  =  Term::where(['type' => $cat_type, 'parent' => $cat_id, 'status' => 1])->get();
     
     $categories = array();
