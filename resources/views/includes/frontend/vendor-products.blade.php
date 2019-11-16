@@ -146,13 +146,9 @@
                             {!! price_html( get_product_price_html_by_filter(get_role_based_price_by_product_id($item->id, $item->regular_price)), get_frontend_selected_currency()) !!}
                           </span>
 
-
                         @endif
 
                       </div>
-
-
-
 
                   </div>
 
@@ -164,8 +160,6 @@
 
                     </div>
                   @endif 
-
-
 
                   <div class="product-list-cart-wishlist">
                       <div class="product-list-cart">
@@ -193,7 +187,6 @@
 
                   </div>
 
-                  
               </div>
           </div>
 

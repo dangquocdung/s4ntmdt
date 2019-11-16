@@ -997,6 +997,7 @@ class FrontendManagerController extends Controller
       }
       
       $data['vendor_home_page_cats'] = array();
+      
       if(!empty($get_user_details->general_details->vendor_home_page_cats)){
         $vendor_home_cats = json_decode($get_user_details->general_details->vendor_home_page_cats);
         
