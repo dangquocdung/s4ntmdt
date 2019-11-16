@@ -1586,6 +1586,36 @@
           @endif
         </div>
       </div>
+
+      @if(!is_vendor_login())  
+      <div class="box box-solid product-sizes">
+        <div class="box-header with-border">
+          <i class="fa fa-handshake-o"></i>
+          <h3 class="box-title">{!! trans('admin.select_vendor_title') !!}</h3>
+        </div>
+        <div class="box-body">
+          <div class="form-group">
+            <div class="row">  
+              <div class="col-sm-12">
+                <select name="vendor_list" id="vendor_list" class="vendors-list" style="width:100%;">
+                  <option value=""> {!! trans('admin.choose_vendor_title') !!} </option>  
+                  @foreach($vendors_list as $vendor)
+                    @if(!empty($product_post_data['_selected_vendor']))
+                      @if($vendor->id == $product_post_data['_selected_vendor'])
+                        <option selected="selected" value="{{ $vendor->id }}"> {!! $vendor->display_name !!} </option>
+                      @else
+                        <option value="{{ $vendor->id }}"> {!! $vendor->display_name !!} </option>
+                      @endif
+                    @endif  
+                  @endforeach
+                </select>
+              </div>
+            </div>    
+          </div>
+        </div>
+      </div> 
+      @endif  
+
         
       <div class="box box-solid product-categories">
         <div class="box-header with-border">
@@ -1605,7 +1635,11 @@
                 @if (count($categories_lists) > 0)
                   <ul>
                   @foreach ($categories_lists as $data)
+                    @if(in_array($data['id'], $user_data['categories']))
+
                       @include('pages.common.update-category-list', $data)
+
+                    @endif
                   @endforeach
                   </ul>
                 @else
@@ -1729,34 +1763,6 @@
         </div>
       </div> 
         
-      @if(!is_vendor_login())  
-      <div class="box box-solid product-sizes">
-        <div class="box-header with-border">
-          <i class="fa fa-handshake-o"></i>
-          <h3 class="box-title">{!! trans('admin.select_vendor_title') !!}</h3>
-        </div>
-        <div class="box-body">
-          <div class="form-group">
-            <div class="row">  
-              <div class="col-sm-12">
-                <select name="vendor_list" id="vendor_list" class="vendors-list" style="width:100%;">
-                  <option value=""> {!! trans('admin.choose_vendor_title') !!} </option>  
-                  @foreach($vendors_list as $vendor)
-                    @if(!empty($product_post_data['_selected_vendor']))
-                      @if($vendor->id == $product_post_data['_selected_vendor'])
-                        <option selected="selected" value="{{ $vendor->id }}"> {!! $vendor->display_name !!} </option>
-                      @else
-                        <option value="{{ $vendor->id }}"> {!! $vendor->display_name !!} </option>
-                      @endif
-                    @endif  
-                  @endforeach
-                </select>
-              </div>
-            </div>    
-          </div>
-        </div>
-      </div> 
-      @endif  
     </div>
   </div>
   

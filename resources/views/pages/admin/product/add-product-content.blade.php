@@ -911,6 +911,8 @@
         </div>
       @endif
     </div>
+
+    
     
     <div class="col-md-4">
       <div class="box box-solid visibility-product" style="{{ ($user_data['user_role_id'] == 3)?'display:none':'' }}">
@@ -932,6 +934,30 @@
           </div>
         </div>
       </div>
+
+      @if(!is_vendor_login())  
+      <div class="box box-solid product-sizes">
+        <div class="box-header with-border">
+          <i class="fa fa-handshake-o"></i>
+          <h3 class="box-title">{!! trans('admin.select_vendor_title') !!}</h3>
+        </div>
+        <div class="box-body">
+          <div class="form-group">
+            <div class="row">  
+              <div class="col-sm-12">
+                <select name="vendor_list" id="vendor_list" class="vendors-list" style="width:100%;">
+                  <option value=""> {!! trans('admin.choose_vendor_title') !!} </option>  
+                  @foreach($vendors_list as $vendor)
+                  <option value="{{ $vendor->id }}"> {!! $vendor->display_name !!} </option>
+                  @endforeach
+                </select>
+              </div>
+            </div>    
+          </div>
+        </div>
+      </div> 
+      @endif
+
 
       
       <div class="box box-solid product-categories">
@@ -1056,28 +1082,6 @@
         </div>
       </div>  
         
-      @if(!is_vendor_login())  
-      <div class="box box-solid product-sizes">
-        <div class="box-header with-border">
-          <i class="fa fa-handshake-o"></i>
-          <h3 class="box-title">{!! trans('admin.select_vendor_title') !!}</h3>
-        </div>
-        <div class="box-body">
-          <div class="form-group">
-            <div class="row">  
-              <div class="col-sm-12">
-                <select name="vendor_list" id="vendor_list" class="vendors-list" style="width:100%;">
-                  <option value=""> {!! trans('admin.choose_vendor_title') !!} </option>  
-                  @foreach($vendors_list as $vendor)
-                  <option value="{{ $vendor->id }}"> {!! $vendor->display_name !!} </option>
-                  @endforeach
-                </select>
-              </div>
-            </div>    
-          </div>
-        </div>
-      </div> 
-      @endif
     </div>
   </div>
 
