@@ -22,7 +22,6 @@
     </div>
   </div>
   
-  
   <div class="row">
     <div class="col-md-8">
       <div class="box box-solid">
@@ -221,7 +220,6 @@
                   </div>  
                 </div>
                 @endif
-
 
                 @if(count($available_user_roles) > 0 && isset($role_based_pricing_data['is_enable']) && isset($role_based_pricing_data['pricing']))
                 <p style="font-size: 17px;font-weight:bold;color:#3c8dbc;"><i>{!! trans('admin.role_based_pricing_label') !!}</i></p><hr>
@@ -1054,7 +1052,6 @@
         </div>
       </div>
 
-      
       <div class="box box-solid">
         <div class="box-header with-border">
           <i class="fa fa-upload"></i>
@@ -1189,7 +1186,6 @@
           </div>
         </div>
       </div>
-      
       
       <div class="box box-solid">
         <div class="box-header with-border">
@@ -1376,7 +1372,6 @@
                   <input type="radio" class="shopist-iCheck" name="inputVideoDisplayMode" id="inputVideoDisplayModeAtPopup" value="popup">&nbsp; {!! trans('admin.display_at_popup') !!}
                   @endif
                 </span>
-
 
                 &nbsp;&nbsp;&nbsp;&nbsp;<span>
                   @if($product_post_data['_product_video_feature_display_mode'] == 'content')
@@ -1616,7 +1611,8 @@
       </div> 
       @endif  
 
-        
+      @if(is_vendor_login())  
+
       <div class="box box-solid product-categories">
         <div class="box-header with-border">
           <i class="fa fa-camera"></i>
@@ -1650,6 +1646,8 @@
           </div>
         </div>
       </div>
+
+      @endif
         
       <div class="box box-solid product-tags">
         <div class="box-header with-border">
@@ -1765,7 +1763,6 @@
         
     </div>
   </div>
-  
   
   <input type="hidden" name="hf_uploaded_all_images" id="hf_uploaded_all_images" value="{{ $product_post_data['product_related_img_json'] }}">
   <input type="hidden" name="hf_selected_variation_attr" id="hf_selected_variation_attr" value="">
