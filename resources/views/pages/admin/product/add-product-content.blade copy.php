@@ -911,8 +911,6 @@
         </div>
       @endif
     </div>
-
-    
     
     <div class="col-md-4">
       <div class="box box-solid visibility-product" style="{{ ($user_data['user_role_id'] == 3)?'display:none':'' }}">
@@ -935,30 +933,6 @@
         </div>
       </div>
 
-      @if(!is_vendor_login())  
-      <div class="box box-solid product-sizes">
-        <div class="box-header with-border">
-          <i class="fa fa-handshake-o"></i>
-          <h3 class="box-title">{!! trans('admin.select_vendor_title') !!}</h3>
-        </div>
-        <div class="box-body">
-          <div class="form-group">
-            <div class="row">  
-              <div class="col-sm-12">
-                <select name="vendor_list" id="vendor_list" class="vendors-list" style="width:100%;">
-                  <option value=""> {!! trans('admin.choose_vendor_title') !!} </option>  
-                  @foreach($vendors_list as $vendor)
-                  <option value="{{ $vendor->id }}"> {!! $vendor->display_name !!} </option>
-                  @endforeach
-                </select>
-              </div>
-            </div>    
-          </div>
-        </div>
-      </div> 
-      @endif
-
-
       
       <div class="box box-solid product-categories">
         <div class="box-header with-border">
@@ -967,9 +941,9 @@
         </div>
         <div class="box-body">
           @if(!is_vendor_login())  
-            <div class="clearfix">
-              <a class="btn btn-default pull-right" href="{{ route('admin.product_categories_list') }}">{!! trans('admin.create_categories') !!}</a>
-            </div>  
+          <div class="clearfix">
+            <a class="btn btn-default pull-right" href="{{ route('admin.product_categories_list') }}">{!! trans('admin.create_categories') !!}</a>
+          </div>  
           @endif
 
           <div class="form-group">
@@ -979,11 +953,7 @@
                 @if (count($categories_lists) > 0)
                   <ul>
                   @foreach ($categories_lists as $data)
-                    @if(in_array($data['id'], $user_data['categories']))
-
                       @include('pages.common.category-list', $data)
-                      
-                    @endif
                   @endforeach
                   </ul>
                 @else
@@ -1082,6 +1052,28 @@
         </div>
       </div>  
         
+      @if(!is_vendor_login())  
+      <div class="box box-solid product-sizes">
+        <div class="box-header with-border">
+          <i class="fa fa-handshake-o"></i>
+          <h3 class="box-title">{!! trans('admin.select_vendor_title') !!}</h3>
+        </div>
+        <div class="box-body">
+          <div class="form-group">
+            <div class="row">  
+              <div class="col-sm-12">
+                <select name="vendor_list" id="vendor_list" class="vendors-list" style="width:100%;">
+                  <option value=""> {!! trans('admin.choose_vendor_title') !!} </option>  
+                  @foreach($vendors_list as $vendor)
+                  <option value="{{ $vendor->id }}"> {!! $vendor->display_name !!} </option>
+                  @endforeach
+                </select>
+              </div>
+            </div>    
+          </div>
+        </div>
+      </div> 
+      @endif
     </div>
   </div>
 

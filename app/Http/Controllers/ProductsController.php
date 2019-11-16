@@ -643,7 +643,7 @@ class ProductsController extends Controller
    * @return array
    */
   public function get_categories($cat_id = 0, $cat_type){
-    
+
     $get_categories_data  =  Term::where(['type' => $cat_type, 'parent' => $cat_id, 'status' => 1])->get();
     
     $categories = array();
@@ -3536,6 +3536,7 @@ class ProductsController extends Controller
    * @return array
    */
   function createProductContentData($data){
+
     $data['tabSettings']['btnCustomize']   =   'style=display:none;';
     $data['categories_lists']              =   $this->get_categories( 0, 'product_cat');
     $data['tags_lists']                    =   $this->getTermData( 'product_tag', false, null, 1 );
@@ -3556,7 +3557,9 @@ class ProductsController extends Controller
                                                             )
                                                           );
     
-    return $data;
+    
+    // return response()->json($data['categories_lists']);
+                                                          return $data;
   }
   
 }

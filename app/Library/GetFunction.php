@@ -1588,6 +1588,30 @@ class GetFunction
         $userData['user_status'] = $getuserdata->user_status;
         $userData['user_id'] = Session::get('shopist_admin_user_id');
         $userData['member_since'] = $getuserdata->roles[0]->created_at;
+
+        $userData['categories'] = array();
+
+        $user_details = get_user_account_details_by_user_id( Session::get('shopist_admin_user_id') );
+
+        if(count($user_details) > 0){
+          $get_user_details = json_decode($user_details[0]['details']);
+        } 
+
+        if(!empty($get_user_details->general_details->vendor_home_page_cats)){
+        
+          $vendor_home_cats = json_decode($get_user_details->general_details->vendor_home_page_cats);
+          
+          if(count($vendor_home_cats) > 0){
+            foreach($vendor_home_cats as $cat){
+  
+              $explod_val = explode('#', $cat);
+              $get_id = end($explod_val);
+  
+              array_push($userData['categories'], $get_id);
+            }
+          }
+        }
+  
       }
     }
     else{
@@ -1601,6 +1625,8 @@ class GetFunction
       $userData['user_status'] = '';
       $userData['user_id'] = '';
       $userData['member_since'] = '';
+      $userData['categories'] = array();
+
     }
     
     return $userData;
