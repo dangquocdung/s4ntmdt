@@ -941,9 +941,9 @@
         </div>
         <div class="box-body">
           @if(!is_vendor_login())  
-            <div class="clearfix">
-              <a class="btn btn-default pull-right" href="{{ route('admin.product_categories_list') }}">{!! trans('admin.create_categories') !!}</a>
-            </div>  
+          <div class="clearfix">
+            <a class="btn btn-default pull-right" href="{{ route('admin.product_categories_list') }}">{!! trans('admin.create_categories') !!}</a>
+          </div>  
           @endif
 
           <div class="form-group">
@@ -953,11 +953,7 @@
                 @if (count($categories_lists) > 0)
                   <ul>
                   @foreach ($categories_lists as $data)
-                    @if(in_array($data['id'], $user_data['categories']))
-
                       @include('pages.common.category-list', $data)
-                      
-                    @endif
                   @endforeach
                   </ul>
                 @else

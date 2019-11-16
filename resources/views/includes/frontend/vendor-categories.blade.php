@@ -8,42 +8,37 @@
 
       @foreach ($productCategoriesTree as $data)
 
-      @if(in_array($data['id'], $vendor_selected_cats_id))
+        @if(in_array($data['id'], $vendor_selected_cats_id))
 
+          @if(count($data['children'])>0)
 
-        @if(count($data['children'])>0)
+              <li class="has-children">
 
-         
+              <a href="#">{!! $data['name'] !!}</a>
+              <!-- <span>(123456)</span> -->
 
-            <li class="has-children">
+              @if(count($data['children'])>0)
+              <ul>
+                @foreach($data['children'] as $data)
+                  @include('pages.common.vendor-children-category', array('data' => $data, 'user_name' => $user_name))
+                @endforeach
+              </ul>  
+              @endif
+              
+            </li>
 
+          @else
 
-            <a href="#">{!! $data['name'] !!}</a>
-            <!-- <span>(123456)</span> -->
+            <li>
+                <a href="{{ route('categories-page', $data['slug']) }}">
+                
+                    <span>{!! $data['name'] !!}</span>
+                </a>
+            </li>
 
-            @if(count($data['children'])>0)
-            <ul>
-              @foreach($data['children'] as $data)
-                @include('pages.common.vendor-children-category', array('data' => $data, 'user_name' => $user_name))
-              @endforeach
-            </ul>  
-            @endif
-            
-          </li>
-
-        @else
-
-          <li>
-              <a href="{{ route('categories-page', $data['slug']) }}">
-               
-                  <span>{!! $data['name'] !!}</span>
-              </a>
-          </li>
+          @endif
 
         @endif
-
-
-      @endif
 
       @endforeach
      
