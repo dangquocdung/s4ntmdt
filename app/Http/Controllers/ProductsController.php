@@ -3103,7 +3103,7 @@ class ProductsController extends Controller
     return $post_array;
   }
 
-  public function getProductByCatID($id){
+  public function getProductByCatID($vd, $id){
     
     $get_term = Term::where(['term_id' => $id, 'type' => 'product_cat'])->first();
      
@@ -3136,6 +3136,7 @@ class ProductsController extends Controller
         
       if(count($parent_cat_ary) > 0){
         foreach($parent_cat_ary as $cat){
+
             $get_post_data =  DB::table('products');
             $get_post_data->where(['products.status' => 1, 'object_relationships.term_id' => $cat['id'] ]);
             $get_post_data->join('object_relationships', 'object_relationships.object_id', '=', 'products.id');
@@ -3148,68 +3149,39 @@ class ProductsController extends Controller
             if(count($get_post_data) > 0){
               foreach($get_post_data as $product){
 
-                $ary = array();
-
-                $ary['id'] = $product->id;
-                $ary['cat_id'] = $product->parent;
-                $ary['sub_cat_id'] = $product->term_id;
-                $ary['shop_id'] = $product->author_id;
-                $ary['name'] = $product->title;
-                $ary['description'] = $product->content; 
-                $ary['unit_price'] = $product->stock_qty;
-                $ary['is_published'] = $product->status;
-                $ary['added'] = $product->created_at;
-                $ary['updated'] = $product->updated_at;
-                $ary['images'] = array();
-
-
-
-                $get_attr_by_products  =  ProductExtra::where(['product_id' => $product->id, 'key_name' => '_product_related_images_url'])->get()->toArray();
-    
-                if(count($get_attr_by_products)>0){
-                  $parseJsonToArray = json_decode($get_attr_by_products[0]['key_value']);
-                  
-                  if(!empty($parseJsonToArray)){
-                    foreach($parseJsonToArray->product_gallery_images as $row){
-                      $e_ary = array();
-                      $e_ary['parent_id'] = $product->id;
-                      $e_ary['path']     = $row->url;
-                      $e_ary['width']   = '225';
-                      $e_ary['height'] = '225';
-                      $e_ary['description'] = $product->title;
-
-                      array_push($ary['images'], $e_ary);
-                    }
-                  } 
-
-
-
+                if ($product->author_id == $vd){
+                  $ary = array();
+                    $ary['id'] = $product->id;
+                    $ary['cat_id'] = $product->parent;
+                    $ary['sub_cat_id'] = $product->term_id;
+                    $ary['shop_id'] = $product->author_id;
+                    $ary['name'] = $product->title;
+                    $ary['description'] = $product->content; 
+                    $ary['unit_price'] = $product->stock_qty;
+                    $ary['is_published'] = $product->status;
+                    $ary['added'] = $product->created_at;
+                    $ary['updated'] = $product->updated_at;
+                    $ary['images'] = array();
+                      $ary['images']['id'] = $product->id;
+                      $ary['images']['parent_id'] = $product->id;
+                      $ary['images']['path']     = $product->image_url;
+                      $ary['images']['width']   = '225';
+                      $ary['images']['height'] = '225';
+                      $ary['images']['description'] = $product->title;
+                    $ary['discount_type_id'] = "0";
+                    $ary['search_tag'] = $this->getTagsByObjectId($product->id)['term_details'];
+                    $ary['like_count'] = 0;
+                    $ary['review_count'] = 0;
+                    $ary['inquiries_count'] = 0;
+                    $ary['touches_count'] = 1;
+                    $ary['discount_name'] = "";
+                    $ary['discount_percent'] = "";
+                    $user_data['currency_symbol'] = '₫';
+                    $user_data['currency_short_form'] = 'VNĐ';
+                    $ary['reviews'] = [ ];
+                    $ary['attributes'] = array();
+                  array_push($get_items, $ary);
                 }
-            
-
-
-
-                
-    
-
-
-
-
-
-                $ary['discount_type_id'] = "0";
-                $ary['search_tag'] = "Cable,Accessories";
-                $ary['like_count'] = 0;
-                $ary['review_count'] = 0;
-                $ary['inquiries_count'] = 0;
-                $ary['touches_count'] = 1;
-                $ary['discount_name'] = "";
-                $ary['discount_percent'] = "";
-                $ary['currency_symbol'] = "$";
-                $ary['currency_short_form'] = "USD";
-                $ary['reviews'] = [ ];
-                // $ary['attributes'] = $get_extra_data;
-
-                array_push($get_items, $ary);
 
               }
             }

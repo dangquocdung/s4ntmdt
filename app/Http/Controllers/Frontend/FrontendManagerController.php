@@ -615,9 +615,11 @@ class FrontendManagerController extends Controller
 
       $data['seen_items'] = $this->seenProducts();
 
+
+      // return response()->json($data['single_product_details']);
+
       return view('pages.frontend.frontend-pages.product-details', $data);
 
-      // return response()->json($data['comments_details']);
     }
     else{
       return view('errors.no_data');
@@ -997,7 +999,7 @@ class FrontendManagerController extends Controller
       }
       
       $data['vendor_home_page_cats'] = array();
-      
+
       if(!empty($get_user_details->general_details->vendor_home_page_cats)){
         $vendor_home_cats = json_decode($get_user_details->general_details->vendor_home_page_cats);
         
