@@ -44,7 +44,6 @@ class MobileAppFrontendController extends Controller
     $this->option               =  new OptionController();
     $this->vendorsmb              =  new VendorsMBController();
 
-
   }
   
   /**
@@ -66,6 +65,180 @@ class MobileAppFrontendController extends Controller
     
   }
   
+    /**
+   * 
+   * Multivendor store single page products categories content
+   *
+   * @param null
+   * @return void 
+   */
+  public function multivendorStoreSinglePageProductsCatContent( $params, $params1 ){
+
+    $data = array();
+    $user = $params;
+    $cat = $params1;
+    
+    $data['status'] = 'success';
+    
+    $data['data'] =  $this->product->getProductByCatID($cat);
+
+    return response()->json($data);
+
+  }
+
+  public function multivendorStoreSinglePageProductsCatContent_bk( $params, $params1 ){
+    $data = array();
+    $user = $params;
+    
+    $get_user = User::where(['id' => $user, 'user_status' => 1])->first();
+    if(empty($get_user)){
+      return response()->json($data);
+    }
+    
+    $data = $this->classCommonFunction->get_dynamic_frontend_content_data();
+    $data['vendor_settings'] = null;
+    $data['vendor_selected_cats_id'] = array();
+    
+    $get_user = User::where(['name' => $user])->first();
+    if(!empty($get_user)){
+      if(is_vendor_expired( $get_user->id )){
+        return view('errors.vendor_expired');
+      }
+      
+      $data['vendor_package_details'] = get_package_details_by_vendor_id($get_user->id);
+      $data['vendor_settings'] = null;
+      $get_user_details = null;
+      $user_details = get_user_account_details_by_user_id( $get_user->id );
+
+      if(count($user_details) > 0){
+        $get_user_details = json_decode($user_details[0]['details']);
+      } 
+
+      $data['vendor_info'] = $get_user;
+      $data['vendor_settings'] = $get_user_details;
+      
+      $get_global_seo = get_seo_data();
+      $store_seo = $get_user_details->seo;
+
+      $data['store_seo_meta_keywords'] = null;
+      $data['store_seo_meta_description'] = null;
+
+      if(isset($get_global_seo['meta_tag']['meta_keywords']) && !empty($store_seo->meta_keywords)){
+        $data['store_seo_meta_keywords'] = trim($get_global_seo['meta_tag']['meta_keywords'].', '.$store_seo->meta_keywords, ',');
+      }
+      elseif(isset($get_global_seo['meta_tag']['meta_keywords']) && empty($store_seo->meta_keywords)){
+        $data['store_seo_meta_keywords'] = $get_global_seo['meta_tag']['meta_keywords'];
+      }
+      else{
+        $data['store_seo_meta_keywords'] = $store_seo->meta_keywords;
+      }
+
+      if(!empty($store_seo->meta_decription)){
+        $data['store_seo_meta_description'] = $store_seo->meta_decription;
+      }
+      
+      $data['vendor_home_page_cats'] = array();
+      if(!empty($get_user_details->general_details->vendor_home_page_cats)){
+        $vendor_home_cats = json_decode($get_user_details->general_details->vendor_home_page_cats);
+        
+        if(count($vendor_home_cats) > 0){
+          foreach($vendor_home_cats as $cat){
+            $explod_val = explode('#', $cat);
+            $get_id = end($explod_val);
+            $parent_cat = $this->product->getTermDataById( $get_id );
+            array_push($data['vendor_selected_cats_id'], $get_id);
+            array_push($data['vendor_home_page_cats'], array('parent_cat' => array_shift($parent_cat), 'child_cat' => $this->product->get_categories($get_id, 'product_cat')));
+          }
+        }
+      }
+
+      $data['vendor_advanced_items'] = $this->product->getVendorAdvancedProducts( $get_user->id );
+      $data['vendor_reviews_rating_details']  =  get_comments_rating_details( $get_user->id, 'vendor' );
+      
+      //
+      $sort = null;
+      $price_min = null;
+      $price_max = null;
+      $selected_colors = null;
+      $selected_sizes = null;
+      
+      if(isset($_GET['sort_by'])){
+        $sort = $_GET['sort_by'];
+      }
+      
+      if(isset($_GET['price_min'])){
+        $price_min = $_GET['price_min'];
+      }
+      
+      if(isset($_GET['price_max'])){
+        $price_max = $_GET['price_max'];
+      }
+      
+      if(isset($_GET['selected_colors'])){
+        $selected_colors = $_GET['selected_colors'];
+      }
+
+      if(isset($_GET['selected_sizes'])){
+        $selected_sizes = $_GET['selected_sizes'];
+      }
+      
+			$data['popular_tags_list']  =   $this->product->getTermData( 'product_tag', false, null, 1 );
+      $data['colors_list_data']   =   $this->product->getTermData( 'product_colors', false, null, 1 );
+      $data['sizes_list_data']    =   $this->product->getTermData( 'product_sizes', false, null, 1 );
+										
+      $get_cat_product_and_breadcrumb  =  $this->product->getProductByCatSlug($params, array('sort' => $sort, 'price_min' => $price_min, 'price_max' => $price_max, 'selected_colors' => $selected_colors, 'selected_sizes' => $selected_sizes));
+      
+      if(count($get_cat_product_and_breadcrumb) > 0){
+        $data['vendor_products'] = $get_cat_product_and_breadcrumb;
+      }
+      else{
+        return view('errors.no_data');
+      }
+      
+      if(count($data['vendor_products']) > 0){
+        $data['vendor_products']['action_url'] = Request::url();
+        
+        $currentQuery = Request::query();
+        
+        if(count($currentQuery) > 0){
+          if(isset($currentQuery['view'])){
+            unset($currentQuery['view']);
+          }
+          
+          if(count($currentQuery) > 0){
+            $currentQuery['view'] = 'list';
+            $data['vendor_products']['action_url_list_view'] = Request::url(). '?' . http_build_query($currentQuery);
+            $currentQuery['view'] = 'grid';
+            $data['vendor_products']['action_url_grid_view'] = Request::url(). '?' . http_build_query($currentQuery);
+          }
+          else{
+            $data['vendor_products']['action_url_list_view'] = Request::url(). '?view=list';
+            $data['vendor_products']['action_url_grid_view'] = Request::url(). '?view=grid';
+          }
+        }
+        else{
+          $data['vendor_products']['action_url_list_view'] = Request::url(). '?view=list';
+          $data['vendor_products']['action_url_grid_view'] = Request::url(). '?view=grid';
+        }
+        
+        if(isset($_GET['view']) && $_GET['view'] == 'list'){
+          $data['vendor_products']['selected_view'] = 'list'; 
+        }
+        elseif(isset($_GET['view']) && $_GET['view'] == 'grid'){
+          $data['vendor_products']['selected_view'] = 'grid'; 
+        }
+        else{
+          $data['vendor_products']['selected_view'] = 'grid';
+        }
+      }
+      
+      return view('pages.frontend.vendors.vendor-details', $data);
+    }
+    else{
+      return view('errors.no_data');
+    }
+  }
+
   /**
    * 
    * Multivendor store single page home content
@@ -386,166 +559,6 @@ class MobileAppFrontendController extends Controller
   
   /**
    * 
-   * Multivendor store single page products categories content
-   *
-   * @param null
-   * @return void 
-   */
-  public function multivendorStoreSinglePageProductsCatContent( $params, $params1 ){
-    $data = array();
-    $user = $params1;
-    
-    $get_user = User::where(['name' => $user, 'user_status' => 1])->first();
-    if(empty($get_user)){
-      return view('errors.vendor_not_active');
-    }
-    
-    $data = $this->classCommonFunction->get_dynamic_frontend_content_data();
-    $data['vendor_settings'] = null;
-    $data['vendor_selected_cats_id'] = array();
-    
-    $get_user = User::where(['name' => $user])->first();
-    if(!empty($get_user)){
-      if(is_vendor_expired( $get_user->id )){
-        return view('errors.vendor_expired');
-      }
-      
-      $data['vendor_package_details'] = get_package_details_by_vendor_id($get_user->id);
-      $data['vendor_settings'] = null;
-      $get_user_details = null;
-      $user_details = get_user_account_details_by_user_id( $get_user->id );
-
-      if(count($user_details) > 0){
-        $get_user_details = json_decode($user_details[0]['details']);
-      } 
-
-      $data['vendor_info'] = $get_user;
-      $data['vendor_settings'] = $get_user_details;
-      
-      $get_global_seo = get_seo_data();
-      $store_seo = $get_user_details->seo;
-
-      $data['store_seo_meta_keywords'] = null;
-      $data['store_seo_meta_description'] = null;
-
-      if(isset($get_global_seo['meta_tag']['meta_keywords']) && !empty($store_seo->meta_keywords)){
-        $data['store_seo_meta_keywords'] = trim($get_global_seo['meta_tag']['meta_keywords'].', '.$store_seo->meta_keywords, ',');
-      }
-      elseif(isset($get_global_seo['meta_tag']['meta_keywords']) && empty($store_seo->meta_keywords)){
-        $data['store_seo_meta_keywords'] = $get_global_seo['meta_tag']['meta_keywords'];
-      }
-      else{
-        $data['store_seo_meta_keywords'] = $store_seo->meta_keywords;
-      }
-
-      if(!empty($store_seo->meta_decription)){
-        $data['store_seo_meta_description'] = $store_seo->meta_decription;
-      }
-      
-      $data['vendor_home_page_cats'] = array();
-      if(!empty($get_user_details->general_details->vendor_home_page_cats)){
-        $vendor_home_cats = json_decode($get_user_details->general_details->vendor_home_page_cats);
-        
-        if(count($vendor_home_cats) > 0){
-          foreach($vendor_home_cats as $cat){
-            $explod_val = explode('#', $cat);
-            $get_id = end($explod_val);
-            $parent_cat = $this->product->getTermDataById( $get_id );
-            array_push($data['vendor_selected_cats_id'], $get_id);
-            array_push($data['vendor_home_page_cats'], array('parent_cat' => array_shift($parent_cat), 'child_cat' => $this->product->get_categories($get_id, 'product_cat')));
-          }
-        }
-      }
-
-      $data['vendor_advanced_items'] = $this->product->getVendorAdvancedProducts( $get_user->id );
-      $data['vendor_reviews_rating_details']  =  get_comments_rating_details( $get_user->id, 'vendor' );
-      
-      //
-      $sort = null;
-      $price_min = null;
-      $price_max = null;
-      $selected_colors = null;
-      $selected_sizes = null;
-      
-      if(isset($_GET['sort_by'])){
-        $sort = $_GET['sort_by'];
-      }
-      
-      if(isset($_GET['price_min'])){
-        $price_min = $_GET['price_min'];
-      }
-      
-      if(isset($_GET['price_max'])){
-        $price_max = $_GET['price_max'];
-      }
-      
-      if(isset($_GET['selected_colors'])){
-        $selected_colors = $_GET['selected_colors'];
-      }
-
-      if(isset($_GET['selected_sizes'])){
-        $selected_sizes = $_GET['selected_sizes'];
-      }
-      
-			$data['popular_tags_list']  =   $this->product->getTermData( 'product_tag', false, null, 1 );
-      $data['colors_list_data']   =   $this->product->getTermData( 'product_colors', false, null, 1 );
-      $data['sizes_list_data']    =   $this->product->getTermData( 'product_sizes', false, null, 1 );
-										
-      $get_cat_product_and_breadcrumb  =  $this->product->getProductByCatSlug($params, array('sort' => $sort, 'price_min' => $price_min, 'price_max' => $price_max, 'selected_colors' => $selected_colors, 'selected_sizes' => $selected_sizes));
-      
-      if(count($get_cat_product_and_breadcrumb) > 0){
-        $data['vendor_products'] = $get_cat_product_and_breadcrumb;
-      }
-      else{
-        return view('errors.no_data');
-      }
-      
-      if(count($data['vendor_products']) > 0){
-        $data['vendor_products']['action_url'] = Request::url();
-        
-        $currentQuery = Request::query();
-        
-        if(count($currentQuery) > 0){
-          if(isset($currentQuery['view'])){
-            unset($currentQuery['view']);
-          }
-          
-          if(count($currentQuery) > 0){
-            $currentQuery['view'] = 'list';
-            $data['vendor_products']['action_url_list_view'] = Request::url(). '?' . http_build_query($currentQuery);
-            $currentQuery['view'] = 'grid';
-            $data['vendor_products']['action_url_grid_view'] = Request::url(). '?' . http_build_query($currentQuery);
-          }
-          else{
-            $data['vendor_products']['action_url_list_view'] = Request::url(). '?view=list';
-            $data['vendor_products']['action_url_grid_view'] = Request::url(). '?view=grid';
-          }
-        }
-        else{
-          $data['vendor_products']['action_url_list_view'] = Request::url(). '?view=list';
-          $data['vendor_products']['action_url_grid_view'] = Request::url(). '?view=grid';
-        }
-        
-        if(isset($_GET['view']) && $_GET['view'] == 'list'){
-          $data['vendor_products']['selected_view'] = 'list'; 
-        }
-        elseif(isset($_GET['view']) && $_GET['view'] == 'grid'){
-          $data['vendor_products']['selected_view'] = 'grid'; 
-        }
-        else{
-          $data['vendor_products']['selected_view'] = 'grid';
-        }
-      }
-      
-      return view('pages.frontend.vendors.vendor-details', $data);
-    }
-    else{
-      return view('errors.no_data');
-    }
-  }
-  
-  /**
-   * 
    * Product comparison page content
    *
    * @param null
@@ -802,7 +815,6 @@ class MobileAppFrontendController extends Controller
       $is_user_login = true;
     }
 
-
     $get_order_data = $this->classCommonFunction->get_order_details_by_order_id(array('order_id' => $params, 'order_process_id' => $params2));
     $data = $this->classCommonFunction->get_dynamic_frontend_content_data();
     
@@ -815,7 +827,6 @@ class MobileAppFrontendController extends Controller
     }
 
     $data['is_user_login'] = $is_user_login;
-
 
     // return response()->json($data['is_user_login']);
     

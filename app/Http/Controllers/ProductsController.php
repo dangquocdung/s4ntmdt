@@ -56,7 +56,6 @@ class ProductsController extends Controller
      
     return view('pages.admin.product.add-product-content', $get_data);
 
-
   }
   
   /**
@@ -2660,7 +2659,6 @@ class ProductsController extends Controller
      
     return $advanced_arr;
 
-    
   }
   
   /**
@@ -3104,7 +3102,128 @@ class ProductsController extends Controller
  
     return $post_array;
   }
+
+  public function getProductByCatID($id){
     
+    $get_term = Term::where(['term_id' => $id, 'type' => 'product_cat'])->first();
+     
+    if(!empty($get_term) && isset($get_term->term_id)){
+      $str    = '';
+      $cat_id = $get_term->term_id;
+            
+      $get_term_data = $this->getTermDataById( $get_term->term_id );
+      $get_child_cat = $this->get_categories($get_term->term_id, 'product_cat');
+      $parent_id     = $this->getTopParentId( $get_term->term_id );
+
+      $cat_data['id']    =  $get_term_data[0]['term_id'];
+      $cat_data['name']  =  $get_term_data[0]['name'];
+      $cat_data['slug']  =  $get_term_data[0]['slug'];
+      
+      if($get_term_data[0]['parent'] == 0){
+        $cat_data['parent']  =  'Parent Categories';
+      }
+      else{
+        $cat_data['parent']  =  'Sub Categories';
+      }
+      
+      $cat_data['parent_id']  =  $get_term_data[0]['parent'] ;
+      $cat_data['description']  =  $get_term_data[0]['category_description'];
+      $cat_data['img_url']  =  $get_term_data[0]['category_img_url'];
+
+      $parent_cat_ary = array();
+      $parent_cat_ary[] = $cat_data;
+      $all_cat = $parent_cat_ary;
+        
+      if(count($parent_cat_ary) > 0){
+        foreach($parent_cat_ary as $cat){
+            $get_post_data =  DB::table('products');
+            $get_post_data->where(['products.status' => 1, 'object_relationships.term_id' => $cat['id'] ]);
+            $get_post_data->join('object_relationships', 'object_relationships.object_id', '=', 'products.id');
+            $get_post_data->join('terms', 'terms.term_id', '=', 'object_relationships.term_id');
+            $get_post_data->select('products.*','object_relationships.*','terms.parent');
+            $get_post_data = $get_post_data->get()->toArray();
+
+            $get_items=array();
+
+            if(count($get_post_data) > 0){
+              foreach($get_post_data as $product){
+
+                $ary = array();
+
+                $ary['id'] = $product->id;
+                $ary['cat_id'] = $product->parent;
+                $ary['sub_cat_id'] = $product->term_id;
+                $ary['shop_id'] = $product->author_id;
+                $ary['name'] = $product->title;
+                $ary['description'] = $product->content; 
+                $ary['unit_price'] = $product->stock_qty;
+                $ary['is_published'] = $product->status;
+                $ary['added'] = $product->created_at;
+                $ary['updated'] = $product->updated_at;
+                $ary['images'] = array();
+
+
+
+                $get_attr_by_products  =  ProductExtra::where(['product_id' => $product->id, 'key_name' => '_product_related_images_url'])->get()->toArray();
+    
+                if(count($get_attr_by_products)>0){
+                  $parseJsonToArray = json_decode($get_attr_by_products[0]['key_value']);
+                  
+                  if(!empty($parseJsonToArray)){
+                    foreach($parseJsonToArray->product_gallery_images as $row){
+                      $e_ary = array();
+                      $e_ary['parent_id'] = $product->id;
+                      $e_ary['path']     = $row->url;
+                      $e_ary['width']   = '225';
+                      $e_ary['height'] = '225';
+                      $e_ary['description'] = $product->title;
+
+                      array_push($ary['images'], $e_ary);
+                    }
+                  } 
+
+
+
+                }
+            
+
+
+
+                
+    
+
+
+
+
+
+                $ary['discount_type_id'] = "0";
+                $ary['search_tag'] = "Cable,Accessories";
+                $ary['like_count'] = 0;
+                $ary['review_count'] = 0;
+                $ary['inquiries_count'] = 0;
+                $ary['touches_count'] = 1;
+                $ary['discount_name'] = "";
+                $ary['discount_percent'] = "";
+                $ary['currency_symbol'] = "$";
+                $ary['currency_short_form'] = "USD";
+                $ary['reviews'] = [ ];
+                // $ary['attributes'] = $get_extra_data;
+
+                array_push($get_items, $ary);
+
+              }
+            }
+
+        }
+      }
+
+    }
+
+    return $get_items;
+ 
+    // return $get_post_data;
+  }
+
   /**
    * Get function for attributes
    *
@@ -3556,7 +3675,6 @@ class ProductsController extends Controller
                                                               'shop_banner_image'        => ''
                                                             )
                                                           );
-    
     
     // return response()->json($data['categories_lists']);
                                                           return $data;
