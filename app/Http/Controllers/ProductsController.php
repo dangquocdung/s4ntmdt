@@ -3106,6 +3106,9 @@ class ProductsController extends Controller
   public function getProductByCatID($vd, $id){
     
     $get_term = Term::where(['term_id' => $id, 'type' => 'product_cat'])->first();
+
+    $get_items=array();
+
      
     if(!empty($get_term) && isset($get_term->term_id)){
       $str    = '';
@@ -3133,8 +3136,11 @@ class ProductsController extends Controller
       $parent_cat_ary = array();
       $parent_cat_ary[] = $cat_data;
       $all_cat = $parent_cat_ary;
+
+      
         
       if(count($parent_cat_ary) > 0){
+        
         foreach($parent_cat_ary as $cat){
 
             $get_post_data =  DB::table('products');
@@ -3144,7 +3150,6 @@ class ProductsController extends Controller
             $get_post_data->select('products.*','object_relationships.*','terms.parent');
             $get_post_data = $get_post_data->get()->toArray();
 
-            $get_items=array();
 
             if(count($get_post_data) > 0){
               foreach($get_post_data as $product){
