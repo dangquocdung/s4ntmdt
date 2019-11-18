@@ -75,12 +75,12 @@ class MobileAppFrontendController extends Controller
   public function multivendorStoreSinglePageProductsCatContent( $params, $params1 ){
 
     $data = array();
-    $user = $params;
+    $vd = $params;
     $cat = $params1;
     
     $data['status'] = 'success';
     
-    $data['data'] =  $this->product->getProductByCatID($cat);
+    $data['data'] =  $this->product->getProductByCatID($vd,$cat);
 
     return response()->json($data);
 
