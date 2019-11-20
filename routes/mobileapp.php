@@ -19,7 +19,7 @@ Route::group(['prefix' => 'rest', 'namespace' => 'MobileApp'], function () {
     'uses' => 'MobileAppFrontendController@multivendorStoreListPageContent'
   ]);
 
-  Route::get( '/items/get/shop_id/{shop_id}/sub_cat_id/{product_cat}/item/all/count/{limit}/form/{offset}', [
+  Route::get( '/items/get/shop_id/{shop_id}/sub_cat_id/{product_cat}/item/all/count/{limit}/from/{offset}', [
     'uses' => 'MobileAppFrontendController@multivendorStoreSinglePageProductsCatContent'
   ]);
   
