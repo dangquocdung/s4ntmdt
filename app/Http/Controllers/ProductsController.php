@@ -3170,6 +3170,8 @@ class ProductsController extends Controller
                     $ary['added'] = $product->created_at;
                     $ary['updated'] = $product->updated_at;
 
+                    $ary['images'] = array();
+
                     $ary_img = array();
                       $ary_img['id'] = $product->id;
                       $ary_img['parent_id'] = $product->id;
