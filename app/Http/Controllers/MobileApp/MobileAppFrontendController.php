@@ -72,11 +72,12 @@ class MobileAppFrontendController extends Controller
    * @param null
    * @return void 
    */
-  public function multivendorStoreSinglePageProductsCatContent( $params, $params1 ){
+  public function multivendorStoreSinglePageProductsCatContent( $params, $params1, $params2 ){
 
     $data = array();
     $vd = $params;
     $cat = $params1;
+    $pag = $params2;
     
     $data['status'] = 'success';
     
