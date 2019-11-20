@@ -3173,8 +3173,8 @@ class ProductsController extends Controller
                     $ary['images'] = array();
 
                     $ary_img = array();
-                      $ary_img['id'] = $product->id;
-                      $ary_img['parent_id'] = $product->id;
+                      $ary_img['id'] = strval($product->id);
+                      $ary_img['parent_id'] = strval($product->id);
                       $ary_img['path']     = $product->image_url;
                       $ary_img['width']   = '225';
                       $ary_img['height'] = '225';
