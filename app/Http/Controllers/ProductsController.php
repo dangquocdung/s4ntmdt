@@ -3160,9 +3160,12 @@ class ProductsController extends Controller
                     $ary['cat_id'] = $product->parent;
                     $ary['sub_cat_id'] = $product->term_id;
                     $ary['shop_id'] = $product->author_id;
+                    $ary['discount_type_id'] = "1";
                     $ary['name'] = $product->title;
                     $ary['description'] = $product->content; 
                     $ary['unit_price'] = $product->stock_qty;
+                    $ary['search_tag'] = $this->getTagsByObjectId($product->id)['term_details'];
+
                     $ary['is_published'] = $product->status;
                     $ary['added'] = $product->created_at;
                     $ary['updated'] = $product->updated_at;
@@ -3173,8 +3176,6 @@ class ProductsController extends Controller
                       $ary['images']['width']   = '225';
                       $ary['images']['height'] = '225';
                       $ary['images']['description'] = $product->title;
-                    $ary['discount_type_id'] = "0";
-                    $ary['search_tag'] = $this->getTagsByObjectId($product->id)['term_details'];
                     $ary['like_count'] = 0;
                     $ary['review_count'] = 0;
                     $ary['inquiries_count'] = 0;
