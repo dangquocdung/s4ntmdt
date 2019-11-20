@@ -3103,7 +3103,7 @@ class ProductsController extends Controller
     return $post_array;
   }
 
-  public function getProductByCatID($vd, $id, $pag){
+  public function getProductByCatID($vd, $id, $limit, $offset){
     
     $get_term = Term::where(['term_id' => $id, 'type' => 'product_cat'])->first();
 
@@ -3148,6 +3148,8 @@ class ProductsController extends Controller
             $get_post_data->join('object_relationships', 'object_relationships.object_id', '=', 'products.id');
             $get_post_data->join('terms', 'terms.term_id', '=', 'object_relationships.term_id');
             $get_post_data->select('products.*','object_relationships.*','terms.parent');
+            $get_post_data->limit($limit);
+            $get_post_data->offset($offset);
             $get_post_data = $get_post_data->get()->toArray();
 
 
