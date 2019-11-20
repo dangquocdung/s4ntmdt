@@ -3169,13 +3169,17 @@ class ProductsController extends Controller
                     $ary['is_published'] = $product->status;
                     $ary['added'] = $product->created_at;
                     $ary['updated'] = $product->updated_at;
-                    $ary['images'] = array();
-                      $ary['images']['id'] = $product->id;
-                      $ary['images']['parent_id'] = $product->id;
-                      $ary['images']['path']     = $product->image_url;
-                      $ary['images']['width']   = '225';
-                      $ary['images']['height'] = '225';
-                      $ary['images']['description'] = $product->title;
+
+                    $ary_img = array();
+                      $ary_img['id'] = $product->id;
+                      $ary_img['parent_id'] = $product->id;
+                      $ary_img['path']     = $product->image_url;
+                      $ary_img['width']   = '225';
+                      $ary_img['height'] = '225';
+                      $ary_img['description'] = $product->title;
+                      
+                    array_push($ary['images'], $ary_img);
+
                     $ary['like_count'] = 0;
                     $ary['review_count'] = 0;
                     $ary['inquiries_count'] = 0;
