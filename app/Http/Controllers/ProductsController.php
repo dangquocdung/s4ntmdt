@@ -3156,17 +3156,17 @@ class ProductsController extends Controller
 
                 if ($product->author_id == $vd){
                   $ary = array();
-                    $ary['id'] = $product->id;
-                    $ary['cat_id'] = $product->parent;
-                    $ary['sub_cat_id'] = $product->term_id;
-                    $ary['shop_id'] = $product->author_id;
+                    $ary['id'] = strval($product->id);
+                    $ary['cat_id'] = strval($product->parent);
+                    $ary['sub_cat_id'] = strval($product->term_id);
+                    $ary['shop_id'] = strval($product->author_id);
                     $ary['discount_type_id'] = "1";
                     $ary['name'] = $product->title;
                     $ary['description'] = $product->content; 
-                    $ary['unit_price'] = $product->stock_qty;
+                    $ary['unit_price'] = strval($product->stock_qty);
                     $ary['search_tag'] = $this->getTagsByObjectId($product->id)['term_details'];
 
-                    $ary['is_published'] = $product->status;
+                    $ary['is_published'] = strval($product->status);
                     $ary['added'] = $product->created_at;
                     $ary['updated'] = $product->updated_at;
 
