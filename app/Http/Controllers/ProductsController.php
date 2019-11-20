@@ -3164,7 +3164,8 @@ class ProductsController extends Controller
                     $ary['name'] = $product->title;
                     $ary['description'] = $product->content; 
                     $ary['unit_price'] = strval($product->stock_qty);
-                    $ary['search_tag'] = $this->getTagsByObjectId($product->id)['term_details'];
+                    // $ary['search_tag'] = $this->getTagsByObjectId($product->id)['term_details'];
+                    $ary['search_tag'] = "Cable,Accessories";
 
                     $ary['is_published'] = strval($product->status);
                     $ary['added'] = $product->created_at;
