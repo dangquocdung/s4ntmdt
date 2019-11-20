@@ -3182,8 +3182,8 @@ class ProductsController extends Controller
                     $ary['touches_count'] = 1;
                     $ary['discount_name'] = "";
                     $ary['discount_percent'] = "";
-                    $user_data['currency_symbol'] = '₫';
-                    $user_data['currency_short_form'] = 'VNĐ';
+                    $ary['currency_symbol'] = '₫';
+                    $ary['currency_short_form'] = 'VNĐ';
                     $ary['reviews'] = [ ];
                     $ary['attributes'] = array();
                   array_push($get_items, $ary);
