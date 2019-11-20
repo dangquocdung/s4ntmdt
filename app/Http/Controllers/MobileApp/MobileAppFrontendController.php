@@ -81,7 +81,7 @@ class MobileAppFrontendController extends Controller
     
     $data['status'] = 'success';
     
-    $data['data'] =  $this->product->getProductByCatID($vd,$cat);
+    $data['data'] =  $this->product->getProductByCatID($vd,$cat,$pag);
 
     return response()->json($data);
 
