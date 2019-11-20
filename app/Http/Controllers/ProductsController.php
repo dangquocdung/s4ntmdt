@@ -3103,7 +3103,7 @@ class ProductsController extends Controller
     return $post_array;
   }
 
-  public function getProductByCatID($vd, $id){
+  public function getProductByCatID($vd, $id, $pag){
     
     $get_term = Term::where(['term_id' => $id, 'type' => 'product_cat'])->first();
 
@@ -3205,7 +3205,17 @@ class ProductsController extends Controller
 
     }
 
-    return $get_items;
+    $currentPage = LengthAwarePaginator::resolveCurrentPage();
+    $col = new Collection( $get_items );
+    $perPage = $pag;
+    $currentPageSearchResults = $col->slice(($currentPage - 1) * $perPage, $perPage)->all();
+    $posts_object = new LengthAwarePaginator($currentPageSearchResults, count($col), $perPage);
+    // $posts_object->setPath( route('shop-page') );
+
+    // $product_data['products'] = $posts_object;
+
+
+    return $posts_object;
  
     // return $get_post_data;
   }
