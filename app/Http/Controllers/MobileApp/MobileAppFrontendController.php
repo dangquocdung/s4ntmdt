@@ -78,7 +78,7 @@ class MobileAppFrontendController extends Controller
 
     $data['status'] = 'success';
     
-    $data['data'] = get_roles_details_by_role_slug('vendor');
+    $data['data'] = get_vendor_by_id($id);
 
     return response()->json($data);
     
