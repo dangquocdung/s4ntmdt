@@ -27,6 +27,11 @@ Route::group(['prefix' => 'rest', 'namespace' => 'MobileApp'], function () {
     'uses' => 'MobileAppFrontendController@productSinglePageContent'
   ]);
 
+  Route::post( '/items/touch/id/{id}', [
+    'uses' => 'MobileAppFrontendController@productSinglePageContent'
+  ]);
+
+
   
   
 });
