@@ -292,10 +292,9 @@ class GetFunctionMB
                   ->join('role_user', 'users.id', '=', 'role_user.user_id')
                   ->leftJoin('users_details', 'users.id', '=', 'users_details.user_id')
                   ->select('users.*','users_details.details')
-                  ->get()
-                  ->toArray();
+                  ->get();
 
-    return $get_user;
+    return json_decode($get_user);
                
   }
 
