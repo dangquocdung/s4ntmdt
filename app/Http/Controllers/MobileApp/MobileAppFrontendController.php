@@ -196,10 +196,10 @@ class MobileAppFrontendController extends Controller
 
                 $sub_categories_details = array();
 
-                $sub_categories_details['id'] = $get_sub_categories_detail['term_id'];
-                $sub_categories_details['shop_id'] = $row->id;
+                $sub_categories_details['id'] = strval($get_sub_categories_detail['term_id']);
+                $sub_categories_details['shop_id'] = strval($row->id);
                 $sub_categories_details['name'] = $get_sub_categories_detail['name'];
-                $sub_categories_details['is_published'] = $get_sub_categories_detail['status'];
+                $sub_categories_details['is_published'] = strval($get_sub_categories_detail['status']);
                 // $categories_details['added'] = $get_categories_details['created_at'];
     
                 $sub_term_extra = TermExtra:: where(['term_id' => $get_sub_categories_detail['term_id']])->get();
