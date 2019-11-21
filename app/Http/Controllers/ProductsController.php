@@ -1975,7 +1975,7 @@ class ProductsController extends Controller
     $ary['search_tag'] = "Cable,Accessories";
 
     $ary['is_published'] = strval($product->status);
-    $ary['added'] = $product->created_at->date;
+    $ary['added'] = json_decode($product->created_at);
     // $ary['updated'] = $product->updated_at['date'];
 
     $ary['images'] = array();
