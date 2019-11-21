@@ -1964,8 +1964,8 @@ class ProductsController extends Controller
     
     $ary = array();
     $ary['id'] = strval($product->id);
-    $ary['cat_id'] = strval($product->parent);
-    $ary['sub_cat_id'] = strval($product->term_id);
+    $ary['cat_id'] = "191";
+    $ary['sub_cat_id'] = "217";
     $ary['shop_id'] = strval($product->author_id);
     $ary['discount_type_id'] = "1";
     $ary['name'] = $product->title;
@@ -1997,6 +1997,7 @@ class ProductsController extends Controller
     $ary['touches_count'] = 1;
     $ary['discount_name'] = "";
     $ary['discount_percent'] = "";
+    $ary['rating_count'] = 0;
     $ary['currency_symbol'] = '₫';
     $ary['currency_short_form'] = 'VNĐ';
     $ary['reviews'] = [ ];
