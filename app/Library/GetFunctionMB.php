@@ -168,11 +168,11 @@ class GetFunctionMB
       $user_data['sender_email'] = '';
       $user_data['added'] = $row->created_at;
       $user_data['status'] = strval($row->user_status);
-      $user_data['item_count'] = '0';
-      $user_data['category_count'] = '0';
-      $user_data['sub_category_count'] = '0';
-      $user_data['follow_count'] = '0';
-      $user_data['price_decimal_place'] = '0';
+      $user_data['item_count'] = 0;
+      $user_data['category_count'] = 0;
+      $user_data['sub_category_count'] = 0;
+      $user_data['follow_count'] = 0;
+      $user_data['price_decimal_place'] = 0;
       $user_data['cover_image_file'] = $parse_user_data['general_details']['cover_img'];
       $user_data['cover_image_width'] = '600';
       $user_data['cover_image_height'] = '400';
