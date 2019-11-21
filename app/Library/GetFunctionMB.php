@@ -292,8 +292,9 @@ class GetFunctionMB
                    ->join('role_user', 'users.id', '=', 'role_user.user_id')
                    ->leftJoin('users_details', 'users.id', '=', 'users_details.user_id')
                    ->select('users.*','users_details.details')
-                   ->get();
-                   
+                   ->get()
+                   ->toArray();
+
       $user_data = array();
 
       if (count($get_user) > 0){
@@ -443,7 +444,10 @@ class GetFunctionMB
       }
 
 
+      return $get_user;
+
       return $user_data;
+
     
   }
 
