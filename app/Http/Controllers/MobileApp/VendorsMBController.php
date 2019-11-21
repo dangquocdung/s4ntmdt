@@ -25,15 +25,12 @@ use shopist\Library\GetFunctionMB;
 use Illuminate\Support\Facades\App;
 use shopist\Library\CommonFunction;
 
-
-
 class VendorsMBController extends Controller
 {
   public $carbonObject;
   public $option;
   public $env;
   public $classCommonFunction;
-
 
   public function __construct(){
 		$this->carbonObject = new Carbon();
@@ -66,5 +63,4 @@ class VendorsMBController extends Controller
     return $users_details;
   }
 
-  
 }
