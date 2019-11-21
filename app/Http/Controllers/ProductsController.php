@@ -1976,7 +1976,7 @@ class ProductsController extends Controller
 
     $ary['is_published'] = strval($product->status);
     $ary['added'] = json_decode($product->created_at);
-    // $ary['updated'] = $product->updated_at['date'];
+    $ary['updated'] = json_decode($product->updated_at);
 
     $ary['images'] = array();
 
