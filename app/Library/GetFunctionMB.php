@@ -288,7 +288,7 @@ class GetFunctionMB
   public static function vendor_by_id($id){
 				
       $get_users = DB::table('users')
-                   ->where('id',$id)
+                   ->where(['users.id' => $id])
                    ->join('role_user', 'users.id', '=', 'role_user.user_id')
                    ->leftJoin('users_details', 'users.id', '=', 'users_details.user_id')
                    ->select('users.*','users_details.details')
