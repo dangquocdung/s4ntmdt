@@ -297,7 +297,7 @@ class GetFunctionMB
 
       $user_data = array();
 
-      if (count($get_user) > 0){
+      if (count($get_user) > 10){
         $parse_user_data = json_decode($get_user->details,true);
 
         $user_data['id'] = strval($get_user->id);
@@ -443,7 +443,7 @@ class GetFunctionMB
       }
 
 
-      return $user_data;
+      return $get_user;
     
   }
 
