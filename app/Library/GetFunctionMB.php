@@ -286,25 +286,27 @@ class GetFunctionMB
    */
 
   public static function vendor_by_id($id){
-				
-      $get_user = DB::table('users')
-                   ->where(['users.id' => $id])
-                   ->join('role_user', 'users.id', '=', 'role_user.user_id')
-                   ->leftJoin('users_details', 'users.id', '=', 'users_details.user_id')
-                   ->select('users.*','users_details.details')
-                   ->get()
-                   ->toArray();
+      
+    $get_user = DB::table('users')
+                  ->where(['users.id' => $id])
+                  ->join('role_user', 'users.id', '=', 'role_user.user_id')
+                  ->leftJoin('users_details', 'users.id', '=', 'users_details.user_id')
+                  ->select('users.*','users_details.details')
+                  ->get()
+                  ->toArray();
 
-      $user_data = array();
+    $vendors = array();
 
-      if (count($get_user) > 1){
-        
-        $parse_user_data = json_decode($get_user->details,true);
-
-        $user_data['id'] = strval($get_user->id);
+    foreach ($get_users as $row){
+  
+        $user_data = array();
+  
+        $parse_user_data = json_decode($row->details,true);
+  
+        $user_data['id'] = strval($row->id);
         $user_data['name'] = $parse_user_data['profile_details']['store_name'];
         $user_data['description'] = $parse_user_data['profile_details']['address_line_1'].', '.get_xaphuong($parse_user_data['profile_details']['city']).', '.get_quanhuyen($parse_user_data['profile_details']['state']).', '.get_tinhthanh($parse_user_data['profile_details']['country']);
-        $user_data['email'] = $get_user->email;
+        $user_data['email'] = $row->email;
         $user_data['phone'] = $parse_user_data['profile_details']['phone'];
         $user_data['address'] = $parse_user_data['profile_details']['address_line_1'];
   
@@ -339,8 +341,8 @@ class GetFunctionMB
         $user_data['currency_symbol'] = '₫';
         $user_data['currency_short_form'] = 'VNĐ';
         $user_data['sender_email'] = '';
-        $user_data['added'] = $get_user->created_at;
-        $user_data['status'] = strval($get_user->user_status);
+        $user_data['added'] = $row->created_at;
+        $user_data['status'] = strval($row->user_status);
         $user_data['item_count'] = 0;
         $user_data['category_count'] = 0;
         $user_data['sub_category_count'] = 0;
@@ -352,7 +354,7 @@ class GetFunctionMB
         $user_data['cover_image_description'] = $parse_user_data['profile_details']['store_name'];
         $user_data['categories'] = array();
   
-        $user_details = get_user_account_details_by_user_id( $get_user->id );
+        $user_details = get_user_account_details_by_user_id( $row->id );
   
         if(count($user_details) > 0){
           $get_user_details = json_decode($user_details[0]['details']);
@@ -373,7 +375,7 @@ class GetFunctionMB
               $categories_details = array();
   
               $categories_details['id'] = $get_categories_details['term_id'];
-              $categories_details['shop_id'] = $get_user->id;
+              $categories_details['shop_id'] = $row->id;
               $categories_details['name'] = $get_categories_details['name'];
               $categories_details['is_published'] = $get_categories_details['status'];
               // $categories_details['added'] = $get_categories_details['created_at'];
@@ -407,7 +409,7 @@ class GetFunctionMB
                   $sub_categories_details = array();
   
                   $sub_categories_details['id'] = $get_sub_categories_detail['term_id'];
-                  $sub_categories_details['shop_id'] = $get_user->id;
+                  $sub_categories_details['shop_id'] = $row->id;
                   $sub_categories_details['name'] = $get_sub_categories_detail['name'];
                   $sub_categories_details['is_published'] = $get_sub_categories_detail['status'];
                   // $categories_details['added'] = $get_categories_details['created_at'];
@@ -440,14 +442,15 @@ class GetFunctionMB
           }
         }
   
-
-      }
-
-
-      return $get_user;
-
-      return $user_data;
-
+        array_push($vendors, $user_data);
+    }
+  
+      // return $get_users;
+  
+      // return $parse_user_data;
+  
+      return $vendors;
+               
     
   }
 
