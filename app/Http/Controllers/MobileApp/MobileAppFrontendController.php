@@ -103,7 +103,7 @@ class MobileAppFrontendController extends Controller
     
     $data['status'] = 'success';
     
-    $data['data'] =  $this->product->getProductDataById($id);
+    $data['data'] =  $this->product->getProductDataByIdApp($id);
 
     return response()->json($data);
 

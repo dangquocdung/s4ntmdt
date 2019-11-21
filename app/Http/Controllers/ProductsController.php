@@ -1950,6 +1950,63 @@ class ProductsController extends Controller
     return $post_array;
   }
 
+    /**
+   * Get function for products data for mobile app
+   *
+   * @param products id
+   * @param products id required
+   * @return array
+   */
+  public function getProductDataByIdApp( $product_id ){
+
+    $product         =   Product :: where('id', $product_id)->first();
+    $product_meta    =   ProductExtra :: where('product_id', $product_id)->get();
+    
+    $ary = array();
+    $ary['id'] = strval($product->id);
+    $ary['cat_id'] = strval($product->parent);
+    $ary['sub_cat_id'] = strval($product->term_id);
+    $ary['shop_id'] = strval($product->author_id);
+    $ary['discount_type_id'] = "1";
+    $ary['name'] = $product->title;
+    $ary['description'] = $product->content; 
+    $ary['unit_price'] = strval($product->stock_qty);
+    // $ary['search_tag'] = $this->getTagsByObjectId($product->id)['term_details'];
+    $ary['search_tag'] = "Cable,Accessories";
+
+    $ary['is_published'] = strval($product->status);
+    $ary['added'] = $product->created_at;
+    $ary['updated'] = $product->updated_at;
+
+    $ary['images'] = array();
+
+    $ary_img = array();
+      $ary_img['id'] = strval($product->id);
+      $ary_img['parent_id'] = strval($product->id);
+      $ary_img['type'] = "item";
+      $ary_img['path']     = $product->image_url;
+      $ary_img['width']   = '225';
+      $ary_img['height'] = '225';
+      $ary_img['description'] = $product->title;
+      
+    array_push($ary['images'], $ary_img);
+
+    $ary['like_count'] = 0;
+    $ary['review_count'] = 0;
+    $ary['inquiries_count'] = 0;
+    $ary['touches_count'] = 1;
+    $ary['discount_name'] = "";
+    $ary['discount_percent'] = "";
+    $ary['currency_symbol'] = '₫';
+    $ary['currency_short_form'] = 'VNĐ';
+    $ary['reviews'] = [ ];
+    $ary['attributes'] = array();
+
+    
+    return $ary;
+  }
+
+
   /**
    * Get function for brands products
    *
