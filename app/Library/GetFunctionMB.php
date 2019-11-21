@@ -292,14 +292,13 @@ class GetFunctionMB
                    ->join('role_user', 'users.id', '=', 'role_user.user_id')
                    ->leftJoin('users_details', 'users.id', '=', 'users_details.user_id')
                    ->select('users.*','users_details.details')
-                   ->get()
-                   ->toArray();
-
+                   ->get();
+                   
       $user_data = array();
 
       if (count($get_user) > 0){
         
-        // $parse_user_data = json_decode($get_user->details,true);
+        $parse_user_data = json_decode($get_user->details,true);
 
         $user_data['id'] = strval($get_user->id);
         $user_data['name'] = $parse_user_data['profile_details']['store_name'];
