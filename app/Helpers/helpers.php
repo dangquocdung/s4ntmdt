@@ -1089,6 +1089,12 @@ function get_users_by_display_name_mb($role_id, $extra_search_term = null, $flag
   return GetFunctionMB::users_by_display_name($role_id, $extra_search_term, $flag);
 }
 
+function get_vendor_by_id($id)
+{
+  return GetFunctionMB::vendor_by_id($id);
+}
+
+
 
 /**
  * Get vendor details by product id
