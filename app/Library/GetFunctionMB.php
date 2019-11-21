@@ -297,7 +297,7 @@ class GetFunctionMB
 
     $vendors = array();
 
-    foreach ($get_users as $row){
+    foreach ($get_user as $row){
   
         $user_data = array();
   
