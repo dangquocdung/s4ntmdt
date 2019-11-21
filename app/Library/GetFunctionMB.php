@@ -298,8 +298,8 @@ class GetFunctionMB
       $user_data = array();
 
       if (count($get_user) > 0){
-
-        $parse_user_data = json_decode($get_user['details'],true);
+        
+        // $parse_user_data = json_decode($get_user->details,true);
 
         $user_data['id'] = strval($get_user->id);
         $user_data['name'] = $parse_user_data['profile_details']['store_name'];
@@ -444,7 +444,7 @@ class GetFunctionMB
       }
 
 
-      return $get_user;
+      return $user_data;
     
   }
 
