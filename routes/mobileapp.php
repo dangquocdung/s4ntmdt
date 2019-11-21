@@ -22,6 +22,11 @@ Route::group(['prefix' => 'rest', 'namespace' => 'MobileApp'], function () {
   Route::get( '/items/get/shop_id/{shop_id}/sub_cat_id/{product_cat}/item/all/count/{limit}/from/{offset}', [
     'uses' => 'MobileAppFrontendController@multivendorStoreSinglePageProductsCatContent'
   ]);
+
+  Route::get( '/rest/items/get/id/{id}/shop_id/{shop_id}', [
+    'uses' => 'MobileAppFrontendController@productSinglePageContent'
+  ]);
+
   
   
 });
