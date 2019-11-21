@@ -128,7 +128,7 @@ class GetFunctionMB
 
       $parse_user_data = json_decode($row->details,true);
 
-      $user_data['id'] = $row->id;
+      $user_data['id'] = strval($row->id);
       $user_data['name'] = $parse_user_data['profile_details']['store_name'];
       $user_data['description'] = $parse_user_data['profile_details']['address_line_1'].', '.get_xaphuong($parse_user_data['profile_details']['city']).', '.get_quanhuyen($parse_user_data['profile_details']['state']).', '.get_tinhthanh($parse_user_data['profile_details']['country']);
       $user_data['email'] = $row->email;
