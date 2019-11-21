@@ -74,13 +74,13 @@ class MobileAppFrontendController extends Controller
    */
   public function singlevendorStoreListPageContent($id){
 
-    $data = array();
+    // $data = array();
 
-    $data['status'] = 'success';
+    // $data['status'] = 'success';
     
-    $data['data'] = get_vendor_by_id($id);
+    // $data['data'] = get_vendor_by_id($id);
 
-    return response()->json($data);
+    return response()->json(get_vendor_by_id($id));
     
   }
 
