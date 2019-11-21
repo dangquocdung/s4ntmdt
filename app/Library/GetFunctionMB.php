@@ -297,7 +297,7 @@ class GetFunctionMB
 
       $user_data = array();
 
-      if (count($get_user) > 0){
+      if (count($get_user) > 1){
         
         $parse_user_data = json_decode($get_user->details,true);
 
