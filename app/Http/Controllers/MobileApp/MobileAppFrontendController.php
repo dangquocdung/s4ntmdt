@@ -11,6 +11,11 @@ use shopist\Models\Product;
 use Anam\Phpcart\Cart;
 use shopist\Models\DownloadExtra;
 use shopist\Models\User;
+use shopist\Models\UsersDetail;
+use shopist\Models\Term;
+use shopist\Models\TermExtra;
+
+
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\Lang;
 use Cookie;
@@ -74,13 +79,165 @@ class MobileAppFrontendController extends Controller
    */
   public function singlevendorStoreListPageContent($id){
 
-    // $data = array();
+    $data = array();
 
-    // $data['status'] = 'success';
+    $cat_ary = array();
+
+    $data['status'] = 'success';
     
-    // $data['data'] = get_vendor_by_id($id);
+    $row = User::where('id',$id)->first();
 
-    return response()->json(get_vendor_by_id($id));
+    $vd = UsersDetail::where('user_id',$row->id)->first();
+
+    $parse_user_data = json_decode($vd->details,true);
+
+    $data['data']['id'] = strval($row->id);
+    $data['data']['name'] = $parse_user_data['profile_details']['store_name'];
+    $data['data']['description'] = $parse_user_data['profile_details']['address_line_1'].', '.get_xaphuong($parse_user_data['profile_details']['city']).', '.get_quanhuyen($parse_user_data['profile_details']['state']).', '.get_tinhthanh($parse_user_data['profile_details']['country']);
+    $data['data']['email'] = $row->email;
+    $data['data']['phone'] = $parse_user_data['profile_details']['phone'];
+    $data['data']['address'] = $parse_user_data['profile_details']['address_line_1'];
+
+    $data['data']['coordinate'] =  '';
+    $data['data']['lat'] = $parse_user_data['general_details']['latitude'];
+    $data['data']['lng'] = $parse_user_data['general_details']['longitude'];
+
+    $data['data']['paypal_enabled'] = strval((int)$parse_user_data['payment_method']['paypal']['status']);
+    $data['data']['stripe_enabled'] = strval((int)$parse_user_data['payment_method']['stripe']['status']);
+    $data['data']['cod_enabled'] = strval((int)$parse_user_data['payment_method']['cod']['status']);
+    $data['data']['banktransfer_enabled'] = strval((int)$parse_user_data['payment_method']['dbt']['status']);
+
+    $data['data']['paypal_email'] = $parse_user_data['payment_method']['paypal']['email_id'];
+    $data['data']['paypal_environment'] = '';
+    $data['data']['paypal_appid_live'] = '';
+    $data['data']['paypal_merchantname'] = '';
+    $data['data']['paypal_customerid'] = '';
+    $data['data']['paypal_ipnurl'] = '';
+    $data['data']['paypal_memo'] = '';
+    
+    $data['data']['bank_account'] = $parse_user_data['payment_method']['dbt']['account_number'];
+    $data['data']['bank_name'] = $parse_user_data['payment_method']['dbt']['bank_name'];
+    $data['data']['bank_code'] = $parse_user_data['payment_method']['dbt']['short_code'];
+    $data['data']['branch_code'] = $parse_user_data['payment_method']['dbt']['IBAN'];
+    $data['data']['swift_code'] = $parse_user_data['payment_method']['dbt']['SWIFT'];
+
+    $data['data']['cod_email'] = $parse_user_data['payment_method']['cod']['title'];
+
+    $data['data']['stripe_publishable_key'] = '';
+    $data['data']['stripe_secret_key'] = '';
+
+    $data['data']['currency_symbol'] = '₫';
+    $data['data']['currency_short_form'] = 'VNĐ';
+    $data['data']['sender_email'] = '';
+    $data['data']['added'] = $row->created_at;
+    $data['data']['status'] = strval($row->user_status);
+    $data['data']['item_count'] = 0;
+    $data['data']['category_count'] = 0;
+    $data['data']['sub_category_count'] = 0;
+    $data['data']['follow_count'] = 0;
+    $data['data']['price_decimal_place'] = 0;
+    $data['data']['cover_image_file'] = strval($parse_user_data['general_details']['cover_img']);
+    $data['data']['cover_image_width'] = '600';
+    $data['data']['cover_image_height'] = '400';
+    $data['data']['cover_image_description'] = $parse_user_data['profile_details']['store_name'];
+    $data['data']['categories'] = array();
+
+    $user_details = get_user_account_details_by_user_id( $row->id );
+
+      if(count($user_details) > 0){
+        $get_user_details = json_decode($user_details[0]['details']);
+      } 
+
+      if(!empty($get_user_details->general_details->vendor_home_page_cats)){
+        
+        $vendor_home_cats = json_decode($get_user_details->general_details->vendor_home_page_cats);
+        
+        if(count($vendor_home_cats) > 0){
+          foreach($vendor_home_cats as $cat){
+
+            $explod_val = explode('#', $cat);
+            $get_id = end($explod_val);
+
+            $get_categories_details   =   Term::where('term_id', $get_id)->first();
+
+            $categories_details = array();
+
+            $categories_details['id'] = $get_categories_details['term_id'];
+            $categories_details['shop_id'] = $row->id;
+            $categories_details['name'] = $get_categories_details['name'];
+            $categories_details['is_published'] = $get_categories_details['status'];
+            // $categories_details['added'] = $get_categories_details['created_at'];
+
+            $term_extra = TermExtra:: where(['term_id' => $get_categories_details['term_id']])->get();
+            if(!empty($term_extra) && $term_extra->count() > 0){
+              foreach($term_extra as $term_extra_row){
+                
+                if(!empty($term_extra_row) && $term_extra_row->key_name == '_category_img_url'){
+                  if(!empty($term_extra_row->key_value)){
+                    $categories_details['cover_image_file'] = $term_extra_row->key_value;
+                  }
+                  else{
+                    $categories_details['cover_image_file'] = '';
+                  }
+                }
+              }
+            }
+    
+            $categories_details['cover_image_width'] = '292';
+            $categories_details['cover_image_height'] = '173';
+
+            $categories_details['sub_categories'] = array();
+
+            $get_sub_categories_details   =   Term::where('parent', $get_id)->get();
+
+            if(!empty($get_sub_categories_details) && $get_sub_categories_details->count() > 0){
+
+              foreach($get_sub_categories_details as $get_sub_categories_detail){
+
+                $sub_categories_details = array();
+
+                $sub_categories_details['id'] = $get_sub_categories_detail['term_id'];
+                $sub_categories_details['shop_id'] = $row->id;
+                $sub_categories_details['name'] = $get_sub_categories_detail['name'];
+                $sub_categories_details['is_published'] = $get_sub_categories_detail['status'];
+                // $categories_details['added'] = $get_categories_details['created_at'];
+    
+                $sub_term_extra = TermExtra:: where(['term_id' => $get_sub_categories_detail['term_id']])->get();
+                if(!empty($sub_term_extra) && $sub_term_extra->count() > 0){
+                  foreach($sub_term_extra as $sub_term_extra_row){
+                    
+                    if(!empty($sub_term_extra_row) && $sub_term_extra_row->key_name == '_category_img_url'){
+                      if(!empty($sub_term_extra_row->key_value)){
+                        $sub_categories_details['cover_image_file'] = $sub_term_extra_row->key_value;
+                      }
+                      else{
+                        $sub_categories_details['cover_image_file'] = '';
+                      }
+                    }
+                  }
+                }
+                $sub_categories_details['cover_image_width'] = '292';
+                $sub_categories_details['cover_image_height'] = '173';
+    
+                array_push($categories_details['sub_categories'], $sub_categories_details);
+
+              }
+
+            }
+
+            array_push($data['data']['categories'], $categories_details);
+          }
+        }
+      }
+
+
+
+
+
+    return response()->json($data);
+
+    return response()->json($vd);
+
     
   }
 
