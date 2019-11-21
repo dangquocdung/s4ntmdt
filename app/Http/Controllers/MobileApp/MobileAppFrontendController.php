@@ -78,7 +78,7 @@ class MobileAppFrontendController extends Controller
 
     $data['status'] = 'success';
     
-    $data['data'] = get_vendor_name($id);
+    $data['data'] = get_user_details($id);
 
     return response()->json($data);
     
