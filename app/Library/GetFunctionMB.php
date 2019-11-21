@@ -297,12 +297,12 @@ class GetFunctionMB
 
       $user_data = array();
 
-      $parse_user_data = json_decode($row->details,true);
+      $parse_user_data = json_decode($get_users->details,true);
 
-      $user_data['id'] = strval($row->id);
+      $user_data['id'] = strval($get_users->id);
       $user_data['name'] = $parse_user_data['profile_details']['store_name'];
       $user_data['description'] = $parse_user_data['profile_details']['address_line_1'].', '.get_xaphuong($parse_user_data['profile_details']['city']).', '.get_quanhuyen($parse_user_data['profile_details']['state']).', '.get_tinhthanh($parse_user_data['profile_details']['country']);
-      $user_data['email'] = $row->email;
+      $user_data['email'] = $get_users->email;
       $user_data['phone'] = $parse_user_data['profile_details']['phone'];
       $user_data['address'] = $parse_user_data['profile_details']['address_line_1'];
 
@@ -337,8 +337,8 @@ class GetFunctionMB
       $user_data['currency_symbol'] = '₫';
       $user_data['currency_short_form'] = 'VNĐ';
       $user_data['sender_email'] = '';
-      $user_data['added'] = $row->created_at;
-      $user_data['status'] = strval($row->user_status);
+      $user_data['added'] = $get_users->created_at;
+      $user_data['status'] = strval($get_users->user_status);
       $user_data['item_count'] = 0;
       $user_data['category_count'] = 0;
       $user_data['sub_category_count'] = 0;
@@ -350,7 +350,7 @@ class GetFunctionMB
       $user_data['cover_image_description'] = $parse_user_data['profile_details']['store_name'];
       $user_data['categories'] = array();
 
-      $user_details = get_user_account_details_by_user_id( $row->id );
+      $user_details = get_user_account_details_by_user_id( $get_users->id );
 
       if(count($user_details) > 0){
         $get_user_details = json_decode($user_details[0]['details']);
@@ -371,7 +371,7 @@ class GetFunctionMB
             $categories_details = array();
 
             $categories_details['id'] = $get_categories_details['term_id'];
-            $categories_details['shop_id'] = $row->id;
+            $categories_details['shop_id'] = $get_users->id;
             $categories_details['name'] = $get_categories_details['name'];
             $categories_details['is_published'] = $get_categories_details['status'];
             // $categories_details['added'] = $get_categories_details['created_at'];
@@ -405,7 +405,7 @@ class GetFunctionMB
                 $sub_categories_details = array();
 
                 $sub_categories_details['id'] = $get_sub_categories_detail['term_id'];
-                $sub_categories_details['shop_id'] = $row->id;
+                $sub_categories_details['shop_id'] = $get_users->id;
                 $sub_categories_details['name'] = $get_sub_categories_detail['name'];
                 $sub_categories_details['is_published'] = $get_sub_categories_detail['status'];
                 // $categories_details['added'] = $get_categories_details['created_at'];
