@@ -64,6 +64,26 @@ class MobileAppFrontendController extends Controller
     return response()->json($data);
     
   }
+
+    /**
+   * 
+   * Singlevendor store list page content
+   *
+   * @param null
+   * @return void 
+   */
+  public function singlevendorStoreListPageContent($id){
+
+    $data = array();
+
+    $data['status'] = 'success';
+    
+    $data['data'] = get_vendor_name($id);
+
+    return response()->json($data);
+    
+  }
+
   
     /**
    * 
