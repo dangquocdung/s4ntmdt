@@ -1967,7 +1967,7 @@ class ProductsController extends Controller
     $ary['cat_id'] = "191";
     $ary['sub_cat_id'] = "217";
     $ary['shop_id'] = strval($product->author_id);
-    $ary['discount_type_id'] = "1";
+    $ary['discount_type_id'] = "0";
     $ary['name'] = $product->title;
     $ary['description'] = $product->content; 
     $ary['unit_price'] = strval($product->stock_qty);
