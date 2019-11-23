@@ -56,7 +56,7 @@
       </a>
     </div>
     <div class="toolbar-item hidden-on-mobile">
-      <a href="http://hdsd.hatinhtrade.com.vn/docs/san-gdtmdt-ha-tinh/2.1" target="_blank">
+      <a href="http://app.hatinhtrade.com.vn/docs/san-gdtmdt-ha-tinh/2.1" target="_blank">
         <div>
           <span class="compare-icon">
             <i class="ion-ios-book" style="color:red"></i>
@@ -142,7 +142,7 @@
     <div class="toolbar">
 
       <div class="toolbar-item">
-        <a href="http://hdsd.hatinhtrade.com.vn/docs/san-gdtmdt-ha-tinh/2.1" target="_blank">
+        <a href="http://app.hatinhtrade.com.vn/docs/san-gdtmdt-ha-tinh/2.1" target="_blank">
           <div>
             <span class="compare-icon">
               <i class="ion-ios-book" style="color:red"></i>
@@ -223,7 +223,7 @@
               <a href="{{ route('ban-quan-tri') }}"><span>{!! trans('frontend.ban-quan-tri') !!}</span></a>
             </li>
             <li>
-              <a href="http://hdsd.hatinhtrade.com.vn/docs/san-gdtmdt-ha-tinh/2.1" target="_blank">
+              <a href="http://app.hatinhtrade.com.vn/docs/san-gdtmdt-ha-tinh/2.1" target="_blank">
                 <span>Tài liệu Hướng dẫn sử dụng</span>
               </a>
             </li>
@@ -313,7 +313,7 @@
             <a href="{{ route('ban-quan-tri') }}"><span>{!! trans('frontend.ban-quan-tri') !!}</span></a>
           </li>
           <li>
-            <a href="http://hdsd.hatinhtrade.com.vn/docs/san-gdtmdt-ha-tinh/2.1" target="_blank">
+            <a href="http://app.hatinhtrade.com.vn/docs/san-gdtmdt-ha-tinh/2.1" target="_blank">
               <span>Tài liệu Hướng dẫn sử dụng</span>
             </a>
           </li>
