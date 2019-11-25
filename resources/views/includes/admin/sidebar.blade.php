@@ -669,8 +669,8 @@
               <li><a href="{{ route('admin.payment_method_direct_bank_content') }}"><i class="fa fa-bank"></i> {!! trans('admin.direct_bank_transfer') !!}</a></li>
               <li><a href="{{ route('admin.payment_method_cash_on_delivery_content') }}"><i class="fa fa-home"></i> {!! trans('admin.cash_on_delivery') !!}</a></li>
               <li><a href="{{ route('admin.payment_method_paypal_content') }}"><i class="fa fa-paypal"></i> {!! trans('admin.paypal') !!}</a></li>
-              <li><a href="{{ route('admin.payment_method_stripe_content') }}"><i class="fa fa-cc-stripe"></i> {!! trans('admin.stripe') !!}</a></li>
-              <li><a href="{{ route('admin.payment_method_two_checkout_content') }}"><i class="fa fa-cc-visa"></i> {!! trans('admin.two_checkout') !!}</a></li>
+              <!-- <li><a href="{{ route('admin.payment_method_stripe_content') }}"><i class="fa fa-cc-stripe"></i> {!! trans('admin.stripe') !!}</a></li>
+              <li><a href="{{ route('admin.payment_method_two_checkout_content') }}"><i class="fa fa-cc-visa"></i> {!! trans('admin.two_checkout') !!}</a></li> -->
             </ul>
           </li>
         @endif
