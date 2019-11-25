@@ -646,7 +646,7 @@
                 <li><a href="{{ route('admin.payment_method_paypal_content') }}"><i class="fa fa-paypal"></i> {!! trans('admin.paypal') !!}</a></li>
               @endif
               
-              @if(Request::is('admin/payment-method/stripe'))
+              <!-- @if(Request::is('admin/payment-method/stripe'))
                 <li class="active"><a href="{{ route('admin.payment_method_stripe_content') }}"><i class="fa fa-cc-stripe"></i> {!! trans('admin.stripe') !!}</a></li>
               @else
                 <li><a href="{{ route('admin.payment_method_stripe_content') }}"><i class="fa fa-cc-stripe"></i> {!! trans('admin.stripe') !!}</a></li>
@@ -656,7 +656,7 @@
                 <li class="active"><a href="{{ route('admin.payment_method_two_checkout_content') }}"><i class="fa fa-cc-visa"></i> {!! trans('admin.two_checkout') !!}</a></li>
               @else
                 <li><a href="{{ route('admin.payment_method_two_checkout_content') }}"><i class="fa fa-cc-visa"></i> {!! trans('admin.two_checkout') !!}</a></li>
-              @endif
+              @endif -->
             </ul>
           </li>
         @else
