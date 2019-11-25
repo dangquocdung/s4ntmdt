@@ -86,7 +86,10 @@
         <h5>{{ trans('frontend.shipping-address') }}</h5>
         <hr class="padding-bottom-1x">
 
-        <input type="checkbox" name="same_shipping_address" id="same_shipping_address" class="shopist-iCheck" value="same_address"> {{ trans('frontend.same-contact-address') }}
+        <!-- <input type="checkbox" name="same_shipping_address" id="same_shipping_address" class="shopist-iCheck" value="same_address"> {{ trans('frontend.-contact-address') }} -->
+
+        <input type="checkbox" name="different_shipping_address" id="different_shipping_address" class="shopist-iCheck" value="different_address"> {{ trans('frontend.different-contact-address') }}
+
         
         <div class="row different-shipping-address mt-3">
 

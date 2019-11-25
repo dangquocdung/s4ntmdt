@@ -117,14 +117,14 @@
     <div class="col-sm-6">
         <div class="form-group">
         <label class="control-label" for="inputAccountLastName">{{ trans('frontend.account_last_name') }}</label>
-        <input type="text" class="form-control" placeholder="{{ trans('frontend.last_name') }}" name="account_shipping_last_name" id="account_shipping_last_name" value="{{ $frontend_account_details->address_details->account_shipping_first_name }}"  disabled>
+        <input type="text" class="form-control" placeholder="{{ trans('frontend.last_name') }}" name="account_shipping_last_name" id="account_shipping_last_name" value="{{ $frontend_account_details->address_details->account_shipping_last_name }}"  disabled>
         </div>
     </div>
 
     <div class="col-sm-6">
         <div class="form-group">
         <label class="control-label" for="inputAccountFirstName">{{ trans('frontend.account_first_name') }}</label>
-        <input type="text" class="form-control" placeholder="{{ trans('frontend.first_name') }}" name="account_shipping_first_name" id="account_shipping_first_name" value="{{ $frontend_account_details->address_details->account_shipping_last_name }}"  disabled>
+        <input type="text" class="form-control" placeholder="{{ trans('frontend.first_name') }}" name="account_shipping_first_name" id="account_shipping_first_name" value="{{ $frontend_account_details->address_details->account_shipping_first_name }}"  disabled>
         </div>
     </div>
 
