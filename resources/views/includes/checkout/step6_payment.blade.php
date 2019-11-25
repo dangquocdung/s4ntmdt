@@ -11,12 +11,10 @@
             <div class="table-responsive">
                 <table class="table table-hover"> 
                     <tbody>  
-        
                         @if($payment_method_data['bacs']['enable_option'] == 'yes' && $is_user_login == true )
                             <tr>
                                 <td class="align-middle">
                                     <input type="radio" class="shopist-iCheck" name="payment_option" value="bacs"> 
-            
                                 </td>
                                 <td class="align-middle">
                                 <span class="text-gray-dark">{{ $payment_method_data['bacs']['method_title'] }}</span><br>
@@ -29,7 +27,6 @@
                         <tr>
                             <td class="align-middle">
                                 <input type="radio" class="shopist-iCheck" name="payment_option" value="cod"> 
-        
                             </td>
                             <td class="align-middle">
                             <span class="text-gray-dark">{{ $payment_method_data['cod']['method_title'] }}</span><br>
@@ -42,7 +39,6 @@
                         <tr>
                             <td class="align-middle">
                                 <input type="radio" class="shopist-iCheck" name="payment_option" value="paypal"> 
-        
                             </td>
                             <td class="align-middle">
                             <span class="text-gray-dark">{{ $payment_method_data['paypal']['method_title'] }}</span><br>
@@ -50,8 +46,6 @@
                             </td>
                         </tr>
                         @endif
-        
-                        
                     </tbody>
                 </table>
     
