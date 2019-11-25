@@ -19,7 +19,7 @@ return [
   'payment_method' =>'Thanh toán',
   'payment_options' =>'Các lựa chọn thanh toán',
   'direct_bank_transfer' =>'Chuyển tiền trực tiếp qua ngân hàng',
-  'cash_on_delivery' =>'Thanh toán khi giao hàng',
+  'cash_on_delivery' =>'Thanh toán khi nhận hàng (COD)',
   'paypal' =>'PayPal',
   'stripe' =>'Stripe',
   'two_checkout' =>'2Checkout',
