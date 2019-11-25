@@ -17,8 +17,8 @@
                                     <input type="radio" class="shopist-iCheck" name="payment_option" value="bacs"> 
                                 </td>
                                 <td class="align-middle">
-                                <span class="text-gray-dark">{{ $payment_method_data['bacs']['method_title'] }}</span><br>
-                                <span class="text-muted text-sm">{{ $payment_method_data['bacs']['method_description'] }}</span>
+                                    <span class="text-gray-dark">{{ $payment_method_data['bacs']['method_title'] }}</span><br>
+                                    <span class="text-muted text-sm">{{ $payment_method_data['bacs']['method_description'] }}</span>
                                 </td>
                             </tr>
                         @endif
@@ -29,8 +29,8 @@
                                 <input type="radio" class="shopist-iCheck" name="payment_option" value="cod"> 
                             </td>
                             <td class="align-middle">
-                            <span class="text-gray-dark">{{ $payment_method_data['cod']['method_title'] }}</span><br>
-                            <span class="text-muted text-sm">{{ $payment_method_data['cod']['method_description'] }}</span>
+                                <span class="text-gray-dark">{{ $payment_method_data['cod']['method_title'] }}</span><br>
+                                <span class="text-muted text-sm">{{ $payment_method_data['cod']['method_description'] }}</span>
                             </td>
                         </tr>
                         @endif
@@ -41,8 +41,8 @@
                                 <input type="radio" class="shopist-iCheck" name="payment_option" value="paypal"> 
                             </td>
                             <td class="align-middle">
-                            <span class="text-gray-dark">{{ $payment_method_data['paypal']['method_title'] }}</span><br>
-                            <span class="text-muted text-sm">{{ $payment_method_data['paypal']['method_description'] }}</span>
+                                <span class="text-gray-dark">{{ $payment_method_data['paypal']['method_title'] }}</span><br>
+                                <span class="text-muted text-sm">{{ $payment_method_data['paypal']['method_description'] }}</span>
                             </td>
                         </tr>
                         @endif
