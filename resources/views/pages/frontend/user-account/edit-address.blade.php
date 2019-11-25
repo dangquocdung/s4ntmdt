@@ -99,7 +99,11 @@
       <div class="address-content-sub">
         <h5>{{ trans('frontend.shipping-address') }}</h5>
         <hr class="padding-bottom-1x">
-        <input type="checkbox" name="same_shipping_address" id="same_shipping_address" class="shopist-iCheck" value="same_address"> {{ trans('frontend.same-contact-address') }}
+
+        <!-- <input type="checkbox" name="same_shipping_address" id="same_shipping_address" class="shopist-iCheck" value="same_address"> {{ trans('frontend.same-contact-address') }} -->
+
+        <input type="checkbox" name="different_shipping_address" id="different_shipping_address" class="shopist-iCheck" value="different_address"> {{ trans('frontend.different-contact-address') }}
+
         <div class="row different-shipping-address mt-3">
 
           <div class="col-sm-6">
@@ -108,7 +112,7 @@
               <input type="text" class="form-control" placeholder="{{ trans('frontend.last_name') }}" name="account_shipping_last_name" id="account_shipping_last_name" value="{{ $frontend_account_details->address_details->account_shipping_last_name }}">
             </div>
           </div>
-          
+
           <div class="col-sm-6">
             <div class="form-group">
               <label for="account_shipping_first_name">{{ trans('frontend.account_first_name') }}</label>
