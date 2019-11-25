@@ -19,7 +19,7 @@ return [
     'customer_details' =>'Chi tiết khách hàng',
     'email' =>'E-mail',
     'tel' =>'Điện thoại',
-    'billing_address' =>'Địa chỉ thanh toán',
+    'billing_address' =>'Địa chỉ liên hệ',
     'powered_by' =>'Được cung cấp bởi',
     'admin_order_email_subj' =>'Khách hàng đặt hàng mới',
     'admin_order_email_heading' =>'Đơn hàng mới của khách hàng',

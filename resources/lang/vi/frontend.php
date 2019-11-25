@@ -145,7 +145,7 @@ return [
   'item' =>'Mục',
   'tax' =>'Thuế',
   'order_total' =>'Tổng số đơn hàng',
-  'billing_address' =>'Địa chỉ thanh toán',
+  'billing_address' =>'Địa chỉ liên hệ',
   'company' =>'Công ty',
   'address_1' =>'Tên đường',
   'address_2' =>'Địa chỉ 2',
@@ -613,7 +613,7 @@ return [
   'nguoi-nhan' => 'Người nhận',
   'nguoi-tt' => 'Người thanh toán',
 
-  'billing_address_not_available' =>'Không có địa chỉ thanh toán trong sổ địa chỉ của bạn',
+  'billing_address_not_available' =>'Không có địa chỉ liên hệ trong sổ địa chỉ của bạn',
   'shipping_address_not_available' =>'Không có địa chỉ giao hàng trong sổ địa chỉ của bạn',
   'quick_view' => 'Xem nhanh',
 
