@@ -366,6 +366,7 @@ class UserAccountManageController extends Controller
         ];
 
         if(isset($get_shipping_status) && $get_shipping_status == 'different_address'){
+
           $messages['account_shipping_first_name.required'] = Lang::get('validation.shipping_fill_first_name_field');
           $messages['account_shipping_last_name.required'] = Lang::get('validation.shipping_fill_last_name_field');
           $messages['account_shipping_email_address.required'] = Lang::get('validation.shipping_fill_email_field');
@@ -375,6 +376,7 @@ class UserAccountManageController extends Controller
           $messages['account_shipping_select_state.required'] = Lang::get('validation.shipping_fill_state_name_field');
           $messages['account_shipping_select_city.required'] = Lang::get('validation.shipping_fill_city_name');
           $messages['account_shipping_adddress_line_1.required'] = Lang::get('validation.shipping_address_line_1_field');
+          
         }
 
       
