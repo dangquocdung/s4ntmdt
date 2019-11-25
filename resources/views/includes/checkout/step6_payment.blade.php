@@ -21,7 +21,7 @@
                                     <span class="text-muted text-sm">{{ $payment_method_data['bacs']['method_description'] }}</span>
                                 </td>
                             </tr>
-                        @else
+                        @elseif($payment_method_data['bacs']['enable_option'] == 'yes')
                             <tr>
                                 <td class="align-middle">
                                     <input type="radio" class="shopist-iCheck" name="payment_option" disabled> 
@@ -31,8 +31,6 @@
                                     <span class="text-muted text-sm">{{ $payment_method_data['bacs']['method_description'] }}</span>
                                 </td>
                             </tr>
-
-
                         @endif
         
                         @if($payment_method_data['cod']['enable_option'] == 'yes')
