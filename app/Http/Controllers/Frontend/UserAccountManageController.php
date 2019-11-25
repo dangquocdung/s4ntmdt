@@ -325,8 +325,33 @@ class UserAccountManageController extends Controller
     if( Request::isMethod('post') && Session::token() == Input::get('_token') ){
       if(Input::get('_account_post_type') == 'address'){
         $rules = [
+
+          'account_bill_first_name'                =>  'required',
+          'account_bill_last_name'                 =>  'required',
+          'account_bill_email_address'             =>  'required|email',
+          'account_bill_phone_number'              =>  'required',
+          'account_bill_select_country'            =>  'required',
+          'account_bill_select_state'              =>  'required',
+          'account_bill_select_city'               =>  'required',
+          'account_bill_adddress_line_1'           =>  'required',
+
                  
         ];
+
+        $get_shipping_status = Input::get('different_shipping_address');
+
+        if(isset($get_shipping_status) && $get_shipping_status == 'different_address'){
+          $rules['account_shipping_first_name']         = 'required';
+          $rules['account_shipping_last_name']          = 'required';
+          $rules['account_shipping_email_address']      = 'required|email';
+          $rules['account_shipping_phone_number']       = 'required';
+          $rules['account_shipping_select_country']     = 'required';
+          $rules['account_shipping_select_state']       = 'required';
+          $rules['account_shipping_select_city']       = 'required';
+          $rules['account_shipping_adddress_line_1']    = 'required';
+        }
+
+
         
         $messages = [
                     'account_bill_first_name.required' => Lang::get('validation.account_bill_first_name'),
@@ -338,16 +363,20 @@ class UserAccountManageController extends Controller
                     'account_bill_adddress_line_1.required' => Lang::get('validation.account_bill_adddress_line_1'),
                     'account_bill_select_city.required' => Lang::get('validation.account_bill_select_city'),
                     'account_bill_zip_or_postal_code.required' => Lang::get('validation.account_bill_zip_or_postal_code'),
-                    'account_shipping_first_name.required' => Lang::get('validation.account_shipping_first_name'),
-                    'account_shipping_last_name.required' => Lang::get('validation.account_shipping_last_name'),
-                    'account_shipping_email_address.required' => Lang::get('validation.account_shipping_email_address'),
-                    'account_shipping_email_address.email' => Lang::get('validation.account_shipping_email_address_is_email'),
-                    'account_shipping_select_country.required' => Lang::get('validation.account_shipping_select_country'),
-                    'account_shipping_adddress_line_1.required' => Lang::get('validation.account_shipping_adddress_line_1'),
-                    'account_shipping_select_city.required' => Lang::get('validation.account_shipping_select_city'),
-                    'account_shipping_zip_or_postal_code.required' => Lang::get('validation.account_shipping_zip_or_postal_code'),
-                    'account_shipping_phone_number.required' => Lang::get('validation.account_shipping_phone_number_name')
         ];
+
+        if(isset($get_shipping_status) && $get_shipping_status == 'different_address'){
+          $messages['account_shipping_first_name.required'] = Lang::get('validation.shipping_fill_first_name_field');
+          $messages['account_shipping_last_name.required'] = Lang::get('validation.shipping_fill_last_name_field');
+          $messages['account_shipping_email_address.required'] = Lang::get('validation.shipping_fill_email_field');
+          $messages['account_shipping_email_address.email'] = Lang::get('validation.shipping_fill_valid_email_field');
+          $messages['account_shipping_phone_number.required'] = Lang::get('validation.shipping_fill_phone_number_field');
+          $messages['account_shipping_select_country.required'] = Lang::get('validation.shipping_country_name_field');
+          $messages['account_shipping_select_state.required'] = Lang::get('validation.shipping_fill_state_name_field');
+          $messages['account_shipping_select_city.required'] = Lang::get('validation.shipping_fill_city_name');
+          $messages['account_shipping_adddress_line_1.required'] = Lang::get('validation.shipping_address_line_1_field');
+        }
+
       
         $validator = Validator::make(Input::all(), $rules, $messages);
         
@@ -368,11 +397,11 @@ class UserAccountManageController extends Controller
           $address_data_ary['account_bill_select_country']          =         Input::get('account_bill_select_country');
           $address_data_ary['account_bill_select_state']            =         Input::get('account_bill_select_state');
           $address_data_ary['account_bill_select_city']             =         Input::get('account_bill_select_city');
-
-
           $address_data_ary['account_bill_adddress_line_1']         =         Input::get('account_bill_adddress_line_1');
           $address_data_ary['account_bill_adddress_line_2']         =         Input::get('account_bill_adddress_line_2');
           $address_data_ary['account_bill_zip_or_postal_code']      =         Input::get('account_bill_zip_or_postal_code');
+
+
           
           $address_data_ary['account_shipping_title']               =         Input::get('account_shipping_title');
           $address_data_ary['account_shipping_company_name']        =         Input::get('account_shipping_company_name');
@@ -383,7 +412,6 @@ class UserAccountManageController extends Controller
           $address_data_ary['account_shipping_select_country']      =         Input::get('account_shipping_select_country');
           $address_data_ary['account_shipping_select_state']        =         Input::get('account_shipping_select_state');
           $address_data_ary['account_shipping_select_city']        =         Input::get('account_shipping_select_city');
-
           $address_data_ary['account_shipping_adddress_line_1']     =         Input::get('account_shipping_adddress_line_1');
           $address_data_ary['account_shipping_adddress_line_2']     =         Input::get('account_shipping_adddress_line_2');
           $address_data_ary['account_shipping_zip_or_postal_code']  =         Input::get('account_shipping_zip_or_postal_code');
