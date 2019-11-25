@@ -432,7 +432,7 @@ return [
   'sales_by_custom_date' =>'Bán hàng theo ngày tùy chỉnh',
   'payments_sales' =>'Bán hàng thanh toán',
   'sales_by_payments_method' =>'Bán hàng theo phương thức thanh toán',
-  'enable_cash_on_delivery' =>'Kích hoạt tiền mặt khi giao hàng',
+  'enable_cash_on_delivery' =>'Kích hoạt Thanh toán khi nhận hàng',
   'method_description' =>'Mô tả phương pháp',
   'method_instructions' =>'Hướng dẫn phương pháp',
   'instructions' =>'hướng dẫn',
