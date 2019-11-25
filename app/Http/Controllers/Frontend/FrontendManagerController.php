@@ -691,7 +691,7 @@ class FrontendManagerController extends Controller
 
     $data['seen_items'] = $this->seenProducts();
     
-    return response()->json($data);
+    // return response()->json($data);
 
     return view('pages.frontend.frontend-pages.checkout', $data);
 
