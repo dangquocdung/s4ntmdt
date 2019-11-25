@@ -445,7 +445,7 @@ return [
   'bank_iban' =>'Ngân hàng IBAN',
   'bank_swift' =>'Chuyển khoản ngân hàng',
   'enable_payment_method' =>'Kích hoạt phương thức thanh toán',
-  'paypal' =>'Paypal',
+  'paypal' =>'Ví điện tử (Paypal)',
   'enable_stripe' =>'Kích hoạt',
   'enable_2checkout' =>'Kích hoạt',
   'paypal_app_client_id' =>'ID khách hàng ứng dụng Paypal',
