@@ -178,7 +178,7 @@ return [
   'no_tags_yet' =>'Chưa có thẻ nào',
   'no_colors_yet' =>'Không có màu nào',
   'no_sizes_yet' =>'Không có kích thước nào',
-  'view' =>'Lượt xem',
+  'view' =>'Chi tiết',
   'edit_design_elements' =>'Quản lý hình ảnh thiết kế',
   'create_layout' =>'Tạo mẫu',
   'attribute_name' =>'Tên thuộc tính',
