@@ -14,7 +14,7 @@
             </div>
             <div class="tab-content another-product-style jump">
                 <div class="tab-pane fade show active" id="latest_products" role="tabpanel">
-                  <div class="isotope-grid cols-5 mb-2">
+                  <div class="isotope-grid cols-4 mb-2">
                     <div class="gutter-sizer"></div>
                     <div class="grid-sizer"></div>
                         @foreach($advancedData['latest_items'] as $item)
@@ -64,31 +64,32 @@
                                           </div>
                                           <div class="product-price">
                                               <span>
-                                                  @if( $item->type == 'simple_product' )
                                                     {!! price_html( get_product_price_html_by_filter(get_role_based_price_by_product_id($item->id, $item->price)), get_frontend_selected_currency()) !!}
-                                                  @elseif( $item->type == 'configurable_product' )
-                                                    {!! get_product_variations_min_to_max_price_html(get_frontend_selected_currency(), $item->id) !!}
-                                                  @elseif( $item->type == 'customizable_product' || $item->type == 'downloadable_product')
-                                                    @if(count(get_product_variations($item->id))>0)
-                                                    {!! get_product_variations_min_to_max_price_html(get_frontend_selected_currency(), $item->id) !!}
-                                                    @else
-                                                    {!! price_html( get_product_price_html_by_filter(get_role_based_price_by_product_id($item->id, $item->price)), get_frontend_selected_currency()) !!}
-                                                    @endif
-                                                  @endif
                                               </span>
                                           </div>
                                       </div>
                                       <div class="product-cart-categori">
                                           <div class="product-cart">
-                                              <span>{{ get_user_name_by_user_id($item->author_id) }}</span>
+                                            <span>
+
+                                                <del class="text-muted">
+                                                {!! price_html( get_product_price_html_by_filter(get_role_based_price_by_product_id($item->id, $item->price)), get_frontend_selected_currency()) !!}
+
+                                                </del>
+                                            </span>
+
+
                                           </div>
-                                          <!-- <div class="product-categori">
+                                          <div class="product-categori">
 
-                                            <a class="product-compare" data-id="{{ $item->id }}" data-toggle="tooltip" title="{{ trans('frontend.add_to_compare_list_label') }}" data-original-title="{{ trans('frontend.add_to_compare_list_label') }}">
+                                            <span>{{ get_user_name_by_user_id($item->author_id) }}</span>
+
+
+                                            <!-- <a class="product-compare" data-id="{{ $item->id }}" data-toggle="tooltip" title="{{ trans('frontend.add_to_compare_list_label') }}" data-original-title="{{ trans('frontend.add_to_compare_list_label') }}">
                                               <i class="ion-ios-list-outline"></i>{{ trans('frontend.add_to_compare_list_label') }}
-                                            </a>
+                                            </a> -->
 
-                                          </div> -->
+                                          </div>
                                       </div>
                                   </div>
                               </div>
@@ -100,7 +101,7 @@
                 </div>
 
                 <div class="tab-pane fade" id="todays_sale" role="tabpanel">
-                  <div class="isotope-grid cols-5 mb-2">
+                  <div class="isotope-grid cols-4 mb-2">
                     <div class="gutter-sizer"></div>
                     <div class="grid-sizer"></div>
                         @foreach($advancedData['todays_deal'] as $item)
@@ -139,6 +140,12 @@
                                           <a class="animate-left product-wishlist" data-id="{{ $item['id'] }}" data-toggle="tooltip" title="{{ trans('frontend.add_to_wishlist_label') }}" data-original-title="{{ trans('frontend.add_to_wishlist_label') }}">
                                             <i class="ion-heart"></i>
                                           </a>
+
+                                          <a class="animate-right product-compare" data-id="{{ $item['id'] }}" data-toggle="tooltip" title="{{ trans('frontend.add_to_compare_list_label') }}" data-original-title="{{ trans('frontend.add_to_compare_list_label') }}">
+                                            <i class="ion-ios-list-outline"></i>
+                                          </a>
+
+
                 
                                       </div>
                                   </div>
@@ -194,7 +201,7 @@
             
                         <div class="tab-content another-product-style jump">
                             <div class="tab-pane fade show active" id="recommended_products" role="tabpanel">
-                              <div class="isotope-grid cols-5 mb-2">
+                              <div class="isotope-grid cols-4 mb-2">
                                 <div class="gutter-sizer"></div>
                                 <div class="grid-sizer"></div>
                                     @foreach($advancedData['recommended_items'] as $item)
@@ -231,8 +238,12 @@
                                                     <a class="animate-left product-wishlist" data-id="{{ $item->id }}" data-toggle="tooltip" title="{{ trans('frontend.add_to_wishlist_label') }}" data-original-title="{{ trans('frontend.add_to_wishlist_label') }}">
                                                       <i class="ion-heart"></i>
                                                     </a>
-                                                    </div>
+                                                    <a class="animate-right product-compare" data-id="{{ $item->id }}" data-toggle="tooltip" title="{{ trans('frontend.add_to_compare_list_label') }}" data-original-title="{{ trans('frontend.add_to_compare_list_label') }}">
+                                                      <i class="ion-ios-list-outline"></i>
+                                                    </a>
+
                                                   </div>
+                                                </div>
                                               <div class="product-content">
                                                   <div class="product-title-price">
                                                       <div class="product-title">
@@ -259,9 +270,7 @@
                                                           <span>{{ get_user_name_by_user_id($item->author_id) }}</span>
                                                       </div>
                                                       <div class="product-categori">
-                                                      <a class="product-compare" data-id="{{ $item->id }}" data-toggle="tooltip" title="{{ trans('frontend.add_to_compare_list_label') }}" data-original-title="{{ trans('frontend.add_to_compare_list_label') }}">
-                                              <i class="ion-ios-list-outline"></i>{{ trans('frontend.add_to_compare_list_label') }}
-                                            </a>
+                                                        <span>{{ get_user_name_by_user_id($item->author_id) }}</span>
                                                       </div>
                                                   </div>
                                               </div>
@@ -273,7 +282,7 @@
                                 </div>
                             </div>
                             <div class="tab-pane fade" id="features_products" role="tabpanel">
-                              <div class="isotope-grid cols-5 mb-2">
+                              <div class="isotope-grid cols-4 mb-2">
                                 <div class="gutter-sizer"></div>
                                 <div class="grid-sizer"></div>
                                     @foreach($advancedData['features_items'] as $item)
@@ -310,8 +319,11 @@
                                                     <a class="animate-left product-wishlist" data-id="{{ $item->id }}" data-toggle="tooltip" title="{{ trans('frontend.add_to_wishlist_label') }}" data-original-title="{{ trans('frontend.add_to_wishlist_label') }}">
                                                       <i class="ion-heart"></i>
                                                     </a>
-                                                    </div>
+                                                    <a class="animate-right product-compare" data-id="{{ $item->id }}" data-toggle="tooltip" title="{{ trans('frontend.add_to_compare_list_label') }}" data-original-title="{{ trans('frontend.add_to_compare_list_label') }}">
+                                                      <i class="ion-ios-list-outline"></i>
+                                                    </a>
                                                   </div>
+                                                </div>
                                               <div class="product-content">
                                                   <div class="product-title-price">
                                                       <div class="product-title">
@@ -335,12 +347,11 @@
                                                   </div>
                                                   <div class="product-cart-categori">
                                                       <div class="product-cart">
-                                                          <span>{{ get_user_name_by_user_id($item->author_id) }}</span>
+                                                        <span>{{ get_user_name_by_user_id($item->author_id) }}</span>
                                                       </div>
                                                       <div class="product-categori">
-                                                        <a class="product-compare" data-id="{{ $item->id }}" data-toggle="tooltip" title="{{ trans('frontend.add_to_compare_list_label') }}" data-original-title="{{ trans('frontend.add_to_compare_list_label') }}">
-                                                          <i class="ion-ios-list-outline"></i>{{ trans('frontend.add_to_compare_list_label') }}
-                                                        </a>
+                                                        <span>{{ get_user_name_by_user_id($item->author_id) }}</span>
+
                                                       </div>
                                                   </div>
                                               </div>
