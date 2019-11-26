@@ -135,12 +135,12 @@
 
         </section>
 
-        @if(Request::is('gian-hang/chi-tiet/san-pham/*') || Request::is('gian-hang/chi-tiet/danh-muc/san-pham/*'))  
+        <!-- @if(Request::is('gian-hang/chi-tiet/san-pham/*') || Request::is('gian-hang/chi-tiet/danh-muc/san-pham/*'))   -->
             <section class="widget widget-categories">
               @include('includes.frontend.vendor-categories', array('user_name' => $vendor_info->name))
               @yield('vendor-categories-content')  
             </section>
-        @endif
+        <!-- @endif -->
           
         @if($vendor_package_details->show_map_on_store_page == true)
 

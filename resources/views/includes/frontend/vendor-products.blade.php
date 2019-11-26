@@ -2,7 +2,7 @@
 
 @if($vendor_products['products']->count() > 0)
   @if($vendor_products['selected_view'] == 'grid')
-  <div class="isotope-grid cols-4 mb-2">
+  <div class="isotope-grid cols-3 mb-2">
       <div class="gutter-sizer"></div>
       <div class="grid-sizer"></div>
 
@@ -31,17 +31,27 @@
 
                     <div class="product-action">
 
+                        <a class="animate-left quick-view-popup" data-id="{{ $item->id }}" data-toggle="tooltip" title="{{ trans('frontend.quick_view') }}" data-original-title="{{ trans('frontend.quick_view') }}">
+                          <i class="ion-eye"></i>
+                        </a>
+
+
+
+                        <a class="animate-right add-to-cart-bg" data-toast data-toast-type="success" data-toast-position="topRight" data-toast-icon="icon-check-circle" data-toast-title="Sản phẩm" data-toast-message="{{ trans('frontend.successfuly_added_to_cart') }}" data-id="{{ $item->id }}" data-toggle="tooltip" data-placement="top"title="" data-original-title="{{ trans('frontend.add_to_cart_label') }}">
+                          <i class="ion-bag"></i>
+                        </a>
+
                         <a class="animate-left product-wishlist" data-id="{{ $item->id }}" data-toggle="tooltip" title="{{ trans('frontend.add_to_wishlist_label') }}" data-original-title="{{ trans('frontend.add_to_wishlist_label') }}">
                           <i class="ion-heart"></i>
                         </a>
 
-                        <a class="animate-right product-compare" data-id="{{ $item->id }}" data-toggle="tooltip" title="{{ trans('frontend.add_to_compare_list_label') }}" data-original-title="{{ trans('frontend.add_to_compare_list_label') }}">
-                            <i class="ion-ios-list-outline"></i>
-                          </a>
 
-                        <a class="animate-left quick-view-popup" data-id="{{ $item->id }}" data-toggle="tooltip" title="{{ trans('frontend.quick_view') }}" data-original-title="{{ trans('frontend.quick_view') }}">
-                          <i class="ion-eye"></i>
+
+                        <a class="animate-right product-compare" data-id="{{ $item->id }}" data-toggle="tooltip" title="{{ trans('frontend.add_to_compare_list_label') }}" data-original-title="{{ trans('frontend.add_to_compare_list_label') }}">
+                          <i class="ion-ios-list-outline"></i>
                         </a>
+
+
 
                     </div>
                 </div>
@@ -77,11 +87,11 @@
                         <div class="product-cart">
                             <span>{{ get_user_name_by_user_id($item->author_id) }}</span>
                         </div>
-                        <div class="product-categori">
+                        <!-- <div class="product-categori">
                           <a class="product-compare" data-id="{{ $item->id }}" data-toggle="tooltip" title="{{ trans('frontend.add_to_compare_list_label') }}" data-original-title="{{ trans('frontend.add_to_compare_list_label') }}">
                             <i class="ion-ios-list-outline"></i>{{ trans('frontend.add_to_compare_list_label') }}
                           </a>
-                        </div>
+                        </div> -->
                     </div>
                 </div>
             </div>
