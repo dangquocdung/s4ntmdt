@@ -5,7 +5,7 @@
   <div class="user-address-content">
     <div class="address-information clearfix">
       <div class="address-content-sub">
-        <h5>{{ trans('frontend.bill-address') }}</h5>
+        <h5>{{ trans('frontend.contact-address') }}</h5>
         <hr class="padding-bottom-1x">
 
         <div class="row">
@@ -98,7 +98,7 @@
         </div>
       </div>
       <br>
-      
+
       <div class="address-content-sub">
         <h5>{{ trans('frontend.shipping-address') }}</h5>
         <hr class="padding-bottom-1x">

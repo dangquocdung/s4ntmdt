@@ -109,7 +109,6 @@
 
   <!-- <hr class="margin-top-1x margin-bottom-1x">    -->
   <br>
-  <br>
 
   <h5>{{ trans('frontend.shipping-address') }}</h5>
   <hr class="padding-bottom-1x">
