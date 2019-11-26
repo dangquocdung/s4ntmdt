@@ -6,8 +6,8 @@
       <ul>
         <li><a {{ $is_all }} href="{{ route('admin.withdraws_content')}}">{!! trans('admin.only_all_label') !!} ({!! $total_row !!}) </a></li> &nbsp; | &nbsp;  
         <li><a {{ $is_pending }} href="{{ route('admin.withdraws_status_change', 'pending')}}">{!! trans('admin.pending') !!} ({!! $total_pending !!}) </a></li> &nbsp; | &nbsp;
-        <li><a {{ $is_completed }} href="{{ route('admin.withdraws_status_change', 'completed')}}">{!! trans('admin.completed') !!} ({!! $total_completed !!}) </a></li> &nbsp; | &nbsp;
-        <li><a {{ $is_cancelled }} href="{{ route('admin.withdraws_status_change', 'cancelled')}}">{!! trans('admin.cancelled') !!} ({!! $total_cancelled !!}) </a></li>
+        <li><a {{ $is_completed }} href="{{ route('admin.withdraws_status_change', 'completed')}}">{!! trans('admin.approve') !!} ({!! $total_completed !!}) </a></li> &nbsp; | &nbsp;
+        <li><a {{ $is_cancelled }} href="{{ route('admin.withdraws_status_change', 'cancelled')}}">{!! trans('admin.refuse') !!} ({!! $total_cancelled !!}) </a></li>
       </ul>
     </div>  
   </div>
