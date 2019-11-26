@@ -22,10 +22,9 @@
 </div>
 
 <!-- Page Content-->
-<div class="container padding-bottom-3x mb-2">
-  <div class="row">
-    
-    <div class="col-md-12 login-box">
+<div id="user_registration" class="container custom-extra-top-style padding-bottom-2x">
+  <div class="row justify-content-center">
+    <div class="col-xs-12 col-sm-8 col-md-6 text-center">
 
       @include('pages-message.notify-msg-error')
       @include('pages-message.form-submit')
@@ -36,40 +35,41 @@
       <p>{!! trans('frontend.sign_up_free_label') !!}</p> --}}
 
       <form method="post" action="" enctype="multipart/form-data" class="padding-top-1x">
-        @csrf
-                
+        <input type="hidden" name="_token" id="_token" value="{{ csrf_token() }}">
+
         <div class="row">
-          <div class="col-xs-12 col-sm-6 col-md-6">
+                
+          <div class="col-md-12">
             <div class="form-group">
-              <label for="reg-fn">Tên hiển thị</label>
+              <label for="reg-fn">Tên gian hàng</label>
+              <input type="text" placeholder="{{ trans('frontend.store_name_label') }}" class="form-control" id="vendor_reg_store_name" name="vendor_reg_store_name" value="{{ old('vendor_reg_store_name') }}">
+            </div>
+          </div>
+
+          <div class="col-md-6">
+            <div class="form-group">
+              <label for="reg-fn">Tên viết tắt</label>
               <input type="text" placeholder="{{ trans('frontend.display_name') }}" class="form-control" value="{{ old('vendor_reg_display_name') }}" id="vendor_reg_display_name" name="vendor_reg_display_name">
             </div>
           </div>
-          <div class="col-xs-12 col-sm-6 col-md-6">
+
+          <div class="col-md-6">
             <div class="form-group">
-              <label for="reg-fn">Tên người dùng</label>
+              <label for="reg-fn">Tên truy cập (đường dẫn)</label>
               <input type="text" placeholder="{{ trans('frontend.user_name') }}" class="form-control" value="{{ old('vendor_reg_name') }}" id="vendor_reg_name" name="vendor_reg_name">
             </div>
           </div>
-        </div>
 
-        <div class="form-group">
-          <label for="reg-fn">Tên gian hàng</label>
-
-          <input type="text" placeholder="{{ trans('frontend.store_name_label') }}" class="form-control" id="vendor_reg_store_name" name="vendor_reg_store_name" value="{{ old('vendor_reg_store_name') }}">
-        </div>
-
-        <div class="row">
-          <div class="col-xs-12 col-sm-6 col-md-6">
+          <div class="col-md-6">
         
             <div class="form-group">
               <label for="reg-fn">Địa chỉ e-mail</label>
 
               <input type="email" placeholder="{{ ucfirst( trans('frontend.email') ) }}" class="form-control" id="vendor_reg_email_id" value="{{ old('vendor_reg_email_id') }}" name="vendor_reg_email_id">
             </div>
-          </div>
+            </div>
 
-          <div class="col-xs-12 col-sm-6 col-md-6">
+          <div class="col-md-6">
 
             <div class="form-group">
               <label for="reg-fn">Số điện thoại</label>
@@ -78,10 +78,14 @@
 
           </div>
 
-        </div>
+          <div class="col-md-12">
+            <div class="form-group">
+              <label for="reg-fn">Địa chỉ</label>
+              <input type="text" id="vendor_reg_address_line_1" placeholder="{{ trans('frontend.address_line_1') }}" class="form-control" name="vendor_reg_address_line_1" value="{{  old('vendor_reg_address_line_1') }}">
+            </div>
+          </div>
 
-        <div class="row">
-          <div class="col-xs-12 col-sm-6 col-md-6">
+          <div class="col-md-4">
             <div class="form-group">
               <label for="reg-fn">{{ trans('frontend.country') }}</label>
               <select class="form-control" id="vendor_country" name="vendor_reg_country">
@@ -95,7 +99,7 @@
               </select>
             </div>
           </div>
-          <div class="col-xs-12 col-sm-6 col-md-6">
+          <div class="col-md-4">
             <div class="form-group">
               <label for="reg-fn">{{ trans('frontend.state') }}</label>
               <select class="form-control" id="vendor_state" name="vendor_reg_state">
@@ -109,10 +113,7 @@
               </select>
             </div>
           </div>
-        </div>
-
-        <div class="row">
-          <div class="col-xs-12 col-sm-6 col-md-6">
+          <div class="col-md-4">
               <div class="form-group">
                 <label for="reg-fn">{{ trans('frontend.city') }}</label>
                 <select class="form-control" id="vendor_city" name="vendor_reg_city">
@@ -127,64 +128,67 @@
   
               </div>
             </div>
-          <div class="col-xs-12 col-sm-6 col-md-6">
-            <div class="form-group">
-              <label for="reg-fn">Địa chỉ</label>
-              <input type="text" id="vendor_reg_address_line_1" placeholder="{{ trans('frontend.address_line_1') }}" class="form-control" name="vendor_reg_address_line_1" value="{{  old('vendor_reg_address_line_1') }}">
-            </div>
-          </div>
-        </div>
   
-        <div class="row">
-          <div class="col-xs-12 col-sm-6 col-md-6">
+          <div class="col-md-6">
             <div class="form-group">
             <label for="reg-fn">Mật khẩu</label>
 
               <input type="password" placeholder="{{ ucfirst(trans('frontend.password')) }}" class="form-control" id="vendor_reg_password" name="vendor_reg_password">
             </div>
           </div>
-          <div class="col-xs-12 col-sm-6 col-md-6">
+          <div class="col-md-6">
             <div class="form-group">
             <label for="reg-fn">Nhập lại mật khẩu</label>
 
               <input type="password" placeholder="{{ trans('frontend.retype_password') }}" class="form-control" id="vendor_reg_password_confirmation" name="vendor_reg_password_confirmation">
             </div>
           </div>
-        </div>
 
-        <div class="form-group">
-          <label for="reg-fn">Khoá bí mật</label>
+          <div class="col-md-12">
 
-          <input type="text" placeholder="{{ ucfirst(trans('frontend.secret_key')) }}" class="form-control" id="vendor_reg_secret_key" name="vendor_reg_secret_key">
-        </div>
-        
-        @if(!empty($is_enable_recaptcha) && $is_enable_recaptcha == true)
-        <div class="form-group">
-          <div class="captcha-style">{!! app('captcha')->display(); !!}</div>
-        </div>
-        @endif
-        
-        <div class="row">
-          <div class="col-xs-12 col-sm-12 col-md-12">
+            <div class="form-group">
+              <label for="reg-fn">Khoá bí mật</label>
+
+              <input type="text" placeholder="{{ ucfirst(trans('frontend.secret_key')) }}" class="form-control" id="vendor_reg_secret_key" name="vendor_reg_secret_key">
+            </div>
+          </div>
+          <div class="col-md-12">
+          <div class="form-group">
+
             <span class="button-checkbox t-and-c-button-checkbox">
               <input type="checkbox" name="t_and_c" id="t_and_c" class="shopist-iCheck" value="1"> &nbsp;
               <a href="#" data-toggle="modal" data-target="#t_and_c_m"> {!! trans('frontend.t_and_c_label') !!} </a>
             </span>
+            </div>
           </div>
-        </div>
 
-        {{-- <div class="custom-control custom-checkbox">
-          <input class="custom-control-input" type="checkbox" id="remember_me" checked="">
-          <label class="custom-control-label" for="remember_me">{!! trans('frontend.t_and_c_label') !!}</label>
-        </div> --}}
+          @if(!empty($is_enable_recaptcha) && $is_enable_recaptcha == true)
+              <div class="captcha-style">{!! app('captcha')->display(); !!}</div>
+          @endif
 
-        <br>
-        
-        <div class="row">
           <div class="col-xs-12 col-md-6"><input name="vendor_reg_submit" id="vendor_reg_submit" class="btn btn-primary btn-block btn-md" value="{{ trans('frontend.vendor_registration') }}" type="submit"> </div>
           <div class="col-xs-12 col-md-6"><a target="_blank" href="{{ route('admin.login') }}" class="btn btn-secondary btn-block btn-md vendor-reg-log-in-text">{{ trans('frontend.signin_account_label') }}</a></div>
         </div>
       </form>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="t_and_c_m" tabindex="-1" role="dialog" aria-labelledby="t_and_c_m_l" aria-hidden="true">    
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">{!! trans('frontend.t_and_c_label') !!}</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        {!! string_decode(get_vendor_settings_data()['term_n_conditions']) !!}
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary" data-dismiss="modal">{!! trans('frontend.agree_label') !!}</button>
+      </div>
     </div>
   </div>
 </div>
