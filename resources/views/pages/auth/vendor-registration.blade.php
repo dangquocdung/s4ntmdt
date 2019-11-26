@@ -41,22 +41,22 @@
                 
           <div class="col-md-12">
             <div class="form-group">
-              <label for="reg-fn">Tên gian hàng</label>
+              <label for="reg-fn">Tên gian hàng (đầy đủ)</label>
               <input type="text" placeholder="{{ trans('frontend.store_name_label') }}" class="form-control" id="vendor_reg_store_name" name="vendor_reg_store_name" value="{{ old('vendor_reg_store_name') }}">
             </div>
           </div>
 
           <div class="col-md-6">
             <div class="form-group">
-              <label for="reg-fn">Tên viết tắt</label>
-              <input type="text" placeholder="{{ trans('frontend.display_name') }}" class="form-control" value="{{ old('vendor_reg_display_name') }}" id="vendor_reg_display_name" name="vendor_reg_display_name">
+              <label for="reg-fn">Tên gian hàng (viết tắt)</label>
+              <input type="text" placeholder="{{ trans('frontend.store_short_name_label') }}" class="form-control" value="{{ old('vendor_reg_display_name') }}" id="vendor_reg_display_name" name="vendor_reg_display_name">
             </div>
           </div>
 
           <div class="col-md-6">
             <div class="form-group">
-              <label for="reg-fn">Tên truy cập (đường dẫn)</label>
-              <input type="text" placeholder="{{ trans('frontend.user_name') }}" class="form-control" value="{{ old('vendor_reg_name') }}" id="vendor_reg_name" name="vendor_reg_name">
+              <label for="reg-fn">Đường dẫn truy cập</label>
+              <input type="text" placeholder="{{ trans('frontend.store_path_label') }}" class="form-control" value="{{ old('vendor_reg_name') }}" id="vendor_reg_name" name="vendor_reg_name">
             </div>
           </div>
 
