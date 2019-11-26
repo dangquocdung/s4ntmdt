@@ -282,6 +282,10 @@ return [
   'cancelled' => '6. Đã huỷ',
   'refunded' => '7. Đã hoàn tiền',
 
+
+  'approve' => 'Chấp nhận',
+  'refuse' => 'Từ chối',
+
   'no_latest_order_yet' =>'Chưa có đơn hàng mới nhất!',
   'view_all_orders' =>'Xem tất cả các đơn đặt hàng',
   'recently_added_products' =>'Sản phẩm được thêm gần đây',
