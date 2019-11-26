@@ -42,7 +42,7 @@
           <div class="col-md-12">
             <div class="form-group">
               <label for="reg-fn">Tên gian hàng (đầy đủ)</label>
-              <input type="text" placeholder="{{ trans('frontend.store_name_label') }}" class="form-control" id="vendor_reg_store_name" name="vendor_reg_store_name" value="{{ old('vendor_reg_store_name') }}">
+              <input type="text" placeholder="{{ trans('frontend.store_full_name_label') }}" class="form-control" id="vendor_reg_store_name" name="vendor_reg_store_name" value="{{ old('vendor_reg_store_name') }}">
             </div>
           </div>
 
