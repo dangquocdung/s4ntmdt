@@ -39,7 +39,7 @@
           <thead class="thead-dark">
             <tr>
               <th>{{ trans('admin.image') }}</th>
-              <th>{{ trans('admin.user_display_name') }}</th>
+              <th>{{ trans('admin.store_path_label') }}</th>
               <th>{{ trans('admin.vendors_table_header_shop_name') }}</th>
               <th>{{ trans('admin.email') }}</th>
               <th>{{ trans('admin.vendors_table_header_products') }}</th>
