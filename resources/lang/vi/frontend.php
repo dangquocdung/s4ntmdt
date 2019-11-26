@@ -616,5 +616,8 @@ return [
   'billing_address_not_available' =>'Không có địa chỉ liên hệ trong sổ địa chỉ của bạn',
   'shipping_address_not_available' =>'Không có địa chỉ giao hàng trong sổ địa chỉ của bạn',
   'quick_view' => 'Xem nhanh',
+  'store_full_name_label' => 'Công ty TNHH ABC',
+  'store_short_name_label' => 'ABC',
+  'store_path_label' => 'cong-ty-tnhh-abc'
 
 ];
