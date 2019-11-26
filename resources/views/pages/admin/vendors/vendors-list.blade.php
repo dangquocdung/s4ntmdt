@@ -39,7 +39,7 @@
           <thead class="thead-dark">
             <tr>
               <th>{{ trans('admin.image') }}</th>
-              <th>{{ trans('admin.store_path_label') }}</th>
+              <!-- <th>{{ trans('admin.store_path_label') }}</th> -->
               <th>{{ trans('admin.vendors_table_header_shop_name') }}</th>
               <th>{{ trans('admin.email') }}</th>
               <th>{{ trans('admin.vendors_table_header_products') }}</th>
@@ -59,7 +59,7 @@
                   <td><img src="{{ default_placeholder_img_src() }}" alt=""></td>
                   @endif
                   
-                  <td>{!! $row->name !!}</td>
+                  <!-- <td>{!! $row->name !!}</td> -->
                   <td><a target="_blank" href="{{ route('store-details-page-content', $row->name) }}">{!! $details->profile_details->store_name !!}</a></td>
                   <td>{!! $row->email !!}</td>
                   <td><a href="{{ route('admin.product_list', $row->id) }}">{!! get_author_total_products( $row->id ) !!}</a></td>
