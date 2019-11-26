@@ -34,9 +34,9 @@
               <td><a target="_blank" href="{{ route('store-details-page-content', get_vendor_name($row['user_id'])) }}">{!! get_vendor_name($row['user_id']) !!}</a></td>
               <td>
                 @if($row['status'] == 'COMPLETED')  
-                <span style="color:#00a65a;">{!! trans('admin.completed') !!}</span>
+                <span style="color:#00a65a;">{!! trans('admin.approve') !!}</span>
                 @elseif($row['status'] == 'CANCELLED')
-                <span style="color:#ff0084;">{!! trans('admin.cancelled') !!}</span>
+                <span style="color:#ff0084;">{!! trans('admin.refuse') !!}</span>
                 @elseif($row['status'] == 'ON_HOLD')
                 <span style="color:#3c8dbc;">{!! trans('admin.pending') !!}</span>
                 @endif
