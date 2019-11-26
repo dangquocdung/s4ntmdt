@@ -33,7 +33,18 @@
               <input type="number" class="form-control" placeholder="{{ trans('frontend.phone') }}" name="account_bill_phone_number" id="account_bill_phone_number" value="{{ old('account_bill_phone_number') }}">
             </div>
           </div>
-          <div class="col-md-6">
+
+          <div class="col-sm-6">
+            <div class="form-group">
+              <label for="account_shipping_email_address">{{ trans('frontend.email_address') }}</label>
+              <input type="email" class="form-control" placeholder="{{ trans('frontend.email_address') }}" name="account_bill_email_address" id="account_bill_email_address" value="{{ old('account_bill_email_number') }}">
+            </div>
+          </div>
+
+          
+
+
+          <div class="col-md-4">
             <div class="form-group">
               <label class="control-label" for="account_bill_select_country">{{ trans('frontend.checkout_select_country_label') }}</label>
                 <select class="form-control" id="account_bill_select_country" name="account_bill_select_country">
@@ -48,7 +59,7 @@
             </div>
           </div>
       
-          <div class="col-md-6">
+          <div class="col-md-4">
             <div class="form-group">
               <label class="control-label" for="account_bill_select_state">{{ trans('frontend.account_address_town_city') }}</label>
               <select class="form-control" name="account_bill_select_state" id="account_bill_select_state">
@@ -60,7 +71,7 @@
             </div>
           </div>
       
-          <div class="col-md-6">
+          <div class="col-md-4">
             <div class="form-group">
               <label class="control-label" for="account_bill_select_city">{{ trans('frontend.account_address_select_city') }}</label>
               <select class="form-control" name="account_bill_select_city" id="account_bill_select_city">
@@ -114,6 +125,14 @@
               <input type="number" class="form-control" placeholder="{{ trans('frontend.phone') }}" name="account_shipping_phone_number" id="account_shipping_phone_number" value="{{ old('account_shipping_phone_number') }}">
             </div>
           </div>
+
+          <div class="col-sm-6">
+            <div class="form-group">
+              <label for="account_shipping_email_address">{{ trans('frontend.email_address') }}</label>
+              <input type="email" class="form-control" placeholder="{{ trans('frontend.email_address') }}" name="account_shipping_email_address" id="account_shipping_email_address" value="{{ old('account_shipping_email_number') }}">
+            </div>
+          </div>
+
 
           <div class="col-md-4">
             <div class="form-group">
