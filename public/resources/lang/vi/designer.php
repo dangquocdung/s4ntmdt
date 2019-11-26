@@ -11,7 +11,7 @@ return [
     'manage_layers_top_label' =>'Quản lý các lớp của bạn',
     'visibility_label' =>'Tầm nhìn',
     'lock_system_label' =>'Hệ thống khóa',
-    'remove_label' =>'Tẩy',
+    'remove_label' =>'Xoá',
     'undo_label' =>'Hủy bỏ',
     'redo_label' =>'Làm lại'
 ];

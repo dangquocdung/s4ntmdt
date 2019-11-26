@@ -836,7 +836,7 @@ return [
 'home_page_product_label_1' =>'Sản phẩm Trang chủ',
 'home_page_product_label_2' =>'Kích hoạt dưới dạng sản phẩm danh mục hàng đầu được chọn để hiển thị tại trang chủ',
 'home_page_cat_collection_select_label' =>'Chọn danh sách bộ sưu tập danh mục để hiển thị tại trang chủ',
-'remove_label' => 'Tẩy',
+'remove_label' => 'Xoá',
 'more_compare_field_placeholder' =>'Nhập tên trường hoặc tiêu đề trường của bạn. ví dụ: Tính năng camera ',
 'add_compare_data_title' =>'Thêm nhiều dữ liệu so sánh',
 'select_color_name' =>'Chọn màu',
