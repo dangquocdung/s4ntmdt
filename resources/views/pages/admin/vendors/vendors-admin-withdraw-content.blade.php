@@ -53,7 +53,7 @@
                   <ul role="menu" class="dropdown-menu">
                     <li><a href="#" data-toggle="modal" data-target="#vendors_withdraw_view" class="withdraw-requests-data-view" data-requested_id="{{ $row['id'] }}"><i class="fa fa-eye"></i>{{ trans('admin.view') }}</a></li>
                     @if(($row['status'] == 'ON_HOLD'))
-                    <li><a href="#" class="requested-withdraw-status-change" data-target="completed" data-requested_id="{{ $row['id'] }}"><i class="fa fa-check"></i>{{ trans('admin.aprove') }}</a></li>
+                    <li><a href="#" class="requested-withdraw-status-change" data-target="completed" data-requested_id="{{ $row['id'] }}"><i class="fa fa-check"></i>{{ trans('admin.approve') }}</a></li>
                     <li><a href="#" class="requested-withdraw-status-change" data-target="cancelled" data-requested_id="{{ $row['id'] }}"><i class="fa fa-close"></i>{{ trans('admin.refuse') }}</a></li>
                     @endif
                   </ul>
