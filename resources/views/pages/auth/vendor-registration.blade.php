@@ -166,8 +166,10 @@
               <div class="captcha-style">{!! app('captcha')->display(); !!}</div>
           @endif
 
-          <div class="col-xs-12 col-md-6"><input name="vendor_reg_submit" id="vendor_reg_submit" class="btn btn-primary btn-block btn-md" value="{{ trans('frontend.vendor_registration') }}" type="submit"> </div>
-          <div class="col-xs-12 col-md-6"><a target="_blank" href="{{ route('admin.login') }}" class="btn btn-secondary btn-block btn-md vendor-reg-log-in-text">{{ trans('frontend.signin_account_label') }}</a></div>
+          <!-- <div class="col-md-6"><a target="_blank" href="{{ route('admin.login') }}" class="btn btn-secondary btn-block btn-md vendor-reg-log-in-text">{{ trans('frontend.signin_account_label') }}</a></div> -->
+
+          <div class="col-md-6"><input name="vendor_reg_submit" id="vendor_reg_submit" class="btn btn-primary btn-block btn-md" value="{{ trans('frontend.vendor_registration') }}" type="submit"> </div>
+
         </div>
       </form>
     </div>
