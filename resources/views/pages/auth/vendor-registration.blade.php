@@ -183,7 +183,7 @@
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
-      <div class="modal-body">
+      <div class="modal-body-2" style="padding:20px">
         {!! string_decode(get_vendor_settings_data()['term_n_conditions']) !!}
       </div>
       <div class="modal-footer">
