@@ -26,6 +26,7 @@
     }
   @endif
 </script>
+
 @if($vendor_package_details->show_map_on_store_page == true)
   <script async defer src="https://maps.googleapis.com/maps/api/js?key={{ $vendor_settings->general_details->google_map_app_key }}&callback=initMap"></script>
 @endif

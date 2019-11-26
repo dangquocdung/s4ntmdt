@@ -932,6 +932,8 @@ class FrontendManagerController extends Controller
 
       $data['vendor_advanced_items'] = $this->product->getVendorAdvancedProducts( $get_user->id );
       $data['vendor_reviews_rating_details']  =  get_comments_rating_details( $get_user->id, 'vendor' );
+
+      return response()->json($data);
       
       return view('pages.frontend.vendors.vendor-details', $data);
     }
