@@ -9,7 +9,7 @@
       <ul>
         <li><a {{ $vendor_all }} href="{{ route('admin.vendors_list_content')}}">{!! trans('admin.only_all_label') !!}  </a></li> &nbsp; | &nbsp;  
         <li><a {{ $vendor_active }} href="{{ route('admin.vendors_list_with_status', 'active')}}">{!! trans('admin.user_account_active_title') !!}  </a></li> &nbsp; | &nbsp;
-        <li><a {{ $vendor_pending }} href="{{ route('admin.vendors_list_with_status', 'pending')}}">{!! trans('admin.disabled') !!}  </a></li>
+        <li><a {{ $vendor_pending }} href="{{ route('admin.vendors_list_with_status', 'pending')}}">{!! trans('admin.disable') !!}  </a></li>
       </ul>
     </div>
   </div>
