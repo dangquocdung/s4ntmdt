@@ -107,7 +107,9 @@
 
 @if(!empty($frontend_account_details) && !empty($frontend_account_details->address_details))
 
-  <hr class="margin-top-1x margin-bottom-1x">   
+  <!-- <hr class="margin-top-1x margin-bottom-1x">    -->
+  <br>
+  <br>
 
   <h5>{{ trans('frontend.shipping-address') }}</h5>
   <hr class="padding-bottom-1x">
