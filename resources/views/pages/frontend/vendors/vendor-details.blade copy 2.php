@@ -60,6 +60,11 @@
     <div class="col-lg-9 order-lg-2">
 
       <!-- Promo banner-->
+      @if( !empty($vendor_settings) && !empty($vendor_settings->general_details->cover_img) )  
+        <div class="store-banner mb-30">
+          <img class="img-fluid" src="{{ get_image_url( $vendor_settings->general_details->cover_img ) }}">
+        </div>
+      @else
         <a class="alert alert-default alert-dismissible fade show fw-section mb-30" href="{{ route('shop-page') }}" style="background-image: url('/img/banners/shop-banner-bg.jpg');">
           <div class="d-flex flex-wrap flex-md-nowrap justify-content-between align-items-center">
             <div class="mx-auto mx-md-0 px-3 pb-2 text-center text-md-left">
@@ -69,10 +74,37 @@
             </div>
           </div>
         </a>
+      @endif
 
       <!-- Shop Toolbar-->
       <div class="padding-bottom-1x mb-2">
         
+        <ul class="nav nav-pills" role="tablist">
+          @if(Request::is('gian-hang/chi-tiet/trang-chu/*'))  
+            <li class="nav-item"><a class="nav-link active" href="{{ route('store-details-page-content', $vendor_info->name) }}" ><i class="icon-home"></i>&nbsp;{!! trans('frontend.shopist_home_title') !!}</a></li>
+          @else  
+            <li class="nav-item"><a class="nav-link" href="{{ route('store-details-page-content', $vendor_info->name) }}" ><i class="icon-home"></i>&nbsp;{!! trans('frontend.shopist_home_title') !!}</a></li>
+          @endif
+
+          @if(Request::is('gian-hang/chi-tiet/san-pham/*'))  
+            <li class="nav-item"><a class="nav-link active" href="{{ route('store-products-page-content', $vendor_info->name) }}" ><i class="icon-search"></i>&nbsp;{!! trans('frontend.all_products_label') !!}</a></li>
+          @else  
+            <li class="nav-item"><a class="nav-link" href="{{ route('store-products-page-content', $vendor_info->name) }}" ><i class="icon-search"></i>&nbsp;{!! trans('frontend.all_products_label') !!}</a></li>
+          @endif
+
+          @if(Request::is('gian-hang/chi-tiet/danh-gia/*'))  
+            <li class="nav-item"><a class="nav-link active" href="{{ route('store-reviews-page-content', $vendor_info->name) }}" ><i class="icon-mail"></i>&nbsp;{!! trans('frontend.reviews_label') !!}</a></li>
+          @else  
+            <li class="nav-item"><a class="nav-link" href="{{ route('store-reviews-page-content', $vendor_info->name) }}" ><i class="icon-mail"></i>&nbsp;{!! trans('frontend.reviews_label') !!}</a></li>
+          @endif
+        </ul>
+
+
+        @if(Request::is('gian-hang/chi-tiet/trang-chu/*'))
+          @include('pages.frontend.vendors.vendors-home')
+          @yield('vendors-home-page-content')
+        @endif
+
         @if(Request::is('gian-hang/chi-tiet/san-pham/*'))
           @include('pages.frontend.vendors.vendors-products')
           @yield('vendors-products-page-content')
@@ -81,6 +113,11 @@
         @if(Request::is('sian-hang/chi-tiet/cat/san-pham/*'))
           @include('pages.frontend.vendors.vendors-category-products')
           @yield('vendors-categoty-products-page-content')
+        @endif
+
+        @if(Request::is('gian-hang/chi-tiet/danh-gia/*'))
+          @include('pages.frontend.vendors.vendors-reviews')
+          @yield('vendors-reviews-page-content')  
         @endif
 
 
@@ -105,6 +142,7 @@
     <div class="col-lg-3 order-lg-1">
       <div class="sidebar-toggle position-left"><i class="icon-filter"></i></div>
       <aside class="sidebar sidebar-offcanvas position-left"><span class="sidebar-close"><i class="icon-x"></i></span>
+
 
         <section class="widget">
           <h3 class="widget-title">{!! trans('frontend.store_label') !!}</h3>
@@ -135,12 +173,12 @@
 
         </section>
 
-        <!-- @if(Request::is('gian-hang/chi-tiet/san-pham/*') || Request::is('gian-hang/chi-tiet/danh-muc/san-pham/*'))   -->
+        @if(Request::is('gian-hang/chi-tiet/san-pham/*') || Request::is('gian-hang/chi-tiet/danh-muc/san-pham/*'))  
             <section class="widget widget-categories">
               @include('includes.frontend.vendor-categories', array('user_name' => $vendor_info->name))
               @yield('vendor-categories-content')  
             </section>
-        <!-- @endif -->
+        @endif
           
         @if($vendor_package_details->show_map_on_store_page == true)
 
@@ -187,5 +225,6 @@
 </div>
 
 <input type="hidden" name="vendor_email" id="vendor_email" value="{{ $vendor_info->email}}">
+
 
 @endsection 

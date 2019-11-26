@@ -51,6 +51,10 @@
                                           <a class="animate-left product-wishlist" data-id="{{ $item->id }}" data-toggle="tooltip" title="{{ trans('frontend.add_to_wishlist_label') }}" data-original-title="{{ trans('frontend.add_to_wishlist_label') }}">
                                             <i class="ion-heart"></i>
                                           </a>
+                                          <a class="animate-right product-compare" data-id="{{ $item->id }}" data-toggle="tooltip" title="{{ trans('frontend.add_to_compare_list_label') }}" data-original-title="{{ trans('frontend.add_to_compare_list_label') }}">
+                                            <i class="ion-ios-list-outline"></i>
+                                          </a>
+
                                       </div>
                                   </div>
                                   <div class="product-content">
@@ -78,13 +82,13 @@
                                           <div class="product-cart">
                                               <span>{{ get_user_name_by_user_id($item->author_id) }}</span>
                                           </div>
-                                          <div class="product-categori">
+                                          <!-- <div class="product-categori">
 
                                             <a class="product-compare" data-id="{{ $item->id }}" data-toggle="tooltip" title="{{ trans('frontend.add_to_compare_list_label') }}" data-original-title="{{ trans('frontend.add_to_compare_list_label') }}">
                                               <i class="ion-ios-list-outline"></i>{{ trans('frontend.add_to_compare_list_label') }}
                                             </a>
 
-                                          </div>
+                                          </div> -->
                                       </div>
                                   </div>
                               </div>

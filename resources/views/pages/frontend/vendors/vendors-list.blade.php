@@ -49,7 +49,7 @@
         @endif
 
         <div class="card-header">
-          <a href="{{ route('store-details-page-content', $vendor->name) }}">{!! $details->profile_details->store_name !!}</a>
+          <a href="{{ route('store-products-page-content', $vendor->name) }}">{!! $details->profile_details->store_name !!}</a>
         </div>  
 
       </div>
