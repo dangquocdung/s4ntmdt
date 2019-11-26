@@ -103,7 +103,7 @@ return [
   'change_image_color' =>'Thay đổi màu ảnh',
   'change_image' =>'Đổi hình ảnh',
   'change_image_opacity' =>'Thay đổi độ mờ ảnh',
-  'remove' =>'Tẩy',
+  'remove' =>'Xoá',
   'upload_your_images' =>'TẢI LÊN HÌNH ẢNH CỦA BẠN',
   'you_can_upload_1_image' =>'Bạn chỉ có thể tải lên 1 tệp hình ảnh một lúc!',
   'drop_your_cover_picture_here' =>'Thả ảnh bìa của bạn ở đây',
