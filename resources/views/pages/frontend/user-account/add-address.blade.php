@@ -1,8 +1,5 @@
 @include('pages-message.form-submit')
 
-<h5>{{ trans('frontend.contact-address') }}</h5>
-<hr class="padding-bottom-1x">
-
 <form class="form-horizontal" method="post" action="" enctype="multipart/form-data">
   <input type="hidden" name="_token" id="_token" value="{{ csrf_token() }}">
   <input type="hidden" name="_account_post_type" value="address">
@@ -10,9 +7,8 @@
   <div class="user-address-content">
     <div class="address-information clearfix">
       <div class="address-content-sub">
-        <h5>{{ trans('frontend.shipping-address') }}</h5>
+        <h5>{{ trans('frontend.contact-address') }}</h5>
         <hr class="padding-bottom-1x">
-
 
         <div class="row">
           <div class="col-sm-6">
@@ -29,7 +25,6 @@
             </div>
           </div>
 
-
           <div class="col-sm-6">
             <div class="form-group">
               <label for="inputAccountPhoneNumber">{{ trans('frontend.account_phone_number') }}</label>
@@ -43,9 +38,6 @@
               <input type="email" class="form-control" placeholder="{{ trans('frontend.email_address') }}" name="account_bill_email_address" id="account_bill_email_address" value="{{ old('account_bill_email_address') }}">
             </div>
           </div>
-
-          
-
 
           <div class="col-md-4">
             <div class="form-group">
