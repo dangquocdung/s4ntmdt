@@ -171,6 +171,8 @@
     <div class="col-lg-8">
       <div class="padding-top-2x mt-2 hidden-lg-up"></div>
 
+
+
       @if(Request::is('user/account/dashboard') || Request::is('user/account'))
         @include('pages.frontend.user-account.my-dashboard')
       @elseif(Request::is('user/account/my-address'))  
