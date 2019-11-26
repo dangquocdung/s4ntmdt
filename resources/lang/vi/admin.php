@@ -178,7 +178,7 @@ return [
   'no_tags_yet' =>'Chưa có thẻ nào',
   'no_colors_yet' =>'Không có màu nào',
   'no_sizes_yet' =>'Không có kích thước nào',
-  'view' =>'Lượt xem',
+  'view' =>'Chi tiết',
   'edit_design_elements' =>'Quản lý hình ảnh thiết kế',
   'create_layout' =>'Tạo mẫu',
   'attribute_name' =>'Tên thuộc tính',
@@ -281,6 +281,10 @@ return [
   'completed' => '5. Đã hoàn thành',
   'cancelled' => '6. Đã huỷ',
   'refunded' => '7. Đã hoàn tiền',
+
+
+  'approve' => 'Chấp nhận',
+  'refuse' => 'Từ chối',
 
   'no_latest_order_yet' =>'Chưa có đơn hàng mới nhất!',
   'view_all_orders' =>'Xem tất cả các đơn đặt hàng',
