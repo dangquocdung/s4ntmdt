@@ -64,6 +64,8 @@ class VendorsController extends Controller
     $data['vendor_all']      = "class=active";
     $data['vendor_active']   = '';
     $data['vendor_pending']  = '';
+
+    // return response()->json($data);
      
     return view('pages.admin.vendors.vendors-list', $data);
   }
@@ -552,12 +554,14 @@ class VendorsController extends Controller
       $data['vendors_packages'] = $get_vendor_packages;
 
       if(is_vendor_login()){
+
         $vendor_details   = get_current_vendor_user_info();
         $get_user_details = json_decode(get_user_account_details_by_user_id( $vendor_details['user_id'] )[0]['details']);
 
         if(!empty($get_user_details->package->package_name)){
           $data['selected_package'] = $get_user_details->package->package_name;
         }
+
       }
     }
     
@@ -1004,6 +1008,7 @@ class VendorsController extends Controller
   public function saveVendorPackage(){
     if( Request::isMethod('post') && Session::token() == Input::get('_token') ){
       if(is_vendor_login()){
+
         $vendor_details   = get_current_vendor_user_info();
         $get_user_details = json_decode(get_user_account_details_by_user_id( $vendor_details['user_id'] )[0]['details']);
         

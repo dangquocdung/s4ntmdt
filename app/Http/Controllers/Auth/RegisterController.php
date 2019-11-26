@@ -592,7 +592,11 @@ class RegisterController extends Controller
             $Roleuser->role_id = $get_available_roles->id;
 
             if ($Roleuser->save()) {
-              $get_package  = VendorPackage::where(['package_type' => 'Default'])->first();
+
+              // $get_package  = VendorPackage::where(['package_type' => 'Default'])->first();
+
+              $get_package  = VendorPackage::find(1);
+
               
               $vendor_data['profile_details'] = array('store_name' => Input::get('vendor_reg_store_name'), 'address_line_1' => Input::get('vendor_reg_address_line_1'), 'address_line_2' => Input::get('vendor_reg_address_line_2'), 'city' => Input::get('vendor_reg_city'), 'state' => Input::get('vendor_reg_state'), 'country' => Input::get('vendor_reg_country'), 'zip_postal_code' => Input::get('vendor_reg_zip_code'), 'phone' => Input::get('vendor_reg_phone_number'));
               
