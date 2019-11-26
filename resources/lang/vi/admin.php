@@ -1163,7 +1163,9 @@ return [
   'post_file' => 'Tệp văn bản',
   'state' => 'Quận, Huyện',
   'pending' => 'Đang chờ',
-  'store_path_label' => 'Đường dẫn truy cập'
+  'store_path_label' => 'Đường dẫn truy cập',
+  'comments_list' => 'Bình luận',
+
 
 
 ];
