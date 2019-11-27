@@ -10,7 +10,7 @@
   <div class="profile-details">
     <table>
       <tr>
-        <td>{!! trans('admin.shop_display_name')!!}</td>
+        <td>{!! trans('admin.display_name')!!}</td>
         <td>{!! $user_display_name !!}</td>
       </tr>
       <tr>

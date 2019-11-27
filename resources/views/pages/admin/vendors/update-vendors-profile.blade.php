@@ -4,9 +4,20 @@
     <div class="row">
       <div class="col-md-12">
         <div class="box-body">
+
           <div class="form-group">
             <div class="row">  
-              <label class="col-sm-4 control-label" for="inputDisplayName">{{ trans('admin.display_name') }}</label>
+              <label class="col-sm-4 control-label" for="inputStoreName">{{ trans('admin.shop_full_name') }}</label>
+              <div class="col-sm-8">
+                <input type="text" class="form-control" id="inputStoreName" name="inputStoreName" value="{{ $vendors_settings->profile_details->store_name }}" placeholder="{{ trans('admin.vendors_table_header_shop_name') }}"/>
+              </div>
+            </div>  
+          </div>
+
+
+          <div class="form-group">
+            <div class="row">  
+              <label class="col-sm-4 control-label" for="inputDisplayName">{{ trans('admin.shop_display_name') }}</label>
               <div class="col-sm-8">
                 <input type="text" class="form-control" id="inputDisplayName" name="inputDisplayName" value="{{ $user_details->user_display_name }}" placeholder="{{ trans('admin.display_name') }}"/>
               </div>
@@ -15,7 +26,7 @@
 
           <div class="form-group">
             <div class="row">  
-              <label class="col-sm-4 control-label" for="inputUserName">{{ trans('admin.user_name') }}</label>
+              <label class="col-sm-4 control-label" for="inputUserName">{{ trans('admin.shop_user_name') }}</label>
               <div class="col-sm-8">
                 <input type="text" class="form-control" id="inputUserName" name="inputUserName" value="{{ $user_details->user_name }}" placeholder="{{ trans('admin.user_name') }}"/>
               </div>
@@ -40,14 +51,6 @@
             </div>  
           </div>
 
-          <div class="form-group">
-            <div class="row">  
-              <label class="col-sm-4 control-label" for="inputStoreName">{{ trans('admin.vendors_table_header_shop_name') }}</label>
-              <div class="col-sm-8">
-                <input type="text" class="form-control" id="inputStoreName" name="inputStoreName" value="{{ $vendors_settings->profile_details->store_name }}" placeholder="{{ trans('admin.vendors_table_header_shop_name') }}"/>
-              </div>
-            </div>  
-          </div>
 
           
           <!-- <div class="form-group">
