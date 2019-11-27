@@ -894,7 +894,7 @@ return [
 'vendors_settings_page_title' =>'Cài đặt gian hàng',
 'sidebar_menu_label' =>'Menu thanh bên',
 'cover_image_label' =>'Ảnh bìa',
-'social_media_label' =>'Truyền thông xã hội',
+'social_media_label' =>'Mạng xã hội',
 'google_map_api_key_label' =>'Key Khóa API của Google Map ',
 'google_map_details_label' =>'Chi tiết Google Map',
 'google_map_latitude_label' =>'Giá trị vĩ độ',
