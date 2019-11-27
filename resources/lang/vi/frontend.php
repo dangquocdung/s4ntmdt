@@ -314,7 +314,7 @@ return [
   'add_to_wishlist_label' =>'Yêu thích',
   'add_to_compare_list_label' =>'Thêm vào danh sách so sánh',
   'product_details_label' =>'Thông tin chi tiết sản phẩm',
-  'latest_label' =>'Mới nhất',
+  'latest_label' =>'Sản phẩm mới nhất',
   'latest_products_empty_label' =>'Sản phẩm mới nhất không có sẵn!',
   'best_sales_label' =>'Đang bán chạy',
   'best_sales_products_empty_label' =>'Sản phẩm bán hàng tốt nhất không có sẵn!',
@@ -583,7 +583,7 @@ return [
   'blogs_page_title' => 'Tin tức',
   'chi_tiet_don_hang' => 'Chi tiết đơn hàng',
   'ho_tro' => 'Hỗ trợ khách hàng',
-  'latest_products' => 'Mới nhất',
+  'latest_products' => 'Sản phẩm mới',
   'coming_soon' => 'Sự kiện sắp diễn ra...',
   'user_account_view_label' => 'Theo dõi',
   'on-hold' =>'Đang chờ xác nhận đơn hàng',
@@ -618,6 +618,7 @@ return [
   'quick_view' => 'Xem nhanh',
   'store_full_name_label' => 'Công ty TNHH ABC',
   'store_short_name_label' => 'ABC',
-  'store_path_label' => 'cong-ty-tnhh-abc'
+  'store_path_label' => 'cong-ty-tnhh-abc',
+  'todays_deal_label' => 'Sản phẩm giá tốt'
 
 ];
