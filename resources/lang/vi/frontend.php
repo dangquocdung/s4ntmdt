@@ -293,7 +293,7 @@ return [
   'frontend_my_coupons_list' =>'Danh sách phiếu giảm giá của tôi',
   'availability' =>'Trạng thái',
   'action' =>'hoạt động',
-  'your_store_label' =>'gian hàng của bạn',
+  'your_store_label' =>'Gian hàng của bạn',
   'menu_my_account' =>'Tài khoản',
   'menu_login' =>'Đăng nhập',
   'menu_my_cart' =>'Giỏ hàng',

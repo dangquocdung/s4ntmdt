@@ -1,6 +1,6 @@
 <?php
 return [
-  'view_online_store'   =>  'gian hàng của bạn',
+  'view_online_store'   =>  'Gian hàng của bạn',
   'shopist_store'       =>  'Ghé thăm gian hàng',
   'profile'             =>  'Hồ sơ',
   'sign_out'            =>  'Đăng xuất',
