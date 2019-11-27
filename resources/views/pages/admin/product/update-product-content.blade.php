@@ -82,51 +82,15 @@
           <div class="tabbable tabs-left">
             <ul class="nav nav-tabs">
               @if($product_post_data['post_type'] == 'simple_product')
-              <li class="nav-item general"><a class="nav-link active" href="#tab_general" data-toggle="tab">{!! trans('admin.general') !!}</a></li>
-              <li class="nav-item inventory"><a class="nav-link" href="#tab_stock" data-toggle="tab">{!! trans('admin.inventory') !!}</a></li>
-              <li class="nav-item features"><a class="nav-link" href="#tab_features" data-toggle="tab">{!! trans('admin.features') !!}</a></li>
-              <li class="nav-item advanced"><a class="nav-link" href="#tab_advanced" data-toggle="tab">{!! trans('admin.advanced') !!}</a></li>
-              <li class="nav-item attribute" style="display:none;"><a class="nav-link" href="#tab_attribute" data-toggle="tab">{!! trans('admin.attributes') !!}</a></li>
-              <li class="nav-item variations" style="display:none;"><a class="nav-link" href="#tab_variations" data-toggle="tab">{!! trans('admin.variations') !!}</a></li>
-              <li class="nav-item custom-design" style="display:none;"><a class="nav-link" href="#tab_custom_design" data-toggle="tab">{!! trans('admin.edit_design_elements') !!}</a></li>
-              <li class="nav-item custom-design-layout" style="display:none;"><a class="nav-link" href="#tab_custom_design_layout" data-toggle="tab">{!! trans('admin.create_layout') !!}</a></li>
-														<li class="nav-item manage-download-files" style="display:none;"><a class="nav-link" href="#tab_manage_download_files" data-toggle="tab">{!! trans('admin.manage_download_files') !!}</a></li>
-              @endif
-              
-              @if($product_post_data['post_type'] == 'configurable_product')
-              <li class="nav-item general" style="display:none;"><a class="nav-link" href="#tab_general" data-toggle="tab">{!! trans('admin.general') !!}</a></li>
-              <li class="nav-item inventory" style="display:none;"><a class="nav-link" href="#tab_stock" data-toggle="tab">{!! trans('admin.inventory') !!}</a></li>
-              <li class="nav-item features"><a class="nav-link active" href="#tab_features" data-toggle="tab">{!! trans('admin.features') !!}</a></li>
-              <li class="nav-item advanced"><a class="nav-link" href="#tab_advanced" data-toggle="tab">{!! trans('admin.advanced') !!}</a></li>
-              <li class="nav-item attribute"><a class="nav-link" href="#tab_attribute" data-toggle="tab">{!! trans('admin.attributes') !!}</a></li>
-              <li class="nav-item variations"><a class="nav-link" href="#tab_variations" data-toggle="tab">{!! trans('admin.variations') !!}</a></li>
-              <li class="nav-item custom-design" style="display:none;"><a class="nav-link" href="#tab_custom_design" data-toggle="tab">{!! trans('admin.edit_design_elements') !!}</a></li>
-              <li class="nav-item custom-design-layout" style="display:none;"><a class="nav-link" href="#tab_custom_design_layout" data-toggle="tab">{!! trans('admin.create_layout') !!}</a></li>
-              <li class="nav-item manage-download-files" style="display:none;"><a class="nav-link" href="#tab_manage_download_files" data-toggle="tab">{!! trans('admin.manage_download_files') !!}</a></li>
-              @endif
-              
-              @if($product_post_data['post_type'] == 'customizable_product')
-              <li class="nav-item general"><a class="nav-link active" href="#tab_general" data-toggle="tab">{!! trans('admin.general') !!}</a></li>
-              <li class="nav-item inventory"><a class="nav-link" href="#tab_stock" data-toggle="tab">{!! trans('admin.inventory') !!}</a></li>
-              <li class="nav-item features"><a class="nav-link" href="#tab_features" data-toggle="tab">{!! trans('admin.features') !!}</a></li>
-              <li class="nav-item advanced"><a class="nav-link" href="#tab_advanced" data-toggle="tab">{!! trans('admin.advanced') !!}</a></li>
-              <li class="nav-item attribute"><a class="nav-link" href="#tab_attribute" data-toggle="tab">{!! trans('admin.attributes') !!}</a></li>
-              <li class="nav-item variations"><a class="nav-link" href="#tab_variations" data-toggle="tab">{!! trans('admin.variations') !!}</a></li>
-              <li class="nav-item custom-design"><a class="nav-link" href="#tab_custom_design" data-toggle="tab">{!! trans('admin.edit_design_elements') !!}</a></li>
-              <li class="nav-item custom-design-layout"><a class="nav-link" href="#tab_custom_design_layout" data-toggle="tab">{!! trans('admin.create_layout') !!}</a></li>
-              <li class="nav-item manage-download-files" style="display:none;"><a class="nav-link" href="#tab_manage_download_files" data-toggle="tab">{!! trans('admin.manage_download_files') !!}</a></li>
-              @endif
-														
-              @if($product_post_data['post_type'] == 'downloadable_product')  
-              <li class="nav-item general"><a class="nav-link active" href="#tab_general" data-toggle="tab">{!! trans('admin.general') !!}</a></li>
-              <li class="nav-item inventory"><a class="nav-link" href="#tab_stock" data-toggle="tab">{!! trans('admin.inventory') !!}</a></li>
-              <li class="nav-item features"><a class="nav-link" href="#tab_features" data-toggle="tab">{!! trans('admin.features') !!}</a></li>
-              <li class="nav-item advanced"><a class="nav-link" href="#tab_advanced" data-toggle="tab">{!! trans('admin.advanced') !!}</a></li>
-              <li class="nav-item attribute"><a class="nav-link" href="#tab_attribute" data-toggle="tab">{!! trans('admin.attributes') !!}</a></li>
-              <li class="nav-item variations"><a class="nav-link" href="#tab_variations" data-toggle="tab">{!! trans('admin.variations') !!}</a></li>
-              <li class="nav-item custom-design" style="display:none;"><a class="nav-link" href="#tab_custom_design" data-toggle="tab">{!! trans('admin.edit_design_elements') !!}</a></li>
-              <li class="nav-item custom-design-layout" style="display:none;"><a class="nav-link" href="#tab_custom_design_layout" data-toggle="tab">{!! trans('admin.create_layout') !!}</a></li>
-              <li class="nav-item manage-download-files"><a class="nav-link" href="#tab_manage_download_files" data-toggle="tab">{!! trans('admin.manage_download_files') !!}</a></li>
+                <li class="nav-item general"><a class="nav-link active" href="#tab_general" data-toggle="tab">{!! trans('admin.general') !!}</a></li>
+                <li class="nav-item inventory"><a class="nav-link" href="#tab_stock" data-toggle="tab">{!! trans('admin.inventory') !!}</a></li>
+                <li class="nav-item features"><a class="nav-link" href="#tab_features" data-toggle="tab">{!! trans('admin.features') !!}</a></li>
+                <li class="nav-item advanced"><a class="nav-link" href="#tab_advanced" data-toggle="tab">{!! trans('admin.advanced') !!}</a></li>
+                <li class="nav-item attribute" style="display:none;"><a class="nav-link" href="#tab_attribute" data-toggle="tab">{!! trans('admin.attributes') !!}</a></li>
+                <li class="nav-item variations" style="display:none;"><a class="nav-link" href="#tab_variations" data-toggle="tab">{!! trans('admin.variations') !!}</a></li>
+                <li class="nav-item custom-design" style="display:none;"><a class="nav-link" href="#tab_custom_design" data-toggle="tab">{!! trans('admin.edit_design_elements') !!}</a></li>
+                <li class="nav-item custom-design-layout" style="display:none;"><a class="nav-link" href="#tab_custom_design_layout" data-toggle="tab">{!! trans('admin.create_layout') !!}</a></li>
+                <li class="nav-item manage-download-files" style="display:none;"><a class="nav-link" href="#tab_manage_download_files" data-toggle="tab">{!! trans('admin.manage_download_files') !!}</a></li>
               @endif
             </ul>
             <div class="tab-content">
@@ -380,643 +344,107 @@
                   </div>
                 </div>  
               </div><!-- /.tab-pane -->
-              
-              <div class="tab-advanced tab-pane fade" id="tab_advanced">
-                <div class="form-group">
-                  <div class="row">  
-                    <label class="col-sm-6 control-label" for="inputEnableRecommendedProduct">{!! trans('admin.recommended_product') !!}</label>
-                    <div class="col-sm-6">
-                      @if($product_post_data['_product_enable_as_recommended'] == 'yes')
-                        <input type="checkbox" checked="checked" class="shopist-iCheck" name="enable_recommended_product" id="enable_recommended_product">
-                      @else
-                        <input type="checkbox" class="shopist-iCheck" name="enable_recommended_product" id="enable_recommended_product">
-                      @endif
-                      &nbsp;{!! trans('admin.enable_recommended_product') !!}                                    
-                    </div>
-                  </div>  
-                </div>
-                <div class="form-group">
-                  <div class="row">    
-                    <label class="col-sm-6 control-label" for="inputEnableFeaturesProduct">{!! trans('admin.features_product') !!}</label>
-                    <div class="col-sm-6">
-                      @if($product_post_data['_product_enable_as_features'] == 'yes')
-                      <input type="checkbox" checked="checked" class="shopist-iCheck" name="enable_features_product" id="enable_features_product">
-                      @else
-                      <input type="checkbox" class="shopist-iCheck" name="enable_features_product" id="enable_features_product">
-                      @endif
-                      &nbsp;{!! trans('admin.enable_features_product') !!}                                     
-                    </div>
-                  </div>  
-                </div>
-                <div class="form-group">
-                  <div class="row">  
-                    <label class="col-sm-6 control-label" for="inputEnableLatestProduct">{!! trans('admin.latest_product') !!}</label>
-                    <div class="col-sm-6">
-                      @if($product_post_data['_product_enable_as_latest'] == 'yes')
-                        <input type="checkbox" checked="checked" class="shopist-iCheck" name="enable_latest_product" id="enable_latest_product">
-                      @else
-                        <input type="checkbox" class="shopist-iCheck" name="enable_latest_product" id="enable_latest_product">
-                      @endif
-                      &nbsp;{!! trans('admin.enable_latest_product') !!}                                        
-                    </div>
-                  </div>  
-                </div>
-                <div class="form-group">
-                  <div class="row">  
-                    <label class="col-sm-6 control-label" for="inputEnableForRelatedProduct">{!! trans('admin.related_product') !!}</label>
-                    <div class="col-sm-6">
-                      @if($product_post_data['_product_enable_as_related'] == 'yes')
-                        <input type="checkbox" checked="checked" class="shopist-iCheck" name="inputEnableForRelatedProduct" id="inputEnableForRelatedProduct">
-                      @else
-                        <input type="checkbox" class="shopist-iCheck" name="inputEnableForRelatedProduct" id="inputEnableForRelatedProduct">
-                      @endif
-                      &nbsp;{!! trans('admin.enable_related_product') !!}                                        
-                    </div>
-                  </div>  
-                </div>
-                <div class="form-group enable-custom-design" {!! $tabSettings['btnCustomize'] !!}>
-                  <div class="row">   
-                    <label class="col-sm-6 control-label" for="inputEnableForCustomDesignProduct">{!! trans('admin.custom_design') !!}</label>
-                    <div class="col-sm-6">
-                      @if($product_post_data['_product_enable_as_custom_design'] == 'yes')
-                        <input type="checkbox" checked="checked" class="shopist-iCheck" name="inputEnableForCustomDesignProduct" id="inputEnableForCustomDesignProduct">
-                      @else
-                        <input type="checkbox" checked="checked" class="shopist-iCheck" name="inputEnableForCustomDesignProduct" id="inputEnableForCustomDesignProduct">
-                      @endif
-                      &nbsp;{!! trans('admin.enable_custom_design_product') !!}                                      
-                    </div>
-                  </div>  
-                </div>
-                <div class="form-group">
-                  <div class="row">  
-                    <label class="col-sm-6 control-label" for="inputEnableForHomePage">{!! trans('admin.home_page_product_label_1') !!}</label>
-                    <div class="col-sm-6">
-                      @if( !empty($product_post_data['_product_enable_as_selected_cat']) && $product_post_data['_product_enable_as_selected_cat'] == 'yes')  
-                      <input type="checkbox" checked="checked" class="shopist-iCheck" name="inputEnableForHomePage" id="inputEnableForHomePage">
-                      @else
-                      <input type="checkbox" class="shopist-iCheck" name="inputEnableForHomePage" id="inputEnableForHomePage">
-                      @endif
-                      &nbsp;{!! trans('admin.home_page_product_label_2') !!}                              
-                    </div>
-                  </div>  
-                </div>    
-                @if( $settings_data['general_settings']['taxes_options']['enable_status'] == 1 && $settings_data['general_settings']['taxes_options']['apply_tax_for'] == 'per_product' )
-                <div class="form-group taxes-option">
-                  <div class="row">  
-                    <label class="col-sm-6 control-label" for="inputEnableTaxesForProduct">{!! trans('admin.taxes') !!}</label>
-                    <div class="col-sm-6">
-                      @if($product_post_data['_product_enable_taxes'] == 'yes')
-                        <input type="checkbox" checked="checked" class="shopist-iCheck" name="inputEnableTaxesForProduct" id="inputEnableTaxesForProduct">
-                      @else
-                        <input type="checkbox" class="shopist-iCheck" name="inputEnableTaxesForProduct" id="inputEnableTaxesForProduct">
-                      @endif
-                      &nbsp;{!! trans('admin.enable_taxes_this_product') !!}                                      
-                    </div>
-                  </div>  
-                </div>
-                @endif
-              </div><!-- /.tab-pane -->
-              
-              <div class="tab-advanced tab-pane fade" id="tab_attribute">
-                <div class="form-group">
-                  <div class="row">  
-                    <div class="col-sm-4">
-                      <input type="text" class="form-control" name="attrNameByProduct" id="attrNameByProduct" placeholder="{{ trans('admin.attribute_name_example_size') }}">
-                    </div>
-                    <div class="col-sm-5">
-                      <input type="text" class="form-control" name="attrValuesByProduct" id="attrValuesByProduct" placeholder="{{ trans('admin.attribute_values_example') }}">
-                      <span>{!! trans('admin.enter_attribute_values_by_comma_separator') !!}</span>
-                    </div>
-                    <div class="col-sm-3">
-                      <a class="btn btn-default btn-sm add-new-attribute" href="">{!! trans('admin.add_attribute') !!}</a>
-                    </div>
-                  </div>    
-                </div>
-                <hr><br>
-                <div class="attr-lists-content">
-                  <div class="attr-list">
-                    <table class="table table-bordered table-striped admin-data-table admin-data-list attribute-list-datatable">
-                      <thead><tr><th>{!! trans('admin.attribute_name') !!}</th><th>{!! trans('admin.attribute_value') !!}</th><th>{!! trans('admin.action') !!}</th></tr></thead>
-                      <tbody>
-                        @if(!empty($attribute_post_meta_by_id))  
-                          @foreach($attribute_post_meta_by_id as $row)
 
-                            <tr>
-                              <td> {!! $row->attr_name !!}</td>
-                              <td> {!! $row->attr_val  !!}</td>
-                              <td>
-                                <div class="btn-group">
-                                  <button class="btn btn-success btn-flat" type="button">{!! trans('admin.action') !!}</button>
-                                  <button data-toggle="dropdown" class="btn btn-success btn-flat dropdown-toggle" type="button">
-                                  <span class="caret"></span>
-                                  <span class="sr-only">Toggle Dropdown</span>
-                                  </button>
-                                  <ul role="menu" class="dropdown-menu">
-                                    <li><a href="#" data-toggle="modal" data-target="#edit_attributes" class="edit-attribute-data" data-track_name="attr_data_list" data-id="{{ $product_post_data['id'] }}" data-line_variation_json="{{ json_encode( array('id' =>$row->id, 'attr_name' =>$row->attr_name, 'attr_val' =>$row->attr_val )) }}"><i class="fa fa-edit"></i>{!! trans('admin.edit') !!}</a></li>
-                                    <li><a class="remove-selected-data-from-list" data-track_name="attr_data_list" data-id="{{ $product_post_data['id'] }}" data-item_id="{{ $row->id }}" href="#"><i class="fa fa-remove"></i>{!! trans('admin.delete') !!}</a></li>
-                                  </ul>
-                                </div>
-                              </td>
-                            </tr>
-                          @endforeach
+              @if(!is_vendor_login())    
+              
+                <div class="tab-advanced tab-pane fade" id="tab_advanced">
+                  <div class="form-group">
+                    <div class="row">  
+                      <label class="col-sm-6 control-label" for="inputEnableRecommendedProduct">{!! trans('admin.recommended_product') !!}</label>
+                      <div class="col-sm-6">
+                        @if($product_post_data['_product_enable_as_recommended'] == 'yes')
+                          <input type="checkbox" checked="checked" class="shopist-iCheck" name="enable_recommended_product" id="enable_recommended_product">
+                        @else
+                          <input type="checkbox" class="shopist-iCheck" name="enable_recommended_product" id="enable_recommended_product">
                         @endif
-                      </tbody>
-                      <tfoot><tr><th>{!! trans('admin.attribute_name') !!}</th><th>{!! trans('admin.attribute_value') !!}</th><th>{!! trans('admin.action') !!}</th></tr></tfoot>
-                    </table>
-                  </div>
-                  <div class="modal fade" id="edit_attributes" tabindex="-1" role="dialog" aria-labelledby="updater" aria-hidden="true">
-                    <div class="modal-dialog">
-                      <div class="modal-content">
-                        <div class="modal-header">
-                          <p class="no-margin">{!! trans('admin.update_your_attribute') !!}</p>
-                          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                          </button>
-                        </div>
-                        <div class="modal-body">             
-                          <div class="form-group">
-                            <div class="row">  
-                              <div class="col-sm-3">
-                                <input type="text" class="form-control" name="editAttrNameByProduct" id="editAttrNameByProduct" placeholder="{{ trans('admin.attribute_name_example_size') }}">
-                              </div>
-                              <div class="col-sm-5">
-                                <input type="text" class="form-control" name="editAttrValuesByProduct" id="editAttrValuesByProduct" placeholder="{{ trans('admin.attribute_values_example') }}">
-                                <span>{!! trans('admin.enter_attribute_values_by_comma_separator') !!}</span>
-                              </div>
-                              <div class="col-sm-4">
-                                <a class="btn btn-default update-attribute btn-sm" href="">{{ trans('admin.update_attribute') }}</a>
-                              </div>
-                            </div>    
-                          </div>
-                        </div>
-                        <div class="modal-footer">
-                          <button type="button" class="btn btn-default attachtopost" data-dismiss="modal">{!! trans('admin.close') !!}</button>
-                        </div>
+                        &nbsp;{!! trans('admin.enable_recommended_product') !!}                                    
                       </div>
-                    </div>
-                  </div>
-                </div>
-              </div>   
-              
-              <div class="tab-variations tab-pane fade" id="tab_variations">
-                <div class="modal fade" id="addDynamicVariations" tabindex="-1" role="dialog" aria-labelledby="updater" aria-hidden="true">
-                  <div class="modal-dialog">
-                    <div class="ajax-overlay"></div>
-                    <div class="modal-content">
-                      <div class="modal-header">
-                        <p class="no-margin">{!! trans('admin.create_new_product_variation') !!}</p>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                          <span aria-hidden="true">&times;</span>
-                        </button>
-                      </div>  
-                      <div class="modal-body">
-                        <div class="custom-model-row content-for-variation-add">
-                          <div class="attributes-lists" style="display:none;">
-                            @if(count($attrs_list_data_by_product)>0)
-                              @foreach($attrs_list_data_by_product as $rows)
-                              <div class="attribute-name">
-                                <select class="form-control select2 variation-attr-list" style="width: 100%;" data-attr_name="{{ $rows['attr_name'] }}">
-                                  <option selected="selected" value="all">{!! trans('admin.any_label') !!} {!! $rows['attr_name'] !!}</option>
-                                  @foreach(explode(',', $rows['attr_values']) as $val)
-                                    <option value="{{ htmlspecialchars($val) }}">{!! $val !!}</option>
-                                  @endforeach            
-                                </select>
-                              </div>
-                              @endforeach
-                            @endif
-                          </div>
-                          <br>
-                          <div class="custom-input-group">
-                            <div class="custom-input-label"><label for="inputVariationImage">{!! trans('admin.variation_image') !!}</label></div>
-                            <div class="custom-input-element">
-                              <div class="uploadform dropzone no-margin dz-clickable upload-variation-img" id="upload_variation_img" name="upload_variation_img">
-                                <div class="dz-default dz-message">
-                                  <span>{!! trans('admin.drop_your_cover_picture_here') !!}</span>
-                                </div>
-                              </div>
-                              <br>
-                              <div class="variation-img-content">
-                                <div class="variation-sample-img"><img class="img-responsive" src="{{ default_upload_sample_img_src() }}" alt="variation-sample"></div>
-                                <div class="variation-img"><img class="img-responsive" src="" alt="variation-img"></div>
-                                <br>
-                                <div class="variation-img-upload-btn">
-                                  <button type="button" class="btn btn-default attachtopost remove-variation-img">{!! trans('admin.remove_image') !!}</button>
-                                </div>
-                              </div>
-                            </div>
-                          </div>
-                          <div class="custom-input-group">
-                            <div class="custom-input-label"><input type="checkbox" class="shopist-iCheck" name="inputVariationEnable" id="inputVariationEnable">&nbsp;&nbsp;<label for="inputVariationEnable">{!! trans('admin.enable_this_variation') !!}</label></div>
-                          </div>
-                          <div class="custom-input-group">
-                            <div class="custom-input-label"><label for="inputVariationSKU">{!! trans('admin.sku') !!}</label></div>
-                            <div class="custom-input-element"><input type="text" placeholder="{{ trans('admin.sku') }}" id="inputVariationSKU" name="inputVariationSKU" class="form-control"></div>
-                          </div>
-                          <div class="custom-input-group">
-                            <div class="custom-input-label"><label for="inputVariationRegularPrice">{!! trans('admin.regular_price') !!} ({!! $currency_symbol !!})</label></div>
-                            <div class="custom-input-element"> <input type="text" placeholder="{{ trans('admin.regular_price') }}" id="inputVariationRegularPrice" name="inputVariationRegularPrice" class="form-control" min="0"></div>
-                          </div>
-                          <div class="custom-input-group">
-                            <div class="custom-input-label"><label for="inputVariationSalePrice">{!! trans('admin.sale_price') !!} ({!! $currency_symbol !!})</label></div>
-                            <div class="custom-input-element"> <input type="text" placeholder="{{ trans('admin.sale_price') }}" id="inputVariationSalePrice" name="inputVariationSalePrice" class="form-control" min="0">
-                              <a href="#" class="create_variation_sale_schedule">{!! trans('admin.create_schedule') !!}</a></div>
-                          </div>
-                          <div class="custom-input-group variation_sale_start_date" style="display: none;">
-                            <div class="custom-input-label"><label for="inputVariationSalePriceStartDate">{!! trans('admin.sale_price_start_date') !!}</label></div>
-                            <div class="custom-input-element">  
-                              <div class="input-group mb-3">
-                                <div class="input-group-prepend">
-                                  <span class="input-group-text" id="basic-addon1"><i class="fa fa-calendar"></i></span>
-                                </div>
-                                <input type="text" placeholder="{{ trans('admin.start_date_format') }}" id="inputVariationSalePriceStartDate" name="inputVariationSalePriceStartDate" class="form-control pull-right">
-                              </div>  
-                            </div>
-                          </div>
-                          <div class="custom-input-group variation_sale_end_date" style="display: none;">
-                            <div class="custom-input-label"><label for="inputVariationSalePriceEndDate">{!! trans('admin.sale_price_end_date') !!}</label></div>
-                            <div class="custom-input-element">  
-                              <div class="input-group mb-3">
-                                <div class="input-group-prepend">
-                                  <span class="input-group-text" id="basic-addon1"><i class="fa fa-calendar"></i></span>
-                                </div>
-                                <input type="text" placeholder="{{ trans('admin.end_date_format') }}" id="inputVariationSalePriceEndDate" name="inputVariationSalePriceEndDate" class="form-control pull-right">
-                              </div>  
-                              <a href="#" class="cancel_variation_schedule">{!! trans('admin.cancel_schedule') !!}</a>
-                            </div>
-                          </div>
-                          <div class="custom-input-group">
-                            <div class="custom-input-label"><input type="checkbox" class="shopist-iCheck" name="inputManageVariationStock" id="inputManageVariationStock">&nbsp;&nbsp;<label for="inputManageVariationStock">{!! trans('admin.enable_stock_management_variation_product') !!}</label></div>
-                          </div>
-                          <div class="custom-input-group variation-stock-qty" style="display:none;">
-                            <div class="custom-input-label"><label for="inputVariationStockQty">{!! trans('admin.stock_qty') !!}</label></div>
-                            <div class="custom-input-element"> <input type="text" min="0" placeholder="{{ trans('admin.stock_qty') }}" id="inputVariationStockQty" name="inputVariationStockQty" class="form-control" value="0"></div>
-                          </div>
-                          <div class="custom-input-group variation-back-to-order-page" style="display: none;">
-                            <div class="custom-input-label"><label for="inputVariationBackToOrder">{!! trans('admin.backorders') !!}</label></div>
-                            <div class="custom-input-element">
-                              <select id="variation_backorders_status" name="variation_backorders_status" class="form-control select2" style="width: 100%;">
-                                <option selected="selected" value="variation_not_allow">{!! trans('admin.not_allow') !!}</option>
-                                <option value="variation_allow_notify_customer">{!! trans('admin.allow_and_notify_customer') !!}</option>
-                                <option value="variation_only_allow">{!! trans('admin.only_allow') !!}</option>
-                              </select>
-                            </div>
-                          </div>
-                          <div class="custom-input-group">
-                            <div class="custom-input-label"><label for="inputVariationStockAvailability">{!! trans('admin.stock_availability') !!}</label></div>
-                            <div class="custom-input-element">
-                              <select id="variation_stock_status" name="variation_stock_status" class="form-control select2" style="width: 100%;">
-                                <option selected="selected" value="variation_in_stock">{!! trans('admin.in_stock') !!}</option>
-                                <option value="variation_out_of_stock">{!! trans('admin.out_of_stock') !!}</option>                  
-                              </select>
-                            </div>
-                          </div>
-                          @if( $settings_data['general_settings']['taxes_options']['enable_status'] == 1 && $settings_data['general_settings']['taxes_options']['apply_tax_for'] == 'per_product' )
-                          <div class="custom-input-group">
-                            <div class="custom-input-label"><input type="checkbox" class="shopist-iCheck" name="inputEnableTaxesForVariation" id="inputEnableTaxesForVariation">&nbsp;&nbsp;<label for="inputEnableTaxesForVariation">{!! trans('admin.enable_taxes_this_variation') !!}</label></div>  
-                          </div>
-                          @endif
-                          <div class="custom-input-group">
-                            <label class="custom-input-label" for="inputVariationDescription">{!! trans('admin.variation_description') !!}</label>
-                            <div class="custom-input-element">
-                              <textarea name="variation_description" id="variation_description" class="form-control"></textarea>
-                            </div>
-                          </div>
-                          
-                          <div class="manage-download-files extra-download-files" style="display: none;">
-                          <br>
-                          <p style="font-size: 17px;font-weight:bold;color:#3c8dbc;"><i>{!! trans('admin.manage_download_files_label') !!}</i></p><hr>  
-                            <div class="row">
-                              <div class="col-md-12">
-                                <div class="form-group">
-                                  <div class="row">  
-                                    <label class="col-sm-3 control-label" for="inputDownloadableFiles">{!! trans('admin.downloadable_files_label') !!}</label>
-                                    <div class="col-sm-9">
-                                      <div class="files-manage-option">
-                                        <table>
-                                          <thead>
-                                            <tr>
-                                              <th>{!! trans('admin.downloadable_name_label') !!}</th>
-                                              <th>{!! trans('admin.downloadable_file_url_label') !!}</th>
-                                            </tr>
-                                          </thead>
-                                          <tbody>
-                                          </tbody>
-                                          <tfoot>
-                                            <tr>
-                                              <th colspan="2">
-                                                <button type="button" class="btn btn-default add_variable_products_more_downloadable_file" data-target="variable"> {!! trans('admin.downloadable_add_more_file_label') !!} </button>
-                                              </th>
-                                            </tr>
-                                          </tfoot>
-                                        </table>
-                                      </div>		
-                                    </div>
-                                  </div>  
-                                </div>
-                                <br>  
-                                <div class="form-group">
-                                  <div class="row">  
-                                    <label class="col-sm-3 control-label" for="inputDownloadlimit">{!! trans('admin.download_limit_label') !!}</label>
-                                    <div class="col-sm-9">
-                                      <input type="text" class="form-control variation-download-limit" name="download_limit" placeholder="{{ trans('admin.unlimited_placeholder_label') }}" id="download_limit"> {!! trans('admin.blank_for_unlimited_label') !!}
-                                    </div> 
-                                  </div>  
-                                </div>
-                                <div class="form-group">
-                                  <div class="row">  
-                                    <label class="col-sm-3 control-label" for="inputDownloadexpiry">{!! trans('admin.download_expiry_label') !!}</label>
-                                    <div class="col-sm-9">
-                                      <input type="text" class="form-control" name="download_expiry" placeholder="{{ trans('admin.expiry_data_label') }}" id="download_expiry">
-                                    </div> 
-                                  </div>  
-                                </div>    
-                              </div>    
-                            </div>
-                          </div>
-                          
-                        </div>
-                          
-                        <div class="custom-model-row content-for-variation-view"></div>  
-                        <input type="hidden" name="hf_available_user_roles" id="hf_available_user_roles" value="{{ json_encode($available_user_roles) }}">
-                      </div>
-                      <div class="modal-footer">
-                        <button type="button" class="btn btn-default attachtopost create-new-variations">{!! trans('admin.add_variation') !!}</button>
-                        <button type="button" class="btn btn-default attachtopost" data-dismiss="modal">{!! trans('admin.close') !!}</button>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div class="variations-panel">
-                  <div class="clearfix btn-check-available-attribute">
-                    <button type="button" class="btn btn-default check-available-attributes pull-right">{!! trans('admin.check_available_attributes') !!}</button>
-                  </div>
-                  <div class="clearfix btn-create-variation">
-                    <button type="button" class="btn btn-default create-variations pull-right">{!! trans('admin.create_variation') !!}</button>
-                  </div>  
-                
-                  <div class="attributes-lists"></div><hr>
-                  <br>
-                  <div class="variation-list">  
-                  <table id="variation_list" class="table table-bordered table-striped admin-data-table admin-data-list">
-                      <thead><tr><th>{!! trans('admin.image') !!}</th><th>{!! trans('admin.variation_combination') !!}</th><th>{!! trans('admin.price') !!}</th><th>{!! trans('admin.action') !!}</th></tr></thead>
-                      <tbody>
-                      @if(!empty($variation_data))    
-                        @foreach($variation_data as $row)
-                        <tr>
-                          @if($row['_variation_post_img_url'])
-                          <td><img src="{{ get_image_url($row['_variation_post_img_url']) }}" alt="{{ basename ($row['_variation_post_img_url']) }}"></td>
-                          @else 
-                          <td><img src="{{ default_placeholder_img_src() }}" alt="no_img"></td>
-                          @endif
-
-                          <td>
-                            @foreach(json_decode($row['_variation_post_data']) as $key => $val)
-                              @if(count(json_decode($row['_variation_post_data']))-1 == $key)
-                                {!! $val->attr_name .' &#8658; '. $val->attr_val !!}
-                              @else
-                                {!! $val->attr_name .' &#8658; '. $val->attr_val . ', ' !!}
-                              @endif
-                            @endforeach
-                          </td>
-
-                          <td>{!! $currency_symbol.$row['_variation_post_price'] !!}</td>
-
-                          <td>
-                            <div class="btn-group">
-                              <button class="btn btn-success btn-flat" type="button">{!! trans('admin.action') !!}</button>    
-                              <button data-toggle="dropdown" class="btn btn-success btn-flat dropdown-toggle" type="button">
-                              <span class="caret"></span>
-                              <span class="sr-only">Toggle Dropdown</span>
-                              </button>
-                              <ul role="menu" class="dropdown-menu">
-                                <li><a href="#" class="view-data" data-track_name="variation_data_list" data-id="{{ $row['id'] }}"><i class="fa fa-eye"></i>{!! trans('admin.view') !!}</a></li>
-                                <li><a href="#" class="edit-data" data-track_name="variation_data_list" data-id="{{ $row['id'] }}"><i class="fa fa-edit"></i>{!! trans('admin.edit') !!}</a></li>
-                                <li><a class="remove-selected-data-from-list" data-track_name="variation_data_list" data-id="{{ $row['id'] }}" href="#"><i class="fa fa-remove"></i>{!! trans('admin.delete') !!}</a></li>
-                              </ul>
-                            </div>
-                          </td> 
-                        </tr>
-                        @endforeach
-                      @endif  
-                      </tbody>
-                      <tfoot><tr><th>{!! trans('admin.image') !!}</th><th>{!! trans('admin.variation_combination') !!}</th><th>{!! trans('admin.price') !!}</th><th>{!! trans('admin.action') !!}</th></tr></tfoot>
-                    </table>
-                  </div>
-                </div>
-              </div>
-              <!-- /.tab-pane -->
-              
-              <div class="tab-custom-design tab-pane fade" id="tab_custom_design">          
-                <div class="form-group">
-                  <div class="clearfix design-element-btn">
-                     <button data-toggle="modal" data-target="#element_title_name" type="button" class="btn btn-default pull-right create-design-element">{!! trans('admin.create_more_design_element') !!}</button>
-                  </div>
-
-                  <div class="modal fade" id="element_title_name" tabindex="-1" role="dialog" aria-labelledby="updater" aria-hidden="true">
-                    <div class="modal-dialog">
-                      <div class="modal-content">
-                        <div class="modal-header">
-                          <p class="no-margin">{!! trans('admin.your_design_title_name') !!}</p>
-                          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                          </button>
-                        </div>  
-                        <div class="modal-body">             
-                          <input type="Text" class="form-control" name="design_title_name" id="design_title_name" placeholder="{{ trans('admin.your_design_title_name') }}">
-                        </div>
-                        <div class="modal-footer">
-                           <button class="btn btn-default pull-left" data-dismiss="modal" type="button">{!! trans('admin.close') !!}</button>
-                           <button class="btn btn-default add-design-element-panel" type="button">{!! trans('admin.add') !!}</button>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="modal fade" id="designerImageUploader" tabindex="-1" role="dialog" aria-labelledby="updater" aria-hidden="true">
-                    <div class="modal-dialog">
-                      <div class="modal-content">
-                        <div class="modal-header">
-                          <p class="no-margin">{!! trans('admin.you_can_upload_1_image') !!}</p>
-                          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                          </button>
-                        </div>   
-                        <div class="modal-body">             
-                          <div class="uploadform dropzone no-margin dz-clickable designer-dropzone-file-upload" id="designer_dropzone_file_upload" name="designer_dropzone_file_upload">
-                            <div class="dz-default dz-message">
-                              <span>{!! trans('admin.drop_your_cover_picture_here') !!}</span>
-                            </div>
-                          </div>
-                          <div class="modal-footer">
-                            <button type="button" class="btn btn-default attachtopost" data-dismiss="modal">{!! trans('admin.close') !!}</button>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-
-                  <div class="design-element-main-container">
-                    @if( !empty($product_post_data['_product_custom_designer_data']) && count($product_post_data['_product_custom_designer_data'])>0)  
-                    @foreach($product_post_data['_product_custom_designer_data'] as $row)
-                    <div class="panel-group element-accordion" id="accordion">
-                      <div class="panel panel-default">
-                        <div class="panel-heading">
-                          <h4 class="panel-title">
-                            <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapse_{{ $row->id }}">
-                              <span class="fa fa-plus"></span>&nbsp;&nbsp;
-                              <span>{!! $row->title_label !!}</span>
-                            </a>
-                            <a data-id="{{ $row->id }}" class="pull-right" href=""><span class="fa fa-remove remove-panel"></span></a>
-                          </h4>
-                        </div>
-                        <div id="collapse_{{ $row->id }}" data-id="{{ $row->id }}" class="panel-collapse collapse collapse-{{ $row->id }}">
-                          <div class="panel-body">
-                            <div class="form-group">
-                              <div class="row">  
-                                <div class="col-sm-6">
-                                  <div class="design-img-content">
-                                    @if($row->design_img_url)
-                                    <div class="design-img" style="display:block;"><img class="img-responsive" src="{{ get_image_url($row->design_img_url) }}" alt=""></div>
-                                    <div class="design-sample-img" style="display:none;"><img class="img-responsive" src="{{ default_upload_sample_img_src() }}" alt="no_img"></div>  
-                                    @else
-                                    <div class="design-img" style="display:none;"><img class="img-responsive" alt=""></div>
-                                    <div class="design-sample-img" style="display:block;"><img class="img-responsive" src="{{ default_upload_sample_img_src() }}" alt="no_img"></div>  
-                                    @endif
-                                    <br>
-                                    <div class="design-img-upload-btn">
-                                      <div><button type="button" data-name="only_design_img" class="btn btn-default attachtopost upload-design-img btn-sm">{!! trans('admin.upload_design_image') !!}</button></div>
-                                      <div>
-                                        @if($row->design_img_url)
-                                          <button type="button" data-name="design_img" data-id="solid-{{ $row->id }}" class="btn btn-default attachtopost remove-design-img btn-sm" style="display:block;">{!! trans('admin.remove_image') !!}</button>
-                                        @else
-                                          <button type="button" data-name="design_img" data-id="solid-{{ $row->id }}" class="btn btn-default attachtopost remove-design-img btn-sm" style="display:none;">{!! trans('admin.remove_image') !!}</button>
-                                        @endif
-                                      </div>
-                                    </div>
-                                  </div>
-                                </div>
-                                <div class="col-sm-6">
-                                  <div class="design-img-content">
-                                    @if($row->design_trans_img_url)
-                                    <div class="trans-design-img" style="display:block;"><img class="img-responsive" src="{{ get_image_url($row->design_trans_img_url) }}" alt=""></div>
-                                    <div class="trans-design-sample-img" style="display:none;"><img class="img-responsive" src="{{ default_upload_sample_img_src() }}" alt="no_img"></div>  
-                                    @else
-                                    <div class="trans-design-img" style="display:none;"><img class="img-responsive" alt=""></div>
-                                    <div class="trans-design-sample-img" style="display:block;"><img class="img-responsive" src="{{ default_upload_sample_img_src() }}" alt="no_img"></div>  
-                                    @endif
-                                    <br>
-                                    <div class="trans-design-img-upload-btn">
-                                      <div><button type="button" data-name="only_trans_design_img" class="btn btn-default attachtopost upload-design-img btn-sm">{!! trans('admin.upload_design_transparent_image') !!}</button></div>
-                                      <div>
-                                        @if($row->design_trans_img_url)
-                                        <button type="button" data-name="trans_design_img" data-id="trans-{{ $row->id }}" class="btn btn-default attachtopost remove-design-img btn-sm" style="display:block;">{!! trans('admin.remove_image') !!}</button>
-                                        @else
-                                        <button type="button" data-name="trans_design_img" data-id="trans-{{ $row->id }}" class="btn btn-default attachtopost remove-design-img btn-sm" style="display:none;">{!! trans('admin.remove_image') !!}</button>
-                                        @endif
-                                      </div>
-                                    </div>
-                                  </div>
-                                </div>  
-                              </div>  
-                            </div><hr>
-
-                            <div class="form-group">
-                              <div class="row">  
-                              <div class="col-sm-12">
-                                <div class="design-title-img-content">
-                                  @if($row->design_title_icon)
-                                  <div class="design-title-img" style="display:block;"><img class="img-responsive" src="{{ get_image_url($row->design_title_icon) }}" alt=""></div>
-                                  <div class="design-title-sample-img" style="display:none;"><img class="img-responsive" src="{{ default_upload_sample_img_src() }}" alt="no_img"></div>
-                                  @else
-                                  <div class="design-title-img" style="display:none;"><img class="img-responsive" alt=""></div>
-                                  <div class="design-title-sample-img" style="display:block;"><img class="img-responsive" src="{{ default_upload_sample_img_src() }}" alt="no_img"></div>
-                                  @endif
-                                  <br>
-                                  <div class="design-title-img-upload-btn">
-                                    <div>
-                                      <button type="button" data-name="only_design_title_img" class="btn btn-default attachtopost upload-design-title-img btn-sm">{!! trans('admin.upload_design_title_icon') !!}</button>
-                                    </div>
-                                    <div>
-                                      @if(!empty($row->design_title_icon) && $row->design_title_icon != '/public/images/upload.png')
-                                      <button type="button" data-name="design_title_img" data-id="{{ $row->id }}" class="btn btn-default attachtopost remove-design-title-img btn-sm" style="display:block;">{!! trans('admin.remove_image') !!}</button>
-                                      @else
-                                      <button type="button" data-name="design_title_img" data-id="{{ $row->id }}" class="btn btn-default attachtopost remove-design-title-img btn-sm" style="display:none;">{!! trans('admin.remove_image') !!}</button>
-                                      @endif
-                                    </div>
-                                    </div>
-                                  </div>
-                                </div>
-                                </div>
-                              </div>
-                            </div>
-                          </div>
-                      </div>
-                    </div>
-                    @endforeach
-                    @endif
-                  </div>
-                </div>  
-              </div>
-              
-              <div class="tab-custom-design tab-pane fade" id="tab_custom_design_layout">
-                @include('pages.common.designer-html', array('designer_hf_data' => $designer_hf_data, 'designer_img_elments' => $product_post_data['_product_custom_designer_data'], 'design_save_data' => $design_json_data))
-              </div>
-              
-              <div class="tab-manage-download-files tab-pane fade" id="tab_manage_download_files">
-                <div class="form-group">
-                  <div class="row">  
-                    <label class="col-sm-3 control-label" for="inputDownloadableFiles">{!! trans('admin.downloadable_files_label') !!}</label>
-                    <div class="col-sm-9">
-                      <div class="files-manage-option">
-                        <table>
-                          <thead>
-                            <tr>
-                              <th>{!! trans('admin.downloadable_name_label') !!}</th>
-                              <th>{!! trans('admin.downloadable_file_url_label') !!}</th>
-                            </tr>
-                          </thead>
-                          <tbody>
-                          @if(count($product_post_data['_downloadable_product_files']) > 0)
-                          <?php $count = 1;?>
-                            @foreach($product_post_data['_downloadable_product_files'] as $key=> $data)
-                              @if($count == 1)
-                              <tr class="file-inline"><td><input type="text" class="form-control" id="downloadable_file_name_{{ $key }}" placeholder="{{ trans('admin.downloadable_placeholder_file_name') }}" name="downloadable_file_name[{{ $key }}]" value="{{ $data['file_name'] }}"></td><td><div class="upload-downloadable-file"><div class="file-label">{!! trans('admin.downloadable_file_label') !!}</div><div class="file-url-textbox"><input type="text" class="form-control" id="downloadable_file_uploaded_url_{{ $key }}" name="downloadable_uploaded_file_url[{{ $key }}]"  readonly="true" placeholder="{{ trans('admin.downloadable_uploaded_file_url_placeholder') }}" value="{{ get_image_url($data['uploaded_file_url']) }}"></div><div class="file-upload-btn"> &nbsp;&nbsp;<button data-id="{{ $key }}" data-toggle="modal" data-target="#downloadable_file_upload" type="button" class="btn btn-default upload-for-downloadable-product btn-md">{!! trans('admin.downloadable_choose_file_label') !!}</button></div></div><div class="url-downloadable-file" style="display:none;"><div class="file-label">{!! trans('admin.downloadable_url_label') !!}</div><div class="file-url-textbox"><input type="text" class="form-control" id="downloadable_file_url_{{ $key }}" placeholder="{{ trans('admin.downloadable_online_file_url_placeholder') }}" name="downloadable_online_file_url[{{ $key }}]" value="{{ $data['online_file_url'] }}"></div></div><a href="" class="btn btn-sm btn-default remove-downloadable-file btn-sm">{!! trans('admin.remove_label') !!}</a></td></tr>
-                              @else
-                                <tr class="file-inline"><td><input type="text" class="form-control" id="downloadable_file_name_{{ $key }}" placeholder="{{ trans('admin.downloadable_placeholder_file_name') }}" name="downloadable_file_name[{{ $key }}]" value="{{ $data['file_name'] }}"></td><td><hr><div class="upload-downloadable-file"><div class="file-label">{!! trans('admin.downloadable_file_label') !!}</div><div class="file-url-textbox"><input type="text" class="form-control" id="downloadable_file_uploaded_url_{{ $key }}" name="downloadable_uploaded_file_url[{{ $key }}]"  readonly="true" placeholder="{{ trans('admin.downloadable_uploaded_file_url_placeholder') }}" value="{{ get_image_url($data['uploaded_file_url']) }}"></div><div class="file-upload-btn"> &nbsp;&nbsp;<button data-id="{{ $key }}" data-toggle="modal" data-target="#downloadable_file_upload" type="button" class="btn btn-default upload-for-downloadable-product btn-md">{!! trans('admin.downloadable_choose_file_label') !!}</button></div></div><div class="url-downloadable-file" style="display:none;"><div class="file-label">{!! trans('admin.downloadable_url_label') !!}</div><div class="file-url-textbox"><input type="text" class="form-control" id="downloadable_file_url_{{ $key }}" placeholder="{{ trans('admin.downloadable_online_file_url_placeholder') }}" name="downloadable_online_file_url[{{ $key }}]" value="{{ $data['online_file_url'] }}"></div></div><a href="" class="btn btn-sm btn-default remove-downloadable-file btn-sm">{!! trans('admin.remove_label') !!}</a></td></tr>
-                              @endif
-                               <?php $count ++;?>
-                            @endforeach
-                          @endif
-                          </tbody>
-                          <tfoot>
-                            <tr>
-                              <th colspan="2">
-                                <button type="button" class="btn btn-default add_more_downloadable_file btn-sm" data-target="simple"> {!! trans('admin.downloadable_add_more_file_label') !!} </button>
-                              </th>
-                            </tr>
-                          </tfoot>
-                        </table>
-                      </div>		
-                    </div>
-                  </div>  
-                </div>
-                <br>  
-                <div class="form-group">
-                  <div class="row">  
-                    <label class="col-sm-3 control-label" for="inputDownloadlimit">{!! trans('admin.download_limit_label') !!}</label>
-                    <div class="col-sm-9">
-                        <input type="number" class="form-control" name="download_limit" placeholder="{{ trans('admin.unlimited_placeholder_label') }}" id="download_limit" value="{{ $product_post_data['_downloadable_product_download_limit'] }}"> {!! trans('admin.blank_for_unlimited_label') !!}
                     </div>  
-                  </div>  
-                </div>
-                <div class="form-group">
-                  <div class="row">    
-                    <label class="col-sm-3 control-label" for="inputDownloadexpiry">{!! trans('admin.download_expiry_label') !!}</label>
-                    <div class="col-sm-9">
-                        <input type="text" class="form-control" name="download_expiry" placeholder="{{ trans('admin.expiry_data_label') }}" id="download_expiry" value="{{ $product_post_data['_downloadable_product_download_expiry'] }}">
+                  </div>
+                  <div class="form-group">
+                    <div class="row">    
+                      <label class="col-sm-6 control-label" for="inputEnableFeaturesProduct">{!! trans('admin.features_product') !!}</label>
+                      <div class="col-sm-6">
+                        @if($product_post_data['_product_enable_as_features'] == 'yes')
+                        <input type="checkbox" checked="checked" class="shopist-iCheck" name="enable_features_product" id="enable_features_product">
+                        @else
+                        <input type="checkbox" class="shopist-iCheck" name="enable_features_product" id="enable_features_product">
+                        @endif
+                        &nbsp;{!! trans('admin.enable_features_product') !!}                                     
+                      </div>
                     </div>  
-                  </div>  
-                </div>
-              </div>
+                  </div>
+                  <div class="form-group">
+                    <div class="row">  
+                      <label class="col-sm-6 control-label" for="inputEnableLatestProduct">{!! trans('admin.latest_product') !!}</label>
+                      <div class="col-sm-6">
+                        @if($product_post_data['_product_enable_as_latest'] == 'yes')
+                          <input type="checkbox" checked="checked" class="shopist-iCheck" name="enable_latest_product" id="enable_latest_product">
+                        @else
+                          <input type="checkbox" class="shopist-iCheck" name="enable_latest_product" id="enable_latest_product">
+                        @endif
+                        &nbsp;{!! trans('admin.enable_latest_product') !!}                                        
+                      </div>
+                    </div>  
+                  </div>
+                  <div class="form-group">
+                    <div class="row">  
+                      <label class="col-sm-6 control-label" for="inputEnableForRelatedProduct">{!! trans('admin.related_product') !!}</label>
+                      <div class="col-sm-6">
+                        @if($product_post_data['_product_enable_as_related'] == 'yes')
+                          <input type="checkbox" checked="checked" class="shopist-iCheck" name="inputEnableForRelatedProduct" id="inputEnableForRelatedProduct">
+                        @else
+                          <input type="checkbox" class="shopist-iCheck" name="inputEnableForRelatedProduct" id="inputEnableForRelatedProduct">
+                        @endif
+                        &nbsp;{!! trans('admin.enable_related_product') !!}                                        
+                      </div>
+                    </div>  
+                  </div>
+                  <div class="form-group enable-custom-design" {!! $tabSettings['btnCustomize'] !!}>
+                    <div class="row">   
+                      <label class="col-sm-6 control-label" for="inputEnableForCustomDesignProduct">{!! trans('admin.custom_design') !!}</label>
+                      <div class="col-sm-6">
+                        @if($product_post_data['_product_enable_as_custom_design'] == 'yes')
+                          <input type="checkbox" checked="checked" class="shopist-iCheck" name="inputEnableForCustomDesignProduct" id="inputEnableForCustomDesignProduct">
+                        @else
+                          <input type="checkbox" checked="checked" class="shopist-iCheck" name="inputEnableForCustomDesignProduct" id="inputEnableForCustomDesignProduct">
+                        @endif
+                        &nbsp;{!! trans('admin.enable_custom_design_product') !!}                                      
+                      </div>
+                    </div>  
+                  </div>
+                  <div class="form-group">
+                    <div class="row">  
+                      <label class="col-sm-6 control-label" for="inputEnableForHomePage">{!! trans('admin.home_page_product_label_1') !!}</label>
+                      <div class="col-sm-6">
+                        @if( !empty($product_post_data['_product_enable_as_selected_cat']) && $product_post_data['_product_enable_as_selected_cat'] == 'yes')  
+                        <input type="checkbox" checked="checked" class="shopist-iCheck" name="inputEnableForHomePage" id="inputEnableForHomePage">
+                        @else
+                        <input type="checkbox" class="shopist-iCheck" name="inputEnableForHomePage" id="inputEnableForHomePage">
+                        @endif
+                        &nbsp;{!! trans('admin.home_page_product_label_2') !!}                              
+                      </div>
+                    </div>  
+                  </div>    
+                  @if( $settings_data['general_settings']['taxes_options']['enable_status'] == 1 && $settings_data['general_settings']['taxes_options']['apply_tax_for'] == 'per_product' )
+                  <div class="form-group taxes-option">
+                    <div class="row">  
+                      <label class="col-sm-6 control-label" for="inputEnableTaxesForProduct">{!! trans('admin.taxes') !!}</label>
+                      <div class="col-sm-6">
+                        @if($product_post_data['_product_enable_taxes'] == 'yes')
+                          <input type="checkbox" checked="checked" class="shopist-iCheck" name="inputEnableTaxesForProduct" id="inputEnableTaxesForProduct">
+                        @else
+                          <input type="checkbox" class="shopist-iCheck" name="inputEnableTaxesForProduct" id="inputEnableTaxesForProduct">
+                        @endif
+                        &nbsp;{!! trans('admin.enable_taxes_this_product') !!}                                      
+                      </div>
+                    </div>  
+                  </div>
+                  @endif
+                </div><!-- /.tab-pane -->
+
+              @endif
+              
             </div>
           </div>
         </div>
