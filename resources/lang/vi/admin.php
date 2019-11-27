@@ -5,7 +5,7 @@ return [
   'profile'             =>  'Hồ sơ',
   'sign_out'            =>  'Đăng xuất',
   'dashboard' =>'Bảng điều khiển',
-  'products' =>'Các sản phẩm',
+  'products' =>'Quản lý sản phẩm',
   'all_products' =>'Tất cả sản phẩm',
   'add_product' =>'Thêm sản phẩm',
   'categories' =>'Thể loại',
