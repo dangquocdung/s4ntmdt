@@ -1157,7 +1157,7 @@ return [
   'currency_conversion_method_label' => 'Chọn Phương thức chuyển đổi tiền tệ',
   'currency_conversion_method_fixer_label' => 'API sửa lỗi',
   'currency_conversion_method_custom_label' =>  'Chuyển đổi tiền tệ tùy chỉnh',
-  'order_list_label' => 'Danh sách đặt hàng',
+  'order_list_label' => 'Danh sách đơn hàng',
   'product_vedio_label' =>  'Bạn chỉ có thể tải lên 1 tệp video cùng một lúc, Các phần mở rộng tệp được hỗ trợ là: mp4 và ogg',
   'back_to_login_label' =>  'Quay lại đăng nhập',
   'compitable_label' => 'Tính năng này chỉ dành cho các mẫu tương thích',
