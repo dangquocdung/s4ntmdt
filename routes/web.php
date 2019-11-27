@@ -678,7 +678,8 @@ Route::group(['prefix' => 'admin'], function () {
   Route::get('order/invoice/{order_id}', [
     'uses' => 'OrderController@redirectOrderInvoice',
     'as'   => 'admin.order_invoice'
-  ])->middleware('verifyLoginPage', 'admin', 'sufficientPermission');
+  ]);
+  // ->middleware('verifyLoginPage', 'admin', 'sufficientPermission');
 });
 
 
