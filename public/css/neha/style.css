@@ -709,6 +709,11 @@
 
 }
 
+.product-img:hover img{
+  opacity: 0.5;
+  filter: alpha(opacity=100);
+}
+
 .single-product , .product-img {
   position: relative;
 }

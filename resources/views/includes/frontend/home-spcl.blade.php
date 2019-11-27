@@ -8,7 +8,7 @@
                     <h4>{{ trans('frontend.latest_products') }}&nbsp;</h4>
                 </a>
                 <a class="" href="#todays_sale" data-toggle="tab" role="tab" aria-selected="false" aria-controls="home1">
-                    <h4>{{ trans('frontend.todays_sale_label') }}&nbsp;</h4>
+                    <h4>{{ trans('frontend.todays_deal_label') }}&nbsp;</h4>
                 </a>
 
             </div>
@@ -69,26 +69,17 @@
                                           </div>
                                       </div>
                                       <div class="product-cart-categori">
+
                                           <div class="product-cart">
+                                            <span>{{ get_user_name_by_user_id($item->author_id) }}</span>
+                                          </div>
+
+                                          <div class="product-categori">
                                             <span>
-
-                                                <del class="text-muted">
-                                                {!! price_html( get_product_price_html_by_filter(get_role_based_price_by_product_id($item->id, $item->price)), get_frontend_selected_currency()) !!}
-
+                                                <del>
+                                                  {!! price_html( get_product_price_html_by_filter(get_role_based_price_by_product_id($item->id, $item->regular_price)), get_frontend_selected_currency()) !!}
                                                 </del>
                                             </span>
-
-
-                                          </div>
-                                          <div class="product-categori">
-
-                                            <span>{{ get_user_name_by_user_id($item->author_id) }}</span>
-
-
-                                            <!-- <a class="product-compare" data-id="{{ $item->id }}" data-toggle="tooltip" title="{{ trans('frontend.add_to_compare_list_label') }}" data-original-title="{{ trans('frontend.add_to_compare_list_label') }}">
-                                              <i class="ion-ios-list-outline"></i>{{ trans('frontend.add_to_compare_list_label') }}
-                                            </a> -->
-
                                           </div>
                                       </div>
                                   </div>
@@ -161,13 +152,17 @@
                                           </div>
                                       </div>
                                       <div class="product-cart-categori">
+
                                           <div class="product-cart">
-                                              <span>{{ get_user_name_by_user_id($item['author_id']) }}</span>
+                                            <span>{{ get_user_name_by_user_id($item['author_id']) }}</span>
                                           </div>
+
                                           <div class="product-categori">
-                                              <a class="product-compare" data-id="{{ $item['id'] }}" data-toggle="tooltip" title="{{ trans('frontend.add_to_compare_list_label') }}" data-original-title="{{ trans('frontend.add_to_compare_list_label') }}">
-                                                <i class="ion-ios-list-outline"></i>{{ trans('frontend.add_to_compare_list_label') }}
-                                              </a>
+                                            <span>
+                                                <del>
+                                                  {!! price_html( get_product_price_html_by_filter(get_role_based_price_by_product_id($item['id'], $item['post_regular_price'])), get_frontend_selected_currency()) !!}
+                                                </del>
+                                            </span>
                                           </div>
                                       </div>
                                   </div>
@@ -266,12 +261,18 @@
                                                       </div>
                                                   </div>
                                                   <div class="product-cart-categori">
-                                                      <div class="product-cart">
-                                                          <span>{{ get_user_name_by_user_id($item->author_id) }}</span>
-                                                      </div>
-                                                      <div class="product-categori">
-                                                        <span>{{ get_user_name_by_user_id($item->author_id) }}</span>
-                                                      </div>
+
+                                                    <div class="product-cart">
+                                                      <span>{{ get_user_name_by_user_id($item->author_id) }}</span>
+                                                    </div>
+
+                                                    <div class="product-categori">
+                                                      <span>
+                                                          <del>
+                                                            {!! price_html( get_product_price_html_by_filter(get_role_based_price_by_product_id($item->id, $item->regular_price)), get_frontend_selected_currency()) !!}
+                                                          </del>
+                                                      </span>
+                                                    </div>
                                                   </div>
                                               </div>
                                           </div>
@@ -346,13 +347,18 @@
                                                       </div>
                                                   </div>
                                                   <div class="product-cart-categori">
-                                                      <div class="product-cart">
-                                                        <span>{{ get_user_name_by_user_id($item->author_id) }}</span>
-                                                      </div>
-                                                      <div class="product-categori">
-                                                        <span>{{ get_user_name_by_user_id($item->author_id) }}</span>
 
-                                                      </div>
+                                                    <div class="product-cart">
+                                                      <span>{{ get_user_name_by_user_id($item->author_id) }}</span>
+                                                    </div>
+
+                                                    <div class="product-categori">
+                                                      <span>
+                                                          <del>
+                                                            {!! price_html( get_product_price_html_by_filter(get_role_based_price_by_product_id($item->id, $item->regular_price)), get_frontend_selected_currency()) !!}
+                                                          </del>
+                                                      </span>
+                                                    </div>
                                                   </div>
                                               </div>
                                           </div>
