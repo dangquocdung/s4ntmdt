@@ -265,7 +265,7 @@ return [
   'secret_key' =>'Khóa bí mật, Chỉ cần khôi phục mật khẩu',
   'register' =>'Ghi danh',
   'today_total_sales' =>'Tổng doanh số hôm nay',
-  'more_info' =>'Thêm thông tin',
+  'more_info' =>'Chi tiết',
   'total_products' =>'Tổng sản phẩm',
   'today_orders' =>'Đơn đặt hàng hôm nay',
   'total_orders' =>'Tổng số đơn đặt hàng',
