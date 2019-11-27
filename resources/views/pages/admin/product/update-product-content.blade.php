@@ -185,52 +185,6 @@
                 </div>
                 @endif
 
-                @if(count($available_user_roles) > 0 && isset($role_based_pricing_data['is_enable']) && isset($role_based_pricing_data['pricing']))
-                <p style="font-size: 17px;font-weight:bold;color:#3c8dbc;"><i>{!! trans('admin.role_based_pricing_label') !!}</i></p><hr>
-
-                <div class="role-based-pricing-content">
-                  <div class="form-group">
-                    <div class="row">  
-                      <label class="col-sm-6 control-label" for="inputEnableRoleBasedPricing">{!! trans('admin.enable_role_based_pricing_label') !!}</label>
-                      <div class="col-sm-6">
-                        @if(isset($role_based_pricing_data['is_enable']) && $role_based_pricing_data['is_enable'] == 'yes')
-                        <input type="checkbox" checked="checked" name="inputEnableDisableRoleBasedPricing" class="shopist-iCheck" id="inputEnableDisableRoleBasedPricing">
-                        @else
-                        <input type="checkbox" name="inputEnableDisableRoleBasedPricing" class="shopist-iCheck" id="inputEnableDisableRoleBasedPricing">
-                        @endif
-                      </div>
-                    </div>
-                  </div>
-
-                  @foreach($available_user_roles as $roles)
-                  <?php 
-                  $regular_price = '';
-                  $sale_price    = '';
-
-                  if(isset($role_based_pricing_data['pricing'][$roles['slug']]['regular_price'])){
-                    $regular_price = $role_based_pricing_data['pricing'][$roles['slug']]['regular_price'];
-                  }
-
-                  if(isset($role_based_pricing_data['pricing'][$roles['slug']]['sale_price'])){
-                    $sale_price    = $role_based_pricing_data['pricing'][$roles['slug']]['sale_price'];
-                  }
-                  ?>
-                  <div class="form-group">
-                    <label class="col-12 control-label" for="inputRoleBasedPricingText{{ $roles['role_name'] }}">{!! trans('admin.user_pricing_top_label', ['user_role' => $roles['role_name']]) !!}</label>
-                  </div>
-                  <div class="form-group">
-                    <div class="row">
-                      <div class="col-sm-6">
-                        <input type="number" class="form-control" name="RoleRegularPricing[{{ $roles['slug'] }}]" placeholder="{{ trans('admin.regular_price') }}" min="0" value="{{ $regular_price }}">
-                      </div>
-                      <div class="col-sm-6">
-                        <input type="number" class="form-control" name="RoleSalePricing[{{ $roles['slug'] }}]" placeholder="{{ trans('admin.sale_price') }}" min="0" value="{{ $sale_price }}">
-                      </div>
-                    </div>    
-                  </div>
-                  @endforeach
-                </div>
-                @endif
               </div>
               
               <div class="tab-stock tab-pane fade" id="tab_stock">
