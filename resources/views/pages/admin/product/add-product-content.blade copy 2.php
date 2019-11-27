@@ -127,7 +127,36 @@
                   </div>  
                 </div>
 
-              
+                @if(count($available_user_roles) > 0)
+                <p style="font-size: 17px;font-weight:bold;color:#3c8dbc;"><i>{!! trans('admin.role_based_pricing_label') !!}</i></p><hr>
+
+                <div class="role-based-pricing-content">
+                  <div class="form-group">
+                    <div class="row">
+                      <label class="col-sm-6 control-label" for="inputEnableRoleBasedPricing">{!! trans('admin.enable_role_based_pricing_label') !!}</label>
+                      <div class="col-sm-6">
+                        <input type="checkbox" name="inputEnableDisableRoleBasedPricing" class="shopist-iCheck" id="inputEnableDisableRoleBasedPricing">
+                      </div>
+                    </div>    
+                  </div>
+
+                    @foreach($available_user_roles as $roles)
+                    <div class="form-group">
+                      <label class="col-12 control-label" for="inputRoleBasedPricingText{{ $roles['role_name'] }}">{!! trans('admin.user_pricing_top_label', ['user_role' => $roles['role_name']]) !!}</label>
+                    </div>
+                    <div class="form-group">
+                      <div class="row">
+                        <div class="col-sm-6">
+                          <input type="number" class="form-control" name="RoleRegularPricing[{{ $roles['slug'] }}]" placeholder="{{ trans('admin.regular_price') }}" min="0">
+                        </div>
+                        <div class="col-sm-6">
+                          <input type="number" class="form-control" name="RoleSalePricing[{{ $roles['slug'] }}]" placeholder="{{ trans('admin.sale_price') }}" min="0">
+                        </div>
+                      </div>    
+                    </div>
+                    @endforeach
+                </div>
+                @endif   
               </div>
               
               <div class="tab-stock tab-pane fade" id="tab_stock">
@@ -635,6 +664,30 @@
         </div>
       </div>
       
+      <div class="box box-solid">
+          <div class="box-header with-border">
+            <i class="fa fa-text-width"></i>
+            <h3 class="box-title">{!! trans('admin.add_upsells_cross_sells_label') !!}</h3>
+          </div>
+          <div class="box-body">
+            <div class="form-group">
+              <div class="row">    
+                <label class="col-sm-3 control-label" for="inputUpsells">{!! trans('admin.upsells_label') !!}</label>
+                <div class="col-sm-9">
+                    <input type="text" name="upsells_product" data-target="upsell" placeholder="{{ trans('admin.upsells_cross_sells_placeholder_label') }}" class="typeahead products-typeahead tm-input upsells-input form-control tm-input-info"/>
+                </div>
+              </div>  
+            </div>
+            <div class="form-group">
+              <div class="row">    
+                <label class="col-sm-3 control-label" for="inputCrossSells">{!! trans('admin.cross_sells_label') !!}</label>
+                <div class="col-sm-9">
+                    <input type="text" name="cross_sells_product" data-target="crosssell" placeholder="{{ trans('admin.upsells_cross_sells_placeholder_label') }}" class="typeahead products-typeahead tm-input crosssells-input form-control tm-input-info"/>
+                </div>
+              </div>  
+            </div>
+          </div>  
+      </div> 
       
       <div class="box box-solid">
         <div class="box-header with-border">
@@ -706,6 +759,44 @@
         </div>
       </div>
         
+      <div class="box box-solid review-settings">
+        <div class="box-header with-border">
+          <i class="fa  fa-star-half-full"></i>
+          <h3 class="box-title">{!! trans('admin.product_reviews_settings') !!}</h3>
+        </div>
+        <div class="box-body">
+          <div class="form-group">
+            <div class="row">  
+              <label class="col-sm-6 control-label" for="inputEnableReviews">{!! trans('admin.enable_reviews') !!}</label>
+              <div class="col-sm-6">
+                <label>
+                  <input type="checkbox" checked="checked" class="shopist-iCheck" name="inputEnableReviews" id="inputEnableReviews">
+                </label>                                             
+              </div>
+            </div>  
+          </div>
+          <div class="form-group">
+            <div class="row">    
+              <label class="col-sm-6 control-label" for="inputEnableAddReviewLinkToProductPage">{!! trans('admin.enable_add_review_link_to_product_page') !!}</label>
+              <div class="col-sm-6">
+                <label>
+                  <input type="checkbox" class="shopist-iCheck" checked="checked" name="inputEnableAddReviewLinkToProductPage" id="inputEnableAddReviewLinkToProductPage">
+                </label>                                             
+              </div>
+            </div>  
+          </div>
+          <div class="form-group">
+            <div class="row">    
+              <label class="col-sm-6 control-label" for="inputEnableAddReviewLinkToDetailsPage">{!! trans('admin.enable_add_review_link_to_details_page') !!}</label>
+              <div class="col-sm-6">
+                <label>
+                  <input type="checkbox" class="shopist-iCheck" checked="checked" name="inputEnableAddReviewLinkToDetailsPage" id="inputEnableAddReviewLinkToDetailsPage">
+                </label>                                             
+              </div>
+            </div>  
+          </div>
+        </div>
+      </div>
       
       <div class="box box-solid product-videos-settings">
         <div class="box-header with-border">
