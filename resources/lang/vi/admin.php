@@ -943,7 +943,7 @@ return [
   'sidebar_announcement_title' =>'Thông báo',
   'reviews_title' =>'Nhận xét',
   'manage_packages_title' =>'Quản lý gói',
-  'social_media_follow_us_url' =>'Theo dõi chúng tôi url',
+  'social_media_follow_us_url' =>'Nhập đường dẫn các trang mạng xã hội (nếu có)',
   'select_vendor_title' =>'Chọn gian hàng',
   'choose_vendor_title' =>'Chọn gian hàng',
   'vendor_package_select' =>'Chọn gói gian hàng',
