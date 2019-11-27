@@ -81,7 +81,7 @@
                         <span class="sr-only">Toggle Dropdown</span>
                       </button>
                       <ul role="menu" class="dropdown-menu">
-                        <li><a href="#" data-toggle="modal" data-target="#vendors_profile" class="vendors-profile" data-id="{{ $row->id }}"><i class="fa fa-user"></i>{{ trans('admin.profile') }}</a></li>  
+                        <li><a href="#" data-toggle="modal" data-target="#vendors_profile" class="vendors-profile" data-id="{{ $row->id }}"><i class="fa fa-user"></i>{{ trans('admin.shop_profile') }}</a></li>  
                         
                         @if($row->user_status == 1)
                         <li><a href="#" class="vendor-status-change" data-id="{{ $row->id }}" data-target="disable"><i class="fa fa-times-rectangle-o"></i>{{ trans('admin.disable') }}</a></li>
