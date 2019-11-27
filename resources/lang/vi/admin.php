@@ -3,6 +3,8 @@ return [
   'view_online_store'   =>  'Gian hàng của bạn',
   'shopist_store'       =>  'Ghé thăm gian hàng',
   'profile'             =>  'Hồ sơ',
+
+  'shop_profile'             =>  'Thông tin gian hàng',
   'sign_out'            =>  'Đăng xuất',
   'dashboard' =>'Bảng điều khiển',
   'products' =>'Quản lý sản phẩm',
