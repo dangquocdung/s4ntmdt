@@ -10,17 +10,16 @@
   <div class="profile-details">
     <table>
       <tr>
-        <td>Tên gian hàng (đầy đủ)</td>
-        <td>{!! $details['profile_details']->store_name !!}</td>
-      </tr>
-
-      <tr>
-        <td>Tên gian hàng (viết tắt)</td>
+        <td>{!! trans('admin.shop_display_name')!!}</td>
         <td>{!! $user_display_name !!}</td>
       </tr>
       <tr>
-        <td>Đường dẫn truy cập</td>
+        <td>{!! trans('admin.user_name_title')!!}</td>
         <td>{!! $user_name !!}</td>
+      </tr>
+      <tr>
+        <td>{!! trans('admin.vendors_table_header_shop_name')!!}</td>
+        <td>{!! $details['profile_details']->store_name !!}</td>
       </tr>
       <tr>
         <td>{!! trans('admin.vendor_status_label')!!}</td>
