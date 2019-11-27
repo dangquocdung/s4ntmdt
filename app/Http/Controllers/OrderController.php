@@ -361,6 +361,8 @@ class OrderController extends Controller
 
       $order_data_by_id['_ordered_items']  = json_decode( $get_orders_items->order_data, TRUE );
     }
+
+    return response()->json($order_data_by_id);
     
     return view('pages.admin.invoice.invoice', array('order_data_by_id' => $order_data_by_id));
   }
