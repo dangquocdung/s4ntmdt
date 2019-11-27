@@ -51,7 +51,7 @@
               <ul class="nav navbar-nav">
                 <li @if (Session::has('update-target') && Session::get('update-target') == 'general')class="active" @endif data-target="general"><a href="#general" data-toggle="tab">{!! trans('admin.general') !!}</a></li>
                 <li @if (Session::has('update-target') && Session::get('update-target') == 'social_media')class="active" @endif data-target="social_media"><a href="#social_media" data-toggle="tab">{!! trans('admin.social_media_label') !!}</a></li>
-                <li @if (Session::has('update-target') && Session::get('update-target') == 'profile')class="active" @endif data-target="profile"><a href="#profile" data-toggle="tab">{!! trans('admin.profile') !!}</a></li>
+                <li @if (Session::has('update-target') && Session::get('update-target') == 'profile')class="active" @endif data-target="profile"><a href="#profile" data-toggle="tab">{!! trans('admin.shop_profile') !!}</a></li>
               </ul>
             </div>
           </div>
