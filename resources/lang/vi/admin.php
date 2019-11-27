@@ -283,7 +283,6 @@ return [
   'cancelled' => '6. Đã huỷ',
   'refunded' => '7. Đã hoàn tiền',
 
-
   'approve' => 'Chấp nhận',
   'refuse' => 'Từ chối',
 
@@ -1173,8 +1172,5 @@ return [
   'shop_full_name' => 'Tên gian hàng (đầy đủ)',
   'shop_display_name' => 'Tên gian hàng (viết tắt)',
   'shop_user_name' => 'Đường dẫn truy cập',
-
-
-
 
 ];
