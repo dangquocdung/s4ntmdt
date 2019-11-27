@@ -34,7 +34,7 @@ return [
   'enable_status' =>'Kích hoạt trạng thái',
   'yes' =>'Có',
   'no' =>'Không',
-  'sku' =>'MSP',
+  'sku' =>'Mã sản phẩm (SKU)',
   'regular_price' =>'Giá cả phải chăng',
   'sale_price' =>'Giá bán',
   'sale_price_date_range' =>'Giá bán phạm vi ngày',

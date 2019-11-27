@@ -86,7 +86,7 @@ return [
   'variations' =>'Biến thể',
   'add_design_elements' =>'Quản lý hình ảnh thiết kế',
   'manage_download_files' =>'Quản lý tệp tải xuống',
-  'sku' =>'SKU',
+  'sku' =>'Mã sản phẩm (SKU)',
   'unique_field' =>'Mã sản phẩm (không được trùng)',
   'regular_price' =>'Giá bán',
   'sale_price' =>'Giá khuyến mãi',
