@@ -619,6 +619,6 @@ return [
   'store_full_name_label' => 'Công ty TNHH ABC',
   'store_short_name_label' => 'ABC',
   'store_path_label' => 'cong-ty-tnhh-abc',
-  'todays_deal_label' => 'Sản phẩm giá tốt'
+  'todays_deal_label' => 'Giá tốt hôm nay'
 
 ];
