@@ -42,7 +42,7 @@ return [
   'no_date_selected' =>'Không chọn ngày',
   'end_date' =>'Ngày cuối',
   'enable_stock_management' =>'Kích hoạt quản lý chứng khoán',
-  'stock_quantity' =>'Số lượng cổ phiếu',
+  'stock_quantity' =>'Số lượng',
   'back_to_order_status' =>'Quay lại trạng thái đặt hàng',
   'not_allow' =>'Không cho phép',
   'allow_and_notify_customer' =>'Cho phép và thông báo cho khách hàng',
