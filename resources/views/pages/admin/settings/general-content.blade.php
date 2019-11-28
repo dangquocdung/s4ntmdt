@@ -372,8 +372,8 @@
           </div>  
         </div>
         <br>
-        <b><i>{{ trans('admin.currency_converter_option') }}</i></b><hr>
-        <div class="form-group">
+        <!-- <b><i>{{ trans('admin.currency_converter_option') }}</i></b><hr> -->
+        <div class="form-group" style="display:none">
           <div class="row">   
             <label class="col-sm-4 control-label" for="inputCurrencyConverterAccessKey">{{ trans('admin.fixer_access_key') }}</label>
             <div class="col-sm-8">
@@ -383,8 +383,8 @@
           </div>  
         </div>
         <br>
-        <b><i>{{ trans('admin.currency_options') }}</i></b><hr>
-        <div class="form-group">
+        <!-- <b><i>{{ trans('admin.currency_options') }}</i></b><hr> -->
+        <div class="form-group" style="display:none">
           <div class="row">   
             <label class="col-sm-4 control-label" for="inputCurrency">{{ trans('admin.default_currency') }}</label>
             <div class="col-sm-8">
@@ -402,7 +402,7 @@
             </div>
           </div>  
         </div>  
-        <div class="form-group">
+        <div class="form-group" style="display:none">
           <div class="row">   
             <label class="col-sm-4 control-label" for="inputCurrencyPosition">{{ trans('admin.currency_position') }}</label>
             <div class="col-sm-8">
@@ -434,7 +434,7 @@
             </div>
           </div>  
         </div>
-        <div class="form-group">
+        <div class="form-group" style="display:none">
           <div class="row">   
             <label class="col-sm-4 control-label" for="inputThousandSeparator">{{ trans('admin.thousand_separator') }}</label>
             <div class="col-sm-8">
@@ -442,7 +442,7 @@
             </div>
           </div>  
         </div>
-        <div class="form-group">
+        <div class="form-group" style="display:none">
           <div class="row">   
             <label class="col-sm-4 control-label" for="inputDecimalSeparator">{{ trans('admin.decimal_separator') }}</label>
             <div class="col-sm-8">
@@ -450,7 +450,7 @@
             </div>
           </div>  
         </div>
-        <div class="form-group">
+        <div class="form-group" style="display:none">
           <div class="row">   
             <label class="col-sm-4 control-label" for="inputNumberofDecimals">{{ trans('admin.number_of_decimals') }}</label>
             <div class="col-sm-8">
@@ -458,7 +458,7 @@
             </div>
           </div>  
         </div>
-        <div class="form-group">
+        <div class="form-group" style="display:none">
           <div class="row">   
             <label class="col-sm-4 control-label" for="inputCurrencyConversionMethod">{{ trans('admin.currency_conversion_method_label') }}</label>
             <div class="col-sm-8">
@@ -476,7 +476,7 @@
             </div>
           </div>  
         </div>
-        <div class="form-group">
+        <div class="form-group" style="display:none">
           <div class="row">   
             <label class="col-sm-4 control-label" for="inputFrontendCurrency">{{ trans('admin.frontend_currency') }} <br>[<i style="font-size: 11px;">{!! trans('admin.frontend_currency_msg') !!}</i>]</label>
             <div class="col-sm-8">
