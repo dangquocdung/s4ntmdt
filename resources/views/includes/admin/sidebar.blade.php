@@ -868,7 +868,7 @@
         @endif
       @endif -->
       
-      @if(in_array('manage_requested_product_menu_access', $user_permission_list))
+      <!-- @if(in_array('manage_requested_product_menu_access', $user_permission_list))
         @if(Request::is('admin/customer/request-product'))
           <li class="active">
             <a href="{{ route('admin.request_product_content') }}" class="active">
@@ -882,7 +882,7 @@
             </a>
           </li>
         @endif
-      @endif  
+      @endif   -->
        
       @if(in_array('manage_subscription_menu_access', $user_permission_list))
         @if(Request::is('admin/subscription/custom') || Request::is('admin/subscription/mailchimp') || Request::is('admin/subscription/settings') )
