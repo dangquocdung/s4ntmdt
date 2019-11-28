@@ -99,7 +99,7 @@ return [
   'cancel_schedule' =>'Hủy lịch trình',
   'manage_stock' =>'Quản lý kho hàng',
   'enable_stock_management_product' =>'Cho phép quản lý kho',
-  'stock_qty' =>'Số lượng cổ phiếu',
+  'stock_qty' =>'Số lượng',
   'backorders' =>'Giao chậm',
   'not_allow' =>'Không cho phép',
   'allow_and_notify_customer' =>'Cho phép và thông báo cho khách hàng',
