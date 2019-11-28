@@ -719,6 +719,36 @@
         </div>  
       </div>
         
+      <div class="box box-solid compare-data">
+        <div class="box-header with-border">
+          <i class="fa  fa-text-width"></i>
+          <h3 class="box-title">{!! trans('admin.add_compare_data_title') !!}</h3>
+        </div>
+        <div class="box-body">
+          @if(!is_vendor_login())    
+            <div class="clearfix">
+              <a class="btn btn-default pull-right btn-sm" href="{{ route('admin.extra_features_compare_products_content') }}">{!! trans('admin.add_compare_data_title') !!}</a>
+            </div>  
+            <br>  
+          @endif
+          @if(!empty($fields_name))
+            @foreach($fields_name as $key => $compare_field)
+              <div class="form-group">
+                <div class="row">  
+                  <label class="col-sm-6 control-label">{!! $compare_field !!}</label>
+                  <div class="col-sm-6">
+                    @if(!empty($product_post_data['_product_compare_data']))  
+                      <input type="text" class="form-control" name="inputCompareData[<?php echo $key;?>]" placeholder="{{ $compare_field }}" value="{{$product_post_data['_product_compare_data'][$key] }}">
+                    @else
+                      <input type="text" class="form-control" name="inputCompareData[<?php echo $key;?>]" placeholder="{{ $compare_field }}">
+                    @endif
+                  </div>
+                </div>  
+              </div>
+            @endforeach
+          @endif
+        </div>
+      </div>  
       
       
       
