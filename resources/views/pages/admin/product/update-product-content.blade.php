@@ -737,6 +737,11 @@
                 <div class="row">  
                   <label class="col-sm-6 control-label">{!! $compare_field !!}</label>
                   <div class="col-sm-6">
+                    @if(!empty($product_post_data['_product_compare_data']))  
+                      <input type="text" class="form-control" name="inputCompareData[<?php echo $key;?>]" placeholder="{{ $compare_field }}">
+                    @else
+                      <input type="text" class="form-control" name="inputCompareData[<?php echo $key;?>]" placeholder="{{ $compare_field }}">
+                    @endif
                   </div>
                 </div>  
               </div>
