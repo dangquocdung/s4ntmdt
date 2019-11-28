@@ -494,131 +494,7 @@
           </div>
         </div>
       </div>
-      
-      <div class="box box-solid" style="display:none">
-        <div class="box-header with-border">
-          <i class="fa fa-upload"></i>
-          <h3 class="box-title">{!! trans('admin.shop_banner') !!}</h3>
-          <div class="box-tools pull-right">
-            <div data-toggle="modal" data-dropzone_id="eb_dropzone_banner_file_upload" data-target="#shopbannerUploader" class="icon shop-banner-uploader">{!! trans('admin.upload_image') !!}</div>
-          </div>
-        </div>
-        <div class="box-body">
-          <div class="uploaded-banner-image">
-            @if($product_post_data['_product_related_images_url']->shop_banner_image && $product_post_data['_product_related_images_url']->shop_banner_image != '/images/upload.png')
-            <div class="banner-uploaded-image" style="display:block;"><img class="img-responsive" src="{{ get_image_url($product_post_data['_product_related_images_url']->shop_banner_image) }}"><div class="remove-img-link banner-img-remove"><button type="button" class="btn btn-default attachtopost">{!! trans('admin.remove_image') !!}</button></div></div>
-            <div class="banner-sample-img" style="display:none;"><img class="banner-upload-icon img-responsive" src="{{ default_upload_sample_img_src() }}"></div>
-            @else
-            <div class="banner-sample-img"><img class="banner-upload-icon img-responsive" src="{{ default_upload_sample_img_src() }}"></div>
-            <div class="banner-uploaded-image"><img class="img-responsive"><div class="remove-img-link banner-img-remove"><button type="button" class="btn btn-default attachtopost">{!! trans('admin.remove_image') !!}</button></div></div>
-            @endif
-          </div>
-            
-          <div class="modal fade" id="shopbannerUploader" tabindex="-1" role="dialog" aria-labelledby="updater" aria-hidden="true">
-            <div class="modal-dialog">
-              <div class="modal-content">
-                <div class="modal-header">
-                  <p class="no-margin">{!! trans('admin.you_can_upload_1_image') !!}</p>
-                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                  </button>
-                </div> 
-                <div class="modal-body">             
-                  <div class="uploadform dropzone no-margin dz-clickable eb_dropzone_banner_file_upload" id="eb_dropzone_banner_file_upload" name="eb_dropzone_banner_file_upload">
-                    <div class="dz-default dz-message">
-                      <span>{!! trans('admin.drop_your_cover_picture_here') !!}</span>
-                    </div>
-                  </div>
-                </div>
-                <div class="modal-footer">
-                  <button type="button" class="btn btn-default attachtopost" data-dismiss="modal">{!! trans('admin.close') !!}</button>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      
-        
-      <div class="box box-solid">
-        <div class="box-header with-border">
-          <i class="fa fa-text-width"></i>
-          <h3 class="box-title">{!! trans('admin.product_seo_label') !!}</h3>
-        </div>
-        <div class="box-body">
-          <div class="seo-preview-content">
-            <p><i class="fa fa-eye"></i> {!! trans('admin.google_search_preview_label') !!}</p><hr>
-            <h3>{!! $product_post_data['_product_seo_title'] !!}</h3>
-            <p class="link">{!! url('/') !!}/product/details/<span>{!! $product_post_data['post_slug'] !!}</span></p>
-            @if(!empty($product_post_data['_product_seo_description']))
-            <p class="description">{!! $product_post_data['_product_seo_description'] !!}</p>
-            @else
-            <p class="description">{!! trans('admin.product_seo_desc_example') !!}</p>
-            @endif
-          </div><hr>
-          <div class="seo-content">
-            <div class="form-group">  
-              <div class="row">    
-                <div class="col-md-12">
-                  <input type="text" class="form-control" name="seo_title" id="seo_title" placeholder="{{ trans('admin.seo_title_label') }}" value="{{ $product_post_data['_product_seo_title'] }}">
-                </div>  
-              </div>    
-            </div>
-            <div class="form-group">
-              <div class="row">    
-                <div class="col-md-12">
-                <input type="text" class="form-control" name="seo_url_format" id="seo_url_format" placeholder="{{ trans('admin.seo_url_label') }}" value="{{ $product_post_data['post_slug'] }}">
-                </div>
-              </div>    
-            </div>
-            <div class="form-group">  
-              <div class="row">    
-                <div class="col-md-12">  
-                  <textarea id="seo_description" class="form-control" name="seo_description" placeholder="{{ trans('admin.seo_description_label') }}">{!! $product_post_data['_product_seo_description'] !!}</textarea>
-                </div>
-              </div>    
-            </div>  
-            <div class="form-group">
-              <div class="row">    
-                <div class="col-md-12">  
-                  <textarea id="seo_keywords" class="form-control" name="seo_keywords" placeholder="{{ trans('admin.seo_keywords_label') }}">{!! $product_post_data['_product_seo_keywords'] !!}</textarea>
-                </div>
-              </div>    
-            </div>
-          </div>  
-        </div>  
-      </div>
-        
-      <div class="box box-solid compare-data">
-        <div class="box-header with-border">
-          <i class="fa  fa-text-width"></i>
-          <h3 class="box-title">{!! trans('admin.add_compare_data_title') !!}</h3>
-        </div>
-        <div class="box-body">
-          <div class="clearfix">
-            <a class="btn btn-default pull-right btn-sm" href="{{ route('admin.extra_features_compare_products_content') }}">{!! trans('admin.add_compare_data_title') !!}</a>
-          </div>  
-          <br>  
-          @if(!empty($fields_name))
-            @foreach($fields_name as $key => $compare_field)
-              <div class="form-group">
-                <div class="row">  
-                  <label class="col-sm-6 control-label">{!! $compare_field !!}</label>
-                  <div class="col-sm-6">
-                    @if(!empty($product_post_data['_product_compare_data']))  
-                      <input type="text" class="form-control" name="inputCompareData[<?php echo $key;?>]" placeholder="{{ $compare_field }}" value="{{$product_post_data['_product_compare_data'][$key] }}">
-                    @else
-                      <input type="text" class="form-control" name="inputCompareData[<?php echo $key;?>]" placeholder="{{ $compare_field }}">
-                    @endif
-                  </div>
-                </div>  
-              </div>
-            @endforeach
-          @endif
-        </div>
-      </div>  
-      
-      
+
       <div class="box box-solid product-videos-settings">
         <div class="box-header with-border">
           <i class="fa fa-video-camera"></i>
@@ -747,6 +623,132 @@
           </div>
         </div>
       </div>
+
+      
+      <div class="box box-solid" style="display:none">
+        <div class="box-header with-border">
+          <i class="fa fa-upload"></i>
+          <h3 class="box-title">{!! trans('admin.shop_banner') !!}</h3>
+          <div class="box-tools pull-right">
+            <div data-toggle="modal" data-dropzone_id="eb_dropzone_banner_file_upload" data-target="#shopbannerUploader" class="icon shop-banner-uploader">{!! trans('admin.upload_image') !!}</div>
+          </div>
+        </div>
+        <div class="box-body">
+          <div class="uploaded-banner-image">
+            @if($product_post_data['_product_related_images_url']->shop_banner_image && $product_post_data['_product_related_images_url']->shop_banner_image != '/images/upload.png')
+            <div class="banner-uploaded-image" style="display:block;"><img class="img-responsive" src="{{ get_image_url($product_post_data['_product_related_images_url']->shop_banner_image) }}"><div class="remove-img-link banner-img-remove"><button type="button" class="btn btn-default attachtopost">{!! trans('admin.remove_image') !!}</button></div></div>
+            <div class="banner-sample-img" style="display:none;"><img class="banner-upload-icon img-responsive" src="{{ default_upload_sample_img_src() }}"></div>
+            @else
+            <div class="banner-sample-img"><img class="banner-upload-icon img-responsive" src="{{ default_upload_sample_img_src() }}"></div>
+            <div class="banner-uploaded-image"><img class="img-responsive"><div class="remove-img-link banner-img-remove"><button type="button" class="btn btn-default attachtopost">{!! trans('admin.remove_image') !!}</button></div></div>
+            @endif
+          </div>
+            
+          <div class="modal fade" id="shopbannerUploader" tabindex="-1" role="dialog" aria-labelledby="updater" aria-hidden="true">
+            <div class="modal-dialog">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <p class="no-margin">{!! trans('admin.you_can_upload_1_image') !!}</p>
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </div> 
+                <div class="modal-body">             
+                  <div class="uploadform dropzone no-margin dz-clickable eb_dropzone_banner_file_upload" id="eb_dropzone_banner_file_upload" name="eb_dropzone_banner_file_upload">
+                    <div class="dz-default dz-message">
+                      <span>{!! trans('admin.drop_your_cover_picture_here') !!}</span>
+                    </div>
+                  </div>
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-default attachtopost" data-dismiss="modal">{!! trans('admin.close') !!}</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+        
+      <div class="box box-solid">
+        <div class="box-header with-border">
+          <i class="fa fa-text-width"></i>
+          <h3 class="box-title">{!! trans('admin.product_seo_label') !!}</h3>
+        </div>
+        <div class="box-body">
+          <div class="seo-preview-content">
+            <p><i class="fa fa-eye"></i> {!! trans('admin.google_search_preview_label') !!}</p><hr>
+            <h3>{!! $product_post_data['_product_seo_title'] !!}</h3>
+            <p class="link">{!! url('/') !!}/product/details/<span>{!! $product_post_data['post_slug'] !!}</span></p>
+            @if(!empty($product_post_data['_product_seo_description']))
+            <p class="description">{!! $product_post_data['_product_seo_description'] !!}</p>
+            @else
+            <p class="description">{!! trans('admin.product_seo_desc_example') !!}</p>
+            @endif
+          </div><hr>
+          <div class="seo-content">
+            <div class="form-group">  
+              <div class="row">    
+                <div class="col-md-12">
+                  <input type="text" class="form-control" name="seo_title" id="seo_title" placeholder="{{ trans('admin.seo_title_label') }}" value="{{ $product_post_data['_product_seo_title'] }}">
+                </div>  
+              </div>    
+            </div>
+            <div class="form-group">
+              <div class="row">    
+                <div class="col-md-12">
+                <input type="text" class="form-control" name="seo_url_format" id="seo_url_format" placeholder="{{ trans('admin.seo_url_label') }}" value="{{ $product_post_data['post_slug'] }}">
+                </div>
+              </div>    
+            </div>
+            <div class="form-group">  
+              <div class="row">    
+                <div class="col-md-12">  
+                  <textarea id="seo_description" class="form-control" name="seo_description" placeholder="{{ trans('admin.seo_description_label') }}">{!! $product_post_data['_product_seo_description'] !!}</textarea>
+                </div>
+              </div>    
+            </div>  
+            <div class="form-group">
+              <div class="row">    
+                <div class="col-md-12">  
+                  <textarea id="seo_keywords" class="form-control" name="seo_keywords" placeholder="{{ trans('admin.seo_keywords_label') }}">{!! $product_post_data['_product_seo_keywords'] !!}</textarea>
+                </div>
+              </div>    
+            </div>
+          </div>  
+        </div>  
+      </div>
+        
+      <div class="box box-solid compare-data">
+        <div class="box-header with-border">
+          <i class="fa  fa-text-width"></i>
+          <h3 class="box-title">{!! trans('admin.add_compare_data_title') !!}</h3>
+        </div>
+        <div class="box-body">
+          <div class="clearfix">
+            <a class="btn btn-default pull-right btn-sm" href="{{ route('admin.extra_features_compare_products_content') }}">{!! trans('admin.add_compare_data_title') !!}</a>
+          </div>  
+          <br>  
+          @if(!empty($fields_name))
+            @foreach($fields_name as $key => $compare_field)
+              <div class="form-group">
+                <div class="row">  
+                  <label class="col-sm-6 control-label">{!! $compare_field !!}</label>
+                  <div class="col-sm-6">
+                    @if(!empty($product_post_data['_product_compare_data']))  
+                      <input type="text" class="form-control" name="inputCompareData[<?php echo $key;?>]" placeholder="{{ $compare_field }}" value="{{$product_post_data['_product_compare_data'][$key] }}">
+                    @else
+                      <input type="text" class="form-control" name="inputCompareData[<?php echo $key;?>]" placeholder="{{ $compare_field }}">
+                    @endif
+                  </div>
+                </div>  
+              </div>
+            @endforeach
+          @endif
+        </div>
+      </div>  
+      
+      
       
       @if(!is_vendor_login())    
       <div class="box box-solid product-manufacturer-settings">

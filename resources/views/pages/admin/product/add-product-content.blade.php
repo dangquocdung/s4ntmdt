@@ -519,6 +519,79 @@
         </div>
       </div>
 
+      <div class="box box-solid product-videos-settings">
+        <div class="box-header with-border">
+          <i class="fa fa-video-camera"></i>
+          <h3 class="box-title">{!! trans('admin.product_video_settings') !!}</h3>
+        </div>
+        <div class="box-body">
+          <div class="form-group">
+            <div class="row">  
+              <label class="col-sm-6 control-label" for="inputEnableProductVideo">{!! trans('admin.enable_product_video') !!}</label>
+              <div class="col-sm-6">
+                <label>
+                  <input type="checkbox" class="shopist-iCheck" name="inputEnableProductVideo" id="inputEnableProductVideo">
+                </label>                                             
+              </div>
+            </div>  
+          </div>
+          <div class="form-group">
+            <div class="row">    
+              <label class="col-sm-6 control-label" for="inputDisplayProductVideo">{!! trans('admin.product_video_display_mode_at_frontend') !!}</label>
+              <div class="col-sm-6">
+                <span><input type="radio" class="shopist-iCheck" name="inputVideoDisplayMode" id="inputVideoDisplayModeAtPopup" value="popup">&nbsp; {!! trans('admin.display_at_popup') !!}</span>&nbsp;&nbsp;&nbsp;&nbsp;<span><input type="radio" checked="checked" class="shopist-iCheck" name="inputVideoDisplayMode" id="inputVideoDisplayModeAtPageContent" value="content">&nbsp; {!! trans('admin.page_content') !!}</span>
+              </div>
+            </div>  
+          </div><hr><br>
+
+          <div class="form-group">
+            <div class="row">    
+              <label class="col-sm-6 control-label" for="inputTitleForVideo">{!! trans('admin.video_title') !!}</label>
+              <div class="col-sm-6">
+                <input type="text" class="form-control" name="inputTitleForVideo" id="inputTitleForVideo" placeholder="{{ trans('admin.video_title') }}" value="{{ old('inputTitleForVideo') }}">          
+              </div>
+            </div>  
+          </div>
+          <div class="form-group" style="display:none;">
+            <div class="row">    
+              <label class="col-sm-6 control-label" for="inputVideoPanelWidth">{!! trans('admin.video_panel_width') !!}</label>
+              <div class="col-sm-6">
+                <input type="number" class="form-control" name="inputVideoPanelWidth" id="inputVideoPanelWidth" placeholder="{{ trans('admin.video_panel_width') }}" value="{{ old('inputVideoPanelWidth') }}"><i>{!! trans('admin.pixels') !!}</i>          
+              </div>
+            </div>  
+          </div>
+          <div class="form-group" style="display:none;">
+            <div class="row">    
+              <label class="col-sm-6 control-label" for="inputVideoPanelHeight">{!! trans('admin.video_panel_height') !!}</label>
+              <div class="col-sm-6">
+                <input type="number" class="form-control" name="inputVideoPanelHeight" id="inputVideoPanelHeight" placeholder="{{ trans('admin.video_panel_height') }}" value="{{ old('inputVideoPanelHeight') }}"><i>{!! trans('admin.pixels') !!}</i>
+              </div>
+            </div>  
+          </div>
+          <hr><br>
+          <div class="form-group">
+            <div class="row">    
+              <label class="col-sm-6 control-label" for="inputLabelVideoSource">{!! trans('admin.select_video_source') !!}</label>
+              <div class="col-sm-6">
+                <div class="source-embedded-code">
+                  <div class="source-embedded-code-label"><input type="radio" class="shopist-iCheck" name="inputVideoSourceName" id="inputVideoSourceEmbed" value="embedded_code"> {!! trans('admin.embedded_code') !!}</div>
+                  <div class="source-embedded-code-textarea"><input type="text" class="form-control" name="inputEmbedCode" id="inputEmbedCode" placeholder="{{ trans('admin.enter_your_embedded_code_here') }}">
+                  </div>
+                  {!! trans('admin.youtube_embedded_msg') !!}
+                </div><hr><br>
+
+                <div class="source-custom-video-url">
+                  <div class="source-custom-video-url-label"><input type="radio" class="shopist-iCheck" name="inputVideoSourceName" id="inputVideoSourceCustomVideoUrl" value="online_url"> {!! trans('admin.add_online_video_url') !!}</div>
+                  <div class="source-custom-video-url-textbox"><input type="text" class="form-control" name="inputAddOnlineVideoUrl" id="inputAddOnlineVideoUrl" placeholder="{{ trans('admin.add_online_video_url') }}"></div>
+                  {!! trans('admin.online_video_file_extensions') !!}
+                </div>
+              </div>
+            </div>  
+          </div>
+        </div>
+      </div>
+
+
       <div class="box box-solid">
         <div class="box-header with-border">
           <i class="fa fa-upload"></i>
@@ -707,77 +780,6 @@
       </div>
         
       
-      <div class="box box-solid product-videos-settings">
-        <div class="box-header with-border">
-          <i class="fa fa-video-camera"></i>
-          <h3 class="box-title">{!! trans('admin.product_video_settings') !!}</h3>
-        </div>
-        <div class="box-body">
-          <div class="form-group">
-            <div class="row">  
-              <label class="col-sm-6 control-label" for="inputEnableProductVideo">{!! trans('admin.enable_product_video') !!}</label>
-              <div class="col-sm-6">
-                <label>
-                  <input type="checkbox" class="shopist-iCheck" name="inputEnableProductVideo" id="inputEnableProductVideo">
-                </label>                                             
-              </div>
-            </div>  
-          </div>
-          <div class="form-group">
-            <div class="row">    
-              <label class="col-sm-6 control-label" for="inputDisplayProductVideo">{!! trans('admin.product_video_display_mode_at_frontend') !!}</label>
-              <div class="col-sm-6">
-                <span><input type="radio" class="shopist-iCheck" name="inputVideoDisplayMode" id="inputVideoDisplayModeAtPopup" value="popup">&nbsp; {!! trans('admin.display_at_popup') !!}</span>&nbsp;&nbsp;&nbsp;&nbsp;<span><input type="radio" checked="checked" class="shopist-iCheck" name="inputVideoDisplayMode" id="inputVideoDisplayModeAtPageContent" value="content">&nbsp; {!! trans('admin.page_content') !!}</span>
-              </div>
-            </div>  
-          </div><hr><br>
-
-          <div class="form-group">
-            <div class="row">    
-              <label class="col-sm-6 control-label" for="inputTitleForVideo">{!! trans('admin.video_title') !!}</label>
-              <div class="col-sm-6">
-                <input type="text" class="form-control" name="inputTitleForVideo" id="inputTitleForVideo" placeholder="{{ trans('admin.video_title') }}" value="{{ old('inputTitleForVideo') }}">          
-              </div>
-            </div>  
-          </div>
-          <div class="form-group" style="display:none;">
-            <div class="row">    
-              <label class="col-sm-6 control-label" for="inputVideoPanelWidth">{!! trans('admin.video_panel_width') !!}</label>
-              <div class="col-sm-6">
-                <input type="number" class="form-control" name="inputVideoPanelWidth" id="inputVideoPanelWidth" placeholder="{{ trans('admin.video_panel_width') }}" value="{{ old('inputVideoPanelWidth') }}"><i>{!! trans('admin.pixels') !!}</i>          
-              </div>
-            </div>  
-          </div>
-          <div class="form-group" style="display:none;">
-            <div class="row">    
-              <label class="col-sm-6 control-label" for="inputVideoPanelHeight">{!! trans('admin.video_panel_height') !!}</label>
-              <div class="col-sm-6">
-                <input type="number" class="form-control" name="inputVideoPanelHeight" id="inputVideoPanelHeight" placeholder="{{ trans('admin.video_panel_height') }}" value="{{ old('inputVideoPanelHeight') }}"><i>{!! trans('admin.pixels') !!}</i>
-              </div>
-            </div>  
-          </div>
-          <hr><br>
-          <div class="form-group">
-            <div class="row">    
-              <label class="col-sm-6 control-label" for="inputLabelVideoSource">{!! trans('admin.select_video_source') !!}</label>
-              <div class="col-sm-6">
-                <div class="source-embedded-code">
-                  <div class="source-embedded-code-label"><input type="radio" class="shopist-iCheck" name="inputVideoSourceName" id="inputVideoSourceEmbed" value="embedded_code"> {!! trans('admin.embedded_code') !!}</div>
-                  <div class="source-embedded-code-textarea"><input type="text" class="form-control" name="inputEmbedCode" id="inputEmbedCode" placeholder="{{ trans('admin.enter_your_embedded_code_here') }}">
-                  </div>
-                  {!! trans('admin.youtube_embedded_msg') !!}
-                </div><hr><br>
-
-                <div class="source-custom-video-url">
-                  <div class="source-custom-video-url-label"><input type="radio" class="shopist-iCheck" name="inputVideoSourceName" id="inputVideoSourceCustomVideoUrl" value="online_url"> {!! trans('admin.add_online_video_url') !!}</div>
-                  <div class="source-custom-video-url-textbox"><input type="text" class="form-control" name="inputAddOnlineVideoUrl" id="inputAddOnlineVideoUrl" placeholder="{{ trans('admin.add_online_video_url') }}"></div>
-                  {!! trans('admin.online_video_file_extensions') !!}
-                </div>
-              </div>
-            </div>  
-          </div>
-        </div>
-      </div>
       
       @if(!is_vendor_login())  
         <div class="box box-solid product-manufacturer-settings">
