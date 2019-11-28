@@ -676,7 +676,7 @@
         @endif
       @endif
       
-      @if(in_array('manage_designer_elements_menu_access', $user_permission_list))
+      <!-- @if(in_array('manage_designer_elements_menu_access', $user_permission_list))
         @if(Request::is('admin/designer/clipart/categories/list') || Request::is('admin/designer/clipart/category/add') || Request::is('admin/designer/clipart/category/update/*') || Request::is('admin/designer/clipart/list') || Request::is('admin/designer/clipart/add') || Request::is('admin/designer/clipart/update/*') || Request::is('admin/designer/settings') || Request::is('admin/designer/shape/list') || Request::is('admin/designer/shape/add') || Request::is('admin/designer/shape/update/*') || Request::is('admin/designer/fonts/list') || Request::is('admin/designer/font/add') || Request::is('admin/designer/font/update/*'))
           <li class="active treeview">
             <a href="#">
@@ -721,7 +721,7 @@
             </ul>
           </li>
         @endif
-      @endif 
+      @endif  -->
        
       @if(in_array('manage_coupon_menu_access', $user_permission_list))
         @if( Request::is('admin/coupon-manager/coupon/add') || Request::is('admin/coupon-manager/coupon/update/*') || Request::is('admin/coupon-manager/coupon/list') )
