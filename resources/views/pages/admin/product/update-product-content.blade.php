@@ -679,7 +679,7 @@
           <div class="seo-preview-content">
             <p><i class="fa fa-eye"></i> {!! trans('admin.google_search_preview_label') !!}</p><hr>
             <h3>{!! $product_post_data['_product_seo_title'] !!}</h3>
-            <p class="link">{!! url('/') !!}/product/details/<span>{!! $product_post_data['post_slug'] !!}</span></p>
+            <p class="link">{!! url('/') !!}/san-pham/chi-tiet/<span>{!! $product_post_data['post_slug'] !!}</span></p>
             @if(!empty($product_post_data['_product_seo_description']))
             <p class="description">{!! $product_post_data['_product_seo_description'] !!}</p>
             @else
