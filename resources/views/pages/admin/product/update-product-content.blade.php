@@ -86,7 +86,7 @@
                 <li class="nav-item inventory"><a class="nav-link" href="#tab_stock" data-toggle="tab">{!! trans('admin.inventory') !!}</a></li>
                 <li class="nav-item features"><a class="nav-link" href="#tab_features" data-toggle="tab">{!! trans('admin.features') !!}</a></li>
 
-                @if ($user_data['user_role_id'] <> 3)
+                @if(!is_vendor_login()) 
 
                   <li class="nav-item advanced"><a class="nav-link" href="#tab_advanced" data-toggle="tab">{!! trans('admin.advanced') !!}</a></li>
 
