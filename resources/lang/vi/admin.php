@@ -843,7 +843,7 @@ return [
   'home_page_cat_collection_select_label' =>'Chọn danh sách bộ sưu tập danh mục để hiển thị tại trang chủ',
   'remove_label' => 'Xoá',
   'more_compare_field_placeholder' =>'Nhập tên trường hoặc tiêu đề trường của bạn. ví dụ: Tính năng camera ',
-  'add_compare_data_title' =>'Thêm nhiều dữ liệu so sánh',
+  'add_compare_data_title' =>'Thêm dữ liệu so sánh sản phẩm',
   'select_color_name' =>'Chọn màu',
   'no_data_found_label' =>'Không tìm thấy dữ liệu nào',
   'cat_search_placeholder' =>'Nhập tên danh mục để tìm kiếm',
