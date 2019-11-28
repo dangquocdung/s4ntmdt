@@ -128,7 +128,7 @@
         @endif  
       @endif
       
-      @if(Request::is('admin/testimonial/add') || Request::is('admin/testimonial/list') || Request::is('admin/testimonial/update/*') )
+      <!-- @if(Request::is('admin/testimonial/add') || Request::is('admin/testimonial/list') || Request::is('admin/testimonial/update/*') )
         <li class="active treeview">
           <a href="#">
             <i class="fa fa-thumbs-o-up"></i> <span>{!! trans('admin.testimonial_menu_title') !!}</span> <i class="fa fa-angle-left pull-right"></i>
@@ -168,7 +168,7 @@
             </ul>
           </li>
         @endif  
-      @endif
+      @endif -->
       
       @if(Request::is('admin/manufacturers/list') || Request::is('admin/manufacturers/add') || Request::is('admin/manufacturers/update/*'))
         <li class="active treeview">
