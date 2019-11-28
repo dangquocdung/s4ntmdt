@@ -35,7 +35,7 @@
           <h3 class="box-title">{!! trans('admin.product_description') !!}</h3>
         </div>
         <div class="box-body">
-          <textarea name="eb_description_editor" placeholder="{{ trans('admin.product_description_placeholder') }}"></textarea>
+          <textarea name="eb_description_editor" class="dynamic-editor" placeholder="{{ trans('admin.product_description_placeholder') }}"></textarea>
         </div>
       </div>
 
