@@ -85,12 +85,14 @@
                 <li class="nav-item general"><a class="nav-link active" href="#tab_general" data-toggle="tab">{!! trans('admin.general') !!}</a></li>
                 <li class="nav-item inventory"><a class="nav-link" href="#tab_stock" data-toggle="tab">{!! trans('admin.inventory') !!}</a></li>
                 <li class="nav-item features"><a class="nav-link" href="#tab_features" data-toggle="tab">{!! trans('admin.features') !!}</a></li>
+
+                @if(!is_vendor_login()) 
+
+                  <li class="nav-item advanced"><a class="nav-link" href="#tab_advanced" data-toggle="tab">{!! trans('admin.advanced') !!}</a></li>
+
+                @endif
+
                 <li class="nav-item advanced"><a class="nav-link" href="#tab_advanced" data-toggle="tab">{!! trans('admin.advanced') !!}</a></li>
-                <li class="nav-item attribute" style="display:none;"><a class="nav-link" href="#tab_attribute" data-toggle="tab">{!! trans('admin.attributes') !!}</a></li>
-                <li class="nav-item variations" style="display:none;"><a class="nav-link" href="#tab_variations" data-toggle="tab">{!! trans('admin.variations') !!}</a></li>
-                <li class="nav-item custom-design" style="display:none;"><a class="nav-link" href="#tab_custom_design" data-toggle="tab">{!! trans('admin.edit_design_elements') !!}</a></li>
-                <li class="nav-item custom-design-layout" style="display:none;"><a class="nav-link" href="#tab_custom_design_layout" data-toggle="tab">{!! trans('admin.create_layout') !!}</a></li>
-                <li class="nav-item manage-download-files" style="display:none;"><a class="nav-link" href="#tab_manage_download_files" data-toggle="tab">{!! trans('admin.manage_download_files') !!}</a></li>
               @endif
             </ul>
             <div class="tab-content">
