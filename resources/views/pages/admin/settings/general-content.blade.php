@@ -203,8 +203,8 @@
         </div>
         <br>
         
-        <b><i>{!! trans('admin.downloadable_products_options') !!}</i></b><hr>
-        <div class="form-group">
+        <!-- <b><i>{!! trans('admin.downloadable_products_options') !!}</i></b><hr> -->
+        <div class="form-group" style="display:none">
           <div class="row">   
             <label class="col-sm-4 control-label" for="inputAccessRestriction"></label>
             <div class="col-sm-8">
@@ -218,7 +218,7 @@
           </div>  
         </div>
         
-        <div class="form-group">
+        <div class="form-group" style="display:none">
           <div class="row">   
             <label class="col-sm-4 control-label" for="inputGrantAccessThankYouPage"></label>
             <div class="col-sm-8">
