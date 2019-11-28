@@ -81,7 +81,7 @@ return [
   'customizable_product' =>'Sản phẩm có thể tùy chỉnh',
   'downloadable_product' =>'Sản phẩm có thể tải xuống',
   'downloadable_files_label' =>'Tệp có thể tải xuống',
-  'inventory' =>'Kho hàng',
+  'inventory' =>'Quản lý kho hàng',
   'features' =>'Tính năng, đặc điểm',
   'advanced' =>'Nâng cao',
   'variations' =>'Biến thể',
