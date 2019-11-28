@@ -535,7 +535,7 @@
               </div>
             </div>  
           </div>
-          <div class="form-group">
+          <div class="form-group" style="display:none">
             <div class="row">    
               <label class="col-sm-6 control-label" for="inputDisplayProductVideo">{!! trans('admin.product_video_display_mode_at_frontend') !!}</label>
               <div class="col-sm-6">
