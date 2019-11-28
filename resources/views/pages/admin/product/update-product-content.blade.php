@@ -729,8 +729,8 @@
             <div class="clearfix">
               <a class="btn btn-default pull-right btn-sm" href="{{ route('admin.extra_features_compare_products_content') }}">{!! trans('admin.add_compare_data_title') !!}</a>
             </div>  
-            <br>  
           @endif
+          <br>  
           @if(!empty($fields_name))
             @foreach($fields_name as $key => $compare_field)
               <div class="form-group">
