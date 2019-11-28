@@ -205,6 +205,7 @@ padding-bottom: 15px;
   height:100px;
   padding: 5px;
   margin: 0px auto;
+  width: 100%;
 }
 .header-slider-image-single-container img
 {
@@ -1125,7 +1126,6 @@ ul.parent-cat-list li{
   padding-left: 10px;
   /*width: 30%;*/
 }
-
 
 #vendor_profile .profile-details table tr td.vendor-enable, #table_for_vendors_list .status-enable{
   color: #00a65a;      
