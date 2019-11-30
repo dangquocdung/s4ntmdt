@@ -340,7 +340,7 @@
               @endif
 
               @if(in_array('products_comments_list_access', $user_permission_list))
-                <li><a href="{{ route('admin.all_products_comments') }}"><i class="fa fa-comment"></i> {!! trans('admin.blog_comments_list') !!}</a></li>  
+                <li><a href="{{ route('admin.all_products_comments') }}"><i class="fa fa-comment"></i> {!! trans('admin.comments_list') !!}</a></li>  
               @endif
             </ul>
           </li>
