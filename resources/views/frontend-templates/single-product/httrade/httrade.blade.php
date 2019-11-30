@@ -324,7 +324,7 @@
                         <h4 class="modal-title">{{ trans('frontend.add_a_review_label') }}</h4>
                         <button class="close" type="button" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
                       </div>
-                      <div class="modal-body">
+                      <div class="modal__content">
                         <div class="form-group">
                           <label for="review-rating">{{ trans('frontend.select_your_rating_label') }}</label>
                           <div class="rating-select">
