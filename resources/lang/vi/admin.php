@@ -1172,5 +1172,7 @@ return [
   'shop_full_name' => 'Tên gian hàng (đầy đủ)',
   'shop_display_name' => 'Tên gian hàng (viết tắt)',
   'shop_user_name' => 'Đường dẫn truy cập',
+  'comments_list' =>  'Bình luận',
+
 
 ];
