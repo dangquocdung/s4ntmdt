@@ -2920,7 +2920,17 @@ class GetFunction
   
   public static function create_image_url($img_path){
     if(!empty($img_path)){
-      return url('/') . $img_path;
+
+      if ( (strpos($img_path, 'http://')) || (strpos($img_path, 'https://')) ) {
+        return $img_path;
+      }
+      else{
+
+        return url('/') . $img_path;
+
+
+      }
+
     }
     else{
       return '';
