@@ -273,9 +273,6 @@
                 <h4>{{ trans('frontend.features_label') }}&nbsp;</h4>
               </a>
 
-              <a href="#shippingInfo" data-toggle="tab" role="tab" aria-selected="false" aria-controls="home1">
-                <h4>{{ trans('frontend.shipping_info_label') }}&nbsp;</h4>
-              </a>
 
               @if($single_product_details['_product_enable_reviews'] == 'yes')
 
@@ -288,7 +285,7 @@
               @if( count(get_vendor_details_by_product_id($single_product_details['id'])) >0 )
 
               <a href="#vendorInfo" data-toggle="tab" role="tab" aria-selected="false" aria-controls="home1">
-                <h4>{{ trans('frontend.vendor_info_label') }})&nbsp;</h4>
+                <h4>{{ trans('frontend.vendor_info_label') }}&nbsp;</h4>
               </a>
 
               @endif
@@ -304,10 +301,6 @@
             @else
               {!! trans('frontend.no_features_label') !!}
             @endif
-          </div>
-
-          <div class="tab-pane fade" id="shippingInfo" >
-            {!! trans('frontend.no_shippingInfo_label') !!}
           </div>
 
           @if($single_product_details['_product_enable_reviews'] == 'yes')
