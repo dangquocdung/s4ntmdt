@@ -299,7 +299,7 @@
               @if(Request::is('admin/product/comments-list'))
                 <li class="active"><a href="{{route('admin.all_products_comments')}}"><i class="fa fa-comment"></i> {!! trans('admin.blog_comments_list') !!}</a></li>  
               @else
-                <li><a href="{{route('admin.all_products_comments')}}"><i class="fa fa-comment"></i> {!! trans('admin.blog_comments_list') !!}</a></li>  
+                <li><a href="{{route('admin.all_products_comments')}}"><i class="fa fa-comment"></i> {!! trans('admin.comments_list') !!}</a></li>  
               @endif
             @endif
           </ul>
