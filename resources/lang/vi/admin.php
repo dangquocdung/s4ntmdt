@@ -1173,6 +1173,4 @@ return [
   'shop_display_name' => 'Tên gian hàng (viết tắt)',
   'shop_user_name' => 'Đường dẫn truy cập',
   'comments_list' =>  'Bình luận',
-
-
 ];
