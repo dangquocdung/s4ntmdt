@@ -2925,10 +2925,7 @@ class GetFunction
         return $img_path;
       }
       else{
-
         return url('/') . $img_path;
-
-
       }
 
     }
