@@ -3278,7 +3278,7 @@ class GetFunction
     $user_name = null;
     $get_user = User::where(['id' => $user_id])->first();
     if(!empty($get_user)){
-      $user_name = $get_user->name;
+      $user_name = $get_user->display_name;
     }
     
     return $user_name;

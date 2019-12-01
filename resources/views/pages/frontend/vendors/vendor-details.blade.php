@@ -136,9 +136,9 @@
           <ul class="list-icon" style="list-style:none">
             <li> <i class="icon-map-pin text-muted"></i> {!! $vendor_settings->profile_details->address_line_1 !!}</li>
             <li> <i class="icon-phone text-muted"></i> {!! $vendor_settings->profile_details->phone !!}</li>
-            <li> <i class="icon-mail text-muted"></i>
+            <!-- <li> <i class="icon-mail text-muted"></i>
               <a class="navi-link" href="mailto:{!! $vendor_info->email !!}"> {!! $vendor_info->email !!}</a>
-            </li>
+            </li> -->
             <li> <i class="icon-calendar text-muted"></i> {!! Carbon\Carbon::parse( $vendor_info->created_at )->format('d-m-Y') !!}</li>
           </ul>
 
