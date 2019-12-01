@@ -852,7 +852,7 @@
         @endif
       @endif
 						
-			<!-- @if(is_vendor_login())
+			@if(is_vendor_login())
         @if(Request::is('admin/vendors/reviews'))
           <li class="active">
             <a href="{{ route('admin.reviews_content') }}">
@@ -866,7 +866,7 @@
             </a>
           </li>
         @endif
-      @endif -->
+      @endif
       
       <!-- @if(in_array('manage_requested_product_menu_access', $user_permission_list))
         @if(Request::is('admin/customer/request-product'))
@@ -950,7 +950,7 @@
         @endif
       @endif
       
-      <!-- @if(is_vendor_login())
+      @if(is_vendor_login())
         @if((Request::is('admin/vendor/notice-board')) || (Request::is('admin/vendor/notice-board/single/details/*')))
           <li class="active">
             <a href="{{ route('admin.vendor_notice_board_content') }}">
@@ -964,7 +964,7 @@
             </a>
           </li>
         @endif
-      @endif -->
+      @endif
     </ul>
   </section>
 </aside>
