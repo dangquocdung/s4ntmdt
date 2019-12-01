@@ -1284,6 +1284,11 @@ function get_user_name_by_user_id( $user_id ){
   return GetFunction::user_name_by_user_id( $user_id );
 }
 
+function get_store_name_by_user_id( $user_id ){
+  return GetFunction::store_name_by_user_id( $user_id );
+}
+
+
 /**
  * Get vendor settings
  *
