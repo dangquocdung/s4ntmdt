@@ -73,6 +73,24 @@
       <!-- Shop Toolbar-->
       <div class="padding-bottom-1x mb-2">
         
+
+        <ul class="nav nav-pills" role="tablist">
+
+          @if(Request::is('gian-hang/chi-tiet/san-pham/*'))  
+            <li class="nav-item"><a class="nav-link active" href="{{ route('store-products-page-content', $vendor_info->name) }}" ><i class="icon-search"></i>&nbsp;{!! trans('frontend.all_products_label') !!}</a></li>
+          @else  
+            <li class="nav-item"><a class="nav-link" href="{{ route('store-products-page-content', $vendor_info->name) }}" ><i class="icon-search"></i>&nbsp;{!! trans('frontend.all_products_label') !!}</a></li>
+          @endif
+
+          @if(Request::is('gian-hang/chi-tiet/danh-gia/*'))  
+            <li class="nav-item"><a class="nav-link active" href="{{ route('store-reviews-page-content', $vendor_info->name) }}" ><i class="icon-mail"></i>&nbsp;{!! trans('frontend.reviews_label') !!}</a></li>
+          @else  
+            <li class="nav-item"><a class="nav-link" href="{{ route('store-reviews-page-content', $vendor_info->name) }}" ><i class="icon-mail"></i>&nbsp;{!! trans('frontend.reviews_label') !!}</a></li>
+          @endif
+        </ul>
+
+
+
         @if(Request::is('gian-hang/chi-tiet/san-pham/*'))
           @include('pages.frontend.vendors.vendors-products')
           @yield('vendors-products-page-content')
@@ -82,6 +100,12 @@
           @include('pages.frontend.vendors.vendors-category-products')
           @yield('vendors-categoty-products-page-content')
         @endif
+
+        @if(Request::is('gian-hang/chi-tiet/danh-gia/*'))
+          @include('pages.frontend.vendors.vendors-reviews')
+          @yield('vendors-reviews-page-content')  
+        @endif
+
 
 
       </div>
