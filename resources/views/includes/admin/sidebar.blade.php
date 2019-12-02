@@ -967,21 +967,6 @@
         @endif
       @endif
       
-      @if(is_vendor_login())
-        @if((Request::is('admin/vendor/notice-board')) || (Request::is('admin/vendor/notice-board/single/details/*')))
-          <li class="active">
-            <a href="{{ route('admin.vendor_notice_board_content') }}">
-              <i class="fa fa-bullhorn"></i> <span>{!! trans('admin.notice_board_label') !!}</span>
-            </a>
-          </li>
-        @else
-          <li>
-            <a href="{{ route('admin.vendor_notice_board_content') }}">
-              <i class="fa fa-bullhorn"></i> <span>{!! trans('admin.notice_board_label') !!}</span>
-            </a>
-          </li>
-        @endif
-      @endif
     </ul>
   </section>
 </aside>
