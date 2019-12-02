@@ -252,10 +252,10 @@
       <hr class="mb-2">
       <div class="d-flex flex-wrap justify-content-between">
 
-        <div class="mt-2 mb-2">
+        <!-- <div class="mt-2 mb-2">
           <button class="btn btn-outline-secondary btn-sm btn-wishlist product-wishlist" data-id="{{ $single_product_details['id'] }}" data-toggle="tooltip" title="{{ trans('frontend.add_to_wishlist_label') }}" data-original-title="{{ trans('frontend.add_to_wishlist_label') }}"><i class="icon-heart"></i>&nbsp;{!! trans('frontend.wishlist') !!}</button>
           <button class="btn btn-outline-secondary btn-sm btn-compare product-compare" data-id="{{ $single_product_details['id'] }}" data-toggle="tooltip" title="" data-original-title="{{ trans('frontend.add_to_compare_list_label') }}"><i class="icon-repeat"></i>&nbsp;{!! trans('frontend.compare') !!}</button>
-        </div>
+        </div> -->
         <div class="mt-2 mb-2">
           <span class="text-muted">{!! trans('frontend.share') !!}:&nbsp;&nbsp;</span>
           <div class="d-inline-block" id="share-content">
