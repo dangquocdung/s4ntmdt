@@ -74,7 +74,7 @@
       <div class="padding-bottom-1x mb-2">
         
 
-        <ul class="nav nav-pills" role="tablist">
+        <ul class="nav nav-pills mb-2" role="tablist">
 
           @if(Request::is('gian-hang/chi-tiet/san-pham/*'))  
             <li class="nav-item"><a class="nav-link active" href="{{ route('store-products-page-content', $vendor_info->name) }}" ><i class="icon-search"></i>&nbsp;{!! trans('frontend.all_products_label') !!}</a></li>
