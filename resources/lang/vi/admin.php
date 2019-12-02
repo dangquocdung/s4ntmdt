@@ -1029,7 +1029,7 @@ return [
   'announcement_list_label' =>'Danh sách thông báo',
   'all_notice_label' =>'Tất cả thông báo',
   'no_notice_label' =>'Không có thông báo có sẵn!',
-  'notice_board_label' =>'Bảng ghi chú',
+  'notice_board_label' =>'Bảng thông báo',
   'read_more_label' =>'Đọc thêm',
   'notice_details_label' =>'Thông tin chi tiết',
   'earning_reports_label' =>'Báo cáo thu nhập',
