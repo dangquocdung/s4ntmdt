@@ -1369,7 +1369,9 @@ class FrontendManagerController extends Controller
         array_push($data['compare_product_data'],	$this->product->getProductDataById( $product ));
       }
     }
-    
+
+    // return response()->json($data['compare_product_label']);
+
     return view('pages.frontend.frontend-pages.product-comparison', $data);
   }
   
