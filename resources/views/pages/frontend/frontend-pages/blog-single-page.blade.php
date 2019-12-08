@@ -52,6 +52,17 @@
 
       </ul>
 
+
+      @if (!empty($blog_details_by_slug['post_file']))
+        <div class="embed-responsive embed-responsive-1by1 mt-3 mb-3">
+          <iframe class="embed-responsive-item" src="{{ URL::asset($blog_details_by_slug['post_file']) }}" allowfullscreen=""></iframe>
+        </div>
+      @endif
+
+      <p>
+        {!! string_decode($blog_details_by_slug['post_content']) !!}
+      </p>
+
       <!-- Post Tags + Share-->
       <div class="d-flex flex-wrap justify-content-between align-items-center">
         <div class="pb-2">
@@ -65,15 +76,6 @@
         </div>
       </div>
 
-      @if (!empty($blog_details_by_slug['post_file']))
-        <div class="embed-responsive embed-responsive-1by1 mt-3 mb-3">
-          <iframe class="embed-responsive-item" src="{{ URL::asset($blog_details_by_slug['post_file']) }}" allowfullscreen=""></iframe>
-        </div>
-      @endif
-
-      <p>
-        {!! string_decode($blog_details_by_slug['post_content']) !!}
-      </p>
       
       <!-- Post Tags + Share-->
       <!-- <div class="d-flex flex-wrap justify-content-between align-items-center pt-3 pb-4">
