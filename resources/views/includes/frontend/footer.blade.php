@@ -101,7 +101,7 @@
             <section class="widget widget-light-skin">
                 <h3 class="widget-title">Chứng nhận</h3>
                 <a href="{{ URL::to('http://online.gov.vn/HomePage/WebsiteDisplay.aspx?DocId=19094') }}" target="_blank">
-                    <img src="{{ URL::asset('/Images/dadangky.jpgx') }}"/>
+                    <img src="{{ URL::asset('/images/dadangky.jpgx') }}"/>
                 </a>
             </section>
         </div>
