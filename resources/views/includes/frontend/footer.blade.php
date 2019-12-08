@@ -88,10 +88,10 @@
             <section class="widget widget-light-skin">
                 <h3 class="widget-title">Ứng dụng di động</h3>
                 <a class="market-button apple-button mb-light-skin" href="#">
-                    <span class="mb-subtitle">Download on the</span><span class="mb-title">App Store</span>
+                    <span class="mb-subtitle">Tải về từ</span><span class="mb-title">App Store</span>
                 </a>
                 <a class="market-button google-button mb-light-skin" href="#">
-                    <span class="mb-subtitle">Download on the</span><span class="mb-title">Google Play</span>
+                    <span class="mb-subtitle">Tải về từ</span><span class="mb-title">Google Play</span>
                 </a>
 
             </section>
@@ -101,7 +101,7 @@
             <section class="widget widget-light-skin">
                 <h3 class="widget-title">Chứng nhận</h3>
                 <a href="{{ URL::to('http://online.gov.vn/HomePage/WebsiteDisplay.aspx?DocId=19094') }}" target="_blank">
-                    <img src="{{ URL::asset('/Images/dadangky.jpgx') }}"/>
+                    <img src="{{ URL::asset('/images/dadangky.jpgx') }}"/>
                 </a>
             </section>
         </div>
