@@ -68,7 +68,7 @@
     </div>
     {{-- <hr class="hr-light mt-2 margin-bottom-2x hidden-md-down"> --}}
     <div class="row">
-        <div class="col-md-7">
+        <div class="col-md-6">
             <!-- Contact Info-->
             <section class="widget widget-light-skin">
 
@@ -84,7 +84,7 @@
                 </ul>
             </section>
         </div>
-        <div class="col-md-2">
+        <div class="col-md-3">
             <section class="widget widget-light-skin">
                 <h3 class="widget-title">Ứng dụng di động</h3>
                 <a class="market-button apple-button mb-light-skin" href="#">

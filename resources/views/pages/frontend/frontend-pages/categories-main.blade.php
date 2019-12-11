@@ -128,55 +128,58 @@
                 </div>
               </div>
 
-              @if(count($colors_list_data) > 0)
-              <div class="colors-filter">
-                <h2>{{ trans('frontend.choose_color_label') }} <span class="responsive-accordian"></span></h2>
-                <div class="colors-filter-option">
-                  @foreach($colors_list_data as $terms)
-                  <div class="colors-filter-elements">
-                    <div class="chk-filter">
-                      @if(count($all_products_details['selected_colors']) > 0 && in_array($terms['slug'], $all_products_details['selected_colors']))  
-                      <input type="checkbox" checked class="shopist-iCheck chk-colors-filter" value="{{ $terms['slug'] }}">
-                      @else
-                      <input type="checkbox" class="shopist-iCheck chk-colors-filter" value="{{ $terms['slug'] }}">
-                      @endif
-                    </div>
-                    <div class="filter-terms">
-                      <div class="filter-terms-appearance"><span style="background-color:#{{ $terms['color_code'] }};width:21px;height:20px;display:block;"></span></div>
-                      <div class="filter-terms-name">&nbsp; {!! $terms['name'] !!}</div>
-                    </div>
-                  </div>
-                  @endforeach
-                </div>
-                @if($all_products_details['selected_colors_hf'])
-                <input name="selected_colors" id="selected_colors" value="{{ $all_products_details['selected_colors_hf'] }}" type="hidden">
-                @endif
-              </div>
-            @endif
+            @if (!empty($all_products_details))
 
-            @if(count($sizes_list_data) > 0)
-              <div class="size-filter">
-                <h2>{{ trans('frontend.choose_size_label') }} <span class="responsive-accordian"></span></h2>
-                <div class="size-filter-option">
-                  @foreach($sizes_list_data as $terms)
-                  <div class="size-filter-elements">
-                    <div class="chk-filter">
-                      @if(count($all_products_details['selected_sizes']) > 0 && in_array($terms['slug'], $all_products_details['selected_sizes']))  
-                      <input type="checkbox" checked class="shopist-iCheck chk-size-filter" value="{{ $terms['slug'] }}">
-                      @else
-                      <input type="checkbox" class="shopist-iCheck chk-size-filter" value="{{ $terms['slug'] }}">
-                      @endif
+              @if(count($colors_list_data) > 0)
+                <div class="colors-filter">
+                  <h2>{{ trans('frontend.choose_color_label') }} <span class="responsive-accordian"></span></h2>
+                  <div class="colors-filter-option">
+                    @foreach($colors_list_data as $terms)
+                    <div class="colors-filter-elements">
+                      <div class="chk-filter">
+                        @if(count($all_products_details['selected_colors']) > 0 && in_array($terms['slug'], $all_products_details['selected_colors']))  
+                        <input type="checkbox" checked class="shopist-iCheck chk-colors-filter" value="{{ $terms['slug'] }}">
+                        @else
+                        <input type="checkbox" class="shopist-iCheck chk-colors-filter" value="{{ $terms['slug'] }}">
+                        @endif
+                      </div>
+                      <div class="filter-terms">
+                        <div class="filter-terms-appearance"><span style="background-color:#{{ $terms['color_code'] }};width:21px;height:20px;display:block;"></span></div>
+                        <div class="filter-terms-name">&nbsp; {!! $terms['name'] !!}</div>
+                      </div>
                     </div>
-                    <div class="filter-terms">
-                      <div class="filter-terms-name">{!! $terms['name'] !!}</div>
-                    </div>
+                    @endforeach
                   </div>
-                  @endforeach
-                </div> 
-                @if($all_products_details['selected_sizes_hf'])
-                <input name="selected_sizes" id="selected_sizes" value="{{ $all_products_details['selected_sizes_hf'] }}" type="hidden">
-                @endif
-              </div>
+                  @if($all_products_details['selected_colors_hf'])
+                  <input name="selected_colors" id="selected_colors" value="{{ $all_products_details['selected_colors_hf'] }}" type="hidden">
+                  @endif
+                </div>
+              @endif
+
+              @if(count($sizes_list_data) > 0)
+                <div class="size-filter">
+                  <h2>{{ trans('frontend.choose_size_label') }} <span class="responsive-accordian"></span></h2>
+                  <div class="size-filter-option">
+                    @foreach($sizes_list_data as $terms)
+                    <div class="size-filter-elements">
+                      <div class="chk-filter">
+                        @if(count($all_products_details['selected_sizes']) > 0 && in_array($terms['slug'], $all_products_details['selected_sizes']))  
+                        <input type="checkbox" checked class="shopist-iCheck chk-size-filter" value="{{ $terms['slug'] }}">
+                        @else
+                        <input type="checkbox" class="shopist-iCheck chk-size-filter" value="{{ $terms['slug'] }}">
+                        @endif
+                      </div>
+                      <div class="filter-terms">
+                        <div class="filter-terms-name">{!! $terms['name'] !!}</div>
+                      </div>
+                    </div>
+                    @endforeach
+                  </div> 
+                  @if($all_products_details['selected_sizes_hf'])
+                  <input name="selected_sizes" id="selected_sizes" value="{{ $all_products_details['selected_sizes_hf'] }}" type="hidden">
+                  @endif
+                </div>
+              @endif
             @endif
 
             </footer>
