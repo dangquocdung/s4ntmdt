@@ -757,6 +757,7 @@
   margin: 0 3px;
   text-align: center;
   width: 45px;
+  margin-bottom: 5px;
 }
 .product-action > a:hover {
   color: #fff;
