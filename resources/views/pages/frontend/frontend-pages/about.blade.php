@@ -72,8 +72,10 @@
     <div class="col-md-5"><img class="d-block m-auto img-thumbnail" src="img/banners/about-01.png" alt="Online Shopping"></div>
     <div class="col-md-7 text-md-left text-center">
       <div class="mt-30 hidden-md-up"></div>
-      <h2>Tìm kiếm, lựa chọn, mua và bán trực tuyến.</h2>
-      <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam id purus at risus pellentesque faucibus a quis eros. In eu fermentum leo. Integer ut eros lacus. Proin ut accumsan leo. Morbi vitae est eget dolor consequat aliquam eget quis dolor. Mauris rutrum fermentum erat, at euismod lorem pharetra nec. Duis erat lectus, ultrices euismod sagittis at, pharetra eu nisl. Phasellus id ante at velit tincidunt hendrerit. Aenean dolor dolor, tristique nec placerat nec.</p>
+      <h2>Tìm kiếm, lựa chọn, mua và bán trực tuyến</h2>
+      <p class="text-muted">
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam id purus at risus pellentesque faucibus a quis eros. In eu fermentum leo. Integer ut eros lacus. Proin ut accumsan leo. Morbi vitae est eget dolor consequat aliquam eget quis dolor. Mauris rutrum fermentum erat, at euismod lorem pharetra nec. Duis erat lectus, ultrices euismod sagittis at, pharetra eu nisl. Phasellus id ante at velit tincidunt hendrerit. Aenean dolor dolor, tristique nec placerat nec.
+      </p>
       <a class="text-decoration-none" href="{{ route('shop-page') }}">Xem sản phẩm&nbsp;<i class="icon-arrow-right d-inline-block align-middle"></i></a>
     </div>
   </div>

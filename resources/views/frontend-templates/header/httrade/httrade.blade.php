@@ -208,7 +208,7 @@
     <nav class="slideable-menu">
       <ul class="menu" data-initial-height="385">
 
-        <li class="has-children {{ Request::is('ban-quan-tri')?'active':''}}">
+        <!-- <li class="has-children {{ Request::is('ban-quan-tri')?'active':''}}">
           <span>
           
             <a href="javascript:void(0)">{!! trans('frontend.gioi-thieu') !!}</a>
@@ -230,7 +230,7 @@
 
           </ul>
 
-        </li>
+        </li> -->
   
         <li class="has-children {{ Request::is('danh-muc-san-pham')?'active':''}}">
           <span>
@@ -303,7 +303,7 @@
       
       <li class="{{ Request::is('/')?'active':''}}"><a href="{{ route('home-page') }}"><span>{!! trans('frontend.home') !!}</span></a></li>
 
-      <li class="{{ Request::is('ban-quan-tri')?'active':''}}">
+      <!-- <li class="{{ Request::is('ban-quan-tri')?'active':''}}">
         
         <a href="javascript:void(0)"><span>{!! trans('frontend.gioi-thieu') !!}</span></a>
 
@@ -320,7 +320,7 @@
 
         </ul>
 
-      </li>
+      </li> -->
       
       <li class="{{ Request::is('gian-hang')||Request::is('gian-hang/*')?'active':''}}"><a href="{{ route('store-list-page-content') }}"><span>{!! trans('frontend.vendor_list_title_label') !!}</span></a></li>
 
