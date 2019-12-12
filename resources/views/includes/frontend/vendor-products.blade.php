@@ -35,8 +35,6 @@
                           <i class="ion-eye"></i>
                         </a>
 
-
-
                         <a class="animate-right add-to-cart-bg" data-toast data-toast-type="success" data-toast-position="topRight" data-toast-icon="icon-check-circle" data-toast-title="Sản phẩm" data-toast-message="{{ trans('frontend.successfuly_added_to_cart') }}" data-id="{{ $item->id }}" data-toggle="tooltip" data-placement="top"title="" data-original-title="{{ trans('frontend.add_to_cart_label') }}">
                           <i class="ion-bag"></i>
                         </a>
@@ -45,13 +43,9 @@
                           <i class="ion-heart"></i>
                         </a>
 
-
-
                         <a class="animate-right product-compare" data-id="{{ $item->id }}" data-toggle="tooltip" title="{{ trans('frontend.add_to_compare_list_label') }}" data-original-title="{{ trans('frontend.add_to_compare_list_label') }}">
                           <i class="ion-ios-list-outline"></i>
                         </a>
-
-
 
                     </div>
                 </div>
@@ -62,24 +56,8 @@
                         </div>
                         <div class="product-price">
                             <span class="new">
-                                @if( $item->type == 'simple_product' )
                                   {!! price_html( get_product_price_html_by_filter(get_role_based_price_by_product_id($item->id, $item->price)), get_frontend_selected_currency()) !!}
-                                @elseif( $item->type == 'configurable_product' )
-                                  {!! get_product_variations_min_to_max_price_html(get_frontend_selected_currency(), $item->id) !!}
-                                @elseif( $item->type == 'customizable_product' || $item->type == 'downloadable_product')
-                                  @if(count(get_product_variations($item->id))>0)
-                                  {!! get_product_variations_min_to_max_price_html(get_frontend_selected_currency(), $item->id) !!}
-                                  @else
-                                  {!! price_html( get_product_price_html_by_filter(get_role_based_price_by_product_id($item->id, $item->price)), get_frontend_selected_currency()) !!}
-                                  @endif
-                                @endif
                             </span>
-
-                            @if ( $item->price < $item->regular_price )
-                              <span class="old">
-                                {!! price_html( get_product_price_html_by_filter(get_role_based_price_by_product_id($item->id, $item->regular_price)), get_frontend_selected_currency()) !!}
-                              </span>
-                            @endif
 
                         </div>
                     </div>
@@ -87,11 +65,13 @@
                         <div class="product-cart">
                             <span>{{ get_user_name_by_user_id($item->author_id) }}</span>
                         </div>
-                        <!-- <div class="product-categori">
-                          <a class="product-compare" data-id="{{ $item->id }}" data-toggle="tooltip" title="{{ trans('frontend.add_to_compare_list_label') }}" data-original-title="{{ trans('frontend.add_to_compare_list_label') }}">
-                            <i class="ion-ios-list-outline"></i>{{ trans('frontend.add_to_compare_list_label') }}
-                          </a>
-                        </div> -->
+                        <div class="product-categori">
+                          <span>
+                            <del>
+                              {!! price_html( get_product_price_html_by_filter(get_role_based_price_by_product_id($item->id, $item->regular_price)), get_frontend_selected_currency()) !!}
+                            </del>
+                          </span>
+                        </div>
                     </div>
                 </div>
             </div>
