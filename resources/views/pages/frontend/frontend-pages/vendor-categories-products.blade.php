@@ -33,8 +33,8 @@
                 <div class="single-product mb-35">
                     <div class="product-img">
                         <a href="{{ route('details-page', $item['slug']) }}">
-                          @if(!empty($item->image_url))
-                            <img src="{{ get_image_url( $item->image_url ) }}" alt="{{ basename( get_image_url( $item->image_url ) ) }}"/>
+                          @if(!empty($item['image_url']))
+                            <img src="{{ get_image_url( $item['image_url'] ) }}" alt="{{ basename( get_image_url( $item['image_url'] ) ) }}"/>
                           @else
                             <img  src="{{ default_placeholder_img_src() }}" alt="" />
                           @endif
@@ -142,8 +142,8 @@
               <div class="single-product single-product-list product-list-right-pr mb-40">
                   <div class="product-img list-img-width">
                     <a href="{{ route('details-page', $item['slug']) }}">
-                      @if(!empty($item->image_url))
-                        <img src="{{ get_image_url( $item->image_url ) }}" alt="{{ basename( get_image_url( $item->image_url ) ) }}"/>
+                      @if(!empty($item['image_url']))
+                        <img src="{{ get_image_url( $item['image_url'] ) }}" alt="{{ basename( get_image_url( $item['image_url'] ) ) }}"/>
                       @else
                         <img  src="{{ default_placeholder_img_src() }}" alt="" />
                       @endif
