@@ -191,6 +191,8 @@ class FrontendManagerController extends Controller
       //Dũng thêm
 
       // $data['all_products_details']=$data['product_by_cat_id'];
+
+      // return response()->json($data['product_by_cat_id']);
       
       return view('pages.frontend.frontend-pages.categories-main', $data);
       // return view('pages.frontend.frontend-pages.products', $data);

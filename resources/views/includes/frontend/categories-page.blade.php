@@ -8,7 +8,7 @@
 
         @if((in_array($data['id'], $product_by_cat_id['selected_cat'])) || ($data['id'] == $product_by_cat_id['parent_id']) )
 
-          <li class="has-children expanded">
+          <li class="has-children expanded active">
         @else
 
           <li class="has-children">
@@ -30,7 +30,8 @@
 
       @else
 
-        <li>
+      <li class="{{ ($data['id']==$product_by_cat_id['parent_id'])?'active':'' }}">
+
             <a href="{{ route('categories-page', $data['slug']) }}">
               @if(in_array($data['id'], $product_by_cat_id['selected_cat']))
                 <span class="active">{!! $data['name'] !!}</span>
