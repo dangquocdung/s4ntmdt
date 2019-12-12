@@ -1330,6 +1330,8 @@ class FrontendManagerController extends Controller
           $data['vendor_products']['selected_view'] = 'grid';
         }
       }
+
+      // return response()->json($data['vendor_products']);
       
       return view('pages.frontend.vendors.vendor-details', $data);
     }

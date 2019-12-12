@@ -96,7 +96,7 @@
           @yield('vendors-products-page-content')
         @endif
         
-        @if(Request::is('sian-hang/chi-tiet/cat/san-pham/*'))
+        @if(Request::is('gian-hang/chi-tiet/danh-muc/san-pham/*'))
           @include('pages.frontend.vendors.vendors-category-products')
           @yield('vendors-categoty-products-page-content')
         @endif
