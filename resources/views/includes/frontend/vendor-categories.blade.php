@@ -22,7 +22,7 @@
 
           @else
 
-            <li class="has-children">
+            <li class="has-children expanded">
 
           @endif
 
