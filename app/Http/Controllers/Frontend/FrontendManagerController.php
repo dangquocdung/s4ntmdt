@@ -1188,6 +1188,7 @@ class FrontendManagerController extends Controller
    * @return void 
    */
   public function multivendorStoreSinglePageProductsCatContent( $params, $params1 ){
+
     $data = array();
     $user = $params1;
     
@@ -1287,7 +1288,7 @@ class FrontendManagerController extends Controller
       $data['colors_list_data']   =   $this->product->getTermData( 'product_colors', false, null, 1 );
       $data['sizes_list_data']    =   $this->product->getTermData( 'product_sizes', false, null, 1 );
 										
-      $get_cat_product_and_breadcrumb  =  $this->product->getProductByCatSlug($params, array('sort' => $sort, 'price_min' => $price_min, 'price_max' => $price_max, 'selected_colors' => $selected_colors, 'selected_sizes' => $selected_sizes));
+      $get_cat_product_and_breadcrumb  =  $this->product->getProductByUserCatSlug($params, $get_user->id, array('sort' => $sort, 'price_min' => $price_min, 'price_max' => $price_max, 'selected_colors' => $selected_colors, 'selected_sizes' => $selected_sizes));
       
       if(count($get_cat_product_and_breadcrumb) > 0){
         $data['vendor_products'] = $get_cat_product_and_breadcrumb;

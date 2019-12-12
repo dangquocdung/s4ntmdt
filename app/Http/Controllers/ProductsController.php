@@ -3161,6 +3161,261 @@ class ProductsController extends Controller
     return $post_array;
   }
 
+  public function getProductByUserCatSlug($cat_slug, $user_id, $filter = array()){
+    $data_array         =   array();
+    $post_array         =   array();
+    $selected_cat       =   array();
+    $color_size_obj_id  =   array(); 
+    $filter_arr         =   array();
+    
+    $get_term = Term::where(['slug' => $cat_slug, 'type' => 'product_cat'])->first();
+     
+    if(!empty($get_term) && isset($get_term->term_id)){
+      $str    = '';
+      $cat_id = $get_term->term_id;
+      
+      $post_array['min_price']          =  1000;
+      $post_array['max_price']          =  3000000;
+      $post_array['selected_colors']    =  array();
+      $post_array['selected_sizes']     =  array();
+      $post_array['selected_colors_hf'] =  '';
+      $post_array['selected_sizes_hf']  =  '';
+      $post_array['sort_by']  =  '';
+      
+      $get_term_data = $this->getTermDataById( $get_term->term_id );
+      $get_child_cat = $this->get_categories($get_term->term_id, 'product_cat');
+      $parent_id     = $this->getTopParentId( $get_term->term_id );
+
+      $cat_data['id']    =  $get_term_data[0]['term_id'];
+      $cat_data['name']  =  $get_term_data[0]['name'];
+      $cat_data['slug']  =  $get_term_data[0]['slug'];
+      
+      if($get_term_data[0]['parent'] == 0){
+        $cat_data['parent']  =  'Parent Categories';
+      }
+      else{
+        $cat_data['parent']  =  'Sub Categories';
+      }
+      
+      $cat_data['parent_id']  =  $get_term_data[0]['parent'] ;
+      $cat_data['description']  =  $get_term_data[0]['category_description'];
+      $cat_data['img_url']  =  $get_term_data[0]['category_img_url'];
+      $cat_data['search_type']  =  'category-filter';
+      
+      //color filter
+      if(isset($filter['selected_colors'])){
+        $parse_colors = explode(',', $filter['selected_colors']);
+
+        if(count($parse_colors) > 0){
+          $post_array['selected_colors'] = $parse_colors;
+            
+          foreach($parse_colors as $color){
+            $get_color_term = Term::where(['slug' => $color, 'type' => 'product_colors'])->first();
+
+            if(!empty($get_color_term) && $get_color_term->term_id){
+              array_push($filter_arr, array('id' => $get_color_term->term_id, 'name' => $get_color_term->name, 'slug' => $get_color_term->slug, 'search_type' => 'color-filter'));
+            }
+          }
+        }
+      }
+        
+      //size filter
+      if(isset($filter['selected_sizes'])){
+        $parse_sizes = explode(',', $filter['selected_sizes']);
+
+        if(count($parse_sizes) > 0){
+          $post_array['selected_sizes']	 =  $parse_sizes;
+          
+          foreach($parse_sizes as $size){
+            $get_size_term = Term::where(['slug' => $size, 'type' => 'product_sizes'])->first();
+
+            if(!empty($get_size_term) && $get_size_term->term_id){
+              array_push($filter_arr, array('id' => $get_size_term->term_id, 'name' => $get_size_term->name, 'slug' => $get_size_term->slug, 'search_type' => 'size-filter'));
+            }
+          }
+        }
+      }
+      
+      if(count($get_child_cat) > 0){
+				$all_cat = array();
+        $cats_arr = $this->createCategoriesSimpleList( $get_child_cat );
+                
+				if(count($cats_arr) > 0){
+          $cats_arr = array_map(function($cats_arr){
+            return $cats_arr + ['search_type' => 'category-filter'];
+          }, $cats_arr);
+          
+          array_push($cats_arr, $cat_data);
+					$all_cat = $cats_arr;
+        }
+        				
+        if(count($filter_arr) > 0 && count($cats_arr) > 0){
+          $cats_arr = array_merge($filter_arr, $cats_arr);
+        }
+        
+        foreach($cats_arr as $cat){
+          if( (count($filter_arr) > 0 && ($cat['search_type'] == 'color-filter' || $cat['search_type'] == 'size-filter')) || (count($filter_arr) == 0 && $cat['search_type'] == 'category-filter')){
+            $get_post_data =  DB::table('products');
+            $get_post_data->where(['products.status' => 1, 'author_id' => $user_id, 'object_relationships.term_id' => $cat['id'] ]);
+
+            if( isset($filter['price_min']) && isset($filter['price_max']) && $filter['price_min'] >= 0 && $filter['price_max'] >=0){
+              $get_post_data->whereRaw('products.price >=' . $filter['price_min']);
+              $get_post_data->whereRaw('products.price <=' . $filter['price_max']);
+            }
+
+            $get_post_data->join('object_relationships', 'object_relationships.object_id', '=', 'products.id');
+
+            $get_post_data->select('products.*');
+            $get_post_data = $get_post_data->get()->toArray();
+            
+            if(count($get_post_data) > 0){
+              foreach($get_post_data as $post){
+                $filter_cat = array();
+                
+                if($cat['search_type'] == 'color-filter' || $cat['search_type'] == 'size-filter'){
+                  $filter_cat = $this->getCatByObjectId( $post->id );
+                }
+
+                if( (($cat['search_type'] == 'color-filter' || $cat['search_type'] == 'size-filter') && $this->classCommonFunction->is_product_cat_in_selected_cat($filter_cat, $all_cat)) || ($cat['search_type'] == 'category-filter') ){
+                  $post_data = (array)$post;
+                  $data_array[$post->id] = $post_data;
+                }
+              }
+            }
+          }		
+
+          if($cat['search_type'] == 'category-filter'){
+            array_push($selected_cat, $cat['id']);
+          }
+        }
+      }
+      else{
+        $parent_cat_ary = array();
+        $parent_cat_ary[] = $cat_data;
+        $all_cat = $parent_cat_ary;
+        
+        if(count($filter_arr) > 0){
+          $parent_cat_ary = array_merge($filter_arr, $parent_cat_ary);
+        }
+        
+        if(count($parent_cat_ary) > 0){
+          foreach($parent_cat_ary as $cat){
+            if( (count($filter_arr) > 0 && ($cat['search_type'] == 'color-filter' || $cat['search_type'] == 'size-filter')) || (count($filter_arr) == 0 && $cat['search_type'] == 'category-filter')){
+              
+              $get_post_data =  DB::table('products');
+              $get_post_data->where(['products.status' => 1, 'author_id' => $user_id, 'object_relationships.term_id' => $cat['id'] ]);
+
+              if( isset($filter['price_min']) && isset($filter['price_max']) && $filter['price_min'] >= 0 && $filter['price_max'] >=0){
+                $get_post_data->whereRaw('products.price >=' . $filter['price_min']);
+                $get_post_data->whereRaw('products.price <=' . $filter['price_max']);
+              }
+
+              $get_post_data->join('object_relationships', 'object_relationships.object_id', '=', 'products.id');
+
+              $get_post_data->select('products.*');
+              $get_post_data = $get_post_data->get()->toArray();
+
+              if(count($get_post_data) > 0){
+                foreach($get_post_data as $post){
+                  $filter_cat = array();
+
+                  if($cat['search_type'] == 'color-filter' || $cat['search_type'] == 'size-filter'){
+                    $filter_cat = $this->getCatByObjectId( $post->id );
+                  }
+
+                  if( (($cat['search_type'] == 'color-filter' || $cat['search_type'] == 'size-filter') && $this->classCommonFunction->is_product_cat_in_selected_cat($filter_cat, $all_cat)) || ($cat['search_type'] == 'category-filter') ){
+                    $post_data = (array)$post;
+                    $data_array[$post->id] = $post_data;
+                  }
+                }
+              }
+            }  
+
+            if($cat['search_type'] == 'category-filter'){
+              array_push($selected_cat, $cat['id']);
+            }
+          }
+        }
+      }
+      
+      if( isset($filter['price_min']) && isset($filter['price_max']) && $filter['price_min'] >= 0 && $filter['price_max'] >=0){
+        $post_array['min_price']  =   $filter['price_min'];
+        $post_array['max_price']  =   $filter['price_max'];
+      }
+
+      if(isset($filter['selected_colors'])){
+        $post_array['selected_colors_hf'] =  $filter['selected_colors'];
+      }
+
+      if(isset($filter['selected_sizes'])){
+        $post_array['selected_sizes_hf']  =  $filter['selected_sizes'];
+      }
+      
+      if(isset($filter['sort'])){
+        $post_array['sort_by'] = $filter['sort'];
+      }
+			
+      if(count($data_array) > 0){
+        if(isset($filter['sort']) && $filter['sort'] != 'all'){
+          if($filter['sort'] == 'alpaz'){
+            $data_array = $this->classCommonFunction->sortBy($data_array, 'title', 'asc');
+          }
+          elseif($filter['sort'] == 'alpza'){
+            $data_array = $this->classCommonFunction->sortBy($data_array, 'title', 'desc');
+          }
+          elseif($filter['sort'] == 'low-high'){
+            $data_array = $this->classCommonFunction->sortBy($data_array, 'price', 'asc');
+          }
+          elseif($filter['sort'] == 'high-low'){
+            $data_array = $this->classCommonFunction->sortBy($data_array, 'price', 'desc');
+          }
+          elseif($filter['sort'] == 'old-new'){
+            $data_array = $this->classCommonFunction->sortBy($data_array, 'created_at', 'asc');
+          }
+          elseif($filter['sort'] == 'new-old'){
+            $data_array = $this->classCommonFunction->sortBy($data_array, 'created_at', 'desc');
+          }
+        }
+        else{
+          $data_array = $this->classCommonFunction->sortBy($data_array, 'id', 'desc');
+        }
+      }
+      
+      $currentPage = LengthAwarePaginator::resolveCurrentPage();
+      $col = new Collection( $data_array );
+      $perPage = 10;
+      $currentPageSearchResults = $col->slice(($currentPage - 1) * $perPage, $perPage)->all();
+      $posts_object = new LengthAwarePaginator($currentPageSearchResults, count($col), $perPage);
+      $posts_object->setPath( route('categories-page', $cat_data['slug']) );
+
+      $str = '<div class="page-title"><div class="container"><div class="column">';
+      $str .= '<h1>'.$cat_data['name'].'</h1>';
+      $str .= '</div><div class="column"><ul class="breadcrumbs">';
+      
+      if($cat_data['parent_id'] > 0){
+        $parent_cat = $this->getTermDataById( $cat_data['parent_id'] );
+
+        // $str = '<nav aria-label="breadcrumb"><ol class="breadcrumb"><li><a href="'. route('home-page') .'"><i class="fa fa-home"></i></a></li><li><a href="'. route('shop-page') .'">'. Lang::get('frontend.all_products_label' ) .'</a></li><li><a href="'. route('categories-page', $parent_cat[0]['slug']) .'">'. $parent_cat[0]['name'] .'</a></li><li class="breadcrumb-item active" aria-current="page">'. $cat_data['name'] .'</li></ol></nav>';
+        $str .= '<li><a href="'. route('home-page') .'">'.  Lang::get('frontend.home') .'</a></li><li class="separator">&nbsp;</li><li><a href="'. route('shop-page') .'">'. Lang::get('frontend.all_products_label' ) .'</a></li><li class="separator">&nbsp;</li><li><a href="'. route('categories-page', $parent_cat[0]['slug']) .'">'. $parent_cat[0]['name'] .'</a></li>';
+      }
+      else{
+        // $str = '<nav aria-label="breadcrumb"><ol class="breadcrumb"><li><a href="'. route('home-page') .'"><i class="fa fa-home"></i></a></li><li><a href="'. route('shop-page') .'">'. Lang::get('frontend.all_products_label' ) .'</a></li><li class="breadcrumb-item active" aria-current="page">'. $cat_data['name'] .'</li></ol></nav>';
+        $str .= '<li><a href="'. route('home-page') .'">'.  Lang::get('frontend.home') .'</a></li><li class="separator">&nbsp;</li><li><a href="'. route('shop-page') .'">'. Lang::get('frontend.all_products_label' ) .'</a></li>';
+      }
+
+      $str .= '</ul></div></div></div>';
+
+      $post_array['products']        =  $posts_object;
+      $post_array['breadcrumb_html'] =  $str;
+      $post_array['selected_cat']    =  $selected_cat;
+      $post_array['parent_id']       =  $parent_id;
+      $post_array['parent_slug']     =  $cat_data['slug'];
+    }
+ 
+    return $post_array;
+  }
+
+
   public function getProductByCatID($vd, $id, $limit, $offset){
     
     $get_term = Term::where(['term_id' => $id, 'type' => 'product_cat'])->first();
