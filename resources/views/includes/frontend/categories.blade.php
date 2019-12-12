@@ -16,7 +16,7 @@
         </li>
       @else
         <li>
-          <a href="{{ route('categories-page', $data['slug']) }}"><strong>{!! $data['name'] !!}</strong></a>
+          <a href="{{ route('categories-page', $data['slug']) }}">{!! $data['name'] !!}</a>
         </li>
       @endif
     @endforeach
