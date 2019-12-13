@@ -371,6 +371,7 @@
     if($('#sendVendorContactMessage').length>0){
 
       $('#sendVendorContactMessage').on('click', function(){
+        
         if($('#contact_name').val() == '' || $('#contact_name').val() == null){
           alert('please insert name!');
           return false;

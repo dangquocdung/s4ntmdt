@@ -147,7 +147,7 @@
 
     <!-- JavaScript (jQuery) libraries, plugins and custom scripts-->
     <!-- Main Template Styles-->
-    <script type="text/javascript" src="{{ URL::asset('/js/vendor.min.js') }}"></script>
+    <script type="text/javascript" src="{{ URL::asset('/js/vendor.js') }}"></script>
 
     <script type="text/javascript" src="{{ URL::asset('/dropzone/dropzone.js') }}"></script>
     <script type="text/javascript" src="{{ URL::asset('/frontend/js/jquery.scrollUp.min.js') }}"></script>
@@ -412,6 +412,8 @@
       });
 
     </script>
+
+    @yield('js_footer')
 
 
   </body>

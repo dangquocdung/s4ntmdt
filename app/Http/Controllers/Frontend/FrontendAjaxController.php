@@ -17,6 +17,8 @@ use shopist\Models\UsersDetail;
 use shopist\Library\CommonFunction;
 use shopist\Http\Controllers\OptionController;
 use shopist\Http\Controllers\ProductsController;
+use shopist\Mail\SendMail;
+
 
 class FrontendAjaxController extends Controller
 {
@@ -649,7 +651,7 @@ class FrontendAjaxController extends Controller
    * @param name, message
    * @return response
    */
-  public function contactWithVendorEmail(){
+  public function contactWithVendorEmail2(){
 
     if(Request::isMethod('post') && Request::ajax() && Session::token() == Request::header('X-CSRF-TOKEN')){
 
@@ -667,6 +669,72 @@ class FrontendAjaxController extends Controller
 
 
     }
+
+
+  }
+
+  public function contactWithVendorEmail(Request $request) {
+
+    //Create response variable for response message
+    $response = array();
+
+    $response['message'] = "";
+
+    //Check validate request
+    $validateData = Validator::make($request->all(), [
+        'name'		=> 'bail|required', 
+        'email'		=> 'bail|required|email', 
+        'message'	=> 'bail|required'
+      ]);
+
+    //Get all error in validate request
+    $errors = $validateData->errors();
+
+    //if the number of errors is more than zero
+    if (!(count($errors->all()) > 0 )) {
+
+      //Enter data request to variable array data
+      $data = array(
+        'name' 		=> $request->name, 
+        'email'		=> $request->email, 
+        'message'	=> $request->message,
+        //Send Request is send_feedback
+        'request'	=> 'send_feedback'
+      );
+
+      //Try to send Email
+      try {
+        //Send Email with model of email SendEmail and with variable data
+        Mail::to($request->vendor_email)->send(new SendMail($data));
+
+        //Check if sending email failure
+        if (!Mail::failures()) {
+          //Give response message success if success to send email
+          $response['message'] = "success";
+        } else {
+          //Give response message failed if failed to send email
+          $response['message'] = "failed";
+        }
+
+      } catch (Exception $e) {
+        //Give response message error if failed to send email
+        $response['message'] = $e->getMessage();
+      }
+
+    } else {
+
+      //Give response message error if the number of errors more than zero
+      foreach ($errors->all() as $e) {
+        $response['message'] .= $e . ', ';
+      }
+
+      $response['message'] .= "All Input Cannot Be Empty!";
+    }
+
+    //encode json variable response
+    echo json_encode($response);
+
+  }
 
 
   }
