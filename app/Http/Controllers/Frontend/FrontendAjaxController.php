@@ -656,48 +656,22 @@ class FrontendAjaxController extends Controller
     if(Request::isMethod('post') && Request::ajax() && Session::token() == Request::header('X-CSRF-TOKEN')){
 
       $input = Request::all(); 
-      // $mailData = array();
+      $mailData = array();
       
-      // $mailData['source']           =   'contact_to_vendor_mail';
-      // $mailData['data']             =   array('_mail_to' => base64_decode($input['vendor_mail']), '_mail_from' => base64_decode($input['customer_email']), '_subject' => base64_decode($input['name']), '_message' => base64_decode($input['message']));
+      $mailData['source']           =   'contact_to_vendor_mail';
+      $mailData['data']             =   array('_mail_to' => base64_decode($input['vendor_mail']), '_mail_from' => base64_decode($input['customer_email']), '_subject' => base64_decode($input['name']), '_message' => base64_decode($input['message']));
 
-      // $this->classGetFunction->sendCustomMail( $mailData );
+      $this->classGetFunction->sendCustomMail( $mailData );
 
       // return response()->json($mailData);
       
-      // return response()->json(array('status' => 'success'));
+      return response()->json(array('status' => 'success'));
 
-      $data = array(
-        'name' 		=> base64_decode($input['name']), 
-        'email'		=> base64_decode($input['customer_email']), 
-        'message'	=> base64_decode($input['message']),
-        //Send Request is send_feedback
-        'request'	=> 'send_feedback'
-      );
+      // return response()->json($mailData);
 
-      //Try to send Email
-      try {
-        //Send Email with model of email SendEmail and with variable data
-        Mail::to('dungthinhvn@gmail.com')->send(new SendMail($data));
-
-        //Check if sending email failure
-        if (!Mail::failures()) {
-          //Give response message success if success to send email
-          $response['message'] = "success";
-        } else {
-          //Give response message failed if failed to send email
-          $response['message'] = "failed";
-        }
-
-      } catch (Exception $e) {
-        //Give response message error if failed to send email
-        $response['message'] = $e->getMessage();
-      }
 
     }
 
-    //encode json variable response
-    echo json_encode($response);
 
   }
 

@@ -151,8 +151,11 @@
     <script type="text/javascript" src="{{ URL::asset('/frontend/js/social-network.js') }}"></script>
     <script type="text/javascript" src="{{ URL::asset('/slick/slick.min.js') }}"></script>
     <script type="text/javascript" src="{{ URL::asset('/common/base64.js') }}"></script>
-    <script type="text/javascript" src="{{ URL::asset('/plugins/iCheck/icheck.min.js') }}"></script>            
-
+    <script type="text/javascript" src="{{ URL::asset('/plugins/iCheck/icheck.min.js') }}"></script>    
+    	
+    <!-- Sweet Alert2 Core js -->
+	  <script type="text/javascript" src="{{ URL::asset('vendor/sweetalert2/sweetalert2.all.min.js') }}"></script>
+        
     <script type="text/javascript" src="{{ mix('/js/app.js') }}"></script>
 
     <script type="text/javascript">
@@ -404,17 +407,30 @@
       if ($('#sendVendorContactMessage').length > 0) {
         $('#sendVendorContactMessage').on('click', function () {
           if ($('#contact_name').val() == '' || $('#contact_name').val() == null) {
-            alert('Bạn chưa nhập tên!');
+            Swal.fire({
+              type: 'error',
+              title: 'Opps...!',
+              text: 'Bạn chưa nhập tên!'
+						});
+
             return false;
           }
 
-          if ($('#contact_email_id').val() == '' || $('#contact_email_id').val() == null) {
-            alert('Bạn chưa nhập địa chỉ email!');
+          if ($('#contact_email_id').val() == '' || $('#contact_email_id').val() == null || !IsEmail($('#contact_email_id').val()) ) {
+            Swal.fire({
+              type: 'error',
+              title: 'Opps...!',
+              text: 'Bạn chưa nhập địa chỉ email hoặc email chưa đúng!'
+						});
             return false;
           }
 
           if ($('#contact_message').val() == '' || $('#contact_message').val() == null) {
-            alert('Bạn chưa nhập nội dung!');
+            Swal.fire({
+              type: 'error',
+              title: 'Opps...!',
+              text: 'Bạn chưa nhập nội dung!'
+						});
             return false;
           }
 
@@ -435,21 +451,39 @@
               },
               success: function success(data) {
                 if (data && data.status == 'success') {
-                  alert("Tin nhắn của bạn đã được gửi đến nhà cung cấp!");
+
+                  Swal.fire({
+                    type: 'success',
+                    title: 'Success!',
+                    text: 'Tin nhắn của bạn đã được gửi đến nhà cung cấp!'
+                  });
+
                 }
+                // alert(JSON.stringify(data));
               },
               error: function error() {
-                alert('Đã có lỗi xảy ra!');
+                Swal.fire({
+                  type: 'error',
+                  title: 'Opps...!',
+                  text: 'Đã có lỗi xảy ra!'
+                });
+
               }
             });
           }
         });
       }
 
-
+      function IsEmail(email) {
+        var regex = /^([a-zA-Z0-9_\.\-\+])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/;
+        if(!regex.test(email)) {
+           return false;
+        }else{
+           return true;
+        }
+      }
 
     </script>
-
 
   </body>
 </html>

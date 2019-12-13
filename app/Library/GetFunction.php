@@ -290,26 +290,17 @@ class GetFunction
    * @param Mail array data
    * @return void
    */
-  public function sendCustomMail($data){
-    $view          =  '';
+  public function sendCustomMail_bk($data){
+    
     $get_view_data =  array();
     $site_title    =  'SanGD-TMDT';
-    $email         =  'yourEmail@domain.com';
-    $logo          =  default_placeholder_img_src();
-    $appearance    =  array();
-    
-    $email_options = get_emails_option_data();
-      
-    
-    
-    if($data['source'] == 'contact_to_vendor_mail'){
+
       $view                         =   'emails.contact-with-vendor-mail';
       $get_view_data['_view']        =   $view;  
       $get_view_data['_mail_to']    =   $data['data']['_mail_to'];
       $get_view_data['_subject']    =   $data['data']['_subject'];
       $get_view_data['_message']    =   $data['data']['_message'];
       $get_view_data['_from_email'] =   $data['data']['_mail_from'];
-    }
 
       
     if(count($get_view_data) > 0){
@@ -318,7 +309,7 @@ class GetFunction
     }
   }
 
-  public function sendCustomMail_bk($data){
+  public function sendCustomMail($data){
     $view          =  '';
     $get_view_data =  array();
     $site_title    =  'SanGD-TMDT';
