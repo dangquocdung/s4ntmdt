@@ -95,9 +95,6 @@
     <input type="hidden" name="lang_code" id="lang_code" value="{{ $selected_lang_code }}">  
     <input type="hidden" name="subscription_type" id="subscription_type" value="{{ $subscriptions_data['subscribe_type'] }}">
 
-    
-
-
     <!-- Photoswipe container-->
     <div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
       <div class="pswp__bg"></div>
@@ -136,18 +133,14 @@
 
     @include('modal.quick-view')
 
-
-    
     <!-- Back To Top Button-->
     <a class="scroll-to-top-btn" href="#"><i class="icon-chevron-up"></i></a>
     <!-- Backdrop-->
     <div class="site-backdrop"></div>
 
-  
-
     <!-- JavaScript (jQuery) libraries, plugins and custom scripts-->
     <!-- Main Template Styles-->
-    <script type="text/javascript" src="{{ URL::asset('/js/vendor.js') }}"></script>
+    <script type="text/javascript" src="{{ URL::asset('/js/vendor.min.js') }}"></script>
 
     <script type="text/javascript" src="{{ URL::asset('/dropzone/dropzone.js') }}"></script>
     <script type="text/javascript" src="{{ URL::asset('/frontend/js/jquery.scrollUp.min.js') }}"></script>
@@ -158,10 +151,11 @@
     <script type="text/javascript" src="{{ URL::asset('/frontend/js/social-network.js') }}"></script>
     <script type="text/javascript" src="{{ URL::asset('/slick/slick.min.js') }}"></script>
     <script type="text/javascript" src="{{ URL::asset('/common/base64.js') }}"></script>
-    <script type="text/javascript" src="{{ URL::asset('/plugins/iCheck/icheck.min.js') }}"></script>            
-
-    {{-- <script type="text/javascript" src="{{ URL::asset('assets/js/neha/isotope.pkgd.min.js') }}"></script> --}}
-    {{-- <script type="text/javascript" src="{{ URL::asset('/js/common.js') }}"></script> --}}
+    <script type="text/javascript" src="{{ URL::asset('/plugins/iCheck/icheck.min.js') }}"></script>    
+    	
+    <!-- Sweet Alert2 Core js -->
+	  <script type="text/javascript" src="{{ URL::asset('vendor/sweetalert2/sweetalert2.all.min.js') }}"></script>
+        
     <script type="text/javascript" src="{{ mix('/js/app.js') }}"></script>
 
     <script type="text/javascript">
@@ -296,7 +290,6 @@
       });
     </script>
 
-
     <script>
 
       //upload profile image
@@ -411,10 +404,86 @@
         }
       });
 
+      if ($('#sendVendorContactMessage').length > 0) {
+        $('#sendVendorContactMessage').on('click', function () {
+          if ($('#contact_name').val() == '' || $('#contact_name').val() == null) {
+            Swal.fire({
+              type: 'error',
+              title: 'Opps...!',
+              text: 'Bạn chưa nhập tên!'
+						});
+
+            return false;
+          }
+
+          if ($('#contact_email_id').val() == '' || $('#contact_email_id').val() == null || !IsEmail($('#contact_email_id').val()) ) {
+            Swal.fire({
+              type: 'error',
+              title: 'Opps...!',
+              text: 'Bạn chưa nhập địa chỉ email hoặc email chưa đúng!'
+						});
+            return false;
+          }
+
+          if ($('#contact_message').val() == '' || $('#contact_message').val() == null) {
+            Swal.fire({
+              type: 'error',
+              title: 'Opps...!',
+              text: 'Bạn chưa nhập nội dung!'
+						});
+            return false;
+          }
+
+          if ($('#contact_name').val().length > 0 && $('#contact_email_id').val().length > 0 && $('#contact_message').val().length > 0) {
+            $.ajax({
+              url: $('#hf_base_url').val() + '/ajax/contact-with-vendor',
+              type: 'POST',
+              cache: false,
+              datatype: 'json',
+              data: {
+                vendor_mail: Base64.encode($('#vendor_email').val()),
+                name: Base64.encode($('#contact_name').val()),
+                customer_email: Base64.encode($('#contact_email_id').val()),
+                message: Base64.encode($('#contact_message').val())
+              },
+              headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+              },
+              success: function success(data) {
+                if (data && data.status == 'success') {
+
+                  Swal.fire({
+                    type: 'success',
+                    title: 'Success!',
+                    text: 'Tin nhắn của bạn đã được gửi đến nhà cung cấp!'
+                  });
+
+                }
+                // alert(JSON.stringify(data));
+              },
+              error: function error() {
+                Swal.fire({
+                  type: 'error',
+                  title: 'Opps...!',
+                  text: 'Đã có lỗi xảy ra!'
+                });
+
+              }
+            });
+          }
+        });
+      }
+
+      function IsEmail(email) {
+        var regex = /^([a-zA-Z0-9_\.\-\+])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/;
+        if(!regex.test(email)) {
+           return false;
+        }else{
+           return true;
+        }
+      }
+
     </script>
-
-    @yield('js_footer')
-
 
   </body>
 </html>
