@@ -73,7 +73,6 @@
         <!-- Shop Toolbar-->
         <div class="padding-bottom-1x mb-2">
           
-
           <ul class="nav nav-pills mb-2" role="tablist">
 
             @if(Request::is('gian-hang/chi-tiet/san-pham/*'))  
@@ -89,8 +88,6 @@
             @endif
           </ul>
 
-
-
           @if(Request::is('gian-hang/chi-tiet/san-pham/*'))
             @include('pages.frontend.vendors.vendors-products')
             @yield('vendors-products-page-content')
@@ -105,8 +102,6 @@
             @include('pages.frontend.vendors.vendors-reviews')
             @yield('vendors-reviews-page-content')  
           @endif
-
-
 
         </div>
 
@@ -179,33 +174,22 @@
             <section class="widget">
               <h3 class="widget-title">{!! trans('frontend.contact_vendor_label') !!}</h3>
               
-              
+              <div class="form-group">
+                <label for="contact_name">{{ trans('frontend.enter_name_label') }}</label>
+                <input class="form-control" name="contact_name" id="contact_name" placeholder="{{ trans('frontend.enter_name_label') }}" type="text">
+              </div>
 
-              <form id="form-feedback">
-                @csrf
+              <div class="form-group">
+                <label for="contact_email_id">{{ trans('frontend.enter_email_label') }}</label>
+                <input class="form-control" name="contact_email_id" id="contact_email_id" placeholder="{{ trans('frontend.enter_email_label') }}" type="email">
+              </div>
 
-                <input type="hidden" name="vendor_email" id="vendor_email" value="{{ $vendor_info->email}}">
+              <div class="form-group">
+                <label for="contact_message">{{ trans('frontend.enter_your_message_label') }}</label>
+                <textarea class="form-control" name="contact_message" id="contact_message" placeholder="{{ trans('frontend.enter_your_message_label') }}"></textarea>
+              </div>
 
-
-                <div class="form-group">
-                  <label for="name">{{ trans('frontend.enter_name_label') }}</label>
-                  <input type="text" name="name" class="form-control" id="name" placeholder="{{ trans('frontend.enter_name_label') }}" required />
-                </div>
-
-                <div class="form-group">
-                  <label for="email">{{ trans('frontend.enter_email_label') }}</label>
-                  <input type="email" name="email" class="form-control" id="email" placeholder="{{ trans('frontend.enter_email_label') }}" required />
-                </div>
-
-                <div class="form-group">
-                  <label for="message">{{ trans('frontend.enter_your_message_label') }}</label>
-                  <textarea name="message" class="form-control" id="message" rows="3" placeholder="{{ trans('frontend.enter_your_message_label') }}"></textarea>
-                </div>
-
-                <div class="text-right">
-                  <button id="submit" type="submit" class="btn btn-primary pull-right">{!! trans('frontend.send_label') !!} <i class="fa fa-arrow-circle-right"></i></button>
-                </div>
-              </form>
+              <button class="btn btn-primary pull-right" type="button" id="sendVendorContactMessage" name="sendVendorContactMessage">{!! trans('frontend.send_label') !!} <i class="fa fa-arrow-circle-right"></i></button>  
 
             </section>
           @endif
@@ -221,85 +205,8 @@
     @else
     <input type="hidden" name="product_img" id="product_img" value="{{ default_vendor_cover_img_src() }}">
     @endif
+    <input type="hidden" name="vendor_email" id="vendor_email" value="{{ $vendor_info->email}}">
+
   </div>
 
-  	<!-- Jqeury Core js -->
-	<script src="{{ asset('vendor/jquery-3.4.1/jquery-3.4.1.min.js') }}"></script>
-	<!-- Bootstrap Core js -->
-	<script src="{{ asset('vendor/bootstrap/js/bootstrap.min.js') }}"></script>
-	<!-- Sweet Alert2 Core js -->
-	<script src="{{ asset('vendor/sweetalert2/sweetalert2.all.min.js') }}"></script>
-
-	<script>
-
-		$('#form-feedback').on('submit', function(event){
-			event.preventDefault();
-			var formData = new FormData(this);
-
-			$.ajax({
-        url: $('#hf_base_url').val() + '/ajax/contact-with-vendor',
-				method: 'POST', 
-				data: formData, 
-				cache:false, 
-        contentType: false, 
-        processData: false, 
-
-				beforeSend:function() {
-					$('#submit').attr('disabled', 'disabled');
-        },
-        
-				success:function(data) {
-					$('#submit').attr('disabled', false);
-					$('#form-feedback')[0].reset();
-
-					data = JSON.parse(data);
-
-					if (data.message == "success") {
-
-						Swal.fire({
-						  type: 'success',
-						  title: 'Success!',
-						  text: 'Your FeedBack Has Been Sent!'
-						});
-
-					} else if (data.message == "failed") {
-						
-						Swal.fire({
-						  type: 'error',
-						  title: 'Opps...!',
-						  text: 'Something Wrong Has Happened!'
-						});
-
-					} else {
-
-						Swal.fire({
-						  type: 'error',
-						  title: 'Opps...!',
-						  text: 'Something Wrong Has Happened!',
-						  footer: 'Error: ' + data.message
-						});
-
-					}
-				},
-				error:function(xhr) {
-					$('#submit').attr('disabled', false);
-
-					Swal.fire({
-					  type: 'error',
-					  title: 'Opps...!',
-					  text: 'Something Wrong Has Happened!',
-					  footer: 'Error: ' + xhr
-					});
-
-				}
-
-			});
-		});
-	</script>
-
-
-
-  
-
 @stop
-

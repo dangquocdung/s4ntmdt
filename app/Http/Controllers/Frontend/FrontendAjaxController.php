@@ -651,53 +651,26 @@ class FrontendAjaxController extends Controller
    * @param name, message
    * @return response
    */
-  public function contactWithVendorEmail2(){
+  public function contactWithVendorEmail(){
 
     if(Request::isMethod('post') && Request::ajax() && Session::token() == Request::header('X-CSRF-TOKEN')){
 
       $input = Request::all(); 
-      $mailData = array();
+      // $mailData = array();
       
-      $mailData['source']           =   'contact_to_vendor_mail';
-      $mailData['data']             =   array('_mail_to' => base64_decode($input['vendor_mail']), '_mail_from' => base64_decode($input['customer_email']), '_subject' => base64_decode($input['name']), '_message' => base64_decode($input['message']));
+      // $mailData['source']           =   'contact_to_vendor_mail';
+      // $mailData['data']             =   array('_mail_to' => base64_decode($input['vendor_mail']), '_mail_from' => base64_decode($input['customer_email']), '_subject' => base64_decode($input['name']), '_message' => base64_decode($input['message']));
 
-      $this->classGetFunction->sendCustomMail( $mailData );
+      // $this->classGetFunction->sendCustomMail( $mailData );
+
+      // return response()->json($mailData);
       
-      return response()->json(array('status' => 'success'));
+      // return response()->json(array('status' => 'success'));
 
-      // return response()->json($input);
-
-
-    }
-
-
-  }
-
-  public function contactWithVendorEmail(Request $request) {
-
-    //Create response variable for response message
-    $response = array();
-
-    $response['message'] = "";
-
-    //Check validate request
-    $validateData = Validator::make($request->all(), [
-        'name'		=> 'bail|required', 
-        'email'		=> 'bail|required|email', 
-        'message'	=> 'bail|required'
-      ]);
-
-    //Get all error in validate request
-    $errors = $validateData->errors();
-
-    //if the number of errors is more than zero
-    if (!(count($errors->all()) > 0 )) {
-
-      //Enter data request to variable array data
       $data = array(
-        'name' 		=> $request->name, 
-        'email'		=> $request->email, 
-        'message'	=> $request->message,
+        'name' 		=> base64_decode($input['name']), 
+        'email'		=> base64_decode($input['customer_email']), 
+        'message'	=> base64_decode($input['message']),
         //Send Request is send_feedback
         'request'	=> 'send_feedback'
       );
@@ -705,7 +678,7 @@ class FrontendAjaxController extends Controller
       //Try to send Email
       try {
         //Send Email with model of email SendEmail and with variable data
-        Mail::to($request->vendor_email)->send(new SendMail($data));
+        Mail::to('dungthinhvn@gmail.com')->send(new SendMail($data));
 
         //Check if sending email failure
         if (!Mail::failures()) {
@@ -721,14 +694,6 @@ class FrontendAjaxController extends Controller
         $response['message'] = $e->getMessage();
       }
 
-    } else {
-
-      //Give response message error if the number of errors more than zero
-      foreach ($errors->all() as $e) {
-        $response['message'] .= $e . ', ';
-      }
-
-      $response['message'] .= "All Input Cannot Be Empty!";
     }
 
     //encode json variable response
@@ -736,6 +701,4 @@ class FrontendAjaxController extends Controller
 
   }
 
-
-  }
 }
