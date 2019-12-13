@@ -1143,7 +1143,7 @@ return [
   'image_type_jpeg_label' =>  'JPEG',
   'box_width_label' =>  'Chiều rộng hộp',
   'box_height_label' => 'Chiều cao hộp',
-  'parent_cat_trace_label' => 'Gia phả',
+  'parent_cat_trace_label' => 'Danh mục cha',
   'menu_to_label_message' => 'Bạn có thể sắp xếp menu bằng cách sắp xếp, bật và tắt',
   'currency_name_label' =>  'Tên tiền tệ',
   'select_currency_label' =>  'Chọn tiền tệ',
