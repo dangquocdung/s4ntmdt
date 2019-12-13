@@ -779,7 +779,7 @@
                 <li class="active"><a href="{{ route('admin.frontend_layout_settings_content') }}"><i class="fa fa-paint-brush"></i> {!! trans('admin.frontend_layout') !!}</a></li>
               @else
                 <li><a href="{{ route('admin.frontend_layout_settings_content') }}"><i class="fa fa-paint-brush"></i> {!! trans('admin.frontend_layout') !!}</a></li>
-              @endif
+              @endif -->
               
               @if(Request::is('admin/settings/menu'))
                 <li class="active"><a href="{{ route('admin.menu_layout_settings_content') }}"><i class="fa fa-bars"></i> {!! trans('admin.menu_label') !!}</a></li>
@@ -793,7 +793,7 @@
                 <li><a href="{{ route('admin.emails_settings_content') }}"><i class="fa fa-envelope"></i> {!! trans('admin.emails_label') !!}</a></li>
               @endif
               
-              @if(Request::is('admin/settings/custom-currency/list') || Request::is('admin/settings/custom-currency/add') || Request::is('admin/settings/custom-currency/update/*'))
+              <!-- @if(Request::is('admin/settings/custom-currency/list') || Request::is('admin/settings/custom-currency/add') || Request::is('admin/settings/custom-currency/update/*'))
                 <li class="active"><a href="{{ route('admin.custom_currency_settings_list_content') }}"><i class="fa fa-dollar"></i> {!! trans('admin.custom_currency_list_label') !!}</a></li>
               @else
                 <li><a href="{{ route('admin.custom_currency_settings_list_content') }}"><i class="fa fa-dollar"></i> {!! trans('admin.custom_currency_list_label') !!}</a></li>
@@ -807,11 +807,11 @@
             </a>
             <ul class="treeview-menu">
               <li><a href="{{ route('admin.general_settings_content') }}"><i class="fa fa-circle-o"></i> {!! trans('admin.general') !!}</a></li>
-              <li><a href="{{ route('admin.languages_settings_content') }}"><i class="fa fa-flag-o"></i> {!! trans('admin.languages') !!}</a></li>
-              <li><a href="{{ route('admin.frontend_layout_settings_content') }}"><i class="fa fa-paint-brush"></i> {!! trans('admin.frontend_layout') !!}</a></li>
+              <!-- <li><a href="{{ route('admin.languages_settings_content') }}"><i class="fa fa-flag-o"></i> {!! trans('admin.languages') !!}</a></li>
+              <li><a href="{{ route('admin.frontend_layout_settings_content') }}"><i class="fa fa-paint-brush"></i> {!! trans('admin.frontend_layout') !!}</a></li> -->
               <li><a href="{{ route('admin.menu_layout_settings_content') }}"><i class="fa fa-bars"></i> {!! trans('admin.menu_label') !!}</a></li>
               <li><a href="{{ route('admin.emails_settings_content') }}"><i class="fa fa-envelope"></i> {!! trans('admin.emails_label') !!}</a></li>
-              <li><a href="{{ route('admin.custom_currency_settings_list_content') }}"><i class="fa fa-dollar"></i> {!! trans('admin.custom_currency_list_label') !!}</a></li>
+              <!-- <li><a href="{{ route('admin.custom_currency_settings_list_content') }}"><i class="fa fa-dollar"></i> {!! trans('admin.custom_currency_list_label') !!}</a></li> -->
             </ul>
           </li>
         @endif
