@@ -193,8 +193,9 @@ class RegisterController extends Controller
               $User->email              =    Input::get('email_id');
               $User->password           =    bcrypt( trim(Input::get('password')) );
               $User->user_photo_url     =    '';
-              $User->user_status        =    1;
+              $User->user_status        =    0;
               $User->secret_key         =    bcrypt( trim(Input::get('secret_key')) );
+              $User->confirmation_code  =    time().uniqid(true);
               
               if($User->save()){
                 $roleArray      =   ['slug' => 'administrator'];
@@ -274,9 +275,43 @@ class RegisterController extends Controller
                   
                   $vendor_settings_data = array('term_n_conditions' => 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Similique, itaque, modi, aliquam nostrum at sapiente consequuntur natus odio reiciendis perferendis rem nisi tempore possimus ipsa porro delectus quidem dolorem ad.');
                   
-                  $emails_data = array('new_order' => array('enable_disable' => true, 'subject' => 'Your order receipt from #date_place#', 'email_heading' => 'Thank you for your order', 'body_bg_color' => '#f5f5f5', 'selected_template' => 'template-3'), 'cancelled_order' => array('enable_disable' => true, 'subject' => 'Cancelled order', 'email_heading' => 'Cancelled order', 'body_bg_color' => '#f5f5f5'), 'processed_order' => array('enable_disable' => true, 'subject' => 'Order #order_id# has been Processed', 'email_heading' => 'Processed order', 'body_bg_color' => '#f5f5f5'), 'completed_order' => array('enable_disable' => true, 'subject' => 'Your Order #order_id# is complete', 'email_heading' => 'Your order is complete', 'body_bg_color' => '#f5f5f5'), 'new_customer_account' => array('enable_disable' => true, 'subject' => 'Successfully created account', 'email_heading' => 'Customer account created', 'body_bg_color' => '#f5f5f5'), 'vendor_new_account' => array('enable_disable' => true, 'subject' => 'Successfully created account', 'email_heading' => 'Vendor account created', 'body_bg_color' => '#f5f5f5'), 'vendor_account_activation' => array('enable_disable' => true, 'subject' => 'account status', 'email_heading' => 'Vendor account activation', 'body_bg_color' => '#f5f5f5'), 'vendor_withdraw_request' => array('enable_disable' => true, 'subject' => 'Your Request for Withdrawal was Received', 'email_heading' => 'Withdraw request', 'body_bg_color' => '#f5f5f5'), 'vendor_withdraw_request_cancelled' => array('enable_disable' => true, 'subject' => 'Withdraw request has been cancelled', 'email_heading' => '', 'body_bg_color' => '#f5f5f5'), 'vendor_withdraw_request_completed' => array('enable_disable' => true, 'subject' => 'Withdraw request has been completed', 'email_heading' => '', 'body_bg_color' => '#f5f5f5'));
+                  $emails_data = array(
+                    'new_order' => array(
+                      'enable_disable' => true, 
+                      'subject' => 'Your order receipt from #date_place#', 
+                      'email_heading' => 'Thank you for your order', 
+                      'body_bg_color' => '#f5f5f5', 
+                      'selected_template' => 'template-3'), 
+                    'cancelled_order' => array(
+                      'enable_disable' => true, 
+                      'subject' => 'Cancelled order', 
+                      'email_heading' => 'Cancelled order', 
+                      'body_bg_color' => '#f5f5f5'), 
+                    'processed_order' => array(
+                      'enable_disable' => true, 
+                      'subject' => 'Order #order_id# has been Processed', 
+                      'email_heading' => 'Processed order', 
+                      'body_bg_color' => '#f5f5f5'), 
+                    'completed_order' => array(
+                      'enable_disable' => true, 
+                      'subject' => 'Your Order #order_id# is complete', 
+                      'email_heading' => 'Your order is complete', 
+                      'body_bg_color' => '#f5f5f5'), 
+                    'new_customer_account' => array(
+                      'enable_disable' => true, 
+                      'subject' => 'Successfully created account', 
+                      'email_heading' => 'Customer account created', 
+                      'body_bg_color' => '#f5f5f5'), 
+                    'vendor_new_account' => array('enable_disable' => true, 'subject' => 'Successfully created account', 'email_heading' => 'Vendor account created', 'body_bg_color' => '#f5f5f5'), 
+                    'vendor_account_activation' => array('enable_disable' => true, 'subject' => 'Kích hoạt tài khoản nhà cung cấp', 'email_heading' => 'Vendor account activation', 'body_bg_color' => '#f5f5f5'), 
+                    'vendor_withdraw_request' => array('enable_disable' => true, 'subject' => 'Your Request for Withdrawal was Received', 'email_heading' => 'Withdraw request', 'body_bg_color' => '#f5f5f5'), 
+                    'vendor_withdraw_request_cancelled' => array('enable_disable' => true, 'subject' => 'Withdraw request has been cancelled', 'email_heading' => '', 'body_bg_color' => '#f5f5f5'), 
+                    'vendor_withdraw_request_completed' => array('enable_disable' => true, 'subject' => 'Withdraw request has been completed', 'email_heading' => '', 'body_bg_color' => '#f5f5f5')
+                  );
                   
-                  $menu_data = array(array('status' => 'enable', 'label' => 'home|simple##0'), array('status' => 'enable', 'label' => 'collection|simple##0'), array('status' => 'enable', 'label' => 'products|simple##0'), array('status' => 'enable', 'label' => 'checkout|simple##0'), array('status' => 'enable', 'label' => 'cart|simple##0'), array('status' => 'enable', 'label' => 'blog|simple##0'), array('status' => 'enable', 'label' => 'store_list|simple##0'), array('status' => 'enable', 'label' => 'pages|simple##0'));
+                  $menu_data = array(array(
+                    'status' => 'enable', 
+                    'label' => 'home|simple##0'), array('status' => 'enable', 'label' => 'collection|simple##0'), array('status' => 'enable', 'label' => 'products|simple##0'), array('status' => 'enable', 'label' => 'checkout|simple##0'), array('status' => 'enable', 'label' => 'cart|simple##0'), array('status' => 'enable', 'label' => 'blog|simple##0'), array('status' => 'enable', 'label' => 'store_list|simple##0'), array('status' => 'enable', 'label' => 'pages|simple##0'));
 																		
                   if(Option::insert(array(
                     array(
@@ -481,6 +516,8 @@ class RegisterController extends Controller
             $User->user_photo_url     =    '';
             $User->user_status        =    1;
             $User->secret_key         =    bcrypt( trim(Input::get('reg_secret_key')) );
+            $User->confirmation_code  =    time().uniqid(true);
+
 
             if($User->save()){
               $Roleuser->user_id    =    $User->id;
@@ -586,6 +623,7 @@ class RegisterController extends Controller
           $User->user_photo_url = '';
           $User->user_status = 0;
           $User->secret_key = bcrypt(trim(Input::get('vendor_reg_secret_key')));
+          $User->confirmation_code  =    time().uniqid(true);
 
           if ($User->save()) {
             $Roleuser->user_id = $User->id;
@@ -629,6 +667,7 @@ class RegisterController extends Controller
                 return redirect()->back();
               }
             }
+      
           }
         } else {
           Session::flash('error-message', Lang::get('frontend.not_role_selected_label'));

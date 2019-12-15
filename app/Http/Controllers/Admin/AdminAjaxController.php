@@ -2391,7 +2391,9 @@ class AdminAjaxController extends Controller
       );
       
        if(User::where('id', $input['id'])->update($data)){
+
         if($email_options['vendor_account_activation']['enable_disable'] == true && $this->env === 'production'){
+
           $classGetFunction  =  new GetFunction();
           $get_vendor = User::where(['id' => $input['id']])->first();
           
@@ -2399,6 +2401,7 @@ class AdminAjaxController extends Controller
         } 
         
         return response()->json(array('status' => 'success', 'type' => 'vendor_status_updated'));
+        
        }
     }
   }
