@@ -313,8 +313,8 @@ class GetFunction
 
     $view          =  '';
     $get_view_data =  array();
-    $site_title    =  'SanGD-TMDT';
-    $email         =  'yourEmail@domain.com';
+    $site_title    =  'Sàn giao dịch thương mại điện tử Hà Tĩnh';
+    $email         =  'hotrohatinhtrade@gmail.com';
     $logo          =  default_placeholder_img_src();
     $appearance    =  array();
     
@@ -508,7 +508,7 @@ class GetFunction
       $get_view_data['_mail_to']    =   $data['email'];
       $get_view_data['_subject']    =   $email_options['vendor_account_activation']['subject'];
       $get_view_data['_status']     =   $data['status'];
-      $get_view_data['_from_email'] =   $email;
+      // $get_view_data['_from_email'] =   $site_title;
 
     }
     elseif($data['source'] == 'withdraw_request'){
