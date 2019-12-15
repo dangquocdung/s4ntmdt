@@ -2390,19 +2390,19 @@ class AdminAjaxController extends Controller
                     'user_status'  => $input['status']   
       );
       
-       if(User::where('id', $input['id'])->update($data)){
+      if(User::where('id', $input['id'])->update($data)){
 
-        if($email_options['vendor_account_activation']['enable_disable'] == true && $this->env === 'production'){
+      if($email_options['vendor_account_activation']['enable_disable'] == true && $this->env === 'production'){
 
-          $classGetFunction  =  new GetFunction();
-          $get_vendor = User::where(['id' => $input['id']])->first();
-          
-          $classGetFunction->sendCustomMail( array('source' => 'vendor_account_activation', 'email' => $get_vendor->email, 'status' => $input['status']) );
-        } 
+        $classGetFunction  =  new GetFunction();
+        $get_vendor = User::where(['id' => $input['id']])->first();
         
-        return response()->json(array('status' => 'success', 'type' => 'vendor_status_updated'));
-        
-       }
+        $classGetFunction->sendCustomMail( array('source' => 'vendor_account_activation', 'email' => $get_vendor->email, 'status' => $input['status']) );
+      } 
+      
+      return response()->json(array('status' => 'success', 'type' => 'vendor_status_updated'));
+      
+      }
     }
   }
   
