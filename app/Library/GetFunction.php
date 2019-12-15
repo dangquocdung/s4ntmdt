@@ -310,6 +310,7 @@ class GetFunction
   }
 
   public function sendCustomMail($data){
+
     $view          =  '';
     $get_view_data =  array();
     $site_title    =  'SanGD-TMDT';
@@ -491,26 +492,28 @@ class GetFunction
     }
     elseif($data['source'] == 'new_customer_account'){
       $view                         =   'emails.new-customer-account';
-      $get_view_data['_view']        =   $view;
+      $get_view_data['_view']       =   $view;
       $get_view_data['_mail_to']    =   $data['email'];
       $get_view_data['_subject']    =   $email_options['new_customer_account']['subject'];
     }
     elseif($data['source'] == 'vendor_new_account'){
       $view                         =   'emails.vendor-new-account';
-      $get_view_data['_view']        =   $view;
+      $get_view_data['_view']       =   $view;
       $get_view_data['_mail_to']    =   $data['email'];
       $get_view_data['_subject']    =   $email_options['vendor_new_account']['subject'];
     }
     elseif($data['source'] == 'vendor_account_activation'){
       $view                         =   'emails.vendor-account-status';
-      $get_view_data['_view']        =   $view;
+      $get_view_data['_view']       =   $view;
       $get_view_data['_mail_to']    =   $data['email'];
       $get_view_data['_subject']    =   $email_options['vendor_account_activation']['subject'];
       $get_view_data['_status']     =   $data['status'];
+      $get_view_data['_from_email'] =   $email;
+
     }
     elseif($data['source'] == 'withdraw_request'){
       $view                         =   'emails.vendor-withdraw-request';
-      $get_view_data['_view']        =   $view;  
+      $get_view_data['_view']       =   $view;  
       $get_view_data['_mail_to']    =   $data['email'];
       $get_view_data['_subject']    =   $email_options['vendor_withdraw_request']['subject'];
       $get_view_data['_target']     =   $data['target'];

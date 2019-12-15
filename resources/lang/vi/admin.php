@@ -1090,7 +1090,7 @@ return [
   'vendor_new_account_mail_msg' =>'gian hàng Email tài khoản mới được gửi đến gian hàng khi gian hàng đăng ký tài khoản',
   'vendor_new_account_mail_msg' =>'Bạn đã tạo thành công tài khoản gian hàng. vui lòng chờ phê duyệt từ quản trị viên. ',
   'vendor_activation_notice' =>'Email kích hoạt gian hàng được gửi đến gian hàng khi quản trị viên chấp thuận gian hàng yêu cầu tài khoản.',
-  'vendor_activation_msg_1' =>'Tài khoản của bạn hiện đang hoạt động. bây giờ bạn có thể sử dụng quản trị viên của gian hàng và bán sản phẩm của mình ',
+  'vendor_activation_msg_1' =>'Tài khoản của bạn đã được kích hoạt. Bây giờ bạn có thể đăng nhập để quản trị gian hàng và bán sản phẩm của mình',
   'vendor_activation_msg_2' =>'Tài khoản của bạn hiện đang bị treo',
   'vendor_withdraw_request_msg' =>'Email yêu cầu rút tiền được gửi đến quản trị viên để nhận thanh toán từ quản trị viên',
   'vendor_withdraw_request_email_msg' =>'Yêu cầu rút tiền của bạn gửi thành công cho quản trị viên để nhận thanh toán. vui lòng đợi email khác với yêu cầu được khiếu nại ',
