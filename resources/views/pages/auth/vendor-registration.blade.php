@@ -55,7 +55,7 @@
 
           <div class="col-md-6">
             <div class="form-group">
-              <label for="reg-fn">Đường dẫn truy cập</label>
+              <label for="reg-fn">Tên gian hàng chuẩn SEO</label>
               <input type="text" placeholder="{{ trans('frontend.store_path_label') }}" class="form-control" value="{{ old('vendor_reg_name') }}" id="vendor_reg_name" name="vendor_reg_name">
             </div>
           </div>
