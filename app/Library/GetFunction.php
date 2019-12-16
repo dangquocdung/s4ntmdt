@@ -310,9 +310,9 @@ class GetFunction
       // Mail::to($get_view_data['_mail_to'])
       //       ->send(new ShopistMail( $get_view_data ));
 
-      // Mail::send('emails.vendor-account-status', $get_view_data, function($message){
-      //   $message->to('dungthinhvn@gmail.com', 'Visitor')->subject('Visitor Feedback!');
-      // });
+      Mail::send('emails.vendor-account-status', $get_view_data, function($message){
+        $message->to('dungthinhvn@gmail.com', 'Visitor')->subject('Visitor Feedback!');
+      });
 
 
     }
