@@ -30,12 +30,13 @@ class SendMail extends Mailable
      */
     public function build()
     {
-        
+        if ($this->data['request'] == "send_feedback") {
             
-        return $this->subject('Hello world')
-        -> view('emails.vendor-account-status');
+            return $this->from($this->data['email'])
+                ->subject('FeedBack')
+                ->view('layouts.mail_feedback')
+                ->with('data', $this->data);
 
-
-        
+        }
     }
 }

@@ -536,16 +536,10 @@ class GetFunction
     }
       
     if(count($get_view_data) > 0){
-
-      
-
-       Mail::to($get_view_data['_mail_to'])
-             ->send(new ShopistMail( $get_view_data ));
-
-        
-
+      Mail::to($get_view_data['_mail_to'])
+            ->send(new ShopistMail( $get_view_data ));
     }
-  }
+ }
   
   /**
    * remove directory function
