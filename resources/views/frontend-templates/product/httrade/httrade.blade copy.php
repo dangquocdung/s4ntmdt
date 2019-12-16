@@ -206,26 +206,17 @@
         </section>
         
         @if(count($popular_tags_list) > 0)
-
-        <section class="widget widget-featured-posts">
-          <h3 class="widget-title">{{ trans('frontend.popular_tags_label') }}</h3>
-
-            @foreach($popular_tags_list as $tags)
-
-            <div class="entry">
-              <div class="entry-content">
-                <h5 class="entry-title mt-1">
-                  <a href="{{ route('tag-single-page', $tags['slug']) }}"><i class="fa fa-tag" aria-hidden="true"></i> {{ ucfirst($tags['name']) }}</a>
-                </h5>
-              </div>
-            </div>
-
-            @endforeach
-
-        </section>
-
+        <div class="tags-product-list">
+          <h2>{{ trans('frontend.popular_tags_label') }} <span class="responsive-accordian"></span></h2>
+          <div class="tag-list">
+            <ul>
+              @foreach($popular_tags_list as $tags)
+                <li><a href="{{ route('tag-single-page', $tags['slug']) }}"><i class="fa fa-angle-right"></i> {{ ucfirst($tags['name']) }}</a></li>
+              @endforeach
+            </ul>
+          </div>
+        </div>
         @endif
-
 
         <!-- Widget Brand Filter-->
         @if(count($brands_data) > 0)

@@ -7,22 +7,33 @@
   <div id="tag_single_page_main">
     <div class="row">
       <div class="col-md-4 extra-padding">
+
         @if(count($popular_tags_list) > 0)
-        <div class="tags-product-list">
-          <h2>{{ trans('frontend.popular_tags_label') }} <span class="responsive-accordian"></span></h2>
-          <div class="tag-list">
-            <ul>
+
+          <section class="widget widget-featured-posts">
+            <h3 class="widget-title">{{ trans('frontend.popular_tags_label') }}</h3>
+
               @foreach($popular_tags_list as $tags)
-                @if($tags['slug'] == $tag_single_details['tag_details']['slug'])
-                  <li><a class="tag-active" href="{{ route('tag-single-page', $tags['slug']) }}"><i class="fa fa-angle-right"></i> {{ ucfirst($tags['name']) }}</a></li>
-                @else
-                  <li><a href="{{ route('tag-single-page', $tags['slug']) }}"><i class="fa fa-angle-right"></i> {{ ucfirst($tags['name']) }}</a></li>
-                @endif
+
+              <div class="entry">
+                <div class="entry-content">
+                  <h5 class="entry-title mt-1">
+                    @if($tags['slug'] == $tag_single_details['tag_details']['slug'])
+                      <a href="{{ route('tag-single-page', $tags['slug']) }}"><i class="fa fa-tag" aria-hidden="true"></i> <strong>{{ ucfirst($tags['name']) }}</strong></a>
+                    @else
+                      <a href="{{ route('tag-single-page', $tags['slug']) }}"><i class="fa fa-tag" aria-hidden="true"></i> {{ ucfirst($tags['name']) }}</a>
+                    @endif
+                  </h5>
+                </div>
+              </div>
+
               @endforeach
-            </ul>
-          </div>
-        </div>
+
+          </section>
+
         @endif
+
+
       </div>
       <div class="col-md-8">
         @if($tag_single_details['products']->count() > 0)
