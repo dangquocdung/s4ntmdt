@@ -17,7 +17,7 @@ Route::get( '/', [
   'as'   => 'home-page'
 ]);
 
-Route::get('/sendfeedback', 'Mail\SendFeedBackController@index');
+// Route::get('/sendfeedback', 'Mail\SendFeedBackController@index');
 
 Route::get( '/ban-quan-tri', [
   'uses' => 'Frontend\FrontendManagerController@aboutUs',

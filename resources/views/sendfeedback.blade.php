@@ -98,7 +98,7 @@
 						  type: 'error',
 						  title: 'Opps...!',
 						  text: 'Something Wrong Has Happened!',
-						  footer: 'Error 123: ' + data.message
+						  footer: 'Error: ' + data.message
 						});
 
 					}
