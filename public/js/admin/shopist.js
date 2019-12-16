@@ -776,9 +776,9 @@ shopist.pageLoad = {
                                         window.location.href = window.location.href;
                                     }
                                 },
-                                error: function(xhr) {
+                                error: function() {
 
-                                    swal(adminLocalizationString.updated_label, responseMsg, xhr);
+                                    // swal(adminLocalizationString.updated_label, responseMsg, xhr);
                                     // window.location.href = window.location.href;
 
                                 }
