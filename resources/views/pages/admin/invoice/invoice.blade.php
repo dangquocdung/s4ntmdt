@@ -44,9 +44,6 @@
               {!! get_xaphuong($order_data_by_id['_billing_city']).' - '.get_quanhuyen($order_data_by_id['_billing_state']).' - '.get_tinhthanh($order_data_by_id['_billing_country']) !!}<br>
 
 
-              @if($order_data_by_id['_billing_address_2'])
-              {!! $order_data_by_id['_billing_address_2'] !!}<br>
-              @endif
 
               <strong>{{ trans('admin.phone') }}:</strong>&nbsp;{!! $order_data_by_id['_billing_phone'] !!}<br>
             </address>
