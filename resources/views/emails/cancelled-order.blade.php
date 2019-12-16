@@ -108,7 +108,7 @@
                                             <tr>
                                               <td width="50%" valign="top">
                                                 <h3 style="color:#3c8dbc;display:block;font-family:&quot;Helvetica Neue&quot;,Helvetica,Roboto,Arial,sans-serif;font-size:16px;font-weight:bold;line-height:130%;margin:16px 0 8px;text-align:left">{!! trans('email.billing_address') !!}</h3>
-                                                <p style="color:#505050;font-family:&quot;Helvetica Neue&quot;,Helvetica,Roboto,Arial,sans-serif;margin:0 0 16px">{!! $_billing_first_name .' '. $_billing_last_name !!} <br> {!! $_billing_address_1 !!}<br> {!! $_billing_city !!} <br> {!! $_billing_postcode !!} <br> {!! get_country_by_code($_billing_country) !!}</p>
+                                                <p style="color:#505050;font-family:&quot;Helvetica Neue&quot;,Helvetica,Roboto,Arial,sans-serif;margin:0 0 16px">{!! $_billing_first_name .' '. $_billing_last_name !!} <br> {!! $_billing_address_1 !!}<br> {!! $_billing_city !!}</p>
                                               </td>
                                             </tr>
                                           </tbody>
