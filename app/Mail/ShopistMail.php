@@ -29,8 +29,8 @@ class ShopistMail extends Mailable
      */
     public function build()
     {
-      return $this->subject($this->data['_subject'])
-              -> view($this->data['_view'])
-              -> with($this->data);
+      // return $this->subject($this->data['_subject'])
+      //         -> view($this->data['_view'])
+      //         -> with($this->data);
     }
 }

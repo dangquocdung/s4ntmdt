@@ -776,12 +776,10 @@ shopist.pageLoad = {
                                         window.location.href = window.location.href;
                                     }
                                 },
-                                error: function() {
+                                error: function(xhr) {
 
-                                    alert('Something wrong!');
-
-                                    // swal(adminLocalizationString.updated_label, responseMsg, xhr);
-                                    // window.location.href = window.location.href;
+                                    swal("Lỗi", xhr, "error");
+                                    window.location.href = window.location.href;
 
                                 }
                             });
