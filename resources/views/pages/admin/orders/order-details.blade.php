@@ -97,9 +97,6 @@
         <p><strong>{{ trans('admin.phone') }}:</strong> {!! $order_data_by_id['_billing_phone'] !!}</p>
 
         <p><strong>{{ trans('admin.address_1') }}:</strong> {!! $order_data_by_id['_billing_address_1'] !!}</p>
-        @if($order_data_by_id['_billing_address_2'])
-          <p><strong>{{ trans('admin.address_2') }}:</strong> {!! $order_data_by_id['_billing_address_2'] !!}</p>
-        @endif
         <p><strong>{{ trans('admin.city') }}:</strong> {!! get_xaphuong($order_data_by_id['_billing_city']) !!}</p>
         <p><strong>{{ trans('admin.state') }}:</strong> {!! get_quanhuyen($order_data_by_id['_billing_state']) !!}</p>
         <p><strong>{{ trans('admin.country') }}:</strong> {!!  get_tinhthanh($order_data_by_id['_billing_country'])  !!}</p>
@@ -114,9 +111,6 @@
         <p>{!! $order_data_by_id['_shipping_first_name'].' '. $order_data_by_id['_shipping_last_name']!!}</p>
         <p><strong>{{ trans('admin.phone') }}:</strong> {!! $order_data_by_id['_shipping_phone'] !!}</p>
         <p><strong>{{ trans('admin.address_1') }}:</strong> {!! $order_data_by_id['_shipping_address_1'] !!}</p>
-        @if($order_data_by_id['_shipping_address_2'])
-          <p><strong>{{ trans('admin.address_2') }}:</strong> {!! $order_data_by_id['_shipping_address_2'] !!}</p>
-        @endif
         <p><strong>{{ trans('admin.city') }}:</strong> {!! get_xaphuong($order_data_by_id['_shipping_city']) !!}</p>
         <p><strong>{{ trans('admin.state') }}:</strong> {!! get_quanhuyen($order_data_by_id['_shipping_state']) !!}</p>
         <p><strong>{{ trans('admin.country') }}:</strong> {!! get_tinhthanh($order_data_by_id['_shipping_country'])  !!}</p>

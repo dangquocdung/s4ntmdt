@@ -268,9 +268,6 @@
 
 
       <p><strong>{{ trans('frontend.address_1') }}:</strong> {!! $order_details_by_order_id['customer_address']['_billing_address_1'] !!}</p>
-      @if($order_details_by_order_id['customer_address']['_billing_address_2'])
-        <p><strong>{{ trans('frontend.address_2') }}:</strong> {!! $order_details_by_order_id['customer_address']['_billing_address_2'] !!}</p>
-      @endif
       <p><strong>{{ trans('frontend.city') }}:</strong> {!! get_xaphuong($order_details_by_order_id['customer_address']['_billing_city']) !!}</p>
       <p><strong>{{ trans('frontend.state') }}:</strong> {!! get_quanhuyen($order_details_by_order_id['customer_address']['_billing_state']) !!}</p>
       <p><strong>{{ trans('frontend.country') }}:</strong> {!! get_tinhthanh( $order_details_by_order_id['customer_address']['_billing_country'] ) !!}</p>
@@ -283,9 +280,6 @@
       <p><strong>{{ trans('frontend.phone') }}:</strong> {!! $order_details_by_order_id['customer_address']['_shipping_phone'] !!}</p>
       <p><strong>{{ trans('frontend.email') }}:</strong> {!! $order_details_by_order_id['customer_address']['_shipping_email'] !!}</p>
       <p><strong>{{ trans('frontend.address_1') }}:</strong> {!! $order_details_by_order_id['customer_address']['_shipping_address_1'] !!}</p>
-      @if($order_details_by_order_id['customer_address']['_shipping_address_2'])
-        <p><strong>{{ trans('frontend.address_2') }}:</strong> {!! $order_details_by_order_id['customer_address']['_shipping_address_2'] !!}</p>
-      @endif
       <p><strong>{{ trans('frontend.city') }}:</strong> {!! get_xaphuong($order_details_by_order_id['customer_address']['_shipping_city']) !!}</p>
       <p><strong>{{ trans('frontend.state') }}:</strong> {!! get_quanhuyen($order_details_by_order_id['customer_address']['_shipping_state']) !!}</p>
       <p><strong>{{ trans('frontend.country') }}:</strong> {!! get_tinhthanh( $order_details_by_order_id['customer_address']['_shipping_country'] ) !!}</p>
