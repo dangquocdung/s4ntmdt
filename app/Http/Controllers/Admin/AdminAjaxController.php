@@ -2398,11 +2398,10 @@ class AdminAjaxController extends Controller
           $classGetFunction  =  new GetFunction();
           $get_vendor = User::where(['id' => $input['id']])->first();
           
-          $classGetFunction->sendCustomMail( array('source' => 'vendor_account_activation', 'email' => $get_vendor->email, 'status' => $input['status']) );
+          // $classGetFunction->sendCustomMail( array('source' => 'vendor_account_activation', 'email' => $get_vendor->email, 'status' => $input['status']) );
 
         } 
 
-        // return response()->json($rs);
         
         return response()->json(array('status' => 'success', 'type' => 'vendor_status_updated'));
       
