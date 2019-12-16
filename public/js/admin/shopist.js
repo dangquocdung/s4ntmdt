@@ -770,25 +770,22 @@ shopist.pageLoad = {
                                 headers: { 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content') },
                                 success: function(data) {
 
-                                    rs = JSON.parse(data.message);
+                                    if (data.status == 'success' && data.type == 'vendor_status_updated') {
 
-                                    if (rs == 'success' && data.type == 'vendor_status_updated') {
-
-                                        // alert (rs);
-                                        swal(adminLocalizationString.updated_label, responseMsg, rs);
+                                        swal(adminLocalizationString.updated_label, responseMsg, "success");
                                         window.location.href = window.location.href;
                                     }
-                                    else if (rs == "failed") {
-                                        swal(adminLocalizationString.updated_label, responseMsg, rs);
-                                        window.location.href = window.location.href;
-                                    }
-                                    else {
-                                        swal(adminLocalizationString.updated_label, responseMsg, rs);
-                                        window.location.href = window.location.href;
-                                    }
-
                                 },
-                                error: function() {}
+                                error: function(xhr) {
+
+                                    Swal.fire({
+                                        type: 'error',
+                                        title: 'Opps...!',
+                                        text: 'Something Wrong Has Happened!',
+                                        footer: 'Error: ' + xhr
+                                      });
+
+                                }
                             });
                         }
                     });
