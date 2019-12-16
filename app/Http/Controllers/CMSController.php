@@ -474,12 +474,14 @@ class CMSController extends Controller
                ->where('post_title', 'LIKE', '%'. $search_val.'%')
                ->orderBy('id', 'desc')
                ->get()
+               ->makeHidden('post_content')
                ->toArray();
     }
     else{
       $pages = Post:: where($where)
                ->orderBy('id', 'asc')
                ->get()
+               ->makeHidden('post_content')
                ->toArray();
     }
     
@@ -1010,10 +1012,10 @@ class CMSController extends Controller
   public function get_latest_blogs($post_id = null){
     $blog_posts_array = array();
     if($post_id && $post_id > 0){
-      $posts = Post::where(['post_type' => 'post-blog', 'post_status' => 1])->where('id', '!=', $post_id)->orderBy('id', 'desc')->take(6)->get()->toArray();
+      $posts = Post::where(['post_type' => 'post-blog', 'post_status' => 1])->where('id', '!=', $post_id)->orderBy('id', 'desc')->take(6)->get()->makeHidden('post_content')->toArray();
     }
     else{
-      $posts = Post::where(['post_type' => 'post-blog', 'post_status' => 1])->orderBy('id', 'desc')->take(6)->get()->toArray();
+      $posts = Post::where(['post_type' => 'post-blog', 'post_status' => 1])->orderBy('id', 'desc')->take(6)->get()->makeHidden('post_content')->toArray();
     }
     
     if(count($posts) > 0){
