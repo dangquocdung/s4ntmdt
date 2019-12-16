@@ -778,12 +778,8 @@ shopist.pageLoad = {
                                 },
                                 error: function(xhr) {
 
-                                    Swal.fire({
-                                        type: 'error',
-                                        title: 'Opps...!',
-                                        text: 'Something Wrong Has Happened!',
-                                        footer: 'Error: ' + xhr
-                                      });
+                                    swal(adminLocalizationString.updated_label, responseMsg, xhr);
+                                    // window.location.href = window.location.href;
 
                                 }
                             });
