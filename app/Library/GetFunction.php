@@ -406,7 +406,8 @@ class GetFunction
       $view                         =   'emails.contact-with-vendor-mail';
       $get_view_data['_view']        =   $view;  
       $get_view_data['_mail_to']    =   $data['data']['_mail_to'];
-      $get_view_data['_subject']    =   $data['data']['_subject'];
+      $get_view_data['_subject']    =   'Liên hệ với gian hàng';
+      $get_view_data['_name']    =   $data['data']['_name'];
       $get_view_data['_message']    =   $data['data']['_message'];
       $get_view_data['_from_email'] =   $data['data']['_mail_from'];
     }

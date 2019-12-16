@@ -662,7 +662,7 @@ class FrontendAjaxController extends Controller
       $mailData['data']             =   array(
         '_mail_to' => base64_decode($input['vendor_mail']), 
         '_mail_from' => base64_decode($input['customer_email']), 
-        '_subject' => 'Liên hệ với gian hàng', 
+        '_name' => base64_decode($input['name']),  
         '_message' => base64_decode($input['message'])
       );
 
