@@ -25,10 +25,6 @@
 
             <p><strong>{{ trans('frontend.address_1') }}:</strong> {!! $login_user_account_data->address_details->account_bill_adddress_line_1 !!}</p>
 
-            @if($login_user_account_data->address_details->account_bill_adddress_line_2)
-                <p><strong>{{ trans('frontend.address_2') }}:</strong> {!! $login_user_account_data->address_details->account_bill_adddress_line_2 !!}</p>
-            @endif
-
             <p><strong>{{ trans('frontend.city') }}:</strong> {!! get_xaphuong($login_user_account_data->address_details->account_bill_select_city) !!}</p>
 
             <p><strong>{{ trans('frontend.state') }}:</strong> {!! get_quanhuyen($login_user_account_data->address_details->account_bill_select_state) !!}</p>
