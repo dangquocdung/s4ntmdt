@@ -19,7 +19,7 @@
     <div class="tab-pane fade show active" id="sp_daxem" role="tabpanel">
 
         <!-- Carousel-->
-        <div class="owl-carousel" data-owl-carousel="{ &quot;nav&quot;: false, &quot;dots&quot;: true, &quot;margin&quot;: 30, &quot;responsive&quot;: {&quot;0&quot;:{&quot;items&quot;:1},&quot;576&quot;:{&quot;items&quot;:2},&quot;768&quot;:{&quot;items&quot;:3},&quot;991&quot;:{&quot;items&quot;:4},&quot;1200&quot;:{&quot;items&quot;:5}} }">
+        <div class="owl-carousel" data-owl-carousel="{ &quot;nav&quot;: false, &quot;dots&quot;: true, &quot;margin&quot;: 30, &quot;responsive&quot;: {&quot;0&quot;:{&quot;items&quot;:1},&quot;576&quot;:{&quot;items&quot;:2},&quot;768&quot;:{&quot;items&quot;:3},&quot;991&quot;:{&quot;items&quot;:3},&quot;1200&quot;:{&quot;items&quot;:4}} }">
             
             <!-- Product-->
             @foreach($seen_items as $item)
@@ -57,6 +57,10 @@
                         <a class="animate-left product-wishlist" data-id="{{ $item['id'] }}" data-toggle="tooltip" title="{{ trans('frontend.add_to_wishlist_label') }}" data-original-title="{{ trans('frontend.add_to_wishlist_label') }}">
                           <i class="ion-heart"></i>
                         </a>
+                        <a class="animate-right product-compare" data-id="{{ $item['id'] }}" data-toggle="tooltip" title="{{ trans('frontend.add_to_compare_list_label') }}" data-original-title="{{ trans('frontend.add_to_compare_list_label') }}">
+                          <i class="ion-ios-list-outline"></i>
+                        </a>
+
 
                       </div>
                     </div>
@@ -76,9 +80,11 @@
                               <span>{{ get_user_name_by_user_id($item['author_id']) }}</span>
                           </div>
                           <div class="product-categori">
-                          <a class="product-compare" data-id="{{ $item['id'] }}" data-toggle="tooltip" title="{{ trans('frontend.add_to_compare_list_label') }}" data-original-title="{{ trans('frontend.add_to_compare_list_label') }}">
-                                                <i class="ion-ios-list-outline"></i>{{ trans('frontend.add_to_compare_list_label') }}
-                                              </a>
+                            <span>
+                              <del>
+                                {!! price_html( get_product_price_html_by_filter(get_role_based_price_by_product_id($item['id'], $item['product_regular_price'])), get_frontend_selected_currency()) !!}
+                              </del>
+                            </span>
                           </div>
                       </div>
                   </div>

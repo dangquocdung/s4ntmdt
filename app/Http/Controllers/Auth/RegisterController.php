@@ -284,29 +284,49 @@ class RegisterController extends Controller
                       'selected_template' => 'template-3'), 
                     'cancelled_order' => array(
                       'enable_disable' => true, 
-                      'subject' => 'Cancelled order', 
-                      'email_heading' => 'Cancelled order', 
+                      'subject' => 'Đã huỷ đơn hàng', 
+                      'email_heading' => 'Đã huỷ đơn hàng', 
                       'body_bg_color' => '#f5f5f5'), 
                     'processed_order' => array(
                       'enable_disable' => true, 
-                      'subject' => 'Order #order_id# has been Processed', 
-                      'email_heading' => 'Processed order', 
+                      'subject' => 'Đơn hàng #order_id# đã được xử lý', 
+                      'email_heading' => 'Đã xử lý đơn hàng', 
                       'body_bg_color' => '#f5f5f5'), 
                     'completed_order' => array(
                       'enable_disable' => true, 
-                      'subject' => 'Your Order #order_id# is complete', 
-                      'email_heading' => 'Your order is complete', 
+                      'subject' => 'Đơn hàng #order_id# đã hoàn tất', 
+                      'email_heading' => 'Đơn hàng của bạn đã hoàn tất', 
                       'body_bg_color' => '#f5f5f5'), 
                     'new_customer_account' => array(
                       'enable_disable' => true, 
-                      'subject' => 'Successfully created account', 
-                      'email_heading' => 'Customer account created', 
+                      'subject' => 'Đã tạo thành công tài khoản', 
+                      'email_heading' => 'Đã tạo thành công tài khoản khách hàng', 
                       'body_bg_color' => '#f5f5f5'), 
-                    'vendor_new_account' => array('enable_disable' => true, 'subject' => 'Successfully created account', 'email_heading' => 'Vendor account created', 'body_bg_color' => '#f5f5f5'), 
-                    'vendor_account_activation' => array('enable_disable' => true, 'subject' => 'Kích hoạt tài khoản nhà cung cấp', 'email_heading' => 'Vendor account activation', 'body_bg_color' => '#f5f5f5'), 
-                    'vendor_withdraw_request' => array('enable_disable' => true, 'subject' => 'Your Request for Withdrawal was Received', 'email_heading' => 'Withdraw request', 'body_bg_color' => '#f5f5f5'), 
-                    'vendor_withdraw_request_cancelled' => array('enable_disable' => true, 'subject' => 'Withdraw request has been cancelled', 'email_heading' => '', 'body_bg_color' => '#f5f5f5'), 
-                    'vendor_withdraw_request_completed' => array('enable_disable' => true, 'subject' => 'Withdraw request has been completed', 'email_heading' => '', 'body_bg_color' => '#f5f5f5')
+                    'vendor_new_account' => array(
+                      'enable_disable' => true, 
+                      'subject' => 'Successfully created account', 
+                      'email_heading' => 'Vendor account created', 
+                      'body_bg_color' => '#f5f5f5'), 
+                    'vendor_account_activation' => array(
+                      'enable_disable' => true, 
+                      'subject' => 'Kích hoạt tài khoản nhà cung cấp', 
+                      'email_heading' => 'Vendor account activation', 
+                      'body_bg_color' => '#f5f5f5'), 
+                    'vendor_withdraw_request' => array(
+                      'enable_disable' => true, 
+                      'subject' => 'Your Request for Withdrawal was Received', 
+                      'email_heading' => 'Withdraw request', 
+                      'body_bg_color' => '#f5f5f5'), 
+                    'vendor_withdraw_request_cancelled' => array(
+                      'enable_disable' => true, 
+                      'subject' => 'Withdraw request has been cancelled', 
+                      'email_heading' => '', 
+                      'body_bg_color' => '#f5f5f5'), 
+                    'vendor_withdraw_request_completed' => array(
+                      'enable_disable' => true, 
+                      'subject' => 'Withdraw request has been completed', 
+                      'email_heading' => '', 
+                      'body_bg_color' => '#f5f5f5')
                   );
                   
                   $menu_data = array(array(
