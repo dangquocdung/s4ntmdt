@@ -154,7 +154,7 @@
     <script type="text/javascript" src="{{ URL::asset('/plugins/iCheck/icheck.min.js') }}"></script>    
     	
     <!-- Sweet Alert2 Core js -->
-	  <script type="text/javascript" src="{{ URL::asset('vendor/sweetalert2/sweetalert2.all.min.js') }}"></script>
+	  <!-- <script type="text/javascript" src="{{ URL::asset('vendor/sweetalert2/sweetalert2.all.min.js') }}"></script> -->
         
     <script type="text/javascript" src="{{ mix('/js/app.js') }}"></script>
 
