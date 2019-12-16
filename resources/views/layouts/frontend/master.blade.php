@@ -452,6 +452,8 @@
               success: function success(data) {
                 if (data && data.status == 'success') {
 
+                  $('#contact_message').val();
+
                   Swal.fire({
                     type: 'success',
                     title: 'Success!',
