@@ -290,26 +290,34 @@ class GetFunction
    * @param Mail array data
    * @return void
    */
-  public function sendCustomMail_bk($data){
-    
-    $get_view_data =  array();
-    $site_title    =  'SanGD-TMDT';
-
-      $view                         =   'emails.contact-with-vendor-mail';
-      $get_view_data['_view']        =   $view;  
-      $get_view_data['_mail_to']    =   $data['data']['_mail_to'];
-      $get_view_data['_subject']    =   $data['data']['_subject'];
-      $get_view_data['_message']    =   $data['data']['_message'];
-      $get_view_data['_from_email'] =   $data['data']['_mail_from'];
-
-      
-    if(count($get_view_data) > 0){
-       Mail::to($get_view_data['_mail_to'])
-             ->send(new ShopistMail( $get_view_data ));
-    }
-  }
 
   public function sendCustomMail($data){
+
+
+    $view          =  '';
+    $get_view_data =  array();
+      
+    if($data['source'] == 'vendor_account_activation'){
+      $view                         =   'emails.vendor-account-status';
+      $get_view_data['_view']       =   $view;
+      $get_view_data['_mail_to']    =   $data['email'];
+      $get_view_data['_subject']    =   'Kích hoạt tài khoản';
+      $get_view_data['_status']     =   $data['status'];
+    }
+
+    if(count($get_view_data) > 0){
+
+      Mail::to($get_view_data['_mail_to'])
+            ->send(new ShopistMail( $get_view_data ));
+
+
+    }
+            
+  
+  }
+
+
+  public function sendCustomMail_bk($data){
 
 
     $view          =  '';
@@ -536,10 +544,17 @@ class GetFunction
     }
       
     if(count($get_view_data) > 0){
-      Mail::to($get_view_data['_mail_to'])
-            ->send(new ShopistMail( $get_view_data ));
+
+      // Mail::to($get_view_data['_mail_to'])
+      //       ->send(new ShopistMail( $get_view_data ));
+
+      alert (count($get_view_data));
+
     }
- }
+            
+  
+  }
+
   
   /**
    * remove directory function
