@@ -118,7 +118,7 @@
     "cancelled_it_label": "Có, đã hủy nó",
     "request_completed_msg": "Yêu cầu của bạn đã hoàn thành thành công",
     "request_cancelled_msg": "Yêu cầu của bạn đã được hủy thành công",
-    "order_label": "Gọi món",
+    "order_label": "Mã đơn hàng",
     "data_save_msg_label": "Dữ liệu của bạn được lưu thành công"
 
 }
