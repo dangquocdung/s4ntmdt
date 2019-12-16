@@ -37,8 +37,6 @@ use shopist\Models\QuanHuyen;
 use shopist\Models\XaPhuong;
 use shopist\Models\TinhThanh;
 
-use shopist\Mail\SendMail;
-
 
 class GetFunction
 {
@@ -294,40 +292,7 @@ class GetFunction
    * @return void
    */
 
-  public function sendCustomMail(){
-
-    $data = array(
-      'name' 		=> 'ho va ten', 
-      'email'		=> 'dia chi email', 
-      'message'	=> 'thong diep',
-      //Send Request is send_feedback
-      'request'	=> 'send_feedback'
-    );
-
-    //Try to send Email
-    try {
-      //Send Email with model of email SendEmail and with variable data
-      Mail::to('dungthinhvn@gmail.com')->send(new SendMail($data));
-
-      //Check if sending email failure
-      if (!Mail::failures()) {
-        //Give response message success if success to send email
-        $response['message'] = "success";
-      } else {
-        //Give response message failed if failed to send email
-        $response['message'] = "failed";
-      }
-
-    } catch (Exception $e) {
-      //Give response message error if failed to send email
-      $response['message'] = $e->getMessage();
-    }
-
-    echo json_encode($response);
-
-  }
-
-  public function sendCustomMail_bk($data){
+  public function sendCustomMail($data){
 
     $view          =  '';
     $get_view_data =  array();
