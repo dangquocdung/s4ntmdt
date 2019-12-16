@@ -407,7 +407,7 @@
       if ($('#sendVendorContactMessage').length > 0) {
         $('#sendVendorContactMessage').on('click', function () {
           if ($('#contact_name').val() == '' || $('#contact_name').val() == null) {
-            Swal.fire({
+            swal({
               type: 'error',
               title: 'Opps...!',
               text: 'Bạn chưa nhập tên!'
@@ -417,7 +417,7 @@
           }
 
           if ($('#contact_email_id').val() == '' || $('#contact_email_id').val() == null || !IsEmail($('#contact_email_id').val()) ) {
-            Swal.fire({
+            swal({
               type: 'error',
               title: 'Opps...!',
               text: 'Bạn chưa nhập địa chỉ email hoặc email chưa đúng!'
@@ -426,7 +426,7 @@
           }
 
           if ($('#contact_message').val() == '' || $('#contact_message').val() == null) {
-            Swal.fire({
+            swal({
               type: 'error',
               title: 'Opps...!',
               text: 'Bạn chưa nhập nội dung!'
@@ -462,7 +462,7 @@
                 if (data && data.status == 'success') {
                   $('#form-feedback')[0].reset();
 
-                  Swal.fire({
+                  swal({
                     type: 'success',
                     title: 'Success!',
                     text: 'Tin nhắn của bạn đã được gửi đến nhà cung cấp!'
@@ -472,7 +472,7 @@
                 // alert(JSON.stringify(data));
               },
               error: function error() {
-                Swal.fire({
+                swal({
                   type: 'error',
                   title: 'Opps...!',
                   text: 'Đã có lỗi xảy ra!'
