@@ -810,7 +810,7 @@ return [
   'subscribe_cookie_set_text' =>'Popup Cookie Đặt văn bản',
   'allow_guest_user_at_checkout' =>'Cho phép người dùng khách cho quá trình thanh toán',
   'allow_login_user_at_checkout' =>'Cho phép người dùng đăng nhập cho quá trình thanh toán',
-  'order_currency' =>'Đơn hàng tiền tệ',
+  'order_currency' =>'Loại tiền',
   'coupon_discount_label' =>'Giảm giá',
   'recaptcha_label' =>'Option Tùy chọn Google Recaptcha ',
   'recaptcha_for_admin_label' =>'Kích hoạt recaptcha để đăng nhập quản trị viên',
