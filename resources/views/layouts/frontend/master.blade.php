@@ -449,10 +449,18 @@
               headers: {
                 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
               },
-              success: function success(data) {
-                if (data && data.status == 'success') {
 
-                  $('#contact_message').val();
+              beforeSend:function() {
+                $('#sendVendorContactMessage').attr('disabled', 'disabled');
+                $('#sendVendorContactMessage').html('Đang gửi...');
+              },
+
+              success: function success(data) {
+                $('#sendVendorContactMessage').attr('disabled', false);
+                $('#sendVendorContactMessage').html('Gửi');
+
+                if (data && data.status == 'success') {
+                  $('#form-feedback')[0].reset();
 
                   Swal.fire({
                     type: 'success',

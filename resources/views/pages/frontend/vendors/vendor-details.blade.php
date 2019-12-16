@@ -172,24 +172,30 @@
           
           @if($vendor_package_details->show_contact_form_on_store_page == true)
             <section class="widget">
+
               <h3 class="widget-title">{!! trans('frontend.contact_vendor_label') !!}</h3>
+
+              <form id="form-feedback">
+
               
-              <div class="form-group">
-                <label for="contact_name">{{ trans('frontend.enter_name_label') }}</label>
-                <input class="form-control" name="contact_name" id="contact_name" placeholder="{{ trans('frontend.enter_name_label') }}" type="text">
-              </div>
+                <div class="form-group">
+                  <label for="contact_name">{{ trans('frontend.enter_name_label') }}</label>
+                  <input class="form-control" name="contact_name" id="contact_name" placeholder="{{ trans('frontend.enter_name_label') }}" type="text">
+                </div>
 
-              <div class="form-group">
-                <label for="contact_email_id">{{ trans('frontend.enter_email_label') }}</label>
-                <input class="form-control" name="contact_email_id" id="contact_email_id" placeholder="{{ trans('frontend.enter_email_label') }}" type="email">
-              </div>
+                <div class="form-group">
+                  <label for="contact_email_id">{{ trans('frontend.enter_email_label') }}</label>
+                  <input class="form-control" name="contact_email_id" id="contact_email_id" placeholder="{{ trans('frontend.enter_email_label') }}" type="email">
+                </div>
 
-              <div class="form-group">
-                <label for="contact_message">{{ trans('frontend.enter_your_message_label') }}</label>
-                <textarea class="form-control" name="contact_message" id="contact_message" placeholder="{{ trans('frontend.enter_your_message_label') }}"></textarea>
-              </div>
+                <div class="form-group">
+                  <label for="contact_message">{{ trans('frontend.enter_your_message_label') }}</label>
+                  <textarea class="form-control" name="contact_message" id="contact_message" placeholder="{{ trans('frontend.enter_your_message_label') }}"></textarea>
+                </div>
 
-              <button class="btn btn-primary pull-right" type="button" id="sendVendorContactMessage" name="sendVendorContactMessage">{!! trans('frontend.send_label') !!} <i class="fa fa-arrow-circle-right"></i></button>  
+                <button class="btn btn-primary pull-right" type="button" id="sendVendorContactMessage" name="sendVendorContactMessage">{!! trans('frontend.send_label') !!}</button>
+
+              </form>  
 
             </section>
           @endif
