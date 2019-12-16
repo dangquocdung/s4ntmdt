@@ -163,7 +163,7 @@
               <div class="entry">
                 <div class="entry-content">
                   <h5 class="entry-title mt-1">
-                    <a href="{{ route('tag-single-page', $tags['slug']) }}"><i class="fa fa-angle-right"></i> {{ ucfirst($tags['name']) }}</a>
+                    <a href="{{ route('tag-single-page', $tags['slug']) }}"><i class="fa fa-tag" aria-hidden="true"></i> {{ ucfirst($tags['name']) }}</a>
                   </h5>
                 </div>
               </div>
