@@ -366,7 +366,6 @@ class GetFunction
       $get_view_data['_appearance'] = $appearance;
       $get_view_data['_order_date'] = $this->carbonObject->parse( $this->carbonObject->today() )->format('F d, Y');
     }
-    
     elseif($data['source'] == 'admin_order_confirmation'){ 
       $view =   'emails.admin-order-confirmation';
       $get_view_data['_view'] = $view;
@@ -394,7 +393,6 @@ class GetFunction
       $get_view_data['_appearance'] = $appearance;
       $get_view_data['_order_date'] = $this->carbonObject->parse( $this->carbonObject->today() )->format('F d, Y');
     }
-    
     elseif($data['source'] == 'quick_mail'){
       $view                      =   'emails.quick-mail';
       $get_view_data['_view']     =   $view;
