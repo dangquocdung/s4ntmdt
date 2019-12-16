@@ -37,6 +37,9 @@ use shopist\Models\QuanHuyen;
 use shopist\Models\XaPhuong;
 use shopist\Models\TinhThanh;
 
+use shopist\Mail\SendMail;
+
+
 class GetFunction
 {
   public $str = '';
@@ -291,38 +294,40 @@ class GetFunction
    * @return void
    */
 
-  public function sendCustomMail($data){
+  public function sendCustomMail(){
 
+    $data = array(
+      'name' 		=> 'ho va ten', 
+      'email'		=> 'dia chi email', 
+      'message'	=> 'thong diep',
+      //Send Request is send_feedback
+      'request'	=> 'send_feedback'
+    );
 
-    $view          =  '';
-    $get_view_data =  array();
-      
-    if($data['source'] == 'vendor_account_activation'){
-      $view                         =   'emails.vendor-account-status';
-      $get_view_data['_view']       =   $view;
-      $get_view_data['_mail_to']    =   $data['email'];
-      $get_view_data['_subject']    =   'Kích hoạt tài khoản';
-      $get_view_data['_status']     =   $data['status'];
+    //Try to send Email
+    try {
+      //Send Email with model of email SendEmail and with variable data
+      Mail::to('dungthinhvn@gmail.com')->send(new SendMail($data));
+
+      //Check if sending email failure
+      if (!Mail::failures()) {
+        //Give response message success if success to send email
+        $response['message'] = "success";
+      } else {
+        //Give response message failed if failed to send email
+        $response['message'] = "failed";
+      }
+
+    } catch (Exception $e) {
+      //Give response message error if failed to send email
+      $response['message'] = $e->getMessage();
     }
 
-    if(count($get_view_data) > 0){
+    echo json_encode($response);
 
-      // Mail::to($get_view_data['_mail_to'])
-      //       ->send(new ShopistMail( $get_view_data ));
-
-      Mail::send('emails.vendor-account-status', $get_view_data, function($message){
-        $message->to('dungthinhvn@gmail.com', 'Visitor')->subject('Visitor Feedback!');
-      });
-
-
-    }
-            
-  
   }
 
-
   public function sendCustomMail_bk($data){
-
 
     $view          =  '';
     $get_view_data =  array();
@@ -549,17 +554,13 @@ class GetFunction
       
     if(count($get_view_data) > 0){
 
-      // Mail::to($get_view_data['_mail_to'])
-      //       ->send(new ShopistMail( $get_view_data ));
-
-      alert (count($get_view_data));
+      Mail::to($get_view_data['_mail_to'])
+            ->send(new ShopistMail( $get_view_data ));
 
     }
             
-  
   }
 
-  
   /**
    * remove directory function
    *
@@ -3337,7 +3338,6 @@ class GetFunction
     return $user_name;
   }
 
-  
   public static function vendor_settings_data(){
     $_this = new self;
     $get_settings = $_this->option->getVendorSettingsData();
