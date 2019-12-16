@@ -1053,7 +1053,7 @@ return [
     'emails_notifications_label'                                      =>  'Email Notifications',
     'emails_notifications_msg'                                        =>  'Email notifications sent from Shopist are listed below. Click on an email to configure it.',
     'emails_notifications_new_order_label'                            =>  'New order',
-    'emails_notifications_cancelled_order_label'                      =>  'Cancelled order',
+    'emails_notifications_cancelled_order_label'                      =>  'Đã huỷ đơn hàng',
     'emails_notifications_hold_order_label'                           =>  'Order on-hold',
     'emails_notifications_processing_order_label'                     =>  'Processing order',
     'emails_notifications_completed_order_label'                      =>  'Completed order',
