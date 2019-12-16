@@ -50,10 +50,6 @@
 
             <p><strong>{{ trans('frontend.address_1') }}:</strong> {!! $login_user_account_data->address_details->account_shipping_adddress_line_1 !!}</p>
             
-            @if($login_user_account_data->address_details->account_shipping_adddress_line_2)
-                <p><strong>{{ trans('frontend.address_2') }}:</strong> {!! $login_user_account_data->address_details->account_shipping_adddress_line_2 !!}</p>
-            @endif
-
             <p><strong>{{ trans('frontend.city') }}:</strong> {!! get_xaphuong($login_user_account_data->address_details->account_shipping_select_city) !!}</p>
 
             <p><strong>{{ trans('frontend.account_address_town_city') }}:</strong> {!! get_quanhuyen($login_user_account_data->address_details->account_shipping_select_state) !!}</p>
