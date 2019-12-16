@@ -46,7 +46,6 @@ use DOMDocument;
 use SplFileInfo;
 use shopist\Models\CustomCurrencyValue;
 
-
 class AdminAjaxController extends Controller
 {
   public $classCommonFunction;
@@ -140,7 +139,6 @@ class AdminAjaxController extends Controller
           );
         }
         
-
         $validation = Validator::make($input, $rules);
 
         if ($validation->fails()) {
@@ -151,7 +149,6 @@ class AdminAjaxController extends Controller
           $image    = '';
           $width    = 0;
           $height   = 0;
-          
           
           if(isset($input['product_image'])){
             $image = Input::file('product_image');
@@ -294,7 +291,6 @@ class AdminAjaxController extends Controller
             
             $img->save(public_path('uploads/' . 'large-'.$fileName));
             //end zoom image save
-            
             
             $img->resize(null, 250, function ($constraint) {
                 $constraint->aspectRatio();
@@ -748,7 +744,6 @@ class AdminAjaxController extends Controller
           $download_expiry_date = '';
           $today = date("Y-m-d");
 
-
           if(is_numeric($input['data']['regular_price'])){
             $regular_price = $input['data']['regular_price'];
           }
@@ -761,7 +756,6 @@ class AdminAjaxController extends Controller
             $stock_qty = $input['data']['stock_qty'];
           }
           
-         
           if(($regular_price && $sale_price) && (abs($sale_price) < abs($regular_price)) && $sale_price > 0){
             $price = $input['data']['sale_price'];
           }
@@ -800,7 +794,6 @@ class AdminAjaxController extends Controller
             }
           }
           
-          
           $post_slug = '';
           $check_slug  = Post::where(['post_slug' => string_slug_format( 'New product variation' )])->orWhere('post_slug', 'like', '%' . string_slug_format( 'New product variation' ) . '%')->get()->count();
 
@@ -811,7 +804,6 @@ class AdminAjaxController extends Controller
             $slug_count = $check_slug + 1;
             $post_slug = string_slug_format( 'New product variation' ). '-' . $slug_count;
           }
-          
           
           if($input['data']['manage_stock'] == 1){
             if ($input['data']['manage_stock'] == 1 && $stock_qty == 0 && $input['data']['back_order'] == 'variation_not_allow') {
@@ -837,7 +829,6 @@ class AdminAjaxController extends Controller
             $sale_price_end_date = $input['data']['sale_price_end_date'];
           }
         
-          
           if(isset($input['data']['post_type'])&& $input['data']['post_type'] == 'add_post'){
             $postObj = new Post;
 
@@ -848,7 +839,6 @@ class AdminAjaxController extends Controller
             $postObj->parent_id                =  $input['data']['product_id'];
             $postObj->post_status              =  $input['data']['variation_enable_status'];
             $postObj->post_type                =  'product_variation';
-
 
             if( $postObj->save() ){
               if(PostExtra::insert(array(
@@ -1427,7 +1417,6 @@ class AdminAjaxController extends Controller
     }
   }
   
-		
   /**
    * 
    * Get function for products variations
@@ -2249,7 +2238,6 @@ class AdminAjaxController extends Controller
           $file = Input::file('uploadDownloadableVariableProductFile');
         }
         
-        
         $fileName = time().uniqid()."-". $file->getClientOriginalName();
         $destinationPath  = public_path('uploads/');
         
@@ -2262,7 +2250,6 @@ class AdminAjaxController extends Controller
           return response()->json(array('status' => 'error'));
         }
         
-
       } catch (Exception $ex) {
         return response()->json(array('status' => 'error'));
       }
@@ -2293,7 +2280,6 @@ class AdminAjaxController extends Controller
           return response()->json(array('status' => 'error'));
         }
         
-
       } catch (Exception $ex) {
         return response()->json(array('status' => 'error'));
       }
@@ -2384,6 +2370,7 @@ class AdminAjaxController extends Controller
   public function vendorStatusChange(){
 
     if(Request::isMethod('post') && Request::ajax() && Session::token() == Request::header('X-CSRF-TOKEN')){
+      
       $input = Request::all();
       $email_options = get_emails_option_data();
       
@@ -2402,7 +2389,6 @@ class AdminAjaxController extends Controller
 
         } 
 
-        
         return response()->json(array('status' => 'success', 'type' => 'vendor_status_updated'));
       
       }
@@ -2592,7 +2578,6 @@ class AdminAjaxController extends Controller
           $xdoc->load( $destinationPath . $newID . "/". $newID . ".svg" );
           $imgCount = $xdoc->getelementsbytagname('image');
           
-           
           if(!empty($imgCount)){
             if($imgCount->length>0){
               for($i = 0; $i< $imgCount->length; $i++){
