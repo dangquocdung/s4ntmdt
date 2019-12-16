@@ -1091,7 +1091,7 @@ return [
   'vendor_new_account_mail_msg' =>'Bạn đã tạo thành công tài khoản gian hàng. vui lòng chờ phê duyệt từ quản trị viên. ',
   'vendor_activation_notice' =>'Email kích hoạt gian hàng được gửi đến gian hàng khi quản trị viên chấp thuận gian hàng yêu cầu tài khoản.',
   'vendor_activation_msg_1' =>'Tài khoản của bạn đã được kích hoạt. Bây giờ bạn có thể đăng nhập để quản trị gian hàng và bán sản phẩm của mình',
-  'vendor_activation_msg_2' =>'Tài khoản của bạn hiện đang bị treo',
+  'vendor_activation_msg_2' =>'Gian hàng của bạn đã bị tạm dừng giao dịch. Vui lòng liên hệ BQT để được hỗ trợ',
   'vendor_withdraw_request_msg' =>'Email yêu cầu rút tiền được gửi đến quản trị viên để nhận thanh toán từ quản trị viên',
   'vendor_withdraw_request_email_msg' =>'Yêu cầu rút tiền của bạn gửi thành công cho quản trị viên để nhận thanh toán. vui lòng đợi email khác với yêu cầu được khiếu nại ',
   'vendor_withdraw_request_cancelled_msg' =>'Yêu cầu hủy các email đã hủy được gửi đến gian hàng với các tin nhắn bị hủy yêu cầu',

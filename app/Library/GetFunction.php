@@ -506,7 +506,8 @@ class GetFunction
       $view                         =   'emails.vendor-account-status';
       $get_view_data['_view']       =   $view;
       $get_view_data['_mail_to']    =   $data['email'];
-      $get_view_data['_subject']    =   $email_options['vendor_account_activation']['subject'];
+      // $get_view_data['_subject']    =   $email_options['vendor_account_activation']['subject'];
+      $get_view_data['_subject']    =   'Kích hoạt tài khoản';
       $get_view_data['_status']     =   $data['status'];
       // $get_view_data['_from_email'] =   $site_title;
 
@@ -534,8 +535,24 @@ class GetFunction
     }
       
     if(count($get_view_data) > 0){
-       Mail::to($get_view_data['_mail_to'])
-             ->send(new ShopistMail( $get_view_data ));
+
+      //Try to send Email
+      try {
+        Mail::to($get_view_data['_mail_to'])
+              ->send(new ShopistMail( $get_view_data ));
+
+        //Check if sending email failure
+        if (!Mail::failures()) {
+          //Give response message success if success to send email
+          $response['message'] = "success";
+        } else {
+          //Give response message failed if failed to send email
+          $response['message'] = "failed";
+        }
+      } catch (Exception $e) {
+        //Give response message error if failed to send email
+        $response['message'] = $e->getMessage();
+      }
     }
   }
   
