@@ -769,10 +769,24 @@ shopist.pageLoad = {
                                 data: { id: id, status: status },
                                 headers: { 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content') },
                                 success: function(data) {
-                                    if (data.status == 'success' && data.type == 'vendor_status_updated') {
-                                        swal(adminLocalizationString.updated_label, responseMsg, "success");
+
+                                    rs = JSON.parse(data.message);
+
+                                    if (rs == 'success' && data.type == 'vendor_status_updated') {
+
+                                        // alert (rs);
+                                        swal(adminLocalizationString.updated_label, responseMsg, rs);
                                         window.location.href = window.location.href;
                                     }
+                                    else if (rs == "failed") {
+                                        swal(adminLocalizationString.updated_label, responseMsg, rs);
+                                        window.location.href = window.location.href;
+                                    }
+                                    else {
+                                        swal(adminLocalizationString.updated_label, responseMsg, rs);
+                                        window.location.href = window.location.href;
+                                    }
+
                                 },
                                 error: function() {}
                             });

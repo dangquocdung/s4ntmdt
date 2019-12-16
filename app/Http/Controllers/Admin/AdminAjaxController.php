@@ -2382,28 +2382,33 @@ class AdminAjaxController extends Controller
    * @return response
    */
   public function vendorStatusChange(){
+
     if(Request::isMethod('post') && Request::ajax() && Session::token() == Request::header('X-CSRF-TOKEN')){
       $input = Request::all();
       $email_options = get_emails_option_data();
       
       $data = array(
-                    'user_status'  => $input['status']   
+        'user_status'  => $input['status']   
       );
       
       if(User::where('id', $input['id'])->update($data)){
 
-      if($email_options['vendor_account_activation']['enable_disable'] == true && $this->env === 'production'){
+        if($email_options['vendor_account_activation']['enable_disable'] == true && $this->env === 'production'){
 
-        $classGetFunction  =  new GetFunction();
-        $get_vendor = User::where(['id' => $input['id']])->first();
+          $classGetFunction  =  new GetFunction();
+          $get_vendor = User::where(['id' => $input['id']])->first();
+          
+          $rs = $classGetFunction->sendCustomMail( array('source' => 'vendor_account_activation', 'email' => $get_vendor->email, 'status' => $input['status']) );
+
+        } 
+
+        // return response()->json($rs);
         
-        $classGetFunction->sendCustomMail( array('source' => 'vendor_account_activation', 'email' => $get_vendor->email, 'status' => $input['status']) );
-      } 
-      
-      return response()->json(array('status' => 'success', 'type' => 'vendor_status_updated'));
+        return response()->json(array('message' => $rs, 'type' => 'vendor_status_updated'));
       
       }
     }
+
   }
   
   /**

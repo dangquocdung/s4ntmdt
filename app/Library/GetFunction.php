@@ -302,7 +302,6 @@ class GetFunction
       $get_view_data['_message']    =   $data['data']['_message'];
       $get_view_data['_from_email'] =   $data['data']['_mail_from'];
 
-      
     if(count($get_view_data) > 0){
        Mail::to($get_view_data['_mail_to'])
              ->send(new ShopistMail( $get_view_data ));
@@ -310,6 +309,10 @@ class GetFunction
   }
 
   public function sendCustomMail($data){
+
+    $response = array();
+
+    $response['message'] = "";
 
     $view          =  '';
     $get_view_data =  array();
@@ -536,10 +539,9 @@ class GetFunction
       
     if(count($get_view_data) > 0){
 
-      //Try to send Email
-      try {
-        Mail::to($get_view_data['_mail_to'])
-              ->send(new ShopistMail( $get_view_data ));
+      try{
+        //Send Email with model of email SendEmail and with variable data
+        Mail::to($get_view_data['_mail_to'])->send(new ShopistMail( $get_view_data ));
 
         //Check if sending email failure
         if (!Mail::failures()) {
@@ -553,7 +555,12 @@ class GetFunction
         //Give response message error if failed to send email
         $response['message'] = $e->getMessage();
       }
+
     }
+
+    //encode json variable response
+    return json_encode($response['message']);
+
   }
   
   /**
@@ -3333,7 +3340,6 @@ class GetFunction
     return $user_name;
   }
 
-  
   public static function vendor_settings_data(){
     $_this = new self;
     $get_settings = $_this->option->getVendorSettingsData();
