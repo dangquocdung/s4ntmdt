@@ -37,24 +37,11 @@
                             <tr>
                                 <td align="left" valign="middle" style="font-family:Arial, Helvetica, sans-serif;font-size:12px;color:#666666;padding:0 10px 20px 10px;line-height:17px;">
                                     <p>Chào bạn</p>
-                                    <p>Khách hàng có tên&nbsp;{!! $_name !!}</p>
-                                    <p>Và địa chỉ email&nbsp;{!! $_from_email !!}</p>
+                                    <p>Khách hàng có tên:&nbsp;<strong>{!! $_name !!}</strong></p>
+                                    <p>Và địa chỉ email:&nbsp;{!! $_from_email !!}</p>
                                     <p>Gửi đến bạn tin nhắn có nội dung như sau:</p>
                                     <p>{!! $_message !!}</p>
-                                    <p>&nbsp;</p>
                                 </td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </td>
-            </tr>
-            <tr>
-                <td align="center" valign="middle" style="background:#ffffff;padding-top:20px;">
-                    <table style="width:500px;" cellpadding="0" cellspacing="0" border="0">
-                        <tbody>
-                            <tr>
-                                <td align="center" valign="middle">
-                                <span style="font-size:12px;">Đây là email tự động, vui lòng không trả lời. Nếu có bất kỳ thắc mắc hay cần giúp đỡ, bạn vui lòng liên hệ tại&nbsp;<a rel="nofollow" target="_blank" href="https://hatinhtrade.com.vn"><b>Sàn GDTMĐT Hà Tĩnh</b></a></span></td>
                             </tr>
                         </tbody>
                     </table>
@@ -70,7 +57,7 @@
                                 </td>
                                 <td align="right" valign="middle" style="width:190px;">
                                     <a rel="nofollow" style="border:0px;text-decoration:none;" target="_blank" href="#"><img height="34" width="83" style="border:0px;" src="https://hatinhtrade.com.vn/images/appstore.jpg"> </a>
-                                    <a rel="nofollow" style="border:0px;text-decoration:none;padding-left:3px;" target="_blank" href="#"> <img height="34" width="83" style="border:0px;" src="https://hatinhtrade.com.vn/images/gg-play.png"> </a>
+                                    <a rel="nofollow" style="border:0px;text-decoration:none;padding-left:3px;" target="_blank" href="#"> <img height="34" width="83" style="border:0px;" src="https://hatinhtrade.com.vn/images/gg-play.jpga"> </a>
                                 </td>
                             </tr>
                         </tbody>
