@@ -17,7 +17,7 @@
                                 <tr>
                                     <td align="left" valign="middle" style="width:500px;min-height:60px;">
                                         <a rel="nofollow" style="border:0;" target="_blank" href="https://hatinhtrade.com.vn/">
-                                          <img style="display:block;border:0px;width:130px;min-height:35px;" src="https://hatinhtrade.com.vn/uploads/1568795723-h-90-logo%20(2).png"> 
+                                          <img style="display:block;border:0px;width:130px;min-height:35px;" src="https://hatinhtrade.com.vn/images/logo-san.png"> 
                                         </a>
                                     </td>
                                     <td align="right" valign="middle" style="padding-right:15px;">
