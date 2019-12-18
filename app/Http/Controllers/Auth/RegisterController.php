@@ -747,7 +747,7 @@ class RegisterController extends Controller
       
       if ($usr->save()){
         Session::flash('success-message', 'Bạn đã kích hoạt tài khoản thành công. Hãy đăng nhập để tiếp tục.' );
-        return redirect()->route('vendor-login-page');
+        return redirect()->route('admin.login');
       }
     }        
     else{

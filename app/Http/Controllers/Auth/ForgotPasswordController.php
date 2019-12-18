@@ -230,7 +230,7 @@ class ForgotPasswordController extends Controller
          if($data>0 && isset($get_key->secret_key) && Hash::check(Input::get('vendor_forgot_secret_key'), $_key) && Hash::check(Input::get('vendor_forgot_secret_key'), $get_key->secret_key)){
            if($User :: where('email', Input::get('vendor_forgot_pass_email_id'))->update(['password' => bcrypt(Input::get('vendor_forgot_new_password'))])){
              Session::flash('success-message', Lang::get('frontend.new_password_updated'));
-             return redirect()->route('vendor-login-page');
+             return redirect()->route('admin.login');
            }
          }
          else{
