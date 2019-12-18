@@ -728,4 +728,32 @@ class RegisterController extends Controller
       return redirect()-> route('user-registration-page');
     }
   }
+
+      /**
+   * 
+   * Vendor verify email
+   *
+   * @param null
+   * @return response
+   */
+    
+  public function vendorVerify($code){
+
+    $usr = User::where('confirmation_code', $code)->first();
+
+    if(!empty($usr)){
+
+      $usr->confirmation_code = null;
+      
+      if ($usr->save()){
+        Session::flash('success-message', 'Bạn đã kích hoạt tài khoản thành công. Hãy đăng nhập để tiếp tục.' );
+        return redirect()->route('vendor-login-page');
+      }
+    }        
+    else{
+      Session::flash('error-message', 'Mã kích hoạt không hợp lệ. Vui lòng đăng kí tài khoản.');
+      return redirect()-> route('vendor-registration-page');
+    }
+  }
+
 }

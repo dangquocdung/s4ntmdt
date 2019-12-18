@@ -489,6 +489,8 @@ class GetFunction
       $get_view_data['_mail_to']    =   $data['email'];
       // $get_view_data['_subject']    =   $email_options['vendor_new_account']['subject'];
       $get_view_data['_subject']    =   'Tạo tài khoản nhà cung cấp thành công';
+      $get_view_data['_confirmation_code']    =   $data['confirmation_code'];
+
 
     }
     elseif($data['source'] == 'vendor_account_activation'){
