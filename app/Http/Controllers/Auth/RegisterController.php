@@ -710,10 +710,22 @@ class RegisterController extends Controller
    * @return response
    */
     
-  public function userVerify($data){
+  public function userVerify($code){
 
-    Session::flash('success-message', 'Bạn đã kích hoạt tài khoản thành công' );
-    return redirect()->route('user-login-page');
+    $usr = User::where('confirmation_code', $code)->first();
 
+    if(!empty($usr)){
+      $usr->user_status = 1;
+      $usr->confirmation_code = null;
+      
+      if ($usr->save()){
+        Session::flash('success-message', 'Bạn đã kích hoạt tài khoản thành công. Hãy đăng nhập để tiếp tục.' );
+        return redirect()->route('user-login-page');
+      }
+    }        
+    else{
+      Session::flash('error-message', 'Mã kích hoạt không hợp lệ. Vui lòng đăng kí tài khoản.');
+      return redirect()-> route('user-registration-page');
+    }
   }
 }
