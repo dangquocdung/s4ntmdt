@@ -464,7 +464,7 @@
 
                   swal({
                     type: 'success',
-                    title: 'Success!',
+                    title: 'Thành công!',
                     text: 'Tin nhắn của bạn đã được gửi đến nhà cung cấp!'
                   });
 
@@ -474,7 +474,7 @@
               error: function error() {
                 swal({
                   type: 'error',
-                  title: 'Opps...!',
+                  title: 'Ồ...!',
                   text: 'Đã có lỗi xảy ra!'
                 });
 

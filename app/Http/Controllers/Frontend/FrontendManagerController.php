@@ -1395,6 +1395,8 @@ class FrontendManagerController extends Controller
       $data = $this->classCommonFunction->get_dynamic_frontend_content_data();
       $data['tag_single_details']  =  $get_tag_by_slug;
       $data['popular_tags_list']   =  $this->product->getTermData( 'product_tag', false, null, 1 );
+
+      // return response()->json($data);
       
       return view('pages.frontend.frontend-pages.tag-single-page', $data);
     }

@@ -2,96 +2,107 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" >
-<title>Mailto</title>
-<link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700" rel="stylesheet">
-<style type="text/css">
-html { -webkit-text-size-adjust: none; -ms-text-size-adjust: none;}
-
-	@media only screen and (min-device-width: 750px) {
-		.table750 {width: 750px !important;}
-	}
-	@media only screen and (max-device-width: 750px), only screen and (max-width: 750px){
-      table[class="table750"] {width: 100% !important;}
-      .mob_b {width: 93% !important; max-width: 93% !important; min-width: 93% !important;}
-      .mob_b1 {width: 100% !important; max-width: 100% !important; min-width: 100% !important;}
-      .mob_left {text-align: left !important;}
-      .mob_soc {width: 50% !important; max-width: 50% !important; min-width: 50% !important;}
-      .mob_menu {width: 50% !important; max-width: 50% !important; min-width: 50% !important; box-shadow: inset -1px -1px 0 0 rgba(255, 255, 255, 0.2); }
-      .mob_center {text-align: center !important;}
-      .top_pad {height: 15px !important; max-height: 15px !important; min-height: 15px !important;}
-      .mob_pad {width: 15px !important; max-width: 15px !important; min-width: 15px !important;}
-      .mob_div {display: block !important;}
- 	}
-   @media only screen and (max-device-width: 550px), only screen and (max-width: 550px){
-      .mod_div {display: block !important;}
-   }
-	.table750 {width: 750px;}
-</style>
+<title>Sàn GDTMĐT Hà Tĩnh</title>
 </head>
 <body style="margin: 0; padding: 0;">
 
-<table cellpadding="0" cellspacing="0" border="0" width="100%" style="background: #f3f3f3; min-width: 350px; font-size: 1px; line-height: normal;">
- 	<tr>
-   	<td align="center" valign="top">   			
-   		<!--[if (gte mso 9)|(IE)]>
-         <table border="0" cellspacing="0" cellpadding="0">
-         <tr><td align="center" valign="top" width="750"><![endif]-->
-   		<table cellpadding="0" cellspacing="0" border="0" width="750" class="table750" style="width: 100%; max-width: 750px; min-width: 350px; background: #f3f3f3;">
-   			<tr>
-               <td class="mob_pad" width="25" style="width: 25px; max-width: 25px; min-width: 25px;">&nbsp;</td>
-   				<td align="center" valign="top" style="background: #ffffff;">
+<div>
+    <div id="yiv9635060181wrapper" style="background-color:#f0f0f0;">
+        <table align="center" border="0" cellpadding="0" cellspacing="0" width="600" style="margin:0 auto;width:600px !important;min-width:600px !important;" class="yiv9635060181container">
+            <tbody>
+                <tr>
+                    <td align="center" valign="middle" style="background:#ffffff;">
+                        <table style="width:580px;border-bottom:1px solid #ff3333;" cellpadding="0" cellspacing="0" border="0">
+                            <tbody>
+                                <tr>
+                                    <td align="left" valign="middle" style="width:500px;min-height:60px;">
+                                        <a rel="nofollow" style="border:0;" target="_blank" href="https://hatinhtrade.com.vn/">
+                                          <img style="display:block;border:0px;width:130px;min-height:35px;" src="https://hatinhtrade.com.vn/uploads/1568795723-h-90-logo%20(2).png"> 
+                                        </a>
+                                    </td>
+                                    <td align="right" valign="middle" style="padding-right:15px;">
+                                        <a rel="nofollow" style="border:0;"><img height="40" width="112" style="display:block;border:0px;" src="#"> </a>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </td>
+                </tr>
+                <tr>
+                    <td align="center" valign="middle" style="background:#ffffff;">
+                        <table style="width:580px;" cellpadding="0" cellspacing="0" border="0">
+                            <tbody>
+                                <tr>
+                                    <td valign="middle" style="font-family:Arial, Helvetica, sans-serif;font-size:24px;color:rgb(255, 51, 51);text-transform:uppercase;font-weight:bold;padding:25px 10px 15px;text-align:center;">Thông báo tin nhắn khách hàng</td>
+                                </tr>
+                                <tr>
+                                    <td align="left" valign="middle" style="font-family:Arial, Helvetica, sans-serif;font-size:12px;color:#666666;padding:0 10px 20px 10px;line-height:17px;">
+                                        <p>Chào bạn</p>
+                                        <p></p>
+                                        <p>&nbsp;</p>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </td>
+                </tr>
+                <tr>
+                    <td align="center" valign="middle" style="background:#ffffff;padding-top:20px;">
+                        <table style="width:500px;" cellpadding="0" cellspacing="0" border="0">
+                            <tbody>
+                                <tr>
+                                    <td align="center" valign="middle"><span style="font-size:12px;">Đây là email tự động, vui lòng không trả lời. Nếu có bất kỳ thắc mắc hay cần giúp đỡ, bạn vui lòng liên hệ&nbsp;<a rel="nofollow" target="_blank" href="https://help.sendo.vn/hc/vi"><b>Trung tâm hỗ trợ</b></a>&nbsp;của Sendo.</span></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </td>
+                </tr>
+                <tr>
+                    <td align="center" valign="middle" style="background:#ffffff;padding-top:20px;padding-bottom:20px;">
+                        <table style="width:580px;background:#f7f7f7;" cellpadding="0" cellspacing="0" border="0">
+                            <tbody>
+                                <tr>
+                                    <td align="left" valign="middle" style="font-family:Arial, Helvetica, sans-serif;font-size:11px;color:#ff3333;padding-left:8px;">
+                                      <strong>CÀI ĐẶT ỨNG DỤNG&nbsp;SÀN GDTMĐT HÀ TĨNH</strong>&nbsp;- Rõ ngay trạng thái đơn hàng!
+                                    </td>
+                                    <td align="right" valign="middle" style="width:190px;">
+                                        <a rel="nofollow" style="border:0px;text-decoration:none;" target="_blank" href="#"><img height="34" width="83" style="border:0px;" src="#"> </a>
+                                        <a rel="nofollow" style="border:0px;text-decoration:none;padding-left:3px;" target="_blank" href="#"> <img height="34" width="83" style="border:0px;" src="#"> </a>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </td>
+                </tr>
+                <tr>
+                    <td align="left" valign="top">
+                        <table style="width:600px;padding:20px 0 0 0;" cellpadding="0" cellspacing="0" border="0">
+                            <tbody>
+                                <tr>
+                                    <td align="left" valign="top" width="49" style="width:49px;padding-left:10px;">
+                                        <a rel="nofollow" style="border:0;" target="_blank" href="https://hatinhtrade.com.vn/">
+                                          <img height="50" width="49" style="display:block;border:0px;" src="https://hatinhtrade.com.vn/images/logo-san.png"> 
+                                        </a>
+                                    </td>
+                                    <td align="left" width="390" valign="top" style="font-family:Arial, Helvetica, sans-serif;font-size:11px;color:#3c3c3c;padding:0 0 0 10px;line-height:17px;width:390px;">Trung tâm CNTT & Truyền thông, trực thuộc Sở Thông tin & Truyền thông Hà Tĩnh
+                                        <br>Số 18 đường 26-3, Phường Nam Hà,
+                                        <br>TP. Hà Tĩnh, tỉnh Hà Tĩnh.</td>
+                                    <td align="right" valign="top" width="131" style="padding-right:10px;">
+                                      <img height="42" width="131" style="display:block;border:0px;" src="https://hatinhtrade.com.vn/images/da-dang-ky-bct.jpg">
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <p>
+      <img src="#">
+      <img src="#">
+    </p>
+</div>
 
-                  <table cellpadding="0" cellspacing="0" border="0" width="100%" style="width: 100% !important; min-width: 100%; max-width: 100%; background: #f3f3f3;">
-                     <tr>
-                        <td align="right" valign="top">
-                           <div class="top_pad" style="height: 25px; line-height: 25px; font-size: 23px;">&nbsp;</div>
-                        </td>
-                     </tr>
-                  </table>
-
-                  <table cellpadding="0" cellspacing="0" border="0" width="88%" style="width: 88% !important; min-width: 88%; max-width: 88%;">
-                     <tr>
-                        <td align="left" valign="top">
-                           <div style="height: 39px; line-height: 39px; font-size: 37px;">&nbsp;</div>
-                           <a href="#" target="_blank" style="display: block; max-width: 128px;">
-                              <img src="https://hatinhtrade.com.vn/uploads/1568795723-h-90-logo%20(2).png" alt="img" width="128" border="0" style="display: block; width: 128px;" />
-                           </a>
-                           <div style="height: 73px; line-height: 73px; font-size: 71px;">&nbsp;</div>
-                        </td>
-                     </tr>
-                  </table>
-
-                  <table cellpadding="0" cellspacing="0" border="0" width="88%" style="width: 88% !important; min-width: 88%; max-width: 88%;">
-                     <tr>
-                        <td align="left" valign="top">
-                           <font face="'Source Sans Pro', sans-serif" color="#585858" style="font-size: 24px; line-height: 32px;">
-                              <span style="font-family: 'Source Sans Pro', Arial, Tahoma, Geneva, sans-serif; color: #585858; font-size: 22px; line-height: 32px;">Người gửi: {!! $_name !!}</span>
-                           </font>
-                           <div style="height: 20px; line-height: 20px; font-size: 18px;">&nbsp;</div>
-
-                           <font face="'Source Sans Pro', sans-serif" color="#585858" style="font-size: 24px; line-height: 32px;">
-                              <span style="font-family: 'Source Sans Pro', Arial, Tahoma, Geneva, sans-serif; color: #585858; font-size: 22px; line-height: 32px;">Địa chỉ email: {{ $_from_email }}</span>
-                           </font>
-                           <div style="height: 20px; line-height: 20px; font-size: 18px;">&nbsp;</div>
-                           <font face="'Source Sans Pro', sans-serif" color="#585858" style="font-size: 24px; line-height: 32px;">
-                              <span style="font-family: 'Source Sans Pro', Arial, Tahoma, Geneva, sans-serif; color: #585858; font-size: 22px; line-height: 32px;">Nội dung tin nhắn: {{ $_message }}</span>
-                           </font>
-                           <div style="height: 33px; line-height: 33px; font-size: 31px;">&nbsp;</div>
-                           <div style="height: 75px; line-height: 75px; font-size: 73px;">&nbsp;</div>
-                        </td>
-                     </tr>
-                  </table>
-
-
-               </td>
-               <td class="mob_pad" width="25" style="width: 25px; max-width: 25px; min-width: 25px;">&nbsp;</td>
-            </tr>
-         </table>
-         <!--[if (gte mso 9)|(IE)]>
-         </td></tr>
-         </table><![endif]-->
-      </td>
-   </tr>
-</table>
 </body>
 </html>
