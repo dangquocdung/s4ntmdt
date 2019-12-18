@@ -11,12 +11,16 @@
 
       <style>
 
-        .fb_dialog {
-          position: -webkit-sticky !important;
-          position: fixed !important;
-          bottom: 95px !important;
-          left: 30px !important;
+        .fb_dialog.fb_dialog_advanced {
+            left: 18pt;
         }
+
+        iframe.fb_customer_chat_bounce_in_v2 {
+            left: 9pt;
+        }
+        iframe.fb_customer_chat_bounce_out_v2 {
+            left: 9pt;
+        }      
       </style>
       <!-- Load Facebook SDK for JavaScript -->
       <div id="fb-root"></div>
