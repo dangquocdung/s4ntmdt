@@ -423,11 +423,9 @@ class RegisterController extends Controller
                     
                     $vendor_data['social_media'] = array('fb_follow_us_url' => '', 'twitter_follow_us_url' => '', 'linkedin_follow_us_url' => '', 'dribbble_follow_us_url' => '', 'google_plus_follow_us_url' => '', 'instagram_follow_us_url' => '', 'youtube_follow_us_url' => '');
                     
-                    
                     $user_details->user_id  = $User->id; 
                     $user_details->details  = json_encode($vendor_data);
                     $user_details->save();
-                    
                     
                     //save language
                     $manageLanguage = new ManageLanguage();
@@ -444,8 +442,6 @@ class RegisterController extends Controller
                       
                       $vendor_permissions_list   =    array('manage_seo_full', 'manage_products_full', 'products_list_access', 'add_edit_delete_product', 'products_comments_list_access', 'manage_orders_list', 'manage_reports_list', 'manage_shipping_method_menu_access', 'manage_payment_method_menu_access', 'manage_coupon_menu_access', 'vendors_withdraw_access', 'manage_requested_product_menu_access', 'manage_extra_features_access');
 																						
-                      
-                      
                       if(UserRolePermission::insert(array(
                           array(
                                   'role_id'           =>  $get_user_role->id,
@@ -535,21 +531,27 @@ class RegisterController extends Controller
             $User->email              =    Input::get('reg_email_id');
             $User->password           =    bcrypt( trim(Input::get('reg_password')) );
             $User->user_photo_url     =    '';
-            $User->user_status        =    1;
+            $User->user_status        =    0;
             $User->secret_key         =    bcrypt( trim(Input::get('reg_secret_key')) );
             $User->confirmation_code  =    time().uniqid(true);
-
 
             if($User->save()){
               $Roleuser->user_id    =    $User->id;
               $Roleuser->role_id    =    $get_role->id;
 
               if($Roleuser->save()){
+
                 if($email_options['new_customer_account']['enable_disable'] == true && $this->env === 'production'){
-                  $this->classGetFunction->sendCustomMail( array('source' => 'new_customer_account', 'email' => Input::get('reg_email_id')) );
+
+                  $this->classGetFunction->sendCustomMail( array('source' => 'new_customer_account', 'email' => Input::get('reg_email_id'), 'confirmation_code' => $User->confirmation_code ));
+
                 }
 
+                Session::flash('success-message', 'Bạn đã tạo tài khoản thành công. Để tài khoản hoạt động, bạn cần kiểm tra email và làm theo hướng dẫn' );
+
                 return redirect()->route('user-login-page');
+
+                // return redirect()->route('user-login-page');
 
               }
             }
@@ -658,7 +660,6 @@ class RegisterController extends Controller
 
               $get_package  = VendorPackage::find(1);
 
-              
               $vendor_data['profile_details'] = array('store_name' => Input::get('vendor_reg_store_name'), 'address_line_1' => Input::get('vendor_reg_address_line_1'), 'address_line_2' => Input::get('vendor_reg_address_line_2'), 'city' => Input::get('vendor_reg_city'), 'state' => Input::get('vendor_reg_state'), 'country' => Input::get('vendor_reg_country'), 'zip_postal_code' => Input::get('vendor_reg_zip_code'), 'phone' => Input::get('vendor_reg_phone_number'));
               
               $vendor_data['general_details'] = array('cover_img' => '', 'vendor_home_page_cats' => '', 'google_map_app_key' => '', 'latitude' => '-25.363', 'longitude' => '131.044');
@@ -677,7 +678,6 @@ class RegisterController extends Controller
               else{
                 $vendor_data['package'] = array('package_name' => '');
               }
-              
               
               $Userdetails->user_id = $User->id;
               $Userdetails->details = json_encode($vendor_data);
@@ -700,5 +700,20 @@ class RegisterController extends Controller
     } else {
       return redirect()->back();
     }
+  }
+
+    /**
+   * 
+   * User verify
+   *
+   * @param null
+   * @return response
+   */
+    
+  public function userVerify($data){
+
+    Session::flash('success-message', 'Bạn đã kích hoạt tài khoản thành công' );
+    return redirect()->route('user-login-page');
+
   }
 }

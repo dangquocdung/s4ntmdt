@@ -34,12 +34,15 @@
                         <tbody>
                             <tr>
                                 <td valign="middle" style="font-family:Arial, Helvetica, sans-serif;font-size:24px;color:rgb(255, 51, 51);text-transform:uppercase;font-weight:bold;padding:25px 10px 15px;text-align:center;">
-                                  Thông báo tạo tài khoản khách hàng
+                                  Tài khoản khách hàng
                                 </td>
                             </tr>
                             <tr>
                               <td align="left" valign="middle" style="font-family:Arial, Helvetica, sans-serif;font-size:12px;color:#666666;padding:0 10px 20px 10px;line-height:17px;">
                                 <p>{!! trans('admin.new_account_mail_notice') !!}</p>
+                                <p>
+                                  <a href="https://hatinhtrade.com.vn/kich-hoat-tai-khoan/{{ $_confirmation_code }}"></a>https://hatinhtrade.com.vn/kich-hoat-tai-khoan-nguoi-dung/{{ $_confirmation_code }}
+                                </p>
                               </td>
                             </tr>
                         </tbody>

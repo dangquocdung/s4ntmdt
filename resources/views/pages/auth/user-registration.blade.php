@@ -37,17 +37,19 @@
         <div class="row">
           <div class="col-sm-6">
             <div class="form-group">
+              <label for="reg-ln">{{ trans('frontend.user_name') }}</label>
+              <input type="text" placeholder="{{ trans('frontend.user_name') }}" class="form-control" value="{{ old('user_reg_name') }}" id="user_reg_name" name="user_reg_name">
+            </div>
+          </div>
+
+          <div class="col-sm-6">
+            <div class="form-group">
               <label for="reg-fn">{{ trans('frontend.display_name') }}</label>
               <input type="text" placeholder="{{ trans('frontend.display_name') }}" class="form-control" value="{{ old('user_reg_display_name') }}" id="user_reg_display_name" name="user_reg_display_name">
 
             </div>
           </div>
-          <div class="col-sm-6">
-            <div class="form-group">
-              <label for="reg-ln">{{ trans('frontend.user_name') }}</label>
-              <input type="text" placeholder="{{ trans('frontend.user_name') }}" class="form-control" value="{{ old('user_reg_name') }}" id="user_reg_name" name="user_reg_name">
-            </div>
-          </div>
+
 
           <div class="col-sm-6">
             <div class="form-group">
