@@ -39,10 +39,11 @@
                             </tr>
                             <tr>
                               <td align="left" valign="middle" style="font-family:Arial, Helvetica, sans-serif;font-size:12px;color:#666666;padding:0 10px 20px 10px;line-height:17px;">
-                                <p>{!! trans('admin.new_account_mail_notice') !!}</p>
-                                <!-- <p>
-                                  <a href="https://hatinhtrade.com.vn/kich-hoat-tai-khoan/{{ $_confirmation_code }}"></a>https://hatinhtrade.com.vn/kich-hoat-tai-khoan-nguoi-dung/{{ $_confirmation_code }}
-                                </p> -->
+                                <p>{!! trans('admin.new_vendor_mail_notice') !!}</p>
+                                <p>
+                                  <a href="{{ route('vendor-verify',$_confirmation_code) }}">Kích hoạt mã {{ $_confirmation_code }}</a>
+                                </p>
+
                               </td>
                             </tr>
                         </tbody>

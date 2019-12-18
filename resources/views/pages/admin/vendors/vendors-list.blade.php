@@ -68,9 +68,11 @@
                   <td>{!! $details->profile_details->phone !!}</td>
                   
                   @if($row->user_status == 1)
-                  <td class="status-enable">{{ trans('admin.enable') }}</td>
+                    <td class="status-enable">{{ trans('admin.enable') }}</td>
+                  @elseif ($row->confirmation_code != null)
+                    <td class="status-disable">{{ trans('admin.not_confirm') }}</td>
                   @else
-                  <td class="status-disable">{{ trans('admin.disable') }}</td>
+                    <td class="status-disable">{{ trans('admin.disable') }}</td>
                   @endif
 
                   <td>
@@ -84,9 +86,9 @@
                         <li><a href="#" data-toggle="modal" data-target="#vendors_profile" class="vendors-profile" data-id="{{ $row->id }}"><i class="fa fa-user"></i>{{ trans('admin.shop_profile') }}</a></li>  
                         
                         @if($row->user_status == 1)
-                        <li><a href="#" class="vendor-status-change" data-id="{{ $row->id }}" data-target="disable"><i class="fa fa-times-rectangle-o"></i>{{ trans('admin.disable') }}</a></li>
-                        @else
-                        <li><a href="#" class="vendor-status-change" data-id="{{ $row->id }}" data-target="enable"><i class="fa fa-check-square-o"></i>{{ trans('admin.enable') }}</a></li>
+                          <li><a href="#" class="vendor-status-change" data-id="{{ $row->id }}" data-target="disable"><i class="fa fa-times-rectangle-o"></i>{{ trans('admin.disable') }}</a></li>
+                        @elseif ($row->confirmation_code == null)
+                          <li><a href="#" class="vendor-status-change" data-id="{{ $row->id }}" data-target="enable"><i class="fa fa-check-square-o"></i>{{ trans('admin.enable') }}</a></li>
                         @endif
                         
                         <li><a class="remove-selected-data-from-list" data-track_name="vendors_list" data-id="{{ $row->id }}" href="#"><i class="fa fa-remove"></i>{{ trans('admin.remove_label') }}</a></li>

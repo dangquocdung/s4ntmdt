@@ -684,7 +684,7 @@ class RegisterController extends Controller
 
               if ($Userdetails->save()) {
                 if($email_options['vendor_new_account']['enable_disable'] == true && $this->env === 'production'){
-                  $this->classGetFunction->sendCustomMail( array('source' => 'vendor_new_account', 'email' => Input::get('vendor_reg_email_id')) );
+                  $this->classGetFunction->sendCustomMail( array('source' => 'vendor_new_account', 'email' => Input::get('vendor_reg_email_id'), 'confirmation_code' => $User->confirmation_code) );
                 }
                 Session::flash('success-message', Lang::get('frontend.vendor_account_created_label'));
                 return redirect()->back();
@@ -728,4 +728,32 @@ class RegisterController extends Controller
       return redirect()-> route('user-registration-page');
     }
   }
+
+      /**
+   * 
+   * Vendor verify email
+   *
+   * @param null
+   * @return response
+   */
+    
+  public function vendorVerify($code){
+
+    $usr = User::where('confirmation_code', $code)->first();
+
+    if(!empty($usr)){
+
+      $usr->confirmation_code = null;
+      
+      if ($usr->save()){
+        Session::flash('success-message', 'Bạn đã kích hoạt tài khoản thành công. Hãy đăng nhập để tiếp tục.' );
+        return redirect()->route('admin.login');
+      }
+    }        
+    else{
+      Session::flash('error-message', 'Mã kích hoạt không hợp lệ. Vui lòng đăng kí tài khoản.');
+      return redirect()-> route('vendor-registration-page');
+    }
+  }
+
 }

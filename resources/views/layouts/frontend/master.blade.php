@@ -8,6 +8,16 @@
   <body>
 
     @if( Request::is('/') )
+
+      <style>
+
+        .fb_dialog {
+          position: -webkit-sticky !important;
+          position: fixed !important;
+          bottom: 95px !important;
+          left: 30px !important;
+        }
+      </style>
       <!-- Load Facebook SDK for JavaScript -->
       <div id="fb-root"></div>
         <script>
