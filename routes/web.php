@@ -88,6 +88,12 @@ Route::group(['namespace' => 'Auth'], function () {
     'as'   => 'vendor-registration-post'
   ]);
 
+  Route::get( '/kich-hoat-tai-khoan/{confirmation_code}', [
+    'uses' => 'RegisterController@userVerify',
+    'as'   => 'user-verify'
+  ]);
+
+
   //frontend forgot password route
   Route::get( '/thanh-vien/quen-mat-khau', [
     'uses' => 'ForgotPasswordController@redirectForgotPassword',

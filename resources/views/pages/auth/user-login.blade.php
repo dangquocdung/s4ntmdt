@@ -28,6 +28,7 @@
   <div class="row">
     <div class="col-md-6">
 
+      @include('pages-message.notify-msg-success')
       @include('pages-message.notify-msg-error')
       @include('pages-message.form-submit')
 

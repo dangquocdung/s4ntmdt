@@ -404,7 +404,7 @@ class GetFunction
       $view                         =   'emails.contact-with-vendor-mail';
       $get_view_data['_view']        =   $view;  
       $get_view_data['_mail_to']    =   $data['data']['_mail_to'];
-      $get_view_data['_subject']    =   'Liên hệ với gian hàng';
+      $get_view_data['_subject']    =   'Email liên hệ với gian hàng';
       $get_view_data['_name']    =   $data['data']['_name'];
       $get_view_data['_message']    =   $data['data']['_message'];
       $get_view_data['_from_email'] =   $data['data']['_mail_from'];
@@ -473,10 +473,15 @@ class GetFunction
       $get_view_data['_order_items'] = json_decode($get_order_data->order_data);
     }
     elseif($data['source'] == 'new_customer_account'){
+
       $view                         =   'emails.new-customer-account';
       $get_view_data['_view']       =   $view;
       $get_view_data['_mail_to']    =   $data['email'];
-      $get_view_data['_subject']    =   $email_options['new_customer_account']['subject'];
+      // $get_view_data['_subject']    =   $email_options['new_customer_account']['subject'];
+      $get_view_data['_subject']    =   'Tạo tài khoản thành viên thành công';
+      $get_view_data['_confirmation_code']    =   $data['confirmation_code'];
+
+
     }
     elseif($data['source'] == 'vendor_new_account'){
       $view                         =   'emails.vendor-new-account';
