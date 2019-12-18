@@ -21,7 +21,7 @@
                                         </a>
                                     </td>
                                     <td align="right" valign="middle" style="padding-right:15px;">
-                                        <a rel="nofollow" style="border:0;"><img height="40" width="112" style="display:block;border:0px;" src="#"> </a>
+                                        <a rel="nofollow" style="border:0;"><img height="40" width="112" style="display:block;border:0px;" src="https://hatinhtrade.com.vn/images/hoan-tra-hang.png"> </a>
                                     </td>
                                 </tr>
                             </tbody>
@@ -66,8 +66,8 @@
                                       <strong>CÀI ĐẶT ỨNG DỤNG&nbsp;SÀN GDTMĐT HÀ TĨNH</strong>&nbsp;- Rõ ngay trạng thái đơn hàng!
                                     </td>
                                     <td align="right" valign="middle" style="width:190px;">
-                                        <a rel="nofollow" style="border:0px;text-decoration:none;" target="_blank" href="#"><img height="34" width="83" style="border:0px;" src="#"> </a>
-                                        <a rel="nofollow" style="border:0px;text-decoration:none;padding-left:3px;" target="_blank" href="#"> <img height="34" width="83" style="border:0px;" src="#"> </a>
+                                        <a rel="nofollow" style="border:0px;text-decoration:none;" target="_blank" href="#"><img height="34" width="83" style="border:0px;" src="https://hatinhtrade.com.vn/images/appstore.jpg"> </a>
+                                        <a rel="nofollow" style="border:0px;text-decoration:none;padding-left:3px;" target="_blank" href="#"> <img height="34" width="83" style="border:0px;" src="https://hatinhtrade.com.vn/images/gg-play.png"> </a>
                                     </td>
                                 </tr>
                             </tbody>
@@ -81,7 +81,7 @@
                                 <tr>
                                     <td align="left" valign="top" width="49" style="width:49px;padding-left:10px;">
                                         <a rel="nofollow" style="border:0;" target="_blank" href="https://hatinhtrade.com.vn/">
-                                          <img height="50" width="49" style="display:block;border:0px;" src="https://hatinhtrade.com.vn/images/logo-san.png"> 
+                                          <img height="50" width="49" style="display:block;border:0px;" src="https://hatinhtrade.com.vn/images/logo-app.png"> 
                                         </a>
                                     </td>
                                     <td align="left" width="390" valign="top" style="font-family:Arial, Helvetica, sans-serif;font-size:11px;color:#3c3c3c;padding:0 0 0 10px;line-height:17px;width:390px;">Trung tâm CNTT & Truyền thông, trực thuộc Sở Thông tin & Truyền thông Hà Tĩnh
