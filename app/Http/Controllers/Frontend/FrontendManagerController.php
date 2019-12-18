@@ -1098,7 +1098,7 @@ class FrontendManagerController extends Controller
         return view('errors.no_data');
       }
 
-      return response()->json($data);
+      // return response()->json($data);
       
       return view('pages.frontend.vendors.vendor-details', $data);
     }
