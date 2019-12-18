@@ -10,11 +10,9 @@
     @if( Request::is('/') )
 
       <style>
-
         .fb_dialog.fb_dialog_advanced {
             left: 18pt;
         }
-
         iframe.fb_customer_chat_bounce_in_v2 {
             left: 9pt;
         }
