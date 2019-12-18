@@ -487,7 +487,9 @@ class GetFunction
       $view                         =   'emails.vendor-new-account';
       $get_view_data['_view']       =   $view;
       $get_view_data['_mail_to']    =   $data['email'];
-      $get_view_data['_subject']    =   $email_options['vendor_new_account']['subject'];
+      // $get_view_data['_subject']    =   $email_options['vendor_new_account']['subject'];
+      $get_view_data['_subject']    =   'Tạo tài khoản nhà cung cấp thành công';
+
     }
     elseif($data['source'] == 'vendor_account_activation'){
       $view                         =   'emails.vendor-account-status';
@@ -3086,7 +3088,7 @@ class GetFunction
         
         if(!empty($get_vendor_details) && $get_vendor_details->slug == 'vendor'){
           $vendor_details = get_user_details( $get_author_id->author_id );
-          $vendor_name = '<a target="_blank" href="'. route('store-details-page-content', $vendor_details['user_name']).'" style="text-decoration:none"><strong>'. $vendor_details['user_name'] .'</strong></a>';
+          $vendor_name = '<a target="_blank" href="'. route('store-products-page-content', $vendor_details['user_name']).'" style="text-decoration:none"><strong>'. $vendor_details['user_name'] .'</strong></a>';
         }
       }
     }
