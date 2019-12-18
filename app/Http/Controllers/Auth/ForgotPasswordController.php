@@ -49,7 +49,7 @@ class ForgotPasswordController extends Controller
       $this->classCommonFunction->set_admin_lang();
       return view('pages.auth.forgot-password');
     }
-    elseif(Request::is('user/quen-mat-khau')){
+    elseif(Request::is('thanh-vien/quen-mat-khau')){
       $this->classCommonFunction->set_frontend_lang();
       
       $data = array(); 
