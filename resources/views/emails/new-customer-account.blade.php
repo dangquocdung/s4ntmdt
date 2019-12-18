@@ -59,7 +59,7 @@
                                 </td>
                                 <td align="right" valign="middle" style="width:190px;">
                                     <a rel="nofollow" style="border:0px;text-decoration:none;" target="_blank" href="#"><img height="34" width="83" style="border:0px;" src="https://hatinhtrade.com.vn/images/appstore.jpg"> </a>
-                                    <a rel="nofollow" style="border:0px;text-decoration:none;padding-left:3px;" target="_blank" href="#"> <img height="34" width="83" style="border:0px;" src="https://hatinhtrade.com.vn/images/gg-play.jpga"> </a>
+                                    <a rel="nofollow" style="border:0px;text-decoration:none;padding-left:3px;" target="_blank" href="#"> <img height="34" width="83" style="border:0px;" src="https://hatinhtrade.com.vn/images/gg-play.jpg"> </a>
                                 </td>
                             </tr>
                         </tbody>
