@@ -38,7 +38,10 @@
                                 <tr>
                                     <td align="left" valign="middle" style="font-family:Arial, Helvetica, sans-serif;font-size:12px;color:#666666;padding:0 10px 20px 10px;line-height:17px;">
                                         <p>Chào bạn</p>
-                                        <p></p>
+                                        <p>Khách hàng có tên&nbsp;{!! $_name !!}</p>
+                                        <p>Và địa chỉ email&nbsp;{!! $_from_email !!}</p>
+                                        <p>Gửi đến bạn tin nhắn có nội dung như sau:</p>
+                                        <p>{!! $_message !!}</p>
                                         <p>&nbsp;</p>
                                     </td>
                                 </tr>
@@ -51,7 +54,8 @@
                         <table style="width:500px;" cellpadding="0" cellspacing="0" border="0">
                             <tbody>
                                 <tr>
-                                    <td align="center" valign="middle"><span style="font-size:12px;">Đây là email tự động, vui lòng không trả lời. Nếu có bất kỳ thắc mắc hay cần giúp đỡ, bạn vui lòng liên hệ&nbsp;<a rel="nofollow" target="_blank" href="https://help.sendo.vn/hc/vi"><b>Trung tâm hỗ trợ</b></a>&nbsp;của Sendo.</span></td>
+                                    <td align="center" valign="middle">
+                                    <span style="font-size:12px;">Đây là email tự động, vui lòng không trả lời. Nếu có bất kỳ thắc mắc hay cần giúp đỡ, bạn vui lòng liên hệ tại&nbsp;<a rel="nofollow" target="_blank" href="https://hatinhtrade.com.vn"><b>Sàn GDTMĐT Hà Tĩnh</b></a></span></td>
                                 </tr>
                             </tbody>
                         </table>
@@ -84,7 +88,7 @@
                                           <img height="50" width="49" style="display:block;border:0px;" src="https://hatinhtrade.com.vn/images/logo-app.png"> 
                                         </a>
                                     </td>
-                                    <td align="left" width="390" valign="top" style="font-family:Arial, Helvetica, sans-serif;font-size:11px;color:#3c3c3c;padding:0 0 0 10px;line-height:17px;width:390px;">Trung tâm CNTT & Truyền thông, trực thuộc Sở Thông tin & Truyền thông Hà Tĩnh
+                                    <td align="left" width="390" valign="top" style="font-family:Arial, Helvetica, sans-serif;font-size:11px;color:#3c3c3c;padding:0 0 0 10px;line-height:17px;width:390px;">Trung tâm CNTT & Truyền thông Hà Tĩnh
                                         <br>Số 18 đường 26-3, Phường Nam Hà,
                                         <br>TP. Hà Tĩnh, tỉnh Hà Tĩnh.</td>
                                     <td align="right" valign="top" width="131" style="padding-right:10px;">
