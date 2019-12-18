@@ -1,3 +1,4 @@
+<?php $data = get_emails_option_data();?>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -32,16 +33,14 @@
                     <table style="width:580px;" cellpadding="0" cellspacing="0" border="0">
                         <tbody>
                             <tr>
-                                <td valign="middle" style="font-family:Arial, Helvetica, sans-serif;font-size:24px;color:rgb(255, 51, 51);text-transform:uppercase;font-weight:bold;padding:25px 10px 15px;text-align:center;">Thông báo tin nhắn khách hàng</td>
+                                <td valign="middle" style="font-family:Arial, Helvetica, sans-serif;font-size:24px;color:rgb(255, 51, 51);text-transform:uppercase;font-weight:bold;padding:25px 10px 15px;text-align:center;">
+                                  Thông báo tạo tài khoản khách hàng
+                                </td>
                             </tr>
                             <tr>
-                                <td align="left" valign="middle" style="font-family:Arial, Helvetica, sans-serif;font-size:12px;color:#666666;padding:0 10px 20px 10px;line-height:17px;">
-                                    <p>Chào bạn</p>
-                                    <p>Khách hàng có tên:&nbsp;<strong>{!! $_name !!}</strong></p>
-                                    <p>Và địa chỉ email:&nbsp;{!! $_from_email !!}</p>
-                                    <p>Gửi đến gian hàng của bạn tin nhắn có nội dung như sau:</p>
-                                    <p>{!! $_message !!}</p>
-                                </td>
+                              <td align="left" valign="middle" style="font-family:Arial, Helvetica, sans-serif;font-size:12px;color:#666666;padding:0 10px 20px 10px;line-height:17px;">
+                                <p>{!! trans('admin.new_account_mail_notice') !!}</p>
+                              </td>
                             </tr>
                         </tbody>
                     </table>

@@ -483,6 +483,7 @@ class RegisterController extends Controller
    * @return void
    */
   public function userRegistration(){
+    
     if( Request::isMethod('post') && Session::token() == Input::get('_token')){
       $data = Input::all();
       
@@ -547,7 +548,9 @@ class RegisterController extends Controller
                 if($email_options['new_customer_account']['enable_disable'] == true && $this->env === 'production'){
                   $this->classGetFunction->sendCustomMail( array('source' => 'new_customer_account', 'email' => Input::get('reg_email_id')) );
                 }
+
                 return redirect()->route('user-login-page');
+
               }
             }
           }

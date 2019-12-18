@@ -27,6 +27,7 @@
 <div id="user_registration" class="container custom-extra-top-style padding-bottom-2x">
   <div class="row justify-content-center">
     <div class="col-xs-12 col-sm-8 col-md-6 text-center">
+
       @include('pages-message.notify-msg-error')
       @include('pages-message.form-submit')    
 

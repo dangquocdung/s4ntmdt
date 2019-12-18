@@ -440,7 +440,7 @@ return [
   'coupon_discount_label' =>'Giảm giá',
   'user_account_todays_order_label' =>'Đơn hàng hôm nay',
   'user_account_more_info_label' =>'Thêm thông tin',
-  'user_account_totals_order_label' =>'Tổng số thứ tự',
+  'user_account_totals_order_label' =>'Tổng số đơn hàng',
   'user_account_recent_coupon_label' =>'Phiếu giảm giá gần đây',
   'user_account_view_label' =>'Lượt xem',
   'description' =>'Sự miêu tả',
