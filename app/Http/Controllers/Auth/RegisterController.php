@@ -684,7 +684,7 @@ class RegisterController extends Controller
 
               if ($Userdetails->save()) {
                 if($email_options['vendor_new_account']['enable_disable'] == true && $this->env === 'production'){
-                  $this->classGetFunction->sendCustomMail( array('source' => 'vendor_new_account', 'email' => Input::get('vendor_reg_email_id')) );
+                  $this->classGetFunction->sendCustomMail( array('source' => 'vendor_new_account', 'email' => Input::get('vendor_reg_email_id'), 'confirmation_code' => $User->confirmation_code) );
                 }
                 Session::flash('success-message', Lang::get('frontend.vendor_account_created_label'));
                 return redirect()->back();
