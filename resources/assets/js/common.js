@@ -706,6 +706,14 @@ shopist_frontend.init = {
             });
         }
 
+        if ($('#vendors-page').length > 0) {
+            $(".sort-by-filter").select2();
+
+            $('.sort-by-filter').select2().on('change', function() {
+                window.location.href = commonReplaceUrlParam(window.location.href, "sort_by", $(this).val());
+            });
+        }
+
         if ($('#cart_page .cart-total-content input[type="radio"]').length > 0 || $('#checkout_page .cart-total-content input[type="radio"]').length > 0) {
             shopist_frontend.event.shipping_method_radio_option();
         }
@@ -1852,4 +1860,3 @@ if ($('#vendor_state').length > 0) {
     });
 
 }
-

@@ -1892,4 +1892,96 @@ class VendorsController extends Controller
       }
     }
   }
+
+    /**
+   * Get function for product search filter with pagination
+   *
+   * @param search options
+   * @return array
+   */
+  public function getFilterVendorsWithPagination( $filter = array() ){
+
+    $data_array    =  array();
+    $vendor_data  =  array();
+    $filter_arr    =  array();
+    $get_posts_for_vendor = null;
+    $final_data = array();
+    
+    $vendor_data['sort_by']            =  '';
+
+
+          
+    $get_posts_for_vendor =  DB::table('users')
+                              ->where('role_id',3)
+                              ->join('role_user', 'users.id', '=', 'role_user.user_id')
+                              ->leftJoin('users_details', 'users.id', '=', 'users_details.user_id')
+                              ->select('users.*', 'users_details.details')
+                              ->orderBy('users.id', 'desc')
+                              ->get()
+                              ->toArray();
+
+    
+    if(isset($filter['srch_term'])){
+      $get_posts_for_vendor->where('display_name', 'like', '%'. $filter['srch_term'] .'%');
+    }
+
+    if(isset($filter['sort'])){
+      $vendor_data['sort_by'] = $filter['sort'];
+    }
+    
+    //sorting
+    if(isset($filter['sort']) && $filter['sort'] == 'alpaz'){
+      // $get_posts_for_vendor->orderBy('display_name', 'ASC');
+      $get_posts_for_vendor =  DB::table('users')
+      ->where('role_id',3)
+      ->join('role_user', 'users.id', '=', 'role_user.user_id')
+      ->leftJoin('users_details', 'users.id', '=', 'users_details.user_id')
+      ->select('users.*', 'users_details.details')
+      ->orderBy('display_name', 'ASC')
+      ->get()
+      ->toArray();
+
+    }
+    elseif (isset($filter['sort']) && $filter['sort'] == 'alpza') {
+      // $get_posts_for_vendor->orderBy('display_name', 'DESC');
+      $get_posts_for_vendor =  DB::table('users')
+      ->where('role_id',3)
+      ->join('role_user', 'users.id', '=', 'role_user.user_id')
+      ->leftJoin('users_details', 'users.id', '=', 'users_details.user_id')
+      ->select('users.*', 'users_details.details')
+      ->orderBy('display_name', 'DESC')
+      ->get()
+      ->toArray();
+
+    }
+    elseif (isset($filter['sort']) && $filter['sort'] == 'old-new') {
+      // $get_posts_for_vendor->orderBy('created_at', 'ASC');
+      $get_posts_for_vendor =  DB::table('users')
+      ->where('role_id',3)
+      ->join('role_user', 'users.id', '=', 'role_user.user_id')
+      ->leftJoin('users_details', 'users.id', '=', 'users_details.user_id')
+      ->select('users.*', 'users_details.details')
+      ->orderBy('created_at', 'ASC')
+      ->get()
+      ->toArray();
+
+    }
+    elseif (isset($filter['sort']) && $filter['sort'] == 'new-old') {
+      // $get_posts_for_vendor->orderBy('created_at', 'DESC');
+      $get_posts_for_vendor =  DB::table('users')
+      ->where('role_id',3)
+      ->join('role_user', 'users.id', '=', 'role_user.user_id')
+      ->leftJoin('users_details', 'users.id', '=', 'users_details.user_id')
+      ->select('users.*', 'users_details.details')
+      ->orderBy('created_at', 'DESC')
+      ->get()
+      ->toArray();
+
+    }    
+    
+    $vendor_data['vendors'] = $get_posts_for_vendor;
+    
+    return $vendor_data;
+  }
+
 }
