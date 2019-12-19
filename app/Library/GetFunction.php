@@ -337,7 +337,9 @@ class GetFunction
     $get_view_data['_site_title'] = $site_title;
     
     if($data['source'] == 'order_confirmation'){ 
-      $view =   'emails.order-confirmation.'.$email_options['new_order']['selected_template'].'.'.$email_options['new_order']['selected_template'];
+      // $view =   'emails.order-confirmation.'.$email_options['new_order']['selected_template'].'.'.$email_options['new_order']['selected_template'];
+      $view =   'emails.order-confirmation';
+
       $get_view_data['_view'] = $view;
       
       $get_post_meta    =   PostExtra :: where('post_id', $data['data']['order_id'])->get();
