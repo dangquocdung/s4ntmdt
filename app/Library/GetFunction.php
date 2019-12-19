@@ -61,7 +61,7 @@ class GetFunction
   public function __construct() 
   {
     $this->carbonObject =  new Carbon();
-
+    
     $this->CMS      =  new CMSController();
     $this->user     =  new UserController();
     $this->product   =  new ProductsController();
@@ -76,6 +76,7 @@ class GetFunction
       $this->subscriptionData =   $this->option->getSubscriptionData();
       $this->subscriptionSettingsData =   $this->option->getSubscriptionSettingsData();
     }
+
   }
   
   /**
@@ -362,7 +363,10 @@ class GetFunction
         $get_view_data['_order_items'] = json_decode($get_order_data->order_data);
       }
       
-      $get_view_data['_subject']    = str_replace('#date_place#', $this->carbonObject->parse( $this->carbonObject->today() )->format('F d, Y'), $email_options['new_order']['subject']);
+      // $get_view_data['_subject']    = str_replace('#date_place#', $this->carbonObject->parse( $this->carbonObject->today() )->format('F d, Y'), $email_options['new_order']['subject']);
+
+      $get_view_data['_subject']    =  'Biện nhận đơn hàng ngày '.$this->carbonObject->parse( $this->carbonObject::setLocale('vi')->today() )->format('%A %d %B %Y');
+
       
       $get_view_data['_logo'] = $logo;
       $get_view_data['_appearance'] = $appearance;
