@@ -2799,7 +2799,8 @@ class ProductsController extends Controller
     }
     else{
       $get_posts_for_product  = DB::table('products')
-                                ->where(['status' => 1]);
+                                ->where(['status' => 1])
+                                ->orderBy('id', 'DESC');
       
       if(isset($filter['srch_term'])){
         $get_posts_for_product->where('title', 'like', '%'. $filter['srch_term'] .'%');
