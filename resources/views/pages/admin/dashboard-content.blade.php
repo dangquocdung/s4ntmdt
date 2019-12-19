@@ -246,6 +246,8 @@
     <div class="box box-solid">  
       <form  method="post" action="" enctype="multipart/form-data"> 
         <input type="hidden" name="_token" id="_token" value="{{ csrf_token() }}">
+        <input type="hidden" name="quickemailfrom" value="{{ $user_data['user_email'] }}">
+
         <div class="box-header with-border">
           <i class="fa fa-envelope dashbord-icon-color"></i>
           <h3 class="box-title">{{ trans('admin.quick_email') }}</h3>

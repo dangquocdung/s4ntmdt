@@ -404,6 +404,8 @@ class GetFunction
       $get_view_data['_mail_to'] =   $data['data']['_mail_to'];
       $get_view_data['_subject'] =   $data['data']['_subject'];
       $get_view_data['_message'] =   $data['data']['_message'];
+      $get_view_data['_from_email'] =   $data['data']['_from_email'];;
+
     }
     elseif($data['source'] == 'contact_to_vendor_mail'){
       $view                         =   'emails.contact-with-vendor-mail';

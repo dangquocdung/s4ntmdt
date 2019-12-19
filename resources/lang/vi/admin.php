@@ -290,7 +290,7 @@ return [
   'recently_added_products' =>'Sản phẩm được thêm gần đây',
   'no_recent_products_added' =>'Hôm nay bạn chưa thêm mới sản phẩm nào!',
   'view_all_products' =>'Xem tất cả sản phẩm',
-  'quick_email' =>'Email nhanh',
+  'quick_email' =>'Gửi email cho khách hàng',
   'email_to' =>'Gửi email đến:',
   'subject' =>'Tiêu đề',
   'message' =>'Thông điệp',

@@ -236,6 +236,8 @@ class AdminDashboardContentController extends Controller{
     //overview chart end
 
     $data['dashboard_data'] = $dashboard;
+
+    // return response()->json($data);
     
     return view('pages.admin.dashboard-content', $data);
   }
@@ -268,7 +270,7 @@ class AdminDashboardContentController extends Controller{
 
         //load mailData Array
         $mailData['source']  =  'quick_mail';
-        $mailData['data']    =   array('_mail_to' => Input::get('quickemailto'), '_subject' => Input::get('quickmailsubject'), '_message' => Input::get('quickmailbody'));
+        $mailData['data']    =   array('_mail_to' => Input::get('quickemailto'), '_subject' => Input::get('quickmailsubject'), '_message' => Input::get('quickmailbody'), '_from_email'=> Input::get('quickemailfrom'));
         
         if($this->env === 'production'){
           $this->classGetFunction->sendCustomMail( $mailData );
