@@ -2799,8 +2799,7 @@ class ProductsController extends Controller
     }
     else{
       $get_posts_for_product  = DB::table('products')
-                                ->where(['status' => 1])
-                                ->orderBy('id', 'DESC');
+                                ->where(['status' => 1]);
       
       if(isset($filter['srch_term'])){
         $get_posts_for_product->where('title', 'like', '%'. $filter['srch_term'] .'%');
@@ -2831,6 +2830,8 @@ class ProductsController extends Controller
       }
       elseif (isset($filter['sort']) && $filter['sort'] == 'new-old') {
         $get_posts_for_product->orderBy('created_at', 'DESC');
+      }else{
+        $get_posts_for_product->orderBy('id', 'DESC');
       }
       
       $get_posts_for_product = $get_posts_for_product->paginate(36);
