@@ -2370,7 +2370,7 @@ class AdminAjaxController extends Controller
   public function vendorStatusChange(){
 
     if(Request::isMethod('post') && Request::ajax() && Session::token() == Request::header('X-CSRF-TOKEN')){
-      
+
       $input = Request::all();
       $email_options = get_emails_option_data();
       

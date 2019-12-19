@@ -22,11 +22,11 @@
 </div>
 
 <!-- Page Content-->
-<div class="container padding-bottom-3x mb-2" id="login-page">
+<div class="container custom-extra-top-style padding-bottom-2x" id="login-page">
 
 
-  <div class="row">
-    <div class="col-md-6">
+  <div class="row justify-content-center">
+    <div class="col-xs-12 col-sm-8 col-md-6 text-center">
 
       @include('pages-message.notify-msg-success')
       @include('pages-message.notify-msg-error')

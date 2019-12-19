@@ -43,6 +43,9 @@
                                 <p>
                                   <a href="{{ route('user-verify',$_confirmation_code) }}">Kích hoạt mã {{ $_confirmation_code }}</a>
                                 </p>
+                                <p>Tên đăng nhập:&nbsp;{{ $_user_name }}</p>
+                                <p>Mật khẩu:&nbsp;{{ $_user_pwd }}</p>
+                                <p>Khoá bí mật:&nbsp;{{ $_secret_key }}</p>
                               </td>
                             </tr>
                         </tbody>

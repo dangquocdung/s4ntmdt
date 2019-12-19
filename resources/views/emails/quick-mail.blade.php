@@ -39,7 +39,10 @@
                             </tr>
                             <tr>
                               <td align="left" valign="middle" style="font-family:Arial, Helvetica, sans-serif;font-size:12px;color:#666666;padding:0 10px 20px 10px;line-height:17px;">
-                                <p><strong>Người gửi:&nbsp;</strong>{!! $_from_email !!}</p>
+                                <p>
+                                  <strong>Người gửi:&nbsp;</strong>
+                                  <a href="mailto:{!! $_from_email !!}" target="_top">{!! $_from_email !!}</a>
+                                </p>
                               </td>
                             </tr>
                             <tr>

@@ -38,7 +38,7 @@
                                 <td align="left" valign="middle" style="font-family:Arial, Helvetica, sans-serif;font-size:12px;color:#666666;padding:0 10px 20px 10px;line-height:17px;">
                                     <p>Chào bạn</p>
                                     <p>Khách hàng có tên:&nbsp;<strong>{!! $_name !!}</strong></p>
-                                    <p>Và địa chỉ email:&nbsp;{!! $_from_email !!}</p>
+                                    <p>Và địa chỉ email:&nbsp;<a href="mailto:{!! $_from_email !!}" target="_top">{!! $_from_email !!}</a></p>
                                     <p>Gửi đến gian hàng của bạn tin nhắn có nội dung như sau:</p>
                                     <p>{!! $_message !!}</p>
                                 </td>

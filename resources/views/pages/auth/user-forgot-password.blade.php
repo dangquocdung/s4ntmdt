@@ -23,11 +23,11 @@
 
 <!-- Page Content-->
 <!-- Page Content-->
-<div class="container padding-bottom-3x mb-2" id="login-page">
+<div class="container custom-extra-top-style padding-bottom-2x">
 
 
-  <div class="row">
-    <div class="col-md-6">
+  <div class="row justify-content-center">
+    <div class="col-xs-12 col-sm-8 col-md-6 text-center">
 
       @include('pages-message.notify-msg-error')
       @include('pages-message.form-submit')
@@ -39,14 +39,10 @@
           <div class="form-group input-group">
             <input type="email" placeholder="{{ ucfirst( trans('frontend.email') ) }}" class="form-control" id="user_forgot_pass_email_id" name="user_forgot_pass_email_id">
             <span class="input-group-addon"><i class="icon-mail"></i></span>
-
-
           </div>
           <div class="form-group input-group">
-
             <input type="password" placeholder="{{ ucfirst(trans('frontend.enter_new_password')) }}" class="form-control" id="user_forgot_new_password" name="user_forgot_new_password">
             <span class="input-group-addon"><i class="icon-lock"></i></span>
-
           </div>
 
           <div class="form-group input-group">

@@ -455,7 +455,8 @@ class GetFunction
       $get_view_data['_mail_to']    =   $data['email'];
       $get_view_data['_order_id']   =   $data['order_id'];
       $get_view_data['_order_date'] =   $this->carbonObject->parse( $this->carbonObject->today() )->format('F d, Y');
-      $get_view_data['_subject']    =   str_replace('#order_id#', '#'.$data['order_id'], $email_options['processed_order']['subject']);
+      // $get_view_data['_subject']    =   str_replace('#order_id#', '#'.$data['order_id'], $email_options['processed_order']['subject']);
+      $get_view_data['_subject']    = 'Đơn hàng #'.$data['order_id'].' đã được xác nhận.';
       $get_view_data['_payment_method_details'] =  $this->payment[$get_view_data['_payment_method']];
       $get_view_data['_order_items'] = json_decode($get_order_data->order_data);
     }
@@ -476,7 +477,9 @@ class GetFunction
       $get_view_data['_mail_to']    =   $data['email'];
       $get_view_data['_order_id']   =   $data['order_id'];
       $get_view_data['_order_date'] =   $this->carbonObject->parse( $this->carbonObject->today() )->format('F d, Y');
-      $get_view_data['_subject']    =   str_replace('#order_id#', '#'.$data['order_id'], $email_options['completed_order']['subject']);
+      // $get_view_data['_subject']    =   str_replace('#order_id#', '#'.$data['order_id'], $email_options['completed_order']['subject']);
+      $get_view_data['_subject']    =   'Đơn hàng có mã #'.$data['order_id'].' của bạn đã hoàn tất';
+
       $get_view_data['_payment_method_details'] =  $this->payment[$get_view_data['_payment_method']];
       $get_view_data['_order_items'] = json_decode($get_order_data->order_data);
     }
@@ -488,7 +491,9 @@ class GetFunction
       // $get_view_data['_subject']    =   $email_options['new_customer_account']['subject'];
       $get_view_data['_subject']    =   'Tạo tài khoản thành viên thành công';
       $get_view_data['_confirmation_code']    =   $data['confirmation_code'];
-
+      $get_view_data['_user_name']    =   $data['user_name'];
+      $get_view_data['_user_pwd']    =   $data['user_pwd'];
+      $get_view_data['_secret_key']    =   $data['secret_key'];
 
     }
     elseif($data['source'] == 'vendor_new_account'){
@@ -508,7 +513,6 @@ class GetFunction
       // $get_view_data['_subject']    =   $email_options['vendor_account_activation']['subject'];
       $get_view_data['_subject']    =   'Tình trạng tài khoản';
       $get_view_data['_status']     =   $data['status'];
-      // $get_view_data['_from_email'] =   $site_title;
 
     }
     elseif($data['source'] == 'withdraw_request'){
@@ -2466,10 +2470,10 @@ class GetFunction
                 $user_address['_billing_fax'] = $rows->key_value;
               }
               elseif($rows->key_name == '_billing_country'){
-                $user_address['_billing_country'] = $rows->key_value;
+                $user_address['_billing_country'] = get_tinhthanh($rows->key_value);
               }
               elseif($rows->key_name == '_billing_state'){
-                $user_address['_billing_state'] = $rows->key_value;
+                $user_address['_billing_state'] = get_quanhuyen($rows->key_value);
               }
               elseif($rows->key_name == '_billing_address_1'){
                 $user_address['_billing_address_1'] = $rows->key_value;
@@ -2478,7 +2482,7 @@ class GetFunction
                 $user_address['_billing_address_2'] = $rows->key_value;
               }
               elseif($rows->key_name == '_billing_city'){
-                $user_address['_billing_city'] = $rows->key_value;
+                $user_address['_billing_city'] = get_xaphuong($rows->key_value);
               }
               elseif($rows->key_name == '_billing_postcode'){
                 $user_address['_billing_postcode'] = $rows->key_value;
@@ -2541,9 +2545,9 @@ class GetFunction
             $user_address['_billing_email'] = $user_account_parse_data->address_details->account_bill_email_address;
             $user_address['_billing_phone'] = $user_account_parse_data->address_details->account_bill_phone_number;
             // $user_address['_billing_fax'] = $user_account_parse_data->address_details->account_bill_fax_number; 
-            $user_address['_billing_country'] = $user_account_parse_data->address_details->account_bill_select_country; 
-            $user_address['_billing_state'] = $user_account_parse_data->address_details->account_bill_select_state;
-            $user_address['_billing_city'] = $user_account_parse_data->address_details->account_bill_select_city;
+            $user_address['_billing_country'] = get_tinhthanh($user_account_parse_data->address_details->account_bill_select_country); 
+            $user_address['_billing_state'] = get_quanhuyen($user_account_parse_data->address_details->account_bill_select_state);
+            $user_address['_billing_city'] = get_xaphuong($user_account_parse_data->address_details->account_bill_select_city);
             $user_address['_billing_address_1'] = $user_account_parse_data->address_details->account_bill_adddress_line_1; 
             // $user_address['_billing_address_2'] = $user_account_parse_data->address_details->account_bill_adddress_line_2; 
 

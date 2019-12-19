@@ -30,14 +30,17 @@
             </tr>
             <tr>
                 <td align="center" valign="middle" style="background:#ffffff;">
-                    <table style="width:580px;" cellpadding="0" cellspacing="0" border="0">
-                        <tbody>
-                            <tr>
-                                <td valign="middle" style="font-family:Arial, Helvetica, sans-serif;font-size:24px;color:rgb(255, 51, 51);text-transform:uppercase;font-weight:bold;padding:25px 10px 15px;text-align:center;">
-                                  Huỷ đơn hàng
-                                </td>
-                            </tr>
-                            <tr>
+
+                  <table style="width:580px;" cellpadding="0" cellspacing="0" border="0">
+                      <tbody>
+                          <tr>
+                              <td valign="middle" style="font-family:Arial, Helvetica, sans-serif;font-size:24px;color:rgb(255, 51, 51);text-transform:uppercase;font-weight:bold;padding:25px 10px 15px;text-align:center;">
+                                <!-- {!! $data['new_order']['email_heading'] !!} -->
+                                Đơn hàng của bạn đã hoàn tất
+                              </td>
+                          </tr>
+
+                          <tr>
                             <td valign="top" align="center">
                               <table width="600" cellspacing="0" cellpadding="0" border="0">
                                 <tbody>
@@ -48,7 +51,7 @@
                                           <tr>
                                             <td valign="top" style="padding:48px">
                                               <div style="color:#737373;font-family:&quot;Helvetica Neue&quot;,Helvetica,Roboto,Arial,sans-serif;font-size:14px;line-height:150%;text-align:left">
-                                                  <p>{!! trans('admin.cancelled_order_msg', ['order_number' => '#'.$_order_id]) !!}</p>
+                                                  <p>{!! trans('admin.completed_order_mail_msg') !!}</p>
                                                 
                                                 <h2 style="color:#3c8dbc;display:block;font-family:&quot;Helvetica Neue&quot;,Helvetica,Roboto,Arial,sans-serif;font-size:18px;font-weight:bold;line-height:130%;margin:16px 0 8px;text-align:left">{!! trans('email.order') !!} #{!! $_order_id !!} ({!! $_order_date !!})</h2>
                                                 <table cellspacing="0" cellpadding="6" border="1" style="width:100%;font-family:'Helvetica Neue',Helvetica,Roboto,Arial,sans-serif;color:#737373;border:1px solid #e4e4e4">
@@ -118,13 +121,7 @@
                                                     <tr>
                                                       <td width="50%" valign="top">
                                                         <h3 style="color:#3c8dbc;display:block;font-family:&quot;Helvetica Neue&quot;,Helvetica,Roboto,Arial,sans-serif;font-size:16px;font-weight:bold;line-height:130%;margin:16px 0 8px;text-align:left">{!! trans('email.billing_address') !!}</h3>
-                                                        <p style="color:#505050;font-family:&quot;Helvetica Neue&quot;,Helvetica,Roboto,Arial,sans-serif;margin:0 0 16px">
-                                                          {!! $_billing_first_name .' '. $_billing_last_name !!} 
-                                                          <br> 
-                                                          {!! $_billing_address_1 !!}
-                                                          <br> 
-                                                          {!! $_billing_city !!}&nbsp;-&nbsp;{!! $_billing_state !!}&nbsp;-&nbsp;{!! $_billing_country !!}
-                                                        </p>
+                                                        <p style="color:#505050;font-family:&quot;Helvetica Neue&quot;,Helvetica,Roboto,Arial,sans-serif;margin:0 0 16px">{!! $_billing_first_name .' '. $_billing_last_name !!} <br> {!! $_billing_address_1 !!}<br> {!! $_billing_city !!}</p>
                                                       </td>
                                                     </tr>
                                                   </tbody>
@@ -139,10 +136,11 @@
                                 </tbody>
                               </table>
                             </td>
+                          </tr>
 
-                            </tr>
-                        </tbody>
-                    </table>
+                      </tbody>
+                  </table>
+
                 </td>
             </tr>
             <tr>

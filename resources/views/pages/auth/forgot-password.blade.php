@@ -3,9 +3,9 @@
 @section('content')
 
 <br><br>
-<div class="container">  
+<div class="container custom-extra-top-style padding-bottom-2x">  
   <div class="row justify-content-center">
-    <div class="col-md-12 col-lg-4 text-center">
+    <div class="col-xs-12 col-sm-8 col-md-6 text-center">
       <div class="panel panel-default">
         <div class="panel-body">
           <div class="text-center">
