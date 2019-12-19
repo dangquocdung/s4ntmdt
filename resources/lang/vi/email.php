@@ -24,4 +24,5 @@ return [
     'admin_order_email_subj' =>'Khách hàng đặt hàng mới',
     'admin_order_email_heading' =>'Đơn hàng mới của khách hàng',
     'admin_order_email_msg' =>'Đây là chi tiết đặt hàng của khách hàng:',
+    'order_email_heading' => 'Cảm ơn bạn đã đặt hàng',
 ];

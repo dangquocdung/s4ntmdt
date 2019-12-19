@@ -543,7 +543,10 @@ class RegisterController extends Controller
 
                 if($email_options['new_customer_account']['enable_disable'] == true && $this->env === 'production'){
 
-                  $this->classGetFunction->sendCustomMail( array('source' => 'new_customer_account', 'email' => Input::get('reg_email_id'), 'confirmation_code' => $User->confirmation_code ));
+                  $user_pwd = trim(Input::get('reg_password'));
+                  $secret_key = trim(Input::get('reg_secret_key'));
+
+                  $this->classGetFunction->sendCustomMail( array('source' => 'new_customer_account', 'email' => Input::get('reg_email_id'), 'confirmation_code' => $User->confirmation_code, 'user_name' => $User->name, 'user_pwd' => $user_pwd, 'secret_key' => $secret_key ));
 
                 }
 

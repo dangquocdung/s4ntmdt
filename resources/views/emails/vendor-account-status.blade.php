@@ -40,12 +40,11 @@
                             <tr>
                               <td align="left" valign="middle" style="font-family:Arial, Helvetica, sans-serif;font-size:12px;color:#666666;padding:0 10px 20px 10px;line-height:17px;">
 
-                              @if($_status == 1)
-                                <p>{!! trans('admin.vendor_activation_msg_1') !!}</p>
-                              @else
-                                <p>{!! trans('admin.vendor_activation_msg_2') !!}</p>
-                              @endif
-
+                                @if($_status == 1)
+                                  <p>{!! trans('admin.vendor_activation_msg_1') !!}</p>
+                                @else
+                                  <p>{!! trans('admin.vendor_activation_msg_2') !!}</p>
+                                @endif
                               </td>
                             </tr>
                         </tbody>

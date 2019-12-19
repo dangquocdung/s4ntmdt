@@ -34,18 +34,20 @@
                         <tbody>
                             <tr>
                                 <td valign="middle" style="font-family:Arial, Helvetica, sans-serif;font-size:24px;color:rgb(255, 51, 51);text-transform:uppercase;font-weight:bold;padding:25px 10px 15px;text-align:center;">
-                                  Tài khoản khách hàng
+                                  {!! $_subject !!}
                                 </td>
                             </tr>
                             <tr>
                               <td align="left" valign="middle" style="font-family:Arial, Helvetica, sans-serif;font-size:12px;color:#666666;padding:0 10px 20px 10px;line-height:17px;">
-                                <p>{!! trans('admin.new_account_mail_notice') !!}</p>
                                 <p>
-                                  <a href="{{ route('user-verify',$_confirmation_code) }}">Kích hoạt mã {{ $_confirmation_code }}</a>
+                                  <strong>Người gửi:&nbsp;</strong>
+                                  <a href="mailto:{!! $_from_email !!}" target="_top">{!! $_from_email !!}</a>
                                 </p>
-                                <p>Tên đăng nhập:&nbsp;{{ $_user_name }}</p>
-                                <p>Mật khẩu:&nbsp;{{ $_user_pwd }}</p>
-                                <p>Khoá bí mật:&nbsp;{{ $_secret_key }}</p>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td align="left" valign="middle" style="font-family:Arial, Helvetica, sans-serif;font-size:12px;color:#666666;padding:0 10px 20px 10px;line-height:17px;">
+                                <p>{!! $_message !!}</p>
                               </td>
                             </tr>
                         </tbody>
