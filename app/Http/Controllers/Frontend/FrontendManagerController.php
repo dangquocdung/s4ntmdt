@@ -850,11 +850,27 @@ class FrontendManagerController extends Controller
    * @return void 
    */
   public function multivendorStoreListPageContent(){
+
     $data = array();
+
+    $sort = null;
+    $search_term = null;
+
+    if(isset($_GET['sort_by'])){
+      $sort = $_GET['sort_by'];
+    }
+
+
     
     $data = $this->classCommonFunction->get_dynamic_frontend_content_data();
 
-    $data['vendors_list'] = $this->vendors->getAllVendors( false, null, 1 );
+    $get_vendors = $this->vendors->getFilterVendorsWithPagination(array('srch_term' => $search_term, 'sort' => $sort)); 
+
+    $data['vendors_list'] =   $get_vendors;
+
+    // $data['vendors_list'] = $this->vendors->getAllVendors( false, null, 1 );
+
+    // return response()->json($data['vendors_list']);
     
     return view('pages.frontend.vendors.vendors-list', $data);
   }
