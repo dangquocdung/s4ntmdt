@@ -1079,7 +1079,7 @@ return [
   'body_bg_color_label' =>'Màu nền cơ bản',
   'email_cancelled_order_label' =>'Email đơn hàng đã hủy được gửi đến (những) người nhận được chọn khi đơn hàng đã bị đánh dấu hủy.',
   'body_content_label' =>'Nội dung cơ thể',
-  'cancelled_order_msg' =>'Đơn hàng: order_number đã bị hủy. Thứ tự như sau: ',
+  'cancelled_order_msg' =>'Đơn hàng :order_number đã bị hủy. Chi tiết đơn hàng:',
   'email_processed_order_label' =>'Email đơn đặt hàng xử lý được gửi đến (những) người nhận được chọn khi đơn hàng đã được đánh dấu xử lý.',
   'processed_order_msg' =>'Đơn hàng: order_number đã được xử lý. Thứ tự như sau: ',
   'completed_order_msg' =>'Email hoàn thành đơn hàng được gửi cho khách hàng khi đơn hàng của họ được đánh dấu hoàn thành.',

@@ -61,7 +61,6 @@ class GetFunction
   public function __construct() 
   {
     $this->carbonObject =  new Carbon();
-    
     $this->CMS      =  new CMSController();
     $this->user     =  new UserController();
     $this->product   =  new ProductsController();
@@ -365,7 +364,7 @@ class GetFunction
       
       // $get_view_data['_subject']    = str_replace('#date_place#', $this->carbonObject->parse( $this->carbonObject->today() )->format('F d, Y'), $email_options['new_order']['subject']);
 
-      $get_view_data['_subject']    =  'Biện nhận đơn hàng ngày '.$this->carbonObject->parse( $this->carbonObject::setLocale('vi')->today() )->format('%A %d %B %Y');
+      $get_view_data['_subject']    =  'Biên nhận đơn hàng';
 
       
       $get_view_data['_logo'] = $logo;
@@ -432,7 +431,8 @@ class GetFunction
       $get_view_data['_mail_to']    =   $data['email'];
       $get_view_data['_order_id']   =   $data['order_id'];
       $get_view_data['_order_date'] =   $this->carbonObject->parse( $this->carbonObject->today() )->format('F d, Y');
-      $get_view_data['_subject']    =   $email_options['cancelled_order']['subject'];
+      // $get_view_data['_subject']    =   $email_options['cancelled_order']['subject'];
+      $get_view_data['_subject']    = 'Thông báo huỷ đơn hàng';
       $get_view_data['_payment_method_details'] =  $this->payment[$get_view_data['_payment_method']];
       $get_view_data['_order_items'] = json_decode($get_order_data->order_data);
     }
