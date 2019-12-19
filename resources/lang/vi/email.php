@@ -23,5 +23,5 @@ return [
     'powered_by' =>'Được cung cấp bởi',
     'admin_order_email_subj' =>'Khách hàng đặt hàng mới',
     'admin_order_email_heading' =>'Đơn hàng mới của khách hàng',
-    'admin_order_email_msg' =>'Đây là chi tiết đặt hàng của coustomer:',
+    'admin_order_email_msg' =>'Đây là chi tiết đặt hàng của khách hàng:',
 ];
