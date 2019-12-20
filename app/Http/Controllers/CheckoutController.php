@@ -237,59 +237,59 @@ class CheckoutController extends Controller
         elseif($validator->passes())
         {
           if(!empty($checkout_user) && $checkout_user == 'guest'){
-            $shipping_title                 =   Input::get('account_bill_title');
+            // $shipping_title                 =   Input::get('account_bill_title');
             $shipping_first_name            =   Input::get('account_bill_first_name');
             $shipping_last_name             =   Input::get('account_bill_last_name');
-            $shipping_company_name          =   Input::get('account_bill_company_name');
+            // $shipping_company_name          =   Input::get('account_bill_company_name');
             $shipping_email_address         =   Input::get('account_bill_email_address');
             $shipping_phone_number          =   Input::get('account_bill_phone_number');
-            $shipping_fax_number            =   Input::get('account_bill_fax_number');
+            // $shipping_fax_number            =   Input::get('account_bill_fax_number');
             $shipping_select_country        =   Input::get('account_bill_select_country');
             $shipping_select_state          =   Input::get('account_bill_select_state');
             $shipping_select_city           =   Input::get('account_bill_select_city');
             $shipping_adddress_line_1       =   Input::get('account_bill_adddress_line_1');
-            $shipping_address_line_2        =   Input::get('account_bill_adddress_line_2');
+            // $shipping_address_line_2        =   Input::get('account_bill_adddress_line_2');
             
             if(isset($get_shipping_status) && $get_shipping_status == 'different_address'){
-              $shipping_title                 =   Input::get('account_shipping_title');
+              // $shipping_title                 =   Input::get('account_shipping_title');
               $shipping_first_name            =   Input::get('account_shipping_first_name');
               $shipping_last_name             =   Input::get('account_shipping_last_name');
-              $shipping_company_name          =   Input::get('account_shipping_company_name');
+              // $shipping_company_name          =   Input::get('account_shipping_company_name');
               $shipping_email_address         =   Input::get('account_shipping_email_address');
               $shipping_phone_number          =   Input::get('account_shipping_phone_number');
-              $shipping_fax_number            =   Input::get('account_shipping_fax_number');
+              // $shipping_fax_number            =   Input::get('account_shipping_fax_number');
               $shipping_select_country        =   Input::get('account_shipping_select_country');
               $shipping_select_state          =   Input::get('account_shipping_select_country');
               $shipping_select_city           =   Input::get('account_shipping_select_city');
               $shipping_adddress_line_1       =   Input::get('account_shipping_adddress_line_1');
-              $shipping_address_line_2        =   Input::get('account_shipping_adddress_line_2');
+              // $shipping_address_line_2        =   Input::get('account_shipping_adddress_line_2');
             }
             
-            $this->checkoutData['billing_title']              =   Input::get('account_bill_title');
+            // $this->checkoutData['billing_title']              =   Input::get('account_bill_title');
             $this->checkoutData['bill_first_name']            =   Input::get('account_bill_first_name');
             $this->checkoutData['bill_last_name']             =   Input::get('account_bill_last_name');
-            $this->checkoutData['bill_company_name']          =   Input::get('account_bill_company_name');
+            // $this->checkoutData['bill_company_name']          =   Input::get('account_bill_company_name');
             $this->checkoutData['bill_email_address']         =   Input::get('account_bill_email_address');
             $this->checkoutData['bill_phone_number']          =   Input::get('account_bill_phone_number');
-            $this->checkoutData['bill_fax_number']            =   Input::get('account_bill_fax_number');
+            // $this->checkoutData['bill_fax_number']            =   Input::get('account_bill_fax_number');
             $this->checkoutData['bill_select_country']        =   Input::get('account_bill_select_country');
             $this->checkoutData['bill_select_state']          =   Input::get('account_bill_select_states');
             $this->checkoutData['bill_select_city']           =   Input::get('account_bill_select_city');
             $this->checkoutData['bill_adddress_line_1']       =   Input::get('account_bill_adddress_line_1');
-            $this->checkoutData['bill_address_line_2']        =   Input::get('account_bill_adddress_line_2');
+            // $this->checkoutData['bill_address_line_2']        =   Input::get('account_bill_adddress_line_2');
             
-            $this->checkoutData['shipping_title']              =   $shipping_title;
+            // $this->checkoutData['shipping_title']              =   $shipping_title;
             $this->checkoutData['shipping_first_name']         =   $shipping_first_name;
             $this->checkoutData['shipping_last_name']          =   $shipping_last_name;
-            $this->checkoutData['shipping_company_name']       =   $shipping_company_name;
+            // $this->checkoutData['shipping_company_name']       =   $shipping_company_name;
             $this->checkoutData['shipping_email_address']      =   $shipping_email_address;
             $this->checkoutData['shipping_phone_number']       =   $shipping_phone_number;
-            $this->checkoutData['shipping_fax_number']         =   $shipping_fax_number;
+            // $this->checkoutData['shipping_fax_number']         =   $shipping_fax_number;
             $this->checkoutData['shipping_select_country']     =   $shipping_select_country;
             $this->checkoutData['shipping_select_state']      =   $shipping_select_state;
             $this->checkoutData['shipping_select_city']       =   $shipping_select_city;
             $this->checkoutData['shipping_adddress_line_1']    =   $shipping_adddress_line_1;
-            $this->checkoutData['shipping_address_line_2']     =   $shipping_address_line_2;
+            // $this->checkoutData['shipping_address_line_2']     =   $shipping_address_line_2;
           }
           
           $this->checkoutData['payment_method']             =   Input::get('payment_option');
