@@ -82,7 +82,7 @@
         </div>
 
         <br>
-        <div class="address-content-sub">
+        <!-- <div class="address-content-sub">
 
             <h4>{!! trans('frontend.shipping_address') !!}</h4>
             <hr class="padding-bottom-1x">
@@ -161,7 +161,7 @@
             
             </div>
 
-        </div>
+        </div> -->
         
         </div>  
     </div>
