@@ -2476,10 +2476,10 @@ class GetFunction
                 $user_address['_billing_fax'] = $rows->key_value;
               }
               elseif($rows->key_name == '_billing_country'){
-                $user_address['_billing_country'] = get_tinhthanh($rows->key_value);
+                $user_address['_billing_country'] = $rows->key_value;
               }
               elseif($rows->key_name == '_billing_state'){
-                $user_address['_billing_state'] = get_quanhuyen($rows->key_value);
+                $user_address['_billing_state'] = $rows->key_value;
               }
               elseif($rows->key_name == '_billing_address_1'){
                 $user_address['_billing_address_1'] = $rows->key_value;
@@ -2488,7 +2488,7 @@ class GetFunction
                 $user_address['_billing_address_2'] = $rows->key_value;
               }
               elseif($rows->key_name == '_billing_city'){
-                $user_address['_billing_city'] = get_xaphuong($rows->key_value);
+                $user_address['_billing_city'] = $rows->key_value;
               }
               // elseif($rows->key_name == '_billing_postcode'){
               //   $user_address['_billing_postcode'] = $rows->key_value;
@@ -2518,10 +2518,10 @@ class GetFunction
               //   $user_address['_shipping_fax'] = $rows->key_value;
               // }
               elseif($rows->key_name == '_shipping_country'){
-                $user_address['_shipping_country'] = get_tinhthanh($rows->key_value);
+                $user_address['_shipping_country'] = $rows->key_value;
               }
               elseif($rows->key_name == '_shipping_state'){
-                $user_address['_shipping_state'] = get_quanhuyen($rows->key_value);
+                $user_address['_shipping_state'] = $rows->key_value;
               }
               elseif($rows->key_name == '_shipping_address_1'){
                 $user_address['_shipping_address_1'] = $rows->key_value;
@@ -2530,7 +2530,7 @@ class GetFunction
               //   $user_address['_shipping_address_2'] = $rows->key_value;
               // }
               elseif($rows->key_name == '_shipping_city'){
-                $user_address['_shipping_city'] = get_xaphuong($rows->key_value);
+                $user_address['_shipping_city'] = $rows->key_value;
               }
               // elseif($rows->key_name == '_shipping_postcode'){
               //   $user_address['_shipping_postcode'] = $rows->key_value;
