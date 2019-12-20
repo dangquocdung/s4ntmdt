@@ -97,7 +97,7 @@
 
       </div>
 
-      <!-- Sidebar          -->
+      <!-- Sidebar -->
       <div class="col-xl-3 col-lg-4">
         <aside class="sidebar">
           <div class="padding-top-2x hidden-lg-up"></div>
