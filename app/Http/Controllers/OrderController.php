@@ -50,6 +50,8 @@ class OrderController extends Controller
     $order_object->setPath( route('admin.shop_orders_list') );
 
     $data['orders_list_data']  =  $order_object;
+
+    return response()->json($data);
      
     return view('pages.admin.orders.order-list', $data);
   }
