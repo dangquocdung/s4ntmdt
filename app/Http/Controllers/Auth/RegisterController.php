@@ -314,17 +314,17 @@ class RegisterController extends Controller
                       'body_bg_color' => '#f5f5f5'), 
                     'vendor_withdraw_request' => array(
                       'enable_disable' => true, 
-                      'subject' => 'Your Request for Withdrawal was Received', 
+                      'subject' => 'Yêu cầu rút tiền của bạn đã được tiếp nhận', 
                       'email_heading' => 'Withdraw request', 
                       'body_bg_color' => '#f5f5f5'), 
                     'vendor_withdraw_request_cancelled' => array(
                       'enable_disable' => true, 
-                      'subject' => 'Withdraw request has been cancelled', 
+                      'subject' => 'Yêu cầu rút tiền của bạn đã bị từ chối', 
                       'email_heading' => '', 
                       'body_bg_color' => '#f5f5f5'), 
                     'vendor_withdraw_request_completed' => array(
                       'enable_disable' => true, 
-                      'subject' => 'Withdraw request has been completed', 
+                      'subject' => 'Yêu cầu rút tiền của bạn đã được chấp nhận', 
                       'email_heading' => '', 
                       'body_bg_color' => '#f5f5f5')
                   );

@@ -35,9 +35,9 @@
                   <div class="payment-method-options">      
                     <div class="payment-method-radio"><input type="radio" class="shopist-iCheck" name="payment_method" value="paypal"></div><div class="payment-method-label"> {!! trans('admin.paypal') !!}</div>
                   </div>
-                  <div class="payment-method-options">      
+                  <!-- <div class="payment-method-options">      
                     <div class="payment-method-radio"><input type="radio" class="shopist-iCheck" name="payment_method" value="stripe"></div><div class="payment-method-label"> {!! trans('admin.stripe') !!}</div>
-                  </div>  
+                  </div>   -->
                 </div>
               </div>  
             </div> 

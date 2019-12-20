@@ -519,7 +519,8 @@ class GetFunction
       $view                         =   'emails.vendor-withdraw-request';
       $get_view_data['_view']       =   $view;  
       $get_view_data['_mail_to']    =   $data['email'];
-      $get_view_data['_subject']    =   $email_options['vendor_withdraw_request']['subject'];
+      // $get_view_data['_subject']    =   $email_options['vendor_withdraw_request']['subject'];
+      $get_view_data['_subject']    =   'Yêu cầu rút tiền của bạn đã được tiếp nhận';
       $get_view_data['_target']     =   $data['target'];
       $get_view_data['_value']      =   $data['value'];
       $get_view_data['_payment_method']  =   $data['payment_method'];
@@ -528,13 +529,17 @@ class GetFunction
       $view                         =   'emails.vendor-withdraw-request-cancelled';
       $get_view_data['_view']        =   $view;
       $get_view_data['_mail_to']    =   $data['email'];
-      $get_view_data['_subject']    =   $email_options['vendor_withdraw_request_cancelled']['subject'];
+      // $get_view_data['_subject']    =   $email_options['vendor_withdraw_request_cancelled']['subject'];
+      $get_view_data['_subject']    =   'Yêu cầu rút tiền của bạn đã bị từ chối';
+
     }
     elseif($data['source'] == 'vendor_withdraw_request_completed'){
       $view                         =   'emails.vendor-withdraw-request-completed';
       $get_view_data['_view']        =   $view;
       $get_view_data['_mail_to']    =   $data['email'];
-      $get_view_data['_subject']    =   $email_options['vendor_withdraw_request_completed']['subject'];
+      // $get_view_data['_subject']    =   $email_options['vendor_withdraw_request_completed']['subject'];
+      $get_view_data['_subject']    =   'Yêu cầu rút tiền của bạn đã được chấp nhận';
+
     }
       
     if(count($get_view_data) > 0){
@@ -2435,6 +2440,7 @@ class GetFunction
   }
   
   public static function customer_order_billing_shipping_info($order_id){
+
     $user_address = array();
     
     if(isset($order_id) &&  $order_id > 0){
@@ -2484,51 +2490,51 @@ class GetFunction
               elseif($rows->key_name == '_billing_city'){
                 $user_address['_billing_city'] = get_xaphuong($rows->key_value);
               }
-              elseif($rows->key_name == '_billing_postcode'){
-                $user_address['_billing_postcode'] = $rows->key_value;
-              }
-              elseif($rows->key_name == '_shipping_title'){
-                $user_address['_shipping_title'] = $rows->key_value;
-              }
-              elseif($rows->key_name == '_shipping_title'){
-                $user_address['_shipping_title'] = $rows->key_value;
-              }
+              // elseif($rows->key_name == '_billing_postcode'){
+              //   $user_address['_billing_postcode'] = $rows->key_value;
+              // }
+              // elseif($rows->key_name == '_shipping_title'){
+              //   $user_address['_shipping_title'] = $rows->key_value;
+              // }
+              // elseif($rows->key_name == '_shipping_title'){
+              //   $user_address['_shipping_title'] = $rows->key_value;
+              // }
               elseif($rows->key_name == '_shipping_first_name'){
                 $user_address['_shipping_first_name'] = $rows->key_value;
               }
               elseif($rows->key_name == '_shipping_last_name'){
                 $user_address['_shipping_last_name'] = $rows->key_value;
               }
-              elseif($rows->key_name == '_shipping_company'){
-                $user_address['_shipping_company'] = $rows->key_value;
-              }
+              // elseif($rows->key_name == '_shipping_company'){
+              //   $user_address['_shipping_company'] = $rows->key_value;
+              // }
               elseif($rows->key_name == '_shipping_email'){
                 $user_address['_shipping_email'] = $rows->key_value;
               }
               elseif($rows->key_name == '_shipping_phone'){
                 $user_address['_shipping_phone'] = $rows->key_value;
               }
-              elseif($rows->key_name == '_shipping_fax'){
-                $user_address['_shipping_fax'] = $rows->key_value;
-              }
+              // elseif($rows->key_name == '_shipping_fax'){
+              //   $user_address['_shipping_fax'] = $rows->key_value;
+              // }
               elseif($rows->key_name == '_shipping_country'){
-                $user_address['_shipping_country'] = $rows->key_value;
+                $user_address['_shipping_country'] = get_tinhthanh($rows->key_value);
               }
               elseif($rows->key_name == '_shipping_state'){
-                $user_address['_shipping_state'] = $rows->key_value;
+                $user_address['_shipping_state'] = get_quanhuyen($rows->key_value);
               }
               elseif($rows->key_name == '_shipping_address_1'){
                 $user_address['_shipping_address_1'] = $rows->key_value;
               }
-              elseif($rows->key_name == '_shipping_address_2'){
-                $user_address['_shipping_address_2'] = $rows->key_value;
-              }
+              // elseif($rows->key_name == '_shipping_address_2'){
+              //   $user_address['_shipping_address_2'] = $rows->key_value;
+              // }
               elseif($rows->key_name == '_shipping_city'){
-                $user_address['_shipping_city'] = $rows->key_value;
+                $user_address['_shipping_city'] = get_xaphuong($rows->key_value);
               }
-              elseif($rows->key_name == '_shipping_postcode'){
-                $user_address['_shipping_postcode'] = $rows->key_value;
-              }
+              // elseif($rows->key_name == '_shipping_postcode'){
+              //   $user_address['_shipping_postcode'] = $rows->key_value;
+              // }
             }
           }
         }

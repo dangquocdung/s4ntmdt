@@ -34,7 +34,7 @@
                         <tbody>
                             <tr>
                                 <td valign="middle" style="font-family:Arial, Helvetica, sans-serif;font-size:24px;color:rgb(255, 51, 51);text-transform:uppercase;font-weight:bold;padding:25px 10px 15px;text-align:center;">
-                                  Thông báo huỷ rút tiền
+                                  Thông báo từ chối yêu cầu
                                 </td>
                             </tr>
                             <tr>
