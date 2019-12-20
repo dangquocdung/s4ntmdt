@@ -51,7 +51,7 @@ class OrderController extends Controller
 
     $data['orders_list_data']  =  $order_object;
 
-    return response()->json($data);
+    // return response()->json($data);
      
     return view('pages.admin.orders.order-list', $data);
   }
