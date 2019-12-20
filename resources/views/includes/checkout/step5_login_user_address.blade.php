@@ -23,6 +23,11 @@
                 <p><strong>{{ trans('frontend.phone') }}:</strong> {!! $login_user_account_data->address_details->account_bill_phone_number !!}</p>
             @endif
 
+            @if($login_user_account_data->address_details->account_bill_email_address)
+                <p><strong>{{ trans('frontend.email') }}:</strong> {!! $login_user_account_data->address_details->account_bill_email_address !!}</p>
+            @endif
+
+
             <p><strong>{{ trans('frontend.address_1') }}:</strong> {!! $login_user_account_data->address_details->account_bill_adddress_line_1 !!}</p>
 
             <p><strong>{{ trans('frontend.city') }}:</strong> {!! get_xaphuong($login_user_account_data->address_details->account_bill_select_city) !!}</p>
@@ -47,6 +52,11 @@
             @if($login_user_account_data->address_details->account_shipping_phone_number)
                 <p><strong>{{ trans('frontend.phone') }}:</strong> {!! $login_user_account_data->address_details->account_shipping_phone_number !!}</p>
             @endif
+            
+            @if($login_user_account_data->address_details->account_shipping_email_address)
+                <p><strong>{{ trans('frontend.email') }}:</strong> {!! $login_user_account_data->address_details->account_shipping_email_address !!}</p>
+            @endif
+
 
             <p><strong>{{ trans('frontend.address_1') }}:</strong> {!! $login_user_account_data->address_details->account_shipping_adddress_line_1 !!}</p>
             

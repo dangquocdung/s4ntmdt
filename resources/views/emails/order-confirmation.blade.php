@@ -104,7 +104,16 @@
                                         <?php $subTotal += $items->quantity * $items->price; ?>
                                         <tr>
                                             <td style="text-align:left; padding:10px 0px 10px 10px;width:45%;border-bottom:1px solid #e1e1e1;">
-                                                <div style="display:inline-block;vertical-align:middle;background-color:#eeeeee;padding:5px;">@if($items->img_src)<img src="{{ get_image_url( $items->img_src ) }}" width="30" height="30"> @else <img src="{{ default_placeholder_img_src() }}" width="30" height="30">@endif</div> <div style="display:inline-block;vertical-align:middle;">{!! $items->name !!}</div>
+                                                <div style="display:inline-block;vertical-align:middle;background-color:#eeeeee;padding:5px;">
+                                                  @if($items->img_src)
+                                                    <img src="{{ get_image_url( $items->img_src ) }}" width="30" height="30">
+                                                  @else
+                                                    <img src="{{ default_placeholder_img_src() }}" width="30" height="30">
+                                                  @endif
+                                                </div>
+                                                <div style="display:inline-block;vertical-align:middle;">
+                                                  {!! $items->name !!}
+                                                </div>
                                             </td>
                                             <td style="text-align:center;padding:10px 0px 10px 0px;width:15%;border-bottom:1px solid #e1e1e1;">{!! $items->quantity !!}</td>
                                             <td style="text-align:center;padding:10px 0px 10px 0px;width:15%;border-bottom:1px solid #e1e1e1;">{!! price_html( get_product_price_html_by_filter($items->price) ) !!}</td>
