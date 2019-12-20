@@ -2450,31 +2450,32 @@ class GetFunction
         $order_user = unserialize($get_order_user->key_value);
         
         if($order_user['user_mode'] == 'guest'){
+
           $get_order_post_meta    =   PostExtra :: where('post_id', $order_id)->get();
           
           if(!empty($get_order_post_meta) && $get_order_post_meta->count() > 0){
             foreach($get_order_post_meta as $rows){
-              if($rows->key_name == '_billing_title'){
-                $user_address['_billing_title'] = $rows->key_value;
-              }
-              elseif($rows->key_name == '_billing_first_name'){
+              // if($rows->key_name == '_billing_title'){
+              //   $user_address['_billing_title'] = $rows->key_value;
+              // }
+              if($rows->key_name == '_billing_first_name'){
                 $user_address['_billing_first_name'] = $rows->key_value;
               }
               elseif($rows->key_name == '_billing_last_name'){
                 $user_address['_billing_last_name'] = $rows->key_value;
               }
-              elseif($rows->key_name == '_billing_company'){
-                $user_address['_billing_company'] = $rows->key_value;
-              }
+              // elseif($rows->key_name == '_billing_company'){
+              //   $user_address['_billing_company'] = $rows->key_value;
+              // }
               elseif($rows->key_name == '_billing_email'){
                 $user_address['_billing_email'] = $rows->key_value;
               }
               elseif($rows->key_name == '_billing_phone'){
                 $user_address['_billing_phone'] = $rows->key_value;
               }
-              elseif($rows->key_name == '_billing_fax'){
-                $user_address['_billing_fax'] = $rows->key_value;
-              }
+              // elseif($rows->key_name == '_billing_fax'){
+              //   $user_address['_billing_fax'] = $rows->key_value;
+              // }
               elseif($rows->key_name == '_billing_country'){
                 $user_address['_billing_country'] = $rows->key_value;
               }
@@ -2484,9 +2485,9 @@ class GetFunction
               elseif($rows->key_name == '_billing_address_1'){
                 $user_address['_billing_address_1'] = $rows->key_value;
               }
-              elseif($rows->key_name == '_billing_address_2'){
-                $user_address['_billing_address_2'] = $rows->key_value;
-              }
+              // elseif($rows->key_name == '_billing_address_2'){
+              //   $user_address['_billing_address_2'] = $rows->key_value;
+              // }
               elseif($rows->key_name == '_billing_city'){
                 $user_address['_billing_city'] = $rows->key_value;
               }
