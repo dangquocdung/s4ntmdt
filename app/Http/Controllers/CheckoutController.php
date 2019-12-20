@@ -734,13 +734,13 @@ class CheckoutController extends Controller
         
       if($checkout_details->user_mode == 'guest'){
         $guest_address_array = array( 
-                          array(
-                                  'post_id'       =>  $post->id,
-                                  'key_name'      =>  '_billing_title',
-                                  'key_value'     =>  $checkout_details->billing_title,
-                                  'created_at'    =>  date("y-m-d H:i:s", strtotime('now')),
-                                  'updated_at'    =>  date("y-m-d H:i:s", strtotime('now'))
-                              ), 
+                          // array(
+                          //         'post_id'       =>  $post->id,
+                          //         'key_name'      =>  '_billing_title',
+                          //         'key_value'     =>  $checkout_details->billing_title,
+                          //         'created_at'    =>  date("y-m-d H:i:s", strtotime('now')),
+                          //         'updated_at'    =>  date("y-m-d H:i:s", strtotime('now'))
+                          //     ), 
                           array(
                                   'post_id'       =>  $post->id,
                                   'key_name'      =>  '_billing_first_name',
@@ -755,13 +755,13 @@ class CheckoutController extends Controller
                                   'created_at'    =>  date("y-m-d H:i:s", strtotime('now')),
                                   'updated_at'    =>  date("y-m-d H:i:s", strtotime('now'))
                                 ), 
-                          array(
-                                  'post_id'       =>  $post->id,
-                                  'key_name'      =>  '_billing_company',
-                                  'key_value'     =>  $checkout_details->bill_company_name,
-                                  'created_at'    =>  date("y-m-d H:i:s", strtotime('now')),
-                                  'updated_at'    =>  date("y-m-d H:i:s", strtotime('now'))
-                                ),  
+                          // array(
+                          //         'post_id'       =>  $post->id,
+                          //         'key_name'      =>  '_billing_company',
+                          //         'key_value'     =>  $checkout_details->bill_company_name,
+                          //         'created_at'    =>  date("y-m-d H:i:s", strtotime('now')),
+                          //         'updated_at'    =>  date("y-m-d H:i:s", strtotime('now'))
+                          //       ),  
                           array(
                                   'post_id'       =>  $post->id,
                                   'key_name'      =>  '_billing_email',
@@ -776,13 +776,13 @@ class CheckoutController extends Controller
                                   'created_at'    =>  date("y-m-d H:i:s", strtotime('now')),
                                   'updated_at'    =>  date("y-m-d H:i:s", strtotime('now'))
                                 ),
-                          array(
-                                  'post_id'       =>  $post->id,
-                                  'key_name'      =>  '_billing_fax',
-                                  'key_value'     =>  $checkout_details->bill_fax_number,
-                                  'created_at'    =>  date("y-m-d H:i:s", strtotime('now')),
-                                  'updated_at'    =>  date("y-m-d H:i:s", strtotime('now'))
-                                ),       
+                          // array(
+                          //         'post_id'       =>  $post->id,
+                          //         'key_name'      =>  '_billing_fax',
+                          //         'key_value'     =>  $checkout_details->bill_fax_number,
+                          //         'created_at'    =>  date("y-m-d H:i:s", strtotime('now')),
+                          //         'updated_at'    =>  date("y-m-d H:i:s", strtotime('now'))
+                          //       ),       
                           array(
                                   'post_id'       =>  $post->id,
                                   'key_name'      =>  '_billing_country',
@@ -804,13 +804,13 @@ class CheckoutController extends Controller
                                   'created_at'    =>  date("y-m-d H:i:s", strtotime('now')),
                                   'updated_at'    =>  date("y-m-d H:i:s", strtotime('now'))
                                 ),
-                          array(
-                                  'post_id'       =>  $post->id,
-                                  'key_name'      =>  '_billing_address_2',
-                                  'key_value'     =>  $checkout_details->bill_address_line_2,
-                                  'created_at'    =>  date("y-m-d H:i:s", strtotime('now')),
-                                  'updated_at'    =>  date("y-m-d H:i:s", strtotime('now'))
-                                ), 
+                          // array(
+                          //         'post_id'       =>  $post->id,
+                          //         'key_name'      =>  '_billing_address_2',
+                          //         'key_value'     =>  $checkout_details->bill_address_line_2,
+                          //         'created_at'    =>  date("y-m-d H:i:s", strtotime('now')),
+                          //         'updated_at'    =>  date("y-m-d H:i:s", strtotime('now'))
+                          //       ), 
                           array(
                                   'post_id'       =>  $post->id,
                                   'key_name'      =>  '_billing_city',
@@ -818,20 +818,20 @@ class CheckoutController extends Controller
                                   'created_at'    =>  date("y-m-d H:i:s", strtotime('now')),
                                   'updated_at'    =>  date("y-m-d H:i:s", strtotime('now'))
                                 ),
-                          array(
-                                  'post_id'       =>  $post->id,
-                                  'key_name'      =>  '_billing_postcode',
-                                  'key_value'     =>  '480000',
-                                  'created_at'    =>  date("y-m-d H:i:s", strtotime('now')),
-                                  'updated_at'    =>  date("y-m-d H:i:s", strtotime('now'))
-                                ),
-                          array(
-                                  'post_id'       =>  $post->id,
-                                  'key_name'      =>  '_shipping_title',
-                                  'key_value'     =>  $checkout_details->shipping_title,
-                                  'created_at'    =>  date("y-m-d H:i:s", strtotime('now')),
-                                  'updated_at'    =>  date("y-m-d H:i:s", strtotime('now'))
-                              ), 
+                          // array(
+                          //         'post_id'       =>  $post->id,
+                          //         'key_name'      =>  '_billing_postcode',
+                          //         'key_value'     =>  '480000',
+                          //         'created_at'    =>  date("y-m-d H:i:s", strtotime('now')),
+                          //         'updated_at'    =>  date("y-m-d H:i:s", strtotime('now'))
+                          //       ),
+                          // array(
+                          //         'post_id'       =>  $post->id,
+                          //         'key_name'      =>  '_shipping_title',
+                          //         'key_value'     =>  $checkout_details->shipping_title,
+                          //         'created_at'    =>  date("y-m-d H:i:s", strtotime('now')),
+                          //         'updated_at'    =>  date("y-m-d H:i:s", strtotime('now'))
+                          //     ), 
                           array(
                                   'post_id'       =>  $post->id,
                                   'key_name'      =>  '_shipping_first_name',
@@ -846,13 +846,13 @@ class CheckoutController extends Controller
                                   'created_at'    =>  date("y-m-d H:i:s", strtotime('now')),
                                   'updated_at'    =>  date("y-m-d H:i:s", strtotime('now'))
                                 ), 
-                          array(
-                                  'post_id'       =>  $post->id,
-                                  'key_name'      =>  '_shipping_company',
-                                  'key_value'     =>  $checkout_details->shipping_company_name,
-                                  'created_at'    =>  date("y-m-d H:i:s", strtotime('now')),
-                                  'updated_at'    =>  date("y-m-d H:i:s", strtotime('now'))
-                                ),  
+                          // array(
+                          //         'post_id'       =>  $post->id,
+                          //         'key_name'      =>  '_shipping_company',
+                          //         'key_value'     =>  $checkout_details->shipping_company_name,
+                          //         'created_at'    =>  date("y-m-d H:i:s", strtotime('now')),
+                          //         'updated_at'    =>  date("y-m-d H:i:s", strtotime('now'))
+                          //       ),  
                           array(
                                   'post_id'       =>  $post->id,
                                   'key_name'      =>  '_shipping_email',
@@ -867,13 +867,13 @@ class CheckoutController extends Controller
                                   'created_at'    =>  date("y-m-d H:i:s", strtotime('now')),
                                   'updated_at'    =>  date("y-m-d H:i:s", strtotime('now'))
                                 ),
-                          array(
-                                  'post_id'       =>  $post->id,
-                                  'key_name'      =>  '_shipping_fax',
-                                  'key_value'     =>  $checkout_details->shipping_fax_number,
-                                  'created_at'    =>  date("y-m-d H:i:s", strtotime('now')),
-                                  'updated_at'    =>  date("y-m-d H:i:s", strtotime('now'))
-                                ),       
+                          // array(
+                          //         'post_id'       =>  $post->id,
+                          //         'key_name'      =>  '_shipping_fax',
+                          //         'key_value'     =>  $checkout_details->shipping_fax_number,
+                          //         'created_at'    =>  date("y-m-d H:i:s", strtotime('now')),
+                          //         'updated_at'    =>  date("y-m-d H:i:s", strtotime('now'))
+                          //       ),       
                           array(
                                   'post_id'       =>  $post->id,
                                   'key_name'      =>  '_shipping_country',
@@ -896,13 +896,13 @@ class CheckoutController extends Controller
                                   'created_at'    =>  date("y-m-d H:i:s", strtotime('now')),
                                   'updated_at'    =>  date("y-m-d H:i:s", strtotime('now'))
                                 ),
-                          array(
-                                  'post_id'       =>  $post->id,
-                                  'key_name'      =>  '_shipping_address_2',
-                                  'key_value'     =>  $checkout_details->shipping_address_line_2,
-                                  'created_at'    =>  date("y-m-d H:i:s", strtotime('now')),
-                                  'updated_at'    =>  date("y-m-d H:i:s", strtotime('now'))
-                                ), 
+                          // array(
+                          //         'post_id'       =>  $post->id,
+                          //         'key_name'      =>  '_shipping_address_2',
+                          //         'key_value'     =>  $checkout_details->shipping_address_line_2,
+                          //         'created_at'    =>  date("y-m-d H:i:s", strtotime('now')),
+                          //         'updated_at'    =>  date("y-m-d H:i:s", strtotime('now'))
+                          //       ), 
                           array(
                                   'post_id'       =>  $post->id,
                                   'key_name'      =>  '_shipping_city',
@@ -910,13 +910,13 @@ class CheckoutController extends Controller
                                   'created_at'    =>  date("y-m-d H:i:s", strtotime('now')),
                                   'updated_at'    =>  date("y-m-d H:i:s", strtotime('now'))
                                 ),
-                          array(
-                                  'post_id'       =>  $post->id,
-                                  'key_name'      =>  '_shipping_postcode',
-                                  'key_value'     =>  '480000',
-                                  'created_at'    =>  date("y-m-d H:i:s", strtotime('now')),
-                                  'updated_at'    =>  date("y-m-d H:i:s", strtotime('now'))
-                                ),        
+                          // array(
+                          //         'post_id'       =>  $post->id,
+                          //         'key_name'      =>  '_shipping_postcode',
+                          //         'key_value'     =>  '480000',
+                          //         'created_at'    =>  date("y-m-d H:i:s", strtotime('now')),
+                          //         'updated_at'    =>  date("y-m-d H:i:s", strtotime('now'))
+                          //       ),        
                       ); 
         
         $order_post_meta_data = array_merge($order_array, $guest_address_array);
