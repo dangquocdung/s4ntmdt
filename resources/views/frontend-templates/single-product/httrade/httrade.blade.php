@@ -220,21 +220,21 @@
             </select>
           </div>
         </div>
-        <div class="col-3">
+        <div class="col-md-3">
           <div class="pt-4 hidden-sm-up"></div>
           <button class="btn btn-outline-secondary btn-block m-0 product-wishlist" data-id="{{ $single_product_details['id'] }}" data-toggle="tooltip" title="{{ trans('frontend.add_to_wishlist_label') }}" data-original-title="{{ trans('frontend.add_to_wishlist_label') }}"><i class="icon-heart"></i>&nbsp;{!! trans('frontend.wishlist') !!}</button>
 
         </div>
-        <div class="col-3">
+        <div class="col-md-3">
           <div class="pt-4 hidden-sm-up"></div>
           <button class="btn btn-outline-secondary btn-block m-0 product-compare" data-id="{{ $single_product_details['id'] }}" data-toggle="tooltip" title="" data-original-title="{{ trans('frontend.add_to_compare_list_label') }}"><i class="icon-repeat"></i>&nbsp;{!! trans('frontend.compare') !!}</button>
 
         </div>
 
 
-        <div class="col-4">
+        <div class="col-md-4">
           <div class="pt-4 hidden-sm-up"></div>
-          <button class="btn btn-primary btn-block m-0 add-to-cart-bg" data-toast data-toast-type="success" data-toast-position="topRight" data-toast-icon="icon-check-circle" data-toast-title="Sản phẩm" data-toast-message="đã thêm vào giỏ hàng!" data-id="{{ $single_product_details['id'] }}" data-toggle="tooltip" data-placement="top" title="" data-original-title="{{ trans('frontend.add_to_cart_label') }}"><i class="icon-bag"></i> Thêm vào giỏ hàng</button>
+          <button class="btn btn-primary btn-block m-0 add-to-cart-bg" data-id="{{ $single_product_details['id'] }}" data-toggle="tooltip" data-placement="top" title="" data-original-title="{{ trans('frontend.add_to_cart_label') }}"><i class="icon-bag"></i> Thêm vào giỏ hàng</button>
         </div>
       </div>
 
