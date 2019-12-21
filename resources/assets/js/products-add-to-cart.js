@@ -144,7 +144,7 @@ var dynamicAddToCart = function() {
                         // imageUrl: $('#hf_base_url').val() + '/images/thumbs-up.jpg'
                     },
                     function() {
-                        location.href = $('#hf_base_url').val() + '/thanh-toan';
+                        location.href = $('#hf_base_url').val() + '/gio-hang';
                     });
     
                 }
