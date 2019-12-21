@@ -935,10 +935,13 @@ class ProductsController extends Controller
         $is_pricing_enable    = 'no';
 
         $_stock           = (Input::has('manage_stock')) ? true : false;
+
         $_recommended     = (Input::has('enable_recommended_product')) ? true : false;
         $_features        = (Input::has('enable_features_product')) ? true : false;
         $_latest          = (Input::has('enable_latest_product')) ? true : false;
         $_related         = (Input::has('inputEnableForRelatedProduct')) ? true : false;
+        $_home_product    = (Input::has('inputEnableForHomePage')) ? true : false;
+
         $_custom_design   = (Input::has('inputEnableForCustomDesignProduct')) ? true : false;
         $_taxes           = (Input::has('inputEnableTaxesForProduct')) ? true : false;
         $_review          = (Input::has('inputEnableReviews')) ? true : false;
@@ -947,7 +950,6 @@ class ProductsController extends Controller
         $_product_video   = (Input::has('inputEnableProductVideo')) ? true : false;
         $_manufacturer    = (Input::has('inputEnableProductManufacturer')) ? true : false;
         $_visibility      = (Input::has('inputVisibilitySchedule')) ? true : false;
-        $_home_product    = (Input::has('inputEnableForHomePage')) ? true : false;
         $_is_role_based_pricing_enable    = (Input::has('inputEnableDisableRoleBasedPricing')) ? true : false;
 
         if($_stock){
@@ -1307,7 +1309,7 @@ class ProductsController extends Controller
                                       ),
                                       array(
                                           'product_id'    =>  $post->id,
-                                          'key_name'      =>  '_product_enable_as_selected_cat',
+                                          'key_name'      =>  '_product_enable_as_homepage',
                                           'key_value'     =>  $home_page_product,
                                           'created_at'    =>  date("y-m-d H:i:s", strtotime('now')),
                                           'updated_at'    =>  date("y-m-d H:i:s", strtotime('now'))
@@ -2514,28 +2516,38 @@ class ProductsController extends Controller
     
     if(Request::is('/')){
 
-      $get_recommended_items = DB::table('products')
-                               ->select('products.*')
-                               ->where('products.status', 1)
-                               ->join(DB::raw("(SELECT product_id FROM product_extras WHERE key_name = '_product_enable_as_recommended' AND key_value = 'yes') T1") , 'products.id', '=', 'T1.product_id')
-                               ->orderby('id','desc')
-                               ->take(20)
-                               ->get()
-                               ->toArray();
+      $get_homepage_items =       DB::table('products')
+                                ->select('products.*')
+                                ->where('products.status', 1)
+                                ->join(DB::raw("(SELECT product_id FROM product_extras WHERE key_name = '_product_enable_as_homepage' AND key_value = 'yes') T1") , 'products.id', '=', 'T1.product_id')
+                                ->orderby('id','desc')
+                                ->take(20)
+                                ->get()
+                                ->toArray();
 
-      $get_features_items =    DB::table('products')
-                               ->select('products.*')
-                               ->where('products.status', 1)
-                               ->join(DB::raw("(SELECT product_id FROM product_extras WHERE key_name = '_product_enable_as_features' AND key_value = 'yes') T1") , 'products.id', '=', 'T1.product_id')
-                               ->orderby('id','desc')
-                               ->take(20)
-                               ->get()
-                               ->toArray();
+      $advanced_arr['homepage_items']  =   $get_homepage_items;
 
-      $advanced_arr['recommended_items']  =   $get_recommended_items;
-      $advanced_arr['features_items']     =   $get_features_items;
+
 
     }
+
+    $get_recommended_items =  DB::table('products')
+                              ->select('products.*')
+                              ->where('products.status', 1)
+                              ->join(DB::raw("(SELECT product_id FROM product_extras WHERE key_name = '_product_enable_as_recommended' AND key_value = 'yes') T1") , 'products.id', '=', 'T1.product_id')
+                              ->orderby('id','desc')
+                              ->take(20)
+                              ->get()
+                              ->toArray();
+
+    $get_features_items =     DB::table('products')
+                              ->select('products.*')
+                              ->where('products.status', 1)
+                              ->join(DB::raw("(SELECT product_id FROM product_extras WHERE key_name = '_product_enable_as_features' AND key_value = 'yes') T1") , 'products.id', '=', 'T1.product_id')
+                              ->orderby('id','desc')
+                              ->take(20)
+                              ->get()
+                              ->toArray();
 
     $get_latest_items =      DB::table('products')
                              ->select('products.*')
@@ -2545,8 +2557,22 @@ class ProductsController extends Controller
                              ->take(20)
                              ->get()
                              ->toArray();
-   
-    $advanced_arr['latest_items']         =   $get_latest_items;
+
+    $get_related_items =      DB::table('products')
+                             ->select('products.*')
+                             ->where('products.status', 1)
+                             ->join(DB::raw("(SELECT product_id FROM product_extras WHERE key_name = '_product_enable_as_related' AND key_value = 'yes') T1") , 'products.id', '=', 'T1.product_id')
+                             ->orderby('id','desc')
+                             ->take(20)
+                             ->get()
+                             ->toArray();
+
+
+    $advanced_arr['recommended_items']  =   $get_recommended_items;
+    $advanced_arr['features_items']     =   $get_features_items;
+    $advanced_arr['latest_items']       =   $get_latest_items;
+    $advanced_arr['related_items']      =   $get_related_items;
+
      
     return $advanced_arr;
   }

@@ -16,8 +16,12 @@
     </button>
       
     <div class="modal__content">
+
       <div class="subscribe-content">{!! string_decode($subscriptions_data['popup_content']) !!}</div>
+
       <div class="subscribe-options">
+
+
         @if($subscriptions_data['subscribe_options'] == 'email')
           <input type="text" id="subscribe_options_email"  placeholder="{{ trans('frontend.enter_email_label') }}" />
         @endif
@@ -28,6 +32,7 @@
         @endif
         
         <button type="button" id="subscribtion_submit">{!! $subscriptions_data['subscribe_btn_text'] !!}</button>
+        
       </div>
       
       @if($subscriptions_data['subscribe_popup_cookie_set_visibility'] == true)
