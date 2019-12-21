@@ -3,11 +3,7 @@
     <div class="container">
         <div class="product-style">
             <div class="product-tab-list text-center mb-45 nav product-menu-mrg">
-                <!-- Nav tabs -->
-                <a class="active" href="#latest_products" data-toggle="tab" role="tab" aria-selected="false" aria-controls="home1">
-                    <h4>{{ trans('frontend.latest_products') }}&nbsp;</h4>
-                </a>
-
+              <h2 class="title text-center">{{ trans('frontend.latest_products') }}</h2>
             </div>
             <div class="tab-content another-product-style jump">
                 <div class="tab-pane fade show active" id="latest_products" role="tabpanel">
@@ -94,21 +90,52 @@
     </div>
 </section>
 
-<section class="product-area">
+@if(count($brands_data) > 0)  
+<section class="bg-secondary padding-top-2x padding-bottom-2x">
+  <div class="container">
+    <div class="owl-carousel" data-owl-carousel='{ "nav": false, "dots": false, "loop": true, "autoplay": true, "autoplayTimeout": 4000, "responsive": {"0":{"items":2}, "470":{"items":3},"630":{"items":4},"991":{"items":5},"1200":{"items":6}} }'>
+      @foreach($brands_data as $brand)  
+      <a href="{{ route('brands-single-page', $brand['slug']) }}">
+        @if(!empty($brand['brand_logo_img_url']))
+          <img  class="d-block w-110 opacity-75 m-auto" src="{{ get_image_url($brand['brand_logo_img_url']) }}" alt="{{ basename($brand['brand_logo_img_url']) }}" />
+        @else
+          <img  class="d-block w-110 opacity-75 m-auto" src="{{ default_placeholder_img_src() }}" alt="" />
+        @endif
+      </a>
+      @endforeach
+    </div>
+  </div>
+</section>
+@endif
+
+
+<section class="product-area pt-50">
     <div class="container padding-bottom-2x">
-        <div class="row">
+        <div class="row category-tab">
             <div class="col-md-12">
+
+              <ul class="nav nav-tabs">
+								<li class="active" data-toggle="tab" role="tab">
+                    <a href="#recommended_products">
+                        {{ trans('frontend.recommended_products') }}
+                    </a>
+                </li>
+								<li data-toggle="tab" role="tab">
+                    <a href="#features_products">
+                        {{ trans('frontend.features_products') }}
+                    </a>
+                </li>
+              </ul>
+              
                 <div class="product-style-tab">
-                    <div class="product-tab-list text-center mb-45 nav product-menu-mrg">
-                        <!-- Nav tabs -->
+                    <!-- <div class="product-tab-list text-center mb-45 nav product-menu-mrg">
                         <a class="active" href="#recommended_products" data-toggle="tab" role="tab" aria-selected="false" aria-controls="home1">
                             <h4>{{ trans('frontend.recommended_products') }}&nbsp;</h4>
                         </a>
                         <a class="" href="#features_products" data-toggle="tab" role="tab" aria-selected="false" aria-controls="home1">
                             <h4>{{ trans('frontend.features_products') }}&nbsp;</h4>
                         </a>
-        
-                    </div>
+                    </div> -->
         
                     <div class="tab-content another-product-style jump">
                         <div class="tab-pane fade show active" id="recommended_products" role="tabpanel">

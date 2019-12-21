@@ -2521,7 +2521,7 @@ class ProductsController extends Controller
                                 ->where('products.status', 1)
                                 ->join(DB::raw("(SELECT product_id FROM product_extras WHERE key_name = '_product_enable_as_homepage' AND key_value = 'yes') T1") , 'products.id', '=', 'T1.product_id')
                                 ->orderby('id','desc')
-                                ->take(20)
+                                ->take(16)
                                 ->get()
                                 ->toArray();
 
@@ -2536,7 +2536,7 @@ class ProductsController extends Controller
                               ->where('products.status', 1)
                               ->join(DB::raw("(SELECT product_id FROM product_extras WHERE key_name = '_product_enable_as_recommended' AND key_value = 'yes') T1") , 'products.id', '=', 'T1.product_id')
                               ->orderby('id','desc')
-                              ->take(20)
+                              ->take(16)
                               ->get()
                               ->toArray();
 
@@ -2545,7 +2545,7 @@ class ProductsController extends Controller
                               ->where('products.status', 1)
                               ->join(DB::raw("(SELECT product_id FROM product_extras WHERE key_name = '_product_enable_as_features' AND key_value = 'yes') T1") , 'products.id', '=', 'T1.product_id')
                               ->orderby('id','desc')
-                              ->take(20)
+                              ->take(16)
                               ->get()
                               ->toArray();
 
@@ -2554,7 +2554,7 @@ class ProductsController extends Controller
                              ->where('products.status', 1)
                              ->join(DB::raw("(SELECT product_id FROM product_extras WHERE key_name = '_product_enable_as_latest' AND key_value = 'yes') T1") , 'products.id', '=', 'T1.product_id')
                              ->orderby('id','desc')
-                             ->take(20)
+                             ->take(16)
                              ->get()
                              ->toArray();
 
@@ -2563,7 +2563,7 @@ class ProductsController extends Controller
                              ->where('products.status', 1)
                              ->join(DB::raw("(SELECT product_id FROM product_extras WHERE key_name = '_product_enable_as_related' AND key_value = 'yes') T1") , 'products.id', '=', 'T1.product_id')
                              ->orderby('id','desc')
-                             ->take(20)
+                             ->take(16)
                              ->get()
                              ->toArray();
 
@@ -2588,95 +2588,7 @@ class ProductsController extends Controller
     $todays_deal_arr     =  array();
     $advanced_arr        =  array();
     
-    $get_recommended_items = DB::table('products')
-                             ->where('products.author_id', $vendor_id) 
-                             ->where('products.status', 1)
-                             ->select('products.*')
-                             ->join(DB::raw("(SELECT product_id FROM product_extras WHERE key_name = '_product_enable_as_recommended' AND key_value = 'yes') T1") , 'products.id', '=', 'T1.product_id')
-                             ->take(8)
-                             ->get()
-                             ->toArray();
-
-    $get_features_items =    DB::table('products')
-                             ->where('products.author_id', $vendor_id) 
-                             ->where('products.status', 1)
-                             ->select('products.*')
-                             ->join(DB::raw("(SELECT product_id FROM product_extras WHERE key_name = '_product_enable_as_features' AND key_value = 'yes') T1") , 'products.id', '=', 'T1.product_id')
-                             ->take(8)
-                             ->get()
-                             ->toArray();
     
-    $get_latest_items =      DB::table('products')
-                             ->where('products.author_id', $vendor_id) 
-                             ->where('products.status', 1)
-                             ->select('products.*')
-                             ->join(DB::raw("(SELECT product_id FROM product_extras WHERE key_name = '_product_enable_as_latest' AND key_value = 'yes') T1") , 'products.id', '=', 'T1.product_id')
-                             ->take(5)
-                             ->get()
-                             ->toArray();
-    
-    $get_todays_items      =  DB::table('posts')
-                              ->where('posts.post_type', 'shop_order')
-                              ->whereDate('posts.created_at', '=', $this->carbonObject->today()->toDateString())
-                              ->join('orders_items', 'orders_items.order_id', '=', 'posts.id')
-                              ->orderBy('posts.id', 'desc')
-                              ->select('orders_items.*')
-                              ->limit(10)
-                              ->get()
-                              ->toArray();
-    
-    $get_best_sales        =  DB::table('product_extras')
-                              ->select('product_id', DB::raw('max(cast(key_value as SIGNED INTEGER)) as max_number'))
-                              ->where('key_name', '_total_sales')
-                              ->groupBy('product_id')
-                              ->orderBy('max_number', 'desc')
-                              ->limit(10)
-                              ->get()
-                              ->toArray();
-     
-    //best sales
-    if(count($get_best_sales) > 0){
-      foreach($get_best_sales as $items4){
-        $get_post_for_best_sales = $this->getProductDataById($items4->product_id);
-        
-        if(isset($get_post_for_best_sales['author_id']) && $get_post_for_best_sales['author_id'] == $vendor_id){
-          if(count($get_post_for_best_sales)>0){
-            array_push($best_sales_arr, $get_post_for_best_sales);
-          }
-        }
-      }
-    }
-    
-    //todays deal
-    if(count($get_todays_items) > 0){
-      foreach($get_todays_items as $items5){
-        if(!empty($items5->order_data)){
-          $parse = json_decode($items5->order_data, true);
-          
-          if(count($parse) > 0){
-            foreach($parse as $items6){
-              if(isset($items6['id'])){
-                if(!$this->classCommonFunction->is_item_already_exists_in_array($items6['id'], $todays_deal_arr)){
-                  $get_post_for_todays_deal = $this->getProductDataById($items6['id']);
-                
-                  if($get_post_for_todays_deal['author_id'] == $vendor_id){
-                    if(count($get_post_for_todays_deal) > 0){
-                      array_push($todays_deal_arr, $get_post_for_todays_deal);
-                    }
-                  }
-                }
-              }
-            }
-          }
-        }
-      }
-    }
-    
-    $advanced_arr['recommended_items']    =   $get_recommended_items;
-    $advanced_arr['features_items']       =   $get_features_items;
-    $advanced_arr['latest_items']         =   $get_latest_items;
-    $advanced_arr['best_sales']           =   $best_sales_arr; 
-    $advanced_arr['todays_deal']          =   $todays_deal_arr; 
      
     return $advanced_arr;
 
