@@ -246,7 +246,7 @@ class CommonFunction
     $data_ary['appearance_settings']          =   current_appearance_settings();
     $data_ary['appearance_all_data']          =   get_appearance_settings();
     // $data_ary['dynamic_menu']                 =   $this->frontendMenuHTML( $get_cat_tree );
-    $data_ary['blogs_data']                   =   $CMS->get_latest_blogs();
+    // $data_ary['blogs_data']                   =   $CMS->get_latest_blogs();
     $data_ary['popular_tags_list']            =   $product->getTermData( 'product_tag', false, null, 1 );
     $data_ary['productCategoriesTree']        =   $get_cat_tree;
     
@@ -281,7 +281,7 @@ class CommonFunction
     }
 
     //$data_ary['appearance_settings_data'] = get_appearance_settings();
-    $data_ary['current_parent_cat'] = get_product_parent_categories();
+    // $data_ary['current_parent_cat'] = get_product_parent_categories();
     $data_ary['pages_list'] = $CMS->get_pages(false, null, 1);
     $data_ary['seo_data'] = get_seo_data();
 

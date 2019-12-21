@@ -1257,6 +1257,8 @@ shopist_frontend.ajaxCall = {
         'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
       },
       success: function success(data) {
+        $('#mini-compare-content').html(data.html);
+
         if (data.status == 'success' && data.notice_type == 'compare_data_saved') {
           swal({
             title: '',

@@ -1180,6 +1180,9 @@ shopist_frontend.ajaxCall = {
             data: { id: id },
             headers: { 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content') },
             success: function(data) {
+
+                $('#mini-compare-content').html(data.html);
+
                 if (data.status == 'success' && data.notice_type == 'compare_data_saved') {
                     swal({
                             title: '',

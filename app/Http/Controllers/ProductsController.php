@@ -2003,10 +2003,8 @@ class ProductsController extends Controller
     $ary['reviews'] = [ ];
     $ary['attributes'] = array();
 
-    
     return $ary;
   }
-
 
   /**
    * Get function for brands products
@@ -2515,6 +2513,7 @@ class ProductsController extends Controller
     $advanced_arr        =  array();
     
     if(Request::is('/')){
+
       $get_recommended_items = DB::table('products')
                                ->select('products.*')
                                ->where('products.status', 1)
@@ -2532,8 +2531,12 @@ class ProductsController extends Controller
                                ->take(20)
                                ->get()
                                ->toArray();
+
+      $advanced_arr['recommended_items']  =   $get_recommended_items;
+      $advanced_arr['features_items']     =   $get_features_items;
+
     }
-    
+
     $get_latest_items =      DB::table('products')
                              ->select('products.*')
                              ->where('products.status', 1)
@@ -2543,73 +2546,7 @@ class ProductsController extends Controller
                              ->get()
                              ->toArray();
    
-    if(Request::is('/')){ 
-      $get_todays_items      =  DB::table('posts')
-                                ->where('posts.post_type', 'shop_order')
-                                // ->whereDate('posts.created_at', '=', $this->carbonObject->today()->toDateString())
-                                ->join('orders_items', 'orders_items.order_id', '=', 'posts.id')
-                                ->orderBy('posts.id', 'desc')
-                                ->select('orders_items.*')
-                                ->orderby('id','desc')
-                                ->take(20)
-                                ->get()
-                                ->toArray();
-    }
-    
-    $get_best_sales        =  DB::table('product_extras')
-                              ->select('product_id', DB::raw('max(cast(key_value as SIGNED INTEGER)) as max_number'))
-                              ->where('key_name', '_total_sales')
-                              ->groupBy('product_id')
-                              ->orderBy('max_number', 'desc')
-                              ->take(20)
-                              ->get()
-                              ->toArray();
-     
-    //best sales
-    if(count($get_best_sales) > 0){
-      foreach($get_best_sales as $items4){
-        $get_post_for_best_sales = $this->getProductDataById($items4->product_id);
-        
-        if(count($get_post_for_best_sales)>0){
-          array_push($best_sales_arr, $get_post_for_best_sales);
-        }
-      }
-    }
-    
-    if(Request::is('/')){
-      //todays deal
-      if(count($get_todays_items) > 0){
-        foreach($get_todays_items as $items5){
-          if(!empty($items5->order_data)){
-            $parse = json_decode($items5->order_data, true);
-
-            if(count($parse) > 0){
-              foreach($parse as $items6){
-                if(isset($items6['id'])){
-                  if(!$this->classCommonFunction->is_item_already_exists_in_array($items6['id'], $todays_deal_arr)){
-                    $get_post_for_todays_deal = $this->getProductDataById($items6['id']);
-
-                    if(count($get_post_for_todays_deal) > 0){
-                      array_push($todays_deal_arr, $get_post_for_todays_deal);
-                    }
-                  }
-                }
-              }
-            }
-          }
-        }
-      }
-    }
-    
-    if(Request::is('/')){
-      $advanced_arr['recommended_items']  =   $get_recommended_items;
-      $advanced_arr['features_items']     =   $get_features_items;
-      $advanced_arr['todays_deal']        =   $todays_deal_arr; 
-    }
-
     $advanced_arr['latest_items']         =   $get_latest_items;
-    $advanced_arr['best_sales']           =   $best_sales_arr; 
-    $advanced_arr['top_rated_items']         =   $get_latest_items;
      
     return $advanced_arr;
   }
@@ -3417,14 +3354,12 @@ class ProductsController extends Controller
     return $post_array;
   }
 
-
   public function getProductByCatID($vd, $id, $limit, $offset){
     
     $get_term = Term::where(['term_id' => $id, 'type' => 'product_cat'])->first();
 
     $get_items=array();
 
-     
     if(!empty($get_term) && isset($get_term->term_id)){
       $str    = '';
       $cat_id = $get_term->term_id;
@@ -3452,8 +3387,6 @@ class ProductsController extends Controller
       $parent_cat_ary[] = $cat_data;
       $all_cat = $parent_cat_ary;
 
-      
-        
       if(count($parent_cat_ary) > 0){
         
         foreach($parent_cat_ary as $cat){
@@ -3466,7 +3399,6 @@ class ProductsController extends Controller
             $get_post_data->limit($limit);
             $get_post_data->offset($offset);
             $get_post_data = $get_post_data->get()->toArray();
-
 
             if(count($get_post_data) > 0){
               foreach($get_post_data as $product){
@@ -3530,7 +3462,6 @@ class ProductsController extends Controller
     // $posts_object->setPath( route('shop-page') );
 
     // $product_data['products'] = $posts_object;
-
 
     return  $get_items;
  
