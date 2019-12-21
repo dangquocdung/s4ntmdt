@@ -599,6 +599,7 @@ class FeaturesController extends Controller
    * @return response
    */
   public function updateSubscriptionData(){
+
     if( Request::isMethod('post') && Session::token() == Input::get('_token') ){
       $get_subscription_option   =   Option :: where('option_name', '_subscription_data')->first();
       $subscription_data         =   unserialize($get_subscription_option->option_value);
@@ -607,7 +608,9 @@ class FeaturesController extends Controller
         $subscription_data['mailchimp']['api_key'] = Input::get('inputMailchimpAPIKey'); 
       }
       if(isset($subscription_data['mailchimp']['list_id'])){
-        $subscription_data['mailchimp']['list_id'] = Input::get('inputMailchimpListId'); 
+        // $subscription_data['mailchimp']['list_id'] = Input::get('inputMailchimpListId'); 
+        $subscription_data['mailchimp']['list_id'] = 'abc123'; 
+
       }
       
       $data = array(
