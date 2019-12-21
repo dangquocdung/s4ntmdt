@@ -608,8 +608,8 @@ class FeaturesController extends Controller
         $subscription_data['mailchimp']['api_key'] = Input::get('inputMailchimpAPIKey'); 
       }
       if(isset($subscription_data['mailchimp']['list_id'])){
-        // $subscription_data['mailchimp']['list_id'] = Input::get('inputMailchimpListId'); 
-        $subscription_data['mailchimp']['list_id'] = 'abc123'; 
+        $subscription_data['mailchimp']['list_id'] = Input::get('inputMailchimpListId'); 
+        // $subscription_data['mailchimp']['list_id'] = 'abc123'; 
 
       }
       
