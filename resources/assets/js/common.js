@@ -1007,7 +1007,9 @@ shopist_frontend.ajaxCall = {
             data: { name: encodeURIComponent(name), email: encodeURIComponent(email), type: type },
             headers: { 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content') },
             success: function(data) {
+
                 $(obj).removeClass('subscribtion-loading');
+
                 if ($('#subscriptions_modal .subscribe-content').parents('.modal__content').find('.modal-content-msg').length > 0) {
                     $('#subscriptions_modal .subscribe-content').parents('.modal__content').find('.modal-content-msg').remove();
                 }
@@ -1025,6 +1027,7 @@ shopist_frontend.ajaxCall = {
                 } else if (data.status == 'error') {
                     $('#subscriptions_modal .subscribe-content').before('<p class="modal-content-msg">' + frontendLocalizationString.subscribe_error_msg + '</p>');
                 }
+                
             },
             error: function() {}
         });
