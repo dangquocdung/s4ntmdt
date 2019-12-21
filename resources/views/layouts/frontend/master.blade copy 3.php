@@ -45,6 +45,9 @@
       </div>
     @endif
 
+    @if(get_appearance_settings()['general']['custom_css'] == true)
+      @include('includes.frontend.content-custom-css')
+    @endif
     <!-- Header-->
     <!-- Remove "navbar-sticky" class to make navigation bar scrollable with the page.-->
 
@@ -66,8 +69,36 @@
     <div id="loader-2"></div>
     <div id="loader-3"></div>
 
+    @if(Request::is('product/customize/*') || Request::is('/san-pham/chi-tiet/*'))
+      @if(get_product_type($single_product_details['id']) == 'configurable_product' || get_product_type($single_product_details['id']) == 'customizable_product' || get_product_type($single_product_details['id']) == 'downloadable_product')
+        <input type="hidden" name="selected_variation_id" id="selected_variation_id">
+      @endif
+    @endif
+    
+    @if(Request::is('checkout') || Request::is('cart'))
+      <div class="modal fade" id="customizeImages" tabindex="-1" role="dialog" aria-labelledby="updater" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">  
+            <div class="modal-header">
+              <p class="no-margin">{!! trans('frontend.all_design_images') !!}</p>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>    
+            <div class="modal-body" style="text-align: center;"></div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-default attachtopost" data-dismiss="modal">{{ trans('frontend.close') }}</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    @endif
+
     <div class="add-to-cart-loader">
       <div class="spinner-border text-primary m-2" role="status"><span class="sr-only">Loading...</span></div>
+      <!-- <div class="spinner-border text-gray-dark m-2" style="width: 3rem; height: 3rem;" role="status"><span class="sr-only">Loading...</span></div> -->
+      <!-- <img src="{{ asset('/images/loading.gif') }}" id="img-load" />
+      <div class="cart-updating-msg">{{ trans('frontend.cart_updating_msg') }}</div> -->
     </div>
     
     <input type="hidden" name="lang_code" id="lang_code" value="{{ $selected_lang_code }}">  
@@ -125,11 +156,15 @@
     <script type="text/javascript" src="{{ URL::asset('/sweetalert/sweetalert.min.js') }}"></script>
     <script type="text/javascript" src="{{ URL::asset('/plugins/select2/select2.full.min.js') }}"></script>
     <script type="text/javascript" src="{{ URL::asset('/modal/js/modal.js') }}"></script>
+
     <script type="text/javascript" src="{{ URL::asset('/frontend/js/social-network.js') }}"></script>
     <script type="text/javascript" src="{{ URL::asset('/slick/slick.min.js') }}"></script>
     <script type="text/javascript" src="{{ URL::asset('/common/base64.js') }}"></script>
     <script type="text/javascript" src="{{ URL::asset('/plugins/iCheck/icheck.min.js') }}"></script>    
-    	        
+    	
+    <!-- Sweet Alert2 Core js -->
+	  <!-- <script type="text/javascript" src="{{ URL::asset('vendor/sweetalert2/sweetalert2.all.min.js') }}"></script> -->
+        
     <script type="text/javascript" src="{{ mix('/js/app.js') }}"></script>
 
     <script type="text/javascript">
@@ -262,6 +297,9 @@
           });
         }
       });
+    </script>
+
+    <script>
 
       //upload profile image
       if ($('#frontend_user_profile_picture_uploader').length > 0) {
@@ -319,6 +357,9 @@
           });
       }
         
+    </script>
+
+    <script>
       $(document).ready(function(){
         // console.log($('.comparison-item:first-child').css('height'));
 
@@ -339,6 +380,9 @@
 
       })
 
+    </script>
+
+    <script>
 
       if ($('#sendVendorContactMessage').length > 0) {
         $('#sendVendorContactMessage').on('click', function () {

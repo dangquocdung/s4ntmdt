@@ -131,7 +131,24 @@ var dynamicAddToCart = function() {
                         },
                         error: function() {}
                     });
+
+                    swal({
+                        type: 'success',
+                        title: 'Sản phẩm đã được thêm vào giỏ hàng',
+                        text: 'Bạn muốn thanh toán luôn hay tiếp tục mua sắm?',
+                        showCancelButton: true,
+                        cancelButtonText: frontendLocalizationString.continue_label,
+                        confirmButtonColor: "#DD6B55",
+                        confirmButtonText: 'Thanh toán',
+                        closeOnConfirm: false,
+                        // imageUrl: $('#hf_base_url').val() + '/images/thumbs-up.jpg'
+                    },
+                    function() {
+                        location.href = $('#hf_base_url').val() + '/gio-hang';
+                    });
+    
                 }
+
             },
             error: function() {}
         });

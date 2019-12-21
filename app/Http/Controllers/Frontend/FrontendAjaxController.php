@@ -623,20 +623,25 @@ class FrontendAjaxController extends Controller
       }
       elseif(Session::has('shopist_selected_compare_product_ids')){
         $get_data = Session::get('shopist_selected_compare_product_ids');
+
+        $total_compare_item = count($get_data) + 1;
+
+        $html = '';
+        $html = view('pages.ajax-pages.compare-products-html')->with(['total_compare_item' => $total_compare_item])->render();
+
         
         if(in_array($input['id'], $get_data)){
-          return response()->json(array('status' => 'error', 'notice_type' => 'already_saved', 'item_count' => count($get_data)));
+          return response()->json(array('status' => 'error', 'notice_type' => 'already_saved', 'item_count' => count($get_data), 'html' =>  $html));
         }
         else{
           if(count($get_data) < 4){
             array_push($get_data, $input['id']);
             Session::forget('shopist_selected_compare_product_ids');
             Session::put('shopist_selected_compare_product_ids', $get_data);
-
-            return response()->json(array('status' => 'success', 'notice_type' => 'compare_data_saved', 'item_count' => count($get_data)));
+            return response()->json(array( 'status' => 'success', 'notice_type' => 'compare_data_saved', 'item_count' => count($get_data), 'html' =>  $html ));
           }
           else{
-            return response()->json(array('status' => 'error', 'notice_type' => 'compare_data_exceed_limit', 'item_count' => count($get_data)));
+            return response()->json(array('status' => 'error', 'notice_type' => 'compare_data_exceed_limit', 'item_count' => count($get_data), 'html' =>  $html ));
           }
         }
        

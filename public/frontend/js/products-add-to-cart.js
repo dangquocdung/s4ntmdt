@@ -85,6 +85,7 @@ var dynamicAddToCart = function() {
                             if (data.status && data.status == 'success' && data.type == 'mini_cart_data' && data.html) {
 
                                 $('.mini-cart-content').html(data.html);
+                                
                                 $('#shadow-layer, .add-to-cart-loader').hide();
 
                                 if (get_mini_cart_id == 1) {

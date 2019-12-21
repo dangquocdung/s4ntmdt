@@ -63,9 +63,9 @@ class FrontendManagerController extends Controller
 
     $data['brands_data']         =   $this->product->getTermData( 'product_brands', false, null, 1 );
     
-    $data['testimonials_data']   =   get_all_testimonial_data();
+    // $data['testimonials_data']   =   get_all_testimonial_data();
 
-    // return Response::json($data);
+    // return Response::json($data['advancedData']);
 
     return view('pages.frontend.frontend-pages.home', $data);
 
@@ -265,6 +265,8 @@ class FrontendManagerController extends Controller
       $data['comments_details']         =   get_comments_data_by_object_id( $object_id, 'blog' );
       $data['comments_rating_details']  =   get_comments_rating_details( $object_id, 'blog' );
       $data['categoriesTree']           =   $this->product->get_categories(0, 'blog_cat');
+      $data['blogs_data']           =   $this->CMS->get_latest_blogs();
+
 
       if(!Session::has('shopist_blog_count') || (Session::has('shopist_blog_count') && Session::get('shopist_blog_count') != $get_blog_details_by_slug['id'])){  
         $get_post_meta =  PostExtra::where(['post_id' => $get_blog_details_by_slug['id'], 'key_name' => '_count_visit'])->first();
