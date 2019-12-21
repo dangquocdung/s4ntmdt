@@ -110,6 +110,8 @@
     </div>
 
     @include('modal.quick-view')
+    @include('modal.subscribe-content')
+
 
     <!-- Back To Top Button-->
     <a class="scroll-to-top-btn" href="#"><i class="icon-chevron-up"></i></a>

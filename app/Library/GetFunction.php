@@ -362,9 +362,9 @@ class GetFunction
         $get_view_data['_order_items'] = json_decode($get_order_data->order_data);
       }
       
-      // $get_view_data['_subject']    = str_replace('#date_place#', $this->carbonObject->parse( $this->carbonObject->today() )->format('F d, Y'), $email_options['new_order']['subject']);
+      $get_view_data['_subject']    = str_replace('#date_place#', $this->carbonObject->parse( $this->carbonObject->today() )->format('F d, Y'), $email_options['new_order']['subject']);
 
-      $get_view_data['_subject']    =  'Biên nhận đơn hàng';
+      // $get_view_data['_subject']    =  'Biên nhận đơn hàng';
 
       
       $get_view_data['_logo'] = $logo;
@@ -411,7 +411,8 @@ class GetFunction
       $view                         =   'emails.contact-with-vendor-mail';
       $get_view_data['_view']        =   $view;  
       $get_view_data['_mail_to']    =   $data['data']['_mail_to'];
-      $get_view_data['_subject']    =   'Email liên hệ với gian hàng';
+      $get_view_data['_subject']    =   $email_options['contact_to_vendor_mail']['subject'];
+      // $get_view_data['_subject']    =   'Email liên hệ với gian hàng';
       $get_view_data['_name']    =   $data['data']['_name'];
       $get_view_data['_message']    =   $data['data']['_message'];
       $get_view_data['_from_email'] =   $data['data']['_mail_from'];
@@ -433,8 +434,8 @@ class GetFunction
       $get_view_data['_mail_to']    =   $data['email'];
       $get_view_data['_order_id']   =   $data['order_id'];
       $get_view_data['_order_date'] =   $this->carbonObject->parse( $this->carbonObject->today() )->format('F d, Y');
-      // $get_view_data['_subject']    =   $email_options['cancelled_order']['subject'];
-      $get_view_data['_subject']    = 'Thông báo huỷ đơn hàng';
+      $get_view_data['_subject']    =   $email_options['cancelled_order']['subject'];
+      // $get_view_data['_subject']    = 'Thông báo huỷ đơn hàng';
       $get_view_data['_payment_method_details'] =  $this->payment[$get_view_data['_payment_method']];
       $get_view_data['_order_items'] = json_decode($get_order_data->order_data);
     }
@@ -455,8 +456,8 @@ class GetFunction
       $get_view_data['_mail_to']    =   $data['email'];
       $get_view_data['_order_id']   =   $data['order_id'];
       $get_view_data['_order_date'] =   $this->carbonObject->parse( $this->carbonObject->today() )->format('F d, Y');
-      // $get_view_data['_subject']    =   str_replace('#order_id#', '#'.$data['order_id'], $email_options['processed_order']['subject']);
-      $get_view_data['_subject']    = 'Đơn hàng #'.$data['order_id'].' đã được xác nhận.';
+      $get_view_data['_subject']    =   str_replace('#order_id#', '#'.$data['order_id'], $email_options['processed_order']['subject']);
+      // $get_view_data['_subject']    = 'Đơn hàng #'.$data['order_id'].' đã được xác nhận.';
       $get_view_data['_payment_method_details'] =  $this->payment[$get_view_data['_payment_method']];
       $get_view_data['_order_items'] = json_decode($get_order_data->order_data);
     }
@@ -477,8 +478,8 @@ class GetFunction
       $get_view_data['_mail_to']    =   $data['email'];
       $get_view_data['_order_id']   =   $data['order_id'];
       $get_view_data['_order_date'] =   $this->carbonObject->parse( $this->carbonObject->today() )->format('F d, Y');
-      // $get_view_data['_subject']    =   str_replace('#order_id#', '#'.$data['order_id'], $email_options['completed_order']['subject']);
-      $get_view_data['_subject']    =   'Đơn hàng có mã #'.$data['order_id'].' của bạn đã hoàn tất';
+      $get_view_data['_subject']    =   str_replace('#order_id#', '#'.$data['order_id'], $email_options['completed_order']['subject']);
+      // $get_view_data['_subject']    =   'Đơn hàng có mã #'.$data['order_id'].' của bạn đã hoàn tất';
 
       $get_view_data['_payment_method_details'] =  $this->payment[$get_view_data['_payment_method']];
       $get_view_data['_order_items'] = json_decode($get_order_data->order_data);
@@ -488,8 +489,8 @@ class GetFunction
       $view                         =   'emails.new-customer-account';
       $get_view_data['_view']       =   $view;
       $get_view_data['_mail_to']    =   $data['email'];
-      // $get_view_data['_subject']    =   $email_options['new_customer_account']['subject'];
-      $get_view_data['_subject']    =   'Tạo tài khoản thành viên thành công';
+      $get_view_data['_subject']    =   $email_options['new_customer_account']['subject'];
+      // $get_view_data['_subject']    =   'Tạo tài khoản thành viên thành công';
       $get_view_data['_confirmation_code']    =   $data['confirmation_code'];
       $get_view_data['_user_name']    =   $data['user_name'];
       $get_view_data['_user_pwd']    =   $data['user_pwd'];
@@ -500,8 +501,8 @@ class GetFunction
       $view                         =   'emails.vendor-new-account';
       $get_view_data['_view']       =   $view;
       $get_view_data['_mail_to']    =   $data['email'];
-      // $get_view_data['_subject']    =   $email_options['vendor_new_account']['subject'];
-      $get_view_data['_subject']    =   'Tạo tài khoản nhà cung cấp thành công';
+      $get_view_data['_subject']    =   $email_options['vendor_new_account']['subject'];
+      // $get_view_data['_subject']    =   'Tạo tài khoản nhà cung cấp thành công';
       $get_view_data['_confirmation_code']    =   $data['confirmation_code'];
 
 
@@ -510,8 +511,8 @@ class GetFunction
       $view                         =   'emails.vendor-account-status';
       $get_view_data['_view']       =   $view;
       $get_view_data['_mail_to']    =   $data['email'];
-      // $get_view_data['_subject']    =   $email_options['vendor_account_activation']['subject'];
-      $get_view_data['_subject']    =   'Tình trạng tài khoản';
+      $get_view_data['_subject']    =   $email_options['vendor_account_activation']['subject'];
+      // $get_view_data['_subject']    =   'Tình trạng tài khoản';
       $get_view_data['_status']     =   $data['status'];
 
     }
@@ -519,8 +520,8 @@ class GetFunction
       $view                         =   'emails.vendor-withdraw-request';
       $get_view_data['_view']       =   $view;  
       $get_view_data['_mail_to']    =   $data['email'];
-      // $get_view_data['_subject']    =   $email_options['vendor_withdraw_request']['subject'];
-      $get_view_data['_subject']    =   'Yêu cầu rút tiền của bạn đã được tiếp nhận';
+      $get_view_data['_subject']    =   $email_options['vendor_withdraw_request']['subject'];
+      // $get_view_data['_subject']    =   'Yêu cầu rút tiền của bạn đã được tiếp nhận';
       $get_view_data['_target']     =   $data['target'];
       $get_view_data['_value']      =   $data['value'];
       $get_view_data['_payment_method']  =   $data['payment_method'];
@@ -529,16 +530,16 @@ class GetFunction
       $view                         =   'emails.vendor-withdraw-request-cancelled';
       $get_view_data['_view']        =   $view;
       $get_view_data['_mail_to']    =   $data['email'];
-      // $get_view_data['_subject']    =   $email_options['vendor_withdraw_request_cancelled']['subject'];
-      $get_view_data['_subject']    =   'Yêu cầu rút tiền của bạn đã bị từ chối';
+      $get_view_data['_subject']    =   $email_options['vendor_withdraw_request_cancelled']['subject'];
+      // $get_view_data['_subject']    =   'Yêu cầu rút tiền của bạn đã bị từ chối';
 
     }
     elseif($data['source'] == 'vendor_withdraw_request_completed'){
       $view                         =   'emails.vendor-withdraw-request-completed';
       $get_view_data['_view']        =   $view;
       $get_view_data['_mail_to']    =   $data['email'];
-      // $get_view_data['_subject']    =   $email_options['vendor_withdraw_request_completed']['subject'];
-      $get_view_data['_subject']    =   'Yêu cầu rút tiền của bạn đã được chấp nhận';
+      $get_view_data['_subject']    =   $email_options['vendor_withdraw_request_completed']['subject'];
+      // $get_view_data['_subject']    =   'Yêu cầu rút tiền của bạn đã được chấp nhận';
 
     }
       
