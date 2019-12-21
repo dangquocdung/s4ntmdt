@@ -46,30 +46,6 @@
         </div>  
       </div>   
       <br>
-      <h4><strong>{!! trans('admin.select_template_label') !!}</strong></h4><hr>
-      <div class="order-confirmation-templates-list">
-        @if(count($email_templates) > 0)
-          <div class="row">
-            @foreach($email_templates as $val)
-              <div class="col-xs-12 col-md-4 sample-img-content">
-                <div class="sample-img-content">
-                  <img src="{{ url('resources/views/emails/order-confirmation/' . $val. '/screenshot-temp-1.jpg') }}" class="img-responsive" alt="sample_img">
-                  <div class="manage-template clearfix">
-                    <span>{!! ucwords(str_replace('-', ' ', $val)) !!}</span>
-                    <span class="pull-right">
-                      @if($emails_notification_data['new_order']['selected_template'] == $val)
-                        <input type="radio" checked="checked" name="templates_name" class="shopist-iCheck" value="{{ $val }}">
-                      @else
-                        <input type="radio" name="templates_name" class="shopist-iCheck" value="{{ $val }}">
-                      @endif
-                    </span>
-                  </div>
-                </div>
-              </div>
-            @endforeach
-          </div>
-        @endif
-      </div>  
     </div>
     <div class="clearfix">
       <div class="pull-right">

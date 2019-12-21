@@ -362,7 +362,7 @@ class GetFunction
         $get_view_data['_order_items'] = json_decode($get_order_data->order_data);
       }
       
-      $get_view_data['_subject']    = str_replace('#date_place#', $this->carbonObject->parse( $this->carbonObject->today() )->format('F d, Y'), $email_options['new_order']['subject']);
+      $get_view_data['_subject']    = str_replace('#date_place#', $this->carbonObject->parse( $this->carbonObject->today() )->format('dd/mm/yyyy'), $email_options['new_order']['subject']);
 
       // $get_view_data['_subject']    =  'Biên nhận đơn hàng';
 

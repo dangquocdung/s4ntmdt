@@ -32,7 +32,9 @@
                     <table style="width:580px;" cellpadding="0" cellspacing="0" border="0">
                         <tbody>
                             <tr>
-                                <td valign="middle" style="font-family:Arial, Helvetica, sans-serif;font-size:24px;color:rgb(255, 51, 51);text-transform:uppercase;font-weight:bold;padding:25px 10px 15px;text-align:center;">Thông báo tin nhắn khách hàng</td>
+                                <td valign="middle" style="font-family:Arial, Helvetica, sans-serif;font-size:24px;color:rgb(255, 51, 51);text-transform:uppercase;font-weight:bold;padding:25px 10px 15px;text-align:center;">
+                                  Thông báo tin nhắn khách hàng
+                                </td>
                             </tr>
                             <tr>
                                 <td align="left" valign="middle" style="font-family:Arial, Helvetica, sans-serif;font-size:12px;color:#666666;padding:0 10px 20px 10px;line-height:17px;">
