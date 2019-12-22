@@ -87,18 +87,22 @@
     </div>
 </section>
 
-@if(count($brands_data) > 0)  
+@if(count($vendors_list) > 0)  
 <section class="bg-secondary padding-top-2x padding-bottom-2x">
   <div class="container">
     <div class="owl-carousel" data-owl-carousel='{ "nav": false, "dots": false, "loop": true, "autoplay": true, "autoplayTimeout": 4000, "responsive": {"0":{"items":2}, "470":{"items":3},"630":{"items":4},"991":{"items":5},"1200":{"items":6}} }'>
-      @foreach($brands_data as $brand)  
-      <a href="{{ route('brands-single-page', $brand['slug']) }}">
-        @if(!empty($brand['brand_logo_img_url']))
-          <img  class="d-block w-110 opacity-75 m-auto" src="{{ get_image_url($brand['brand_logo_img_url']) }}" alt="{{ basename($brand['brand_logo_img_url']) }}" />
-        @else
-          <img  class="d-block w-110 opacity-75 m-auto" src="{{ default_placeholder_img_src() }}" alt="" />
+      @foreach($vendors_list['vendors'] as $vendor)
+      
+        @if($vendor->user_status == 1 && !is_vendor_expired($vendor->id))
+          <?php $details = json_decode($vendor->details);?>
+          <a href="{{ route('store-products-page-content', $vendor->name) }}">  
+            @if(!empty($vendor->user_photo_url))
+              <img class="d-block w-110 opacity-75 m-auto" src="{{ get_image_url($vendor->user_photo_url) }}" alt="{!! $details->profile_details->store_name !!}" title="{!! $details->profile_details->store_name !!}">
+            @else
+              <img class="d-block w-110 opacity-75 m-auto" src="{{ default_placeholder_img_src() }}" alt="{!! $details->profile_details->store_name !!}" title="{!! $details->profile_details->store_name !!}">
+            @endif
+          </a>
         @endif
-      </a>
       @endforeach
     </div>
   </div>
