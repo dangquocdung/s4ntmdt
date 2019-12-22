@@ -918,28 +918,26 @@
   display: flex;
   -webkit-box-pack: center;
   -webkit-justify-content: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  -ms-flex-pack: center;
+
+  background: #40403E;
+  border-bottom: 1px solid #FE980F;
+
 }
 .product-tab-list a {
   line-height: 1;
-  margin: 0 18px;
-}
-.product-tab-list a h4 {
-  color: #454545;
-  font-size: 18px;
-  font-weight: 500;
+  margin: 0 16px;
+  padding: 15px;
+  color: #B3AFA8;
   margin: 0;
   text-transform: uppercase;
 }
-.product-tab-list a.active h4 {
-  color: #ee3333;
-  font-weight: 600;
 
+.product-tab-list a.active, .product-tab-list a:hover {
+  background-color: #FE980F;
+  color: #fff;
 }
-.product-menu-mrg {
-  padding-top: 3px;
-}
+
 .tab-content.jump > .tab-pane {
   display: block;
   height: 0;
