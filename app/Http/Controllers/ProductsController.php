@@ -2510,6 +2510,7 @@ class ProductsController extends Controller
    * @return array
    */
   public function getAdvancedProducts(){
+    
     $best_sales_arr      =  array();
     $todays_deal_arr     =  array();
     $advanced_arr        =  array();

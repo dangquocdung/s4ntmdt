@@ -87,6 +87,24 @@
     </div>
 </section>
 
+@if(count($brands_data) > 0)  
+<section class="bg-secondary padding-top-2x padding-bottom-2x">
+  <div class="container">
+    <div class="owl-carousel" data-owl-carousel='{ "nav": false, "dots": false, "loop": true, "autoplay": true, "autoplayTimeout": 4000, "responsive": {"0":{"items":2}, "470":{"items":3},"630":{"items":4},"991":{"items":5},"1200":{"items":6}} }'>
+      @foreach($brands_data as $brand)  
+      <a href="{{ route('brands-single-page', $brand['slug']) }}">
+        @if(!empty($brand['brand_logo_img_url']))
+          <img  class="d-block w-110 opacity-75 m-auto" src="{{ get_image_url($brand['brand_logo_img_url']) }}" alt="{{ basename($brand['brand_logo_img_url']) }}" />
+        @else
+          <img  class="d-block w-110 opacity-75 m-auto" src="{{ default_placeholder_img_src() }}" alt="" />
+        @endif
+      </a>
+      @endforeach
+    </div>
+  </div>
+</section>
+@endif
+
 <section class="product-area pt-50">
     <div class="container padding-bottom-2x">
         <div class="row category-tab">
@@ -94,16 +112,20 @@
 
                 <div class="product-style-tab">
                     <div class="nav product-tab-list mb-45">
-                        <a class="active" href="#recommended_products" data-toggle="tab" role="tab" aria-selected="false" aria-controls="home1">
-                            {{ trans('frontend.recommended_products') }}
-                        </a>
-                        <a class="" href="#features_products" data-toggle="tab" role="tab" aria-selected="false" aria-controls="home1">
+                        @foreach($advancedData as $key => $advData)
+
+                          <a class="{{ ($key=='homepage_items')?'active':'' }}" href="#{{ $key }}" data-toggle="tab" role="tab" aria-selected="false">
+                              {{ trans('frontend.'.$key) }}
+                          </a>
+
+                        @endforeach
+                        <!-- <a class="" href="#features_products" data-toggle="tab" role="tab" aria-selected="false" aria-controls="home1">
                             {{ trans('frontend.features_products') }}
-                        </a>
+                        </a> -->
                     </div>
         
                     <div class="tab-content another-product-style jump">
-                        <div class="tab-pane fade show active" id="recommended_products" role="tabpanel">
+                        <div class="tab-pane fade show active" id="recommended_items" role="tabpanel">
                           <div class="isotope-grid cols-4 mb-2">
                             <div class="gutter-sizer"></div>
                             <div class="grid-sizer"></div>
@@ -190,7 +212,7 @@
                                   
                             </div>
                         </div>
-                        <div class="tab-pane fade" id="features_products" role="tabpanel">
+                        <div class="tab-pane fade" id="features_items" role="tabpanel">
                           <div class="isotope-grid cols-4 mb-2">
                             <div class="gutter-sizer"></div>
                             <div class="grid-sizer"></div>
