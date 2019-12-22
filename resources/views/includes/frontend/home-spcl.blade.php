@@ -2,9 +2,7 @@
 <section class="product-area pt-50">
     <div class="container">
         <div class="product-style">
-            <div class="product-tab-list text-center mb-45 nav product-menu-mrg">
-              <h2 class="title text-center">{{ trans('frontend.latest_products') }}</h2>
-            </div>
+            <h2 class="title text-center">{{ trans('frontend.latest_products') }}</h2>
             <div class="tab-content another-product-style jump">
                 <div class="tab-pane fade show active" id="latest_products" role="tabpanel">
                   <div class="isotope-grid cols-4 mb-2">
@@ -128,14 +126,14 @@
               </ul>
               
                 <div class="product-style-tab">
-                    <!-- <div class="product-tab-list text-center mb-45 nav product-menu-mrg">
+                    <div class="product-tab-list text-center mb-45 nav product-menu-mrg">
                         <a class="active" href="#recommended_products" data-toggle="tab" role="tab" aria-selected="false" aria-controls="home1">
                             <h4>{{ trans('frontend.recommended_products') }}&nbsp;</h4>
                         </a>
                         <a class="" href="#features_products" data-toggle="tab" role="tab" aria-selected="false" aria-controls="home1">
                             <h4>{{ trans('frontend.features_products') }}&nbsp;</h4>
                         </a>
-                    </div> -->
+                    </div>
         
                     <div class="tab-content another-product-style jump">
                         <div class="tab-pane fade show active" id="recommended_products" role="tabpanel">
