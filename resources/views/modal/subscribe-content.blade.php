@@ -21,25 +21,48 @@
 
       <div class="subscribe-options">
 
+        <div class="form-group">
 
-        @if($subscriptions_data['subscribe_options'] == 'email')
-          <input type="text" id="subscribe_options_email"  placeholder="{{ trans('frontend.enter_email_label') }}" />
-        @endif
+
+          @if($subscriptions_data['subscribe_options'] == 'email')
+            <input class="form-control" type="email" id="subscribe_options_email"  placeholder="{{ trans('frontend.enter_email_label') }}">
+          @endif
+          
+          @if($subscriptions_data['subscribe_options'] == 'name_email')
+            <input class="form-control" type="text" id="subscribe_options_name"  placeholder="{{ trans('frontend.enter_name_label') }}" />
+            <input class="form-control" type="email" id="subscribe_options_email"  placeholder="{{ trans('frontend.enter_email_label') }}">
+          @endif
+
+        </div>
+
         
-        @if($subscriptions_data['subscribe_options'] == 'name_email')
-          <input type="text" id="subscribe_options_name"  placeholder="{{ trans('frontend.enter_name_label') }}" />
-          <input type="text" id="subscribe_options_email"  placeholder="{{ trans('frontend.enter_email_label') }}" />
-        @endif
-        
-        <button type="button" id="subscribtion_submit">{!! $subscriptions_data['subscribe_btn_text'] !!}</button>
-        
+        <!-- <button class type="button" id="subscribtion_submit">{!! $subscriptions_data['subscribe_btn_text'] !!}</button> -->
+
+        <div class="row">
+          <div class="col-6">
+            <div class="text-left">
+              @if($subscriptions_data['subscribe_popup_cookie_set_visibility'] == true)
+                <button class="set-popup-cookie btn btn-outline-success btn-pill" type="button">{!! $subscriptions_data['subscribe_popup_cookie_set_text'] !!}</button>
+              @endif
+            </div>
+          </div>
+          <div class="col-6">
+            <div class="text-right">
+            <button class="btn btn-primary btn-pill" type="button" id="subscribtion_submit">{!! $subscriptions_data['subscribe_btn_text'] !!}</button>
+          </div>
+        </div>
+
+
+
       </div>
       
-      @if($subscriptions_data['subscribe_popup_cookie_set_visibility'] == true)
+      <!-- @if($subscriptions_data['subscribe_popup_cookie_set_visibility'] == true)
         <div class="popup-cookie-set">
           <a href="#" class="set-popup-cookie">{!! $subscriptions_data['subscribe_popup_cookie_set_text'] !!}</a>
         </div>
-      @endif
+      @endif -->
     </div>
+
+
   </div>
 </div>

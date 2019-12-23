@@ -19,7 +19,7 @@
   left: 50%;
   max-height: 100%;
   max-width: 600px;
-  min-height: 300px;
+  min-height: 200px;
   opacity: 0;
   /*overflow-y: auto;*/
   position: fixed;
@@ -70,7 +70,7 @@
 }
 
 .modal__content {
-  padding: 2rem;
+  padding: 2rem 2rem 1rem 2rem;
 }
 .modal__overlay {
   background: #000;
