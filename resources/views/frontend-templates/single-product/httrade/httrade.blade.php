@@ -54,50 +54,40 @@
         @endif
 
         @if(count($single_product_details['_product_related_images_url']->product_gallery_images) > 0)
-        <?php $count = 1;?>
-
-        <div class="product-carousel owl-carousel gallery-wrapper">
-          @foreach($single_product_details['_product_related_images_url']->product_gallery_images as $key => $row)
-            <div class="gallery-item" data-hash="{{ $count }}">
-              <a href="{{ get_image_url($row->url) }}" data-size="1000x667">
-                @if(!empty($row->url) && (basename($row->url) !== 'no-image.png'))  
-                <img src="{{ get_image_url($row->url) }}" alt="Product">
-                @else
-                <img src="{{ default_placeholder_img_src() }}" alt="Product"/>
-                @endif
-              </a>
-            </div>
-            <?php $count ++;?>
-          @endforeach
-        </div>
-        <ul class="product-thumbnails">
+        
           <?php $count = 1;?>
-          @foreach($single_product_details['_product_related_images_url']->product_gallery_images as $key => $row)
-          @if($count == 1)
-          <li class="active">
-            <a href="#{{ $count }}">
-                @if(!empty($row->url) && (basename($row->url) !== 'no-image.png'))  
-                <img src="{{ get_image_url($row->url) }}" alt="Product">
-                @else
-                <img src="{{ default_placeholder_img_src() }}" alt="Product"/>
-                @endif
-            </a>
-          </li>
-          @else
-          <li>
-            <a href="#{{ $count }}">
-                @if(!empty($row->url) && (basename($row->url) !== 'no-image.png'))  
-                <img src="{{ get_image_url($row->url) }}" alt="Product">
-                @else
-                <img src="{{ default_placeholder_img_src() }}" alt="Product"/>
-                @endif
-            </a>
-          </li>
-          @endif
-          <?php $count ++;?>
-          @endforeach
+
+          <div class="product-carousel owl-carousel gallery-wrapper">
+            @foreach($single_product_details['_product_related_images_url']->product_gallery_images as $key => $row)
+              <div class="gallery-item" data-hash="{{ $count }}">
+                <a href="{{ get_image_url($row->url) }}" data-size="1000x667">
+                  @if(!empty($row->url) && (basename($row->url) !== 'no-image.png'))  
+                    <img src="{{ get_image_url($row->url) }}" alt="Product">
+                  @else
+                    <img src="{{ default_placeholder_img_src() }}" alt="Product"/>
+                  @endif
+                </a>
+              </div>
+              <?php $count ++;?>
+            @endforeach
+          </div>
           
-        </ul>
+          <ul class="product-thumbnails">
+            <?php $count = 1;?>
+            @foreach($single_product_details['_product_related_images_url']->product_gallery_images as $key => $row)
+                <li class="{{ ($count==1)?'active':'' }}">
+                  <a href="#{{ $count }}">
+                      @if(!empty($row->url) && (basename($row->url) !== 'no-image.png'))  
+                      <img src="{{ get_image_url($row->url) }}" alt="Product">
+                      @else
+                      <img src="{{ default_placeholder_img_src() }}" alt="Product"/>
+                      @endif
+                  </a>
+                </li>
+            <?php $count ++;?>
+            @endforeach
+            
+          </ul>
         @endif
       </div>
     </div>

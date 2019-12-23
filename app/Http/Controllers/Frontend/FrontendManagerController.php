@@ -540,17 +540,22 @@ class FrontendManagerController extends Controller
       $product_url = default_placeholder_img_src();
       $data['product_zoom_image'] = $product_url;
 
-      if($data['single_product_details']['_product_related_images_url']->product_image){
+      if( $data['single_product_details']['_product_related_images_url']->product_image ){
+
         $product_url = $data['single_product_details']['_product_related_images_url']->product_image;
+
         $data['product_zoom_image'] = $this->classCommonFunction->createZoomImageUrl( $product_url );
+
       }
 
       $data['single_product_details']['_product_related_images_url']->product_image = $product_url;
 
       $product = (object) array('id' => time(), 'url' => $product_url);
-      $data['single_product_details']['_product_related_images_url']->product_gallery_images[0] = $product;
+
+      // $data['single_product_details']['_product_related_images_url']->product_gallery_images[0] = $product;
 
       $gallery_images = $data['single_product_details']['_product_related_images_url']->product_gallery_images;
+
       if(count($gallery_images) > 0){
         foreach($gallery_images as $images){
           $images->zoom_img_url = $this->classCommonFunction->createZoomImageUrl( $images->url );
