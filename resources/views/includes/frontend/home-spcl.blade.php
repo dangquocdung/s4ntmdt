@@ -68,11 +68,11 @@
                                           </div>
 
                                           <div class="product-cart">
-                                          <span>
-                                              <del>
-                                                {!! price_html( get_product_price_html_by_filter(get_role_based_price_by_product_id($item->id, $item->regular_price)), get_frontend_selected_currency()) !!}
-                                              </del>
-                                          </span>
+                                            <span>
+                                                <del>
+                                                  {!! price_html( get_product_price_html_by_filter(get_role_based_price_by_product_id($item->id, $item->regular_price)), get_frontend_selected_currency()) !!}
+                                                </del>
+                                            </span>
 
 
                                           </div>
@@ -215,7 +215,7 @@
                                                 <span>{{ get_user_name_by_user_id($item->author_id) }}</span>
                                               </div>
 
-                                              <div class="product-categori">
+                                              <div class="product-cart">
                                                 <span>
                                                     <del>
                                                       {!! price_html( get_product_price_html_by_filter(get_role_based_price_by_product_id($item->id, $item->regular_price)), get_frontend_selected_currency()) !!}
