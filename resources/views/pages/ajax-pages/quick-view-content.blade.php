@@ -121,12 +121,14 @@
       </p>
     @endif
 
-    <!-- <div class="pt-20 mb-1 store-name">
+    <div class="pt-20 mb-1 store-name">
       <span class="text-medium">{!! trans('frontend.gian-hang') !!}: </span>
-      <a href="{{ route('store-details-page-content', get_user_name_by_user_id($single_product_details['_selected_vendor'])) }}" target="_blank">
-        {{ get_user_name_by_user_id($single_product_details['_selected_vendor']) }}
+
+      <a href="{{ route('store-products-page-content', get_user_name_by_user_id($single_product_details['_selected_vendor'])) }}" target="_blank">
+        {{ get_store_name_by_user_id($single_product_details['_selected_vendor']) }}
       </a>
-    </div> -->
+
+    </div>
 
     @if ( isset($single_product_details['post_sku']) )
       <div class="pt-1 mb-4"><span class="text-medium">{!! trans('frontend.sku') !!}: </span>
