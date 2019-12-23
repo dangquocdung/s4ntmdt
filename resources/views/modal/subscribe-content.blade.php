@@ -15,7 +15,7 @@
       </svg>
     </button>
       
-    <div class="modal__content">
+    <div class="modal__content" style="padding-bottom:1rem">
 
       <div class="subscribe-content">{!! string_decode($subscriptions_data['popup_content']) !!}</div>
 
