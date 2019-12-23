@@ -28,7 +28,7 @@
     padding: 8px 10px;
 }
 
-.modal__content .request-content-main input[type="text"], .modal__content .request-content-main textarea, #subscriptions_modal .modal__content input[type="text"]{
+/* .modal__content .request-content-main input[type="text"], .modal__content .request-content-main textarea, #subscriptions_modal .modal__content input[type="text"]{
   display: block;
   width: 90%;
   height: 35px;
@@ -42,7 +42,7 @@
   border-radius: 5px;
   -moz-border-radius: 5px;
   -webkit-border-radius: 5px;
-}
+} */
 
 .modal__content .request-content-main input[type="text"]:focus, .modal__content .request-content-main textarea:focus, #subscriptions_modal .modal__content input[type="text"]:focus{
   border: 2px solid #1fc0a0;
