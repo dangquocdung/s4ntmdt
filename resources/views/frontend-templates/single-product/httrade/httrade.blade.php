@@ -231,7 +231,6 @@
 
         </div>
 
-
         <div class="col-md-4">
           <div class="pt-4 hidden-sm-up"></div>
           <button class="btn btn-primary btn-block m-0 add-to-cart-bg" data-id="{{ $single_product_details['id'] }}" data-toggle="tooltip" data-placement="top" title="" data-original-title="{{ trans('frontend.add_to_cart_label') }}"><i class="icon-bag"></i> Thêm vào giỏ hàng</button>
@@ -271,301 +270,296 @@
 </div>
 <!-- Product Details-->
 
-<div class="container padding-bottom-3x">
+<section class="product-area">
 
-  <div id="product_description_bottom_tab" class="product-description-bottom-tab">
-    <div class="row">
-      <div class="col-12">  
-      <div class="product-tab-list">
-          <!-- Nav tabs -->
+  <div class="nav product-tab-list mb-45">
 
-          <div class="product-tab-list text-center mb-45 nav product-menu-mrg">
-              <!-- Nav tabs -->
-              <a class="{{ !old('comments_target')?'active':'' }}" href="#features" data-toggle="tab" role="tab" aria-selected="false" aria-controls="home1">
-                <h4>{{ trans('frontend.features_label') }}&nbsp;</h4>
-              </a>
+        <!-- Nav tabs -->
+        <a class="{{ !old('comments_target')?'active':'' }}" href="#features" data-toggle="tab" role="tab" aria-selected="false">
+          {{ trans('frontend.features_label') }}
+        </a>
+
+        @if($single_product_details['_product_enable_reviews'] == 'yes')
+
+        <a class="{{ old('comments_target')?'active':'' }}" href="#reviews" data-toggle="tab" role="tab" aria-selected="false">
+          {{ trans('frontend.reviews_label') }} ({!! $comments_rating_details['total'] !!})
+        </a>
+
+        @endif
+
+        @if( count(get_vendor_details_by_product_id($single_product_details['id'])) >0 )
+
+        <a href="#vendorInfo" data-toggle="tab" role="tab" aria-selected="false">
+          {{ trans('frontend.vendor_info_label') }}
+        </a>
+
+        @endif
+
+  </div>
+
+  <div class="container padding-bottom-2x">
+      <div class="row category-tab">
 
 
-              @if($single_product_details['_product_enable_reviews'] == 'yes')
+        <div class="col-12">  
 
-              <a class="{{ old('comments_target')?'active':'' }}" href="#reviews" data-toggle="tab" role="tab" aria-selected="false" aria-controls="home1">
-                <h4>{{ trans('frontend.reviews_label') }} ({!! $comments_rating_details['total'] !!})&nbsp;</h4>
-              </a>
-
+          <div class="tab-content">
+            <div class="tab-pane fade {{ !old('comments_target')?'show active':'' }}" id="features">
+              @if($single_product_details['_product_extra_features'])  
+                {!! string_decode($single_product_details['_product_extra_features']) !!}
+              @else
+                {!! trans('frontend.no_features_label') !!}
               @endif
+            </div>
 
-              @if( count(get_vendor_details_by_product_id($single_product_details['id'])) >0 )
+            @if($single_product_details['_product_enable_reviews'] == 'yes')
+            <div class="tab-pane fade {{ old('comments_target')?'show active':'' }}" id="reviews">
+                <div class="product-reviews-content">
 
-              <a href="#vendorInfo" data-toggle="tab" role="tab" aria-selected="false" aria-controls="home1">
-                <h4>{{ trans('frontend.vendor_info_label') }}&nbsp;</h4>
-              </a>
+                  @include('pages-message.notify-msg-success')
+                  @include('pages-message.notify-msg-error')
+                  @include('pages-message.form-submit')
 
-              @endif
+                  <!-- Leave a Review-->
+                  <form class="modal fade" method="post" id="leaveReview" tabindex="-1" action="" enctype="multipart/form-data">
+                    <input type="hidden" name="_token" id="_token" value="{{ csrf_token() }}">
+                    <input type="hidden" name="comments_target" id="comments_target" value="product">
+                    <input type="hidden" name="selected_rating_value" id="selected_rating_value" value="">
+                    <input type="hidden" name="object_id" id="object_id" value="{{ $single_product_details['id'] }}">
 
-          </div>
-
-        </div>
-
-        <div class="tab-content">
-          <div class="tab-pane fade {{ !old('comments_target')?'show active':'' }}" id="features">
-            @if($single_product_details['_product_extra_features'])  
-              {!! string_decode($single_product_details['_product_extra_features']) !!}
-            @else
-              {!! trans('frontend.no_features_label') !!}
-            @endif
-          </div>
-
-          @if($single_product_details['_product_enable_reviews'] == 'yes')
-          <div class="tab-pane fade {{ old('comments_target')?'show active':'' }}" id="reviews">
-              <div class="product-reviews-content">
-
-                @include('pages-message.notify-msg-success')
-                @include('pages-message.notify-msg-error')
-                @include('pages-message.form-submit')
-
-                <!-- Leave a Review-->
-                <form class="modal fade" method="post" id="leaveReview" tabindex="-1" action="" enctype="multipart/form-data">
-                  <input type="hidden" name="_token" id="_token" value="{{ csrf_token() }}">
-                  <input type="hidden" name="comments_target" id="comments_target" value="product">
-                  <input type="hidden" name="selected_rating_value" id="selected_rating_value" value="">
-                  <input type="hidden" name="object_id" id="object_id" value="{{ $single_product_details['id'] }}">
-
-                  <div class="modal-dialog modal-lg">
-                    <div class="modal-content">
-                      <div class="modal-header">
-                        <h4 class="modal-title">{{ trans('frontend.add_a_review_label') }}</h4>
-                        <button class="close" type="button" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                      </div>
-                      <div class="modal__content">
-                        <div class="form-group">
-                          <label for="review-rating">{{ trans('frontend.select_your_rating_label') }}</label>
-                          <div class="rating-select">
-                            <div class="btn btn-light btn-sm" data-rating_value="1"><span class="fa fa-star"></span></div>
-                            <div class="btn btn-light btn-sm" data-rating_value="2"><span class="fa fa-star"></span></div>
-                            <div class="btn btn-light btn-sm" data-rating_value="3"><span class="fa fa-star"></span></div>
-                            <div class="btn btn-light btn-sm" data-rating_value="4"><span class="fa fa-star"></span></div>
-                            <div class="btn btn-light btn-sm" data-rating_value="5"><span class="fa fa-star"></span></div>
-                          </div>
-
+                    <div class="modal-dialog modal-lg">
+                      <div class="modal-content">
+                        <div class="modal-header">
+                          <h4 class="modal-title">{{ trans('frontend.add_a_review_label') }}</h4>
+                          <button class="close" type="button" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
                         </div>
-                        <div class="form-group">
-                          <label for="review-message">{{ trans('frontend.write_your_review_label') }}</label>
-                          <textarea name="product_review_content" class="form-control" id="review-message" rows="8" required></textarea>
+                        <div class="modal__content">
+                          <div class="form-group">
+                            <label for="review-rating">{{ trans('frontend.select_your_rating_label') }}</label>
+                            <div class="rating-select">
+                              <div class="btn btn-light btn-sm" data-rating_value="1"><span class="fa fa-star"></span></div>
+                              <div class="btn btn-light btn-sm" data-rating_value="2"><span class="fa fa-star"></span></div>
+                              <div class="btn btn-light btn-sm" data-rating_value="3"><span class="fa fa-star"></span></div>
+                              <div class="btn btn-light btn-sm" data-rating_value="4"><span class="fa fa-star"></span></div>
+                              <div class="btn btn-light btn-sm" data-rating_value="5"><span class="fa fa-star"></span></div>
+                            </div>
+
+                          </div>
+                          <div class="form-group">
+                            <label for="review-message">{{ trans('frontend.write_your_review_label') }}</label>
+                            <textarea name="product_review_content" class="form-control" id="review-message" rows="8" required></textarea>
+                          </div>
                         </div>
-                      </div>
-                      <div class="modal-footer">
-                        <input name="review_submit" id="review_submit" class="btn btn-primary" value="{{ trans('frontend.submit_label') }}" type="submit">
+                        <div class="modal-footer">
+                          <input name="review_submit" id="review_submit" class="btn btn-primary" value="{{ trans('frontend.submit_label') }}" type="submit">
 
-                      </div>
-                    </div>
-                  </div>
-                </form>
-
-                <div class="padding-top-2x">
-                  <div class="row">
-                    <div class="col-md-4 mb-4">
-                      <div class="card border-default">
-                        <div class="card-body">
-                          <div class="text-center">
-                            <div class="d-inline align-baseline display-3 mr-1">{{ $comments_rating_details['average'] }}</div>
-                            <div class="d-inline align-baseline text-sm text-warning mr-1">
-
-                                <div class="rating-stars">
-                                  <div class="star-rating">
-                                    <span style="width:{{ $comments_rating_details['percentage'] }}%"></span>
-                                  </div>
-                                </div>
-
-                            </div>
-                          </div>
-                          <div class="pt-3">
-                            <label class="text-medium text-sm rating-stars"><i class="icon-star filled"></i><i class="icon-star filled"></i><i class="icon-star filled"></i><i class="icon-star filled"></i><i class="icon-star filled"></i></label>
-                            <div class="progress margin-bottom-1x">
-                              <div class="progress-bar bg-warning" role="progressbar" style="width: {{ $comments_rating_details[5] }}%; height: 2px;" aria-valuenow="{{ $comments_rating_details[5] }}" aria-valuemin="0" aria-valuemax="100"></div>
-                            </div>
-                            <label class="text-medium text-sm rating-stars"><i class="icon-star filled"></i><i class="icon-star filled"></i><i class="icon-star filled"></i><i class="icon-star filled"></i></label>
-                            <div class="progress margin-bottom-1x">
-                              <div class="progress-bar bg-warning" role="progressbar" style="width: {{ $comments_rating_details[4] }}%; height: 2px;" aria-valuenow="{{ $comments_rating_details[4] }}" aria-valuemin="0" aria-valuemax="100"></div>
-                            </div>
-                            <label class="text-medium text-sm rating-stars"><i class="icon-star filled"></i><i class="icon-star filled"></i><i class="icon-star filled"></i></label>
-                            <div class="progress margin-bottom-1x">
-                              <div class="progress-bar bg-warning" role="progressbar" style="width: {{ $comments_rating_details[3] }}%; height: 2px;" aria-valuenow="{{ $comments_rating_details[3] }}" aria-valuemin="0" aria-valuemax="100"></div>
-                            </div>
-                            <label class="text-medium text-sm rating-stars"><i class="icon-star filled"></i><i class="icon-star filled"></i></label>
-                            <div class="progress margin-bottom-1x">
-                              <div class="progress-bar bg-warning" role="progressbar" style="width: {{ $comments_rating_details[2] }}%; height: 2px;" aria-valuenow="{{ $comments_rating_details[2] }}" aria-valuemin="0" aria-valuemax="100"></div>
-                            </div>
-                            <label class="text-medium text-sm rating-stars"><i class="icon-star filled"></i></label>
-                            <div class="progress mb-2">
-                              <div class="progress-bar bg-warning" role="progressbar" style="width: {{ $comments_rating_details[1] }}; height: 2px;" aria-valuenow="{{ $comments_rating_details[1] }}" aria-valuemin="0" aria-valuemax="100"></div>
-                            </div>
-                          </div>
-                          <div class="pt-2"><a class="btn btn-warning btn-block" href="#" data-toggle="modal" data-target="#leaveReview">{{ trans('frontend.add_a_review_label') }}</a></div>
                         </div>
                       </div>
                     </div>
-                    <div class="col-md-8">
-                      @if(count($comments_details) > 0)
-                        @foreach($comments_details as $comment) 
-                          <!-- Review-->
-                          <div class="comment">
-                            <div class="comment-author-ava">
-                              @if(!empty($comment->user_photo_url))
-                                <img alt="" src="{{ get_image_url( $comment->user_photo_url ) }}">
-                              @else
-                                <img alt="" src="{{ default_avatar_img_src() }}">
-                              @endif
-                            </div>
-                            <div class="comment-body">
-                              <div class="comment-header d-flex flex-wrap justify-content-between">
-                                <h4 class="comment-title">{{ $comment->display_name }}</h4>
-                                <div class="mb-2">
+                  </form>
+
+                  <div class="padding-top-2x">
+                    <div class="row">
+                      <div class="col-md-4 mb-4">
+                        <div class="card border-default">
+                          <div class="card-body">
+                            <div class="text-center">
+                              <div class="d-inline align-baseline display-3 mr-1">{{ $comments_rating_details['average'] }}</div>
+                              <div class="d-inline align-baseline text-sm text-warning mr-1">
+
                                   <div class="rating-stars">
                                     <div class="star-rating">
-                                      <span style="width:{{ $comment->percentage }}%"></span>
+                                      <span style="width:{{ $comments_rating_details['percentage'] }}%"></span>
+                                    </div>
+                                  </div>
+
+                              </div>
+                            </div>
+                            <div class="pt-3">
+                              <label class="text-medium text-sm rating-stars"><i class="icon-star filled"></i><i class="icon-star filled"></i><i class="icon-star filled"></i><i class="icon-star filled"></i><i class="icon-star filled"></i></label>
+                              <div class="progress margin-bottom-1x">
+                                <div class="progress-bar bg-warning" role="progressbar" style="width: {{ $comments_rating_details[5] }}%; height: 2px;" aria-valuenow="{{ $comments_rating_details[5] }}" aria-valuemin="0" aria-valuemax="100"></div>
+                              </div>
+                              <label class="text-medium text-sm rating-stars"><i class="icon-star filled"></i><i class="icon-star filled"></i><i class="icon-star filled"></i><i class="icon-star filled"></i></label>
+                              <div class="progress margin-bottom-1x">
+                                <div class="progress-bar bg-warning" role="progressbar" style="width: {{ $comments_rating_details[4] }}%; height: 2px;" aria-valuenow="{{ $comments_rating_details[4] }}" aria-valuemin="0" aria-valuemax="100"></div>
+                              </div>
+                              <label class="text-medium text-sm rating-stars"><i class="icon-star filled"></i><i class="icon-star filled"></i><i class="icon-star filled"></i></label>
+                              <div class="progress margin-bottom-1x">
+                                <div class="progress-bar bg-warning" role="progressbar" style="width: {{ $comments_rating_details[3] }}%; height: 2px;" aria-valuenow="{{ $comments_rating_details[3] }}" aria-valuemin="0" aria-valuemax="100"></div>
+                              </div>
+                              <label class="text-medium text-sm rating-stars"><i class="icon-star filled"></i><i class="icon-star filled"></i></label>
+                              <div class="progress margin-bottom-1x">
+                                <div class="progress-bar bg-warning" role="progressbar" style="width: {{ $comments_rating_details[2] }}%; height: 2px;" aria-valuenow="{{ $comments_rating_details[2] }}" aria-valuemin="0" aria-valuemax="100"></div>
+                              </div>
+                              <label class="text-medium text-sm rating-stars"><i class="icon-star filled"></i></label>
+                              <div class="progress mb-2">
+                                <div class="progress-bar bg-warning" role="progressbar" style="width: {{ $comments_rating_details[1] }}; height: 2px;" aria-valuenow="{{ $comments_rating_details[1] }}" aria-valuemin="0" aria-valuemax="100"></div>
+                              </div>
+                            </div>
+                            <div class="pt-2"><a class="btn btn-warning btn-block" href="#" data-toggle="modal" data-target="#leaveReview">{{ trans('frontend.add_a_review_label') }}</a></div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col-md-8">
+                        @if(count($comments_details) > 0)
+                          @foreach($comments_details as $comment) 
+                            <!-- Review-->
+                            <div class="comment">
+                              <div class="comment-author-ava">
+                                @if(!empty($comment->user_photo_url))
+                                  <img alt="" src="{{ get_image_url( $comment->user_photo_url ) }}">
+                                @else
+                                  <img alt="" src="{{ default_avatar_img_src() }}">
+                                @endif
+                              </div>
+                              <div class="comment-body">
+                                <div class="comment-header d-flex flex-wrap justify-content-between">
+                                  <h4 class="comment-title">{{ $comment->display_name }}</h4>
+                                  <div class="mb-2">
+                                    <div class="rating-stars">
+                                      <div class="star-rating">
+                                        <span style="width:{{ $comment->percentage }}%"></span>
+                                      </div>
                                     </div>
                                   </div>
                                 </div>
+                                <p class="comment-text">{{ $comment->content }}</p>
+                                <!-- <div class="comment-footer"><span class="comment-meta">{{ trans('frontend.by_label') }} {{ $comment->display_name }}</span></div> -->
                               </div>
-                              <p class="comment-text">{{ $comment->content }}</p>
-                              <!-- <div class="comment-footer"><span class="comment-meta">{{ trans('frontend.by_label') }} {{ $comment->display_name }}</span></div> -->
                             </div>
-                          </div>
-                        @endforeach
-                      @else
-                        <p>{{ trans('frontend.no_review_label') }}</p>
-                      @endif
+                          @endforeach
+                        @else
+                          <p>{{ trans('frontend.no_review_label') }}</p>
+                        @endif
+                      </div>
                     </div>
                   </div>
-                </div>
+              </div>
             </div>
-          </div>
 
-          @endif
+            @endif
 
-          @if( count(get_vendor_details_by_product_id($single_product_details['id'])) >0 )
-          <div class="tab-pane fade" id="vendorInfo">
-            <?php  $vendor_details = get_vendor_details_by_product_id($single_product_details['id']); $parse_json = json_decode($vendor_details['details']);?>
-            <div class="table-responsive">
+            @if( count(get_vendor_details_by_product_id($single_product_details['id'])) >0 )
+            <div class="tab-pane fade" id="vendorInfo">
+              <?php  $vendor_details = get_vendor_details_by_product_id($single_product_details['id']); $parse_json = json_decode($vendor_details['details']);?>
+              <div class="table-responsive">
 
-            <table class="table">
-              <tr>
-                <th>{!! trans('frontend.store_name_label') !!}</th>
-                @if(!empty($parse_json->profile_details->store_name))
-                <td>{!! $parse_json->profile_details->store_name !!}</td>
-                @else
-                <td>{!! $vendor_details['user_name'] !!}</td>
+              <table class="table">
+                <tr>
+                  <th>{!! trans('frontend.store_name_label') !!}</th>
+                  @if(!empty($parse_json->profile_details->store_name))
+                  <td>{!! $parse_json->profile_details->store_name !!}</td>
+                  @else
+                  <td>{!! $vendor_details['user_name'] !!}</td>
+                  @endif
+                </tr>
+
+                <tr><th>{!! trans('frontend.vendor_label') !!}</th><td><a target="_blank" href="{{ route('store-details-page-content', $vendor_details['user_name']) }}"><i>{!!  $vendor_details['user_name'] !!}</i></a></td></tr>
+
+                @if(!empty($parse_json->profile_details->country))
+                <tr><th>{!! trans('frontend.country') !!}</th><td>{!! get_tinhthanh($parse_json->profile_details->country) !!}</td></tr>
                 @endif
-              </tr>
 
-              <tr><th>{!! trans('frontend.vendor_label') !!}</th><td><a target="_blank" href="{{ route('store-details-page-content', $vendor_details['user_name']) }}"><i>{!!  $vendor_details['user_name'] !!}</i></a></td></tr>
+                <tr><th>{!! trans('frontend.vendor_rating_label') !!}</th><td><div class="review-stars"><div class="star-rating" style="text-align:left !important; margin:0px !important;"><span style="width:{{ $vendor_reviews_rating_details['percentage'] }}%"></span></div></div></td></tr>  
+              </table>
 
-              @if(!empty($parse_json->profile_details->country))
-              <tr><th>{!! trans('frontend.country') !!}</th><td>{!! get_tinhthanh($parse_json->profile_details->country) !!}</td></tr>
-              @endif
-
-              <tr><th>{!! trans('frontend.vendor_rating_label') !!}</th><td><div class="review-stars"><div class="star-rating" style="text-align:left !important; margin:0px !important;"><span style="width:{{ $vendor_reviews_rating_details['percentage'] }}%"></span></div></div></td></tr>  
-            </table>
-
-            </div>
-          </div>  
-          @endif
+              </div>
+            </div>  
+            @endif
+          </div>
         </div>
-      </div>
-    </div>    
-  </div>  
+            </div>
+            </div>
 
-</div>
+</section>
 
-<div class="container padding-bottom-3x padding-top-1x">       
   @if(count($related_items) > 0)   
 
-    <div class="product-tab-list">
-        <!-- Nav tabs -->
+    
+    <section class="product-area">
+      <div class="container">
+        <div class="product-style">
+          <h2 class="title text-center">{{ trans('frontend.san-pham-tuong-tu') }}</h2>
 
-        <div class="product-tab-list text-center mb-45 nav product-menu-mrg">
-            <!-- Nav tabs -->
-            <a class="active" href="#latest_products" data-toggle="tab" role="tab" aria-selected="false" aria-controls="home1">
-                <h4>{{ trans('frontend.san-pham-tuong-tu') }}&nbsp;</h4>
-            </a>
+          <div class="tab-content another-product-style jump">
+              <div class="tab-pane fade show active" id="latest_products" role="tabpanel">
+                <div class="owl-carousel" data-owl-carousel="{ &quot;nav&quot;: false, &quot;dots&quot;: true, &quot;margin&quot;: 30, &quot;responsive&quot;: {&quot;0&quot;:{&quot;items&quot;:1},&quot;576&quot;:{&quot;items&quot;:2},&quot;768&quot;:{&quot;items&quot;:3},&quot;991&quot;:{&quot;items&quot;:4},&quot;1200&quot;:{&quot;items&quot;:5}} }">
+                  @foreach($related_items as $item)
+                    <div class="single-product mb-35">
+                        <div class="product-img">
+                            <a href="{{ route('details-page', $item['post_slug']) }}">
+                              @if(!empty($item['_product_related_images_url']->product_image))
+                                <img src="{{ get_image_url( $item['_product_related_images_url']->product_image ) }}" alt="{{ basename( get_image_url( $item['_product_related_images_url']->product_image ) ) }}" />
+                              @else
+                                <img  src="{{ default_placeholder_img_src() }}" alt="" />
+                              @endif
+                            </a>
+                            @if ( $item['post_price'] < $item['post_regular_price'] )
+                              @php
+                    
+                                $tiengiam =  $item['post_regular_price'] - $item['post_price'];
+                      
+                                $phantram = round(($tiengiam/$item['post_regular_price'])*100);
+                                  
+                              @endphp
+                              <span>Giảm giá {{ $phantram }}%</span>
+                    
+                            @endif
 
-        </div>
+                            <div class="product-action">
 
-    </div>
-    <div class="tab-content another-product-style jump">
-        <div class="tab-pane fade show active" id="latest_products" role="tabpanel">
-          <div class="owl-carousel" data-owl-carousel="{ &quot;nav&quot;: false, &quot;dots&quot;: true, &quot;margin&quot;: 30, &quot;responsive&quot;: {&quot;0&quot;:{&quot;items&quot;:1},&quot;576&quot;:{&quot;items&quot;:2},&quot;768&quot;:{&quot;items&quot;:3},&quot;991&quot;:{&quot;items&quot;:4},&quot;1200&quot;:{&quot;items&quot;:5}} }">
-            @foreach($related_items as $item)
-              <div class="single-product mb-35">
-                  <div class="product-img">
-                      <a href="{{ route('details-page', $item['post_slug']) }}">
-                        @if(!empty($item['_product_related_images_url']->product_image))
-                          <img src="{{ get_image_url( $item['_product_related_images_url']->product_image ) }}" alt="{{ basename( get_image_url( $item['_product_related_images_url']->product_image ) ) }}" />
-                        @else
-                          <img  src="{{ default_placeholder_img_src() }}" alt="" />
-                        @endif
-                      </a>
-                      @if ( $item['post_price'] < $item['post_regular_price'] )
-                        @php
-              
-                          $tiengiam =  $item['post_regular_price'] - $item['post_price'];
-                
-                          $phantram = round(($tiengiam/$item['post_regular_price'])*100);
-                            
-                        @endphp
-                        <span>Giảm giá {{ $phantram }}%</span>
-              
-                      @endif
+                              <a class="animate-left quick-view-popup" data-id="{{ $item['id'] }}" data-toggle="tooltip" title="{{ trans('frontend.quick_view') }}" data-original-title="{{ trans('frontend.quick_view') }}">
+                                <i class="ion-eye"></i>
+                              </a>
 
-                      <div class="product-action">
+                              <a class="animate-right add-to-cart-bg" data-id="{{ $item['id'] }}" data-toggle="tooltip" data-placement="top" title="{{ trans('frontend.add_to_cart_label') }}" data-original-title="{{ trans('frontend.add_to_cart_label') }}">
+                                <i class="ion-bag"></i>
+                              </a>
 
-                        <a class="animate-left quick-view-popup" data-id="{{ $item['id'] }}" data-toggle="tooltip" title="{{ trans('frontend.quick_view') }}" data-original-title="{{ trans('frontend.quick_view') }}">
-                          <i class="ion-eye"></i>
-                        </a>
+                              <a class="animate-left product-wishlist" data-id="{{ $item['id'] }}" data-toggle="tooltip" title="{{ trans('frontend.add_to_wishlist_label') }}" data-original-title="{{ trans('frontend.add_to_wishlist_label') }}">
+                                <i class="ion-heart"></i>
+                              </a>
 
-                        <a class="animate-right add-to-cart-bg" data-id="{{ $item['id'] }}" data-toggle="tooltip" data-placement="top" title="{{ trans('frontend.add_to_cart_label') }}" data-original-title="{{ trans('frontend.add_to_cart_label') }}">
-                          <i class="ion-bag"></i>
-                        </a>
+                            </div>
+                        </div>
+                        <div class="product-content">
+                            <div class="product-title-price">
+                                <div class="product-title">
+                                    <h4><a href="{{ route('details-page', $item['post_slug']) }}">{!! $item['post_title'] !!}</a></h4>
+                                </div>
+                                <div class="product-price">
+                                    <span>
+                                        {!! price_html( get_product_price_html_by_filter(get_role_based_price_by_product_id($item['id'], $item['post_price'])), get_frontend_selected_currency()) !!}
+                                    </span>
+                                </div>
+                            </div>
+                            <div class="product-cart-categori">
+                                <div class="product-cart">
+                                    <span>{{ get_user_name_by_user_id($item['author_id']) }}</span>
+                                </div>
+                                <div class="product-categori">
+                                <a class="product-compare" data-id="{{ $item['id'] }}" data-toggle="tooltip" title="{{ trans('frontend.add_to_compare_list_label') }}" data-original-title="{{ trans('frontend.add_to_compare_list_label') }}">
+                                                      <i class="ion-ios-list-outline"></i>{{ trans('frontend.add_to_compare_list_label') }}
+                                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                  @endforeach
+                </div>
 
-                        <a class="animate-left product-wishlist" data-id="{{ $item['id'] }}" data-toggle="tooltip" title="{{ trans('frontend.add_to_wishlist_label') }}" data-original-title="{{ trans('frontend.add_to_wishlist_label') }}">
-                          <i class="ion-heart"></i>
-                        </a>
-
-                      </div>
-                  </div>
-                  <div class="product-content">
-                      <div class="product-title-price">
-                          <div class="product-title">
-                              <h4><a href="{{ route('details-page', $item['post_slug']) }}">{!! $item['post_title'] !!}</a></h4>
-                          </div>
-                          <div class="product-price">
-                              <span>
-                                  {!! price_html( get_product_price_html_by_filter(get_role_based_price_by_product_id($item['id'], $item['post_price'])), get_frontend_selected_currency()) !!}
-                              </span>
-                          </div>
-                      </div>
-                      <div class="product-cart-categori">
-                          <div class="product-cart">
-                              <span>{{ get_user_name_by_user_id($item['author_id']) }}</span>
-                          </div>
-                          <div class="product-categori">
-                          <a class="product-compare" data-id="{{ $item['id'] }}" data-toggle="tooltip" title="{{ trans('frontend.add_to_compare_list_label') }}" data-original-title="{{ trans('frontend.add_to_compare_list_label') }}">
-                                                <i class="ion-ios-list-outline"></i>{{ trans('frontend.add_to_compare_list_label') }}
-                                              </a>
-                          </div>
-                      </div>
-                  </div>
               </div>
-            @endforeach
           </div>
-
         </div>
-    </div>
+      </div>
+    </section>
   @endif
-</div>
 
 <!-- Seen Products Carousel-->
-<div class="container padding-bottom-3x mb-1">       
+<section class="product-area pt-50 pb-50">
+  <div class="container">
   @include('includes.frontend.seen-products')
   @yield('seen-products')
-</div>
+  </div>
+</section>
