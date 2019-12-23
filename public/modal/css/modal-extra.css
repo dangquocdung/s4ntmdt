@@ -168,7 +168,7 @@
 }
 
 .model__quick_view_product_info .star-rating span::before{
-  color: #1fc0a0;
+  /* color: #1fc0a0; */
   content: "\e9d5\e9d5\e9d5\e9d5\e9d5";
   font-size: 15px;
   left: 0;
