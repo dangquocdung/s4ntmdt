@@ -2510,7 +2510,7 @@ class ProductsController extends Controller
    * @return array
    */
   public function getAdvancedProducts(){
-    
+
     $best_sales_arr      =  array();
     $todays_deal_arr     =  array();
     $advanced_arr        =  array();
@@ -2520,7 +2520,7 @@ class ProductsController extends Controller
       $get_homepage_items =       DB::table('products')
                                 ->select('products.*')
                                 ->where('products.status', 1)
-                                ->join(DB::raw("(SELECT product_id FROM product_extras WHERE key_name = '_product_enable_as_homepage' AND key_value = 'yes') T1") , 'products.id', '=', 'T1.product_id')
+                                ->join(DB::raw("(SELECT product_id FROM product_extras WHERE key_name = '_product_enable_as_selected_cat' AND key_value = 'yes') T1") , 'products.id', '=', 'T1.product_id')
                                 ->orderby('id','desc')
                                 ->take(16)
                                 ->get()
