@@ -790,7 +790,9 @@
   font-weight: 600;
   margin-bottom: 10px;
   margin-right:5px;
-  min-height: 35px;
+  /* min-height: 35px; */
+  /* white-space: nowrap;
+  text-overflow: ellipsis; */
 }
 .product-title > h4 a {
   color: #5d5d5d;
