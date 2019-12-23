@@ -91,6 +91,25 @@
         </ul>
         </div>
 
+      @else
+      <div class="gallery-wrapper">
+
+
+        <div class="gallery-item">
+          <a href="{{ get_image_url( $single_product_details['post_image_url'] ) }}" data-size="1000x667">
+            @if( !empty($single_product_details['post_image_url']) )  
+              <img src="{{ get_image_url( $single_product_details['post_image_url'] ) }}" alt="{{ $single_product_details['post_title'] }}">
+            @else
+              <img src="{{ default_placeholder_img_src() }}" alt="{{ $single_product_details['post_title'] }}"/>
+            @endif
+          </a>
+        </div>
+
+      </div>
+
+
+
+
       @endif
     </div>
     <!-- Product Info-->
