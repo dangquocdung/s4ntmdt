@@ -2311,6 +2311,43 @@ class AdminAjaxController extends Controller
       return json_encode($json);
     }  
   }
+
+    /**
+   * 
+   * Product status change
+   *
+   * @param null
+   * @return response
+   */
+  public function productStatusChange(){
+
+    if(Request::isMethod('post') && Request::ajax() && Session::token() == Request::header('X-CSRF-TOKEN')){
+
+      $input = Request::all();
+      // $email_options = get_emails_option_data();
+      
+      $data = array(
+        'status'  => $input['status']   
+      );
+      
+      if(Product::where('id', $input['id'])->update($data)){
+
+        // if($email_options['product_activation']['enable_disable'] == true && $this->env === 'production'){
+
+        //   $classGetFunction  =  new GetFunction();
+        //   $get_item = Product::where(['id' => $input['id']])->first();
+          
+        //   $classGetFunction->sendCustomMail( array('source' => 'product_activation', 'email' => $get_vendor->email, 'status' => $input['status']) );
+
+        // } 
+
+        return response()->json(array('status' => 'success', 'type' => 'product_status_updated'));
+      
+      }
+    }
+
+  }
+
   
   public function getAllVendor(){
     if(Session::token() == Request::header('X-CSRF-TOKEN')){
