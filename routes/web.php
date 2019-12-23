@@ -1138,6 +1138,12 @@ Route::post('/ajax/vendor-status-change', [
   'as'   => 'vendor-status-change'
 ]);
 
+Route::post('/ajax/product-status-change', [
+  'uses' => 'Admin\AdminAjaxController@productStatusChange',
+  'as'   => 'product-status-change'
+]);
+
+
 Route::get('/ajax/get_categories_for_vendor', [
   'uses' => 'Admin\AdminAjaxController@getParentCatForVendor',
   'as'   => 'get-cat-for-vendors'

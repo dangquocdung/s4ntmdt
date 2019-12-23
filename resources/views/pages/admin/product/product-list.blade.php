@@ -84,7 +84,7 @@
             </div>
           </form>  
         </div>      
-        <table class="table table-bordered admin-data-table admin-data-list">
+        <table class="table table-bordered admin-data-table admin-data-list" id="table_for_vendors_list">
           <thead class="thead-dark">
             <tr>
               <th>{!! trans('admin.product_image') !!}</th>
@@ -124,9 +124,9 @@
                 <td>{!! price_html( $row->price ) !!}</td>
 
                 @if($row->status == 1)
-                <td>{!! trans('admin.enable') !!}</td>
+                <td class="status-enable">{!! trans('admin.enable') !!}</td>
                 @else
-                <td>{!! trans('admin.disable') !!}</td>
+                <td class="status-disable">{!! trans('admin.disable') !!}</td>
                 @endif
                 
                 <td>{!! get_vendor_name( $row->author_id ) !!}</td>
@@ -140,6 +140,13 @@
                     </button>
                     <ul role="menu" class="dropdown-menu">
                       <li><a target="_blank" href="{{ route( 'details-page', $row->slug ) }}"><i class="fa fa-edit"></i>{!! trans('admin.view') !!}</a></li>
+
+                      @if($row->status == 1)
+                        <li><a href="#" class="product-status-change" data-id="{{ $row->id }}" data-target="disable"><i class="fa fa-times-rectangle-o"></i>{{ trans('admin.disable') }}</a></li>
+                      @else
+                        <li><a href="#" class="product-status-change" data-id="{{ $row->id }}" data-target="enable"><i class="fa fa-check-square-o"></i>{{ trans('admin.enable') }}</a></li>
+                      @endif
+
                       @if(in_array('add_edit_delete_product', $user_permission_list)) 
                         <li><a href="{{ route('admin.update_product_content', $row->slug) }}"><i class="fa fa-edit"></i>{!! trans('admin.edit') !!}</a></li>
                       @endif

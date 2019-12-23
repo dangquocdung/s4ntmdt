@@ -774,6 +774,67 @@ shopist.pageLoad = {
 
                                         swal(adminLocalizationString.updated_label, responseMsg, "success");
                                         window.location.href = window.location.href;
+
+                                    }
+                                },
+                                error: function(xhr) {
+
+                                    swal("Lỗi", xhr, "error");
+                                    window.location.href = window.location.href;
+
+                                }
+                            });
+                        }
+                    });
+            });
+        }
+
+        if ($('.product-status-change').length > 0) {
+            $('.product-status-change').on('click', function(e) {
+                e.preventDefault();
+                var msg = '';
+                var statusChangeMsg = '';
+                var responseMsg = '';
+                var id = $(this).data('id');
+                var target = $(this).data('target');
+                var status = '';
+
+                if (target == 'enable') {
+                    msg = adminLocalizationString.you_want_to_enable_this_item;
+                    statusChangeMsg = adminLocalizationString.yes_enable_it;
+                    responseMsg = adminLocalizationString.item_enable_update_label;
+                    status = 1;
+                } else {
+                    msg = adminLocalizationString.you_want_to_disable_this_item;
+                    statusChangeMsg = adminLocalizationString.yes_disable_it;
+                    responseMsg = adminLocalizationString.item_disable_update_label;
+                    status = 0;
+                }
+
+                swal({
+                        title: adminLocalizationString.are_you_sure,
+                        text: msg,
+                        type: "warning",
+                        showCancelButton: true,
+                        confirmButtonColor: "#DD6B55",
+                        confirmButtonText: statusChangeMsg,
+                        closeOnConfirm: false
+                    },
+                    function(isConfirm) {
+                        if (isConfirm) {
+                            $.ajax({
+                                url: $('#hf_base_url').val() + '/ajax/product-status-change',
+                                type: 'POST',
+                                cache: false,
+                                datatype: 'json',
+                                data: { id: id, status: status },
+                                headers: { 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content') },
+                                success: function(data) {
+
+                                    if (data.status == 'success' && data.type == 'product_status_updated') {
+
+                                        swal(adminLocalizationString.updated_label, responseMsg, "success");
+                                        window.location.href = window.location.href;
                                         
                                     }
                                 },

@@ -3152,8 +3152,8 @@ class GetFunction
     $vendor_name = '';
     $get_user = get_user_details($author_id);
     
-    if(count($get_user) > 0 && isset($get_user['user_name'])){
-      $vendor_name = $get_user['user_name'];
+    if(count($get_user) > 0 && isset($get_user['user_display_name'])){
+      $vendor_name = $get_user['user_display_name'];
     }
     
     return $vendor_name;
