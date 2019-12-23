@@ -19,18 +19,23 @@
 
       <div class="subscribe-content">{!! string_decode($subscriptions_data['popup_content']) !!}</div>
 
+
+
       <div class="subscribe-options">
 
-        <div class="form-group">
-
-
-          @if($subscriptions_data['subscribe_options'] == 'email')
+        @if($subscriptions_data['subscribe_options'] == 'email')
+          <div class="form-group">
             <input class="form-control" type="email" id="subscribe_options_email"  placeholder="{{ trans('frontend.enter_email_label') }}">
+          </div>
           @endif
           
           @if($subscriptions_data['subscribe_options'] == 'name_email')
+          <div class="form-group">
             <input class="form-control" type="text" id="subscribe_options_name"  placeholder="{{ trans('frontend.enter_name_label') }}" />
+          </div>
+          <div class="form-group">
             <input class="form-control" type="email" id="subscribe_options_email"  placeholder="{{ trans('frontend.enter_email_label') }}">
+          </div>
           @endif
 
         </div>
