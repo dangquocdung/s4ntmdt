@@ -52,7 +52,7 @@
   height: 100px; 
 }
 
-.modal__content .request-content-main button, #subscriptions_modal .modal__content button{
+.modal__content .request-content-main button{
   display: block;
   background: #1fc0a0;
   width:90%;
@@ -69,7 +69,7 @@
   position: relative;
 }
 
-.modal__content .request-content-main button:hover, #subscriptions_modal .modal__content button:hover{
+.modal__content .request-content-main button:hover{
   background: #dddddd;
   color: #333333;
 }
@@ -88,7 +88,7 @@
 
 #product_video_modal .modal__close-icon, #quick_view_modal .modal__close-icon, #subscriptions_modal .modal__close-icon{
   fill:#3d4246 !important;
-  margin-top: 5px !important;
+  /* margin-top: 5px !important; */
 }
 
 #request_product_modal .modal__header{
