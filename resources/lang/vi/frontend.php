@@ -176,9 +176,9 @@ return [
   'categories_items' =>'Mục danh mục',
   'no_product_of_this_category' =>'Hiện không có sản phẩm nào thuộc loại này',
   'no_product_of_this_tag' =>'Hiện không có sản phẩm nào được gắn thẻ này',
-  'features_items' =>'Mục tính năng',
+  'features_items' =>'Sản phẩm hữu ích',
   'recommended_items' =>'Gợi ý cho bạn',
-  'latest_items' =>'Mục mới nhất',
+  'latest_items' =>'Sản phẩm mới nhất',
   'no product' =>'Không có sản phẩm',
   'product_variation' =>'Giỏ hàng',
   'shopping_cart_summary_label' =>'Tóm tắt giỏ hàng',
@@ -206,7 +206,7 @@ return [
   'no_brands_yet' =>'Chưa có thương hiệu nào!',
   'no_categories_yet' =>'Chưa có danh mục nào!',
   'footer_msg' =>'Bản quyền © 2019 <b>:title </ b>. Đã đăng ký Bản quyền.',
-  'shop_title' =>'gian hàng trực tuyến tốt nhất',
+  'shop_title' =>'Gian hàng trực tuyến tốt nhất',
   'currency' =>'Tiền tệ',
   'home' =>'Trang chủ',
   'products_label' =>'Sản phẩm',
@@ -620,6 +620,9 @@ return [
   'store_full_name_label' => 'Công ty TNHH ABC',
   'store_short_name_label' => 'ABC',
   'store_path_label' => 'cong-ty-tnhh-abc',
-  'todays_deal_label' => 'Giá tốt hôm nay'
+  'todays_deal_label' => 'Giá tốt hôm nay',
+  'nhan-hang-uy-tin' => 'Nhãn hàng uy tín',
+  'homepage_items'  => 'Sản phẩm được chọn',
+  'related_items'  => 'Sản phẩm mua kèm'
 
 ];
