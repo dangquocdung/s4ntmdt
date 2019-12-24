@@ -47,13 +47,13 @@
           <div class="col-6">
             <div class="text-left">
               @if($subscriptions_data['subscribe_popup_cookie_set_visibility'] == true)
-                <button class="set-popup-cookie btn btn-outline-success btn-pill" type="button">{!! $subscriptions_data['subscribe_popup_cookie_set_text'] !!}</button>
+                <button class="set-popup-cookie btn btn-outline-success" type="button">{!! $subscriptions_data['subscribe_popup_cookie_set_text'] !!}</button>
               @endif
             </div>
           </div>
           <div class="col-6">
             <div class="text-right">
-            <button class="btn btn-primary btn-pill" type="button" id="subscribtion_submit">{!! $subscriptions_data['subscribe_btn_text'] !!}</button>
+            <button class="btn btn-primary" type="button" id="subscribtion_submit">{!! $subscriptions_data['subscribe_btn_text'] !!}</button>
           </div>
         </div>
 
