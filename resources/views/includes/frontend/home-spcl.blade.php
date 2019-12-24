@@ -105,9 +105,9 @@
         @foreach($brands_data as $brand)  
         <a href="{{ route('brands-single-page', $brand['slug']) }}">
           @if(!empty($brand['brand_logo_img_url']))
-            <img  class="d-block w-110 opacity-75 m-auto" src="{{ get_image_url($brand['brand_logo_img_url']) }}" alt="{{ basename($brand['brand_logo_img_url']) }}" />
+            <img  class="d-block w-110 opacity-75 m-auto" src="{{ get_image_url($brand['brand_logo_img_url']) }}" alt="{{ basename($brand['brand_logo_img_url']) }}" title="{{ $brand['name'] }}" />
           @else
-            <img  class="d-block w-110 opacity-75 m-auto" src="{{ default_placeholder_img_src() }}" alt="" />
+            <img  class="d-block w-110 opacity-75 m-auto" src="{{ default_placeholder_img_src() }}" alt="{{ basename($brand['brand_logo_img_url']) }}" title="{{ $brand['name'] }}" />
           @endif
         </a>
         @endforeach
