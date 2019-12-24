@@ -199,8 +199,8 @@
       </div>
 
       <div class="row align-items-end pb-4">
-        <div class="col-2">
-          <div class="form-group mb-0">
+        <div class="col-sm-4">
+        <div class="form-group mb-0">
           <label for="quantity">{!! trans('frontend.quantity') !!}</label>
 
             @php
@@ -230,23 +230,30 @@
 
             </select>
           </div>
-        </div>
-        <div class="col-md-3">
-          <div class="pt-4 hidden-sm-up"></div>
-          <button class="btn btn-outline-secondary btn-block m-0 product-wishlist" data-id="{{ $single_product_details['id'] }}" data-toggle="tooltip" title="{{ trans('frontend.add_to_wishlist_label') }}" data-original-title="{{ trans('frontend.add_to_wishlist_label') }}"><i class="icon-heart"></i>&nbsp;{!! trans('frontend.wishlist') !!}</button>
-
-        </div>
-        <div class="col-md-3">
-          <div class="pt-4 hidden-sm-up"></div>
-          <button class="btn btn-outline-secondary btn-block m-0 product-compare" data-id="{{ $single_product_details['id'] }}" data-toggle="tooltip" title="" data-original-title="{{ trans('frontend.add_to_compare_list_label') }}"><i class="icon-repeat"></i>&nbsp;{!! trans('frontend.compare') !!}</button>
 
         </div>
 
-        <div class="col-md-4">
+        <div class="col-sm-8">
           <div class="pt-4 hidden-sm-up"></div>
           <button class="btn btn-primary btn-block m-0 add-to-cart-bg" data-id="{{ $single_product_details['id'] }}" data-toggle="tooltip" data-placement="top" title="" data-original-title="{{ trans('frontend.add_to_cart_label') }}"><i class="icon-bag"></i> Thêm vào giỏ hàng</button>
         </div>
+
       </div>
+
+      <div class="row align-items-end pb-4">
+        <div class="col-sm-6">
+          <div class="pt-4 hidden-sm-up"></div>
+          <button class="btn btn-outline-secondary btn-block m-0 product-wishlist" data-id="{{ $single_product_details['id'] }}" data-toggle="tooltip" title="{{ trans('frontend.add_to_wishlist_label') }}" data-original-title="{{ trans('frontend.add_to_wishlist_label') }}"><i class="icon-heart"></i>&nbsp;{!! trans('frontend.wishlist') !!}</button>
+        </div>
+        <div class="col-sm-6">
+          <div class="pt-4 hidden-sm-up"></div>
+          <button class="btn btn-outline-secondary btn-block m-0 product-compare" data-id="{{ $single_product_details['id'] }}" data-toggle="tooltip" title="" data-original-title="{{ trans('frontend.add_to_compare_list_label') }}"><i class="icon-repeat"></i>&nbsp;{!! trans('frontend.compare') !!}</button>
+        </div>
+
+
+      </div>
+
+
 
       <div class="pt-1 mb-3 store-name">
         <span class="text-medium">{!! trans('frontend.gian-hang') !!}: </span>
