@@ -50,7 +50,7 @@
 <script type="text/javascript" src="{{ URL::asset('/designer/designer.js') }}"></script>
 <script type="text/javascript" src="{{ URL::asset('/designer/designerControl.js') }}"></script>
 <script type="text/javascript" src="{{ URL::asset('/dist/js/app.min.js') }}"></script>
-<script type="text/javascript" src="{{ URL::asset('/editor/summernote.min.js') }}"></script>
+<script type="text/javascript" src="{{ URL::asset('/editor/summernote.js') }}"></script>
 <script type="text/javascript" src="{{ URL::asset('/input-tag/tagmanager.min.js') }}"></script>
 <script type="text/javascript" src="{{ URL::asset('/input-tag/bootstrap3-typeahead.min.js') }}"></script>
 <script src='https://www.google.com/recaptcha/api.js'></script>
