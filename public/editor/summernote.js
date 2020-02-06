@@ -464,7 +464,6 @@
     isW3CRangeSupport: !!document.createRange
   };
 
-
   var NBSP_CHAR = String.fromCharCode(160);
   var ZERO_WIDTH_NBSP_CHAR = '\ufeff';
 
@@ -1799,7 +1798,6 @@
     }
   });
 
-
   var Renderer = function (markup, children, options, callback) {
     this.render = function ($parent) {
       var $node = $(markup);
@@ -2204,7 +2202,6 @@
       }
     }
   });
-
 
   /**
    * @class core.key
@@ -3414,7 +3411,6 @@
     };
   };
 
-
   /**
    * @class editing.Bullet
    *
@@ -3621,7 +3617,6 @@
     };
   };
 
-
   /**
    * @class editing.Typing
    *
@@ -3758,7 +3753,6 @@
       return $table[0];
     };
   };
-
 
   var KEY_BOGUS = 'bogus';
 
@@ -4713,7 +4707,6 @@
       detachDocumentEvent();
     };
   };
-
 
   var CodeMirror;
   if (agent.hasCodeMirror) {
@@ -6807,7 +6800,6 @@
     };
   };
 
-
   $.summernote = $.extend($.summernote, {
     version: '0.8.3',
     ui: ui,
@@ -6933,7 +6925,13 @@
         onKeyup: null,
         onKeydown: null,
         onImageUpload: null,
-        onImageUploadError: null
+        onImageUploadError: null,
+        onPaste: function(e) {
+          var bufferText = ((e.originalEvent || e).clipboardData || window.clipboardData).getData('Text');
+          e.preventDefault();
+          document.execCommand('insertText', false, bufferText);
+        }
+
       },
 
       codemirror: {
