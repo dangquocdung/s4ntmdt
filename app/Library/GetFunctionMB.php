@@ -173,7 +173,7 @@ class GetFunctionMB
       $user_data['sub_category_count'] = 0;
       $user_data['follow_count'] = 0;
       $user_data['price_decimal_place'] = 0;
-      $user_data['cover_image_file'] = strval($parse_user_data['general_details']['cover_img']);
+      $user_data['cover_image_file'] = strval($row->user_photo_url);
       $user_data['cover_image_width'] = '600';
       $user_data['cover_image_height'] = '400';
       $user_data['cover_image_description'] = $parse_user_data['profile_details']['store_name'];
