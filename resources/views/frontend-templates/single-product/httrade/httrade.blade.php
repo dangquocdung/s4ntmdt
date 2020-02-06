@@ -198,6 +198,29 @@
 
       </div>
 
+      <!-- <div class="row margin-top-1x">
+        <div class="col-sm-6">
+          <div class="form-group">
+            <label for="size">Choose color</label>
+            <select class="form-control" id="size">
+              <option>White/Gray/Black</option>
+              <option>Black</option>
+              <option>Black/White/Red</option>
+            </select>
+          </div>
+        </div>
+        <div class="col-sm-6">
+          <div class="form-group">
+            <label for="color">Battery capacity</label>
+            <select class="form-control" id="color">
+              <option>5100 mAh</option>
+              <option>6200 mAh</option>
+              <option>8000 mAh</option>
+            </select>
+          </div>
+        </div>
+      </div> -->
+
       <div class="row align-items-end pb-4">
         <div class="col-sm-4">
         <div class="form-group mb-0">
