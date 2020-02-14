@@ -932,7 +932,7 @@ return [
   'vendor_package_details_label' =>'Chi tiết gói',
   'sidebar_dashbord_title' =>'Quản lý bảng điều khiển',
   'sidebar_cms_title' =>'Quản lý CMS',
-  'sidebar_sales_channel_title' =>'Quản lý gian hàng',
+  'sidebar_sales_channel_title' =>'Quản lý bán hàng',
   'sidebar_vendor_title' =>'Quản lý gian hàng',
   'sidebar_manage_users_title' =>'Quản lý người dùng',
   'sidebar_config_title' =>'Cấu hình',
