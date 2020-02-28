@@ -4,7 +4,7 @@
     <div class="container">
         <div class="row">
             <!-- Start Left Feature -->
-            <div class="col-md-4 col-lg-3 col-sm-4 col-xs-12 padding-top-1x">
+            <div class="col-md-4 col-lg-3 col-sm-12 padding-top-1x">
                 <div class="">
                     <div class="category-heading">
                         <h3>{{ trans('frontend.product_categories_label') }}</h3>
@@ -139,7 +139,7 @@
                     @endif
                 </div>
             </div>
-            <div class="col-md-8 col-lg-9 col-sm-8 col-xs-12 padding-top-1x">
+            <div class="col-md-8 col-lg-9 col-sm-12 padding-top-1x">
                 @if($appearance_all_data['header_details']['slider_visibility'] == true && Request::is('/'))
                 <!-- Start Slider Area -->
                 <div class="owl-carousel" data-owl-carousel='{ "autoplay": true, "loop": true }'>
