@@ -703,10 +703,6 @@
   margin: 0;
 }
 /* single product */
-.product-img{
-  width: 100%;
-  height: 200px;
-}
 
 .product-img img {
   width: 100%;
@@ -722,6 +718,8 @@
 
 .single-product , .product-img {
   position: relative;
+  width: 100%;
+  height: 200px;
 }
 .product-img > span {
   background-color: #ffc107;
