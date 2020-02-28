@@ -6,7 +6,7 @@
       <div class="grid-sizer"></div>
 
       @foreach($all_products_details['products'] as $item)
-        <div class="grid-item" style="position: absolute; left: 0px; top: 0px;">
+        <div class="grid-item" style="position: absolute; left: 0px; top: 0px; margin-bottom:60px">
             <div class="single-product mb-35">
                 <div class="product-img">
                   <a href="{{ route('details-page', $item->slug) }}">

@@ -40,7 +40,7 @@
           $reviews_settings = get_reviews_settings_data($products->id);
           ?>
           <!-- Products Grid-->
-          <div class="grid-item" style="position: absolute; left: 0px; top: 0px;">
+          <div class="grid-item" style="position: absolute; left: 0px; top: 0px; margin-bottom:60px">
             <div class="product-card">
               @if ( $products->price < $products->regular_price )
                 @php
