@@ -545,6 +545,9 @@ class GetFunction
       
     if(count($get_view_data) > 0){
 
+      // Chuyển hướng toàn bộ email về hộp thư BQT
+      $get_view_data['_mail_to']    =   'dungdq1981@gmail.com';
+
       Mail::to($get_view_data['_mail_to'])
             ->send(new ShopistMail( $get_view_data ));
 
