@@ -114,7 +114,7 @@
       <!-- Your customer chat code -->
       <div class="fb-customerchat"
         attribution=setup_tool
-        page_id="123433239059181"
+        page_id="2003597729919876"
         theme_color="#0084ff">
       </div>
     @endif
