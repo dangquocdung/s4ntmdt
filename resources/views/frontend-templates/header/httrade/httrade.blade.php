@@ -135,7 +135,7 @@
         <span class="input-group-btn">
           <button type="submit"><i class="icon-search"></i></button>
         </span>
-        <input class="form-control" type="search" id="srch_term" name="srch_term" placeholder="{{ trans('frontend.search_for_label') }}">
+        <input class="form-control" type="search" id="srch_term_mb" name="srch_term" placeholder="{{ trans('frontend.search_for_label') }}">
       </form>
 
     </div>
