@@ -2,7 +2,7 @@
 <div class="topbar d-flex justify-content-between">
   <!-- Logo-->
   <div class="site-branding d-flex">
-    <a class="site-logo align-self-center" href="{{ route('home-page') }}" style="width:200px">
+    <a class="site-logo align-self-center" href="{{ route('home-page') }}">
 
     @if(get_site_logo_image())      
       <img src="{{ get_site_logo_image() }}" alt="{{ trans('frontend.your_store_label') }}">
