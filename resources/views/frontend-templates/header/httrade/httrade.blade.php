@@ -1,8 +1,8 @@
 <!-- Topbar-->
 <div class="topbar d-flex justify-content-between">
   <!-- Logo-->
-  <div class="site-branding d-flex">
-    <a class="site-logo align-self-center" href="{{ route('home-page') }}" style="width:300px; padding-left:10px">
+  <div class="site-branding d-flex" style="padding-left:10px">
+    <a class="site-logo align-self-center" href="{{ route('home-page') }}" style="width:300px">
 
     @if(get_site_logo_image())      
       <img src="{{ get_site_logo_image() }}" alt="{{ trans('frontend.your_store_label') }}">
