@@ -5,32 +5,7 @@
 @yield('product_area')
 
 
-@if(count($vendors_list) > 0)  
-<section class="bg-secondary padding-top-1x padding-bottom-2x">
-  <div class="container">
-    <div class="product-style">
 
-      <h2 class="title text-center">{{ trans('frontend.gian-hang') }}</h2>
-
-      <div class="owl-carousel padding-top-1x" data-owl-carousel='{ "nav": false, "dots": false, "loop": true, "autoplay": true, "autoplayTimeout": 4000, "responsive": {"0":{"items":2}, "470":{"items":3},"630":{"items":4},"991":{"items":5},"1200":{"items":6}} }'>
-        @foreach($vendors_list['vendors'] as $vendor)
-        
-          <!-- @if($vendor->user_status == 1 && !is_vendor_expired($vendor->id))
-            <?php $details = json_decode($vendor->details);?>
-            <a href="{{ route('store-products-page-content', $vendor->name) }}">  
-              @if(!empty($vendor->user_photo_url))
-                <img class="d-block w-110 opacity-75 m-auto" src="{{ get_image_url($vendor->user_photo_url) }}" alt="{!! $details->profile_details->store_name !!}" title="{!! $details->profile_details->store_name !!}">
-              @else
-                <img class="d-block w-110 opacity-75 m-auto" src="{{ default_placeholder_img_src() }}" alt="{!! $details->profile_details->store_name !!}" title="{!! $details->profile_details->store_name !!}">
-              @endif
-            </a>
-          @endif -->
-        @endforeach
-      </div>
-    </div>
-  </div>
-</section>
-@endif
 
 
   
