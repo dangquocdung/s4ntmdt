@@ -18,6 +18,8 @@
           @if($vendor->user_status == 1 && !is_vendor_expired($vendor->id))
             <?php $details = json_decode($vendor->details);?>
             <a href="{{ route('store-products-page-content', $vendor->name) }}">  
+
+              <!-- details->profile_details->store_name -->
               @if(!empty($vendor->user_photo_url))
                 <img class="d-block w-110 opacity-75 m-auto" src="{{ get_image_url($vendor->user_photo_url) }}">
               @else
