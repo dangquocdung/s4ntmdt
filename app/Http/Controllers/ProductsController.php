@@ -1313,7 +1313,7 @@ class ProductsController extends Controller
                                       array(
                                           'product_id'    =>  $post->id,
                                           'key_name'      =>  '_product_enable_as_homepage',
-                                          'key_value'     =>  $home_page_product,
+                                          'key_value'     =>  'no',
                                           'created_at'    =>  date("y-m-d H:i:s", strtotime('now')),
                                           'updated_at'    =>  date("y-m-d H:i:s", strtotime('now'))
                                       ),
