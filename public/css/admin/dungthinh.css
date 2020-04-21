@@ -183,7 +183,7 @@ padding-bottom: 15px;
   border:1px solid #AEB9BF;
   margin: 7px;
 }
-.header-slider-image-single-container
+.header-slider-image-single-container, .header-banner-image-single-container
 {
   position:relative;
   display:inline-block;
@@ -207,7 +207,7 @@ padding-bottom: 15px;
   margin: 0px auto;
   width: 100%;
 }
-.header-slider-image-single-container img
+.header-slider-image-single-container img, .header-banner-image-single-container img
 {
   padding: 10px;
   margin: 0px auto;
