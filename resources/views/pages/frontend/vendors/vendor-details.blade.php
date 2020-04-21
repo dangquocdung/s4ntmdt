@@ -62,7 +62,7 @@
         <!-- Promo banner-->
         
 
-        {{ $vendors_settings->general_details->cover_img }}
+        {{ $vendor_settings->general_details->cover_img }}
 
 
           <a class="alert alert-default alert-dismissible fade show fw-section mb-30" href="{{ route('store-products-page-content', $vendor_info->name) }}" style="background-image: url('/img/banners/shop-banner-bg.jpg');">
