@@ -390,7 +390,7 @@
                 <div class="row">    
                   <label class="col-sm-4 control-label" for="inputHeaderSliderVissibility">{{ trans('admin.banner_visibility') }}</label>
                   <div class="col-sm-8">
-                    @if(count(get_appearance_settings()) && get_appearance_settings()['header_details']['banner_visibility'] == true)
+                    @if(count(get_appearance_settings()) && get_appearance_settings()['header_details']['custom_css'] == true)
                       <input type="checkbox" checked="checked" class="shopist-iCheck" name="inputVisibilityBanner" id="inputVisibilityBanner">
                     @else
                       <input type="checkbox" class="shopist-iCheck" name="inputVisibilityBanner" id="inputVisibilityBanner">
