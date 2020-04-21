@@ -84,7 +84,7 @@
                 </ul>
             </section>
         </div>
-        <div class="col-md-3">
+        <!-- <div class="col-md-3">
             <section class="widget widget-light-skin">
                 <h3 class="widget-title">Ứng dụng di động</h3>
                 <a class="market-button apple-button mb-light-skin" href="#">
@@ -95,9 +95,9 @@
                 </a>
 
             </section>
-        </div>
+        </div> -->
     
-        <div class="col-md-3">
+        <div class="col-md-6">
             <section class="widget widget-light-skin">
                 <h3 class="widget-title">Chứng nhận</h3>
                 <a href="{{ URL::to('http://online.gov.vn/HomePage/WebsiteDisplay.aspx?DocId=19094') }}" target="_blank">

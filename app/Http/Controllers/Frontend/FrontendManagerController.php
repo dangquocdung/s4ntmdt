@@ -886,7 +886,7 @@ class FrontendManagerController extends Controller
 
     // $data['vendors_list'] = $this->vendors->getAllVendors( false, null, 1 );
 
-    // return response()->json($data['vendors_list']);
+    return response()->json($data['vendors_list']);
     
     return view('pages.frontend.vendors.vendors-list', $data);
   }
