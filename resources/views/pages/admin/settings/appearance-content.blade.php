@@ -408,88 +408,8 @@
             </div>  
           </div>  
           
-          <div class="box box-info">
-            <div class="box-header with-border">
-              <h3 class="box-title">{{ trans('admin.appearance_footer_elements_text') }}</h3>
-            </div>
-            <div class="box-body">
-              <div class="form-group">
-                <div class="row">    
-                  <label class="col-sm-4 control-label" for="inputAboutUsDesc">{{ trans('admin.about_us_desc') }}</label>
-                  <div class="col-sm-8">
-                    <textarea id="about_us_description_editor" name="about_us_description_editor" class="dynamic-editor" placeholder="{{ trans('admin.enter_description') }}">
-                    {!! $frontend_templates_details['appearance_tab']['settings_details']['footer_details']['footer_about_us_description'] !!}            
-                    </textarea>
-                  </div>
-                </div>  
-              </div>
-              
-              <div class="form-group">
-                <div class="row">    
-                  <label class="col-sm-4 control-label" for="inputFbUrl">{{ trans('admin.fb_title') }}</label>
-                  <div class="col-sm-8">
-                      <input type="text" class="form-control" id="fb_follow_us_url" name="fb_follow_us_url" value="{{ $frontend_templates_details['appearance_tab']['settings_details']['footer_details']['follow_us_url']['fb'] }}" placeholder="{{ trans('admin.url_prefix_label') }}"/>
-                  </div>
-                </div>  
-              </div>
-              
-              <div class="form-group">
-                <div class="row">    
-                  <label class="col-sm-4 control-label" for="inputTwitterUrl">{{ trans('admin.twitter_title') }}</label>
-                  <div class="col-sm-8">
-                    <input type="text" class="form-control" id="twitter_follow_us_url" name="twitter_follow_us_url" value="{{ $frontend_templates_details['appearance_tab']['settings_details']['footer_details']['follow_us_url']['twitter'] }}" placeholder="{{ trans('admin.url_prefix_label') }}"/>
-                  </div>
-                </div>  
-              </div>
-              
-              <div class="form-group">
-                <div class="row">     
-                  <label class="col-sm-4 control-label" for="inputLinkedinUrl">{{ trans('admin.linkedin_title') }}</label>
-                  <div class="col-sm-8">
-                    <input type="text" class="form-control" id="linkedin_follow_us_url" name="linkedin_follow_us_url" value="{{ $frontend_templates_details['appearance_tab']['settings_details']['footer_details']['follow_us_url']['linkedin'] }}" placeholder="{{ trans('admin.url_prefix_label') }}"/>
-                  </div>
-                </div>  
-              </div>
-              
-              <div class="form-group">
-                <div class="row">    
-                  <label class="col-sm-4 control-label" for="inputDribbbleUrl">{{ trans('admin.dribbble_title') }}</label>
-                  <div class="col-sm-8">
-                    <input type="text" class="form-control" id="dribbble_follow_us_url" name="dribbble_follow_us_url" value="{{ $frontend_templates_details['appearance_tab']['settings_details']['footer_details']['follow_us_url']['dribbble'] }}" placeholder="{{ trans('admin.url_prefix_label') }}"/>
-                  </div>
-                </div>  
-              </div>
-              
-              <div class="form-group">
-                <div class="row">    
-                  <label class="col-sm-4 control-label" for="inputGooglePlusUrl">{{ trans('admin.google_plus_title') }}</label>
-                  <div class="col-sm-8">
-                    <input type="text" class="form-control" id="google_plus_follow_us_url" name="google_plus_follow_us_url" value="{{ $frontend_templates_details['appearance_tab']['settings_details']['footer_details']['follow_us_url']['google_plus'] }}" placeholder="{{ trans('admin.url_prefix_label') }}"/>
-                  </div>
-                </div>  
-              </div>
-              
-              <div class="form-group">
-                <div class="row">    
-                  <label class="col-sm-4 control-label" for="inputInstagramUrl">{{ trans('admin.instagram_title') }}</label>
-                  <div class="col-sm-8">
-                    <input type="text" class="form-control" id="instagram_follow_us_url" name="instagram_follow_us_url" value="{{ $frontend_templates_details['appearance_tab']['settings_details']['footer_details']['follow_us_url']['instagram'] }}" placeholder="{{ trans('admin.url_prefix_label') }}"/>
-                  </div>
-                </div>  
-              </div>
-              
-              <div class="form-group">
-                <div class="row">    
-                  <label class="col-sm-4 control-label" for="inputYoutubeUrl">{{ trans('admin.youtube_title') }}</label>
-                  <div class="col-sm-8">
-                    <input type="text" class="form-control" id="youtube_follow_us_url" name="youtube_follow_us_url" value="{{ $frontend_templates_details['appearance_tab']['settings_details']['footer_details']['follow_us_url']['youtube'] }}" placeholder="{{ trans('admin.url_prefix_label') }}"/>
-                  </div>
-                </div>  
-              </div>
-            </div>
-          </div>
           
-          <input type="hidden" name="_token" id="_token" value="{{ csrf_token() }}">
+          <!-- <input type="hidden" name="_token" id="_token" value="{{ csrf_token() }}"> -->
           <input type="hidden" name="_frontend_images_json" id="_frontend_images_json" value="{{ $frontend_templates_details['appearance_tab']['settings'] }}">
           <input type="hidden" name="header_text_size" id="header_text_size" value="{{ get_appearance_settings()['header_details']['header_text_size'] }}">
           <input type="hidden" name="sidebar_panel_title_text_size" id="sidebar_panel_title_text_size" value="{{ get_appearance_settings()['general']['sidebar_panel_title_text_font_size'] }}">
