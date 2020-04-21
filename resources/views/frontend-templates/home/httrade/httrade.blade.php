@@ -1,6 +1,19 @@
 @include('includes.frontend.home-section')
 @yield('categories-slider-area')
 
+<!-- Start banner Area -->
+<div class="owl-carousel" data-owl-carousel='{ "autoplay": true, "loop": true }'>
+    @foreach(get_appearance_header_settings_data() as $img)
+
+        @if($img->img_url)
+            <img src="{{ get_image_url($img->img_url) }}" alt="Sản phẩm nổi bật" />
+        @endif
+
+    @endforeach
+
+</div>
+<!-- Start banner Area -->
+
 @include('includes.frontend.home-spcl')
 @yield('product_area')
 
