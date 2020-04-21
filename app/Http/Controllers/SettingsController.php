@@ -760,9 +760,9 @@ class SettingsController extends Controller
         }
 
         
-        if(isset($unserialize_appearance_data['settings_details']['header_details']['custom_css'])){
-          $unserialize_appearance_data['settings_details']['header_details']['custom_css'] = $is_custom_css_enable;
-        }
+        // if(isset($unserialize_appearance_data['settings_details']['header_details']['custom_css'])){
+        //   $unserialize_appearance_data['settings_details']['header_details']['custom_css'] = $is_custom_css_enable;
+        // }
         
         if(isset($unserialize_appearance_data['settings_details']['header_details']['header_top_gradient_start_color'])){
           $unserialize_appearance_data['settings_details']['header_details']['header_top_gradient_start_color'] = Input::get('header_top_bg_start_color');
