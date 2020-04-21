@@ -288,15 +288,7 @@
                   </div>
                 </div>  
               </div>
-             <div class="form-group">
-                <div class="row">    
-                  <label class="col-sm-4 control-label" for="inputHeaderSlogan">{{ trans('admin.header_slogan') }}</label>
-                  <div class="col-sm-8">
-                    <input type="text" class="form-control" id="header_slogan" name="header_slogan" value="{{ get_appearance_settings()['header_details']['header_slogan'] }}"/>
-                    <span>[This feature will run only for compatible templares]</span>
-                  </div>
-                </div>  
-              </div>
+             
               <div class="form-group">
                 <div class="row">    
                   <label class="col-sm-4 control-label" for="inputHeaderSliderVissibility">{{ trans('admin.slider_visibility') }}</label>
@@ -309,97 +301,9 @@
                   </div>
                 </div>  
               </div>
-              <div class="form-group">
-                <div class="row">    
-                  <label class="col-sm-4 control-label" for="inputHeaderCustomCSS">{{ trans('admin.custom_css_use') }}<br><i style="font-size:12px;">{{ trans('admin.compitable_label') }}</i></label>
-                  <div class="col-sm-8">
-                    @if(count(get_appearance_settings()) && get_appearance_settings()['header_details']['custom_css'] == true)
-                    <input type="checkbox" checked="checked" class="shopist-iCheck" name="inputHeaderCustomCSS" id="inputHeaderCustomCSS">
-                    @else
-                    <input type="checkbox" class="shopist-iCheck" name="inputHeaderCustomCSS" id="inputHeaderCustomCSS">
-                    @endif
-                  </div>
-                </div>  
-              </div>
-              <?php 
-              $style_header = 'style=display:none;';
-              if(count(get_appearance_settings()) && get_appearance_settings()['header_details']['custom_css'] == true){
-                $style_header = 'style=display:block;';
-              }
-              ?>
+              
 
-              <div class="header-custom-css" {{ $style_header }}>
-                <div class="form-group">
-                  <div class="row">    
-                    <label class="col-sm-4 control-label" for="inputHeaderTopColor">{{ trans('admin.header_top_gradient_color') }}</label>
-                    <div class="col-sm-8">
-                      <div class="row">
-                        <div class="col-sm-6">
-                          <input type="text" class="color form-control" id="header_top_bg_start_color" name="header_top_bg_start_color" value="{{ get_appearance_settings()['header_details']['header_top_gradient_start_color'] }}"/>&nbsp;( {!! trans('admin.gradient_start_color_label') !!} )
-                        </div>
-                        <div class="col-sm-6">
-                          <input type="text" class="color form-control" id="header_top_bg_end_color" name="header_top_bg_end_color" value="{{ get_appearance_settings()['header_details']['header_top_gradient_end_color'] }}"/>&nbsp;( {!! trans('admin.gradient_end_color_label') !!} )
-                        </div>
-                      </div>
-                    </div>
-                  </div>  
-                </div>
-               <div class="form-group">
-                  <div class="row">    
-                    <label class="col-sm-4 control-label" for="inputHeaderBottomColor">{{ trans('admin.header_bottom_gradient_color') }}</label>
-                    <div class="col-sm-8">
-                      <div class="row">
-                        <div class="col-sm-6">
-                          <input type="text" class="color form-control" id="header_bottom_bg_start_color" name="header_bottom_bg_start_color" value="{{ get_appearance_settings()['header_details']['header_bottom_gradient_start_color'] }}"/>&nbsp;( {!! trans('admin.gradient_start_color_label') !!} )
-                        </div>
-                        <div class="col-sm-6">
-                          <input type="text" class="color form-control" id="header_bottom_bg_end_color" name="header_bottom_bg_end_color" value="{{ get_appearance_settings()['header_details']['header_bottom_gradient_end_color'] }}"/>&nbsp;( {!! trans('admin.gradient_end_color_label') !!} )
-                        </div>
-                      </div>
-                    </div>
-                  </div>  
-                </div>
-                <div class="form-group">
-                  <div class="row">    
-                    <label class="col-sm-4 control-label" for="inputHeaderTextColor">{{ trans('admin.header_text_color_label') }}</label>
-                    <div class="col-sm-8">
-                      <input type="text" class="color form-control" id="header_text_color" name="header_text_color" value="{{ get_appearance_settings()['header_details']['header_text_color'] }}"/>
-                    </div>
-                  </div>  
-                </div>
-                <div class="form-group">
-                  <div class="row">    
-                    <label class="col-sm-4 control-label" for="inputHeaderTextHoverColor">{{ trans('admin.header_text_hover_color_label') }}</label>
-                    <div class="col-sm-8">
-                      <input type="text" class="color form-control" id="header_text_hover_color" name="header_text_hover_color" value="{{ get_appearance_settings()['header_details']['header_text_hover_color'] }}"/>
-                    </div>
-                  </div>  
-                </div>
-                <div class="form-group">
-                  <div class="row">    
-                    <label class="col-sm-4 control-label" for="inputHeaderTextSize">{{ trans('admin.header_text_size_label') }}</label>
-                    <div class="col-sm-8">
-                      <input id="change_header_text_size" type="text" name="change_header_text_size" data-name="header_text_size" value="{{ get_appearance_settings()['header_details']['header_text_size'] }}">
-                    </div>
-                  </div>  
-                </div>
-                <div class="form-group">
-                  <div class="row">    
-                    <label class="col-sm-4 control-label" for="inputHeaderSelectedMenuBGColor">{{ trans('admin.header_selected_menu_bg_color_label') }}</label>
-                    <div class="col-sm-8">
-                      <input type="text" class="color form-control" id="header_selected_menu_bg_color" name="header_selected_menu_bg_color" value="{{ get_appearance_settings()['header_details']['header_selected_menu_bg_color'] }}"/>
-                    </div>
-                  </div>  
-                </div>
-                <div class="form-group">
-                  <div class="row">    
-                    <label class="col-sm-4 control-label" for="inputHeaderSelectedMenuTextColor">{{ trans('admin.header_selected_menu_text_color_label') }}</label>
-                    <div class="col-sm-8">
-                      <input type="text" class="color form-control" id="header_selected_menu_text_color" name="header_selected_menu_text_color" value="{{ get_appearance_settings()['header_details']['header_selected_menu_text_color'] }}"/>
-                    </div>
-                  </div>  
-                </div>
-              </div>  
+              
             </div>
           </div>
 
