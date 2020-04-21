@@ -46,7 +46,7 @@
 <script type="text/javascript" src="{{ URL::asset('/plugins/morris/raphael-min.js') }}"></script>
 <script type="text/javascript" src="{{ URL::asset('/plugins/morris/morris.min.js') }}"></script>
 <script type="text/javascript" src="{{ URL::asset('/common/base64.js') }}"></script>
-<script type="text/javascript" src="{{ URL::asset('/js/admin/shopist.js') }}"></script>
+<script type="text/javascript" src="{{ URL::asset('/js/admin/dungthinh.js') }}"></script>
 <script type="text/javascript" src="{{ URL::asset('/designer/designer.js') }}"></script>
 <script type="text/javascript" src="{{ URL::asset('/designer/designerControl.js') }}"></script>
 <script type="text/javascript" src="{{ URL::asset('/dist/js/app.min.js') }}"></script>
