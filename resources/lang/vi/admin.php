@@ -539,7 +539,7 @@ return [
   'update_language_settings_msg' =>'Cài đặt ngôn ngữ được cập nhật thành công',
   'download_file' =>'Tải về',
   'zip_file_success_updated_msg' =>'Tệp ngôn ngữ của bạn được cập nhật thành công',
-  'frontend_layout' =>'Hiện thị trang chủ',
+  'frontend_layout' =>'Hiển thị',
   'menu_label' =>'Thực đơn',
   'page_menu_title' =>'Giới thiệu',
   'all_pages_list' =>'Tất cả các trang',

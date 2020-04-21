@@ -405,8 +405,6 @@
 
           </div>
             
-        
-          
           <input type="hidden" name="_token" id="_token" value="{{ csrf_token() }}">
           <input type="hidden" name="_frontend_images_json" id="_frontend_images_json" value="{{ $frontend_templates_details['appearance_tab']['settings'] }}">
           <input type="hidden" name="header_text_size" id="header_text_size" value="{{ get_appearance_settings()['header_details']['header_text_size'] }}">
@@ -466,7 +464,6 @@
         </div>
       </div>
 
-      
       <div class="modal fade" id="addDynamicTextOnImage" tabindex="-1" role="dialog" aria-labelledby="updater" aria-hidden="true">
         <div class="modal-dialog">
           <div class="modal-content">
@@ -495,4 +492,5 @@
     </div>
   </div>
 </div>
+
 @endsection

@@ -3817,10 +3817,7 @@ var customDropZone = (function() {
                                             shopist.normalFunction.createJsonDataForAllFrontendImage('header_slider_images', { id: id, url: '/uploads/' + parseResponse[count] });
                                         }
 
-                                        $('#frontendImageUploader').modal('hide');
-                                        // Đoạn hay uploadzone
-                                        $('#frontendBannerImageUploader').modal('hide');
-                                        
+                                        $('#frontendImageUploader').modal('hide');                                        
                                         $('.uploaded-header-slider-images .sample-img').hide();
                                         $('.uploaded-header-slider-images .uploaded-slider-images').show();
                                     }
