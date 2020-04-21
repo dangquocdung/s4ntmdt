@@ -4,7 +4,6 @@
 @section('content')
 <h4>{{ trans('admin.appearance_settings_content_top_msg') }}</h4><hr>
 
-
 <div class="row">
   <div class="col-12">
     <div id="appearance_menu_list_content">
@@ -356,7 +355,53 @@
               </div>  
             </div>
           </div>
-          
+
+          <div class="box box-info">
+            <div class="box-header with-border">
+              <h3 class="box-title">Banner (mới)</h3>
+            </div>          
+            <div class="box-body">
+              <!-- <div class="form-group">
+                <div class="row">    
+                  <label class="col-sm-4 control-label" for="inputHeaderSliderImage">{{ trans('admin.appearance_header_slider_image') }}</label>
+                  <div class="col-sm-8">
+                    <div class="clearfix">
+                      <div data-toggle="modal" data-dropzone_id="eb_dropzone_slider_image_file_upload" data-target="#frontendImageUploader" class="icon product-header-slider-uploader pull-right">{{ trans('admin.appearance_header_slider_image_and_text_add_loader_text') }}</div>
+                    </div>
+
+                    <div class="uploaded-header-slider-images">
+                      @if(count(get_appearance_header_settings_data()) > 0 )
+                      <div class="sample-img" style="display:none;"><img class="upload-icon" src="{{ default_upload_sample_img_src() }}"></div>
+                      <div class="uploaded-slider-images" style="display:block;">
+                        @foreach(get_appearance_header_settings_data() as $slider_img)
+                          <div class="header-slider-image-single-container {{ substr(basename($slider_img->img_url), 0, -4) }}"><img src="{{ get_image_url($slider_img->img_url) }}"><div data-id="{{ $slider_img->id }}" class="remove-frontend-img-link" style="display: none;"></div></div>
+                        @endforeach
+                      </div>
+                      @else
+                      <div class="sample-img"><img class="upload-icon" src="{{ default_upload_sample_img_src() }}"></div>
+                      <div class="uploaded-slider-images"></div>
+                      @endif
+                    </div>
+                  </div>
+                </div>  
+              </div> -->
+
+              <div class="form-group">
+                <div class="row">    
+                  <label class="col-sm-4 control-label" for="inputHeaderSliderVissibility">{{ trans('admin.banner_visibility') }}</label>
+                  <div class="col-sm-8">
+                    @if(count(get_appearance_settings()) && get_appearance_settings()['header_details']['banner_visibility'] == true)
+                      <input type="checkbox" checked="checked" class="shopist-iCheck" name="inputVisibilityBanner" id="inputVisibilityBanner">
+                    @else
+                      <input type="checkbox" class="shopist-iCheck" name="inputVisibilityBanner" id="inputVisibilityBanner">
+                    @endif
+                  </div>
+                </div>  
+              </div>
+            </div>
+
+          </div>
+            
           <div class="box box-info">
             <div class="box-header with-border">
               <h3 class="box-title">{{ trans('admin.appearance_home_elements_text') }}</h3>
@@ -408,7 +453,6 @@
             </div>  
           </div>  
           
-          
           <input type="hidden" name="_token" id="_token" value="{{ csrf_token() }}">
           <input type="hidden" name="_frontend_images_json" id="_frontend_images_json" value="{{ $frontend_templates_details['appearance_tab']['settings'] }}">
           <input type="hidden" name="header_text_size" id="header_text_size" value="{{ get_appearance_settings()['header_details']['header_text_size'] }}">
@@ -418,7 +462,6 @@
         </form>  
       </div>
  
-      
       <input type="hidden" name="_current_tab" id="_current_tab" value="{{ $frontend_templates_details['current_tab'] }}">
 
       <div class="modal fade" id="frontendImageUploader" tabindex="-1" role="dialog" aria-labelledby="updater" aria-hidden="true">

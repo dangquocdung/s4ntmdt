@@ -719,6 +719,7 @@ class SettingsController extends Controller
   public function saveAppearanceSettingsData(){
     if( Request::isMethod('post') && Session::token() == Input::get('_token') ){
       $is_slider_enable             = false;
+      $is_banner_enable             = false;
       $is_custom_css_enable         = false;
       $is_general_custom_css_enable = false;
       
@@ -743,9 +744,15 @@ class SettingsController extends Controller
       }
       
       if(isset($unserialize_appearance_data['settings_details']['header_details'])){
+
         if(isset($unserialize_appearance_data['settings_details']['header_details']['slider_visibility'])){
           $unserialize_appearance_data['settings_details']['header_details']['slider_visibility'] = $is_slider_enable;
         }
+
+        if(isset($unserialize_appearance_data['settings_details']['header_details']['banner_visibility'])){
+          $unserialize_appearance_data['settings_details']['header_details']['banner_visibility'] = $is_banner_enable;
+        }
+
         
         if(isset($unserialize_appearance_data['settings_details']['header_details']['custom_css'])){
           $unserialize_appearance_data['settings_details']['header_details']['custom_css'] = $is_custom_css_enable;
