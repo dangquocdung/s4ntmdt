@@ -142,12 +142,12 @@ padding-bottom: 15px;
 {
   border-bottom: 1px solid #eee;
 }
-.uploaded-product-image .product-sample-img img, .uploaded-product-gallery-image .product-gallery-sample-img img, .uploaded-banner-image .banner-sample-img img, .uploaded-header-slider-images .sample-img img, .uploaded-testimonial-image .testimonial-sample-img img, .uploaded-featured-image .featured-sample-img img
+.uploaded-product-image .product-sample-img img, .uploaded-product-gallery-image .product-gallery-sample-img img, .uploaded-banner-image .banner-sample-img img, .uploaded-header-slider-images .sample-img img,  .uploaded-header-banner-images .sample-img img, .uploaded-testimonial-image .testimonial-sample-img img, .uploaded-featured-image .featured-sample-img img
 {
   height:80px;
 }
 
-.uploaded-product-image .product-sample-img, .uploaded-product-gallery-image .product-gallery-sample-img, .uploaded-banner-image .banner-sample-img, .uploaded-header-slider-images .sample-img, .uploaded-testimonial-image .testimonial-sample-img, .uploaded-featured-image .featured-sample-img
+.uploaded-product-image .product-sample-img, .uploaded-product-gallery-image .product-gallery-sample-img, .uploaded-banner-image .banner-sample-img, .uploaded-header-slider-images .sample-img, .uploaded-header-banner-images .sample-img, .uploaded-testimonial-image .testimonial-sample-img, .uploaded-featured-image .featured-sample-img
 {
   text-align: center;
 }
@@ -160,7 +160,7 @@ padding-bottom: 15px;
 }
 
 .product-header-slider-uploader{ padding-bottom: 20px; text-decoration: underline;}
-.uploaded-product-image .product-uploaded-image, .uploaded-product-gallery-image .product-uploaded-gallery-image,.uploaded-banner-image .banner-uploaded-image, .uploaded-header-slider-images .uploaded-slider-images, .uploaded-testimonial-image .testimonial-uploaded-image, .uploaded-featured-image .featured-uploaded-image
+.uploaded-product-image .product-uploaded-image, .uploaded-product-gallery-image .product-uploaded-gallery-image,.uploaded-banner-image .banner-uploaded-image, .uploaded-header-slider-images .uploaded-slider-images, .uploaded-header-banner-images .uploaded-banner-images, .uploaded-testimonial-image .testimonial-uploaded-image, .uploaded-featured-image .featured-uploaded-image
 {
   display: none;
   text-align: center;

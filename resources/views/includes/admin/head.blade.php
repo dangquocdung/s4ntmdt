@@ -10,7 +10,7 @@
 <link rel="stylesheet" href="{{ URL::asset('/dist/css/skins/_all-skins.min.css') }}" />
 <link rel="stylesheet" href="{{ URL::asset('/plugins/iCheck/square/blue.css') }}" />
 <link rel="stylesheet" href="{{ URL::asset('/plugins/datepicker/datepicker3.css') }}" />
-<link rel="stylesheet" href="{{ URL::asset('/css/admin/shopist.css') }}" />
+<link rel="stylesheet" href="{{ URL::asset('/css/admin/dungthinh.css') }}" />
 <link rel="stylesheet" href="{{ URL::asset('/dropzone/css/dropzone.css') }}" />
 <link rel="stylesheet" href="{{ URL::asset('/sweetalert/sweetalert.css') }}" />
 <link rel="stylesheet" href="{{ URL::asset('/plugins/select2/select2.min.css') }}" />

@@ -8,7 +8,7 @@
   <link rel="stylesheet" href="{{ URL::asset('/font-awesome/css/font-awesome.min.css') }}" />
   <link rel="stylesheet" href="{{ URL::asset('/dist/css/Admin.min.css') }}" />
   <link rel="stylesheet" href="{{ URL::asset('/plugins/iCheck/square/blue.css') }}" />
-  <link rel="stylesheet" href="{{ URL::asset('/css/admin/shopist.css') }}" />
+  <link rel="stylesheet" href="{{ URL::asset('/css/admin/dungthinh.css') }}" />
 </head>
 <body class="hold-transition register-page">
   @yield('content')
