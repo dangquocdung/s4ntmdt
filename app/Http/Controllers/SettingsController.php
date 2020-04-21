@@ -168,7 +168,7 @@ class SettingsController extends Controller
     $data = $this->classCommonFunction->commonDataForAllPages();
     $data['frontend_templates_details'] = $templates_details;   
 
-    return response()->json($data);
+    // return response()->json($data);
     
     return view('pages.admin.settings.appearance-content', $data);
   }
