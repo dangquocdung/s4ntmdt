@@ -402,56 +402,7 @@
 
           </div>
             
-          <div class="box box-info">
-            <div class="box-header with-border">
-              <h3 class="box-title">{{ trans('admin.appearance_home_elements_text') }}</h3>
-            </div>
-            <div class="box-body">
-              <div class="form-group">
-                <div class="row">    
-                  <label class="col-sm-4 control-label" for="inputSelectCatForHomePage">{{ trans('admin.home_page_cat_select_label') }} </label>
-                  <div class="col-sm-8">
-                    @if(count($frontend_templates_details['parent_cat']) > 0)  
-                      <ul class="parent-cat-list">
-                       @foreach($frontend_templates_details['parent_cat'] as $cat)
-                          @if( !empty($frontend_templates_details['appearance_tab']['settings_details']['home_details']['cat_list_to_display']) && in_array($cat['term_id'], $frontend_templates_details['appearance_tab']['settings_details']['home_details']['cat_list_to_display']))
-                          <li><input type="checkbox" checked="checked" class="shopist-iCheck" name="inputSelectCatForHomePage[]" id="inputSelectCatForHomePage-{{ $cat['term_id'] }}" value="{{ $cat['term_id'] }}"> &nbsp;&nbsp;{{ $cat['name'] }}</li>   
-                          @else
-                          <li><input type="checkbox" class="shopist-iCheck" name="inputSelectCatForHomePage[]" id="inputSelectCatForHomePage-{{ $cat['term_id'] }}" value="{{ $cat['term_id'] }}"> &nbsp;&nbsp;{{ $cat['name'] }}</li>   
-                          @endif
-
-                       @endforeach
-                      </ul>
-                    @else
-                    <label>{{ trans('admin.no_cat_yet_label') }}</label>
-                    @endif
-                  </div>
-                </div>  
-              </div>
-                
-              <div class="form-group">
-                <div class="row">    
-                  <label class="col-sm-4 control-label" for="inputSelectCatCollectionForHomePage">{{ trans('admin.home_page_cat_collection_select_label') }}</label>
-                  <div class="col-sm-8">
-                    @if(count($frontend_templates_details['parent_cat']) > 0)  
-                      <ul class="parent-cat-list">
-                      @foreach($frontend_templates_details['parent_cat'] as $cat)
-                          @if( !empty($frontend_templates_details['appearance_tab']['settings_details']['home_details']['cat_collection_list_to_display']) && in_array($cat['term_id'], $frontend_templates_details['appearance_tab']['settings_details']['home_details']['cat_collection_list_to_display']))
-                          <li><input type="checkbox" checked="checked" class="shopist-iCheck" name="inputSelectCatCollectionForHomePage[]" id="inputSelectCatCollectionForHomePage-{{ $cat['term_id'] }}" value="{{ $cat['term_id'] }}"> &nbsp;&nbsp;{{ $cat['name'] }}</li>   
-                          @else
-                          <li><input type="checkbox" class="shopist-iCheck" name="inputSelectCatCollectionForHomePage[]" id="inputSelectCatCollectionForHomePage-{{ $cat['term_id'] }}" value="{{ $cat['term_id'] }}"> &nbsp;&nbsp;{{ $cat['name'] }}</li>   
-                          @endif
-
-                      @endforeach
-                      </ul>
-                    @else
-                    <label>{{ trans('admin.no_cat_yet_label') }}</label>
-                    @endif
-                  </div>
-                </div>  
-              </div>  
-            </div>  
-          </div>  
+        
           
           <input type="hidden" name="_token" id="_token" value="{{ csrf_token() }}">
           <input type="hidden" name="_frontend_images_json" id="_frontend_images_json" value="{{ $frontend_templates_details['appearance_tab']['settings'] }}">
