@@ -60,11 +60,10 @@
       <div class="col-lg-9 order-lg-2">
 
         <!-- Promo banner-->
-        @if(!empty($vendors_settings->general_details->cover_img))
+        
 
-          <img src="{{ $vendors_settings->general_details->cover_img }}" alt="">
+        {{ $vendors_settings->general_details->cover_img }}
 
-        @else
 
           <a class="alert alert-default alert-dismissible fade show fw-section mb-30" href="{{ route('store-products-page-content', $vendor_info->name) }}" style="background-image: url('/img/banners/shop-banner-bg.jpg');">
 
