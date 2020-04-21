@@ -553,7 +553,7 @@ return [
   'about_us' => 'Về chúng tôi',
   'gian-hang' => 'Gian hàng',
   'lk-mxh' => 'Liên kết',
-  'shop_categories' => 'Danh mục',
+  'shop_categories' => 'Danh mục sản phẩm',
   'store_label' => 'Thông tin gian hàng',
   'tin-tuc' => 'Tin tức',
   'sp_da_xem' => 'Sản phẩm bạn đã xem',
