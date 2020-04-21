@@ -1906,9 +1906,7 @@ class GetFunction
   }
 
   public static function appearance_banner_settings_data(){
-
     $_this  =   new self;
-    
     $unserialize_appearance_data  =  $_this->option->getAppearanceData();
     
     $get_settings = json_decode($unserialize_appearance_data['settings']); 
@@ -1936,7 +1934,7 @@ class GetFunction
       }
     }
     
-    return $banner_elements;
+    return $slider_elements;
   }
 
   
