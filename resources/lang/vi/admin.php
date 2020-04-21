@@ -1175,4 +1175,5 @@ return [
   'comments_list' =>  'Bình luận',
   'not_confirm' => 'Chưa xác thực',
   'banner_visibility' => 'Bật/Tắt banner trang chủ',
+  'appearance_banner_slider_image' => 'Banner trang chủ'
 ];
