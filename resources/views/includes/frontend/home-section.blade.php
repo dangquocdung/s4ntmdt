@@ -10,7 +10,7 @@
                         <h3>{{ trans('frontend.product_categories_label') }}</h3>
                     </div>
 
-                    
+
                     @if(count($productCategoriesTree) > 0)
 
                     <div class="category-menu-list">
@@ -148,7 +148,9 @@
                     @foreach(get_appearance_header_settings_data() as $img)
 
                         @if($img->img_url)
-                            <img src="{{ get_image_url($img->img_url) }}" alt="Sản phẩm nổi bật" />
+                            <a href="https://book365.vn/" target="_blank">
+                                <img src="{{ get_image_url($img->img_url) }}" alt="Sản phẩm nổi bật" />
+                            </a>
                         @endif
 
                     @endforeach
