@@ -60,7 +60,15 @@
       <div class="col-lg-9 order-lg-2">
 
         <!-- Promo banner-->
+        @if(!empty($vendors_settings->general_details->cover_img))
+
+          <a class="alert alert-default alert-dismissible fade show fw-section mb-30" href="{{ route('store-products-page-content', $vendor_info->name) }}" style="background-image: url({{ $vendors_settings->general_details->cover_img }});">
+
+        @else
+
           <a class="alert alert-default alert-dismissible fade show fw-section mb-30" href="{{ route('store-products-page-content', $vendor_info->name) }}" style="background-image: url('/img/banners/shop-banner-bg.jpg');">
+
+        @endif
             <div class="d-flex flex-wrap flex-md-nowrap justify-content-between align-items-center">
               <div class="mx-auto mx-md-0 px-3 pb-2 text-center text-md-left">
                 <span class="d-block text-lg text-thin mb-2">{!! trans('frontend.gian-hang') !!}</span>
@@ -177,7 +185,6 @@
 
               <form id="form-feedback">
 
-              
                 <div class="form-group">
                   <label for="contact_name">{{ trans('frontend.enter_name_label') }}</label>
                   <input class="form-control" name="contact_name" id="contact_name" placeholder="{{ trans('frontend.enter_name_label') }}" type="text">
