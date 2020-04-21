@@ -500,6 +500,11 @@ function get_appearance_header_settings_data()
   return GetFunction::appearance_header_settings_data();
 }
 
+function get_appearance_banner_settings_data()
+{
+  return GetFunction::appearance_banner_settings_data();
+}
+
 /**
  * Get available languages data
  *

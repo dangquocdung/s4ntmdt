@@ -1904,6 +1904,41 @@ class GetFunction
     
     return $slider_elements;
   }
+
+  public static function appearance_banner_settings_data(){
+
+    $_this  =   new self;
+    
+    $unserialize_appearance_data  =  $_this->option->getAppearanceData();
+    
+    $get_settings = json_decode($unserialize_appearance_data['settings']); 
+    $slider_elements = array();
+    
+    if(count($get_settings->header_slider_images_and_text->slider_images) > 0 ){
+      foreach($get_settings->header_slider_images_and_text->slider_images as $img){
+        $data_obj = new \stdClass();
+
+        $data_obj->id = $img->id;
+        $data_obj->img_url = $img->url;
+
+        if(count($get_settings->header_slider_images_and_text->slider_text) > 0){
+          foreach($get_settings->header_slider_images_and_text->slider_text as $text){
+            if($text->id == $img->id){
+              $data_obj->text = $text->html_code;
+              $data_obj->text_css = $text->advanced_css;
+
+              break;
+            }
+          }
+        }
+        
+        $slider_elements[] = $data_obj;
+      }
+    }
+    
+    return $banner_elements;
+  }
+
   
   public static function available_languages_data()
   {

@@ -273,11 +273,11 @@
                     </div>
 
                     <div class="uploaded-header-slider-images">
-                      @if(count(get_appearance_header_settings_data()) > 0 )
+                      @if(count(get_appearance_banner_settings_data()) > 0 )
                       <div class="sample-img" style="display:none;"><img class="upload-icon" src="{{ default_upload_sample_img_src() }}"></div>
                       <div class="uploaded-slider-images" style="display:block;">
-                        @foreach(get_appearance_header_settings_data() as $slider_img)
-                          <div class="header-slider-image-single-container {{ substr(basename($slider_img->img_url), 0, -4) }}"><img src="{{ get_image_url($slider_img->img_url) }}"><div data-id="{{ $slider_img->id }}" class="remove-frontend-img-link" style="display: none;"></div></div>
+                        @foreach(get_appearance_banner_settings_data() as $banner_img)
+                          <div class="header-slider-image-single-container {{ substr(basename($banner_img->img_url), 0, -4) }}"><img src="{{ get_image_url($banner_img->img_url) }}"><div data-id="{{ $banner_img->id }}" class="remove-frontend-img-link" style="display: none;"></div></div>
                         @endforeach
                       </div>
                       @else
