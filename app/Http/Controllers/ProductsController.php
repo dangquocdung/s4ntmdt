@@ -1299,21 +1299,21 @@ class ProductsController extends Controller
                                       array(
                                           'product_id'    =>  $post->id,
                                           'key_name'      =>  '_product_enable_as_related',
-                                          'key_value'     =>  'no',
+                                          'key_value'     =>  $enable_related,
                                           'created_at'    =>  date("y-m-d H:i:s", strtotime('now')),
                                           'updated_at'    =>  date("y-m-d H:i:s", strtotime('now'))
                                       ),
                                       array(
                                           'product_id'    =>  $post->id,
                                           'key_name'      =>  '_product_enable_as_custom_design',
-                                          'key_value'     =>  'no',
+                                          'key_value'     =>  $enable_custom_design,
                                           'created_at'    =>  date("y-m-d H:i:s", strtotime('now')),
                                           'updated_at'    =>  date("y-m-d H:i:s", strtotime('now'))
                                       ),
                                       array(
                                           'product_id'    =>  $post->id,
                                           'key_name'      =>  '_product_enable_as_homepage',
-                                          'key_value'     =>  'no',
+                                          'key_value'     =>  $home_page_product,
                                           'created_at'    =>  date("y-m-d H:i:s", strtotime('now')),
                                           'updated_at'    =>  date("y-m-d H:i:s", strtotime('now'))
                                       ),
