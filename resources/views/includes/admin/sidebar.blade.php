@@ -773,13 +773,13 @@
                 <li class="active"><a href="{{ route('admin.languages_settings_content') }}"><i class="fa fa-flag"></i> {!! trans('admin.languages') !!}</a></li>
               @else
                 <li><a href="{{ route('admin.languages_settings_content') }}"><i class="fa fa-flag"></i> {!! trans('admin.languages') !!}</a></li>
-              @endif
+              @endif -->
 
               @if(Request::is('admin/settings/appearance'))
                 <li class="active"><a href="{{ route('admin.frontend_layout_settings_content') }}"><i class="fa fa-paint-brush"></i> {!! trans('admin.frontend_layout') !!}</a></li>
               @else
                 <li><a href="{{ route('admin.frontend_layout_settings_content') }}"><i class="fa fa-paint-brush"></i> {!! trans('admin.frontend_layout') !!}</a></li>
-              @endif -->
+              @endif
               
               @if(Request::is('admin/settings/menu'))
                 <li class="active"><a href="{{ route('admin.menu_layout_settings_content') }}"><i class="fa fa-bars"></i> {!! trans('admin.menu_label') !!}</a></li>
