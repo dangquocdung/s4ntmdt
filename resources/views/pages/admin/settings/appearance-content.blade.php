@@ -361,7 +361,7 @@
             <div class="box-body">
               <div class="form-group">
                 <div class="row">    
-                  <label class="col-sm-4 control-label" for="inputHeaderSliderImage">{{ trans('admin.banner_visibility') }}</label>
+                  <label class="col-sm-4 control-label" for="inputHeaderSliderImage">{{ trans('admin.appearance_banner_slider_image') }}</label>
                   <div class="col-sm-8">
                     <div class="clearfix">
                       <div data-toggle="modal" data-dropzone_id="eb_dropzone_banner_image_file_upload" data-target="#frontendBannerImageUploader" class="icon product-header-slider-uploader pull-right">{{ trans('admin.appearance_header_slider_image_and_text_add_loader_text') }}</div>
