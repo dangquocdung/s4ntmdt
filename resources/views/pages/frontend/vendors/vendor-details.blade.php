@@ -60,21 +60,27 @@
       <div class="col-lg-9 order-lg-2">
 
         <!-- Promo banner-->
+
+        @if ( !empty($vendor_settings->general_details->cover_img))
+
+          <img src="{{ $vendor_settings->general_details->cover_img }}" alt="{{ $vendor_settings->profile_details->store_name }}">
+
+        @else
         
 
-        {{ $vendor_settings->general_details->cover_img }}
 
 
           <a class="alert alert-default alert-dismissible fade show fw-section mb-30" href="{{ route('store-products-page-content', $vendor_info->name) }}" style="background-image: url('/img/banners/shop-banner-bg.jpg');">
 
             <div class="d-flex flex-wrap flex-md-nowrap justify-content-between align-items-center">
               <div class="mx-auto mx-md-0 px-3 pb-2 text-center text-md-left">
-                <span class="d-block text-lg text-thin mb-2">{!! trans('frontend.gian-hang') !!}</span>
-                <h3 class="text-gray-dark">{!! $vendor_settings->profile_details->store_name !!}</h3>
+                <span class="d-block text-lg text-thin mb-2">{{ trans('frontend.gian-hang') }}</span>
+                <h3 class="text-gray-dark">{{ $vendor_settings->profile_details->store_name }}</h3>
 
               </div>
             </div>
           </a>
+        @endif
 
 
         <!-- Shop Toolbar-->
