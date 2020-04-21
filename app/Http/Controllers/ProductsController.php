@@ -925,7 +925,8 @@ class ProductsController extends Controller
         $enable_features      = 'yes';
         $enable_latest        = 'yes';
         $enable_related       = 'yes';
-        $enable_custom_design = 'yes';
+        $enable_homepage      = 'yes';
+        $enable_custom_design = 'no';
         $enable_taxes         = 'yes';
         $enable_review        = 'yes';
         $enable_p_page        = 'yes';
@@ -990,12 +991,16 @@ class ProductsController extends Controller
           $enable_related = 'no';
         }
 
-        if($_custom_design && Input::get('change_product_type') == 'customizable_product'){
-          $enable_custom_design = 'yes';
+        if($_home_product){
+          $enable_homepage = 'yes';
         }
         else{
-          $enable_custom_design = 'yes';
+          $enable_homepage = 'no';
         }
+
+
+
+        
 
         if($_taxes){
           $enable_taxes = 'yes';
@@ -1045,13 +1050,6 @@ class ProductsController extends Controller
         else{
           $visibilityschedule = 'no';
         } 
-
-        if($_home_product){
-          $home_page_product = 'yes';
-        }
-        else{
-          $home_page_product = 'no';
-        }
 
         if($_is_role_based_pricing_enable){
           $is_pricing_enable = 'yes';
@@ -1306,14 +1304,14 @@ class ProductsController extends Controller
                                       array(
                                           'product_id'    =>  $post->id,
                                           'key_name'      =>  '_product_enable_as_custom_design',
-                                          'key_value'     =>  $enable_custom_design,
+                                          'key_value'     =>  $_custom_design,
                                           'created_at'    =>  date("y-m-d H:i:s", strtotime('now')),
                                           'updated_at'    =>  date("y-m-d H:i:s", strtotime('now'))
                                       ),
                                       array(
                                           'product_id'    =>  $post->id,
                                           'key_name'      =>  '_product_enable_as_homepage',
-                                          'key_value'     =>  $home_page_product,
+                                          'key_value'     =>  $enable_homepage,
                                           'created_at'    =>  date("y-m-d H:i:s", strtotime('now')),
                                           'updated_at'    =>  date("y-m-d H:i:s", strtotime('now'))
                                       ),
