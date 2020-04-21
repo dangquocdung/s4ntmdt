@@ -63,7 +63,7 @@
 
         @if ( !empty($vendor_settings->general_details->cover_img))
 
-          <div class="pb-10">
+          <div class="pb-20">
 
             <img src="{{ $vendor_settings->general_details->cover_img }}" alt="{{ $vendor_settings->profile_details->store_name }}">
 
