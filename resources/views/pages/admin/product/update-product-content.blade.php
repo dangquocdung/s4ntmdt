@@ -354,7 +354,7 @@
                       </div>
                     </div>  
                   </div>
-                  <div class="form-group enable-custom-design" {!! $tabSettings['btnCustomize'] !!}>
+                  {{-- <div class="form-group enable-custom-design" {!! $tabSettings['btnCustomize'] !!}>
                     <div class="row">   
                       <label class="col-sm-6 control-label" for="inputEnableForCustomDesignProduct">{!! trans('admin.custom_design') !!}</label>
                       <div class="col-sm-6">
@@ -366,15 +366,15 @@
                         &nbsp;{!! trans('admin.enable_custom_design_product') !!}                                      
                       </div>
                     </div>  
-                  </div>
+                  </div> --}}
                   <div class="form-group">
                     <div class="row">  
                       <label class="col-sm-6 control-label" for="inputEnableForHomePage">{!! trans('admin.home_page_product_label_1') !!}</label>
                       <div class="col-sm-6">
-                        @if( !empty($product_post_data['_product_enable_as_selected_cat']) && $product_post_data['_product_enable_as_selected_cat'] == 'yes')  
-                        <input type="checkbox" checked="checked" class="shopist-iCheck" name="inputEnableForHomePage" id="inputEnableForHomePage">
+                        @if( !empty($product_post_data['_product_enable_as_homepage']) && $product_post_data['_product_enable_as_homepage'] == 'yes')  
+                          <input type="checkbox" checked="checked" class="shopist-iCheck" name="inputEnableForHomePage" id="inputEnableForHomePage">
                         @else
-                        <input type="checkbox" class="shopist-iCheck" name="inputEnableForHomePage" id="inputEnableForHomePage">
+                          <input type="checkbox" class="shopist-iCheck" name="inputEnableForHomePage" id="inputEnableForHomePage">
                         @endif
                         &nbsp;{!! trans('admin.home_page_product_label_2') !!}                              
                       </div>
