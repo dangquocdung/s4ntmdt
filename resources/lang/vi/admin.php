@@ -1174,5 +1174,5 @@ return [
   'shop_user_name' => 'Đường dẫn truy cập',
   'comments_list' =>  'Bình luận',
   'not_confirm' => 'Chưa xác thực',
-  'banner_visibility' => 'Banner trang chủ',
+  'banner_visibility' => 'Bật/Tắt banner trang chủ',
 ];
