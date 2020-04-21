@@ -589,7 +589,7 @@ return [
   'appearance_menu_name_footer' =>'Chân trang',
   'appearance_template_activated_text' =>'Kích hoạt',
   'appearance_running_template_text' =>'Chạy mẫu',
-  'appearance_header_elements_text' =>'Các yếu tố tiêu đề',
+  'appearance_header_elements_text' =>'Hình ảnh thanh trượt',
   'appearance_home_elements_text' =>'Yếu tố gia đình',
   'appearance_footer_elements_text' =>'Yếu tố chân trang',
   'appearance_home_elements_text' =>'Yếu tố gia đình',
