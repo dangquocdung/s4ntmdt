@@ -3,7 +3,7 @@
 
 <!-- Start banner Area -->
 
-@if($appearance_all_data['header_details']['banner_visibility'] == true && Request::is('/'))
+<!-- @if($appearance_all_data['header_details']['banner_visibility'] == true && Request::is('/'))
 
 
 <section class="product-area pt-20">
@@ -25,7 +25,7 @@
 
 </section>
 
-@endif
+@endif -->
 
 <!-- Start banner Area -->
 
