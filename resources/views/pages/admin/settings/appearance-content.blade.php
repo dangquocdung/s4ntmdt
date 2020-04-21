@@ -3,6 +3,24 @@
 
 @section('content')
 <h4>{{ trans('admin.appearance_settings_content_top_msg') }}</h4><hr>
+<nav class="navbar navbar-expand-lg" style="background-color: #FFF;"> 
+  <div class="container"> 
+    <div class="navbar-header"> 
+      <a href="{{ route('admin.frontend_layout_settings_content') }}" class="navbar-brand"><i class="fa fa-table"></i></a> 
+    </div> 
+    <div class="collapse navbar-collapse" id="appearance_menu_list"> 
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item active" data-target="settings"><a class="nav-link" href="#">{{ trans('admin.appearance_menu_name_settings') }}</a></li>  
+        <!-- <li class="nav-item" data-target="header"><a class="nav-link" href="#">{{ trans('admin.appearance_menu_name_header') }}</a></li>  -->
+        <!-- <li class="nav-item" data-target="home"><a class="nav-link" href="#">{{ trans('admin.appearance_menu_name_home') }}</a></li>  -->
+        <!-- <li class="nav-item" data-target="products"><a class="nav-link" href="#">{{ trans('admin.appearance_menu_name_products') }}</a></li>  -->
+        <!-- <li class="nav-item" data-target="single_product"><a class="nav-link" href="#">{{ trans('admin.appearance_menu_name_single_products') }}</a></li>  -->
+        <!-- <li class="nav-item" data-target="blogs"><a class="nav-link" href="#">{{ trans('admin.appearance_menu_name_blogs') }}</a></li>  -->
+      </ul> 
+    </div> 
+  </div> 
+</nav>
+<br>
 
 <div class="row">
   <div class="col-12">
@@ -36,7 +54,7 @@
                 </div>  
               </div>
               
-              <!-- <div class="form-group">
+              <div class="form-group">
                 <div class="row">    
                   <label class="col-sm-4 control-label" for="inputHeaderCustomCSS">{{ trans('admin.custom_css_use') }}</label>
                   <div class="col-sm-8">
@@ -47,7 +65,7 @@
                     @endif
                   </div>
                 </div>  
-              </div> -->
+              </div>
               
               <?php 
                 $style_general = 'style=display:none;';
@@ -241,6 +259,15 @@
                   </div>
                 </div>  
               </div>
+<!--              <div class="form-group">
+                <div class="row">    
+                  <label class="col-sm-4 control-label" for="inputHeaderSlogan">{{ trans('admin.header_slogan') }}</label>
+                  <div class="col-sm-8">
+                    <input type="text" class="form-control" id="header_slogan" name="header_slogan" value="{{ get_appearance_settings()['header_details']['header_slogan'] }}"/>
+                    <span>[This feature will run only for compatible templares]</span>
+                  </div>
+                </div>  
+              </div>-->
               <div class="form-group">
                 <div class="row">    
                   <label class="col-sm-4 control-label" for="inputHeaderSliderVissibility">{{ trans('admin.slider_visibility') }}</label>
@@ -253,6 +280,24 @@
                   </div>
                 </div>  
               </div>
+              <div class="form-group">
+                <div class="row">    
+                  <label class="col-sm-4 control-label" for="inputHeaderCustomCSS">{{ trans('admin.custom_css_use') }}<br><i style="font-size:12px;">{{ trans('admin.compitable_label') }}</i></label>
+                  <div class="col-sm-8">
+                    @if(count(get_appearance_settings()) && get_appearance_settings()['header_details']['custom_css'] == true)
+                    <input type="checkbox" checked="checked" class="shopist-iCheck" name="inputHeaderCustomCSS" id="inputHeaderCustomCSS">
+                    @else
+                    <input type="checkbox" class="shopist-iCheck" name="inputHeaderCustomCSS" id="inputHeaderCustomCSS">
+                    @endif
+                  </div>
+                </div>  
+              </div>
+              <?php 
+              $style_header = 'style=display:none;';
+              if(count(get_appearance_settings()) && get_appearance_settings()['header_details']['custom_css'] == true){
+                $style_header = 'style=display:block;';
+              }
+              ?>
 
               <div class="header-custom-css" {{ $style_header }}>
                 <div class="form-group">
@@ -270,7 +315,7 @@
                     </div>
                   </div>  
                 </div>
-               <div class="form-group">
+<!--                <div class="form-group">
                   <div class="row">    
                     <label class="col-sm-4 control-label" for="inputHeaderBottomColor">{{ trans('admin.header_bottom_gradient_color') }}</label>
                     <div class="col-sm-8">
@@ -284,7 +329,7 @@
                       </div>
                     </div>
                   </div>  
-                </div>
+                </div>-->
                 <div class="form-group">
                   <div class="row">    
                     <label class="col-sm-4 control-label" for="inputHeaderTextColor">{{ trans('admin.header_text_color_label') }}</label>
