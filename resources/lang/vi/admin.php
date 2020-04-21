@@ -595,7 +595,7 @@ return [
   'appearance_home_elements_text' =>'Yếu tố gia đình',
   'appearance_general_elements_text' =>'Các yếu tố chung',
   'appearance_header_slider_image' =>'Hình ảnh thanh trượt',
-  'appearance_header_slider_image_and_text_add_loader_text' =>'Tải lên hình ảnh thanh trượt',
+  'appearance_header_slider_image_and_text_add_loader_text' =>'Tải hình ảnh lên thanh trượt',
   'appearance_add_text_and_css' =>'Thêm văn bản và CSS tùy chỉnh trên hình ảnh',
   'add_text_on_image_placeholder' =>'Viết một số mã html của bạn.',
   'add_text_on_image_css_placeholder' =>'Viết css của bạn cho html. ví dụ: .text-style {color: # 000; font-size: 14px;} ',
