@@ -74,6 +74,8 @@
 
                 <h3 class="widget-title">Thông tin liên hệ</h3>
 
+                {!! $appearance_all_data['footer_details']['footer_about_us_description'] !!}
+
                 <ul class="list-unstyled text-sm text-white">
                     <li><span class="opacity-50">MST/ĐKKD/QĐTL:&nbsp;</span>Số 1889/QĐ-UBND</li>
                     <li><span class="opacity-50">Cơ quan chủ quản:&nbsp;</span>Sở Th&ocirc;ng tin v&agrave; Truyền th&ocirc;ng H&agrave; Tĩnh</li>

@@ -415,15 +415,13 @@
                   <label class="col-sm-4 control-label" for="inputAboutUsDesc">{{ trans('admin.about_us_desc') }}</label>
                   <div class="col-sm-8">
                     <textarea id="about_us_description_editor" name="about_us_description_editor" class="dynamic-editor" placeholder="{{ trans('admin.enter_description') }}">
-                    {!! $frontend_templates_details['appearance_tab']['settings_details']['footer_details']['footer_about_us_description'] !!}            
+                      {!! $frontend_templates_details['appearance_tab']['settings_details']['footer_details']['footer_about_us_description'] !!}            
                     </textarea>
                   </div>
                 </div>  
               </div>
-              
             </div>
           </div>
-
           <input type="hidden" name="_token" id="_token" value="{{ csrf_token() }}">
           <input type="hidden" name="_frontend_images_json" id="_frontend_images_json" value="{{ $frontend_templates_details['appearance_tab']['settings'] }}">
           <input type="hidden" name="header_text_size" id="header_text_size" value="{{ get_appearance_settings()['header_details']['header_text_size'] }}">
