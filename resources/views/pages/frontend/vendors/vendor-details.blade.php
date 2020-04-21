@@ -76,7 +76,6 @@
             </div>
           </a>
 
-        @endif
 
         <!-- Shop Toolbar-->
         <div class="padding-bottom-1x mb-2">
