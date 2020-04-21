@@ -37,7 +37,7 @@
                 </div>  
               </div>
               
-              <div class="form-group">
+              <!-- <div class="form-group">
                 <div class="row">    
                   <label class="col-sm-4 control-label" for="inputHeaderCustomCSS">{{ trans('admin.custom_css_use') }}</label>
                   <div class="col-sm-8">
@@ -48,7 +48,7 @@
                     @endif
                   </div>
                 </div>  
-              </div>
+              </div> -->
               
               <?php 
                 $style_general = 'style=display:none;';
