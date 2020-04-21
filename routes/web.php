@@ -1098,6 +1098,11 @@ Route::post('/upload/frontend-images', [
   'as'   => 'upload-frontend-images'
 ]);
 
+Route::post('/upload/banner-frontend-images', [
+  'uses' => 'Admin\AdminAjaxController@uploadBannerFrontendImages',
+  'as'   => 'upload-banner-frontend-images'
+]);
+
 Route::post('/ajax/import_product_file', [
   'uses' => 'Admin\AdminAjaxController@manageImportProductFile',
   'as'   => 'import-product-file'

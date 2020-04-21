@@ -1853,6 +1853,10 @@ shopist.event = {
             new customDropZone({ base_url: baseUrl, url: baseUrl + "/upload/frontend-images", token: token, uploader: 'frontend_images_file_upload', paramName: 'frontend_all_images', acceptedFiles: "image/*", uploadMultiple: true, maxFiles: 10 });
         }
 
+        if ($('.frontend_images_file_upload').length > 0) {
+            new customDropZone({ base_url: baseUrl, url: baseUrl + "/upload/banner-frontend-images", token: token, uploader: 'frontend_images_file_upload', paramName: 'frontend_all_images', acceptedFiles: "image/*", uploadMultiple: true, maxFiles: 10 });
+        }
+
         if ($('.upload-cat-img').length > 0) {
             new customDropZone({ base_url: baseUrl, url: baseUrl + "/upload/product-related-image", token: token, uploader: 'upload-cat-img', paramName: 'cat_thumbnail_image', acceptedFiles: "image/*", uploadMultiple: false, maxFiles: 1 });
         }

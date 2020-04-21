@@ -1777,6 +1777,62 @@ class AdminAjaxController extends Controller
       }  
     }
   }
+
+  public function uploadBannerFrontendImages(){
+    if(Request::isMethod('post') && Request::ajax()){
+      if(Session::token() == Request::header('X-CSRF-TOKEN')){
+        $input = Input::all();
+        $files = array();
+        
+        $count = 0;
+        foreach($input['banner_frontend_all_images'] as $key => $value ){
+          $rules = array(
+                 $key => 'image',
+          );
+
+          $validation = Validator::make($input['banner_frontend_all_images'], $rules);
+
+          if ($validation->fails()) {
+            return Response::make($validation->errors->first(), 400);
+          }
+          else{
+            $image = $value;
+            $width    = 0;
+            $height   = 0;
+        
+            $fileName = $count.time()."w-1920-h-1080-".$image->getClientOriginalName();
+            $path  = public_path('uploads/' . $fileName);
+            
+            $width = 1920;
+            $height = 1080;
+            
+            $img   = Image::make($image);
+            
+            if($width > 0 && $height > 0){
+              $img->resize($width, $height);
+            }
+            else{
+              $img->resize(null, $height, function ($constraint) {
+                  $constraint->aspectRatio();
+              });
+            }
+        
+            if ($img->save($path)) {
+              $files[] = $fileName;
+            }
+          }
+          
+          $count ++;
+        }
+        
+        if (count($files) > 0) {
+            return response()->json(array('status' => 'success', 'name' => json_encode($files)));
+        } else {
+            return Response::json('error', 400);
+        }
+      }  
+    }
+  }
 		
   public function manageImportProductFile(){
     if(Request::isMethod('post') && Request::ajax() && Session::token() == Request::header('X-CSRF-TOKEN')){

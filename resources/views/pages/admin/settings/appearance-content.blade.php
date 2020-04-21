@@ -450,7 +450,7 @@
               </button>
             </div>    
             <div class="modal-body">             
-              <div class="uploadform dropzone no-margin dz-clickable frontend_images_file_upload" id="banner_images_file_upload" name="banner_images_file_upload">
+              <div class="uploadform dropzone no-margin dz-clickable banner_frontend_images_file_upload" id="banner_images_file_upload" name="banner_images_file_upload">
                 <div class="dz-default dz-message">
                   <span>{{ trans('admin.drop_your_cover_picture_here') }}</span>
                 </div>
