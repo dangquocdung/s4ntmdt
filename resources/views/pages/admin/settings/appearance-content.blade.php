@@ -275,10 +275,8 @@
                 </div>  
               </div> -->
               <?php 
-              $style_header = 'style=display:none;';
-              if(count(get_appearance_settings()) && get_appearance_settings()['header_details']['custom_css'] == true){
-                $style_header = 'style=display:block;';
-              }
+                 $style_header = 'style=display:none;';
+              
               ?>
 
               <div class="header-custom-css" {{ $style_header }}>
