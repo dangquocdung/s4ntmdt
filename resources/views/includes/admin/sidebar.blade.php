@@ -765,12 +765,8 @@
             <ul class="treeview-menu">
               @if(Request::is('admin/settings/general'))  
                 <li class="active"><a href="{{ route('admin.general_settings_content') }}"><i class="fa fa-circle-o"></i> {!! trans('admin.general') !!}</a></li>
-                <li class="active"><a href="{{ route('admin.frontend_layout_settings_content') }}"><i class="fa fa-paint-brush"></i> {!! trans('admin.frontend_layout') !!}</a></li>
-
               @else
                  <li><a href="{{ route('admin.general_settings_content') }}"><i class="fa fa-circle-o"></i> {!! trans('admin.general') !!}</a></li>
-                 <li><a href="{{ route('admin.frontend_layout_settings_content') }}"><i class="fa fa-paint-brush"></i> {!! trans('admin.frontend_layout') !!}</a></li>
-
               @endif
 
               <!-- @if(Request::is('admin/settings/languages') || Request::is('admin/settings/languages/update/*'))
