@@ -4,7 +4,6 @@
 @include('includes.frontend.home-spcl')
 @yield('product_area')
 
-
 @if(count($vendors_list) > 0)  
 <section class="bg-secondary padding-top-1x padding-bottom-2x">
   <div class="container">
@@ -19,11 +18,10 @@
             <?php $details = json_decode($vendor->details);?>
             <a href="{{ route('store-products-page-content', $vendor->name) }}">  
 
-              <!-- details->profile_details->store_name -->
               @if(!empty($vendor->user_photo_url))
-                <img class="d-block w-110 opacity-75 m-auto" src="{{ get_image_url($vendor->user_photo_url) }}">
+                <img class="d-block w-110 opacity-75 m-auto" src="{{ get_image_url($vendor->user_photo_url) }}" alt="{!! $details->profile_details->store_name !!}" title="{!! $details->profile_details->store_name !!}">
               @else
-                <img class="d-block w-110 opacity-75 m-auto" src="{{ default_placeholder_img_src() }}">
+                <img class="d-block w-110 opacity-75 m-auto" src="{{ default_placeholder_img_src() }}" alt="{!! $details->profile_details->store_name !!}" title="{!! $details->profile_details->store_name !!}">
               @endif
             </a>
           @endif
@@ -34,8 +32,6 @@
 </section>
 @endif
 
-
-  
 <!-- Services-->
 <section class="container padding-top-3x padding-bottom-2x">
   <div class="row">
