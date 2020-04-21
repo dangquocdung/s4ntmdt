@@ -1299,14 +1299,14 @@ class ProductsController extends Controller
                                       array(
                                           'product_id'    =>  $post->id,
                                           'key_name'      =>  '_product_enable_as_related',
-                                          'key_value'     =>  $enable_related,
+                                          'key_value'     =>  'no',
                                           'created_at'    =>  date("y-m-d H:i:s", strtotime('now')),
                                           'updated_at'    =>  date("y-m-d H:i:s", strtotime('now'))
                                       ),
                                       array(
                                           'product_id'    =>  $post->id,
                                           'key_name'      =>  '_product_enable_as_custom_design',
-                                          'key_value'     =>  $enable_custom_design,
+                                          'key_value'     =>  'no',
                                           'created_at'    =>  date("y-m-d H:i:s", strtotime('now')),
                                           'updated_at'    =>  date("y-m-d H:i:s", strtotime('now'))
                                       ),
