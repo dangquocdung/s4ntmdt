@@ -3818,6 +3818,7 @@ var customDropZone = (function() {
                                         }
 
                                         $('#frontendImageUploader').modal('hide');
+                                        $('#frontendBannerImageUploader').modal('hide');
                                         $('.uploaded-header-slider-images .sample-img').hide();
                                         $('.uploaded-header-slider-images .uploaded-slider-images').show();
                                     }
