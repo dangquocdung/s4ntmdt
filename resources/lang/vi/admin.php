@@ -746,7 +746,7 @@ return [
   'reinstalled_label' =>'Vui lòng xóa bảng cơ sở dữ liệu và chạy lại',
   'default_role_for_site' =>'Role Vai trò mặc định của người dùng mới cho Frontend ',
   'user_registration_allow_status' =>'Bật / Tắt đăng ký người dùng cho Frontend',
-  'about_us_desc' =>'Giới thiệu về chúng tôi',
+  'about_us_desc' =>'Nội dung chân trang',
   'enter_description' =>'Nhập mô tả',
   'fb_title' =>'Facebook',
   'twitter_title' =>'Twitter',
