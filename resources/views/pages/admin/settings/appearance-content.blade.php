@@ -359,12 +359,12 @@
               <h3 class="box-title">Banner (mới)</h3>
             </div>          
             <div class="box-body">
-              <!-- <div class="form-group">
+              <div class="form-group">
                 <div class="row">    
-                  <label class="col-sm-4 control-label" for="inputHeaderSliderImage">{{ trans('admin.appearance_header_slider_image') }}</label>
+                  <label class="col-sm-4 control-label" for="inputHeaderSliderImage">{{ trans('admin.banner_visibility') }}</label>
                   <div class="col-sm-8">
                     <div class="clearfix">
-                      <div data-toggle="modal" data-dropzone_id="eb_dropzone_slider_image_file_upload" data-target="#frontendImageUploader" class="icon product-header-slider-uploader pull-right">{{ trans('admin.appearance_header_slider_image_and_text_add_loader_text') }}</div>
+                      <div data-toggle="modal" data-dropzone_id="eb_dropzone_banner_image_file_upload" data-target="#frontendBannerImageUploader" class="icon product-header-slider-uploader pull-right">{{ trans('admin.appearance_header_slider_image_and_text_add_loader_text') }}</div>
                     </div>
 
                     <div class="uploaded-header-slider-images">
@@ -382,7 +382,7 @@
                     </div>
                   </div>
                 </div>  
-              </div> -->
+              </div>
 
               <div class="form-group">
                 <div class="row">    
@@ -436,6 +436,31 @@
           </div>
         </div>
       </div>
+
+      <div class="modal fade" id="frontendBannerImageUploader" tabindex="-1" role="dialog" aria-labelledby="updater" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <p class="no-margin">{!! trans('admin.you_can_upload_10_image') !!}</p>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>    
+            <div class="modal-body">             
+              <div class="uploadform dropzone no-margin dz-clickable frontend_images_file_upload" id="banner_images_file_upload" name="banner_images_file_upload">
+                <div class="dz-default dz-message">
+                  <span>{{ trans('admin.drop_your_cover_picture_here') }}</span>
+                </div>
+              </div>
+
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-default attachtopost" data-dismiss="modal">{{ trans('admin.close') }}</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
       
       <div class="modal fade" id="addDynamicTextOnImage" tabindex="-1" role="dialog" aria-labelledby="updater" aria-hidden="true">
         <div class="modal-dialog">
