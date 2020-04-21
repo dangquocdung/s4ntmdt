@@ -12,10 +12,10 @@
       <ul class="navbar-nav mr-auto">
         <li class="nav-item active" data-target="settings"><a class="nav-link" href="#">{{ trans('admin.appearance_menu_name_settings') }}</a></li>  
         <li class="nav-item" data-target="header"><a class="nav-link" href="#">{{ trans('admin.appearance_menu_name_header') }}</a></li> 
-        <li class="nav-item" data-target="home"><a class="nav-link" href="#">{{ trans('admin.appearance_menu_name_home') }}</a></li> 
+        <!-- <li class="nav-item" data-target="home"><a class="nav-link" href="#">{{ trans('admin.appearance_menu_name_home') }}</a></li> 
         <li class="nav-item" data-target="products"><a class="nav-link" href="#">{{ trans('admin.appearance_menu_name_products') }}</a></li> 
         <li class="nav-item" data-target="single_product"><a class="nav-link" href="#">{{ trans('admin.appearance_menu_name_single_products') }}</a></li> 
-        <li class="nav-item" data-target="blogs"><a class="nav-link" href="#">{{ trans('admin.appearance_menu_name_blogs') }}</a></li> 
+        <li class="nav-item" data-target="blogs"><a class="nav-link" href="#">{{ trans('admin.appearance_menu_name_blogs') }}</a></li>  -->
       </ul> 
     </div> 
   </div> 
