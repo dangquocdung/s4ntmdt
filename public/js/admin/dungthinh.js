@@ -3823,7 +3823,37 @@ var customDropZone = (function() {
                                     }
                                 }
                             }
+                        } else if (name == 'banner_frontend_all_images') {
+                            var parseResponse = $.parseJSON(response.name);
+
+                            if (parseResponse.length > 0) {
+                                for (var count = 0; count < parseResponse.length; count++) {
+                                    var id = shopist.normalFunction.make_random_id();
+                                    var strReplace = parseResponse[count].replace(/\.[^/.]+$/, "");
+                                    var addExtraId = strReplace;
+
+                                    if ($('.uploaded-header-banner-images .uploaded-banner-images').find('.' + addExtraId).length == 0) {
+                                        if ($('.header-banner-image-single-container').length > 0) {
+                                            $('.header-banner-image-single-container:last').after('<div class="header-banner-image-single-container ' + addExtraId + '"><img class="img-responsive" src="' + base_url + '/uploads/' + parseResponse[count] + '"><div data-id="' + id + '" class="remove-frontend-img-link"></div><div class="header-banner-image-add-text-btn"></div></div>');
+                                        } else {
+                                            $('.uploaded-header-banner-images .uploaded-banner-images').append('<div class="header-banner-image-single-container ' + addExtraId + '"><img class="img-responsive" src="' + base_url + '/uploads/' + parseResponse[count] + '"><div data-id="' + id + '" class="remove-frontend-img-link"></div><div class="header-banner-image-add-text-btn"></div></div>');
+                                        }
+
+                                        shopist.event.frontendAllImageRemoveBtnDisplay();
+                                        shopist.event.addTextAndCustomCssOnImageDynamically();
+
+                                        if ($('#_frontend_images_json').length > 0) {
+                                            shopist.normalFunction.createJsonDataForAllFrontendImage('header_slider_images', { id: id, url: '/uploads/' + parseResponse[count] });
+                                        }
+
+                                        $('#frontendImageUploader').modal('hide');                                        
+                                        $('.uploaded-header-banner-images .sample-img').hide();
+                                        $('.uploaded-header-banner-images .uploaded-banner-images').show();
+                                    }
+                                }
+                            }
                         }
+
                         this.removeAllFiles();
                     }
                 });
