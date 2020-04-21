@@ -732,6 +732,10 @@ class SettingsController extends Controller
       if(Input::has('inputVisibilitySlider')){
         $is_slider_enable = true;
       }
+
+      if(Input::has('inputVisibilityBanner')){
+        $is_banner_enable = true;
+      }
       
       if(Input::has('inputHeaderCustomCSS')){
         $is_custom_css_enable = true;
@@ -751,8 +755,8 @@ class SettingsController extends Controller
           $unserialize_appearance_data['settings_details']['header_details']['slider_visibility'] = $is_slider_enable;
         }
 
-        if(isset($unserialize_appearance_data['settings_details']['header_details']['banner_visibility'])){
-          $unserialize_appearance_data['settings_details']['header_details']['banner_visibility'] = $is_banner_enable;
+        if(isset($unserialize_appearance_data['settings_details']['header_details']['custom_css'])){
+          $unserialize_appearance_data['settings_details']['header_details']['custom_css'] = $is_banner_enable;
         }
 
         
