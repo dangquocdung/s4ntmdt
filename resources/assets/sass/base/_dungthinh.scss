@@ -309,7 +309,12 @@ h2.title {
 
 .product-img{
 
-    a{
+    .can-giua-img{
+
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        width: 50%;
         
         img{
             width: auto !important;
