@@ -205,6 +205,19 @@
                                             <div class="product-title">
                                                 <h4><a href="{{ route('details-page', $item->slug) }}">{!! $item->title !!}</a></h4>
                                             </div>
+                                            <div class="product-cart-categori">
+                                              <div class="product-categori">
+                                                <span>{{ get_store_name_by_user_id($item->author_id) }}</span>
+                                              </div>
+
+                                              <div class="product-cart">
+                                                <span>
+                                                    <del>
+                                                      {!! price_html( get_product_price_html_by_filter(get_role_based_price_by_product_id($item->id, $item->regular_price)), get_frontend_selected_currency()) !!}
+                                                    </del>
+                                                </span>
+                                              </div>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
