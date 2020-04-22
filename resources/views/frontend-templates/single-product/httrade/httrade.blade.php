@@ -61,7 +61,7 @@
         <div class="product-carousel owl-carousel gallery-wrapper">
           @foreach($single_product_details['_product_related_images_url']->product_gallery_images as $key => $row)
             <div class="gallery-item" data-hash="{{ $count }}">
-              <a href="{{ get_image_url($row->url) }}" data-size="667x1000">
+              <a href="{{ get_image_url($row->url) }}" data-size="1000x667">
                 <div class="can-giua-img">
                   @if(!empty($row->url) && (basename($row->url) !== 'no-image.png'))  
                     <img src="{{ get_image_url($row->url) }}" alt="Product">
@@ -99,12 +99,19 @@
 
         <div class="gallery-item">
           <a href="{{ get_image_url( $single_product_details['post_image_url'] ) }}" data-size="1000x667">
-            @if( !empty($single_product_details['post_image_url']) )  
-              <img src="{{ get_image_url( $single_product_details['post_image_url'] ) }}" alt="{{ $single_product_details['post_title'] }}">
-            @else
-              <img src="{{ default_placeholder_img_src() }}" alt="{{ $single_product_details['post_title'] }}"/>
-            @endif
+
+            <div class="can-giua-img">
+
+
+              @if( !empty($single_product_details['post_image_url']) )  
+                <img src="{{ get_image_url( $single_product_details['post_image_url'] ) }}" alt="{{ $single_product_details['post_title'] }}">
+              @else
+                <img src="{{ default_placeholder_img_src() }}" alt="{{ $single_product_details['post_title'] }}"/>
+              @endif
+
+            </div>
           </a>
+
         </div>
 
       </div>
