@@ -27,9 +27,16 @@
                       $phantram = round(($tiengiam/$item->regular_price)*100);
                         
                     @endphp
-                    <span>Giảm giá {{ $phantram }}%</span>
+                    <span class="giam-gia">Giảm giá {{ $phantram }}%</span>
           
                   @endif
+
+                  <span class="gia-bia">
+
+                    {!! price_html( get_product_price_html_by_filter(get_role_based_price_by_product_id($item->id, $item->price)), get_frontend_selected_currency()) !!}
+
+                  </span>
+
 
                   <div class="product-action">
 
@@ -50,32 +57,9 @@
                   </div>
                 </div>
                 <div class="product-content">
-                    <div class="product-title-price">
                         <div class="product-title">
                             <h4><a href="{{ route('details-page', $item->slug) }}">{!! $item->title !!}</a></h4>
                         </div>
-                        <div class="product-price">
-                            <span class="new">
-                                  {!! price_html( get_product_price_html_by_filter(get_role_based_price_by_product_id($item->id, $item->price)), get_frontend_selected_currency()) !!}
-                            </span>
-
-                        </div>
-                    </div>
-                    <div class="product-cart-categori">
-
-                        <div class="product-categori">
-                          <span>{{ get_store_name_by_user_id($item->author_id) }}</span>
-                        </div>
-
-                        <div class="product-cart">
-                          <span>
-                              <del>
-                                {!! price_html( get_product_price_html_by_filter(get_role_based_price_by_product_id($item->id, $item->regular_price)), get_frontend_selected_currency()) !!}
-                              </del>
-                          </span>
-                        </div>
-
-                    </div>
                 </div>
             </div>
         </div>
