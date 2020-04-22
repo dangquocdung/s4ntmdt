@@ -35,9 +35,9 @@
                               
                                       @endif
 
-                                      <span style="right:0; bottom:0; top: none; left:none">
+                                      <!-- <span style="right:0; bottom:0; top: none; left:none">
                                         {!! price_html( get_product_price_html_by_filter(get_role_based_price_by_product_id($item->id, $item->price)), get_frontend_selected_currency()) !!}
-                                      </span>
+                                      </span> -->
                 
                                       <div class="product-action">
 
