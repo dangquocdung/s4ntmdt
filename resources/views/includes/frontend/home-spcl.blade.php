@@ -62,7 +62,7 @@
                                       <div class="product-cart-categori">
 
                                           <div class="product-categori">
-                                          <span>{{ get_user_name_by_user_id($item->author_id) }}</span>
+                                          <span>{{ get_store_name_by_user_id($item->author_id) }}</span>
 
 
                                           </div>
@@ -212,7 +212,7 @@
                                             <div class="product-cart-categori">
 
                                               <div class="product-categori">
-                                                <span>{{ get_user_name_by_user_id($item->author_id) }}</span>
+                                                <span>{{ get_store_name_by_user_id($item->author_id) }}</span>
                                               </div>
 
                                               <div class="product-cart">
