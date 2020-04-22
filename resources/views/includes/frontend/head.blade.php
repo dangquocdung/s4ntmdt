@@ -33,6 +33,17 @@
     @if((Request::is('/gian-hang/chi-tiet/trang-chu/*') || Request::is('/gian-hang/chi-tiet/san-pham/*') || Request::is('/gian-hang/chi-tiet/danh-gia/*') || Request::is('/gian-hang/chi-tiet/danh-muc/san-pham/*')) && !empty($store_seo_meta_description))
     <meta name="description" content="{{ $store_seo_meta_description }}">
     @endif
+
+    @if(get_site_logo_image())
+
+    <meta property="og:url" content="{{ Request::url() }}" />
+    <meta property="og:type" content="article" />
+    <meta property="og:title" content="Trang chủ" />
+    <meta property="og:description" content="Sàn giao dịch thương mại điện tử tỉnh Hà Tĩnh" />
+    <meta property="og:image" itemprop="image" content="{{ get_site_logo_image() }}"/>
+
+    @endif
+
     <!-- Mobile Specific Meta Tag-->
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <!-- Favicon and Apple Icons-->
