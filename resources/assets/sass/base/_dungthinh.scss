@@ -323,6 +323,25 @@ h2.title {
     
 } 
 
+.owl-carousel 
+{
+    .owl-item{
+
+        .can-giua-img{
+
+            img {
+                display: block;
+                width: 50%;
+                margin-left: auto;
+                margin-right: auto;
+            }
+
+        }
+
+    } 
+
+}
+
 .pswp img {
     max-width: none;
     object-fit: contain;
