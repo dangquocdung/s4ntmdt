@@ -322,7 +322,7 @@ h2.title {
     }
 
     span.giam-gia {
-        background-color: #f70a0a;
+        background-color: #09bd39;
         color: #fff;
         display: inline-block;
         font-weight: 600;
@@ -386,4 +386,15 @@ h2.title {
 .pswp img {
     max-width: none;
     object-fit: contain;
+}
+
+.product-content{
+    .product-title{
+        h4{
+            a{
+                text-align: center;
+            }
+        }
+    }
+
 }
