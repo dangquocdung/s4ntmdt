@@ -307,41 +307,18 @@ h2.title {
     
 }
 
-.product-img{
+.can-giua-img{
 
-    .can-giua-img{
-
-        display: block;
-        margin-left: auto;
-        margin-right: auto;
-        width: 50%;
-        
-        img{
-            width: 50% !important;
-        }
-    }
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
     
-} 
-
-.owl-carousel 
-{
-    .owl-item{
-
-        .can-giua-img{
-
-            img {
-                display: block;
-                width: 50%;
-                margin-left: auto;
-                margin-right: auto;
-            }
-
-        }
-
-    } 
-
+    img{
+        width: 50% !important;
+    }
 }
-
+    
 .pswp img {
     max-width: none;
     object-fit: contain;
