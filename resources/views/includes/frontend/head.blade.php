@@ -40,7 +40,7 @@
     <meta property="og:type" content="article" />
     <meta property="og:title" content="Trang chủ" />
     <meta property="og:description" content="Sàn giao dịch thương mại điện tử tỉnh Hà Tĩnh" />
-    <meta property="og:image" itemprop="image" content="{{ get_site_logo_image() }}"/>
+    <meta property="og:image" itemprop="image" content="{{ URL::asset(get_site_logo_image()) }}"/>
 
     @endif
 
