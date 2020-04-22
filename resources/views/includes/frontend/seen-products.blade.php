@@ -16,11 +16,14 @@
                 <div class="single-product mb-35">
                       <div class="product-img">
                         <a href="{{ route('details-page', $item['post_slug']) }}">
-                          @if(!empty($item['product_image']))
-                            <img src="{{ get_image_url( $item['product_image'] ) }}" alt="{{ basename( get_image_url( $item['product_image'] ) ) }}" />
-                          @else
-                            <img  src="{{ default_placeholder_img_src() }}" alt="" />
-                          @endif
+                          <div class="can-giua-img">
+
+                            @if(!empty($item['product_image']))
+                              <img src="{{ get_image_url( $item['product_image'] ) }}" alt="{{ basename( get_image_url( $item['product_image'] ) ) }}" />
+                            @else
+                              <img  src="{{ default_placeholder_img_src() }}" alt="" />
+                            @endif
+                          </div>
                         </a>
                         @if ( $item['product_price'] < $item['product_regular_price'] )
                           @php
