@@ -52,6 +52,7 @@
 
       </ul>
 
+
       @if (!empty($blog_details_by_slug['post_file']))
         <div class="embed-responsive embed-responsive-1by1 mt-3 mb-3">
           <iframe class="embed-responsive-item" src="{{ URL::asset($blog_details_by_slug['post_file']) }}" allowfullscreen=""></iframe>
@@ -75,6 +76,7 @@
         </div>
       </div>
 
+      
       <!-- Post Tags + Share-->
       <!-- <div class="d-flex flex-wrap justify-content-between align-items-center pt-3 pb-4">
         <div class="pb-2">
@@ -100,51 +102,50 @@
 
       <!-- Relevant Posts-->
       @if(count($advanced_data['latest_items']) > 0)  
-
-      <section class="product-area">
-        <div class="container">
-          <div class="product-style">
-            <h2 class="title text-center">{{ trans('frontend.latest_from_the_blog') }}</h2>
-
-            <div class="tab-content another-product-style jump">
-                <div class="tab-pane fade show active" id="latest_products" role="tabpanel">
-                  <div class="owl-carousel" data-owl-carousel="{ &quot;nav&quot;: false, &quot;dots&quot;: true, &quot;margin&quot;: 30, &quot;responsive&quot;: {&quot;0&quot;:{&quot;items&quot;:1},&quot;576&quot;:{&quot;items&quot;:2},&quot;768&quot;:{&quot;items&quot;:3},&quot;991&quot;:{&quot;items&quot;:4},&quot;1200&quot;:{&quot;items&quot;:5}} }">
-                    @foreach($advanced_data['latest_items'] as $row)
-                      <div class="single-product mb-35">
-                          <div class="product-img">
-                              <a href="{{ route('details-page', $item['post_slug']) }}">
-                                <div class="can-giua-img">
-
-                                @if(!empty($row['blog_image']))  
-                                  <img src="{{ get_image_url($row['blog_image']) }}"  alt="{{ basename($row['blog_image']) }}">          
-                                @else
-                                  <img src="{{ default_placeholder_img_src() }}"  alt="">         
-                                @endif
-
-                                </div>
-                              </a>
-
-                          </div>
-                          <div class="product-content">
-                              <div class="product-title-price">
-                                  <div class="product-title">
-                                      <h4>
-                                      <a href="{{ route('blog-single-page', $row['post_slug']) }}">{!! $row['post_title'] !!}</a>
-                                    </h4>
-                                  </div>
-                              </div>
-                          </div>
-                      </div>
-                    @endforeach
-                  </div>
-
-                </div>
-            </div>
-          </div>
+        <div class="product-tab-list margin-top-2x">
+            <!-- Nav tabs -->
+            <ul class="nav nav-tabs tab-style" role="tablist">
+                <li class="nav-item">
+                    <a href="#sp_daxem" data-toggle="tab" class="show active">
+                        <div class="tab-menu-text">
+                            <h4>{{ trans('frontend.latest_from_the_blog') }}</h4>
+                        </div>
+                    </a>
+                </li>
+                
+            </ul>
         </div>
-      </section>
-      @endif
 
+        <div class="owl-carousel padding-top-1x padding-bottom-2x" data-owl-carousel='{ "nav": false, "dots": true, "autoplay": true, "loop": true, "autoHeight": true, "margin": 30, "responsive": {"0":{"items":1},"630":{"items":2},"991":{"items":3},"1200":{"items":3}} }'>
+
+          @foreach($advanced_data['latest_items'] as $row)
+
+            <div class="widget widget-featured-posts">
+              <div class="entry">
+
+                <div class="entry-thumb">
+                  <a href="{{ route('blog-single-page', ['post_slug'])}}">
+                      @if(!empty($row['blog_image']))  
+                        <img class="img-responsive" src="{{ get_image_url($row['blog_image']) }}"  alt="{{ basename($row['blog_image']) }}">          
+                      @else
+                        <img class="img-responsive" src="{{ default_placeholder_img_src() }}"  alt="">         
+                      @endif
+                    </a>
+                </div>
+                      
+                <div class="entry-content">
+                  <h4 class="entry-title">
+                    <a href="{{ route('blog-single-page', $row['post_slug']) }}">{!! $row['post_title'] !!}</a>
+                  </h4>
+                  <!-- <span class="entry-meta">by Oliasvia Reyes</span> -->
+                </div>
+
+              </div>
+            </div>
+          @endforeach
+
+        </div>
+      @endif
 
       <!-- Relevant Posts-->
       @if(count($advanced_data['best_items']) > 0)  
