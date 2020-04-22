@@ -122,12 +122,12 @@
                               </a>
 
                           </div>
-                          <div class="product-content" style="padding-top: none; margin-top:10px">
+                          <div class="product-content" style="padding-top: 0; margin-top:10px; text-align:center">
                               <div class="product-title-price">
                                   <div class="product-title">
                                       <h4>
-                                      <a href="{{ route('blog-single-page', $row['post_slug']) }}">{!! $row['post_title'] !!}</a>
-                                    </h4>
+                                        <a href="{{ route('blog-single-page', $row['post_slug']) }}">{!! $row['post_title'] !!}</a>
+                                      </h4>
                                   </div>
                               </div>
                           </div>
