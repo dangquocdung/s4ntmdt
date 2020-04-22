@@ -71,7 +71,7 @@
 
     @if(count($single_product_details['_product_related_images_url']->product_gallery_images) > 0)
 
-    <div class="product-gallery">
+    <div class="product-gallery" style="padding-top:15px">
       @if(count($single_product_details['_product_related_images_url']->product_gallery_images) > 0)
 
         <?php $count = 1;?>
@@ -81,7 +81,7 @@
             <div class="gallery-item" data-hash="{{ $count }}">
               <a href="{{ get_image_url($row->url) }}" data-size="1000x667">
                 @if(!empty($row->url) && (basename($row->url) !== 'no-image.png'))  
-                  <img src="{{ get_image_url($row->url) }}" alt="Product" style="max-height: 400px; max-width:300px">
+                  <img src="{{ get_image_url($row->url) }}" alt="Product" style="max-height: 300px; max-width:400px; margin:auto">
                 @else
                   <img src="{{ default_placeholder_img_src() }}" alt="Product"/>
                 @endif
