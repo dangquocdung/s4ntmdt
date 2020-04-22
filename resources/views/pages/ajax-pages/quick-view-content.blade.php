@@ -81,7 +81,7 @@
             <div class="gallery-item" data-hash="{{ $count }}">
               <a href="{{ get_image_url($row->url) }}" data-size="1000x667">
                 @if(!empty($row->url) && (basename($row->url) !== 'no-image.png'))  
-                  <img src="{{ get_image_url($row->url) }}" alt="Product" style="max-height: 300px; max-width:400px; margin:auto">
+                  <img src="{{ get_image_url($row->url) }}" alt="Product" style="max-height: 350px; width:auto; margin:auto">
                 @else
                   <img src="{{ default_placeholder_img_src() }}" alt="Product"/>
                 @endif
