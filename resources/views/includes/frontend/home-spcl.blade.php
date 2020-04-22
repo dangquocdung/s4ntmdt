@@ -31,7 +31,7 @@
                                           $phantram = round(($tiengiam/$item->regular_price)*100);
                                             
                                         @endphp
-                                        <span class="giam-gia">-{{ $phantram }}%</span>
+                                        <span class="giam-gia">Giảm giá {{ $phantram }}%</span>
                               
                                       @endif
 
@@ -151,7 +151,7 @@
                                                 $phantram = round(($tiengiam/$item->regular_price)*100);
                                                   
                                               @endphp
-                                              <span class="giam-gia">-{{ $phantram }}%</span>
+                                              <span class="giam-gia">Giảm giá {{ $phantram }}%</span>
                                     
                                             @endif
 
