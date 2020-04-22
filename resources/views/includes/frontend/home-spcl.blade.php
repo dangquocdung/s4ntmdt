@@ -13,11 +13,15 @@
                               <div class="single-product mb-35">
                                   <div class="product-img">
                                       <a href="{{ route('details-page', $item->slug) }}">
-                                        @if(!empty($item->image_url))
-                                          <img src="{{ get_image_url( $item->image_url ) }}" alt="{{ basename( get_image_url( $item->image_url ) ) }}" />
-                                        @else
-                                          <img  src="{{ default_placeholder_img_src() }}" alt="" />
-                                        @endif
+                                        <div class="can-giua-img">
+
+                                          @if(!empty($item->image_url))
+                                            <img src="{{ get_image_url( $item->image_url ) }}" alt="{{ basename( get_image_url( $item->image_url ) ) }}" />
+                                          @else
+                                            <img  src="{{ default_placeholder_img_src() }}" alt="" />
+                                          @endif
+
+                                        </div>
                                       </a>
                                       @if ( $item->price < $item->regular_price )
                                         @php
@@ -64,7 +68,6 @@
                                           <div class="product-categori">
                                           <span>{{ get_store_name_by_user_id($item->author_id) }}</span>
 
-
                                           </div>
 
                                           <div class="product-cart">
@@ -73,7 +76,6 @@
                                                   {!! price_html( get_product_price_html_by_filter(get_role_based_price_by_product_id($item->id, $item->regular_price)), get_frontend_selected_currency()) !!}
                                                 </del>
                                             </span>
-
 
                                           </div>
                                       </div>
@@ -90,7 +92,6 @@
         </div>
     </div>
 </section>
-
 
 <!-- Popular Brands Carousel-->
 @if(count($brands_data) > 0)  
@@ -116,7 +117,6 @@
   </div>
 </section>
 @endif
-
 
 <section class="product-area pt-50">
 
