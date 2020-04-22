@@ -66,7 +66,7 @@
                       </div>
                       <div class="product-cart-categori">
                           <div class="product-cart">
-                              <span>{{ get_user_name_by_user_id($item->author_id) }}</span>
+                              <span>{{ get_store_name_by_user_id($item->author_id) }}</span>
                           </div>
                           <div class="product-categori">
                               <a class="add-to-cart-bg" data-toast data-toast-type="success" data-toast-position="topRight" data-toast-icon="icon-check-circle" data-toast-title="Sản phẩm" data-toast-message="{{ trans('frontend.successfuly_added_to_cart') }}" data-id="{{ $item->id }}" data-toggle="tooltip" data-placement="top"title="" data-original-title="{{ trans('frontend.add_to_cart_label') }}">

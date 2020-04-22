@@ -76,7 +76,7 @@
                                   </div>
                                   <div class="product-cart-categori">
                                       <div class="product-cart">
-                                          <span>{{ get_user_name_by_user_id($item->author_id) }}</span>
+                                          <span>{{ get_store_name_by_user_id($item->author_id) }}</span>
                                       </div>
                                       <div class="product-categori">
                                       <a class="product-compare" data-id="{{ $item->id }}" data-toggle="tooltip" title="{{ trans('frontend.add_to_compare_list_label') }}" data-original-title="{{ trans('frontend.add_to_compare_list_label') }}">
@@ -246,7 +246,7 @@
                                 </div>
                                 <div class="product-cart-categori">
                                     <div class="product-cart">
-                                        <span>{{ get_user_name_by_user_id($item->author_id) }}</span>
+                                        <span>{{ get_store_name_by_user_id($item->author_id) }}</span>
                                     </div>
                                     <div class="product-categori">
                                     <a class="product-compare" data-id="{{ $item->id }}" data-toggle="tooltip" title="{{ trans('frontend.add_to_compare_list_label') }}" data-original-title="{{ trans('frontend.add_to_compare_list_label') }}">
@@ -325,7 +325,7 @@
                                   </div>
                                   <div class="product-cart-categori">
                                       <div class="product-cart">
-                                          <span>{{ get_user_name_by_user_id($item->author_id) }}</span>
+                                          <span>{{ get_store_name_by_user_id($item->author_id) }}</span>
                                       </div>
                                       <div class="product-categori">
                                       <a class="product-compare" data-id="{{ $item->id }}" data-toggle="tooltip" title="{{ trans('frontend.add_to_compare_list_label') }}" data-original-title="{{ trans('frontend.add_to_compare_list_label') }}">

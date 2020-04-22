@@ -61,7 +61,7 @@
                     <div class="product-cart-categori">
 
                         <div class="product-categori">
-                          <span>{{ get_user_name_by_user_id($item->author_id) }}</span>
+                          <span>{{ get_store_name_by_user_id($item->author_id) }}</span>
                         </div>
 
                         <div class="product-cart">
@@ -171,7 +171,7 @@
                       </div>
                       <div class="product-list-cart">
 
-                        <a class="btn-hover list-btn-wishlist btn-store" href="{{ route('store-details-page-content', get_user_name_by_user_id($item->author_id)) }}" target="_blank" data-toggle="tooltip" title="{{ get_user_name_by_user_id($item->author_id) }}" data-original-title="{{ trans('frontend.gian-hang') }}">
+                        <a class="btn-hover list-btn-wishlist btn-store" href="{{ route('store-details-page-content', get_user_name_by_user_id($item->author_id)) }}" target="_blank" data-toggle="tooltip" title="{{ get_store_name_by_user_id($item->author_id) }}" data-original-title="{{ trans('frontend.gian-hang') }}">
                           <i class="ion-ios-home-outline"></i>
                         </a>
 
