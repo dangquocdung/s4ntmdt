@@ -308,7 +308,15 @@ h2.title {
 }
 
 .product-img{
-    img{
-        width: auto !important;
+
+    a{
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        width: 50%;
+        img{
+            width: auto !important;
+        }
     }
+    
 } 
