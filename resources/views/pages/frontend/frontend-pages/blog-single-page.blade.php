@@ -112,7 +112,7 @@
                     @foreach($advanced_data['latest_items'] as $row)
                       <div class="single-product mb-35">
                           <div class="product-img">
-                              <a href="{{ route('details-page', $item['post_slug']) }}">
+                              <a href="{{ route('blog-single-page', $row['post_slug']) }}">
                                 <div class="can-giua-img">
 
                                 @if(!empty($row['blog_image']))  
