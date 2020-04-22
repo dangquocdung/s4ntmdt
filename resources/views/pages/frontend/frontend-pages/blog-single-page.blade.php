@@ -145,7 +145,7 @@
       <!-- Relevant Posts-->
       @if(count($advanced_data['best_items']) > 0)  
 
-      <section class="product-area pt-20">
+      <section class="product-area pt-50">
           <div class="product-style">
             <h2 class="title text-center">{{ trans('frontend.best_from_the_blog_title') }}</h2>
 
