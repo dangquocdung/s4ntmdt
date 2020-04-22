@@ -102,7 +102,6 @@
       @if(count($advanced_data['latest_items']) > 0)  
 
       <section class="product-area">
-        <div class="container">
           <div class="product-style">
             <h2 class="title text-center">{{ trans('frontend.latest_from_the_blog') }}</h2>
 
@@ -113,7 +112,6 @@
                       <div class="single-product mb-35">
                           <div class="product-img">
                               <a href="{{ route('blog-single-page', $row['post_slug']) }}">
-                                <div class="can-giua-img">
 
                                 @if(!empty($row['blog_image']))  
                                   <img src="{{ get_image_url($row['blog_image']) }}"  alt="{{ basename($row['blog_image']) }}">          
@@ -121,7 +119,6 @@
                                   <img src="{{ default_placeholder_img_src() }}"  alt="">         
                                 @endif
 
-                                </div>
                               </a>
 
                           </div>
@@ -141,7 +138,6 @@
                 </div>
             </div>
           </div>
-        </div>
       </section>
       @endif
 
