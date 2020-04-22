@@ -31,6 +31,7 @@
         @endif
       @endif
 
+      
       @if(check_permission_menu_heading('cms'))
       <li class="sidebar-cms-title">{!! trans('admin.sidebar_cms_title') !!}</li>
       @endif
@@ -143,7 +144,49 @@
           </li>
         @endif  
       @endif
-            
+      
+      <!-- @if(Request::is('admin/testimonial/add') || Request::is('admin/testimonial/list') || Request::is('admin/testimonial/update/*') )
+        <li class="active treeview">
+          <a href="#">
+            <i class="fa fa-thumbs-o-up"></i> <span>{!! trans('admin.testimonial_menu_title') !!}</span> <i class="fa fa-angle-left pull-right"></i>
+          </a>
+          <ul class="treeview-menu">
+            @if(in_array('testimonial_list_access', $user_permission_list))
+              @if(Request::is('admin/testimonial/list'))
+                <li class="active"><a href="{{ route('admin.testimonial_post_list_content') }}"><i class="fa fa-table"></i> {!! trans('admin.posts_list') !!}</a></li>
+              @else
+                <li><a href="{{ route('admin.testimonial_post_list_content') }}"><i class="fa fa-table"></i> {!! trans('admin.posts_list') !!}</a></li>
+              @endif
+            @endif
+
+            @if(in_array('add_edit_delete_testimonial', $user_permission_list))
+              @if(Request::is('admin/testimonial/add') || Request::is('admin/testimonial/update/*'))
+                <li class="active"><a href="{{route('admin.testimonial_post_content')}}"><i class="fa fa-plus-square-o"></i> {!! trans('admin.add_new_post') !!}</a></li>
+              @else
+                <li><a href="{{route('admin.testimonial_post_content')}}"><i class="fa fa-plus-square-o"></i> {!! trans('admin.add_new_post') !!}</a></li>
+              @endif
+            @endif
+          </ul>
+        </li>
+      @else
+        @if((in_array('testimonial_list_access', $user_permission_list)) || (in_array('add_edit_delete_testimonial', $user_permission_list)))
+          <li class="treeview">
+            <a href="#">
+              <i class="fa fa-thumbs-o-up"></i> <span>{!! trans('admin.testimonial_menu_title') !!}</span> <i class="fa fa-angle-left pull-right"></i>
+            </a>
+            <ul class="treeview-menu">
+              @if(in_array('testimonial_list_access', $user_permission_list))
+                <li><a href="{{ route('admin.testimonial_post_list_content') }}"><i class="fa fa-table"></i> {!! trans('admin.posts_list') !!}</a></li>
+              @endif
+
+              @if(in_array('add_edit_delete_testimonial', $user_permission_list))
+                <li><a href="{{ route('admin.testimonial_post_content') }}"><i class="fa fa-plus-square-o"></i> {!! trans('admin.add_new_post') !!}</a></li>
+              @endif
+            </ul>
+          </li>
+        @endif  
+      @endif -->
+      
       @if(Request::is('admin/manufacturers/list') || Request::is('admin/manufacturers/add') || Request::is('admin/manufacturers/update/*'))
         <li class="active treeview">
           <a href="#">
@@ -320,6 +363,7 @@
           </li>
         @endif  
       @endif
+      
       
       @if(in_array('manage_orders_list', $user_permission_list))
         @if(Request::is('admin/orders') || Request::is('admin/orders/details/*') || Request::is('admin/orders/current-date'))
@@ -725,18 +769,35 @@
                  <li><a href="{{ route('admin.general_settings_content') }}"><i class="fa fa-circle-o"></i> {!! trans('admin.general') !!}</a></li>
               @endif
 
+              <!-- @if(Request::is('admin/settings/languages') || Request::is('admin/settings/languages/update/*'))
+                <li class="active"><a href="{{ route('admin.languages_settings_content') }}"><i class="fa fa-flag"></i> {!! trans('admin.languages') !!}</a></li>
+              @else
+                <li><a href="{{ route('admin.languages_settings_content') }}"><i class="fa fa-flag"></i> {!! trans('admin.languages') !!}</a></li>
+              @endif -->
+
               @if(Request::is('admin/settings/appearance'))
                 <li class="active"><a href="{{ route('admin.frontend_layout_settings_content') }}"><i class="fa fa-paint-brush"></i> {!! trans('admin.frontend_layout') !!}</a></li>
               @else
                 <li><a href="{{ route('admin.frontend_layout_settings_content') }}"><i class="fa fa-paint-brush"></i> {!! trans('admin.frontend_layout') !!}</a></li>
               @endif
-                            
+              
+              <!-- @if(Request::is('admin/settings/menu'))
+                <li class="active"><a href="{{ route('admin.menu_layout_settings_content') }}"><i class="fa fa-bars"></i> {!! trans('admin.menu_label') !!}</a></li>
+              @else
+                <li><a href="{{ route('admin.menu_layout_settings_content') }}"><i class="fa fa-bars"></i> {!! trans('admin.menu_label') !!}</a></li>
+              @endif -->
+              
               @if(Request::is('admin/settings/emails') || Request::is('admin/settings/emails/details/*'))
                 <li class="active"><a href="{{ route('admin.emails_settings_content') }}"><i class="fa fa-envelope"></i> {!! trans('admin.emails_label') !!}</a></li>
               @else
                 <li><a href="{{ route('admin.emails_settings_content') }}"><i class="fa fa-envelope"></i> {!! trans('admin.emails_label') !!}</a></li>
               @endif
               
+              <!-- @if(Request::is('admin/settings/custom-currency/list') || Request::is('admin/settings/custom-currency/add') || Request::is('admin/settings/custom-currency/update/*'))
+                <li class="active"><a href="{{ route('admin.custom_currency_settings_list_content') }}"><i class="fa fa-dollar"></i> {!! trans('admin.custom_currency_list_label') !!}</a></li>
+              @else
+                <li><a href="{{ route('admin.custom_currency_settings_list_content') }}"><i class="fa fa-dollar"></i> {!! trans('admin.custom_currency_list_label') !!}</a></li>
+              @endif -->
             </ul>
           </li>
         @else
@@ -746,8 +807,11 @@
             </a>
             <ul class="treeview-menu">
               <li><a href="{{ route('admin.general_settings_content') }}"><i class="fa fa-circle-o"></i> {!! trans('admin.general') !!}</a></li>
+              <!-- <li><a href="{{ route('admin.languages_settings_content') }}"><i class="fa fa-flag-o"></i> {!! trans('admin.languages') !!}</a></li>
+              <li><a href="{{ route('admin.frontend_layout_settings_content') }}"><i class="fa fa-paint-brush"></i> {!! trans('admin.frontend_layout') !!}</a></li> -->
               <li><a href="{{ route('admin.menu_layout_settings_content') }}"><i class="fa fa-bars"></i> {!! trans('admin.menu_label') !!}</a></li>
               <li><a href="{{ route('admin.emails_settings_content') }}"><i class="fa fa-envelope"></i> {!! trans('admin.emails_label') !!}</a></li>
+              <!-- <li><a href="{{ route('admin.custom_currency_settings_list_content') }}"><i class="fa fa-dollar"></i> {!! trans('admin.custom_currency_list_label') !!}</a></li> -->
             </ul>
           </li>
         @endif
@@ -768,7 +832,23 @@
           </li>
         @endif
       @endif
-            
+      
+      <!-- @if(is_vendor_login())
+        @if(Request::is('admin/vendors/manage/packages'))
+          <li class="active">
+            <a href="{{ route('admin.manage_packages_content') }}">
+              <i class="fa fa-gift"></i> <span>{!! trans('admin.manage_packages_title') !!}</span>
+            </a>
+          </li>
+        @else
+          <li>
+            <a href="{{ route('admin.manage_packages_content') }}">
+              <i class="fa fa-gift"></i> <span>{!! trans('admin.manage_packages_title') !!}</span>
+            </a>
+          </li>
+        @endif
+      @endif -->
+      
       @if(check_permission_menu_heading('features'))
       <li class="sidebar-extra-features-title">{!! trans('admin.sidebar_extra_features_title') !!}</li>
       @endif
@@ -805,6 +885,22 @@
         @endif
       @endif
       
+      <!-- @if(in_array('manage_requested_product_menu_access', $user_permission_list))
+        @if(Request::is('admin/customer/request-product'))
+          <li class="active">
+            <a href="{{ route('admin.request_product_content') }}" class="active">
+              <i class="fa fa-question-circle-o"></i> <span>{!! trans('admin.request_product_label') !!}</span>
+            </a>
+          </li>
+        @else
+          <li>
+            <a href="{{ route('admin.request_product_content') }}">
+              <i class="fa fa-question-circle-o"></i> <span>{!! trans('admin.request_product_label') !!}</span>
+            </a>
+          </li>
+        @endif
+      @endif   -->
+       
       @if(in_array('manage_subscription_menu_access', $user_permission_list))
         @if(Request::is('admin/subscription/custom') || Request::is('admin/subscription/mailchimp') || Request::is('admin/subscription/settings') )
           <li class="active treeview">
