@@ -32,12 +32,17 @@
                                 <td class="align-middle">
                                     <span class="text-gray-dark">{{ $payment_method_data['bacs']['method_title'] }}</span><br>
                                     <span class="text-muted text-sm"><small>{!! $payment_method_data['bacs']['method_description'] !!}</small></span><br>
-                                    <span class="text-gray-dark"><strong>Tên tài khoản:&nbsp;</strong>{{ $payment_method_data['bacs']['account_details']['account_name'] }}</span><br>
-                                    <span class="text-gray-dark"><strong>Số tài khoản:&nbsp;</strong>{{ $payment_method_data['bacs']['account_details']['account_number'] }}</span><br>
-                                    <span class="text-gray-dark"><strong>Tên ngân hàng:&nbsp;</strong>{{ $payment_method_data['bacs']['account_details']['bank_name'] }}</span><br>
-                                    <span class="text-gray-dark"><strong>Chi nhánh:&nbsp;</strong>{{ $payment_method_data['bacs']['account_details']['short_code'] }}</span><br>
-                                    <span class="text-gray-dark"><strong>Mã IBAN:&nbsp;</strong>{{ $payment_method_data['bacs']['account_details']['iban'] }}</span><br>
-                                    <span class="text-gray-dark"><strong>Mã SWIFT:&nbsp;</strong>{{ $payment_method_data['bacs']['account_details']['swift'] }}</span><br>
+                                </td>
+                            </tr>
+                            <tr class="align-middle">
+                                <td class="align-middle">
+                                    <span class="text-gray-dark">Tên tài khoản:&nbsp;<strong>{{ $payment_method_data['bacs']['account_details']['account_name'] }}</strong></span><br>
+                                    <span class="text-gray-dark">Số tài khoản:&nbsp;<strong>{{ $payment_method_data['bacs']['account_details']['account_number'] }}</strong></span><br>
+                                    <span class="text-gray-dark">Tên ngân hàng:&nbsp;<strong>{{ $payment_method_data['bacs']['account_details']['bank_name'] }}</strong></span><br>
+                                    <span class="text-gray-dark">Chi nhánh:&nbsp;<strong>{{ $payment_method_data['bacs']['account_details']['short_code'] }}</strong></span><br>
+                                    <span class="text-gray-dark">Mã IBAN:&nbsp;<strong>{{ $payment_method_data['bacs']['account_details']['iban'] }}</strong></span><br>
+                                    <span class="text-gray-dark">Mã SWIFT:&nbsp;<strong>{{ $payment_method_data['bacs']['account_details']['swift'] }}</strong></span><br>
+
                                 </td>
                             </tr>
                         @endif
