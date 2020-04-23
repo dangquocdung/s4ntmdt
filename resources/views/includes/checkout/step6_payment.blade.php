@@ -27,11 +27,12 @@
                         @if($payment_method_data['bacs']['enable_option'] == 'yes')
                             <tr>
                                 <td class="align-middle">
-                                    <input type="radio" class="shopist-iCheck" name="payment_option" disabled> 
+                                    <input type="radio" class="shopist-iCheck" name="payment_option" value="bacs"> 
                                 </td>
                                 <td class="align-middle">
                                     <span class="text-gray-dark">{{ $payment_method_data['bacs']['method_title'] }}</span><br>
                                     <span class="text-muted text-sm">{!! $payment_method_data['bacs']['method_description'] !!}</span>
+                                    <br>
                                     <span class="text-gray-dark">Tên tài khoản:&nbsp;{{ $payment_method_data['bacs']['account_details']['account_name'] }}</span><br>
 
                                 </td>
