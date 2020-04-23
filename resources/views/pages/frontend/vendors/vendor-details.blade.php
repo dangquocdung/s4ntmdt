@@ -7,9 +7,27 @@
     <meta property="og:type" content="article" />
     <meta property="og:title" content="{!! $vendor_settings->profile_details->store_name !!}" />
     <meta property="og:description" content="{!! $vendor_settings->profile_details->store_name !!}" />
-    <meta property="og:image" itemprop="image" content="{{ URL::asset(get_site_logo_image()) }}"/>
+    <!-- <meta property="og:image" itemprop="image" content="{{ URL::asset(get_site_logo_image()) }}"/> -->
+
+    @if(count($single_product_details['_product_related_images_url']->product_gallery_images) > 0)
+
+      @foreach($single_product_details['_product_related_images_url']->product_gallery_images as $key => $row)
+
+          <meta property="og:image" itemprop="image" content="{{ URL::asset(get_image_url($row->url)) }}"/>
+                    
+      @endforeach
+
+    @else
+      <meta property="og:image" itemprop="image" content="{{ URL::asset(get_image_url( $single_product_details['post_image_url']) ) }}"/>
+      <meta property="og:image" itemprop="image" content="{{ URL::asset(get_image_url( $single_product_details['post_image_url']) ) }}"/>
+      <meta property="og:image" itemprop="image" content="{{ URL::asset(get_image_url( $single_product_details['post_image_url']) ) }}"/>
+
+    @endif
+
 
 @stop
+
+
 
 @section('content')
 
@@ -169,9 +187,9 @@
 
                     <div class="d-inline-block">
                       <a class="social-button shape-rounded sb-facebook" href="//{{ $vendor_settings->social_media->fb_follow_us_url }}" data-name="fb"><i class="socicon-facebook"></i></a>
-                      <a class="social-button shape-rounded sb-facebook" href="//{{ $vendor_settings->social_media->fb_follow_us_url }}" data-name="gplus"><i class="socicon-twitter"></i></a>
+                      <!-- <a class="social-button shape-rounded sb-facebook" href="//{{ $vendor_settings->social_media->fb_follow_us_url }}" data-name="gplus"><i class="socicon-twitter"></i></a>
                       <a class="social-button shape-rounded sb-facebook" href="//{{ $vendor_settings->social_media->fb_follow_us_url }}" data-name="instagram"><i class="socicon-instagram"></i></a>
-                      <a class="social-button shape-rounded sb-facebook" href="//{{ $vendor_settings->social_media->fb_follow_us_url }}" data-name="youtube"><i class="socicon-youtube"></i></a>
+                      <a class="social-button shape-rounded sb-facebook" href="//{{ $vendor_settings->social_media->fb_follow_us_url }}" data-name="youtube"><i class="socicon-youtube"></i></a> -->
                     </div> 
                   </div>
                 </div> 
