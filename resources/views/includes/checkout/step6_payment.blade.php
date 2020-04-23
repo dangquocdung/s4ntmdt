@@ -31,7 +31,7 @@
                                 </td>
                                 <td class="align-middle">
                                     <span class="text-gray-dark">{{ $payment_method_data['bacs']['method_title'] }}</span><br>
-                                    <span class="text-muted text-sm">{!! $payment_method_data['bacs']['method_description'] !!}</span><br>
+                                    <span class="text-muted text-sm"><small>{!! $payment_method_data['bacs']['method_description'] !!}</small></span><br>
                                     <span class="text-gray-dark"><strong>Tên tài khoản:&nbsp;</strong>{{ $payment_method_data['bacs']['account_details']['account_name'] }}</span><br>
                                     <span class="text-gray-dark"><strong>Số tài khoản:&nbsp;</strong>{{ $payment_method_data['bacs']['account_details']['account_number'] }}</span><br>
                                     <span class="text-gray-dark"><strong>Tên ngân hàng:&nbsp;</strong>{{ $payment_method_data['bacs']['account_details']['bank_name'] }}</span><br>
