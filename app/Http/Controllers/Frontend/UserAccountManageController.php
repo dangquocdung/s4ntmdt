@@ -125,7 +125,7 @@ class UserAccountManageController extends Controller
     
     $data['login_user_details'] =  get_current_frontend_user_info();
 
-    // return response()->json($data);
+    return response()->json($data);
 
     return view('pages.frontend.user-account.user-account-pages', $data);
   }
