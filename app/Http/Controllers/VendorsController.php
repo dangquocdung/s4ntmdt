@@ -662,7 +662,7 @@ class VendorsController extends Controller
     if($pagination){
       $currentPage = LengthAwarePaginator::resolveCurrentPage();
       $col = new Collection( $users_details );
-      $perPage = 10;
+      $perPage = 24;
       $currentPageSearchResults = $col->slice(($currentPage - 1) * $perPage, $perPage)->all();
       $vendors_object = new LengthAwarePaginator($currentPageSearchResults, count($col), $perPage);
       
@@ -1233,7 +1233,7 @@ class VendorsController extends Controller
     
     $currentPage = LengthAwarePaginator::resolveCurrentPage();
     $col = new Collection( $get_withdraw_request );
-    $perPage = 10;
+    $perPage = 24;
     $currentPageSearchResults = $col->slice(($currentPage - 1) * $perPage, $perPage)->all();
     $withdraw_request_data = new LengthAwarePaginator($currentPageSearchResults, count($col), $perPage);
     $withdraw_request_data->setPath( route('admin.withdraws_content') );
@@ -1298,7 +1298,7 @@ class VendorsController extends Controller
     
     $currentPage = LengthAwarePaginator::resolveCurrentPage();
     $col = new Collection( $withdraw_history_data );
-    $perPage = 10;
+    $perPage = 24;
     $currentPageSearchResults = $col->slice(($currentPage - 1) * $perPage, $perPage)->all();
     $withdraw_history_data_obj = new LengthAwarePaginator($currentPageSearchResults, count($col), $perPage);
 
@@ -1328,7 +1328,7 @@ class VendorsController extends Controller
     
     $currentPage = LengthAwarePaginator::resolveCurrentPage();
     $col = new Collection( $vendor_reviews );
-    $perPage = 10;
+    $perPage = 24;
     $currentPageSearchResults = $col->slice(($currentPage - 1) * $perPage, $perPage)->all();
     $vendor_reviews_object = new LengthAwarePaginator($currentPageSearchResults, count($col), $perPage);
 
@@ -1618,7 +1618,7 @@ class VendorsController extends Controller
     if($pagination){
       $currentPage = LengthAwarePaginator::resolveCurrentPage();
       $col = new Collection( $announcement );
-      $perPage = 10;
+      $perPage = 24;
       $currentPageSearchResults = $col->slice(($currentPage - 1) * $perPage, $perPage)->all();
       $announcement_object = new LengthAwarePaginator($currentPageSearchResults, count($col), $perPage);
       
@@ -1654,7 +1654,7 @@ class VendorsController extends Controller
     
     $currentPage = LengthAwarePaginator::resolveCurrentPage();
     $col = new Collection( $announcements );
-    $perPage = 10;
+    $perPage = 24;
     $currentPageSearchResults = $col->slice(($currentPage - 1) * $perPage, $perPage)->all();
     $announcement_object = new LengthAwarePaginator($currentPageSearchResults, count($col), $perPage);
 
@@ -1784,7 +1784,7 @@ class VendorsController extends Controller
    
    $currentPage = LengthAwarePaginator::resolveCurrentPage();
    $col = new Collection( $reports_data );
-   $perPage = 10;
+   $perPage = 24;
    $currentPageSearchResults = $col->slice(($currentPage - 1) * $perPage, $perPage)->all();
    $reports_object = new LengthAwarePaginator($currentPageSearchResults, count($col), $perPage);
 
@@ -1816,7 +1816,7 @@ class VendorsController extends Controller
    
    $currentPage = LengthAwarePaginator::resolveCurrentPage();
    $col = new Collection( $reports_data );
-   $perPage = 10;
+   $perPage = 24;
    $currentPageSearchResults = $col->slice(($currentPage - 1) * $perPage, $perPage)->all();
    $reports_object = new LengthAwarePaginator($currentPageSearchResults, count($col), $perPage);
 
@@ -1848,7 +1848,7 @@ class VendorsController extends Controller
    
    $currentPage = LengthAwarePaginator::resolveCurrentPage();
    $col = new Collection( $reports_data );
-   $perPage = 10;
+   $perPage = 24;
    $currentPageSearchResults = $col->slice(($currentPage - 1) * $perPage, $perPage)->all();
    $reports_object = new LengthAwarePaginator($currentPageSearchResults, count($col), $perPage);
 
