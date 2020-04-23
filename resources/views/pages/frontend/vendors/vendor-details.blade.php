@@ -140,7 +140,7 @@
               <div class="mt-2 mb-2">
                 <span class="text-muted">{!! trans('frontend.share_label') !!}:&nbsp;&nbsp;</span>
                 <div class="d-inline-block" id="share-content">
-                  <a class="social-button shape-rounded sb-facebook" href="#" data-toggle="tooltip" data-placement="top" title="Facebook"><i class="socicon-facebook"></i></a>
+                  <a class="social-button shape-rounded sb-facebook" href="#" data-toggle="tooltip" data-placement="top" title="Chia sẻ Facebook" data-name="fb"><i class="socicon-facebook"></i></a>
                 </div>
               </div>
             </div>
