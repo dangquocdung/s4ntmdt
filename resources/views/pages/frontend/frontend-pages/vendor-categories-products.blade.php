@@ -24,7 +24,7 @@
 
     @if($vendor_products['products']->count() > 0)
       @if($vendor_products['selected_view'] == 'grid')
-        <div class="isotope-grid cols-3 mb-2">
+        <div class="isotope-grid cols-4 mb-2">
           <div class="gutter-sizer"></div>
           <div class="grid-sizer"></div>
 
