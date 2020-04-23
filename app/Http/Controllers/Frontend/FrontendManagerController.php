@@ -63,7 +63,6 @@ class FrontendManagerController extends Controller
 
     $data['brands_data']         =   $this->product->getTermData( 'product_brands', false, null, 1 );
 
-
     $sort = null;
     $search_term = null;
     
@@ -73,11 +72,9 @@ class FrontendManagerController extends Controller
 
     $data['blogs_data']            =   $this->CMS->get_latest_blogs();
 
-
-    
     // $data['testimonials_data']   =   get_all_testimonial_data();
 
-    return Response::json($data);
+    // return Response::json($data);
 
     return view('pages.frontend.frontend-pages.home', $data);
 
@@ -278,7 +275,6 @@ class FrontendManagerController extends Controller
       $data['comments_rating_details']  =   get_comments_rating_details( $object_id, 'blog' );
       $data['categoriesTree']           =   $this->product->get_categories(0, 'blog_cat');
       $data['blogs_data']           =   $this->CMS->get_latest_blogs();
-
 
       if(!Session::has('shopist_blog_count') || (Session::has('shopist_blog_count') && Session::get('shopist_blog_count') != $get_blog_details_by_slug['id'])){  
         $get_post_meta =  PostExtra::where(['post_id' => $get_blog_details_by_slug['id'], 'key_name' => '_count_visit'])->first();
@@ -636,7 +632,6 @@ class FrontendManagerController extends Controller
 
       $data['seen_items'] = $this->seenProducts();
 
-
       // return response()->json($data['single_product_details']);
 
       return view('pages.frontend.frontend-pages.product-details', $data);
@@ -879,8 +874,6 @@ class FrontendManagerController extends Controller
       $sort = $_GET['sort_by'];
     }
 
-
-    
     $data = $this->classCommonFunction->get_dynamic_frontend_content_data();
 
     $get_vendors = $this->vendors->getFilterVendorsWithPagination(array('srch_term' => $search_term, 'sort' => $sort)); 
@@ -1640,7 +1633,6 @@ class FrontendManagerController extends Controller
       $is_user_login = true;
     }
 
-
     $get_order_data = $this->classCommonFunction->get_order_details_by_order_id(array('order_id' => $params, 'order_process_id' => $params2));
     $data = $this->classCommonFunction->get_dynamic_frontend_content_data();
     
@@ -1653,7 +1645,6 @@ class FrontendManagerController extends Controller
     }
 
     $data['is_user_login'] = $is_user_login;
-
 
     // return response()->json($data['is_user_login']);
     
