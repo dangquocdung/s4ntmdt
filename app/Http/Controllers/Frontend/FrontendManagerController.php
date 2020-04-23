@@ -71,6 +71,9 @@ class FrontendManagerController extends Controller
 
     $data['vendors_list'] =   $get_vendors;
 
+    $data['blogs_data']            =   $this->CMS->get_blog_advanced_data();
+
+
     
     // $data['testimonials_data']   =   get_all_testimonial_data();
 
