@@ -623,6 +623,6 @@ return [
   'todays_deal_label' => 'Giá tốt hôm nay',
   'nhan-hang-uy-tin' => 'Nhãn hàng uy tín',
   'homepage_items'  => 'Sản phẩm được chọn',
-  'related_items'  => 'Sản phẩm mua kèm'
+  'related_items'  => 'Sản phẩm phổ biến'
 
 ];
