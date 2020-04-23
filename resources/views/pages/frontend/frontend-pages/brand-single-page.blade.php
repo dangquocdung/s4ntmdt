@@ -31,7 +31,7 @@
 
     @if(!empty($brand_details_by_slug['products']) && $brand_details_by_slug['products']->count() > 0)
 
-      <div class="isotope-grid cols-3 mb-2">
+      <div class="isotope-grid cols-4 mb-2">
         <div class="gutter-sizer"></div>
         <div class="grid-sizer"></div>
         @foreach($brand_details_by_slug['products'] as $products)
