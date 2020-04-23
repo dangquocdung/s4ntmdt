@@ -124,10 +124,31 @@
               </tr>
             </thead>
             <tbody>
-              
-
-
-            
+              @if(count($dashboard_data['latest_orders'])>0)
+                @foreach($dashboard_data['latest_orders'] as $vals)
+                  <tr>
+                    <td><a href="{{ route('admin.view_order_details', $vals['order_id']) }}">#{!! $vals['order_id'] !!}</a></td>
+                    <td>{!! $vals['order_date'] !!}</td>
+                    <td>
+                      @if($vals['order_status'] == 'on-hold')<span class="on-hold-label">{{ trans('admin.on_hold') }}</span>
+                      @elseif($vals['order_status'] == 'refunded') <span class="refunded-label">{{ trans('admin.refunded') }}</span>
+                      @elseif($vals['order_status'] == 'cancelled') <span class="cancelled-label">{{ trans('admin.cancelled') }}</span> 
+                      @elseif($vals['order_status'] == 'pending') <span class="pending-label">{{ trans('admin.pending') }}</span> 
+                      @elseif($vals['order_status'] == 'processing') <span class="processing-label">{{ trans('admin.processing') }}</span> 
+                      @elseif($vals['order_status'] == 'completed') <span class="completed-label">{{ trans('admin.completed') }}</span> 
+                      @elseif($vals['order_status'] == 'shipping') <span class="shipping-label">{{ trans('admin.shipping') }}</span>
+                      @endif
+                    </td>
+                    <td>
+                      {!! price_html( $vals['order_totals'],  $vals['order_currency']) !!}
+                    </td>
+                  </tr>
+                @endforeach  
+              @else
+              <tr>
+                <td rowspan="4">{{ trans('admin.no_latest_order_yet') }}</td>
+              </tr>
+              @endif
             </tbody>
           </table>
         </div>
