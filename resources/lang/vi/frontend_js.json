@@ -46,7 +46,7 @@
     "continue_label": "Tiếp tục",
     "wishlist_items_label": "Sản phẩm yêu thích",
     "compare_items_label": "Danh sách so sánh",
-    "vendor_not_same_msg": "Bạn không thể thêm nhiều sản phẩm của các gian hàng khác nhau vào cùng một giỏ hàng, vui lòng thanh toán trước khi chọn sản phẩm của gian hàng khác",
+    "vendor_not_same_msg": "Bạn không thể thêm sản phẩm của nhiều gian hàng khác nhau vào cùng giỏ hàng. Vui lòng thanh toán đơn hàng trước khi chọn sản phẩm của gian hàng khác",
     "no_product_available_label": "Không có sản phẩm có sẵn cho sự kết hợp này",
     "maxfilesexceeded_msg": "Bạn đã tải lên nhiều hơn 1 Hình ảnh. Chỉ có tệp đầu tiên sẽ được tải lên!",
     "file_larger": "Tệp lớn hơn 1Mb!",
