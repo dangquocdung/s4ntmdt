@@ -137,7 +137,7 @@ return [
   'account_name' =>'Tên tài khoản',
   'account_number' =>'Số tài khoản',
   'bank_name' =>'Tên ngân hàng',
-  'bank_short_code' =>'Mã ngắn ngân hàng',
+  'bank_short_code' =>'Chi nhánh',
   'iban' =>'IBAN',
   'bic_swift' =>'BIC / Swift',
   'order_details' =>'Chi tiết đặt hàng',

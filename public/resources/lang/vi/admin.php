@@ -439,7 +439,7 @@ return [
 'account_name' =>'Tên tài khoản',
 'account_number' =>'Số tài khoản',
 'bank_name' =>'Tên ngân hàng',
-'bank_short_code' =>'Mã ngắn ngân hàng',
+'bank_short_code' =>'Chi nhánh',
 'bank_iban' =>'Ngân hàng IBAN',
 'bank_swift' =>'Chuyển khoản ngân hàng',
 'enable_payment_method' =>'Kích hoạt phương thức thanh toán',
