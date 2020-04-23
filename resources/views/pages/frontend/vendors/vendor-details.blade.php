@@ -132,20 +132,26 @@
 
         </div>
 
-        @if($vendor_package_details->show_social_media_follow_btn_on_store_page == true)  
-          <div class="d-flex flex-wrap justify-content-between" style="float:right">
-            <div class="mt-2 mb-2">
-              <span class="text-muted">{!! trans('frontend.share_label') !!}:&nbsp;&nbsp;</span>
-              <div class="d-inline-block">
-                <a class="social-button shape-rounded sb-facebook" href="#" data-toggle="tooltip" data-placement="top" title="Facebook"><i class="socicon-facebook"></i></a>
+        
 
-                <!-- <a class="social-button shape-rounded sb-facebook" href="https://www.facebook.com/sharer.php?u={{ $vendor_settings->social_media->fb_follow_us_url  }}" data-toggle="tooltip" data-placement="top" title="Facebook"><i class="socicon-facebook"></i></a> -->
-                <!-- <a class="social-button shape-rounded sb-twitter" href="{{ $vendor_settings->social_media->twitter_follow_us_url }}" data-toggle="tooltip" data-placement="top" title="Twitter"><i class="socicon-twitter"></i></a>
-                <a class="social-button shape-rounded sb-instagram" href="{{ $vendor_settings->social_media->instagram_follow_us_url }}" data-toggle="tooltip" data-placement="top" title="Instagram"><i class="socicon-instagram"></i></a>
-                <a class="social-button shape-rounded sb-youtube" href="{{ $vendor_settings->social_media->youtube_follow_us_url }}" data-toggle="tooltip" data-placement="top" title="Instagram"><i class="socicon-youtube"></i></a> -->
+        @if($vendor_package_details->show_social_media_follow_btn_on_store_page == true)  
+
+          @if (str_len($vendor_settings->social_media->fb_follow_us_url)>0)
+            <div class="d-flex flex-wrap justify-content-between" style="float:right">
+              <div class="mt-2 mb-2">
+                <span class="text-muted">{!! trans('frontend.share_label') !!}:&nbsp;&nbsp;</span>
+                <div class="d-inline-block">
+                  <a class="social-button shape-rounded sb-facebook" href="#" data-toggle="tooltip" data-placement="top" title="Facebook"><i class="socicon-facebook"></i></a>
+
+                  <!-- <a class="social-button shape-rounded sb-facebook" href="https://www.facebook.com/sharer.php?u={{ $vendor_settings->social_media->fb_follow_us_url  }}" data-toggle="tooltip" data-placement="top" title="Facebook"><i class="socicon-facebook"></i></a> -->
+                  <!-- <a class="social-button shape-rounded sb-twitter" href="{{ $vendor_settings->social_media->twitter_follow_us_url }}" data-toggle="tooltip" data-placement="top" title="Twitter"><i class="socicon-twitter"></i></a>
+                  <a class="social-button shape-rounded sb-instagram" href="{{ $vendor_settings->social_media->instagram_follow_us_url }}" data-toggle="tooltip" data-placement="top" title="Instagram"><i class="socicon-instagram"></i></a>
+                  <a class="social-button shape-rounded sb-youtube" href="{{ $vendor_settings->social_media->youtube_follow_us_url }}" data-toggle="tooltip" data-placement="top" title="Instagram"><i class="socicon-youtube"></i></a> -->
+                </div>
               </div>
             </div>
-          </div>
+          @endif
+
         @endif
         
       </div>
