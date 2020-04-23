@@ -116,7 +116,7 @@
       </a> -->
   </div>
 
-  <div class="container padding-bottom-2x">
+  <div class="container">
       <div class="row category-tab">
           <div class="col-md-12">
               <div class="product-style-tab">
