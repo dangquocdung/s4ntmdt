@@ -5,7 +5,6 @@
 
 @if($appearance_all_data['header_details']['slider_visibility'] == false && Request::is('/'))
 
-
 <section class="product-area pt-20">
 
   <div class="container">
@@ -32,7 +31,6 @@
 @include('includes.frontend.home-spcl')
 @yield('product_area')
 
-
 @if(count($blogs_data) > 0)  
 
 <section class="bg-secondary padding-top-2x padding-bottom-1x">
@@ -47,20 +45,16 @@
                 <div class="single-product">
                     <div class="product-img" style="height:120px">
                         <a href="{{ route('blog-single-page', $row['post_slug']) }}">
-
                           <div class="can-giua-img">
-
-                            @if(!empty($row['blog_image']))  
-                              <img src="{{ get_image_url($row['blog_image']) }}"  alt="{{ basename($row['blog_image']) }}">          
-                            @else
-                              <img src="{{ default_placeholder_img_src() }}"  alt="">         
-                            @endif
-                        </div>
-
+                              @if(!empty($row['blog_image']))  
+                                <img src="{{ get_image_url($row['blog_image']) }}"  alt="{{ basename($row['blog_image']) }}">          
+                              @else
+                                <img src="{{ default_placeholder_img_src() }}"  alt="">         
+                              @endif
+                          </div>
                         </a>
-
                     </div>
-                    <div class="product-content" style="padding-top: 0; margin-top:10px; text-align:center">
+                    <div class="product-content" style="padding-top: 0; text-align:center">
                         <div class="product-title">
                             <h4>
                               <a href="{{ route('blog-single-page', $row['post_slug']) }}">{!! $row['post_title'] !!}</a>
@@ -77,8 +71,6 @@
   </div>
 </section>
 @endif
-
-
 
 <!-- Services-->
 <section class="container padding-top-2x padding-bottom-2x">
@@ -101,5 +93,3 @@
     </div>
   </div>
 </section>
-
-
