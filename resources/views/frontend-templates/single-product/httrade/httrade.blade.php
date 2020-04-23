@@ -566,25 +566,29 @@
                               {!! price_html( get_product_price_html_by_filter(get_role_based_price_by_product_id($item['id'], $item['post_price'])), get_frontend_selected_currency()) !!}
                             </span>
 
-                            <div class="product-action" style="padding:40px">
+                            <a href="{{ route('details-page', $item['post_slug']) }}">
 
-                              <a class="animate-left quick-view-popup" data-id="{{ $item['id'] }}" data-toggle="tooltip" title="{{ trans('frontend.quick_view') }}" data-original-title="{{ trans('frontend.quick_view') }}">
-                                <i class="ion-eye"></i>
-                              </a>
+                              <div class="product-action">
 
-                              <a class="animate-right add-to-cart-bg" data-id="{{ $item['id'] }}" data-toggle="tooltip" data-placement="top" title="{{ trans('frontend.add_to_cart_label') }}" data-original-title="{{ trans('frontend.add_to_cart_label') }}">
-                                <i class="ion-bag"></i>
-                              </a>
+                                <a class="animate-left quick-view-popup" data-id="{{ $item['id'] }}" data-toggle="tooltip" title="{{ trans('frontend.quick_view') }}" data-original-title="{{ trans('frontend.quick_view') }}">
+                                  <i class="ion-eye"></i>
+                                </a>
 
-                              <a class="animate-left product-wishlist" data-id="{{ $item['id'] }}" data-toggle="tooltip" title="{{ trans('frontend.add_to_wishlist_label') }}" data-original-title="{{ trans('frontend.add_to_wishlist_label') }}">
-                                <i class="ion-heart"></i>
-                              </a>
-                              <a class="animate-right product-compare" data-id="{{ $item['id'] }}" data-toggle="tooltip" title="{{ trans('frontend.add_to_compare_list_label') }}" data-original-title="{{ trans('frontend.add_to_compare_list_label') }}">
-                                <i class="ion-ios-list-outline"></i>
-                              </a>
+                                <a class="animate-right add-to-cart-bg" data-id="{{ $item['id'] }}" data-toggle="tooltip" data-placement="top" title="{{ trans('frontend.add_to_cart_label') }}" data-original-title="{{ trans('frontend.add_to_cart_label') }}">
+                                  <i class="ion-bag"></i>
+                                </a>
+
+                                <a class="animate-left product-wishlist" data-id="{{ $item['id'] }}" data-toggle="tooltip" title="{{ trans('frontend.add_to_wishlist_label') }}" data-original-title="{{ trans('frontend.add_to_wishlist_label') }}">
+                                  <i class="ion-heart"></i>
+                                </a>
+                                <a class="animate-right product-compare" data-id="{{ $item['id'] }}" data-toggle="tooltip" title="{{ trans('frontend.add_to_compare_list_label') }}" data-original-title="{{ trans('frontend.add_to_compare_list_label') }}">
+                                  <i class="ion-ios-list-outline"></i>
+                                </a>
 
 
-                            </div>
+                              </div>
+
+                            </a>
                         </div>
                         <div class="product-content">
                           <div class="product-title">
