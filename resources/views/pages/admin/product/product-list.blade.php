@@ -139,7 +139,10 @@
                       <span class="sr-only">Toggle Dropdown</span>
                     </button>
                     <ul role="menu" class="dropdown-menu">
-                      <li><a target="_blank" href="{{ route( 'details-page', $row->slug ) }}"><i class="fa fa-edit"></i>{!! trans('admin.view') !!}</a></li>
+
+                      @if (isset($row->author_id))
+                        <li><a target="_blank" href="{{ route( 'details-page', $row->slug ) }}"><i class="fa fa-edit"></i>{!! trans('admin.view') !!}</a></li>
+                      @endif
 
                       @if(!is_vendor_login())  
 
