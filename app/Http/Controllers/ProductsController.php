@@ -456,7 +456,7 @@ class ProductsController extends Controller
     if($pagination){
       $currentPage = LengthAwarePaginator::resolveCurrentPage();
       $col = new Collection( $term_data );
-      $perPage = 10;
+      $perPage = 24;
       $currentPageSearchResults = $col->slice(($currentPage - 1) * $perPage, $perPage)->all();
       $term_object = new LengthAwarePaginator($currentPageSearchResults, count($col), $perPage);
 
