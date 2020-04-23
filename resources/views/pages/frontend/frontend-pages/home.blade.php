@@ -12,7 +12,7 @@
   <meta property="og:image" content="{{ URL::asset('/img/logo/logo.png') }}"/>
 
 
-  @if($appearance_all_data['header_details']['slider_visibility'] == false && Request::is('/'))
+  @if($appearance_all_data['header_details']['slider_visibility'] == true && Request::is('/'))
     @foreach(get_appearance_header_settings_data() as $img)
 
       @if($img->img_url)
