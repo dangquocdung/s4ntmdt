@@ -110,7 +110,7 @@
                   <div class="owl-carousel" data-owl-carousel="{ &quot;nav&quot;: false, &quot;dots&quot;: true, &quot;margin&quot;: 30, &quot;responsive&quot;: {&quot;0&quot;:{&quot;items&quot;:2},&quot;576&quot;:{&quot;items&quot;:3},&quot;768&quot;:{&quot;items&quot;:4},&quot;991&quot;:{&quot;items&quot;:4},&quot;1200&quot;:{&quot;items&quot;:4}} }">
                     @foreach($advanced_data['latest_items'] as $row)
                       <div class="single-product">
-                          <div class="product-img" style="height:120px">
+                          <div class="product-img" style="height:120px; overflow:hidden">
                               <a href="{{ route('blog-single-page', $row['post_slug']) }}">
 
                                 @if(!empty($row['blog_image']))  
@@ -122,7 +122,7 @@
                               </a>
 
                           </div>
-                          <div class="product-content" style="padding-top: 0; text-align:center; margin-top:10px">
+                          <div class="product-content" style="padding-top: 0; text-align:center; margin-top:5px">
                               <div class="product-title-price">
                                   <div class="product-title">
                                       <h4>
@@ -158,7 +158,7 @@
                     @foreach($advanced_data['best_items'] as $row)
 
                       <div class="single-product">
-                          <div class="product-img" style="height:120px">
+                          <div class="product-img" style="height:120px; overflow:hidden">
                               <a href="{{ route('blog-single-page', $row['post_slug']) }}">
 
                                 @if(!empty($row['blog_image']))  
@@ -170,7 +170,7 @@
                               </a>
 
                           </div>
-                          <div class="product-content" style="padding-top: 0;text-align:center;  margin-top:10px">
+                          <div class="product-content" style="padding-top: 0;text-align:center;  margin-top:5px">
                               <div class="product-title-price">
                                   <div class="product-title">
                                       <h4>
