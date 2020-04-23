@@ -98,7 +98,7 @@
                   @else
                     <img  src="{{ default_placeholder_img_src() }}" alt="" />
                   @endif
-</div>
+                </div>
                 </a>
 
                 <div class="product-action">
@@ -184,5 +184,12 @@
 @else
   <p class="not-available">{!! trans('frontend.product_not_available') !!}</p>
 @endif
+
+<nav class="phan-trang">
+  <div class="column">
+    {!! $vendor_products['products']->appends(Request::capture()->except('page'))->render() !!}
+  </div>
+</nav>
+
 
 @endsection
