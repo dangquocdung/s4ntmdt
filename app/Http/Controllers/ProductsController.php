@@ -796,7 +796,7 @@ class ProductsController extends Controller
       
       $data = Input::all();
 
-      $rules =  ['product_name'  => 'required'];
+      $rules =  ['product_name'  => 'required', 'vendor-list'  => 'required'];
 
       $validator = Validator:: make($data, $rules);
       
