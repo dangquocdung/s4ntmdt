@@ -93,7 +93,7 @@
           
         <h5>{{ trans('admin.billing_address') }}</h5>
         <hr>
-        <p>{!! $order_data_by_id['_billing_first_name'].' '. $order_data_by_id['_billing_last_name']!!}</p>
+        <p>{!! $order_data_by_id['_billing_last_name'].' '. $order_data_by_id['_billing_first_name']!!}</p>
         <p><strong>{{ trans('admin.phone') }}:</strong> {!! $order_data_by_id['_billing_phone'] !!}</p>
 
         <p><strong>{{ trans('admin.address_1') }}:</strong> {!! $order_data_by_id['_billing_address_1'] !!}</p>
@@ -108,7 +108,7 @@
           
         <h5>{{ trans('admin.shipping_address') }}</h5>
         <hr>
-        <p>{!! $order_data_by_id['_shipping_first_name'].' '. $order_data_by_id['_shipping_last_name']!!}</p>
+        <p>{!! $order_data_by_id['_shipping_last_name'].' '. $order_data_by_id['_shipping_first_name']!!}</p>
         <p><strong>{{ trans('admin.phone') }}:</strong> {!! $order_data_by_id['_shipping_phone'] !!}</p>
         <p><strong>{{ trans('admin.address_1') }}:</strong> {!! $order_data_by_id['_shipping_address_1'] !!}</p>
         <p><strong>{{ trans('admin.city') }}:</strong> {!! get_xaphuong($order_data_by_id['_shipping_city']) !!}</p>
