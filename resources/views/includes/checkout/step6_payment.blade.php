@@ -39,8 +39,6 @@
                                     <span class="text-gray-dark">Chi nhánh:&nbsp;<strong>{{ $payment_method_data['bacs']['account_details']['short_code'] }}</strong></span><br>
                                     <span class="text-gray-dark">Mã IBAN:&nbsp;<strong>{{ $payment_method_data['bacs']['account_details']['iban'] }}</strong></span><br>
                                     <span class="text-gray-dark">Mã SWIFT:&nbsp;<strong>{{ $payment_method_data['bacs']['account_details']['swift'] }}</strong></span><br>
-
-
                                 </td>
                             </tr>
                         
