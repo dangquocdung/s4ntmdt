@@ -15,7 +15,7 @@
 
       @if($img->img_url)
 
-          <meta property="og:image" content="{{ get_image_url($img->img_url) }}"/>
+          <meta property="og:image" content="{{ URL::asset(get_image_url($img->img_url)) }}"/>
 
       @endif
 
