@@ -6,7 +6,7 @@
     <meta property="og:url" content="{{ Request::url() }}" />
     <meta property="og:type" content="article" />
     <meta property="og:title" content="{{ $single_product_details['post_title'] }}" />
-    <meta property="og:description" content="{{ string_decode($single_product_details['post_content']) }}" />
+    <meta property="og:description" content="{!! string_decode($single_product_details['post_content']) !!}" />
 
     @if(count($single_product_details['_product_related_images_url']->product_gallery_images) > 0)
 
@@ -17,7 +17,7 @@
       @endforeach
 
     @else
-      <meta property="og:image" itemprop="image" content="{!! get_image_url( $single_product_details['post_image_url'] ) !!}"/>
+      <meta property="og:image" itemprop="image" content="{{ get_image_url( $single_product_details['post_image_url'] ) }}"/>
 
     @endif
 
