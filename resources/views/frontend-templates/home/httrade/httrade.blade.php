@@ -35,7 +35,7 @@
 
 @if(count($blogs_data) > 0)  
 
-<section class="bg-secondary padding-top-1x padding-bottom-2x">
+<section class="bg-secondary padding-top-2x padding-bottom-2x">
   <div class="container">
     <div class="product-style">
       <h2 class="title text-center">{{ trans('frontend.latest_from_the_blog') }}</h2>
