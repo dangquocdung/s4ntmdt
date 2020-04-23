@@ -274,8 +274,9 @@ return [
   'date' =>'Ngày',
   'order_totals' =>'Tổng số đơn hàng',
   
-  'on_hold' =>'1. Xác nhận đơn hàng',
-  'pending_payment' => '2. Xác nhận thông tin thanh toán',
+  'on_hold' =>'1. Chờ xác nhận đơn hàng',
+  'on-hold' =>'1. Chờ xác nhận đơn hàng',
+  'pending_payment' => '2. Chờ xác nhận thanh toán',
   'processing' => '3. Chờ giao hàng',
   'shipping' => '4. Đang vận chuyển',
   'completed' => '5. Đã hoàn thành',
