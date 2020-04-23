@@ -2465,7 +2465,7 @@ class ProductsController extends Controller
       
       $currentPage = LengthAwarePaginator::resolveCurrentPage();
       $col = new Collection( $final_data );
-      $perPage = 10;
+      $perPage = 24;
       $currentPageSearchResults = $col->slice(($currentPage - 1) * $perPage, $perPage)->all();
       $posts_object = new LengthAwarePaginator($currentPageSearchResults, count($col), $perPage);
       $posts_object->setPath(route('store-products-page-content', $user_name) );
