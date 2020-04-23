@@ -280,8 +280,8 @@ return [
   'processing' => '3. Chờ giao hàng',
   'shipping' => '4. Đang vận chuyển',
   'completed' => '5. Đã hoàn thành',
-  'cancelled' => '6. Đã huỷ',
-  'refunded' => '7. Đã hoàn tiền',
+  'cancelled' => 'Đã huỷ đơn hàng',
+  'refunded' => 'Đã hoàn tiền đơn hàng',
 
   'approve' => 'Chấp nhận',
   'refuse' => 'Từ chối',
