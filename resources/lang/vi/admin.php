@@ -274,7 +274,7 @@ return [
   'date' =>'Ngày',
   'order_totals' =>'Tổng số đơn hàng',
   
-  'on-hold' =>'1. Xác nhận đơn hàng',
+  'on_hold' =>'1. Xác nhận đơn hàng',
   'pending_payment' => '2. Xác nhận thông tin thanh toán',
   'processing' => '3. Chờ giao hàng',
   'shipping' => '4. Đang vận chuyển',
@@ -1175,5 +1175,5 @@ return [
   'comments_list' =>  'Bình luận',
   'not_confirm' => 'Chưa xác thực',
   'banner_visibility' => 'Bật/Tắt banner trang chủ',
-  'appearance_banner_slider_image' => 'Banner trang chủ'
+  'appearance_banner_slider_image' => 'Banner trang chủ',
 ];
