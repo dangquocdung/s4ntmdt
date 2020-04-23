@@ -13,7 +13,7 @@
               
               <!-- Product-->
               @foreach($seen_items as $item)
-                <div class="single-product mb-35">
+                <div class="single-product mb-70">
                       <div class="product-img">
                         <a href="{{ route('details-page', $item['post_slug']) }}">
                           <div class="can-giua-img">
