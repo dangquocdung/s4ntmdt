@@ -47,9 +47,9 @@
             <a href="{{ route('store-products-page-content', $vendor->name) }}">  
 
               @if(!empty($vendor->user_photo_url))
-                <img class="d-block w-110 opacity-75 m-auto" src="{{ get_image_url($vendor->user_photo_url) }}" alt="{!! $details->profile_details->store_name !!}" title="{!! $details->profile_details->store_name !!}">
+                <img class="d-block mx-auto img-thumbnail rounded-circle mt-3 mb-3" src="{{ get_image_url($vendor->user_photo_url) }}" alt="{!! $details->profile_details->store_name !!}" title="{!! $details->profile_details->store_name !!}">
               @else
-                <img class="d-block w-110 opacity-75 m-auto" src="{{ default_placeholder_img_src() }}" alt="{!! $details->profile_details->store_name !!}" title="{!! $details->profile_details->store_name !!}">
+                <img class="d-block mx-auto img-thumbnail rounded-circle mt-3 mb-3" src="{{ default_placeholder_img_src() }}" alt="{!! $details->profile_details->store_name !!}" title="{!! $details->profile_details->store_name !!}">
               @endif
             </a>
           @endif
@@ -59,6 +59,7 @@
   </div>
 </section>
 @endif
+
 
 <!-- Services-->
 <section class="container padding-top-3x padding-bottom-2x">
