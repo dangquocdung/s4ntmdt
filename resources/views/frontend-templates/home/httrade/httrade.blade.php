@@ -82,46 +82,4 @@
   </div>
 </section>
 
-      <!-- Relevant Posts-->
-      @if(count($advanced_data['latest_items']) > 0)  
-
-      <section class="product-area pt-50">
-          <div class="product-style">
-            <h2 class="title text-center">{{ trans('frontend.latest_from_the_blog') }}</h2>
-
-            <div class="tab-content another-product-style jump">
-                <div class="tab-pane fade show active" id="latest_products" role="tabpanel">
-                  <div class="owl-carousel" data-owl-carousel="{ &quot;nav&quot;: false, &quot;dots&quot;: true, &quot;margin&quot;: 30, &quot;responsive&quot;: {&quot;0&quot;:{&quot;items&quot;:1},&quot;576&quot;:{&quot;items&quot;:2},&quot;768&quot;:{&quot;items&quot;:3},&quot;991&quot;:{&quot;items&quot;:4},&quot;1200&quot;:{&quot;items&quot;:5}} }">
-                    @foreach($advanced_data['latest_items'] as $row)
-                      <div class="single-product mb-35">
-                          <div class="product-img" style="height:120px">
-                              <a href="{{ route('blog-single-page', $row['post_slug']) }}">
-
-                                @if(!empty($row['blog_image']))  
-                                  <img src="{{ get_image_url($row['blog_image']) }}"  alt="{{ basename($row['blog_image']) }}">          
-                                @else
-                                  <img src="{{ default_placeholder_img_src() }}"  alt="">         
-                                @endif
-
-                              </a>
-
-                          </div>
-                          <div class="product-content" style="padding-top: 0; margin-top:10px; text-align:center">
-                              <div class="product-title-price">
-                                  <div class="product-title">
-                                      <h4>
-                                        <a href="{{ route('blog-single-page', $row['post_slug']) }}">{!! $row['post_title'] !!}</a>
-                                      </h4>
-                                  </div>
-                              </div>
-                          </div>
-                      </div>
-                    @endforeach
-                  </div>
-
-                </div>
-            </div>
-          </div>
-      </section>
-      @endif
 
