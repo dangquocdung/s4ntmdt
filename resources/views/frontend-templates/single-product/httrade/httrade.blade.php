@@ -566,7 +566,6 @@
                               {!! price_html( get_product_price_html_by_filter(get_role_based_price_by_product_id($item['id'], $item['post_price'])), get_frontend_selected_currency()) !!}
                             </span>
 
-                            <a href="{{ route('details-page', $item['post_slug']) }}">
 
                               <div class="product-action">
 
@@ -588,7 +587,6 @@
 
                               </div>
 
-                            </a>
                         </div>
                         <div class="product-content">
                           <div class="product-title">
