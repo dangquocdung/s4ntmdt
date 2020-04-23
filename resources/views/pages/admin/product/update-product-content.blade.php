@@ -867,7 +867,7 @@
       <!-- Tam xoa Vendor list  -->
 
       @if(!is_vendor_login())  
-      <div class="box box-solid product-sizes">
+      <div class="box box-solid product-sizes" style="display:none">
         <div class="box-header with-border">
           <i class="fa fa-handshake-o"></i>
           <h3 class="box-title">{!! trans('admin.select_vendor_title') !!}</h3>
