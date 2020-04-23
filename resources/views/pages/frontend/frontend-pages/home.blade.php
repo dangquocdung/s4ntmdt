@@ -9,8 +9,8 @@
   <meta property="og:title" content="Sàn Giao dịch thương mại điện tử tỉnh Hà Tĩnh" />
   <meta property="og:description" content="Sàn Giao dịch thương mại điện tử tỉnh Hà Tĩnh, nơi mua sắm nhanh chóng, tiện lợi, tiết kiệm, an toàn và tin cậy" />
   <meta property="og:image" content="https://hatinhtrade.com.vn/uploads/01587457784w-1920-h-1080-93876240_226578531902782_8277280167060045824_n.jpg"/>
-  <meta property="og:image:alt" content="https://hatinhtrade.com.vn/uploads/01587457784w-1920-h-1080-93876240_226578531902782_8277280167060045824_n.jpg"/>
-  <meta property="og:image:alt" content="https://hatinhtrade.com.vn/uploads/01587457784w-1920-h-1080-93876240_226578531902782_8277280167060045824_n.jpg"/>
+  <meta property="og:image" content="https://hatinhtrade.com.vn/uploads/01587457784w-1920-h-1080-93876240_226578531902782_8277280167060045824_n.jpg"/>
+  <meta property="og:image" content="https://hatinhtrade.com.vn/uploads/01587457784w-1920-h-1080-93876240_226578531902782_8277280167060045824_n.jpg"/>
 
 
 @stop
