@@ -31,7 +31,8 @@
                                 </td>
                                 <td class="align-middle">
                                     <span class="text-gray-dark">{{ $payment_method_data['bacs']['method_title'] }}</span><br>
-                                    <ol>
+                                    <span class="text-muted text-sm"><small>{!! $payment_method_data['bacs']['method_description'] !!}</small></span><br>
+                                    <ul>
                                         <li class="text-gray-dark">Tên tài khoản:&nbsp;<strong>{{ $payment_method_data['bacs']['account_details']['account_name'] }}</strong></li>
                                         <li class="text-gray-dark">Số tài khoản:&nbsp;<strong>{{ $payment_method_data['bacs']['account_details']['account_number'] }}</strong></li>
                                         <li class="text-gray-dark">Tên ngân hàng:&nbsp;<strong>{{ $payment_method_data['bacs']['account_details']['bank_name'] }}</strong></li>
@@ -39,8 +40,6 @@
                                         <li class="text-gray-dark">Mã IBAN:&nbsp;<strong>{{ $payment_method_data['bacs']['account_details']['iban'] }}</strong></li>
                                         <li class="text-gray-dark">Mã SWIFT:&nbsp;<strong>{{ $payment_method_data['bacs']['account_details']['swift'] }}</strong></li>
                                     </ul>
-                                    <span class="text-muted text-sm"><small>{!! $payment_method_data['bacs']['method_description'] !!}</small></span><br>
-
                                 </td>
                             </tr>
                         
