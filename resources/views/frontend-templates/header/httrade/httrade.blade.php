@@ -111,9 +111,9 @@
         @endif
 
         @if (Session::has('shopist_admin_user_id') && !empty(get_current_vendor_user_info()['user_role_slug']) && get_current_vendor_user_info()['user_role_slug'] == 'vendor')
-          <a class="btn btn-primary btn-sm btn-block" style="background-color: red" target="_blank" href="{{ route('admin.dashboard') }}">{!! trans('frontend.dashboard_admin') !!}</a>
+          <a class="btn btn-primary btn-sm btn-block" target="_blank" href="{{ route('admin.dashboard') }}">{!! trans('frontend.dashboard_admin') !!}</a>
         @else
-          <a class="btn btn-primary btn-sm btn-block" target="_blank" href="{{ route('admin.login') }}">{!! trans('frontend.frontend_vendor_login') !!}</a>
+          <a class="btn btn-primary btn-sm btn-block" style="background-color: red" target="_blank" href="{{ route('admin.login') }}">{!! trans('frontend.frontend_vendor_login') !!}</a>
         @endif
 
         <a class="btn btn-primary btn-sm btn-block" href="{{ route('vendor-registration-page') }}">{!! trans('frontend.vendor_registration') !!}</a>
