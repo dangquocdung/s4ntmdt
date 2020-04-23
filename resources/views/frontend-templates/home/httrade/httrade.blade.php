@@ -35,7 +35,7 @@
 
 @if(count($blogs_data) > 0)  
 
-<section class="bg-secondary padding-top-2x padding-bottom-2x">
+<section class="bg-secondary padding-top-2x padding-bottom-1x">
   <div class="container">
     <div class="product-style">
       <h2 class="title text-center">{{ trans('frontend.latest_from_the_blog') }}</h2>
@@ -81,7 +81,7 @@
 
 
 <!-- Services-->
-<section class="container padding-top-3x padding-bottom-2x">
+<section class="container padding-top-2x padding-bottom-2x">
   <div class="row">
     <div class="col-md-3 col-6 text-center mb-30"><img class="d-block w-90 img-thumbnail rounded mx-auto mb-4" src="img/services/01.png" alt="Shipping">
       <h6 class="mb-2">Miễn phí vận chuyển</h6>
