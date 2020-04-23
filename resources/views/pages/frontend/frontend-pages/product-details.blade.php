@@ -18,6 +18,8 @@
 
     @else
       <meta property="og:image" itemprop="image" content="{{ URL::asset(get_image_url( $single_product_details['post_image_url']) ) }}"/>
+      <meta property="og:image" itemprop="image" content="{{ URL::asset(get_image_url( $single_product_details['post_image_url']) ) }}"/>
+      <meta property="og:image" itemprop="image" content="{{ URL::asset(get_image_url( $single_product_details['post_image_url']) ) }}"/>
 
     @endif
 
