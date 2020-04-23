@@ -32,7 +32,7 @@
                                 <td class="align-middle">
                                     <span class="text-gray-dark">{{ $payment_method_data['bacs']['method_title'] }}</span><br>
                                     <span class="text-muted text-sm">{!! $payment_method_data['bacs']['method_description'] !!}</span>
-                                    <span class="text-gray-dark">Tên tài khoản:&nbsp;{{ $payment_method_data['bacs']['method_title']['account_details']['account_name'] }}</span><br>
+                                    <span class="text-gray-dark">Tên tài khoản:&nbsp;{{ $payment_method_data['bacs']['account_details']['account_name'] }}</span><br>
 
                                 </td>
                             </tr>
