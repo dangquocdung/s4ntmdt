@@ -3,6 +3,7 @@
 
 @section('facebook')
 
+  <meta property="fb:app_id" content="474963156565592" />
     <meta property="og:url" content="{{ Request::url() }}" />
     <meta property="og:type" content="article" />
     <meta property="og:title" content="{!! $vendor_settings->profile_details->store_name !!}" />
