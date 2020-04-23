@@ -2410,7 +2410,7 @@ class ProductsController extends Controller
         $get_posts_for_product->orderBy('created_at', 'DESC');
       }
       
-      $get_posts_for_product = $get_posts_for_product->paginate(10);
+      $get_posts_for_product = $get_posts_for_product->paginate(12);
     }
     
     if( isset($filter['price_min']) && isset($filter['price_max']) && $filter['price_min'] >= 0 && $filter['price_max'] >=0){
