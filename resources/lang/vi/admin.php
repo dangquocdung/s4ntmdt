@@ -109,7 +109,7 @@ return [
   'write_some_extra_features' =>'Viết một số tính năng bổ sung',
   'recommended_product' =>'Gợi ý cho bạn',
   'enable_recommended_product' =>'Kích hoạt',
-  'features_product' =>'Sản phẩm phổ biến',
+  'features_product' =>'Sản phẩm hữu ích',
   'enable_features_product' =>'Kích hoạt',
   'latest_product' =>'Sản phẩm mới nhất',
   'enable_latest_product' =>'Kích hoạt',
