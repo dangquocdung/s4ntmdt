@@ -684,7 +684,7 @@ class DesignerElementsController extends Controller
     if($pagination){
       $currentPage = LengthAwarePaginator::resolveCurrentPage();
       $col = new Collection( $art_data );
-      $perPage = 10;
+      $perPage = 12;
       $currentPageSearchResults = $col->slice(($currentPage - 1) * $perPage, $perPage)->all();
       $art_object = new LengthAwarePaginator($currentPageSearchResults, count($col), $perPage);
 

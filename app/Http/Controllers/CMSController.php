@@ -488,7 +488,7 @@ class CMSController extends Controller
     if($pagination){
       $currentPage = LengthAwarePaginator::resolveCurrentPage();
       $col = new Collection( $pages );
-      $perPage = 10;
+      $perPage = 12;
       $currentPageSearchResults = $col->slice(($currentPage - 1) * $perPage, $perPage)->all();
       $pages_object = new LengthAwarePaginator($currentPageSearchResults, count($col), $perPage);
       
@@ -966,7 +966,7 @@ class CMSController extends Controller
     if($pagination){
       $currentPage = LengthAwarePaginator::resolveCurrentPage();
       $col = new Collection( $blogs );
-      $perPage = 10;
+      $perPage = 12;
       $currentPageSearchResults = $col->slice(($currentPage - 1) * $perPage, $perPage)->all();
       $blogs_object = new LengthAwarePaginator($currentPageSearchResults, count($col), $perPage);
       
@@ -1205,7 +1205,7 @@ class CMSController extends Controller
       $str = '';
       $currentPage = LengthAwarePaginator::resolveCurrentPage();
       $col = new Collection( $data_array );
-      $perPage = 10;
+      $perPage = 12;
       $currentPageSearchResults = $col->slice(($currentPage - 1) * $perPage, $perPage)->all();
       $posts_object = new LengthAwarePaginator($currentPageSearchResults, count($col), $perPage);
       $posts_object->setPath( route('blog-cat-page', $cat_data['slug']) );
@@ -1557,7 +1557,7 @@ class CMSController extends Controller
     if($pagination){
       $currentPage = LengthAwarePaginator::resolveCurrentPage();
       $col = new Collection( $testimonials );
-      $perPage = 10;
+      $perPage = 12;
       $currentPageSearchResults = $col->slice(($currentPage - 1) * $perPage, $perPage)->all();
       $testimonials_object = new LengthAwarePaginator($currentPageSearchResults, count($col), $perPage);
       

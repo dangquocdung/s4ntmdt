@@ -1045,7 +1045,7 @@ class GetFunction
         
         $currentPage = LengthAwarePaginator::resolveCurrentPage();
         $col = new Collection( $get_products );
-        $perPage = 10;
+        $perPage = 12;
         $currentPageSearchResults = $col->slice(($currentPage - 1) * $perPage, $perPage)->all();
         $posts_object = new LengthAwarePaginator($currentPageSearchResults, count($col), $perPage);
         $posts_object->setPath( route('tag-single-page', $tag_data_shift['slug']) );

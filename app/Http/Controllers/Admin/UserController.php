@@ -494,7 +494,7 @@ class UserController extends Controller
     if($pagination){
       $currentPage = LengthAwarePaginator::resolveCurrentPage();
       $col = new Collection( $user_data );
-      $perPage = 10;
+      $perPage = 12;
       $currentPageSearchResults = $col->slice(($currentPage - 1) * $perPage, $perPage)->all();
       $user_object = new LengthAwarePaginator($currentPageSearchResults, count($col), $perPage);
 
@@ -554,7 +554,7 @@ class UserController extends Controller
     if($pagination){
       $currentPage = LengthAwarePaginator::resolveCurrentPage();
       $col = new Collection( $getuserroledata );
-      $perPage = 10;
+      $perPage = 12;
       $currentPageSearchResults = $col->slice(($currentPage - 1) * $perPage, $perPage)->all();
       $user_role_object = new LengthAwarePaginator($currentPageSearchResults, count($col), $perPage);
 

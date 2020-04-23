@@ -43,7 +43,7 @@ class OrderController extends Controller
     
     $currentPage = LengthAwarePaginator::resolveCurrentPage();
     $col = new Collection( $get_shop_order_data );
-    $perPage = 10;
+    $perPage = 12;
     $currentPageSearchResults = $col->slice(($currentPage - 1) * $perPage, $perPage)->all();
     $order_object = new LengthAwarePaginator($currentPageSearchResults, count($col), $perPage);
 
@@ -70,7 +70,7 @@ class OrderController extends Controller
     
     $currentPage = LengthAwarePaginator::resolveCurrentPage();
     $col = new Collection( $get_shop_order_data );
-    $perPage = 10;
+    $perPage = 12;
     $currentPageSearchResults = $col->slice(($currentPage - 1) * $perPage, $perPage)->all();
     $order_object = new LengthAwarePaginator($currentPageSearchResults, count($col), $perPage);
 
