@@ -562,11 +562,11 @@
                     
                             @endif
 
-                            <span class="gia-ban">                                        
+                            <span class="gia-bia">                                        
                               {!! price_html( get_product_price_html_by_filter(get_role_based_price_by_product_id($item['id'], $item['post_price'])), get_frontend_selected_currency()) !!}
                             </span>
 
-                            <div class="product-action" style="padding:20px">
+                            <div class="product-action" style="padding:40px">
 
                               <a class="animate-left quick-view-popup" data-id="{{ $item['id'] }}" data-toggle="tooltip" title="{{ trans('frontend.quick_view') }}" data-original-title="{{ trans('frontend.quick_view') }}">
                                 <i class="ion-eye"></i>
