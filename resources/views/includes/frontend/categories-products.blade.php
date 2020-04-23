@@ -27,9 +27,6 @@
         
                 @endif
 
-                <span class="gia-bia">                                        
-                  {!! price_html( get_product_price_html_by_filter(get_role_based_price_by_product_id($item['id'], $item['post_price'])), get_frontend_selected_currency()) !!}
-                </span>
 
 
                 <div class="product-action">
