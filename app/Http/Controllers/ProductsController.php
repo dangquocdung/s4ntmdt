@@ -3007,7 +3007,7 @@ class ProductsController extends Controller
       
       $currentPage = LengthAwarePaginator::resolveCurrentPage();
       $col = new Collection( $data_array );
-      $perPage = 10;
+      $perPage = 24;
       $currentPageSearchResults = $col->slice(($currentPage - 1) * $perPage, $perPage)->all();
       $posts_object = new LengthAwarePaginator($currentPageSearchResults, count($col), $perPage);
       $posts_object->setPath( route('categories-page', $cat_data['slug']) );
@@ -3261,7 +3261,7 @@ class ProductsController extends Controller
       
       $currentPage = LengthAwarePaginator::resolveCurrentPage();
       $col = new Collection( $data_array );
-      $perPage = 10;
+      $perPage = 24;
       $currentPageSearchResults = $col->slice(($currentPage - 1) * $perPage, $perPage)->all();
       $posts_object = new LengthAwarePaginator($currentPageSearchResults, count($col), $perPage);
       $posts_object->setPath( route('categories-page', $cat_data['slug']) );
@@ -3740,7 +3740,7 @@ class ProductsController extends Controller
     if($pagination){
       $currentPage = LengthAwarePaginator::resolveCurrentPage();
       $col = new Collection( $data );
-      $perPage = 10;
+      $perPage = 24;
       $currentPageSearchResults = $col->slice(($currentPage - 1) * $perPage, $perPage)->all();
       $posts_object = new LengthAwarePaginator($currentPageSearchResults, count($col), $perPage);
       $posts_object->setPath( route('admin.shape_list_content') );
@@ -3799,7 +3799,7 @@ class ProductsController extends Controller
     if($pagination){
       $currentPage = LengthAwarePaginator::resolveCurrentPage();
       $col = new Collection( $data );
-      $perPage = 10;
+      $perPage = 24;
       $currentPageSearchResults = $col->slice(($currentPage - 1) * $perPage, $perPage)->all();
       $posts_object = new LengthAwarePaginator($currentPageSearchResults, count($col), $perPage);
       $posts_object->setPath( route('admin.fonts_list_content') );
