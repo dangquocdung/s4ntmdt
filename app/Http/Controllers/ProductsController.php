@@ -180,7 +180,6 @@ class ProductsController extends Controller
 
       // return response()->json($data['product_post_data']);
 
-      
       return view('pages.admin.product.update-product-content', $get_data);
 
       // return response()->json($data['selected_colors']['term_details']);
@@ -796,7 +795,11 @@ class ProductsController extends Controller
       
       $data = Input::all();
 
-      $rules =  ['product_name'  => 'required', 'vendor-list'  => 'required'];
+      if(!is_vendor_login()){
+        $rules =  ['product_name'  => 'required', 'vendor-list'  => 'required'];
+      }else{
+        $rules =  ['product_name'  => 'required'];
+      }
 
       $validator = Validator:: make($data, $rules);
       
@@ -2531,8 +2534,6 @@ class ProductsController extends Controller
 
       $advanced_arr['homepage_items']  =   $get_homepage_items;
 
-
-
     }
 
     $get_recommended_items =  DB::table('products')
@@ -2571,13 +2572,11 @@ class ProductsController extends Controller
                              ->get()
                              ->toArray();
 
-
     $advanced_arr['recommended_items']  =   $get_recommended_items;
     $advanced_arr['features_items']     =   $get_features_items;
     $advanced_arr['latest_items']       =   $get_latest_items;
     $advanced_arr['related_items']      =   $get_related_items;
 
-     
     return $advanced_arr;
   }
   
@@ -2592,8 +2591,6 @@ class ProductsController extends Controller
     $todays_deal_arr     =  array();
     $advanced_arr        =  array();
     
-    
-     
     return $advanced_arr;
 
   }
