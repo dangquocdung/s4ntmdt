@@ -25,8 +25,7 @@
             @if(count($orders_list_data)>0)
               @foreach($orders_list_data as $row)
 
-                @if (isset($row['_post_id'])
-
+                @if (isset($row['_post_id']))
 
                   <tr>
                     <td><a href="{{ route('admin.view_order_details', $row['_post_id']) }}">{{ trans('admin.order') }} #{!! $row['_post_id'] !!}</a>@if($row['_order_status'] == 'on-hold')<span class="on-hold-label">{{ trans('admin.on_hold') }}</span>@elseif($row['_order_status'] == 'refunded') <span class="refunded-label">{{ trans('admin.refunded') }}</span>@elseif($row['_order_status'] == 'cancelled') <span class="cancelled-label">{{ trans('admin.cancelled') }}</span> @elseif($row['_order_status'] == 'pending') <span class="pending-label">{{ trans('admin.pending') }}</span> @elseif($row['_order_status'] == 'processing') <span class="processing-label">{{ trans('admin.processing') }}</span> @elseif($row['_order_status'] == 'completed') <span class="completed-label">{{ trans('admin.completed') }}</span> @elseif($row['_order_status'] == 'shipping') <span class="shipping-label">{{ trans('admin.shipping') }}</span> @endif <br><span class="order-date-format">{!! $row['_order_date'] !!}</span></td>
