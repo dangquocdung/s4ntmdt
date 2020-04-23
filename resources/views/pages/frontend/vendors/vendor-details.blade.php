@@ -139,7 +139,7 @@
             <div class="d-flex flex-wrap justify-content-between" style="float:right">
               <div class="mt-2 mb-2">
                 <span class="text-muted">{!! trans('frontend.share_label') !!}:&nbsp;&nbsp;</span>
-                <div class="d-inline-block">
+                <div class="d-inline-block" id="share-content">
                   <a class="social-button shape-rounded sb-facebook" href="#" data-toggle="tooltip" data-placement="top" title="Facebook"><i class="socicon-facebook"></i></a>
                 </div>
               </div>
@@ -188,10 +188,10 @@
           </section>
 
           <!-- @if(Request::is('gian-hang/chi-tiet/san-pham/*') || Request::is('gian-hang/chi-tiet/danh-muc/san-pham/*'))   -->
-              <section class="widget widget-categories">
-                @include('includes.frontend.vendor-categories', array('user_name' => $vendor_info->name))
-                @yield('vendor-categories-content')  
-              </section>
+          <section class="widget widget-categories">
+            @include('includes.frontend.vendor-categories', array('user_name' => $vendor_info->name))
+            @yield('vendor-categories-content')  
+          </section>
           <!-- @endif -->
             
           @if($vendor_package_details->show_map_on_store_page == true)
