@@ -34,15 +34,7 @@
     <meta name="description" content="{{ $store_seo_meta_description }}">
     @endif
 
-    @if(get_site_logo_image())
-
-    <meta property="og:url" content="{{ Request::url() }}" />
-    <meta property="og:type" content="article" />
-    <meta property="og:title" content="Sàn giao dịch thương mại điện tử tỉnh Hà Tĩnh" />
-    <meta property="og:description" content="Sàn giao dịch thương mại điện tử tỉnh Hà Tĩnh" />
-    <meta property="og:image" itemprop="image" content="{{ URL::asset(get_site_logo_image()) }}"/>
-
-    @endif
+    @yield('facebook')
 
     <!-- Mobile Specific Meta Tag-->
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
@@ -64,7 +56,6 @@
     <link rel="stylesheet" href="{{ URL::asset('/modal/css/modal.css') }}" />
     <link rel="stylesheet" href="{{ URL::asset('/modal/css/modal-extra.css') }}" />
 
-
     <!-- Vendor Styles including: Bootstrap, Font Icons, Plugins, etc.-->
     <link rel="stylesheet" media="screen" href="{{ URL::asset('/css/vendor.css') }}">
 
@@ -75,14 +66,11 @@
 
     <link rel="stylesheet" href="{{ URL::asset('/css/core.css') }}">
 
-
     <!-- Responsive css -->
     <link rel="stylesheet" href="{{ URL::asset('/css/responsive.css') }}">
 
-
     <!-- HTTRADE  Template Styles-->
     <link id="mainStyles" rel="stylesheet" media="screen" href="{{ URL::asset(mix('/css/styles.css')) }}">
-
 
     <!-- Modernizr-->
     <script src="{{ URL::asset('/js/modernizr.min.js') }}"></script>

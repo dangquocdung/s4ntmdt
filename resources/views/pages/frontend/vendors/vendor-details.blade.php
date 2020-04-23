@@ -1,6 +1,16 @@
 @extends('layouts.frontend.master')
 @section('title', trans('frontend.vendor_details_title_label') .' | '. get_site_title())
 
+@section('facebook')
+
+    <meta property="og:url" content="{{ Request::url() }}" />
+    <meta property="og:type" content="article" />
+    <meta property="og:title" content="{!! $vendor_settings->profile_details->store_name !!}" />
+    <meta property="og:description" content="{!! $vendor_settings->profile_details->store_name !!}" />
+    <meta property="og:image" itemprop="image" content="{{ URL::asset(get_site_logo_image()) }}"/>
+
+@stop
+
 @section('content')
 
   <style>
@@ -71,9 +81,6 @@
 
         @else
         
-
-
-
           <a class="alert alert-default alert-dismissible fade show fw-section mb-30" href="{{ route('store-products-page-content', $vendor_info->name) }}" style="background-image: url('/img/banners/shop-banner-bg.jpg');">
 
             <div class="d-flex flex-wrap flex-md-nowrap justify-content-between align-items-center">
@@ -85,7 +92,6 @@
             </div>
           </a>
         @endif
-
 
         <!-- Shop Toolbar-->
         <div class="padding-bottom-1x mb-2">
