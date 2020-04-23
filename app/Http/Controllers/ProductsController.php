@@ -796,7 +796,7 @@ class ProductsController extends Controller
       $data = Input::all();
 
       if(!is_vendor_login()){
-        $rules =  ['product_name'  => 'required', 'vendor-list'  => 'required'];
+        $rules =  ['product_name'  => 'required', 'vendor_list'  => 'required'];
       }else{
         $rules =  ['product_name'  => 'required'];
       }
