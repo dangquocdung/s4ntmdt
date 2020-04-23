@@ -9,21 +9,7 @@
     <meta property="og:description" content="{!! $vendor_settings->profile_details->store_name !!}" />
     <!-- <meta property="og:image" itemprop="image" content="{{ URL::asset(get_site_logo_image()) }}"/> -->
 
-    @if(count($single_product_details['_product_related_images_url']->product_gallery_images) > 0)
-
-      @foreach($single_product_details['_product_related_images_url']->product_gallery_images as $key => $row)
-
-          <meta property="og:image" itemprop="image" content="{{ URL::asset(get_image_url($row->url)) }}"/>
-                    
-      @endforeach
-
-    @else
-      <meta property="og:image" itemprop="image" content="{{ URL::asset(get_image_url( $single_product_details['post_image_url']) ) }}"/>
-      <meta property="og:image" itemprop="image" content="{{ URL::asset(get_image_url( $single_product_details['post_image_url']) ) }}"/>
-      <meta property="og:image" itemprop="image" content="{{ URL::asset(get_image_url( $single_product_details['post_image_url']) ) }}"/>
-
-    @endif
-
+   
 
 @stop
 
