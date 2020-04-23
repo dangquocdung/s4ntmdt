@@ -8,13 +8,14 @@
     <meta property="og:type" content="article" />
     <meta property="og:title" content="{!! $vendor_settings->profile_details->store_name !!}" />
     <meta property="og:description" content="{!! $vendor_settings->profile_details->store_name !!}" />
-    <meta property="og:image" itemprop="image" content="{{ URL::asset($vendor_info->user_photo_url) }}"/>
 
-   
+    @if ( !empty($vendor_settings->general_details->cover_img))
+      <meta property="og:image" itemprop="image" content="{{ URL::asset($vendor_settings->general_details->cover_img) }}"/>
+    @else
+      <meta property="og:image" itemprop="image" content="{{ URL::asset($vendor_info->user_photo_url) }}"/>
+    @endif
 
 @stop
-
-
 
 @section('content')
 
@@ -132,8 +133,6 @@
           @endif
 
         </div>
-
-        
 
         @if($vendor_package_details->show_social_media_follow_btn_on_store_page == true)  
 
