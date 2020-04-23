@@ -150,9 +150,11 @@
                       @if(in_array('add_edit_delete_product', $user_permission_list)) 
                         <li><a href="{{ route('admin.update_product_content', $row->slug) }}"><i class="fa fa-edit"></i>{!! trans('admin.edit') !!}</a></li>
                       @endif
+
                       @if(in_array('add_edit_delete_product', $user_permission_list)) 
-                        <li><a class="remove-selected-data-from-list" data-track_name="product_list" data-id="{{ $row->id }}" href="#"><i class="fa fa-remove"></i>{!! trans('admin.delete') !!}</a></li>
+                        <!-- <li><a class="remove-selected-data-from-list" data-track_name="product_list" data-id="{{ $row->id }}" href="#"><i class="fa fa-remove"></i>{!! trans('admin.delete') !!}</a></li> -->
                       @endif
+
                     </ul>
                   </div>
                 </td>
