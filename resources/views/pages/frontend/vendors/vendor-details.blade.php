@@ -8,7 +8,7 @@
     <meta property="og:type" content="article" />
     <meta property="og:title" content="{!! $vendor_settings->profile_details->store_name !!}" />
     <meta property="og:description" content="{!! $vendor_settings->profile_details->store_name !!}" />
-    <!-- <meta property="og:image" itemprop="image" content="{{ URL::asset(get_site_logo_image()) }}"/> -->
+    <meta property="og:image" itemprop="image" content="{{ URL::asset($vendor_info->user_photo_url) }}"/>
 
    
 
