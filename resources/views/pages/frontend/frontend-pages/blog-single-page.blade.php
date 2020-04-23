@@ -122,7 +122,7 @@
                               </a>
 
                           </div>
-                          <div class="product-content" style="padding-top: 0; margin-top:10px; text-align:center">
+                          <div class="product-content" style="padding-top: 0; text-align:center">
                               <div class="product-title-price">
                                   <div class="product-title">
                                       <h4>
@@ -170,7 +170,7 @@
                               </a>
 
                           </div>
-                          <div class="product-content" style="padding-top: 0; margin-top:10px; text-align:center">
+                          <div class="product-content" style="padding-top: 0;text-align:center">
                               <div class="product-title-price">
                                   <div class="product-title">
                                       <h4>
