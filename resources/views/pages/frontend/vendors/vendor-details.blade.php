@@ -136,7 +136,7 @@
 
         @if($vendor_package_details->show_social_media_follow_btn_on_store_page == true)  
 
-          @if (str_len($vendor_settings->social_media->fb_follow_us_url)>0)
+          @if (strlen($vendor_settings->social_media->fb_follow_us_url)>0)
             <div class="d-flex flex-wrap justify-content-between" style="float:right">
               <div class="mt-2 mb-2">
                 <span class="text-muted">{!! trans('frontend.share_label') !!}:&nbsp;&nbsp;</span>
