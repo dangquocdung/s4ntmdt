@@ -136,7 +136,6 @@
 
         @if($vendor_package_details->show_social_media_follow_btn_on_store_page == true)  
 
-          @if (strlen($vendor_settings->social_media->fb_follow_us_url)>10)
             <div class="d-flex flex-wrap justify-content-between" style="float:right">
               <div class="mt-2 mb-2">
                 <span class="text-muted">{!! trans('frontend.share_label') !!}:&nbsp;&nbsp;</span>
@@ -150,7 +149,6 @@
                 </div>
               </div>
             </div>
-          @endif
 
         @endif
         
@@ -173,18 +171,23 @@
             </ul>
 
               @if($vendor_package_details->show_social_media_share_btn_on_store_page == true)  
-                <div class="d-flex flex-wrap justify-content-between">
-                  <div class="mt-2 mb-2">
-                    <span class="text-muted">{!! trans('frontend.lk-mxh') !!}:&nbsp;&nbsp;</span>
 
-                    <div class="d-inline-block">
-                      <a class="social-button shape-rounded sb-facebook" href="//{{ $vendor_settings->social_media->fb_follow_us_url }}" data-name="fb"><i class="socicon-facebook"></i></a>
-                      <!-- <a class="social-button shape-rounded sb-facebook" href="//{{ $vendor_settings->social_media->fb_follow_us_url }}" data-name="gplus"><i class="socicon-twitter"></i></a>
-                      <a class="social-button shape-rounded sb-facebook" href="//{{ $vendor_settings->social_media->fb_follow_us_url }}" data-name="instagram"><i class="socicon-instagram"></i></a>
-                      <a class="social-button shape-rounded sb-facebook" href="//{{ $vendor_settings->social_media->fb_follow_us_url }}" data-name="youtube"><i class="socicon-youtube"></i></a> -->
-                    </div> 
-                  </div>
-                </div> 
+                @if (strlen($vendor_settings->social_media->fb_follow_us_url)>0)
+
+                  <div class="d-flex flex-wrap justify-content-between">
+                    <div class="mt-2 mb-2">
+                      <span class="text-muted">{!! trans('frontend.lk-mxh') !!}:&nbsp;&nbsp;</span>
+
+                      <div class="d-inline-block">
+                        <a class="social-button shape-rounded sb-facebook" href="//{{ $vendor_settings->social_media->fb_follow_us_url }}" data-name="fb"><i class="socicon-facebook"></i></a>
+                        <!-- <a class="social-button shape-rounded sb-facebook" href="//{{ $vendor_settings->social_media->fb_follow_us_url }}" data-name="gplus"><i class="socicon-twitter"></i></a>
+                        <a class="social-button shape-rounded sb-facebook" href="//{{ $vendor_settings->social_media->fb_follow_us_url }}" data-name="instagram"><i class="socicon-instagram"></i></a>
+                        <a class="social-button shape-rounded sb-facebook" href="//{{ $vendor_settings->social_media->fb_follow_us_url }}" data-name="youtube"><i class="socicon-youtube"></i></a> -->
+                      </div> 
+                    </div>
+                  </div> 
+
+                @endif
               @endif 
 
           </section>
