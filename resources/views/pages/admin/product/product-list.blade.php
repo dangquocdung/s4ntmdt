@@ -141,7 +141,7 @@
                     <ul role="menu" class="dropdown-menu">
                       <li><a target="_blank" href="{{ route( 'details-page', $row->slug ) }}"><i class="fa fa-edit"></i>{!! trans('admin.view') !!}</a></li>
 
-                      @if(is_vendor_login())  
+                      @if(!is_vendor_login())  
 
 
                         @if($row->status == 1)
@@ -157,7 +157,7 @@
                       @endif
 
                       @if(in_array('add_edit_delete_product', $user_permission_list)) 
-                        @if(is_vendor_login())  
+                        @if(!is_vendor_login())  
                           <li><a class="remove-selected-data-from-list" data-track_name="product_list" data-id="{{ $row->id }}" href="#"><i class="fa fa-remove"></i>{!! trans('admin.delete') !!}</a></li>
                         @endif
                       @endif
