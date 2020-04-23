@@ -126,7 +126,7 @@
                   @foreach($advancedData as $key => $advData)
                     @if ($key!='homepage_items')
                       <div class="tab-pane fade {{ ($key=='recommended_items')?'show active':'' }}" id="{{ $key }}" role="tabpanel">
-                        <div class="isotope-grid cols-4 mb-2">
+                        <div class="isotope-grid cols-5 mb-2">
                           <div class="gutter-sizer"></div>
                           <div class="grid-sizer"></div>
                               @foreach($advData as $item)
