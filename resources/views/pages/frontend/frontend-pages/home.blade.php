@@ -9,7 +9,7 @@
   <meta property="og:title" content="Sàn Giao dịch thương mại điện tử tỉnh Hà Tĩnh" />
   <meta property="og:description" content="Sàn Giao dịch thương mại điện tử tỉnh Hà Tĩnh, nơi mua sắm nhanh chóng, tiện lợi, tiết kiệm, an toàn và tin cậy" />
   <meta property="og:image" content="{{ URL::asset('/img/logo/logo.png') }}"/>
-  <!-- <meta property="og:image" content="{{ URL::asset(get_site_logo_image()) }}"/> -->
+  <meta property="og:image" content="{{ URL::asset(get_site_logo_image()) }}"/>
 
 
 
