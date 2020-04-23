@@ -558,11 +558,15 @@
                                 $phantram = round(($tiengiam/$item['post_regular_price'])*100);
                                   
                               @endphp
-                              <span>Giảm giá {{ $phantram }}%</span>
+                              <span class="giam-gia">Giảm giá {{ $phantram }}%</span>
                     
                             @endif
 
-                            <div class="product-action">
+                            <span class="gia-ban">                                        
+                              {!! price_html( get_product_price_html_by_filter(get_role_based_price_by_product_id($item['id'], $item['post_price'])), get_frontend_selected_currency()) !!}
+                            </span>
+
+                            <div class="product-action" style="padding:20px">
 
                               <a class="animate-left quick-view-popup" data-id="{{ $item['id'] }}" data-toggle="tooltip" title="{{ trans('frontend.quick_view') }}" data-original-title="{{ trans('frontend.quick_view') }}">
                                 <i class="ion-eye"></i>
@@ -583,7 +587,6 @@
                             </div>
                         </div>
                         <div class="product-content">
-                            <div class="product-title-price">
                                 <div class="product-title">
                                     <h4><a href="{{ route('details-page', $item['post_slug']) }}">{!! $item['post_title'] !!}</a></h4>
                                 </div>
