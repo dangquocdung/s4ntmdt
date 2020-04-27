@@ -439,15 +439,7 @@ class Cart implements CartInterface
     {
       $get_shipping = $this->get_shipping_data();
 
-      if(!$get_shipping['shipping_option']['enable_shipping'] || ($get_shipping['shipping_option']['enable_shipping'] && !$get_shipping['flat_rate']['enable_option'] && !$get_shipping['free_shipping']['enable_option'] && !$get_shipping['local_delivery']['enable_option']))
-      {
-        if($this->session->has('eBazar_shipping_method'))
-        {
-          $this->shippingRemove();
-          return false;
-        }
-      }
-      elseif(($get_shipping['shipping_option']['enable_shipping']) && ($get_shipping['flat_rate']['enable_option'] || $get_shipping['free_shipping']['enable_option'] || $get_shipping['local_delivery']['enable_option']))
+      if(($get_shipping['shipping_option']['enable_shipping']) && ($get_shipping['flat_rate']['enable_option'] || $get_shipping['free_shipping']['enable_option'] || $get_shipping['local_delivery']['enable_option']))
       {
         if(!$this->session->has('eBazar_shipping_method'))
         {
@@ -514,6 +506,15 @@ class Cart implements CartInterface
             return $this->session->get('eBazar_shipping_method');
           }
         }
+        elseif(!$get_shipping['shipping_option']['enable_shipping'] || ($get_shipping['shipping_option']['enable_shipping'] && !$get_shipping['flat_rate']['enable_option'] && !$get_shipping['free_shipping']['enable_option'] && !$get_shipping['local_delivery']['enable_option']))
+        {
+          if($this->session->has('eBazar_shipping_method'))
+          {
+            $this->shippingRemove();
+            return false;
+          }
+        }
+  
       }
     }
     
