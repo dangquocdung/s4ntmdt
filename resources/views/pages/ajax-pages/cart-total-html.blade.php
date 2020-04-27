@@ -2,7 +2,7 @@
 
 <section class="widget widget-order-summary" id="cart_page">
   <h5 class="widget-title">{!! trans('frontend.order_summary') !!}:{{ Cart::getShippingMethod()['shipping_method'] }}</h5>
-  <table class="table cart-total-content">
+  <table class="table">
     <tr>
       <td>{!! trans('frontend.cart_sub_total') !!}:</td>
       <td class="text-gray-dark">
@@ -68,7 +68,7 @@
           </div>
           <div class="clearfix"></div>
         @else
-          <div class="cart-shipping-total">
+          <div class="cart-shipping-total cart-total-content">
             <label>{!! trans('frontend.shipping_cost') !!}:</label>
             <div class="padding-bottom-1x">{!! trans('frontend.free') !!}</div>
           </div>
