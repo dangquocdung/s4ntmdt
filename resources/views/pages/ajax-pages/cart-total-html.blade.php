@@ -138,7 +138,12 @@
 </section>
 
 <script>
-$(".iradio_square-purple").click(function(){
-  alert('123');
-})
+$( document ).ready(function() {
+    console.log( "ready!" );
+    $(".iradio_square-purple").click(function(){
+    alert('123');
+  });
+});
+
+
 </script>
