@@ -1,8 +1,8 @@
 {!! Session::get('eBazar_shipping_method') !!}
 
-<section class="widget widget-order-summary">
+<section class="widget widget-order-summary" id="cart_page">
   <h5 class="widget-title">{!! trans('frontend.order_summary') !!}:{{ Cart::getShippingMethod()['shipping_method'] }}</h5>
-  <table class="table">
+  <table class="table cart-total-content">
     <tr>
       <td>{!! trans('frontend.cart_sub_total') !!}:</td>
       <td class="text-gray-dark">
