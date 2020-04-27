@@ -32,7 +32,7 @@
           @if(Cart::getShippingMethod()['shipping_method'] == 'free_shipping')
             <?php $str .= '<div><label><input type="radio" class="shopist-iCheck" checked name="shipping_method" value="free_shipping">&nbsp;&nbsp; <span>'. $shipping_data['free_shipping']['method_title'] .'</span></div>';?>
           @else
-            <?php $str .= '<div><label><input type="radio" class="shopist-iCheck" name="shipping_method" value="free_shipping">&nbsp;&nbsp; <span>'. $shipping_data['ffree_shipping']['method_title'] .'</span></div>';?>
+            <?php $str .= '<div><label><input type="radio" class="shopist-iCheck" name="shipping_method" value="free_shipping">&nbsp;&nbsp; <span>'. $shipping_data['free_shipping']['method_title'] .'</span></div>';?>
           @endif
 
         @endif
