@@ -59,6 +59,7 @@
               <th>{{ trans('admin.orders') }}</th>
               <th>{{ trans('admin.order_totals') }}</th>
               <th>{{ trans('admin.vendor_name_label') }}</th>
+              <th>Ngày đặt</th>
               <th>{{ trans('admin.action') }}</th>
             </tr>
           </tfoot>
