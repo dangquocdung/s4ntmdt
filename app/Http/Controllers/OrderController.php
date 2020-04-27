@@ -211,9 +211,7 @@ class OrderController extends Controller
         if($get_postmeta_by_order_id->count() > 0){
           $date_format = new Carbon( $order['created_at']);
 
-          $date = Carbon::parse('2018-03-16 15:45');
-
-          $date->settings(['formatFunction' => 'translatedFormat']);
+          $date = Carbon::parse('2018-03-16 15:45')->translatedFormat('d F Y');
 
           $order_postmeta['_post_id']    = $order['id'];
           $order_postmeta['_order_date'] = $date->format('g:i a l jS F Y');
