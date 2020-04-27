@@ -113,7 +113,6 @@
           </table>
         </div>
 
-        @include('pages.ajax-pages.cart-total-html')
 
         <div class="shopping-cart-footer">
           <div class="column">
@@ -128,8 +127,10 @@
 
           <div class="column text-lg">{!! trans('frontend.cart_sub_total') !!}: <span class="text-medium">{!! price_html( get_product_price_html_by_filter(Cart::getTotal()), get_frontend_selected_currency() ) !!}</span></div>
 
-
         </div>
+
+        @include('pages.ajax-pages.cart-total-html')
+
 
         <div class="shopping-cart-footer">
           <div class="column">
