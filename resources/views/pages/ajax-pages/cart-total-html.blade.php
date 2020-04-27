@@ -138,7 +138,7 @@
 </section>
 
 <script>
-$(".shopist-iCheck").click(function(){
+$(".iradio_square-purple").click(function(){
   alert('123');
 })
 </script>
