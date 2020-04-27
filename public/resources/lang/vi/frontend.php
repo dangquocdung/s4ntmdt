@@ -19,7 +19,7 @@ return [
   'free' =>'Miễn phí',
   'flat_rate' =>'Mức phí cố định',
   'free_shipping' =>'Miễn phí vận chuyển',
-  'local_delivery' =>'Giao hàng trong địa phương',
+  'local_delivery' =>'Giao hàng nhanh',
   'check_out' =>'Thanh toán',
   'products' =>'Các sản phẩm',
   'add_to_cart' =>'Thêm vào giỏ hàng',
