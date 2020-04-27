@@ -215,7 +215,7 @@ class OrderController extends Controller
 
           $order_postmeta['_post_id']    = $order['id'];
           // $order_postmeta['_order_date'] = $date_format->toDateTimeString();
-          $order_postmeta['_order_date'] = Carbon::createFromFormat('d-m-Y H:i',$date_format);
+          $order_postmeta['_order_date'] = Carbon::createFromFormat('d/m/Y',$date_format);
 
 
 
