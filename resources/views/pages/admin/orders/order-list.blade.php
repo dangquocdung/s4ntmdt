@@ -12,7 +12,7 @@
   <div class="col-12">
     <div class="box">
       <div class="box-body">
-        <table class="table table-bordered admin-data-table admin-data-list">
+        <table class="table table-bordered table-responsive admin-data-table admin-data-list">
           <thead class="thead-dark">
             <tr>
               <th>{{ trans('admin.orders') }}</th>
