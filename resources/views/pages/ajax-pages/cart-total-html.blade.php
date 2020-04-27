@@ -131,6 +131,11 @@
     <tr>
       <td></td>
       <td class="text-lg text-gray-dark">{!! price_html( get_product_price_html_by_filter(Cart::getCartTotal()), get_frontend_selected_currency() ) !!}</td>
+      <div class="clearfix"></div>
+      <div class="cart-grand-total">
+        <div class="label">Grand Total:</div>
+        <div class="value">{!! price_html( get_product_price_html_by_filter(Cart::getCartTotal()), get_frontend_selected_currency() ) !!}</div>
+      </div>
     </tr>
   </table>
 </section>
