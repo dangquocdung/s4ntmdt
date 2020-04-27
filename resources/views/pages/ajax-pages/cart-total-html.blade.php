@@ -18,13 +18,6 @@
     @elseif(($shipping_data['shipping_option']['enable_shipping']) && ($shipping_data['flat_rate']['enable_option'] || $shipping_data['free_shipping']['enable_option'] || $shipping_data['local_delivery']['enable_option']) )
       @if($shipping_data['shipping_option']['display_mode'] == 'radio_buttons')
 
-        @if($shipping_data['flat_rate']['enable_option'] && $shipping_data['flat_rate']['method_cost'])
-          @if(Cart::getShippingMethod()['shipping_method'] == 'flat_rate')
-            <?php $str = '<div><label><input type="radio" class="shopist-iCheck" checked name="shipping_method" value="flat_rate">&nbsp;&nbsp; <span>'. Lang::get('frontend.flat_rate') .': '. price_html( get_product_price_html_by_filter($shipping_data['flat_rate']['method_cost']), get_frontend_selected_currency() ).'</span></div>';?>
-          @else
-            <?php $str .= '<div><label><input type="radio" class="shopist-iCheck" name="shipping_method" value="flat_rate">&nbsp;&nbsp; <span>' . Lang::get('frontend.flat_rate') .': ' . price_html( get_product_price_html_by_filter($shipping_data['flat_rate']['method_cost']), get_frontend_selected_currency() ).'</span></div>';?>
-          @endif
-        @endif
 
         @if( $shipping_data['free_shipping']['enable_option'] && ( Cart::getSubTotalAndTax() >= $shipping_data['free_shipping']['order_amount'] ) )
             <?php $str .= '<div><label><input type="radio" class="shopist-iCheck" checked name="shipping_method" value="free_shipping">&nbsp;&nbsp; <span>'. Lang::get('frontend.free_shipping') .'</span></div>';?>
@@ -49,6 +42,15 @@
             <?php $str .= '<div><label><input type="radio" class="shopist-iCheck" name="shipping_method" value="local_delivery">&nbsp;&nbsp; <span>'. Lang::get('frontend.local_delivery') .': '. price_html( get_product_price_html_by_filter(Cart::getLocalDeliveryShippingPerProductTotal()), get_frontend_selected_currency() ) .'</span></div>';?>
           @endif
         @endif
+
+        @if($shipping_data['flat_rate']['enable_option'] && $shipping_data['flat_rate']['method_cost'])
+          @if(Cart::getShippingMethod()['shipping_method'] == 'flat_rate')
+            <?php $str = '<div><label><input type="radio" class="shopist-iCheck" checked name="shipping_method" value="flat_rate">&nbsp;&nbsp; <span>'. Lang::get('frontend.flat_rate') .': '. price_html( get_product_price_html_by_filter($shipping_data['flat_rate']['method_cost']), get_frontend_selected_currency() ).'</span></div>';?>
+          @else
+            <?php $str .= '<div><label><input type="radio" class="shopist-iCheck" name="shipping_method" value="flat_rate">&nbsp;&nbsp; <span>' . Lang::get('frontend.flat_rate') .': ' . price_html( get_product_price_html_by_filter($shipping_data['flat_rate']['method_cost']), get_frontend_selected_currency() ).'</span></div>';?>
+          @endif
+        @endif
+
 
         @if($str)
           <div class="cart-shipping-total">
