@@ -126,6 +126,9 @@
             </div>
           </div>
 
+          <div class="column text-lg">{!! trans('frontend.cart_sub_total') !!}: <span class="text-medium">{!! price_html( get_product_price_html_by_filter(Cart::getTotal()), get_frontend_selected_currency() ) !!}</span></div>
+
+
         </div>
 
         <div class="shopping-cart-footer">
