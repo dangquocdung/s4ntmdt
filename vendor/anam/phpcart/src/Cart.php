@@ -626,9 +626,9 @@ class Cart implements CartInterface
     public function get_shipping_data(){
       $vendor_details = array();
       $shipping_details = array();
-
-      return response()->json($this->items());
       
+      console.log(json($this->item));
+
       if($this->items()->count() > 0){
         foreach($this->items() as $item){
           $get_vendor_details = get_vendor_details_by_product_id( $item->product_id );
