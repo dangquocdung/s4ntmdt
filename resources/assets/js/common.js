@@ -836,6 +836,7 @@ shopist_frontend.event = {
 
     shipping_method_radio_option: function() {
         $('#cart_page .cart-total-content input[type="radio"], #checkout_page .cart-total-content input[type="radio"]').on('ifClicked', function(event) {
+            alert('123');
             shopist_frontend.ajaxCall.setCartTotalByShippingMethodValue(this.value);
         });
     },
