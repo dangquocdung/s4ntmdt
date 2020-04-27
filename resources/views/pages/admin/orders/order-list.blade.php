@@ -2,6 +2,12 @@
 @section('title', trans('admin.orders_list') .' | '. get_site_title())
 
 @section('content')
+
+<style>
+.on-hold-label{
+  margin-left: 0 !important;
+}
+</style>
 <div class="row">
   <div class="col-12">
     <h5>{!! trans('admin.order_list_label') !!}</h5>
