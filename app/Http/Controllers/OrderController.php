@@ -137,7 +137,7 @@ class OrderController extends Controller
 
     $data['order_data_by_id']  =   $order_data_by_id;
 
-    // return response()->json($data['order_data_by_id']);
+    return response()->json($data['order_data_by_id']);
     
     return view('pages.admin.orders.order-details', $data);
   }
