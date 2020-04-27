@@ -110,7 +110,7 @@ class OrderController extends Controller
 
       $order_data_by_id = get_customer_order_billing_shipping_info( $order_id );
       $order_data_by_id['_order_id']    = $get_post_by_order_id->id;
-      $order_data_by_id['_order_date']  = $order_date_format->toDayDateTimeString();
+      $order_data_by_id['_order_date']  = $order_date_format->toDateTimeString();
 
       foreach($get_postmeta_by_order_id as $postmeta_row_data){
         if($postmeta_row_data->key_name === '_order_shipping_method'){
@@ -214,7 +214,7 @@ class OrderController extends Controller
           $date_format = new Carbon( $order['created_at']);
 
           $order_postmeta['_post_id']    = $order['id'];
-          $order_postmeta['_order_date'] = $date_format->toDayDateTimeString();
+          $order_postmeta['_order_date'] = $date_format->toDateTimeString();
 
 
           foreach($get_postmeta_by_order_id as $postmeta_row){
@@ -236,7 +236,7 @@ class OrderController extends Controller
               $sub_order_date_format = new Carbon( $sub_order['created_at']);
 
               $sub_order_postmeta['_post_id']    = $sub_order['id'];
-              $sub_order_postmeta['_order_date'] = $sub_order_date_format->toDayDateTimeString();
+              $sub_order_postmeta['_order_date'] = $sub_order_date_format->toDateTimeString();
 
 
               foreach($get_postmeta_by_sub_order_id as $sub_order_postmeta_row){
@@ -340,7 +340,7 @@ class OrderController extends Controller
 
       $order_data_by_id = get_customer_order_billing_shipping_info( $order_id );
       $order_data_by_id['_order_id']    = $get_post_by_order_id->id;
-      $order_data_by_id['_order_date']  = $order_date_format->toDayDateTimeString();
+      $order_data_by_id['_order_date']  = $order_date_format->toDateTimeString();
 
       foreach($get_postmeta_by_order_id as $postmeta_row_data){
         if($postmeta_row_data->key_name === '_order_shipping_method'){
