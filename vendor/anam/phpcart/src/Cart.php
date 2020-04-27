@@ -520,11 +520,11 @@ class Cart implements CartInterface
     {
       $shipping_cost = 0;
      
-      if($this->getShippingMethod())
-      {
-        $getShippingData = $this->getShippingMethod();
-        $shipping_cost = $getShippingData['shipping_cost'];
-      }
+      // if($this->getShippingMethod())
+      // {
+      //   $getShippingData = $this->getShippingMethod();
+      //   $shipping_cost = $getShippingData['shipping_cost'];
+      // }
       
       return $shipping_cost;
     }
