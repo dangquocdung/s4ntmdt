@@ -460,7 +460,7 @@ class Cart implements CartInterface
               return $this->session->get('eBazar_shipping_method');
             }
           }
-          elseif($get_shipping['free_shipping']['enable_option'] && ( Cart::getSubTotalAndTax() >= $get_shipping['free_shipping']['order_amount'] ))
+          if($get_shipping['free_shipping']['enable_option'] && ( Cart::getSubTotalAndTax() >= $get_shipping['free_shipping']['order_amount'] ))
           {
             $this->setShippingMethod( array('shipping_method' => 'free_shipping', 'shipping_cost' => 0) );
             
@@ -469,7 +469,7 @@ class Cart implements CartInterface
               return $this->session->get('eBazar_shipping_method');
             }
           }
-          elseif($get_shipping['local_delivery']['enable_option'] && $get_shipping['local_delivery']['fee_type'] === 'fixed_amount' && $get_shipping['local_delivery']['delivery_fee'])
+          if($get_shipping['local_delivery']['enable_option'] && $get_shipping['local_delivery']['fee_type'] === 'fixed_amount' && $get_shipping['local_delivery']['delivery_fee'])
           {
             $this->setShippingMethod( array('shipping_method' => 'local_delivery', 'shipping_cost' => $get_shipping['local_delivery']['delivery_fee']) );
             
@@ -478,7 +478,7 @@ class Cart implements CartInterface
               return $this->session->get('eBazar_shipping_method');
             }
           }
-          elseif($get_shipping['local_delivery']['enable_option'] && $get_shipping['local_delivery']['fee_type'] === 'cart_total' && $get_shipping['local_delivery']['delivery_fee'])
+          if($get_shipping['local_delivery']['enable_option'] && $get_shipping['local_delivery']['fee_type'] === 'cart_total' && $get_shipping['local_delivery']['delivery_fee'])
           {
             $this->setShippingMethod( array('shipping_method' => 'local_delivery', 'shipping_cost' => $this->getLocalDeliveryShippingPercentageTotal()) );
             
@@ -487,7 +487,7 @@ class Cart implements CartInterface
               return $this->session->get('eBazar_shipping_method');
             }
           }
-          elseif($get_shipping['local_delivery']['enable_option'] && $get_shipping['local_delivery']['fee_type'] === 'per_product' && $get_shipping['local_delivery']['delivery_fee'])
+          if($get_shipping['local_delivery']['enable_option'] && $get_shipping['local_delivery']['fee_type'] === 'per_product' && $get_shipping['local_delivery']['delivery_fee'])
           {
             $this->setShippingMethod( array('shipping_method' => 'local_delivery', 'shipping_cost' => $this->getLocalDeliveryShippingPerProductTotal()) );
             
