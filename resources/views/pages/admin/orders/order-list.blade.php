@@ -30,7 +30,9 @@
                 @if (isset($row['_post_id']))
 
                   <tr>
-                    <td><a href="{{ route('admin.view_order_details', $row['_post_id']) }}">{{ trans('admin.order') }} #{!! $row['_post_id'] !!}</a></td>
+                    <td>
+                      <a href="{{ route('admin.view_order_details', $row['_post_id']) }}">{{ trans('admin.order') }} #{!! $row['_post_id'] !!}</a>
+                    </td>
                     <td>
                       @if($row['_order_status'] == 'on-hold')
                         <span class="on-hold-label">{{ trans('admin.on_hold') }}</span>
