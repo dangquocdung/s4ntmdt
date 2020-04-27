@@ -483,7 +483,7 @@ return [
 'design_images' =>'Thiết kế hình ảnh',
 'design_export' =>'Xuất dữ liệu thiết kế',
 'tax' =>'Thuế',
-'shipping_cost' =>'Giá vận chuyển',
+'shipping_cost' =>'Phí giao hàng',
 'ordered_notes' =>'Ghi chú đã đặt hàng',
 'ordered_download_history' =>'Lịch sử tải xuống được đặt hàng',
 'all_design_images' =>'Tất cả hình ảnh thiết kế',

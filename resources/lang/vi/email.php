@@ -12,7 +12,7 @@ return [
     'price' =>'Giá bán',
     'total' =>'Tổng toàn bộ',
     'subtotal' =>'Tổng',
-    'shipping_cost' =>'Giá vận chuyển',
+    'shipping_cost' =>'Phí giao hàng',
     'free' =>'Miễn phí',
     'tax' =>'Thuế',
     'payment_method' =>'Phương thức thanh toán',

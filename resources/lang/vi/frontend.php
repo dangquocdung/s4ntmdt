@@ -16,7 +16,7 @@ return [
   'return_to_home' =>'Quay trở lại trang chủ',
   'cart_sub_total' =>'Giá giỏ hàng',
   'tax' =>'Thuế',
-  'shipping_cost' =>'Giá vận chuyển',
+  'shipping_cost' =>'Phí giao hàng',
   'free' =>'Miễn phí',
   'flat_rate' =>'Mức phí cố định',
   'free_shipping' =>'Miễn phí vận chuyển',
