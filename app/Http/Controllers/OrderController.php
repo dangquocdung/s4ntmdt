@@ -211,7 +211,7 @@ class OrderController extends Controller
         if($get_postmeta_by_order_id->count() > 0){
           $date_format = new Carbon( $order['created_at']);
 
-          $date = Carbon::parse($order['created_at'])->locale('vi');
+          $date = Carbon::parse($date_format)->locale('vi');
 
           $order_postmeta['_post_id']    = $order['id'];
           $order_postmeta['_order_date'] = $date->toDateTimeString();
