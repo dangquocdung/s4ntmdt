@@ -18,8 +18,6 @@
     @elseif(($shipping_data['shipping_option']['enable_shipping']) && ($shipping_data['flat_rate']['enable_option'] || $shipping_data['free_shipping']['enable_option'] || $shipping_data['local_delivery']['enable_option']) )
       @if($shipping_data['shipping_option']['display_mode'] == 'radio_buttons')
 
-      
-
         @if($shipping_data['flat_rate']['enable_option'] && $shipping_data['flat_rate']['method_cost'])
           @if(Cart::getShippingMethod()['shipping_method'] == 'flat_rate')
             <?php $str = '<div><label><input type="radio" class="shopist-iCheck" checked name="shipping_method" value="flat_rate">&nbsp;&nbsp; <span>'. $shipping_data['flat_rate']['method_title'] .': '. price_html( get_product_price_html_by_filter($shipping_data['flat_rate']['method_cost']), get_frontend_selected_currency() ).'</span></div>';?>
@@ -27,10 +25,6 @@
             <?php $str .= '<div><label><input type="radio" class="shopist-iCheck" name="shipping_method" value="flat_rate">&nbsp;&nbsp; <span>' . $shipping_data['flat_rate']['method_title'] .': ' . price_html( get_product_price_html_by_filter($shipping_data['flat_rate']['method_cost']), get_frontend_selected_currency() ).'</span></div>';?>
           @endif
         @endif
-
-
-
-        
 
         @if($shipping_data['local_delivery']['enable_option'] && $shipping_data['local_delivery']['fee_type'] === 'fixed_amount' && $shipping_data['local_delivery']['delivery_fee'] )
           @if(Cart::getShippingMethod()['shipping_method'] == 'local_delivery')
@@ -60,8 +54,6 @@
           @endif
 
         @endif
-
-
 
         @if($str)
           <div class="cart-shipping-total">
@@ -136,14 +128,5 @@
     </tr>
   </table>
 </section>
-
-<script type="text/javascript">
-$( document ).ready(function() {
-    console.log( "ready!" );
-    $(".iradio_square-purple").click(function(){
-    alert('123');
-  });
-});
-
 
 </script>
