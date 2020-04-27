@@ -452,9 +452,9 @@ class Cart implements CartInterface
         if(!$this->session->has('eBazar_shipping_method'))
         {
           
-          if($get_shipping['free_shipping']['enable_option'] && ( Cart::getSubTotalAndTax() <= $get_shipping['free_shipping']['order_amount'] ))
+          if($get_shipping['free_shipping']['enable_option'] && ( Cart::getSubTotalAndTax() >= $get_shipping['free_shipping']['order_amount'] ))
           {
-            $this->setShippingMethod( array('shipping_method' => 'free_shipping', 'shipping_cost' => 0) );
+            $this->setShippingMethod( array('shipping_method' => Cart::getSubTotalAndTax(), 'shipping_cost' => 0) );
             
             if($this->session->has('eBazar_shipping_method'))
             {
