@@ -451,8 +451,17 @@ class Cart implements CartInterface
       {
         if(!$this->session->has('eBazar_shipping_method'))
         {
-          
-          if($get_shipping['free_shipping']['enable_option'] && ( Cart::getSubTotalAndTax() >= $get_shipping['free_shipping']['order_amount'] ))
+          if($get_shipping['flat_rate']['enable_option'] && $get_shipping['flat_rate']['method_cost'])
+          {
+            
+            $this->setShippingMethod( array('shipping_method' => 'flat_rate', 'shipping_cost' => $get_shipping['flat_rate']['method_cost']) );
+            
+            if($this->session->has('eBazar_shipping_method'))
+            {
+              return $this->session->get('eBazar_shipping_method');
+            }
+          }
+          elseif($get_shipping['free_shipping']['enable_option'] && ( Cart::getSubTotalAndTax() >= $get_shipping['free_shipping']['order_amount'] ))
           {
             $this->setShippingMethod( array('shipping_method' => 'free_shipping', 'shipping_cost' => 0) );
             
@@ -482,16 +491,6 @@ class Cart implements CartInterface
           elseif($get_shipping['local_delivery']['enable_option'] && $get_shipping['local_delivery']['fee_type'] === 'per_product' && $get_shipping['local_delivery']['delivery_fee'])
           {
             $this->setShippingMethod( array('shipping_method' => 'local_delivery', 'shipping_cost' => $this->getLocalDeliveryShippingPerProductTotal()) );
-            
-            if($this->session->has('eBazar_shipping_method'))
-            {
-              return $this->session->get('eBazar_shipping_method');
-            }
-          }
-          elseif($get_shipping['flat_rate']['enable_option'] && $get_shipping['flat_rate']['method_cost'])
-          {
-            
-            $this->setShippingMethod( array('shipping_method' => 'flat_rate', 'shipping_cost' => $get_shipping['flat_rate']['method_cost']) );
             
             if($this->session->has('eBazar_shipping_method'))
             {
