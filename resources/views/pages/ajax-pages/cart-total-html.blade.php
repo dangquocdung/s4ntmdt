@@ -23,7 +23,7 @@
     @elseif(($shipping_data['shipping_option']['enable_shipping']) && ($shipping_data['flat_rate']['enable_option'] || $shipping_data['free_shipping']['enable_option'] || $shipping_data['local_delivery']['enable_option']) )
       @if($shipping_data['shipping_option']['display_mode'] == 'radio_buttons')
 
-        a@if($shipping_data['flat_rate']['enable_option'] && $shipping_data['flat_rate']['method_cost'])
+        @if($shipping_data['flat_rate']['enable_option'] && $shipping_data['flat_rate']['method_cost'])
           @if(Cart::getShippingMethod()['shipping_method'] == 'flat_rate')
             <?php $str = '<div><label><input type="radio" class="shopist-iCheck" checked name="shipping_method" value="flat_rate">&nbsp;&nbsp; <span>'. $shipping_data['flat_rate']['method_title'] .': '. price_html( get_product_price_html_by_filter($shipping_data['flat_rate']['method_cost']), get_frontend_selected_currency() ).'</span></div>';?>
           @else
