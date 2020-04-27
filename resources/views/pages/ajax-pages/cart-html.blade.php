@@ -123,8 +123,11 @@
 
           <div class="column text-lg">{!! trans('frontend.cart_sub_total') !!}: <span class="text-medium">{!! price_html( get_product_price_html_by_filter(Cart::getTotal()), get_frontend_selected_currency() ) !!}</span></div>
 
+          <div class="column text-lg">{!! trans('frontend.tax') !!}: <span class="text-medium">{!! price_html( get_product_price_html_by_filter(Cart::getTax()), get_frontend_selected_currency() ) !!}</span></div>
+
+
           <!-- Start van chuyen -->
-          
+
           <div class="cart-tax"><div class="label">{!! trans('frontend.tax') !!}:</div><div class="value">{!! price_html( get_product_price_html_by_filter(Cart::getTax()), get_frontend_selected_currency() ) !!}</div></div>
       
           @if((!$shipping_data['shipping_option']['enable_shipping']) || ($shipping_data['shipping_option']['enable_shipping'] && !$shipping_data['flat_rate']['enable_option'] && !$shipping_data['free_shipping']['enable_option'] && !$shipping_data['local_delivery']['enable_option']))
