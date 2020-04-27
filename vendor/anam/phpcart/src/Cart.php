@@ -644,6 +644,8 @@ class Cart implements CartInterface
       else{
         $shipping_details = $this->shipping;
       }
+
+      error_log($shipping_details);
       
       return $shipping_details;
     }
