@@ -1,5 +1,5 @@
 <section class="widget widget-order-summary">
-  <h5 class="widget-title">{!! trans('frontend.order_summary') !!}</h5>
+  <h5 class="widget-title">{!! trans('frontend.order_summary') !!}:{{ Cart::getShippingMethod()['shipping_method'] }}</h5>
   <table class="table">
     <tr>
       <td>{!! trans('frontend.cart_sub_total') !!}:</td>
@@ -15,7 +15,7 @@
     <tr>
 
       <td>{!! trans('frontend.shipping_cost') !!}:</td>
-      <td class="text-gray-dark">{!! trans('frontend.free') !!}: {{ Cart::getShippingMethod()['shipping_method'] }}</td>
+      <td class="text-gray-dark">{!! trans('frontend.free') !!}</td>
     </tr>
 
     @elseif(($shipping_data['shipping_option']['enable_shipping']) && ($shipping_data['flat_rate']['enable_option'] || $shipping_data['free_shipping']['enable_option'] || $shipping_data['local_delivery']['enable_option']) )
