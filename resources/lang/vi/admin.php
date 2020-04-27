@@ -360,7 +360,7 @@ return [
   'title' =>'Tiêu đề',
   'cost' =>'Giá cả',
   'shipping_method_free_shipping' =>'Phương thức giao hàng Miễn phí vận chuyển',
-  'minimum_order_amount' =>'Số lượng đặt hàng tối thiểu',
+  'minimum_order_amount' =>'Gía trị đơn hàng tối thiểu',
   'shipping_method_local_delivery' =>'Phương thức giao hàng Giao hàng nội tỉnh',
   'local_delivery_title' =>'Delivery Giao hàng nội địa là một phương thức vận chuyển đơn giản để giao hàng tại địa phương. ',
   'fee_type' =>'Loại phí',
