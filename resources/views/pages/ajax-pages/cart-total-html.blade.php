@@ -62,13 +62,13 @@
         @endif
 
         @if($str)
-          <div class="cart-shipping-total">
+          <div class="cart-shipping-total cart-total-content">
             <label>{!! trans('frontend.shipping_cost') !!}:</label>
             <div class="value" ><?php echo $str;?></div>
           </div>
           <div class="clearfix"></div>
         @else
-          <div class="cart-shipping-total cart-total-content">
+          <div class="cart-shipping-total">
             <label>{!! trans('frontend.shipping_cost') !!}:</label>
             <div class="padding-bottom-1x">{!! trans('frontend.free') !!}</div>
           </div>
