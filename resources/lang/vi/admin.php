@@ -272,7 +272,7 @@ return [
   'latest_orders' =>'Đơn hàng hôm nay',
   'order_id' =>'Mã đơn hàng',
   'date' =>'Ngày',
-  'order_totals' =>'Tổng số đơn hàng',
+  'order_totals' =>'Giá trị đơn hàng',
   
   'on_hold' =>'1. Chờ xác nhận đơn hàng',
   'on-hold' =>'1. Chờ xác nhận đơn hàng',
@@ -492,7 +492,7 @@ return [
   'ordered_notes' =>'Ghi chú đã đặt hàng',
   'ordered_download_history' =>'Lịch sử tải xuống được đặt hàng',
   'all_design_images' =>'Tất cả hình ảnh thiết kế',
-  'order_totals' =>'Tổng số đơn hàng',
+  'order_totals' =>'Giá trị đơn hàng',
   'view_order' =>'Xem đơn hàng',
   'add_new_manufacturers' =>'Thêm nhà sản xuất mới',
   'custom_designer_settings' =>'Settings Cài đặt thiết kế tùy chỉnh ',
