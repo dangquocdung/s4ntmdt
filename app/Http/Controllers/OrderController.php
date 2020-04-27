@@ -214,7 +214,7 @@ class OrderController extends Controller
           $date = Carbon::parse($date_format);
 
           $order_postmeta['_post_id']    = $order['id'];
-          $order_postmeta['_order_date'] = $date->toDateTimeString();
+          $order_postmeta['_order_date'] = $date->format('g:i a l jS F Y');
 
           foreach($get_postmeta_by_order_id as $postmeta_row){
             if( $postmeta_row->key_name == '_order_status' || $postmeta_row->key_name == '_order_total' || $postmeta_row->key_name == '_final_order_total' || $postmeta_row->key_name == '_order_currency' ){
