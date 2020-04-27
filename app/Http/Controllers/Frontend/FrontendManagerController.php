@@ -779,7 +779,7 @@ class FrontendManagerController extends Controller
 
     $data['seen_items'] = $this->seenProducts();
 
-    // return response()->json($data);
+    return response()->json($data);
 
     return view('pages.frontend.frontend-pages.cart', $data);
 
@@ -1662,18 +1662,20 @@ class FrontendManagerController extends Controller
   public function doActionFromCartPage(){
     $data = Input::all();
 
-    return response()->json($data);
+    // return response()->json($data);
             
     if( Request::isMethod('post') && isset($data['empty_cart']) && Session::token() == Input::get('_token')){
       $this->cart->clear();
       return redirect()->back();
     }
-    elseif( Request::isMethod('post') && isset($data['update_cart']) && Session::token() == Input::get('_token')){
+    elseif( Request::isMethod('post') && (isset($data['update_cart']) || isset($data['shipping_method'])) && Session::token() == Input::get('_token')){
       if(count($data['cart_quantity']) > 0){
         foreach($data['cart_quantity'] as $key => $qty){
           $this->cart->updateQty($key, $qty);
         }
       }
+
+
       return redirect()->back();
     }
     elseif( Request::isMethod('post') && isset($data['checkout']) && Session::token() == Input::get('_token')){
