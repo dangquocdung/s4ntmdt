@@ -1,5 +1,5 @@
 <section class="widget widget-order-summary">
-  <h5 class="widget-title">{!! trans('frontend.order_summary') !!}:{{ Cart::getSubTotalAndTax() }}</h5>
+  <h5 class="widget-title">{!! trans('frontend.order_summary') !!}:{{ Cart::getShippingMethod()['shipping_cost'] }}</h5>
   <table class="table">
     <tr>
       <td>{!! trans('frontend.cart_sub_total') !!}:</td>
