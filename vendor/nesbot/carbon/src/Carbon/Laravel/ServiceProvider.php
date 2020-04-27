@@ -26,6 +26,7 @@ class ServiceProvider extends \Illuminate\Support\ServiceProvider
     {
         $translator = $this->app['translator'];
         if ($translator instanceof Translator || $translator instanceof IlluminateTranslator) {
+            // Carbon::setLocale('$translator->getLocale()');
             Carbon::setLocale('vi');
         }
     }
