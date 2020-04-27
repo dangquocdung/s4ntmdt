@@ -16,7 +16,6 @@ use Request;
 use Illuminate\Support\Facades\Input;
 use Illuminate\Support\Facades\App;
 
-
 class OrderController extends Controller
 {
   public $classCommonFunction;
@@ -142,7 +141,6 @@ class OrderController extends Controller
     return view('pages.admin.orders.order-details', $data);
   }
 
-  
   /**
    * 
    * Get order list
@@ -214,10 +212,7 @@ class OrderController extends Controller
           $date_format = new Carbon( $order['created_at']);
 
           $order_postmeta['_post_id']    = $order['id'];
-          // $order_postmeta['_order_date'] = $date_format->toDateTimeString();
-          $order_postmeta['_order_date'] = Carbon::createFromFormat('d/m/Y',$date_format);
-
-
+          $order_postmeta['_order_date'] = $date_format->toDateTimeString();
 
           foreach($get_postmeta_by_order_id as $postmeta_row){
             if( $postmeta_row->key_name == '_order_status' || $postmeta_row->key_name == '_order_total' || $postmeta_row->key_name == '_final_order_total' || $postmeta_row->key_name == '_order_currency' ){
@@ -239,7 +234,6 @@ class OrderController extends Controller
 
               $sub_order_postmeta['_post_id']    = $sub_order['id'];
               $sub_order_postmeta['_order_date'] = $sub_order_date_format->toDateTimeString();
-
 
               foreach($get_postmeta_by_sub_order_id as $sub_order_postmeta_row){
                 if( $sub_order_postmeta_row->key_name == '_order_status' || $sub_order_postmeta_row->key_name == '_order_total' || $sub_order_postmeta_row->key_name == '_final_order_total' || $sub_order_postmeta_row->key_name == '_order_currency' ){
@@ -271,7 +265,6 @@ class OrderController extends Controller
                       ->where('order_id', $order_id)
                       ->groupBy('file_name', 'file_url')
                       ->get()->toArray();
-    
     
     if(count($get_order_data) > 0){
       $order_data = $get_order_data;
@@ -325,7 +318,6 @@ class OrderController extends Controller
     $order_id = 0;
     $get_post = Post::where(['id' => $params, 'post_type' => 'shop_order'])->first();
     
-
     if(!empty($get_post) && $get_post->parent_id > 0){
       $order_id = $get_post->parent_id;
     }
