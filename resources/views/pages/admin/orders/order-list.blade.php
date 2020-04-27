@@ -18,6 +18,7 @@
               <th>{{ trans('admin.orders') }}</th>
               <th>{{ trans('admin.order_totals') }}</th>
               <th>{{ trans('admin.vendor_name_label') }}</th>
+              <th>Ngày đặt</th>
               <th>{{ trans('admin.action') }}</th>
             </tr>
           </thead>
@@ -31,6 +32,8 @@
                     <td><a href="{{ route('admin.view_order_details', $row['_post_id']) }}">{{ trans('admin.order') }} #{!! $row['_post_id'] !!}</a>@if($row['_order_status'] == 'on-hold')<span class="on-hold-label">{{ trans('admin.on_hold') }}</span>@elseif($row['_order_status'] == 'refunded') <span class="refunded-label">{{ trans('admin.refunded') }}</span>@elseif($row['_order_status'] == 'cancelled') <span class="cancelled-label">{{ trans('admin.cancelled') }}</span> @elseif($row['_order_status'] == 'pending') <span class="pending-label">{{ trans('admin.pending') }}</span> @elseif($row['_order_status'] == 'processing') <span class="processing-label">{{ trans('admin.processing') }}</span> @elseif($row['_order_status'] == 'completed') <span class="completed-label">{{ trans('admin.completed') }}</span> @elseif($row['_order_status'] == 'shipping') <span class="shipping-label">{{ trans('admin.shipping') }}</span> @endif <br><span class="order-date-format">{!! $row['_order_date'] !!}</span></td>
                     <td>{!! price_html( $row['_final_order_total'], $row['_order_currency'] ) !!}</td>
                     <td>{!! get_vendor_name(get_vendor_id_by_order_id( $row['_post_id'] )) !!}</td>
+                    <td>{!! $row['_order_date'] !!}</td>
+                    
                     <td>
                       <div class="btn-group">
                         <button class="btn btn-success btn-flat" type="button">{{ trans('admin.action') }}</button>
