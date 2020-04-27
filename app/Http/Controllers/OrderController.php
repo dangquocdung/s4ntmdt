@@ -211,10 +211,12 @@ class OrderController extends Controller
         if($get_postmeta_by_order_id->count() > 0){
           $date_format = new Carbon( $order['created_at']);
 
-          $date = Carbon::parse($date_format);
+          $date = Carbon::parse('2018-03-16 15:45')->locale('ja');
+
+          $date->settings(['formatFunction' => 'translatedFormat']);
 
           $order_postmeta['_post_id']    = $order['id'];
-          $order_postmeta['_order_date'] = $date_format->format('g:i a l jS F Y');
+          $order_postmeta['_order_date'] = $date->format('g:i a l jS F Y');
 
           foreach($get_postmeta_by_order_id as $postmeta_row){
             if( $postmeta_row->key_name == '_order_status' || $postmeta_row->key_name == '_order_total' || $postmeta_row->key_name == '_final_order_total' || $postmeta_row->key_name == '_order_currency' ){
