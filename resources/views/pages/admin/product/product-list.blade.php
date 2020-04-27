@@ -84,7 +84,7 @@
             </div>
           </form>  
         </div>      
-        <table class="table table-bordered admin-data-table admin-data-list" id="table_for_vendors_list">
+        <table class="table table-bordered table-responsive admin-data-table admin-data-list" id="table_for_vendors_list">
           <thead class="thead-dark">
             <tr>
               <th>{!! trans('admin.product_image') !!}</th>

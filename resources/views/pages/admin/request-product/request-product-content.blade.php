@@ -13,7 +13,7 @@
     <h3></h3>  
     <div class="box">
       <div class="box-body">
-        <table class="table table-bordered admin-data-table admin-data-list">
+        <table class="table table-bordered table-responsive admin-data-table admin-data-list">
           <thead class="thead-dark">
             <tr>
               <th>{{ trans('admin.request_product_table_header_name_title') }}</th>

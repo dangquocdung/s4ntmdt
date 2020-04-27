@@ -84,7 +84,7 @@
     <div class="box-body">
       <div class="row">
         <div class="col-xs-12 col-sm-12 col-md-12">
-          <table class="table table-bordered admin-data-table admin-data-list">
+          <table class="table table-bordered table-responsive admin-data-table admin-data-list">
             <thead class="thead-dark">
               <tr>
                 <th>{{ trans('admin.lang_name') }}</th>
