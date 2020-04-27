@@ -136,3 +136,9 @@
     </tr>
   </table>
 </section>
+
+<script>
+$(".shopist-iCheck").click(function(){
+  alert('123');
+})
+</script>
