@@ -129,9 +129,14 @@
               <div class="">{!! trans('frontend.tax') !!}: <span class="text-medium">{!! price_html( get_product_price_html_by_filter(Cart::getTax()), get_frontend_selected_currency() ) !!}</span></div>
               
               @if((!$shipping_data['shipping_option']['enable_shipping']) || ($shipping_data['shipping_option']['enable_shipping'] && !$shipping_data['flat_rate']['enable_option'] && !$shipping_data['free_shipping']['enable_option'] && !$shipping_data['local_delivery']['enable_option']))
-                <div class="cart-shipping-total"><div class="label">{!! trans('frontend.shipping_cost') !!}:</div><div class="value">{!! trans('frontend.free') !!}</div></div>
+                <div class="cart-shipping-total">
+                  <div class="label">{!! trans('frontend.shipping_cost') !!}:</div>
+                  <div class="value">{!! trans('frontend.free') !!}</div>
+                </div>
               @elseif(($shipping_data['shipping_option']['enable_shipping']) && ($shipping_data['flat_rate']['enable_option'] || $shipping_data['free_shipping']['enable_option'] || $shipping_data['local_delivery']['enable_option']) )
+                
                 <?php $str = '';?>
+
                 @if($shipping_data['shipping_option']['display_mode'] == 'radio_buttons')
 
                   @if($shipping_data['flat_rate']['enable_option'] && $shipping_data['flat_rate']['method_cost'])
@@ -175,48 +180,6 @@
                   @else
                     <div class="cart-shipping-total"><div class="label">{!! trans('frontend.shipping_cost') !!}:</div><div class="value">{!! trans('frontend.free') !!}</div></div>
                   @endif
-                @elseif($shipping_data['shipping_option']['display_mode'] == 'dropdown')
-
-                  @if($shipping_data['flat_rate']['enable_option'] && $shipping_data['flat_rate']['method_cost'])
-                    @if(Cart::getShippingMethod()['shipping_method'] == 'flat_rate')
-                      <?php $str .= '<option selected value="flat_rate">'. Lang::get('frontend.flat_rate') .': '. price_html( get_product_price_html_by_filter($shipping_data['flat_rate']['method_cost']), get_frontend_selected_currency() ) .'</option>';?>
-                    @else
-                      <?php $str .= '<option value="flat_rate">' . Lang::get('frontend.flat_rate') .': '. price_html( get_product_price_html_by_filter($shipping_data['flat_rate']['method_cost']), get_frontend_selected_currency() ) .'</option>';?>
-                    @endif
-                  @endif
-                  @if( $shipping_data['free_shipping']['enable_option'] && ( Cart::getSubTotalAndTax() <= $shipping_data['free_shipping']['order_amount'] ) )
-                    @if(Cart::getShippingMethod()['shipping_method'] == 'free_shipping')
-                      <?php $str .= '<option selected value="free_shipping">'. Lang::get('frontend.free_shipping') .'</option>';?>
-                    @else
-                      <?php $str .= '<option value="free_shipping">'. Lang::get('frontend.free_shipping') .'</option>';?>
-                    @endif
-                  @endif
-
-                  @if($shipping_data['local_delivery']['enable_option'] && $shipping_data['local_delivery']['fee_type'] === 'fixed_amount' && $shipping_data['local_delivery']['delivery_fee'] )
-                    @if(Cart::getShippingMethod()['shipping_method'] == 'local_delivery')
-                      <?php $str .= '<option selected value="local_delivery">'. Lang::get('frontend.local_delivery') .': '. price_html( get_product_price_html_by_filter($shipping_data['local_delivery']['delivery_fee']), get_frontend_selected_currency() ) .'</option>';?>
-                    @else
-                      <?php $str .= '<option value="local_delivery">'. Lang::get('frontend.local_delivery') .': '. price_html( get_product_price_html_by_filter($shipping_data['local_delivery']['delivery_fee']), get_frontend_selected_currency() ) .'</option>';?>
-                    @endif
-                  @elseif($shipping_data['local_delivery']['enable_option'] && $shipping_data['local_delivery']['fee_type'] === 'cart_total' && $shipping_data['local_delivery']['delivery_fee'])
-                    @if(Cart::getShippingMethod()['shipping_method'] == 'local_delivery')
-                      <?php $str .= '<option selected value="local_delivery">'. Lang::get('frontend.local_delivery') .': '. price_html( get_product_price_html_by_filter(Cart::getLocalDeliveryShippingPercentageTotal()), get_frontend_selected_currency() ) .'</option>';?>
-                    @else
-                      <?php $str .= '<option value="local_delivery">'. Lang::get('frontend.local_delivery') .': '. price_html( get_product_price_html_by_filter(Cart::getLocalDeliveryShippingPercentageTotal()), get_frontend_selected_currency() ) .'</option>';?>
-                    @endif
-                  @elseif($shipping_data['local_delivery']['enable_option'] && $shipping_data['local_delivery']['fee_type'] === 'per_product' && $shipping_data['local_delivery']['delivery_fee'])
-                    @if(Cart::getShippingMethod()['shipping_method'] == 'local_delivery')
-                      <?php $str .= '<option selected value="local_delivery">'. Lang::get('frontend.local_delivery') .': '. price_html( get_product_price_html_by_filter(Cart::getLocalDeliveryShippingPerProductTotal()), get_frontend_selected_currency() ) .'</option>';?>
-                    @else
-                      <?php $str .= '<option value="local_delivery">'. Lang::get('frontend.local_delivery') .': '. price_html( get_product_price_html_by_filter(Cart::getLocalDeliveryShippingPerProductTotal()), get_frontend_selected_currency() ) .'</option>';?>
-                    @endif
-                  @endif
-                  @if($str)
-                  <div class="cart-shipping-total"><div class="label">{!! trans('frontend.shipping_cost') !!}:</div><div class="value"><select name="shipping_method_dropdown" id="shipping_method_dropdown"><?php echo $str;?></select></div></div><div class="clearfix"></div>
-                  @else
-                  <div class="cart-shipping-total"><div class="label">{!! trans('frontend.shipping_cost') !!}:</div><div class="value">{!! trans('frontend.free') !!}</div></div>
-                  @endif
-                @endif
               @endif
 
 
