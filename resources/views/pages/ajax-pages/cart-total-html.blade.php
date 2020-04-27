@@ -130,7 +130,7 @@
     </tr>
     <tr class="cart-grand-total">
       <td></td>
-      <td class="text-lg text-gray-dark" lass="value">{!! price_html( get_product_price_html_by_filter(Cart::getCartTotal()), get_frontend_selected_currency() ) !!}</td>
+      <td class="text-lg text-gray-dark value">{!! price_html( get_product_price_html_by_filter(Cart::getCartTotal()), get_frontend_selected_currency() ) !!}</td>
     </tr>
   </table>
 </section>
