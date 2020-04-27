@@ -112,6 +112,9 @@
             </tbody>
           </table>
         </div>
+
+        @include('pages.ajax-pages.cart-total-html')
+
         <div class="shopping-cart-footer">
 
           <div class="row">
@@ -247,8 +250,6 @@
   
           </div>
         </div>
-
-        @include('pages.ajax-pages.cart-total-html')
 
         </form>    
 
