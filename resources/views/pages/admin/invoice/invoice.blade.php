@@ -55,11 +55,6 @@
               <strong>{{ trans('admin.address_1') }}:</strong>&nbsp;{!! $order_data_by_id['_shipping_address_1'] !!}<br>
               {!! get_xaphuong($order_data_by_id['_shipping_city']).' - '.get_quanhuyen($order_data_by_id['_shipping_state']).' - '.get_tinhthanh($order_data_by_id['_shipping_country']) !!}<br>
 
-
-              @if($order_data_by_id['_shipping_address_2'])
-              {!! $order_data_by_id['_shipping_address_2'] !!}<br>
-              @endif
-
               <strong>{{ trans('admin.phone') }}:</strong>&nbsp;{!! $order_data_by_id['_shipping_phone'] !!}<br>
             </address>
           </div>
