@@ -627,7 +627,7 @@ class Cart implements CartInterface
       $vendor_details = array();
       $shipping_details = array();
       
-      console.log(json($this->item));
+      error_log(json($this->item));
 
       if($this->items()->count() > 0){
         foreach($this->items() as $item){
