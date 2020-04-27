@@ -8,7 +8,6 @@
       </td>
     </tr>
 
-    <?php $str='' ?>
     @if((!$shipping_data['shipping_option']['enable_shipping']) || ($shipping_data['shipping_option']['enable_shipping'] && !$shipping_data['flat_rate']['enable_option'] && !$shipping_data['free_shipping']['enable_option'] && !$shipping_data['local_delivery']['enable_option']))
 
     <tr>
@@ -78,7 +77,7 @@
             <?php $str .= '<option value="flat_rate">' . Lang::get('frontend.flat_rate') .': '. price_html( get_product_price_html_by_filter($shipping_data['flat_rate']['method_cost']), get_frontend_selected_currency() ) .'</option>';?>
           @endif
         @endif
-        @if( $shipping_data['free_shipping']['enable_option'] && ( Cart::getSubTotalAndTax() <= $shipping_data['free_shipping']['order_amount'] ) )
+        @if( $shipping_data['free_shipping']['enable_option'] && ( Cart::getSubTotalAndTax() >= $shipping_data['free_shipping']['order_amount'] ) )
           @if(Cart::getShippingMethod()['shipping_method'] == 'free_shipping')
             <?php $str .= '<option selected value="free_shipping">'. Lang::get('frontend.free_shipping') .'</option>';?>
           @else
