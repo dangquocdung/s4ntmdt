@@ -212,7 +212,7 @@ class OrderController extends Controller
           $date_format = new Carbon( $order['created_at']);
 
           $order_postmeta['_post_id']    = $order['id'];
-          $order_postmeta['_order_date'] = $date_format->toDateTimeString();
+          $order_postmeta['_order_date'] = $date_format->toDateTimeString()->locale('vi');
 
           foreach($get_postmeta_by_order_id as $postmeta_row){
             if( $postmeta_row->key_name == '_order_status' || $postmeta_row->key_name == '_order_total' || $postmeta_row->key_name == '_final_order_total' || $postmeta_row->key_name == '_order_currency' ){
