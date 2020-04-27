@@ -30,30 +30,30 @@
 
         @if( $shipping_data['free_shipping']['enable_option'] && ( Cart::getSubTotalAndTax() >= $shipping_data['free_shipping']['order_amount'] ) )
           @if(Cart::getShippingMethod()['shipping_method'] == 'free_shipping')
-            <?php $str .= '<div><label><input type="radio" class="shopist-iCheck" checked name="shipping_method" value="free_shipping">&nbsp;&nbsp; <span>'. Lang::get('frontend.free_shipping') .'</span></div>';?>
+            <?php $str .= '<div><label><input type="radio" class="shopist-iCheck" checked name="shipping_method" value="free_shipping">&nbsp;&nbsp; <span>'. $shipping_data['free_shipping']['method_title'] .'</span></div>';?>
           @else
-            <?php $str .= '<div><label><input type="radio" class="shopist-iCheck" name="shipping_method" value="free_shipping">&nbsp;&nbsp; <span>'. Lang::get('frontend.free_shipping') .'</span></div>';?>
+            <?php $str .= '<div><label><input type="radio" class="shopist-iCheck" name="shipping_method" value="free_shipping">&nbsp;&nbsp; <span>'. $shipping_data['ffree_shipping']['method_title'] .'</span></div>';?>
           @endif
 
         @endif
 
         @if($shipping_data['local_delivery']['enable_option'] && $shipping_data['local_delivery']['fee_type'] === 'fixed_amount' && $shipping_data['local_delivery']['delivery_fee'] )
           @if(Cart::getShippingMethod()['shipping_method'] == 'local_delivery')
-            <?php $str .= '<div><label><input type="radio" class="shopist-iCheck" checked name="shipping_method" value="local_delivery">&nbsp;&nbsp; <span>'. Lang::get('frontend.local_delivery') .': '. price_html( get_product_price_html_by_filter($shipping_data['local_delivery']['delivery_fee']), get_frontend_selected_currency() ) .'</span></div>';?>
+            <?php $str .= '<div><label><input type="radio" class="shopist-iCheck" checked name="shipping_method" value="local_delivery">&nbsp;&nbsp; <span>'. $shipping_data['local_delivery']['method_title'] .': '. price_html( get_product_price_html_by_filter($shipping_data['local_delivery']['delivery_fee']), get_frontend_selected_currency() ) .'</span></div>';?>
           @else
-            <?php $str .= '<div><label><input type="radio" class="shopist-iCheck" name="shipping_method" value="local_delivery">&nbsp;&nbsp; <span>'. Lang::get('frontend.local_delivery') .': '. price_html( get_product_price_html_by_filter($shipping_data['local_delivery']['delivery_fee']), get_frontend_selected_currency() ) .'</span></div>';?>
+            <?php $str .= '<div><label><input type="radio" class="shopist-iCheck" name="shipping_method" value="local_delivery">&nbsp;&nbsp; <span>'. $shipping_data['local_delivery']['method_title'] .': '. price_html( get_product_price_html_by_filter($shipping_data['local_delivery']['delivery_fee']), get_frontend_selected_currency() ) .'</span></div>';?>
           @endif
         @elseif($shipping_data['local_delivery']['enable_option'] && $shipping_data['local_delivery']['fee_type'] === 'cart_total' && $shipping_data['local_delivery']['delivery_fee'])
           @if(Cart::getShippingMethod()['shipping_method'] == 'local_delivery')
-            <?php $str .= '<div><label><input type="radio" class="shopist-iCheck" checked name="shipping_method" value="local_delivery">&nbsp;&nbsp; <span>'. Lang::get('frontend.local_delivery') .': '. price_html( get_product_price_html_by_filter(Cart::getLocalDeliveryShippingPercentageTotal()), get_frontend_selected_currency() ) .'</span></div>';?>
+            <?php $str .= '<div><label><input type="radio" class="shopist-iCheck" checked name="shipping_method" value="local_delivery">&nbsp;&nbsp; <span>'. $shipping_data['local_delivery']['method_title'] .': '. price_html( get_product_price_html_by_filter(Cart::getLocalDeliveryShippingPercentageTotal()), get_frontend_selected_currency() ) .'</span></div>';?>
           @else
-            <?php $str .= '<div><label><input type="radio" class="shopist-iCheck" name="shipping_method" value="local_delivery">&nbsp;&nbsp; <span>'. Lang::get('frontend.local_delivery') .': '. price_html( get_product_price_html_by_filter(Cart::getLocalDeliveryShippingPercentageTotal()), get_frontend_selected_currency() ) .'</span></div>';?>
+            <?php $str .= '<div><label><input type="radio" class="shopist-iCheck" name="shipping_method" value="local_delivery">&nbsp;&nbsp; <span>'. $shipping_data['local_delivery']['method_title'] .': '. price_html( get_product_price_html_by_filter(Cart::getLocalDeliveryShippingPercentageTotal()), get_frontend_selected_currency() ) .'</span></div>';?>
           @endif
         @elseif($shipping_data['local_delivery']['enable_option'] && $shipping_data['local_delivery']['fee_type'] === 'per_product' && $shipping_data['local_delivery']['delivery_fee'])
           @if(Cart::getShippingMethod()['shipping_method'] == 'local_delivery')
-            <?php $str .= '<div><label><input type="radio" class="shopist-iCheck" checked name="shipping_method" value="local_delivery">&nbsp;&nbsp; <span>'. Lang::get('frontend.local_delivery') .': '. price_html( get_product_price_html_by_filter(Cart::getLocalDeliveryShippingPerProductTotal()), get_frontend_selected_currency() ) .'</span></div>';?>
+            <?php $str .= '<div><label><input type="radio" class="shopist-iCheck" checked name="shipping_method" value="local_delivery">&nbsp;&nbsp; <span>'. $shipping_data['local_delivery']['method_title'] .': '. price_html( get_product_price_html_by_filter(Cart::getLocalDeliveryShippingPerProductTotal()), get_frontend_selected_currency() ) .'</span></div>';?>
           @else
-            <?php $str .= '<div><label><input type="radio" class="shopist-iCheck" name="shipping_method" value="local_delivery">&nbsp;&nbsp; <span>'. Lang::get('frontend.local_delivery') .': '. price_html( get_product_price_html_by_filter(Cart::getLocalDeliveryShippingPerProductTotal()), get_frontend_selected_currency() ) .'</span></div>';?>
+            <?php $str .= '<div><label><input type="radio" class="shopist-iCheck" name="shipping_method" value="local_delivery">&nbsp;&nbsp; <span>'. $shipping_data['local_delivery']['method_title'] .': '. price_html( get_product_price_html_by_filter(Cart::getLocalDeliveryShippingPerProductTotal()), get_frontend_selected_currency() ) .'</span></div>';?>
           @endif
         @endif
 
