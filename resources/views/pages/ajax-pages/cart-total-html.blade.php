@@ -137,7 +137,7 @@
   </table>
 </section>
 
-<script>
+<script type="text/javascript">
 $( document ).ready(function() {
     console.log( "ready!" );
     $(".iradio_square-purple").click(function(){
