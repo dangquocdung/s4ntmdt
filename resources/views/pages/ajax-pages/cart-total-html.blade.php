@@ -1,3 +1,5 @@
+{!! Session::get('eBazar_shipping_method') !!}
+
 <section class="widget widget-order-summary">
   <h5 class="widget-title">{!! trans('frontend.order_summary') !!}:{{ Cart::getShippingMethod()['shipping_method'] }}</h5>
   <table class="table">
