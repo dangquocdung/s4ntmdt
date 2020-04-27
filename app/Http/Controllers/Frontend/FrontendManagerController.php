@@ -1660,7 +1660,12 @@ class FrontendManagerController extends Controller
    * @return void 
    */
   public function doActionFromCartPage(){
+
+
+
     $data = Input::all();
+
+    $request->session()->forget('eBazar_shipping_method');
 
     // return response()->json($data);
             
