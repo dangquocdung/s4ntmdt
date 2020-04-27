@@ -228,20 +228,9 @@
 
               <div class="">{!! trans('frontend.grand_total') !!}: <span class="text-medium">{!! price_html( get_product_price_html_by_filter(Cart::getCartTotal()), get_frontend_selected_currency() ) !!}</span></div>
 
-              
-
-
-
-
-            
             </div>
 
           </div>
-
-
-
-
-         
 
         </div>
 
@@ -259,7 +248,7 @@
           </div>
         </div>
 
-        <!-- @include('pages.ajax-pages.cart-total-html') -->
+        @include('pages.ajax-pages.cart-total-html')
 
         </form>    
 
