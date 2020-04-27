@@ -783,7 +783,6 @@ class FrontendManagerController extends Controller
 
     return view('pages.frontend.frontend-pages.cart', $data);
 
-
   }
   
   /**
@@ -1661,11 +1660,7 @@ class FrontendManagerController extends Controller
    */
   public function doActionFromCartPage(){
 
-
-
     $data = Input::all();
-
-    $request->session()->forget('eBazar_shipping_method');
 
     // return response()->json($data);
             
@@ -1679,7 +1674,6 @@ class FrontendManagerController extends Controller
           $this->cart->updateQty($key, $qty);
         }
       }
-
 
       return redirect()->back();
     }
