@@ -410,10 +410,10 @@ class Cart implements CartInterface
     public function getCartTotal()
     {
       if($this->is_coupon_applyed()){
-        return ($this->getSubTotalAndTax() + $this->getShippingCost()) - $this->couponPrice();
+        return ($this->getShippingCost()) - $this->couponPrice();
       }
       else{
-        return ($this->getSubTotalAndTax() + $this->getShippingCost()) + $this->couponPrice();
+        return ($this->getShippingCost()) + $this->couponPrice();
       }
     }
     
