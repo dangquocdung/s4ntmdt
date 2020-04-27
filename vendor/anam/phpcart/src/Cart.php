@@ -645,7 +645,7 @@ class Cart implements CartInterface
         $shipping_details = $this->shipping;
       }
 
-      error_log($shipping_details);
+      error_log(print_r($shipping_details, TRUE));
       
       return $shipping_details;
     }
