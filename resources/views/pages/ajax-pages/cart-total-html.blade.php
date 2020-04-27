@@ -23,16 +23,14 @@
     @elseif(($shipping_data['shipping_option']['enable_shipping']) && ($shipping_data['flat_rate']['enable_option'] || $shipping_data['free_shipping']['enable_option'] || $shipping_data['local_delivery']['enable_option']) )
       @if($shipping_data['shipping_option']['display_mode'] == 'radio_buttons')
 
-
-        @if( $shipping_data['free_shipping']['enable_option'] && ( Cart::getSubTotalAndTax() >= $shipping_data['free_shipping']['order_amount'] ) )
-          @if(Cart::getShippingMethod()['shipping_method'] == 'free_shipping')
-            <?php $str .= '<div><label><input type="radio" class="shopist-iCheck" checked name="shipping_method" value="free_shipping">&nbsp;&nbsp; <span>'. $shipping_data['free_shipping']['method_title'] .'</span></div>';?>
+        @if($shipping_data['flat_rate']['enable_option'] && $shipping_data['flat_rate']['method_cost'])
+          @if(Cart::getShippingMethod()['shipping_method'] == 'flat_rate')
+            <?php $str = '<div><label><input type="radio" class="shopist-iCheck" checked name="shipping_method" value="flat_rate">&nbsp;&nbsp; <span>'. $shipping_data['flat_rate']['method_title'] .': '. price_html( get_product_price_html_by_filter($shipping_data['flat_rate']['method_cost']), get_frontend_selected_currency() ).'</span></div>';?>
           @else
-            <?php $str .= '<div><label><input type="radio" class="shopist-iCheck" name="shipping_method" value="free_shipping">&nbsp;&nbsp; <span>'. $shipping_data['free_shipping']['method_title'] .'</span></div>';?>
+            <?php $str .= '<div><label><input type="radio" class="shopist-iCheck" name="shipping_method" value="flat_rate">&nbsp;&nbsp; <span>' . $shipping_data['flat_rate']['method_title'] .': ' . price_html( get_product_price_html_by_filter($shipping_data['flat_rate']['method_cost']), get_frontend_selected_currency() ).'</span></div>';?>
           @endif
-        @else
-          <?php $str .= '<div><label><input type="radio" class="shopist-iCheck" disabled name="shipping_method" value="free_shipping">&nbsp;&nbsp; <span>'. $shipping_data['free_shipping']['method_title'] .'</span></div>';?>
         @endif
+
 
         @if($shipping_data['local_delivery']['enable_option'] && $shipping_data['local_delivery']['fee_type'] === 'fixed_amount' && $shipping_data['local_delivery']['delivery_fee'] )
           @if(Cart::getShippingMethod()['shipping_method'] == 'local_delivery')
@@ -54,12 +52,14 @@
           @endif
         @endif
 
-        @if($shipping_data['flat_rate']['enable_option'] && $shipping_data['flat_rate']['method_cost'])
-          @if(Cart::getShippingMethod()['shipping_method'] == 'flat_rate')
-            <?php $str = '<div><label><input type="radio" class="shopist-iCheck" checked name="shipping_method" value="flat_rate">&nbsp;&nbsp; <span>'. $shipping_data['flat_rate']['method_title'] .': '. price_html( get_product_price_html_by_filter($shipping_data['flat_rate']['method_cost']), get_frontend_selected_currency() ).'</span></div>';?>
+        @if( $shipping_data['free_shipping']['enable_option'] && ( Cart::getSubTotalAndTax() >= $shipping_data['free_shipping']['order_amount'] ) )
+          @if(Cart::getShippingMethod()['shipping_method'] == 'free_shipping')
+            <?php $str .= '<div><label><input type="radio" class="shopist-iCheck" checked name="shipping_method" value="free_shipping">&nbsp;&nbsp; <span>'. $shipping_data['free_shipping']['method_title'] .'</span></div>';?>
           @else
-            <?php $str .= '<div><label><input type="radio" class="shopist-iCheck" name="shipping_method" value="flat_rate">&nbsp;&nbsp; <span>' . $shipping_data['flat_rate']['method_title'] .': ' . price_html( get_product_price_html_by_filter($shipping_data['flat_rate']['method_cost']), get_frontend_selected_currency() ).'</span></div>';?>
+            <?php $str .= '<div><label><input type="radio" class="shopist-iCheck" name="shipping_method" value="free_shipping">&nbsp;&nbsp; <span>'. $shipping_data['free_shipping']['method_title'] .'</span></div>';?>
           @endif
+        @else
+          <?php $str .= '<div><label><input type="radio" class="shopist-iCheck" disabled name="shipping_method" value="free_shipping">&nbsp;&nbsp; <span>'. $shipping_data['free_shipping']['method_title'] .'</span></div>';?>
         @endif
 
 
