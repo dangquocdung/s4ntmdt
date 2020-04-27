@@ -1,3 +1,4 @@
+{!! Session::get('eBazar_shipping_method') !!}
 
 <section class="widget widget-order-summary" id="cart_page">
   <h5 class="widget-title">{!! trans('frontend.order_summary') !!}:{{ Cart::getShippingMethod()['shipping_method'] }}</h5>
@@ -119,7 +120,7 @@
         @else
         <div class="cart-shipping-total">
           <label>{!! trans('frontend.shipping_cost') !!}:</label>
-          <div class="value">{!! trans('frontend.free') !!}</div></div>
+          <div class="value text-medium">{!! trans('frontend.free') !!}</div></div>
         @endif
       @endif
     @endif
