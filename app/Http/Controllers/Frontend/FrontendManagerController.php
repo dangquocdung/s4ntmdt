@@ -1661,6 +1661,8 @@ class FrontendManagerController extends Controller
    */
   public function doActionFromCartPage(){
     $data = Input::all();
+
+    return response()->json($data);
             
     if( Request::isMethod('post') && isset($data['empty_cart']) && Session::token() == Input::get('_token')){
       $this->cart->clear();
