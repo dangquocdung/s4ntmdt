@@ -75,7 +75,6 @@
 
     Dropzone.prototype.Emitter = Emitter;
 
-
     /*
     This is a list of all available events you can register on a dropzone object.
     
@@ -92,7 +91,7 @@
       withCredentials: false,
       parallelUploads: 2,
       uploadMultiple: false,
-      maxFilesize: 256,
+      maxFilesize: 2560,
       paramName: "file",
       createImageThumbnails: true,
       maxThumbnailFilesize: 10,
@@ -1611,7 +1610,6 @@
 
   Dropzone.SUCCESS = "success";
 
-
   /*
   
   Bugfix for iOS 6 and 7
@@ -1654,7 +1652,6 @@
     vertSquashRatio = detectVerticalSquash(img);
     return ctx.drawImage(img, sx, sy, sw, sh, dx, dy, dw, dh / vertSquashRatio);
   };
-
 
   /*
    * contentloaded.js
