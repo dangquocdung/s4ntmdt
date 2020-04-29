@@ -62,7 +62,7 @@
     <script type="text/javascript" src="{{ URL::asset('/common/base64.js') }}"></script>
     <script type="text/javascript" src="{{ URL::asset('/plugins/iCheck/icheck.min.js') }}"></script>    
     	        
-    <script type="text/javascript" src="{{ mix('/js/app.js') }}"></script>
+    <script type="text/javascript" src="{{ URL::asset('/js/app.js') }}"></script>
 
     <script type="text/javascript">
       var modalRequestProduct   = document.getElementById('request_product_modal');
