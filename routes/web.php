@@ -11,6 +11,8 @@
 |
 */
 
+Route::view('/offline','offline');
+
 //installation route
 Route::get('/installation', [
   'uses' => 'Admin\InstallationController@installationCheck',
