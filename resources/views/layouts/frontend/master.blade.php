@@ -6,7 +6,6 @@
   <!-- Body-->
   <body>
 
-
     <!-- Header-->
     <!-- Remove "navbar-sticky" class to make navigation bar scrollable with the page.-->
 
@@ -35,18 +34,13 @@
     <input type="hidden" name="lang_code" id="lang_code" value="{{ $selected_lang_code }}">  
     <input type="hidden" name="subscription_type" id="subscription_type" value="{{ $subscriptions_data['subscribe_type'] }}">
 
-  
-
     @include('modal.quick-view')
     @include('modal.subscribe-content')
-
 
     <!-- Back To Top Button-->
     <a class="scroll-to-top-btn" href="#"><i class="icon-chevron-up"></i></a>
     <!-- Backdrop-->
     <div class="site-backdrop"></div>
-
-
 
     <!-- JavaScript (jQuery) libraries, plugins and custom scripts-->
     <!-- Main Template Styles-->
@@ -271,7 +265,6 @@
 
       })
 
-
       if ($('#sendVendorContactMessage').length > 0) {
         $('#sendVendorContactMessage').on('click', function () {
           if ($('#contact_name').val() == '' || $('#contact_name').val() == null) {
@@ -363,21 +356,6 @@
 
     </script>
 
-    <script>
-        if ('serviceWorker' in navigator ) {
-            window.addEventListener('load', function() {
-                navigator.serviceWorker.register('./sw.js').then(function(registration) {
-                    // Registration was successful
-                    console.log('ServiceWorker registration successful with scope: ', registration.scope);
-                }, function(err) {
-                    // registration failed :(
-                    console.log('ServiceWorker registration failed: ', err);
-                });
-            });
-        }
-    </script>
-
-
     @if( Request::is('/') )
       <style>
         .fb_dialog.fb_dialog_advanced {
@@ -416,7 +394,6 @@
         theme_color="#0084ff">
       </div>
     @endif
-
 
   </body>
 </html>
