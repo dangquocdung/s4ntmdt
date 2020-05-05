@@ -20,6 +20,8 @@ use shopist\Models\TermExtra;
 use shopist\Models\Option;
 use shopist\Models\UsersDetail;
 
+use shopist\Models\PostArchive;
+
 class CMSController extends Controller
 {
   /**
