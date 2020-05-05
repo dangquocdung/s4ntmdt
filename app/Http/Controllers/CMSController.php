@@ -766,12 +766,13 @@ class CMSController extends Controller
      */
     public function luuHinhAnh(Request $request)
     {
-      $file = $request->file('image');
-      $destinationPath = public_path('uploads');
-      $filename = time() . rand(1111,9999) . '.' . $file->getClientOriginalExtension();
-      if($request->file('image')->move($destinationPath, $filename)) {
-          echo $destinationPath.$filename;
-      }
+      return response()->json($request)
+      // $file = $request->file('image');
+      // $destinationPath = public_path('uploads');
+      // $filename = time() . rand(1111,9999) . '.' . $file->getClientOriginalExtension();
+      // if($request->file('image')->move($destinationPath, $filename)) {
+      //     echo $destinationPath.$filename;
+      // }
     }
 
   
