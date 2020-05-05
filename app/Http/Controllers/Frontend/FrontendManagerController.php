@@ -848,7 +848,7 @@ class FrontendManagerController extends Controller
     $data = array();
     $get_page_by_filter = Post :: where(['post_slug' => $params, 'post_status' => 1, 'post_type' => 'page'])->first();
 
-    if (isnull($get_page_by_filter['post_content'])){
+    if (empty($get_page_by_filter->post_content)){
 
       $get_page_by_filter = PostArchive :: where(['post_slug' => $params, 'post_status' => 1, 'post_type' => 'page'])->first();
 
