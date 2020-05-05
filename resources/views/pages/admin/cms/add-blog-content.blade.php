@@ -34,7 +34,7 @@
           <h3 class="box-title">Ngày đăng</h3>
         </div>
         <div class="box-body">
-          <input type="text" placeholder="Ngày đăng" id="blog_post_data" name="blog_post_data" class="form-control">
+          <input type="text" placeholder="Ngày đăng" id="blog_post_date" name="blog_post_date" class="form-control">
         </div>
       </div>
 
