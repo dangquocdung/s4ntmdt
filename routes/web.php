@@ -743,6 +743,9 @@ Route::group(['prefix' => 'admin'], function () {
     'uses' => 'CMSController@blogPostSave',
     'as'   => 'admin.update_blog_post'
   ]);
+
+  Route::post('/luu-hinh-anh','CMSController@luuHinhAnh');
+
   
   Route::post('testimonial/add', [
     'uses' => 'CMSController@saveTestimonialPost',

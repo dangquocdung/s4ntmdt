@@ -757,6 +757,28 @@ class CMSController extends Controller
       }
     }
   }
+
+      /**
+     * Store a newly created resource in storage.
+     *
+     * @param  \Illuminate\Http\Request $request
+     * @return \Illuminate\Http\Response
+     */
+    public function luuHinhAnh(Request $request)
+    {
+
+        $this->validate($request, [
+            'image' => 'required'
+        ]);
+
+        $file = $request->file('image');
+        $destinationPath = $this->getUploadPath();
+        $filename = time() . rand(1111,9999) . '.' . $file->getClientOriginalExtension();
+        if($request->file('image')->move($destinationPath, $filename)) {
+            echo $destinationPath.$filename;
+        }
+    }
+
   
   /**
    * 
