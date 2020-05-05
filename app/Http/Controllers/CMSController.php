@@ -20,8 +20,6 @@ use shopist\Models\TermExtra;
 use shopist\Models\Option;
 use shopist\Models\UsersDetail;
 
-use Illuminate\Http\Request;
-
 class CMSController extends Controller
 {
   /**
