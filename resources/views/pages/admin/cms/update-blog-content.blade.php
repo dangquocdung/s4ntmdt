@@ -41,15 +41,6 @@
 
 
 
-      <div class="box box-solid">
-        <div class="box-header with-border">
-          <i class="fa fa-text-width"></i>
-          <h3 class="box-title">{!! trans('admin.post_file') !!}</h3>
-        </div>
-        <div class="box-body">
-          <input type="file" name="file_upload" id="file_upload"/>
-        </div>
-      </div>
 
         
       <div class="box box-solid">
@@ -107,6 +98,17 @@
           </div>
         </div>
       </div>
+
+      <div class="box box-solid">
+        <div class="box-header with-border">
+          <i class="fa fa-text-width"></i>
+          <h3 class="box-title">{!! trans('admin.post_file') !!}</h3>
+        </div>
+        <div class="box-body">
+          <input type="file" name="file_upload" id="file_upload"/>
+        </div>
+      </div>
+
         
       <div class="box box-solid">
         <div class="box-header with-border">
