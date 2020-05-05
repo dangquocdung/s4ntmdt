@@ -593,6 +593,8 @@ class CMSController extends Controller
           $post->post_author_id         =   Session::get('shopist_admin_user_id');
           $post->post_content           =   string_encode(Input::get('blog_description_editor'));
           $post->post_title             =   Input::get('blog_post_title');
+          $post->post_date             =   Input::get('blog_post_date');
+
           $post->post_slug              =   $post_slug;
 
           if (strlen($uploaded_file_name) > 0){
@@ -680,6 +682,7 @@ class CMSController extends Controller
                       'post_author_id'         =>  Session::get('shopist_admin_user_id'),
                       'post_content'           =>  string_encode(Input::get('blog_description_editor')),
                       'post_title'             =>  Input::get('blog_post_title'),
+                      'post_date'             =>  Input::get('blog_post_date'),
                       'post_status'            =>  Input::get('blog_post_visibility')
           );
 
