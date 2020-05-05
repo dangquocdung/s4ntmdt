@@ -38,7 +38,6 @@
           <thead class="thead-dark">
             <tr>
               <th>{!! trans('admin.post_title') !!}</th>
-              <th>Ngày đăng</th>
               <th>{!! trans('admin.status') !!}</th>
               <th>{!! trans('admin.action') !!}</th>
             </tr>
@@ -48,9 +47,6 @@
               @foreach($pages_list as $row)
                 <tr>
                   <td>{!! $row['post_title'] !!}</td>
-                  <td>
-                    {{ Carbon\Carbon::parse($row['post_date'])->format('d-m-Y') }}
-                  </td>
 
                   @if($row['post_status'] == 1)
                     <td>{!! trans('admin.enable') !!}</td>
