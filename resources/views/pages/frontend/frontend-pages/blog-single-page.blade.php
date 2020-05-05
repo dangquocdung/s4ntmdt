@@ -8,7 +8,8 @@
   <meta property="og:title" content="{!! $blog_details_by_slug['post_title'] !!}" />
   <meta property="og:description" content="{{ get_limit_string(string_decode($blog_details_by_slug['post_content']),200) }}" />
   <meta property="og:image" content="{{ URL::asset('/img/logo/logo.png') }}"/>
-  <meta property="og:image" content="{{ URL::asset(get_site_logo_image()) }}"/>
+  <meta property="og:image" content="{{ {{ get_image_url($blog_details_by_slug['featured_image']) }} }}"/>
+
 
 @stop
 
