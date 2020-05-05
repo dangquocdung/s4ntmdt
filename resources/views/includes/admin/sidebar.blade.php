@@ -736,6 +736,9 @@
               @else
                 <li><a href="{{ route('admin.emails_settings_content') }}"><i class="fa fa-envelope"></i> {!! trans('admin.emails_label') !!}</a></li>
               @endif
+
+              <li><a href="{{ route('admin.backup') }}"><i class="fa fa-circle-o"></i> Sao lưu & Khôi phục</a></li>
+
               
             </ul>
           </li>

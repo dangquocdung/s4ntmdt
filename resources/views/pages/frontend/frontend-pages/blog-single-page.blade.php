@@ -1,5 +1,17 @@
 @extends('layouts.frontend.master')
 
+@section('facebook')
+
+  <meta property="fb:app_id" content="474963156565592" />
+  <meta property="og:url" content="{{ Request::url() }}" />
+  <meta property="og:type" content="article" />
+  <meta property="og:title" content="{!! $blog_details_by_slug['post_title'] !!}" />
+  <meta property="og:description" content="{!! get_limit_string(string_decode($blog_details_by_slug['post_content']),200) !!}" />
+  <meta property="og:image" content="{{ URL::asset('/img/logo/logo.png') }}"/>
+  <meta property="og:image" content="{{ URL::asset(get_site_logo_image()) }}"/>
+
+@stop
+
 @if(!empty($blog_details_by_slug['blog_seo_title']))
   @section('title',  $blog_details_by_slug['blog_seo_title'] .' | '. get_site_title())
 @else
@@ -141,7 +153,6 @@
       </section>
       @endif
 
-
       <!-- Relevant Posts-->
       @if(count($advanced_data['best_items']) > 0)  
 
@@ -152,8 +163,6 @@
             <div class="tab-content another-product-style jump">
                 <div class="tab-pane fade show active" id="latest_products" role="tabpanel">
                   <div class="owl-carousel" data-owl-carousel="{ &quot;nav&quot;: false, &quot;dots&quot;: true, &quot;margin&quot;: 30, &quot;responsive&quot;: {&quot;0&quot;:{&quot;items&quot;:2},&quot;576&quot;:{&quot;items&quot;:3},&quot;768&quot;:{&quot;items&quot;:4},&quot;991&quot;:{&quot;items&quot;:4},&quot;1200&quot;:{&quot;items&quot;:4}} }">
-
-
 
                     @foreach($advanced_data['best_items'] as $row)
 
@@ -180,7 +189,6 @@
                               </div>
                           </div>
                       </div>
-
 
                     @endforeach
 

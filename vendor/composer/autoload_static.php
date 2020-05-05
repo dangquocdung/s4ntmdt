@@ -171,6 +171,11 @@ class ComposerStaticInitbc4c21e3d2065861b0c2055b1c4f8390
             'Cron\\' => 5,
             'Collective\\Html\\' => 16,
         ),
+        'B' => 
+        array (
+            'Botble\\Support\\' => 15,
+            'Botble\\Backup\\' => 14,
+        ),
         'A' => 
         array (
             'Anhskohbo\\NoCaptcha\\' => 20,
@@ -467,6 +472,14 @@ class ComposerStaticInitbc4c21e3d2065861b0c2055b1c4f8390
         array (
             0 => __DIR__ . '/..' . '/laravelcollective/html/src',
         ),
+        'Botble\\Support\\' => 
+        array (
+            0 => __DIR__ . '/../..' . '/packages/botble/backup/support/src',
+        ),
+        'Botble\\Backup\\' => 
+        array (
+            0 => __DIR__ . '/../..' . '/packages/botble/backup/src',
+        ),
         'Anhskohbo\\NoCaptcha\\' => 
         array (
             0 => __DIR__ . '/..' . '/anhskohbo/no-captcha/src',
@@ -522,6 +535,22 @@ class ComposerStaticInitbc4c21e3d2065861b0c2055b1c4f8390
         'Anhskohbo\\NoCaptcha\\Facades\\NoCaptcha' => __DIR__ . '/..' . '/anhskohbo/no-captcha/src/Facades/NoCaptcha.php',
         'Anhskohbo\\NoCaptcha\\NoCaptcha' => __DIR__ . '/..' . '/anhskohbo/no-captcha/src/NoCaptcha.php',
         'Anhskohbo\\NoCaptcha\\NoCaptchaServiceProvider' => __DIR__ . '/..' . '/anhskohbo/no-captcha/src/NoCaptchaServiceProvider.php',
+        'Botble\\Backup\\Http\\Controllers\\BackupController' => __DIR__ . '/../..' . '/packages/botble/backup/src/Http/Controllers/BackupController.php',
+        'Botble\\Backup\\Http\\Requests\\CreateBackupRequest' => __DIR__ . '/../..' . '/packages/botble/backup/src/Http/Requests/CreateBackupRequest.php',
+        'Botble\\Backup\\Http\\Requests\\UpdateBackupRequest' => __DIR__ . '/../..' . '/packages/botble/backup/src/Http/Requests/UpdateBackupRequest.php',
+        'Botble\\Backup\\Providers\\BackupServiceProvider' => __DIR__ . '/../..' . '/packages/botble/backup/src/Providers/BackupServiceProvider.php',
+        'Botble\\Backup\\Supports\\Backup' => __DIR__ . '/../..' . '/packages/botble/backup/src/Supports/Backup.php',
+        'Botble\\Backup\\Supports\\PclZip' => __DIR__ . '/../..' . '/packages/botble/backup/src/Supports/PclZip.php',
+        'Botble\\Support\\Criteria\\AbstractCriteria' => __DIR__ . '/../..' . '/packages/botble/backup/support/src/Criteria/AbstractCriteria.php',
+        'Botble\\Support\\Criteria\\Contracts\\CriteriaContract' => __DIR__ . '/../..' . '/packages/botble/backup/support/src/Criteria/Contracts/CriteriaContract.php',
+        'Botble\\Support\\Http\\Requests\\Request' => __DIR__ . '/../..' . '/packages/botble/backup/support/src/Http/Requests/Request.php',
+        'Botble\\Support\\Providers\\SupportServiceProvider' => __DIR__ . '/../..' . '/packages/botble/backup/support/src/Providers/SupportServiceProvider.php',
+        'Botble\\Support\\Repositories\\Caches\\CacheAbstractDecorator' => __DIR__ . '/../..' . '/packages/botble/backup/support/src/Repositories/Caches/CacheAbstractDecorator.php',
+        'Botble\\Support\\Repositories\\Eloquent\\RepositoriesAbstract' => __DIR__ . '/../..' . '/packages/botble/backup/support/src/Repositories/Eloquent/RepositoriesAbstract.php',
+        'Botble\\Support\\Repositories\\Interfaces\\RepositoryInterface' => __DIR__ . '/../..' . '/packages/botble/backup/support/src/Repositories/Interfaces/RepositoryInterface.php',
+        'Botble\\Support\\Services\\Cache\\Cache' => __DIR__ . '/../..' . '/packages/botble/backup/support/src/Services/Cache/Cache.php',
+        'Botble\\Support\\Services\\Cache\\CacheInterface' => __DIR__ . '/../..' . '/packages/botble/backup/support/src/Services/Cache/CacheInterface.php',
+        'Botble\\Support\\Services\\ProduceServiceInterface' => __DIR__ . '/../..' . '/packages/botble/backup/support/src/Services/ProduceServiceInterface.php',
         'CSSmin' => __DIR__ . '/..' . '/mrclay/minify/min/lib/CSSmin.php',
         'Carbon\\Carbon' => __DIR__ . '/..' . '/nesbot/carbon/src/Carbon/Carbon.php',
         'Carbon\\CarbonInterval' => __DIR__ . '/..' . '/nesbot/carbon/src/Carbon/CarbonInterval.php',
@@ -4973,7 +5002,7 @@ class ComposerStaticInitbc4c21e3d2065861b0c2055b1c4f8390
         'shopist\\Http\\Controllers\\Auth\\LoginController' => __DIR__ . '/../..' . '/app/Http/Controllers/Auth/LoginController.php',
         'shopist\\Http\\Controllers\\Auth\\RegisterController' => __DIR__ . '/../..' . '/app/Http/Controllers/Auth/RegisterController.php',
         'shopist\\Http\\Controllers\\CMSController' => __DIR__ . '/../..' . '/app/Http/Controllers/CMSController.php',
-        'shopist\\Http\\Controllers\\CheckoutController' => __DIR__ . '/../..' . '/app/Http/Controllers/zCheckoutController.php',
+        'shopist\\Http\\Controllers\\CheckoutController' => __DIR__ . '/../..' . '/app/Http/Controllers/CheckoutController.php',
         'shopist\\Http\\Controllers\\Common\\CommonAjaxController' => __DIR__ . '/../..' . '/app/Http/Controllers/Common/CommonAjaxController.php',
         'shopist\\Http\\Controllers\\Controller' => __DIR__ . '/../..' . '/app/Http/Controllers/Controller.php',
         'shopist\\Http\\Controllers\\DesignerElementsController' => __DIR__ . '/../..' . '/app/Http/Controllers/DesignerElementsController.php',
@@ -4995,6 +5024,7 @@ class ComposerStaticInitbc4c21e3d2065861b0c2055b1c4f8390
         'shopist\\Http\\Controllers\\SettingsController' => __DIR__ . '/../..' . '/app/Http/Controllers/SettingsController.php',
         'shopist\\Http\\Controllers\\ShippingMethodController' => __DIR__ . '/../..' . '/app/Http/Controllers/ShippingMethodController.php',
         'shopist\\Http\\Controllers\\VendorsController' => __DIR__ . '/../..' . '/app/Http/Controllers/VendorsController.php',
+        'shopist\\Http\\Controllers\\zCheckoutController' => __DIR__ . '/../..' . '/app/Http/Controllers/zCheckoutController.php',
         'shopist\\Http\\Kernel' => __DIR__ . '/../..' . '/app/Http/Kernel.php',
         'shopist\\Http\\Middleware\\EncryptCookies' => __DIR__ . '/../..' . '/app/Http/Middleware/EncryptCookies.php',
         'shopist\\Http\\Middleware\\IsAdminMiddleware' => __DIR__ . '/../..' . '/app/Http/Middleware/IsAdminMiddleware.php',

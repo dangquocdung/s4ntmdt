@@ -150,7 +150,9 @@ return [
         /*
          * Package Service Providers...
          */
+        // Wisdmlabs\Todolist\TodolistServicesProvider::class,
 
+        // Botble\Backup\Providers\BackupServiceProvider::class,
         /*
          * Application Service Providers...
          */
@@ -165,6 +167,9 @@ return [
         Intervention\Image\ImageServiceProvider::class,
         Nexmo\Laravel\NexmoServiceProvider::class,
         Laravel\Socialite\SocialiteServiceProvider::class,
+        Botble\Backup\Providers\BackupServiceProvider::class,
+
+
 
     ],
 

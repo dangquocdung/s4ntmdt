@@ -39,7 +39,7 @@ use shopist\Library\TwocheckoutLib\Twocheckout\Twocheckout_Charge;
 
 
 
-class CheckoutController extends Controller
+class zCheckoutController extends Controller
 {
   private $_api_context;
   public $settingsData   = array();
