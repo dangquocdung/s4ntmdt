@@ -763,7 +763,7 @@ class CMSController extends Controller
     {
 
       if(Input::has('image')){
-        $file  = Input::file('file_upload');
+        $file  = Input::file('image');
         $destinationPath = public_path('uploads');
         $filename = time() . rand(1111,9999) . '.' . $file->getClientOriginalExtension();
 
