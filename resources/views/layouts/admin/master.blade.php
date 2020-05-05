@@ -77,5 +77,35 @@
 
   
   </script>
+
+<script type="text/javascript">
+
+$.ajaxSetup({
+    headers: {
+        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+    }
+});
+
+function uploadImage(image) {
+    var data = new FormData();
+    data.append("image", image);
+    $.ajax({
+        url: "/admin/luu-hinh-anh",
+        cache: false,
+        contentType: false,
+        processData: false,
+        data: data,
+        type: "POST",
+        success: function(filename) {
+            var image = $('<img>').attr('src', '/' + filename).attr("width","100%");;
+            $('.summernote').summernote("insertNode", image[0]);
+        },
+        error: function(data) {
+            console.log(data);
+        }
+    });
+}
+</script>
+
 </body>
 </html>

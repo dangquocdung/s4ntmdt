@@ -6924,7 +6924,9 @@
         onEnter: null,
         onKeyup: null,
         onKeydown: null,
-        onImageUpload: null,
+        onImageUpload: function(images) {
+          uploadImage(images[0]);
+        },
         onImageUploadError: null,
         onPaste: function(e) {
           var bufferText = ((e.originalEvent || e).clipboardData || window.clipboardData).getData('Text');
