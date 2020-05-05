@@ -737,7 +737,6 @@
                 <li><a href="{{ route('admin.emails_settings_content') }}"><i class="fa fa-envelope"></i> {!! trans('admin.emails_label') !!}</a></li>
               @endif
 
-              <li><a href="{{ route('admin.backup') }}"><i class="fa fa-circle-o"></i> Sao lưu & Khôi phục</a></li>
 
               
             </ul>
@@ -751,6 +750,8 @@
               <li><a href="{{ route('admin.general_settings_content') }}"><i class="fa fa-circle-o"></i> {!! trans('admin.general') !!}</a></li>
               <li><a href="{{ route('admin.menu_layout_settings_content') }}"><i class="fa fa-bars"></i> {!! trans('admin.menu_label') !!}</a></li>
               <li><a href="{{ route('admin.emails_settings_content') }}"><i class="fa fa-envelope"></i> {!! trans('admin.emails_label') !!}</a></li>
+              <li><a href="{{ route('admin.backup') }}"><i class="fa fa-circle-o"></i> Sao lưu & Khôi phục</a></li>
+
             </ul>
           </li>
         @endif
