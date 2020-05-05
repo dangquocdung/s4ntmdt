@@ -769,7 +769,7 @@ class CMSController extends Controller
 
         if ($file->move($destinationPath, $filename)){
 
-          echo $destinationPath.$filename;
+          echo 'uploads/'.$filename;
 
         }
         
