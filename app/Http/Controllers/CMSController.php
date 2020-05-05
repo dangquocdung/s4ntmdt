@@ -802,7 +802,7 @@ class CMSController extends Controller
 
       $get_blog_data_by_slug = Post :: where(['post_slug' => $blog_slug, 'post_type' => 'post-blog'])->get()->toArray();
 
-      if (empty($get_blog_data_by_slug->post_content) && $get_blog_data_by_slug->id < 466){
+      if (empty($get_blog_data_by_slug->post_content)){
 
         $get_blog_data_by_slug = PostArchive :: where(['post_slug' => $blog_slug, 'post_type' => 'post-blog'])->get()->toArray();
   
