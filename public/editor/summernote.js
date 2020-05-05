@@ -6861,7 +6861,7 @@
         ],
         air: [
           ['color', ['color']],
-          ['font', ['bold', 'underline', 'clear']],
+          ['font', ['bold', 'underline', 'italic', 'clear']],
           ['para', ['ul', 'paragraph']],
           ['table', ['table']],
           ['insert', ['link', 'picture']]
