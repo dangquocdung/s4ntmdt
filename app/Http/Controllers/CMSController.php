@@ -766,7 +766,7 @@ class CMSController extends Controller
      */
     public function luuHinhAnh(Request $request)
     {
-      return response()->json($request)
+      return response()->json($request);
       // $file = $request->file('image');
       // $destinationPath = public_path('uploads');
       // $filename = time() . rand(1111,9999) . '.' . $file->getClientOriginalExtension();
