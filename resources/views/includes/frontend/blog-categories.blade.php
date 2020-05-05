@@ -49,7 +49,7 @@
               <h4 class="entry-title">
                 <a href="{{ route('blog-single-page', $items['post_slug'])}}">{!! $items['post_title'] !!}</a>
               </h4>
-              <span class="entry-meta"><i class="fa fa-calendar"></i>&nbsp; {{ Carbon\Carbon::parse($items['created_at'])->format('d F, Y') }}</span>&nbsp;&nbsp;
+              <span class="entry-meta"><i class="fa fa-calendar"></i>&nbsp; {{ Carbon\Carbon::parse($items['post_date'])->format('d-m-Y') }}</span>&nbsp;&nbsp;
             </div>
           </div>
 
