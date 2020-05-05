@@ -30,6 +30,17 @@
 
       <div class="box box-solid">
         <div class="box-header with-border">
+          <i class="fa fa-calendar"></i>
+          <h3 class="box-title">Ngày đăng</h3>
+        </div>
+        <div class="box-body">
+          <input type="text" placeholder="Ngày đăng" id="blog_post_date" name="blog_post_date" class="form-control" value="{{ $blog_details_by_slug['post_date'] }}">
+        </div>
+      </div>
+
+
+      <div class="box box-solid">
+        <div class="box-header with-border">
           <i class="fa fa-text-width"></i>
           <h3 class="box-title">{!! trans('admin.post_file') !!}</h3>
         </div>
