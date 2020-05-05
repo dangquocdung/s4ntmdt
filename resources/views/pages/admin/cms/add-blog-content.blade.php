@@ -31,6 +31,23 @@
       <div class="box box-solid">
         <div class="box-header with-border">
           <i class="fa fa-text-width"></i>
+          <h3 class="box-title">{!! trans('admin.post_title') !!}</h3>
+        </div>
+        <div class="box-body">
+          <div class="input-group-prepend">
+            <span class="input-group-text" id="basic-addon1"><i class="fa fa-calendar"></i></span>
+          </div>
+
+          <input type="text" placeholder="{{ trans('admin.start_date_format') }}" id="inputSalePriceStartDate" name="inputSalePriceStartDate" class="form-control pull-right">
+        </div>
+      </div>
+
+
+
+
+      <div class="box box-solid">
+        <div class="box-header with-border">
+          <i class="fa fa-text-width"></i>
           <h3 class="box-title">{!! trans('admin.post_file') !!}</h3>
         </div>
         <div class="box-body">
