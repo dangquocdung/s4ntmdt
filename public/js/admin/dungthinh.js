@@ -263,7 +263,7 @@ shopist.pageLoad = {
         }
 
         if ($('#inputSalePriceStartDate').length > 0 || $('#inputSalePriceEndDate').length > 0 || $('#inputVariationSalePriceStartDate').length > 0 || $('#inputVariationSalePriceEndDate').length > 0 || $('#filter_start_date').length > 0 || $('#filter_end_date').length > 0 || $('#inputUsageStartDate').length > 0 || $('#inputUsageEndDate').length > 0 || $('#download_expiry').length > 0 || $('#inputExpiredDate').length > 0 || $('#blog_post_date').length > 0) {
-            $('#inputSalePriceStartDate,#inputSalePriceEndDate,#inputVariationSalePriceStartDate,#inputVariationSalePriceEndDate,#filter_start_date,#filter_end_date,#inputUsageStartDate,#inputUsageEndDate, #download_expiry, #inputExpiredDate').datepicker({ format: 'dd-mm-yyyy' });
+            $('#inputSalePriceStartDate,#inputSalePriceEndDate,#inputVariationSalePriceStartDate,#inputVariationSalePriceEndDate,#filter_start_date,#filter_end_date,#inputUsageStartDate,#inputUsageEndDate, #download_expiry, #inputExpiredDate,#blog_post_date').datepicker({ format: 'dd-mm-yyyy' });
         }
 
         reportProductTitleDataTable = $('#table_for_report_product_title').dataTable();
