@@ -6,12 +6,7 @@
   <meta property="og:url" content="{{ Request::url() }}" />
   <meta property="og:type" content="article" />
   <meta property="og:title" content="{!! $blog_details_by_slug['post_title'] !!}" />
-  @php
-
-    $fb_description = strip_tags($blog_details_by_slug['post_content']);
-
-  @endphp
-  <meta property="og:description" content="{{ get_limit_string($fb_description,100) }}" />
+  <meta property="og:description" content="{{ get_limit_string($blog_details_by_slug['post_content'],100) }}" />
   <meta property="og:image" content="{{ get_image_url($blog_details_by_slug['featured_image']) }}"/>
   <meta property="og:image" content="{{ URL::asset('/img/logo/logo.png') }}"/>
 
