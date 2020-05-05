@@ -702,7 +702,7 @@ Route::group(['prefix' => 'admin'], function () {
   //Backup
   Route::get('/backup', function (){
     return view('pages.admin.backups');
-  })->name('backups');
+  })->name('admin.backup');
 
   Route::post('manufacturers/add', [
     'uses' => 'CMSController@saveManufacturersData',
