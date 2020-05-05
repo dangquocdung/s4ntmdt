@@ -28,6 +28,8 @@
         </div>
       </div>
 
+      @if (isset($blog_details_by_slug['post_date']))
+
       <div class="box box-solid">
         <div class="box-header with-border">
           <i class="fa fa-calendar"></i>
@@ -37,6 +39,8 @@
           <input type="text" placeholder="Ngày đăng" id="blog_post_date" name="blog_post_date" class="form-control" value="{{ $blog_details_by_slug['post_date'] }}">
         </div>
       </div>
+
+      @endif
 
 
       <div class="box box-solid">
