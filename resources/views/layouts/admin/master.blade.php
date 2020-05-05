@@ -98,7 +98,7 @@ function uploadImage(image) {
         type: "POST",
         success: function(filename) {
             var image = $('<img>').attr('src', '/' + filename).attr("width","100%");;
-            $('.summernote').summernote("insertNode", image[0]);
+            $('#blog_description_editor').summernote("insertNode", image[0]);
         },
         error: function(data) {
             console.log(data);
