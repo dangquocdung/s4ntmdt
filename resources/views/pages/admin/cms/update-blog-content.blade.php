@@ -28,7 +28,6 @@
         </div>
       </div>
 
-      @if (!empty($blog_details_by_slug['post_date']))
 
       <div class="box box-solid">
         <div class="box-header with-border">
@@ -40,7 +39,6 @@
         </div>
       </div>
 
-      @endif
 
 
       <div class="box box-solid">
