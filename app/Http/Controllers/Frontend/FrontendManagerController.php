@@ -24,6 +24,8 @@ use shopist\Models\OrdersItem;
 use shopist\Http\Controllers\VendorsController;
 use shopist\Models\SaveCustomDesign;
 
+use shopist\Models\PostArchive;
+
 class FrontendManagerController extends Controller
 {
   public $classGetFunction;
@@ -318,7 +320,6 @@ class FrontendManagerController extends Controller
 
       // return response()->json($data);
 
-      
       return view('pages.frontend.frontend-pages.blog-single-page', $data);
 
     }
@@ -846,6 +847,12 @@ class FrontendManagerController extends Controller
   public function singlePageContent( $params ){
     $data = array();
     $get_page_by_filter = Post :: where(['post_slug' => $params, 'post_status' => 1, 'post_type' => 'page'])->first();
+
+    if (empty($get_page_by_filter->post_content)){
+
+      $get_page_by_filter = PostArchive :: where(['post_slug' => $params, 'post_status' => 1, 'post_type' => 'page'])->first();
+
+    }
 
     if(!empty($get_page_by_filter)){
       $data = $this->classCommonFunction->get_dynamic_frontend_content_data();
