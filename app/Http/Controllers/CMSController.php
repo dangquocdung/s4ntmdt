@@ -772,7 +772,7 @@ class CMSController extends Controller
         ]);
 
         $file = $request->file('image');
-        $destinationPath = $this->getUploadPath();
+        $destinationPath = public_path('uploads');
         $filename = time() . rand(1111,9999) . '.' . $file->getClientOriginalExtension();
         if($request->file('image')->move($destinationPath, $filename)) {
             echo $destinationPath.$filename;
