@@ -802,11 +802,11 @@ class CMSController extends Controller
 
       $get_blog_data_by_slug = Post :: where(['post_slug' => $blog_slug, 'post_type' => 'post-blog'])->get()->toArray();
 
-      if (empty($get_blog_data_by_slug[0]['post_content'])){
+      // if (empty($get_blog_data_by_slug[0]['post_content'])){
 
-        $get_blog_data_by_slug = PostArchive :: where(['post_slug' => $blog_slug, 'post_type' => 'post-blog'])->get()->toArray();
+      //   $get_blog_data_by_slug = PostArchive :: where(['post_slug' => $blog_slug, 'post_type' => 'post-blog'])->get()->toArray();
   
-      }
+      // }
       
       if(count($get_blog_data_by_slug) > 0){
         $blog_data = array_shift($get_blog_data_by_slug);
