@@ -36,7 +36,10 @@
             "database/factories"
         ],
         "psr-4": {
-            "shopist\\": "app/"
+            "shopist\\": "app/",
+            "Botble\\Backup\\": "packages/botble/backup/src/",
+            "Botble\\Support\\": "packages/botble/backup/support/src"
+
         },
         "files": [
           "app/Helpers/helpers.php" 
@@ -72,4 +75,5 @@
     },
     "minimum-stability": "dev",
     "prefer-stable": true
+    
 }

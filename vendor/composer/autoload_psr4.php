@@ -77,6 +77,8 @@ return array(
     'DeepCopy\\' => array($vendorDir . '/myclabs/deep-copy/src/DeepCopy'),
     'Cron\\' => array($vendorDir . '/dragonmantank/cron-expression/src/Cron'),
     'Collective\\Html\\' => array($vendorDir . '/laravelcollective/html/src'),
+    'Botble\\Support\\' => array($baseDir . '/packages/botble/backup/support/src'),
+    'Botble\\Backup\\' => array($baseDir . '/packages/botble/backup/src'),
     'Anhskohbo\\NoCaptcha\\' => array($vendorDir . '/anhskohbo/no-captcha/src'),
     'Anam\\Phpcart\\' => array($vendorDir . '/anam/phpcart/src'),
     '' => array($vendorDir . '/nesbot/carbon/src'),
