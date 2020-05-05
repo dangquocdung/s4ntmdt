@@ -537,13 +537,11 @@ class CMSController extends Controller
         $post_slug              =   '';
         $uploaded_file_name     =   '';
 
-
         if(Input::has('file_upload')){
           $file  = Input::file('file_upload');
           $fileName  =  $file->getClientOriginalName();
           $get_extension  = explode('.', $fileName);
 
-          
           if(count($get_extension) > 0 && ($get_extension[1] == 'pdf' || $get_extension[1] == 'doc' || $get_extension[1] == 'docx')){
             $destinationPath = public_path('uploads');
             $file->move($destinationPath, time().'_'.$file->getClientOriginalName());
@@ -555,7 +553,6 @@ class CMSController extends Controller
           }
         }
 
-        
         if($allow_checkbox){
           $allow_for_comments = 'yes';
         }
@@ -575,7 +572,6 @@ class CMSController extends Controller
         if(Input::has('seo_url_format') && !empty(Input::get('seo_url_format'))){
           $url_slug = string_slug_format(Input::get('seo_url_format'));
         }
-        
         
         //create slug
         $check_slug  = Post::where(['post_slug' => string_slug_format( Input::get('blog_post_title') )])->orWhere('post_slug', 'like', '%' . string_slug_format( Input::get('blog_post_title') ) . '%')->get()->count();
@@ -717,7 +713,6 @@ class CMSController extends Controller
                                                   'key_value'    =>  Input::get('seo_keywords')
             );
 
-            
             PostExtra::where(['post_id' => $get_post['id'], 'key_name' => '_featured_image'])->update($featured_image);
             PostExtra::where(['post_id' => $get_post['id'], 'key_name' => '_allow_max_number_characters_at_frontend'])->update($allow_max_number_characters);
             PostExtra::where(['post_id' => $get_post['id'], 'key_name' => '_allow_comments_at_frontend'])->update($allow_comments);
@@ -766,7 +761,20 @@ class CMSController extends Controller
      */
     public function luuHinhAnh(Request $request)
     {
-      return response()->json($request);
+
+      if(Input::has('image')){
+        $file  = Input::file('file_upload');
+        $destinationPath = public_path('uploads');
+        $filename = time() . rand(1111,9999) . '.' . $file->getClientOriginalExtension();
+
+        if ($file->move($destinationPath, $filename)){
+
+          echo $destinationPath.$filename;
+
+        }
+        
+      }
+
       // $file = $request->file('image');
       // $destinationPath = public_path('uploads');
       // $filename = time() . rand(1111,9999) . '.' . $file->getClientOriginalExtension();
@@ -775,7 +783,6 @@ class CMSController extends Controller
       // }
     }
 
-  
   /**
    * 
    * Get blog data
@@ -1389,7 +1396,6 @@ class CMSController extends Controller
                                             'key_value'  =>  Input::get('testimonial_url')
             );
             
-            
             PostExtra::where(['post_id' => $get_post['id'], 'key_name' => '_testimonial_image_url'])->update($testimonial_image_url);
             PostExtra::where(['post_id' => $get_post['id'], 'key_name' => '_testimonial_client_name'])->update($testimonial_client_name);
             PostExtra::where(['post_id' => $get_post['id'], 'key_name' => '_testimonial_job_title'])->update($testimonial_job_title);
@@ -1451,7 +1457,6 @@ class CMSController extends Controller
         }
        
         $get_post_meta  = PostExtra::where(['post_id' => $testimonial_array['id']])->get()->toArray();
-        
         
         if(count($get_post_meta) > 0){
           
