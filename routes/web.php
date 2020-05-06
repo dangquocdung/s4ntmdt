@@ -366,6 +366,13 @@ Route::group(['prefix' => 'admin'], function () {
     'uses' => 'SettingsController@settingsAppearanceContent',
     'as'   => 'admin.frontend_layout_settings_content'
   ])->middleware('verifyLoginPage', 'admin', 'sufficientPermission');
+
+  //Slide
+  Route::get('settings/slide', [
+    'uses' => 'SettingsController@settingsSlideContent',
+    'as'   => 'admin.frontend_slide_settings_content'
+  ])->middleware('verifyLoginPage', 'admin', 'sufficientPermission');
+
   
   Route::get('settings/menu', [
     'uses' => 'SettingsController@settingsMenuContent',

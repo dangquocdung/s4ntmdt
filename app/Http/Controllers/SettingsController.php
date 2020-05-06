@@ -183,6 +183,31 @@ class SettingsController extends Controller
     
     return view('pages.admin.settings.appearance-content', $data);
   }
+
+    /**
+   * 
+   * Settings slide content
+   *
+   * @param null
+   * @return response view
+   */
+  public function settingsSlideContent(){
+    
+    $data = array();
+   
+    
+    $data = $this->classCommonFunction->commonDataForAllPages();
+    // $data['cat_list_data']           =  $this->getTermData( 'product_cat', true, $search_value, -1 );
+    // $data['only_cat_name']           =  $this->get_categories_name_for_list('product_cat');
+    // $data['search_value']            =  $search_value;
+    // $data['action']                  =  route('admin.product_categories_list');
+    
+    // return view('pages.admin.categories-list', $data);
+    // return response()->json($data);
+    
+    return view('pages.admin.settings.slide-content',$data);
+  }
+
   
   /**
    * 
