@@ -37,8 +37,8 @@
         ],
         "psr-4": {
             "shopist\\": "app/",
-            "Botble\\Backup\\": "packages/botble/backup/src/",
-            "Botble\\Support\\": "packages/botble/backup/support/src"
+            "Botble\\Backup\\": "packages/dungthinh/backup/src/",
+            "Botble\\Support\\": "packages/dungthinh/backup/support/src"
 
         },
         "files": [
