@@ -10,7 +10,7 @@ return [
     ],
 
     'backup_database' => true,
-    'folder_to_backup' => storage_path('app/public'),
+    'folder_to_backup' => public_path(),
 
 
     'route' => [
