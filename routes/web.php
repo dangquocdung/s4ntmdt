@@ -346,10 +346,10 @@ Route::group(['prefix' => 'admin'], function () {
   ])->middleware('verifyLoginPage', 'admin', 'sufficientPermission');
 
   //Backup
-  Route::get('/backup', function (){
-    return view('pages.admin.backups');
-  })->name('admin.backup')
-  ->middleware('verifyLoginPage', 'admin', 'sufficientPermission');
+  Route::get('settings/backup', [
+    'uses' => 'SettingsController@settingsBackupContent',
+    'as'   => 'admin.backup'
+  ])->middleware('verifyLoginPage', 'admin', 'sufficientPermission');
   
   
   Route::get('settings/languages', [

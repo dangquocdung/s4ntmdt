@@ -47,6 +47,17 @@ class SettingsController extends Controller
     
     return view('pages.admin.settings.general-content', $data);
   }
+
+  /**
+   * 
+   * Backup content
+   *
+   * @param null
+   * @return response view
+   */
+  public function settingsBackupContent(){
+    return view('pages.admin.backups');
+  }
   
   /**
    * 
