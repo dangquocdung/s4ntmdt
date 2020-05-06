@@ -50,7 +50,7 @@ class BackupController extends Controller
     {
         try {
             $this->backup->createBackupFolder($request);
-            // $this->backup->backupDb();
+            $this->backup->backupDb();
             $this->backup->backupFolder();
         
             return [
