@@ -748,7 +748,8 @@
             </a>
             <ul class="treeview-menu">
               <li><a href="{{ route('admin.general_settings_content') }}"><i class="fa fa-circle-o"></i> {!! trans('admin.general') !!}</a></li>
-              <li><a href="{{ route('admin.menu_layout_settings_content') }}"><i class="fa fa-bars"></i> {!! trans('admin.menu_label') !!}</a></li>
+              <!-- <li><a href="{{ route('admin.menu_layout_settings_content') }}"><i class="fa fa-bars"></i> {!! trans('admin.menu_label') !!}</a></li> -->
+              <li><a href="{{ route('admin.frontend_layout_settings_content') }}"><i class="fa fa-paint-brush"></i> {!! trans('admin.frontend_layout') !!}</a></li>
               <li><a href="{{ route('admin.emails_settings_content') }}"><i class="fa fa-envelope"></i> {!! trans('admin.emails_label') !!}</a></li>
             </ul>
           </li>
