@@ -344,6 +344,13 @@ Route::group(['prefix' => 'admin'], function () {
     'uses' => 'SettingsController@settingsGeneralContent',
     'as'   => 'admin.general_settings_content'
   ])->middleware('verifyLoginPage', 'admin', 'sufficientPermission');
+
+  //Backup
+  Route::get('/backup', function (){
+    return view('pages.admin.backups');
+  })->name('admin.backup')
+  ->middleware('verifyLoginPage', 'admin', 'sufficientPermission');
+  
   
   Route::get('settings/languages', [
     'uses' => 'SettingsController@settingsLanguagesContent',
@@ -698,11 +705,6 @@ Route::group(['prefix' => 'admin'], function () {
 
 // menu post
 Route::group(['prefix' => 'admin', 'middleware' => 'admin'], function () {
-
-  //Backup
-  Route::get('/backup', function (){
-    return view('pages.admin.backups');
-  })->name('admin.backup');
 
   Route::post('manufacturers/add', [
     'uses' => 'CMSController@saveManufacturersData',
