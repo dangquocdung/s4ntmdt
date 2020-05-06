@@ -572,7 +572,7 @@ return [
 'post_description_placeholder' =>'Nhập mô tả..',
 'appearance_page_title' =>'Cài đặt hiển thị',
 'emails_page_title' =>'Cài đặt email',
-'appearance_settings_content_top_msg' =>'Quản lý các mẫu lối vào',
+'appearance_settings_content_top_msg' =>'Quản lý giao diện trang chủ',
 'appearance_menu_name_settings' =>'Cài đặt',
 'appearance_menu_name_header' =>'Tiêu đề',
 'appearance_menu_name_home' =>'Nhà',
