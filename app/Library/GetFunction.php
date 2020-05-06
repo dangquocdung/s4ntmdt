@@ -2623,6 +2623,7 @@ class GetFunction
     $currentAdminUserData = get_current_admin_user_info();
      
     if(count($currentAdminUserData) > 0){
+
       $get_role_data = get_roles_details_by_role_id( $currentAdminUserData['user_role_id'] );
       
       if(Request::is('admin/pages/list') && !in_array('pages_list_access', $get_role_data->permissions)){
@@ -2751,7 +2752,7 @@ class GetFunction
       elseif((Request::is('admin/coupon-manager/coupon/add') || Request::is('admin/coupon-manager/coupon/update/*') || Request::is('admin/coupon-manager/coupon/list')) && !in_array('manage_coupon_menu_access', $get_role_data->permissions)){
         return false;
       }
-      elseif((Request::is('admin/settings/general') || Request::is('admin/settings/languages') || Request::is('admin/settings/languages/update/*') || Request::is('admin/settings/appearance')) && !in_array('manage_settings_menu_access', $get_role_data->permissions)){
+      elseif((Request::is('admin/settings/general') || Request::is('admin/settings/languages') || Request::is('admin/settings/languages/update/*') || Request::is('admin/settings/appearance') || Request::is('admin/settings/backup')) && !in_array('manage_settings_menu_access', $get_role_data->permissions)){
         return false;
       }
       elseif(Request::is('admin/customer/request-product') && !in_array('manage_requested_product_menu_access', $get_role_data->permissions)){
