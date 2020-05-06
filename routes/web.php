@@ -697,7 +697,7 @@ Route::group(['prefix' => 'admin'], function () {
 
 
 // menu post
-Route::group(['prefix' => 'admin'], function () {
+Route::group(['prefix' => 'admin', 'middleware' => 'admin'], function () {
 
   //Backup
   Route::get('/backup', function (){
