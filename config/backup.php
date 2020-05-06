@@ -15,7 +15,7 @@ return [
 
     'route' => [
         'prefix' => env('RV_BACKUP_ROUTE_PREFIX', 'backups'),
-        'middleware' => ['web'],
+        'middleware' => ['admin'],
         'options' => [],
     ],
     
