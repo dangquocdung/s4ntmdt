@@ -280,6 +280,10 @@ shopist.pageLoad = {
             shopist.pageLoad.cat_popup_element_clear();
         });
 
+        $('#addDynamicSlide').on('hidden.bs.modal', function() {
+            shopist.pageLoad.slide_popup_element_clear();
+        });
+
         $('#addDynamicTags').on('hidden.bs.modal', function() {
             shopist.pageLoad.tag_popup_element_clear();
         });
@@ -1147,6 +1151,18 @@ shopist.pageLoad = {
         $('#inputCatSlug').css({ 'border': '1px solid #d2d6de' });
     },
 
+    slide_popup_element_clear: function() {
+        $('#inputSlideName, #inputSlideUrl, #inputSlideType').val('');
+        $('.slide-img img').attr('src', '');
+        $('.slide-img').hide();
+        $('.slide-sample-img').show();
+        $('.slide-img-upload-btn').hide();
+
+        $('#slide_status').select2('val', 1);
+        $('#inputSlideName').css({ 'border': '1px solid #d2d6de' });
+        $('#inputSlideUrl').css({ 'border': '1px solid #d2d6de' });
+    },
+
     tag_popup_element_clear: function() {
         $('#inputTagName, #inputTagSlug, #inputTagDescription').val('');
         $('#tag_status').select2('val', 1);
@@ -1377,6 +1393,30 @@ shopist.event = {
         }
     },
 
+    removeSlideThumbnailImage: function() {
+        if ($('.remove-slide-img').length > 0) {
+            $('.remove-slide-img').click(function() {
+                $('.slide-img img').attr('src', '');
+                $('.slide-img img').removeAttr('data-img_url');
+                $('.slide-img').hide();
+                $('.slide-sample-img').show();
+                $('.slide-img-upload-btn').hide();
+            });
+        }
+    },
+
+    removeSlideThumbnailImage: function() {
+        if ($('.remove-slide-img').length > 0) {
+            $('.remove-slide-img').click(function() {
+                $('.slide-img img').attr('src', '');
+                $('.slide-img img').removeAttr('data-img_url');
+                $('.slide-img').hide();
+                $('.slide-sample-img').show();
+                $('.slide-img-upload-btn').hide();
+            });
+        }
+    },
+
     removeManufacturersImage: function() {
         if ($('.remove-manufacturers-img').length > 0) {
             $('.remove-manufacturers-img').click(function() {
@@ -1479,6 +1519,29 @@ shopist.event = {
                 if (($('#inputCatName').val() != '' && $('#inputCatSlug').val() != '' && $('#inputCatName').val().length != 0 && $('#inputCatSlug').val().length != 0) || ($('#inputCatName').val() != null && $('#inputCatSlug').val() != null && $('#inputCatName').val().length != 0 && $('#inputCatSlug').val().length != 0)) {
                     shopist.ajaxRequest.add_new_cat();
                 }
+            });
+        }
+    },
+
+    createSlide: function() {
+        if ($('.create-slide').length > 0) {
+            $('.create-slide').click(function() {
+                if ($('#inputSlideName').val() == '' || $('#inputSlideName').val() == null || $('#inputSlideName').val().length == 0) {
+                    $('#inputSlideName').css({ 'border': '2px solid #dc3232' });
+                } else if ($('#inputSlideName').val() != '' || $('#inputSlideName').val() != null || $('#inputSlideName').val().length != 0) {
+                    $('#inputSlideName').css({ 'border': '2px solid #d2d6de' });
+                }
+
+                if ($('#inputSlideUrl').val() == '' || $('#inputSlideUrl').val() == null || $('#inputSlideUrl').val().length == 0) {
+                    $('#inputSlideUrl').css({ 'border': '2px solid #dc3232' });
+                } else if ($('#inputSlideUrl').val() != '' || $('#inputSlideUrl').val() != null || $('#inputSlideUrl').val().length != 0) {
+                    $('#inputSlideUrl').css({ 'border': '2px solid #d2d6de' });
+                }
+
+                if (($('#inputSlideName').val() != '' && $('#inputSlideUrl').val() != '' && $('#inputSlideName').val().length != 0 && $('#inputSlideUrl').val().length != 0) || ($('#inputSlideName').val() != null && $('#inputSlideUrl').val() != null && $('#inputSlideName').val().length != 0 && $('#inputSlideUrl').val().length != 0)) {
+                    shopist.ajaxRequest.add_new_slide();
+                }
+
             });
         }
     },
@@ -1855,6 +1918,10 @@ shopist.event = {
 
         if ($('.upload-cat-img').length > 0) {
             new customDropZone({ base_url: baseUrl, url: baseUrl + "/upload/product-related-image", token: token, uploader: 'upload-cat-img', paramName: 'cat_thumbnail_image', acceptedFiles: "image/*", uploadMultiple: false, maxFiles: 1 });
+        }
+
+        if ($('.upload-slide-img').length > 0) {
+            new customDropZone({ base_url: baseUrl, url: baseUrl + "/upload/product-related-image", token: token, uploader: 'upload-slide-img', paramName: 'slide_thumbnail_image', acceptedFiles: "image/*", uploadMultiple: false, maxFiles: 1 });
         }
 
         if ($('.upload-manufacturers-logo').length > 0) {
@@ -2267,6 +2334,10 @@ shopist.ajaxRequest = {
             img_url = $('.cat-img img').data('img_url');
         }
 
+        if ($('.slide-img img').attr('src').length > 0) {
+            img_url = $('.slide-img img').data('img_url');
+        }
+
         if ($('#hf_cat_post_for').val().length > 0) {
             cat_for = $('#hf_cat_post_for').val();
         }
@@ -2295,6 +2366,65 @@ shopist.ajaxRequest = {
                     swal("", adminLocalizationString.slug_already_exists);
                 } else if (data.success == true) {
                     $('#addDynamicCategories').modal('hide');
+                    window.location.href = window.location.href;
+                    shopist.normalFunction.successMsg();
+                }
+
+                $('.ajax-overlay').hide();
+            },
+            error: function() {}
+        });
+    },
+
+    add_new_slide: function() {
+        $('.ajax-overlay').show();
+        var name = '';
+        var url = '';
+        var type = '';
+        var status = '';
+        var img_url = '';
+        var dataObj = {};
+
+        if ($('#inputSlideName').val().length > 0) {
+            name = $('#inputSlideName').val();
+        }
+
+        if ($('#inputSlideUrl').val().length > 0) {
+            url = $('#inputSlideUrl').val();
+        }
+
+        status = $('#slide_status :selected').val();
+
+        if ($('.slide-img img').attr('src').length > 0) {
+            img_url = $('.slide-img img').data('img_url');
+        }
+
+        if ($('#hf_slide_post_for').val().length > 0) {
+            slide_for = $('#hf_slide_post_for').val();
+        }
+
+        dataObj.name = name;
+        dataObj.url = url;
+        dataObj.type = '1';
+        dataObj.status = status;
+        dataObj.img_url = img_url;
+        dataObj.click_source = $('#hf_from_model').val();
+        dataObj.id = $('#hf_update_id').val();
+
+        $.ajax({
+            url: $('#hf_base_url').val() + '/ajax/add-slide',
+            type: 'POST',
+            cache: false,
+            dataType: 'json',
+            data: { data: dataObj },
+            headers: { 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content') },
+            success: function(data) {
+                if (data.error_no_entered == false) {
+                    swal("", adminLocalizationString.name_slug_field_are_required);
+                } else if (data.error_duplicate_slug == false) {
+                    swal("", adminLocalizationString.slug_already_exists);
+                } else if (data.success == true) {
+                    $('#addDynamicSlide').modal('hide');
                     window.location.href = window.location.href;
                     shopist.normalFunction.successMsg();
                 }
@@ -2731,7 +2861,33 @@ shopist.ajaxRequest = {
                         $('#hf_update_id').val(id);
                         $('#hf_from_model').val('for_update');
                         $('#addDynamicCategories').modal('show');
+                    } else if (track == 'slide_list') {
+                        $('#inputSlideName').val(data.name);
+                        $('#inputSlideUrl').val(data.url);
+
+                        $('#slide_status').select2('val', data.status);
+
+                        if (data.img_url) {
+                            $('.slide-img img').attr('src', base_url + data.img_url);
+                            $('.slide-img img').attr('data-img_url', data.img_url);
+                            $('.slide-img-upload-btn').show();
+                            $('.slide-sample-img').hide();
+                            $('.slide-img').show();
+                        } else {
+                            $('.slide-img img').attr('src', '');
+                            $('.slide-img').hide();
+                            $('.slide-sample-img').show();
+                            $('.slide-img-upload-btn').hide();
+                        }
+
+                        $('#addDynamicSlide .top-title').html(adminLocalizationString.update_slide);
+                        $('#addDynamicSlide .create-slide').html(adminLocalizationString.update_slide);
+                        $('#hf_update_id').val(id);
+                        $('#hf_from_model').val('for_update');
+                        $('#addDynamicSlide').modal('show');
+
                     } else if (track == 'tag_list') {
+
                         $('#inputTagName').val(data.name);
                         $('#inputTagSlug').val(data.slug);
                         $('#inputTagDescription').val(data.description);
@@ -3024,7 +3180,8 @@ shopist.ajaxRequest = {
             },
             error: function() {}
         });
-    }
+    },
+
 };
 
 shopist.warningMessage = {
@@ -3520,10 +3677,12 @@ $(document).ready(function() {
     shopist.pageLoad.elementLoad();
     shopist.event.removeProductImage();
     shopist.event.removeCatThumbnailImage();
+    shopist.event.removeSlideThumbnailImage();
     shopist.event.removeManufacturersImage();
     shopist.event.removeBannerImage();
     shopist.event.removeVariationImage();
     shopist.event.createCat();
+    shopist.event.createSlide();
     shopist.event.createTag();
     shopist.event.createAttributes();
     shopist.event.createColors();
@@ -3686,6 +3845,12 @@ var customDropZone = (function() {
                             $('.cat-img-upload-btn').show();
                             $('.cat-sample-img').hide();
                             $('.cat-img').show();
+                        } else if (name == 'slide_thumbnail_image') {
+                            $('.slide-img img').attr('src', base_url + '/uploads/' + response.name);
+                            $('.slide-img img').attr('data-img_url', '/uploads/' + response.name);
+                            $('.slide-img-upload-btn').show();
+                            $('.slide-sample-img').hide();
+                            $('.slide-img').show();
                         } else if (name == 'manufacturers_logo') {
                             $('.manufacturers-img img').attr('src', base_url + '/uploads/' + response.name);
                             $('.manufacturers-img-remove-btn').show();

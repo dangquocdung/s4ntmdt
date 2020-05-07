@@ -713,7 +713,7 @@
       @endif
       
       @if(in_array('manage_settings_menu_access', $user_permission_list))
-        @if(Request::is('admin/settings/general') || Request::is('admin/settings/languages') || Request::is('admin/settings/languages/update/*') || Request::is('admin/settings/appearance') || Request::is('admin/settings/emails') || Request::is('admin/settings/emails/details/*') || Request::is('admin/settings/menu') || Request::is('admin/settings/custom-currency/list') || Request::is('admin/settings/custom-currency/add') || Request::is('admin/settings/custom-currency/update/*'))
+        @if(Request::is('admin/settings/general') || Request::is('admin/settings/slide') || Request::is('admin/settings/languages') || Request::is('admin/settings/languages/update/*') || Request::is('admin/settings/appearance') || Request::is('admin/settings/emails') || Request::is('admin/settings/emails/details/*') || Request::is('admin/settings/menu') || Request::is('admin/settings/custom-currency/list') || Request::is('admin/settings/custom-currency/add') || Request::is('admin/settings/custom-currency/update/*'))
           <li class="active treeview">
             <a href="#">
               <i class="fa fa-cog"></i> <span>{!! trans('admin.settings') !!}</span> <i class="fa fa-angle-left pull-right"></i>

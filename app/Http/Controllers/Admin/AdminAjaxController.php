@@ -46,6 +46,8 @@ use DOMDocument;
 use SplFileInfo;
 use shopist\Models\CustomCurrencyValue;
 
+use shopist\Models\Slide;
+
 class AdminAjaxController extends Controller
 {
   public $classCommonFunction;
@@ -91,6 +93,11 @@ class AdminAjaxController extends Controller
         elseif(isset($input['cat_thumbnail_image'])){
           $rules = array(
             'cat_thumbnail_image' => 'image',
+          );
+        }
+        elseif(isset($input['slide_thumbnail_image'])){
+          $rules = array(
+            'slide_thumbnail_image' => 'image',
           );
         }
         elseif(isset($input['manufacturers_logo'])){
@@ -164,6 +171,14 @@ class AdminAjaxController extends Controller
             $image = Input::file('cat_thumbnail_image');
             $fileName = time()."-"."h-150-".$image->getClientOriginalName();
             $height = 150;
+          }
+          elseif(isset($input['slide_thumbnail_image'])){
+            $image = Input::file('slide_thumbnail_image');
+            // $fileName = time()."-"."h-150-".$image->getClientOriginalName();
+            $fileName = time()."w-1920-h-1080-".$image->getClientOriginalName();
+            $width = 1920;
+            $height = 1080;
+
           }
           elseif(isset($input['manufacturers_logo'])){
             $image = Input::file('manufacturers_logo');
@@ -452,6 +467,50 @@ class AdminAjaxController extends Controller
       }
     }
   }
+
+    /**
+   * 
+   * Save slide details
+   *
+   * @param null
+   * @return void
+   */
+  public function saveSlideDetails(){
+    $input = Request::all();
+    
+    if(Request::isMethod('post') && Request::ajax()){
+      if(Session::token() == Request::header('X-CSRF-TOKEN')){
+
+        if((isset($input['data']['name'])&& $input['data']['name']) && (isset($input['data']['url']) && $input['data']['url'])){
+
+          $termObj					=			new Slide;
+          if($input['data']['click_source'] == 'for_add'){
+            $termObj->name        =   $input['data']['name'];
+            $termObj->url         =   $input['data']['url'];
+            $termObj->img_url         =   $input['data']['img_url'];
+            $termObj->type				=   $input['data']['type'];
+            $termObj->status			=   $input['data']['status'];
+            $termObj->save();
+          }
+          elseif ($input['data']['click_source'] == 'for_update'){
+            $data = array(
+              'name'				=>    $input['data']['name'],
+              'url'				  =>    $input['data']['url'],
+              'img_url'     =>    $input['data']['img_url'],
+              'status'      =>    $input['data']['status']
+            );
+            if( Slide::find($input['data']['id'])->update($data)){
+              return response()->json(array('success' => TRUE));
+            }
+          }
+        }
+        else {
+          return response()->json(array('error_no_entered' => FALSE));
+        }
+      }
+    }
+  }
+
   
   /**
    * 
@@ -1109,6 +1168,12 @@ class AdminAjaxController extends Controller
             
             $data = array('success' => TRUE, 'name' => $get_details_by_id['name'], 'slug' => $get_details_by_id['slug'], 'description' => $get_details_by_id['category_description'], 'parent_id' => $get_details_by_id['parent'], 'img_url' => $get_details_by_id['category_img_url'], 'status' => $get_details_by_id['status']);
           }
+          elseif($input['data']['track'] == 'slide_list'){
+
+            $get_details_by_id =  Slide::find($input['data']['id'])->toarray();
+            
+            $data = array('success' => TRUE, 'name' => $get_details_by_id['name'], 'url' => $get_details_by_id['url'], 'img_url' => $get_details_by_id['img_url'], 'status' => $get_details_by_id['status']);
+          }
           elseif($input['data']['track'] == 'tag_list'){
             $get_details_by_id =  $this->product->getTermDataById($input['data']['id']);
             $get_details_by_id = array_shift($get_details_by_id);
@@ -1163,6 +1228,11 @@ class AdminAjaxController extends Controller
         if($input['data']['track'] == 'cat_list' || $input['data']['track'] == 'tag_list' || $input['data']['track'] == 'attr_list' || $input['data']['track'] == 'color_list' || $input['data']['track'] == 'size_list' || $input['data']['track'] == 'manufacturers_list'){
           if(Term::where('term_id', $input['data']['id'])->delete()){
             TermExtra::where('term_id', $input['data']['id'])->delete();
+            return response()->json(array('delete' => true));
+          }
+        }
+        elseif($input['data']['track'] == 'slide_list'){
+          if(Slide::find($input['data']['id'])->delete()){
             return response()->json(array('delete' => true));
           }
         }

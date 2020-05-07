@@ -17,6 +17,8 @@ use shopist\Models\CustomCurrencyValue;
 use Illuminate\Pagination\LengthAwarePaginator;
 use Illuminate\Support\Collection;
 
+use shopist\Models\Slide;
+
 class SettingsController extends Controller
 {
   public $option;
@@ -194,10 +196,9 @@ class SettingsController extends Controller
   public function settingsSlideContent(){
     
     $data = array();
-   
-    
+
     $data = $this->classCommonFunction->commonDataForAllPages();
-    // $data['cat_list_data']           =  $this->getTermData( 'product_cat', true, $search_value, -1 );
+    $data['slide_list_data']           =  Slide::all()->toarray();
     // $data['only_cat_name']           =  $this->get_categories_name_for_list('product_cat');
     // $data['search_value']            =  $search_value;
     // $data['action']                  =  route('admin.product_categories_list');

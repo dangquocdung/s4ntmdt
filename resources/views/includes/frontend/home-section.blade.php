@@ -142,14 +142,14 @@
                 </div>
             </div>
             <div class="col-md-8 col-lg-9 col-sm-12 padding-top-1x">
-                @if($appearance_all_data['header_details']['slider_visibility'] == true && Request::is('/'))
+                @if(!empty($slide_list) > 0)
                 <!-- Start Slider Area -->
                 <div class="owl-carousel" data-owl-carousel='{ "autoplay": true, "loop": true }'>
-                    @foreach(get_appearance_header_settings_data() as $img)
+                    @foreach($slide_list as $img)
 
-                        @if($img->img_url)
-                            <a href="https://book365.vn/" target="_blank">
-                                <img src="{{ get_image_url($img->img_url) }}" alt="Sản phẩm nổi bật" />
+                        @if(!empty($img->img_url))
+                            <a href="{{ $img->url }}" target="_blank">
+                                <img src="{{ get_image_url($img->img_url) }}" alt="{{ $img->name }}" />
                             </a>
                         @endif
 

@@ -25,6 +25,7 @@ use shopist\Http\Controllers\VendorsController;
 use shopist\Models\SaveCustomDesign;
 
 use shopist\Models\PostArchive;
+use shopist\Models\Slide;
 
 class FrontendManagerController extends Controller
 {
@@ -73,6 +74,8 @@ class FrontendManagerController extends Controller
     $data['vendors_list'] =   $get_vendors;
 
     $data['blogs_data']            =   $this->CMS->get_latest_blogs();
+
+    $data['slide_list'] =   Slide::all();
 
     // $data['testimonials_data']   =   get_all_testimonial_data();
 

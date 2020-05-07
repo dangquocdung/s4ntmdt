@@ -1033,6 +1033,12 @@ Route::post('/ajax/add-cat', [
   'as'   => 'save-categories-details'
 ]);
 
+Route::post('/ajax/add-slide', [
+  'uses' => 'Admin\AdminAjaxController@saveSlideDetails',
+  'as'   => 'save-slide-details'
+]);
+
+
 Route::post('/ajax/add-tag', [
   'uses' => 'Admin\AdminAjaxController@saveTagsDetails',
   'as'   => 'save-tags-details'

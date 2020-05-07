@@ -26,6 +26,9 @@
 
 @endif
 
+
+
+
 <!-- Start banner Area -->
 
 @include('includes.frontend.home-spcl')
