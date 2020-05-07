@@ -1700,6 +1700,17 @@ shopist.event = {
         }
     },
 
+    slide_event: function() {
+        if ($('.slide-event').length > 0) {
+            $('.slide-event').click(function() {
+                $('#hf_from_model').val('for_add');
+                $('#hf_update_id').val('');
+                $('#addDynamicSlide .top-title').html(adminLocalizationString.create_new_slide);
+                $('#addDynamicSlide .create-slide').html(adminLocalizationString.create_slide);
+            });
+        }
+    },
+
     model_event_tag: function() {
         if ($('.custom-event-tags').length > 0) {
             $('.custom-event-tags').click(function() {
@@ -2334,10 +2345,6 @@ shopist.ajaxRequest = {
             img_url = $('.cat-img img').data('img_url');
         }
 
-        if ($('.slide-img img').attr('src').length > 0) {
-            img_url = $('.slide-img img').data('img_url');
-        }
-
         if ($('#hf_cat_post_for').val().length > 0) {
             cat_for = $('#hf_cat_post_for').val();
         }
@@ -2380,7 +2387,6 @@ shopist.ajaxRequest = {
         $('.ajax-overlay').show();
         var name = '';
         var url = '';
-        var type = '';
         var status = '';
         var img_url = '';
         var dataObj = {};
@@ -3692,6 +3698,8 @@ $(document).ready(function() {
     shopist.event.edit_attribute_panel_display();
     shopist.event.init_dropzone();
     shopist.event.model_event();
+    shopist.event.slide_event();
+
     shopist.event.model_event_tag();
     shopist.event.custom_event_attrs();
     shopist.event.custom_event_colors();

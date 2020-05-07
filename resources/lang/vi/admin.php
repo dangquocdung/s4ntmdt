@@ -230,6 +230,7 @@ return [
   'tin tức_categories_list' =>'Danh sách danh mục tin tức',
   'add_new_category' =>'Thêm danh mục mới',
   'create_new_product_category' =>'Tạo danh mục sản phẩm mới',
+  'update_product_category' =>'Cập nhật danh mục sản phẩm',
   'create_new_tin tức_category' =>'Tạo danh mục tin tức mới',
   'category_name' =>'tên danh mục',
   'art_name' =>'Tên mẫu',

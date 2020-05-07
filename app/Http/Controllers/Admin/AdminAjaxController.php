@@ -483,25 +483,31 @@ class AdminAjaxController extends Controller
 
         if((isset($input['data']['name'])&& $input['data']['name']) && (isset($input['data']['url']) && $input['data']['url'])){
 
-          $termObj					=			new Slide;
+          
           if($input['data']['click_source'] == 'for_add'){
+            $termObj					    =			new Slide;
             $termObj->name        =   $input['data']['name'];
             $termObj->url         =   $input['data']['url'];
             $termObj->img_url         =   $input['data']['img_url'];
             $termObj->type				=   $input['data']['type'];
             $termObj->status			=   $input['data']['status'];
-            $termObj->save();
+            if( $termObj->save() ){
+              return response()->json(array('success' => TRUE));
+            }
           }
           elseif ($input['data']['click_source'] == 'for_update'){
+            
             $data = array(
               'name'				=>    $input['data']['name'],
               'url'				  =>    $input['data']['url'],
               'img_url'     =>    $input['data']['img_url'],
               'status'      =>    $input['data']['status']
             );
-            if( Slide::find($input['data']['id'])->update($data)){
+
+            if( Slide::where('id', $input['data']['id'])->update($data)){
               return response()->json(array('success' => TRUE));
             }
+
           }
         }
         else {

@@ -9,7 +9,7 @@
   </div>
   <div class="col-6">
     <div class="pull-right">
-      <button data-toggle="modal" data-target="#addDynamicSlide" class="btn btn-primary custom-event btn-sm" type="button">Thêm slide</button>
+      <button data-toggle="modal" data-target="#addDynamicSlide" class="btn btn-primary slide-event btn-sm" type="button">Thêm slide</button>
     </div>  
   </div>
 </div>
@@ -21,7 +21,7 @@
     
     <div class="modal-content">
       <div class="modal-header">
-        <p class="no-margin">Tạo mới slide hình ảnh</p>
+        <p class="no-margin">Slide hình ảnh</p>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
@@ -71,7 +71,7 @@
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-default attachtopost create-slide btn-sm">Lưu</button>
-        <button type="button" class="btn btn-default attachtopost btn-sm" data-dismiss="modal">Đóng</button>
+        <button type="button" class="btn btn-default attachtopost btn-sm" data-dismiss="modal">{!! trans('admin.close') !!}</button>
       </div>
     </div>
   </div>
