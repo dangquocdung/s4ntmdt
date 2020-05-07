@@ -354,56 +354,6 @@
             </div>
           </div>
 
-          <div class="box box-info">
-            <div class="box-header with-border">
-              <h3 class="box-title">Banner (mới)</h3>
-            </div>          
-            <div class="box-body">
-              <div class="form-group">
-                <div class="row">    
-                  <label class="col-sm-4 control-label" for="inputHeaderSliderImage">{{ trans('admin.appearance_banner_slider_image') }}</label>
-                  <div class="col-sm-8">
-                    <div class="clearfix">
-                      <div data-toggle="modal" data-dropzone_id="eb_dropzone_banner_image_file_upload" data-target="#frontendBannerImageUploader" class="icon product-header-slider-uploader pull-right">{{ trans('admin.appearance_header_slider_image_and_text_add_loader_text') }}</div>
-                    </div>
-
-                    <div class="uploaded-header-banner-images">
-                      @if(count(get_appearance_header_settings_data()) > 0 )
-                        <div class="sample-img" style="display:none;">
-                          <img class="upload-icon" src="{{ default_upload_sample_img_src() }}">
-                        </div>
-                        <div class="uploaded-banner-images" style="display:block;">
-                          @foreach(get_appearance_header_settings_data() as $slider_img)
-                            <div class="header-banner-image-single-container {{ substr(basename($slider_img->img_url), 0, -4) }}">
-                              <img src="{{ get_image_url($slider_img->img_url) }}">
-                              <div data-id="{{ $slider_img->id }}" class="remove-frontend-img-link" style="display: none;"></div>
-                            </div>
-                          @endforeach
-                        </div>
-                      @else
-                        <div class="sample-img"><img class="upload-icon" src="{{ default_upload_sample_img_src() }}"></div>
-                        <div class="uploaded-slider-images"></div>
-                      @endif
-                    </div>
-                  </div>
-                </div>  
-              </div>
-
-              <div class="form-group">
-                <div class="row">    
-                  <label class="col-sm-4 control-label" for="inputHeaderSliderVissibility">{{ trans('admin.banner_visibility') }}</label>
-                  <div class="col-sm-8">
-                    @if(count(get_appearance_settings()) && get_appearance_settings()['header_details']['custom_css'] == true)
-                      <input type="checkbox" checked="checked" class="shopist-iCheck" name="inputVisibilityBanner" id="inputVisibilityBanner">
-                    @else
-                      <input type="checkbox" class="shopist-iCheck" name="inputVisibilityBanner" id="inputVisibilityBanner">
-                    @endif
-                  </div>
-                </div>  
-              </div>
-            </div>
-
-          </div>
 
           <div class="box box-info">
             <div class="box-header with-border">
