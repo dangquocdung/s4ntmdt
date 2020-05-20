@@ -1,29 +1,29 @@
 <?php
-namespace shopist\Http\Controllers;
+namespace dungthinh\Http\Controllers;
 
-use shopist\Http\Controllers\Controller;
+use dungthinh\Http\Controllers\Controller;
 use Illuminate\Pagination\LengthAwarePaginator;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\Input;
-use shopist\Models\UsersDetail;
-use shopist\Models\User;
-use shopist\Models\Post;
-use shopist\Models\PostExtra;
-use shopist\Models\VendorAnnouncement;
-use shopist\Models\Comment;
-use shopist\Models\VendorPackage;
-use shopist\Models\VendorWithdraw;
-use shopist\Models\VendorTotal;
-use shopist\Models\Option;
+use dungthinh\Models\UsersDetail;
+use dungthinh\Models\User;
+use dungthinh\Models\Post;
+use dungthinh\Models\PostExtra;
+use dungthinh\Models\VendorAnnouncement;
+use dungthinh\Models\Comment;
+use dungthinh\Models\VendorPackage;
+use dungthinh\Models\VendorWithdraw;
+use dungthinh\Models\VendorTotal;
+use dungthinh\Models\Option;
 use Illuminate\Support\Facades\Lang;
 use Validator;
 use Request;
 use Session;
 use Illuminate\Support\Facades\DB;
 use Carbon\Carbon;
-use shopist\Library\GetFunction;
+use dungthinh\Library\GetFunction;
 use Illuminate\Support\Facades\App;
-use shopist\Library\CommonFunction;
+use dungthinh\Library\CommonFunction;
 
 
 

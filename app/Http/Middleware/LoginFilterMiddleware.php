@@ -1,9 +1,9 @@
 <?php
-namespace shopist\Http\Middleware;
+namespace dungthinh\Http\Middleware;
 
 use Closure;
 use Session;
-use shopist\Models\Role;
+use dungthinh\Models\Role;
 
 class LoginFilterMiddleware
 {

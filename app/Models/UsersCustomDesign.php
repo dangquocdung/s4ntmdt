@@ -1,5 +1,5 @@
 <?php
-namespace shopist\Models;
+namespace dungthinh\Models;
 
 use Illuminate\Database\Eloquent\Model;
 

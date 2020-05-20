@@ -1,10 +1,10 @@
 <?php
 
-namespace shopist\Http\Controllers\Mail;
+namespace dungthinh\Http\Controllers\Mail;
 
 use Illuminate\Http\Request;
 
-use shopist\Http\Controllers\Controller;
+use dungthinh\Http\Controllers\Controller;
 
 
 class SendFeedBackController extends Controller

@@ -1,9 +1,9 @@
 <?php
-namespace shopist\Http\Controllers;
+namespace dungthinh\Http\Controllers;
 
-use shopist\Http\Controllers\Controller;
-use shopist\Library\CommonFunction;
-use shopist\Library\GetFunction;
+use dungthinh\Http\Controllers\Controller;
+use dungthinh\Library\CommonFunction;
+use dungthinh\Library\GetFunction;
 use Carbon\Carbon;
 
 class ReportController extends Controller

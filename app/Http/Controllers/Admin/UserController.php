@@ -1,23 +1,23 @@
 <?php
-namespace shopist\Http\Controllers\Admin;
+namespace dungthinh\Http\Controllers\Admin;
 
-use shopist\Http\Controllers\Controller;
+use dungthinh\Http\Controllers\Controller;
 use Validator;
 use Request;
 use Session;
-use shopist\Models\UserRolePermission;
-use shopist\Models\Role;
+use dungthinh\Models\UserRolePermission;
+use dungthinh\Models\Role;
 use Illuminate\Support\Facades\Lang;
-use shopist\Models\User;
-use shopist\Models\RoleUser;
+use dungthinh\Models\User;
+use dungthinh\Models\RoleUser;
 use Illuminate\Support\Facades\Input;
 use Illuminate\Pagination\LengthAwarePaginator;
 use Illuminate\Support\Collection;
-use shopist\Models\VendorPackage;
-use shopist\Models\UsersDetail;
-use shopist\Library\GetFunction;
+use dungthinh\Models\VendorPackage;
+use dungthinh\Models\UsersDetail;
+use dungthinh\Library\GetFunction;
 use Illuminate\Support\Facades\App;
-use shopist\Library\CommonFunction;
+use dungthinh\Library\CommonFunction;
 
 
 class UserController extends Controller

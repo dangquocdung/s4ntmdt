@@ -1,6 +1,6 @@
 <?php
 
-namespace shopist\Exceptions;
+namespace dungthinh\Exceptions;
 
 use Exception;
 use Illuminate\Foundation\Exceptions\Handler as ExceptionHandler;

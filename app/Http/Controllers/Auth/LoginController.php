@@ -1,23 +1,23 @@
 <?php
 
-namespace shopist\Http\Controllers\Auth;
+namespace dungthinh\Http\Controllers\Auth;
 
-use shopist\Http\Controllers\Controller;
+use dungthinh\Http\Controllers\Controller;
 use Cookie;
 use Hash;
 use Request;
 use Session;
 use Validator;
-use shopist\Models\User;
+use dungthinh\Models\User;
 use Illuminate\Support\Facades\Input;
 use Illuminate\Support\Facades\Lang;
-use shopist\Library\CommonFunction;
-use shopist\Http\Controllers\ProductsController;
-use shopist\Http\Controllers\OptionController;
+use dungthinh\Library\CommonFunction;
+use dungthinh\Http\Controllers\ProductsController;
+use dungthinh\Http\Controllers\OptionController;
 
 use Socialite;
-use shopist\Models\Role;
-use shopist\Models\RoleUser;
+use dungthinh\Models\Role;
+use dungthinh\Models\RoleUser;
 use Auth;
 
 

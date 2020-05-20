@@ -1,26 +1,26 @@
 <?php
-namespace shopist\Library;
+namespace dungthinh\Library;
 
-use shopist\Http\Controllers\OptionController;
-use shopist\Http\Controllers\CMSController;
-use shopist\Http\Controllers\ProductsController;
+use dungthinh\Http\Controllers\OptionController;
+use dungthinh\Http\Controllers\CMSController;
+use dungthinh\Http\Controllers\ProductsController;
 use Illuminate\Support\Facades\Lang;
 use Illuminate\Support\Facades\App;
-use shopist\Models\Role;
+use dungthinh\Models\Role;
 use Cookie;
 use Session;
-use shopist\Models\Post;
-use shopist\Models\PostExtra;
-use shopist\Models\OrdersItem;
-use shopist\Models\DownloadExtra;
+use dungthinh\Models\Post;
+use dungthinh\Models\PostExtra;
+use dungthinh\Models\OrdersItem;
+use dungthinh\Models\DownloadExtra;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\DB;
-use shopist\Models\UsersDetail;
+use dungthinh\Models\UsersDetail;
 use Anam\Phpcart\Cart;
 use Illuminate\Support\Facades\URL;
 use Nexmo\Laravel\Facade\Nexmo;
 use Illuminate\Support\Facades\Request;
-use shopist\Models\CustomCurrencyValue;
+use dungthinh\Models\CustomCurrencyValue;
 
 class CommonFunction
 {

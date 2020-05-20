@@ -1,19 +1,19 @@
 <?php
-namespace shopist\Http\Controllers;
+namespace dungthinh\Http\Controllers;
 
-use shopist\Http\Controllers\Controller;
-use shopist\Library\CommonFunction;
-use shopist\Models\Product;
-use shopist\Models\Post;
-use shopist\Models\PostExtra;
+use dungthinh\Http\Controllers\Controller;
+use dungthinh\Library\CommonFunction;
+use dungthinh\Models\Product;
+use dungthinh\Models\Post;
+use dungthinh\Models\PostExtra;
 use Carbon\Carbon;
 use Session;
 use Validator;
 use Request;
-use shopist\Http\Controllers\VendorsController;
+use dungthinh\Http\Controllers\VendorsController;
 use Illuminate\Support\Facades\Lang;
 use Illuminate\Support\Facades\Input;
-use shopist\Library\GetFunction;
+use dungthinh\Library\GetFunction;
 use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\DB;
 

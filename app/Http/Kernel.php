@@ -1,6 +1,6 @@
 <?php
 
-namespace shopist\Http;
+namespace dungthinh\Http;
 
 use Illuminate\Foundation\Http\Kernel as HttpKernel;
 
@@ -16,9 +16,9 @@ class Kernel extends HttpKernel
     protected $middleware = [
         \Illuminate\Foundation\Http\Middleware\CheckForMaintenanceMode::class,
         \Illuminate\Foundation\Http\Middleware\ValidatePostSize::class,
-        \shopist\Http\Middleware\TrimStrings::class,
+        \dungthinh\Http\Middleware\TrimStrings::class,
         \Illuminate\Foundation\Http\Middleware\ConvertEmptyStringsToNull::class,
-        \shopist\Http\Middleware\TrustProxies::class,
+        \dungthinh\Http\Middleware\TrustProxies::class,
     ];
 
     /**
@@ -28,12 +28,12 @@ class Kernel extends HttpKernel
      */
     protected $middlewareGroups = [
         'web' => [
-            \shopist\Http\Middleware\EncryptCookies::class,
+            \dungthinh\Http\Middleware\EncryptCookies::class,
             \Illuminate\Cookie\Middleware\AddQueuedCookiesToResponse::class,
             \Illuminate\Session\Middleware\StartSession::class,
             // \Illuminate\Session\Middleware\AuthenticateSession::class,
             \Illuminate\View\Middleware\ShareErrorsFromSession::class,
-            \shopist\Http\Middleware\VerifyCsrfToken::class,
+            \dungthinh\Http\Middleware\VerifyCsrfToken::class,
             \Illuminate\Routing\Middleware\SubstituteBindings::class,
         ],
 
@@ -56,11 +56,11 @@ class Kernel extends HttpKernel
         'bindings' => \Illuminate\Routing\Middleware\SubstituteBindings::class,
         'cache.headers' => \Illuminate\Http\Middleware\SetCacheHeaders::class,
         'can' => \Illuminate\Auth\Middleware\Authorize::class,
-        'guest' => \shopist\Http\Middleware\RedirectIfAuthenticated::class,
+        'guest' => \dungthinh\Http\Middleware\RedirectIfAuthenticated::class,
         'throttle' => \Illuminate\Routing\Middleware\ThrottleRequests::class,
-        'verifyLoginPage' => \shopist\Http\Middleware\LoginFilterMiddleware::class,
-        'admin' => \shopist\Http\Middleware\IsAdminMiddleware::class,
-        'userAdmin' => \shopist\Http\Middleware\IsUserAdminMiddleware::class,
-        'sufficientPermission' => \shopist\Http\Middleware\IsSufficientPermissionMiddleware::class
+        'verifyLoginPage' => \dungthinh\Http\Middleware\LoginFilterMiddleware::class,
+        'admin' => \dungthinh\Http\Middleware\IsAdminMiddleware::class,
+        'userAdmin' => \dungthinh\Http\Middleware\IsUserAdminMiddleware::class,
+        'sufficientPermission' => \dungthinh\Http\Middleware\IsSufficientPermissionMiddleware::class
     ];
 }

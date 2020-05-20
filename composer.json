@@ -36,7 +36,7 @@
             "database/factories"
         ],
         "psr-4": {
-            "shopist\\": "app/",
+            "dungthinh\\": "app/",
             "Botble\\Backup\\": "packages/dungthinh/backup/src/",
             "Botble\\Support\\": "packages/dungthinh/backup/support/src"
 

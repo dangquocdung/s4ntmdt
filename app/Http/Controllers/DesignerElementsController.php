@@ -1,24 +1,24 @@
 <?php
-namespace shopist\Http\Controllers;
+namespace dungthinh\Http\Controllers;
 
-use shopist\Http\Controllers\Controller;
+use dungthinh\Http\Controllers\Controller;
 use Request;
 use Session;
 use Validator;
 use Illuminate\Support\Facades\Input;
-use shopist\Models\Term;
-use shopist\Models\Post;
-use shopist\Models\PostExtra;
-use shopist\Models\Option;
-use shopist\Models\ObjectRelationship;
+use dungthinh\Models\Term;
+use dungthinh\Models\Post;
+use dungthinh\Models\PostExtra;
+use dungthinh\Models\Option;
+use dungthinh\Models\ObjectRelationship;
 use Illuminate\Support\Facades\Lang;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Pagination\LengthAwarePaginator;
 use Illuminate\Support\Collection;
-use shopist\Http\Controllers\ProductsController;
-use shopist\Library\CommonFunction;
-use shopist\Http\Controllers\OptionController;
-use shopist\Models\OrdersItem;
+use dungthinh\Http\Controllers\ProductsController;
+use dungthinh\Library\CommonFunction;
+use dungthinh\Http\Controllers\OptionController;
+use dungthinh\Models\OrdersItem;
 
 
 class DesignerElementsController extends Controller

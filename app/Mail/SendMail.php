@@ -1,6 +1,6 @@
 <?php
 
-namespace shopist\Mail;
+namespace dungthinh\Mail;
 
 use Illuminate\Bus\Queueable;
 use Illuminate\Mail\Mailable;

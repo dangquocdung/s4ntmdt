@@ -1,6 +1,6 @@
 <?php
 
-namespace shopist\Providers;
+namespace dungthinh\Providers;
 
 use Illuminate\Support\Facades\Gate;
 use Illuminate\Foundation\Support\Providers\AuthServiceProvider as ServiceProvider;
@@ -13,7 +13,7 @@ class AuthServiceProvider extends ServiceProvider
      * @var array
      */
     protected $policies = [
-        'shopist\Model' => 'shopist\Policies\ModelPolicy',
+        'dungthinh\Model' => 'dungthinh\Policies\ModelPolicy',
     ];
 
     /**

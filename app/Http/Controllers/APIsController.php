@@ -1,6 +1,6 @@
 <?php
 
-namespace shopist\Http\Controllers;
+namespace dungthinh\Http\Controllers;
 
 use Illuminate\Http\Request;
 

@@ -1,8 +1,8 @@
 <?php
-namespace shopist\Http\Controllers;
+namespace dungthinh\Http\Controllers;
 
-use shopist\Http\Controllers\Controller;
-use shopist\Models\Option;
+use dungthinh\Http\Controllers\Controller;
+use dungthinh\Models\Option;
 
 
 class OptionController extends Controller

@@ -1,31 +1,31 @@
 <?php
-namespace shopist\Http\Controllers\Frontend;
+namespace dungthinh\Http\Controllers\Frontend;
 
-use shopist\Http\Controllers\Controller;
+use dungthinh\Http\Controllers\Controller;
 use Request;
 use Illuminate\Support\Facades\Input;
-use shopist\Library\GetFunction;
-use shopist\Models\Post;
-use shopist\Models\PostExtra;
-use shopist\Models\Product;
+use dungthinh\Library\GetFunction;
+use dungthinh\Models\Post;
+use dungthinh\Models\PostExtra;
+use dungthinh\Models\Product;
 use Anam\Phpcart\Cart;
-use shopist\Models\DownloadExtra;
-use shopist\Models\User;
+use dungthinh\Models\DownloadExtra;
+use dungthinh\Models\User;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\Lang;
 use Cookie;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Response;
-use shopist\Http\Controllers\ProductsController;
-use shopist\Library\CommonFunction;
-use shopist\Http\Controllers\CMSController;
-use shopist\Http\Controllers\OptionController;
-use shopist\Models\OrdersItem;
-use shopist\Http\Controllers\VendorsController;
-use shopist\Models\SaveCustomDesign;
+use dungthinh\Http\Controllers\ProductsController;
+use dungthinh\Library\CommonFunction;
+use dungthinh\Http\Controllers\CMSController;
+use dungthinh\Http\Controllers\OptionController;
+use dungthinh\Models\OrdersItem;
+use dungthinh\Http\Controllers\VendorsController;
+use dungthinh\Models\SaveCustomDesign;
 
-use shopist\Models\PostArchive;
-use shopist\Models\Slide;
+use dungthinh\Models\PostArchive;
+use dungthinh\Models\Slide;
 
 class FrontendManagerController extends Controller
 {

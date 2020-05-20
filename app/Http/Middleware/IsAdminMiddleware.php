@@ -1,5 +1,5 @@
 <?php
-namespace shopist\Http\Middleware;
+namespace dungthinh\Http\Middleware;
 
 use Closure;
 use Session;

@@ -1,17 +1,17 @@
 <?php
-namespace shopist\Http\Controllers;
+namespace dungthinh\Http\Controllers;
 
-use shopist\Http\Controllers\Controller;
-use shopist\Models\Post;
-use shopist\Models\PostExtra;
+use dungthinh\Http\Controllers\Controller;
+use dungthinh\Models\Post;
+use dungthinh\Models\PostExtra;
 use Illuminate\Support\Facades\DB;
-use shopist\Library\CommonFunction;
-use shopist\Library\GetFunction;
+use dungthinh\Library\CommonFunction;
+use dungthinh\Library\GetFunction;
 use Carbon\Carbon;
 use Session;
 use Illuminate\Pagination\LengthAwarePaginator;
 use Illuminate\Support\Collection;
-use shopist\Models\OrdersItem;
+use dungthinh\Models\OrdersItem;
 use Request;
 use Illuminate\Support\Facades\Input;
 use Illuminate\Support\Facades\App;

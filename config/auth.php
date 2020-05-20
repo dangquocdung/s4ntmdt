@@ -67,7 +67,7 @@ return [
     'providers' => [
         'users' => [
             'driver' => 'eloquent',
-            'model' => shopist\User::class,
+            'model' => dungthinh\User::class,
         ],
 
         // 'users' => [

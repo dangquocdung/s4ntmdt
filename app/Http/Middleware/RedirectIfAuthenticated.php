@@ -1,6 +1,6 @@
 <?php
 
-namespace shopist\Http\Middleware;
+namespace dungthinh\Http\Middleware;
 
 use Closure;
 use Illuminate\Support\Facades\Auth;

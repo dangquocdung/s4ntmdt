@@ -1,5 +1,5 @@
 <?php
-namespace shopist\Models;
+namespace dungthinh\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
@@ -12,7 +12,7 @@ class User extends Model
   
   public function roles()
   {
-    return $this->belongsToMany('shopist\Models\Role');
+    return $this->belongsToMany('dungthinh\Models\Role');
   }
   
 }

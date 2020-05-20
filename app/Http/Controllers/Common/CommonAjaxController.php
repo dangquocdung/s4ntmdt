@@ -1,18 +1,18 @@
 <?php
-namespace shopist\Http\Controllers\Common;
+namespace dungthinh\Http\Controllers\Common;
 
-use shopist\Http\Controllers\Controller;
+use dungthinh\Http\Controllers\Controller;
 use Request;
 use Response;
-use shopist\Models\SaveCustomDesign;
+use dungthinh\Models\SaveCustomDesign;
 use Illuminate\Support\Facades\Input;
 use Session;
 use Validator;
 use Intervention\Image\Facades\Image;
-use shopist\Library\GetFunction;
+use dungthinh\Library\GetFunction;
 use Carbon\Carbon;
-use shopist\Http\Controllers\DesignerElementsController;
-use shopist\Http\Controllers\ProductsController;
+use dungthinh\Http\Controllers\DesignerElementsController;
+use dungthinh\Http\Controllers\ProductsController;
 use Illuminate\Support\Facades\Lang;
 
 

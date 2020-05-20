@@ -1,5 +1,5 @@
 <?php
-namespace shopist\Library\TwocheckoutLib\Twocheckout;
+namespace dungthinh\Library\TwocheckoutLib\Twocheckout;
 
 class Twocheckout_Message
 {

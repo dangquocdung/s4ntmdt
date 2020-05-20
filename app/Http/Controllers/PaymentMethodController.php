@@ -1,15 +1,15 @@
 <?php
-namespace shopist\Http\Controllers;
+namespace dungthinh\Http\Controllers;
 
-use shopist\Http\Controllers\Controller;
+use dungthinh\Http\Controllers\Controller;
 use Request;
 use Session;
 use Illuminate\Support\Facades\Input;
-use shopist\Models\Option;
-use shopist\Http\Controllers\OptionController;
-use shopist\Models\UsersDetail;
+use dungthinh\Models\Option;
+use dungthinh\Http\Controllers\OptionController;
+use dungthinh\Models\UsersDetail;
 use Illuminate\Support\Facades\Lang;
-use shopist\Library\CommonFunction;
+use dungthinh\Library\CommonFunction;
 
 
 class PaymentMethodController extends Controller

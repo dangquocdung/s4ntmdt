@@ -1,9 +1,9 @@
 <?php
-namespace shopist\Http\Controllers\Admin;
+namespace dungthinh\Http\Controllers\Admin;
 
-use shopist\Http\Controllers\Controller;
+use dungthinh\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Artisan;
-use shopist\Library\CommonFunction;
+use dungthinh\Library\CommonFunction;
 
 
 class InstallationController extends Controller

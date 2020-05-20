@@ -1,17 +1,17 @@
 <?php
-namespace shopist\Http\Controllers\Frontend;
+namespace dungthinh\Http\Controllers\Frontend;
 
-use shopist\Http\Controllers\Controller;
+use dungthinh\Http\Controllers\Controller;
 use Request;
-use shopist\Models\User;
-use shopist\Library\CommonFunction;
+use dungthinh\Models\User;
+use dungthinh\Library\CommonFunction;
 use Illuminate\Support\Facades\Lang;
 use Validator;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\Input;
-use shopist\Models\Post;
-use shopist\Models\PostExtra;
-use shopist\Models\OrdersItem;
+use dungthinh\Models\Post;
+use dungthinh\Models\PostExtra;
+use dungthinh\Models\OrdersItem;
 use Carbon\Carbon;
 
 class UserAccountManageController extends Controller

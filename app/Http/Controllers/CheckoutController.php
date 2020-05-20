@@ -1,7 +1,7 @@
 <?php
-namespace shopist\Http\Controllers;
+namespace dungthinh\Http\Controllers;
 
-use shopist\Http\Controllers\Controller;
+use dungthinh\Http\Controllers\Controller;
 use PayPal\Rest\ApiContext;
 use PayPal\Auth\OAuthTokenCredential;
 use PayPal\Api\Amount;
@@ -17,25 +17,25 @@ use Session;
 use Request;
 use Illuminate\Support\Facades\URL;
 use Illuminate\Support\Facades\Validator;
-use shopist\Models\Post;
-use shopist\Models\PostExtra;
-use shopist\Models\Product;
-use shopist\Models\ProductExtra;
-use shopist\Models\OrdersItem;
-use shopist\Models\VendorOrder;
-use shopist\Models\VendorTotal;
-use shopist\Models\Role;
+use dungthinh\Models\Post;
+use dungthinh\Models\PostExtra;
+use dungthinh\Models\Product;
+use dungthinh\Models\ProductExtra;
+use dungthinh\Models\OrdersItem;
+use dungthinh\Models\VendorOrder;
+use dungthinh\Models\VendorTotal;
+use dungthinh\Models\Role;
 use Anam\Phpcart\Cart;
-use shopist\Models\UsersCustomDesign;
+use dungthinh\Models\UsersCustomDesign;
 use Illuminate\Support\Facades\Cache;
-use shopist\Library\GetFunction;
+use dungthinh\Library\GetFunction;
 use Illuminate\Support\Facades\Lang;
 use Illuminate\Support\Facades\Input;
-use shopist\Library\CommonFunction;
-use shopist\Http\Controllers\OptionController;
+use dungthinh\Library\CommonFunction;
+use dungthinh\Http\Controllers\OptionController;
 use Illuminate\Support\Facades\App;
-use shopist\Library\TwocheckoutLib\Twocheckout;
-use shopist\Library\TwocheckoutLib\Twocheckout\Twocheckout_Charge;
+use dungthinh\Library\TwocheckoutLib\Twocheckout;
+use dungthinh\Library\TwocheckoutLib\Twocheckout\Twocheckout_Charge;
 
 
 

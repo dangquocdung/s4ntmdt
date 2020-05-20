@@ -1,24 +1,24 @@
 <?php
 
-namespace shopist\Http\Controllers\Auth;
+namespace dungthinh\Http\Controllers\Auth;
 
-use shopist\Http\Controllers\Controller;
-use shopist\Models\Role;
-use shopist\Models\User;
-use shopist\Models\RoleUser;
-use shopist\Models\UsersDetail;
-use shopist\Models\Option;
-use shopist\Models\VendorPackage;
+use dungthinh\Http\Controllers\Controller;
+use dungthinh\Models\Role;
+use dungthinh\Models\User;
+use dungthinh\Models\RoleUser;
+use dungthinh\Models\UsersDetail;
+use dungthinh\Models\Option;
+use dungthinh\Models\VendorPackage;
 use Illuminate\Support\Facades\Input;
 use Validator;
 use Request;
 use Session;
 use Illuminate\Support\Facades\Lang;
-use shopist\Models\ManageLanguage;
-use shopist\Library\CommonFunction;
-use shopist\Models\UserRolePermission;
-use shopist\Http\Controllers\OptionController;
-use shopist\Library\GetFunction;
+use dungthinh\Models\ManageLanguage;
+use dungthinh\Library\CommonFunction;
+use dungthinh\Models\UserRolePermission;
+use dungthinh\Http\Controllers\OptionController;
+use dungthinh\Library\GetFunction;
 use Illuminate\Support\Facades\App;
 
 class RegisterController extends Controller

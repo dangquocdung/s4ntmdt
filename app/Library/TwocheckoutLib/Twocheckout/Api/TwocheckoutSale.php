@@ -1,11 +1,11 @@
 <?php
-namespace shopist\Library\TwocheckoutLib\Twocheckout\Api;
+namespace dungthinh\Library\TwocheckoutLib\Twocheckout\Api;
 
-use shopist\Library\TwocheckoutLib\Twocheckout;
-use shopist\Library\TwocheckoutLib\Twocheckout\Api\Twocheckout_Api_Requester;
-use shopist\Library\TwocheckoutLib\Twocheckout\Api\Twocheckout_Util;
-use shopist\Library\TwocheckoutLib\Twocheckout\Twocheckout_Message;
-use shopist\Library\TwocheckoutLib\Twocheckout\Api\Twocheckout_Error;
+use dungthinh\Library\TwocheckoutLib\Twocheckout;
+use dungthinh\Library\TwocheckoutLib\Twocheckout\Api\Twocheckout_Api_Requester;
+use dungthinh\Library\TwocheckoutLib\Twocheckout\Api\Twocheckout_Util;
+use dungthinh\Library\TwocheckoutLib\Twocheckout\Twocheckout_Message;
+use dungthinh\Library\TwocheckoutLib\Twocheckout\Api\Twocheckout_Error;
 
 class Twocheckout_Sale extends Twocheckout
 {

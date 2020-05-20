@@ -4,8 +4,8 @@ namespace Anam\Phpcart;
 use Exception;
 use InvalidArgumentException;
 use Symfony\Component\HttpFoundation\Session\Session;
-use shopist\Models\Post;
-use shopist\Http\Controllers\OptionController;
+use dungthinh\Models\Post;
+use dungthinh\Http\Controllers\OptionController;
 
 class Cart implements CartInterface
 {

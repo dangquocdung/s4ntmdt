@@ -1,16 +1,16 @@
 <?php
 
-namespace shopist\Http\Controllers\Mail;
+namespace dungthinh\Http\Controllers\Mail;
 
 use Illuminate\Http\Request;
-use shopist\Http\Controllers\Controller;
+use dungthinh\Http\Controllers\Controller;
 
 //Use Validator Class
 use Illuminate\Support\Facades\Validator;
 //Use Mail Class
 use Illuminate\Support\Facades\Mail;
 //Use Model SendMail
-use shopist\Mail\SendMail;
+use dungthinh\Mail\SendMail;
 //Use Exception Class   
 use Exception;
 

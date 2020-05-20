@@ -1,6 +1,6 @@
 <?php
 
-namespace shopist\Http\Middleware;
+namespace dungthinh\Http\Middleware;
 
 use Illuminate\Foundation\Http\Middleware\TrimStrings as Middleware;
 

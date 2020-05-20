@@ -1,6 +1,6 @@
 <?php
 
-namespace shopist\Http\Controllers;
+namespace dungthinh\Http\Controllers;
 
 use Illuminate\Foundation\Bus\DispatchesJobs;
 use Illuminate\Routing\Controller as BaseController;

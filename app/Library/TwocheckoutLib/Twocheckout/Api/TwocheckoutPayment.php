@@ -1,9 +1,9 @@
 <?php
-namespace shopist\Library\TwocheckoutLib\Twocheckout\Api;
+namespace dungthinh\Library\TwocheckoutLib\Twocheckout\Api;
 
-use shopist\Library\TwocheckoutLib\Twocheckout;
-use shopist\Library\TwocheckoutLib\Twocheckout\Api\Twocheckout_Api_Requester;
-use shopist\Library\TwocheckoutLib\Twocheckout\Api\Twocheckout_Util;
+use dungthinh\Library\TwocheckoutLib\Twocheckout;
+use dungthinh\Library\TwocheckoutLib\Twocheckout\Api\Twocheckout_Api_Requester;
+use dungthinh\Library\TwocheckoutLib\Twocheckout\Api\Twocheckout_Util;
 
 class Twocheckout_Payment extends Twocheckout
 {

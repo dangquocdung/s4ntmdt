@@ -1,23 +1,23 @@
 <?php
-namespace shopist\Http\Controllers;
+namespace dungthinh\Http\Controllers;
 
-use shopist\Http\Controllers\Controller;
-use shopist\Http\Controllers\OptionController;
-use shopist\Http\Controllers\ProductsController;
+use dungthinh\Http\Controllers\Controller;
+use dungthinh\Http\Controllers\OptionController;
+use dungthinh\Http\Controllers\ProductsController;
 use Validator;
 use Request;
 use Session;
-use shopist\Models\Option;
+use dungthinh\Models\Option;
 use Illuminate\Support\Facades\Input;
 use Illuminate\Support\Facades\Lang;
-use shopist\Models\ManageLanguage;
-use shopist\Library\GetFunction;
-use shopist\Library\CommonFunction;
-use shopist\Models\CustomCurrencyValue;
+use dungthinh\Models\ManageLanguage;
+use dungthinh\Library\GetFunction;
+use dungthinh\Library\CommonFunction;
+use dungthinh\Models\CustomCurrencyValue;
 use Illuminate\Pagination\LengthAwarePaginator;
 use Illuminate\Support\Collection;
 
-use shopist\Models\Slide;
+use dungthinh\Models\Slide;
 
 class SettingsController extends Controller
 {

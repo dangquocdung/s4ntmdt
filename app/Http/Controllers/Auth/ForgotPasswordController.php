@@ -1,17 +1,17 @@
 <?php
 
-namespace shopist\Http\Controllers\Auth;
+namespace dungthinh\Http\Controllers\Auth;
 
-use shopist\Http\Controllers\Controller;
-use shopist\Models\User;
+use dungthinh\Http\Controllers\Controller;
+use dungthinh\Models\User;
 use Request;
 use Illuminate\Support\Facades\Input;
 use Validator;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Lang;
-use shopist\Library\CommonFunction;
-use shopist\Http\Controllers\ProductsController;
+use dungthinh\Library\CommonFunction;
+use dungthinh\Http\Controllers\ProductsController;
 
 class ForgotPasswordController extends Controller
 {

@@ -1,5 +1,5 @@
 <?php
-namespace shopist\Library\TwocheckoutLib;
+namespace dungthinh\Library\TwocheckoutLib;
 
 abstract class Twocheckout
 {

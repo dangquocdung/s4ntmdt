@@ -1,7 +1,7 @@
 <?php
-namespace shopist\Http\Controllers;
+namespace dungthinh\Http\Controllers;
 
-use shopist\Http\Controllers\Controller;
+use dungthinh\Http\Controllers\Controller;
 use Request;
 use Session;
 use Validator;
@@ -9,18 +9,18 @@ use Illuminate\Pagination\LengthAwarePaginator;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\Input;
 use Illuminate\Support\Facades\Lang;
-use shopist\Models\Post;
-use shopist\Models\PostExtra;
-use shopist\Models\ObjectRelationship;
+use dungthinh\Models\Post;
+use dungthinh\Models\PostExtra;
+use dungthinh\Models\ObjectRelationship;
 use Illuminate\Support\Facades\DB;
-use shopist\Http\Controllers\ProductsController;
-use shopist\Models\Term;
-use shopist\Library\CommonFunction;
-use shopist\Models\TermExtra;
-use shopist\Models\Option;
-use shopist\Models\UsersDetail;
+use dungthinh\Http\Controllers\ProductsController;
+use dungthinh\Models\Term;
+use dungthinh\Library\CommonFunction;
+use dungthinh\Models\TermExtra;
+use dungthinh\Models\Option;
+use dungthinh\Models\UsersDetail;
 
-use shopist\Models\PostArchive;
+use dungthinh\Models\PostArchive;
 
 class CMSController extends Controller
 {

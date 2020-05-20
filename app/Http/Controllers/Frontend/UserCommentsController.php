@@ -1,13 +1,13 @@
 <?php
-namespace shopist\Http\Controllers\Frontend;
+namespace dungthinh\Http\Controllers\Frontend;
 
-use shopist\Http\Controllers\Controller;
+use dungthinh\Http\Controllers\Controller;
 use Request;
 use Illuminate\Support\Facades\Lang;
 use Validator;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\Input;
-use shopist\Models\Comment;
+use dungthinh\Models\Comment;
 
 class UserCommentsController extends Controller
 {

@@ -156,11 +156,11 @@ return [
         /*
          * Application Service Providers...
          */
-        shopist\Providers\AppServiceProvider::class,
-        shopist\Providers\AuthServiceProvider::class,
-        // shopist\Providers\BroadcastServiceProvider::class,
-        shopist\Providers\EventServiceProvider::class,
-        shopist\Providers\RouteServiceProvider::class,
+        dungthinh\Providers\AppServiceProvider::class,
+        dungthinh\Providers\AuthServiceProvider::class,
+        // dungthinh\Providers\BroadcastServiceProvider::class,
+        dungthinh\Providers\EventServiceProvider::class,
+        dungthinh\Providers\RouteServiceProvider::class,
         'Collective\Html\HtmlServiceProvider',
         'Anhskohbo\NoCaptcha\NoCaptchaServiceProvider',
         'Anam\Phpcart\CartServiceProvider',

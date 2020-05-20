@@ -1,6 +1,6 @@
 <?php
 
-namespace shopist\Providers;
+namespace dungthinh\Providers;
 
 use Illuminate\Support\ServiceProvider;
 

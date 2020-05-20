@@ -1,23 +1,23 @@
 <?php
-namespace shopist\Http\Controllers\Frontend;
+namespace dungthinh\Http\Controllers\Frontend;
 
-use shopist\Http\Controllers\Controller;
+use dungthinh\Http\Controllers\Controller;
 use Request;
 use Illuminate\Support\Facades\Input;
-use shopist\Models\Post;
-use shopist\Models\Product;
-use shopist\Library\GetFunction;
+use dungthinh\Models\Post;
+use dungthinh\Models\Product;
+use dungthinh\Library\GetFunction;
 use Session;
 use Anam\Phpcart\Facades\Cart;
 use Illuminate\Support\Facades\Cache;
 use Carbon\Carbon;
-use shopist\Models\RequestProduct;
-use shopist\Models\Subscription;
-use shopist\Models\UsersDetail;
-use shopist\Library\CommonFunction;
-use shopist\Http\Controllers\OptionController;
-use shopist\Http\Controllers\ProductsController;
-use shopist\Mail\SendMail;
+use dungthinh\Models\RequestProduct;
+use dungthinh\Models\Subscription;
+use dungthinh\Models\UsersDetail;
+use dungthinh\Library\CommonFunction;
+use dungthinh\Http\Controllers\OptionController;
+use dungthinh\Http\Controllers\ProductsController;
+use dungthinh\Mail\SendMail;
 
 
 class FrontendAjaxController extends Controller

@@ -1,6 +1,6 @@
 <?php
-use shopist\Library\GetFunction;
-use shopist\Library\GetFunctionMB;
+use dungthinh\Library\GetFunction;
+use dungthinh\Library\GetFunctionMB;
 
 
 /**

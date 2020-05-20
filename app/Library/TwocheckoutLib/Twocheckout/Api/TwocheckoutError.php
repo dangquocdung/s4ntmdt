@@ -1,5 +1,5 @@
 <?php
-namespace shopist\Library\TwocheckoutLib\Twocheckout\Api;
+namespace dungthinh\Library\TwocheckoutLib\Twocheckout\Api;
 
 use Exception;
 
