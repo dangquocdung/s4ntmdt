@@ -245,6 +245,12 @@ Botble.handleBackup = function () {
         var _self = $(this);
         _self.html('<i class="fa fa-spin fa-spinner" aria-hidden="true"></i> ' + _self.text());
 
+        $.ajaxSetup({
+            headers: {
+              'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            }
+       });
+
         $.ajax({
             url: _self.data('url'),
             type: 'POST',
