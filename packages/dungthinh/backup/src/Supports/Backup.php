@@ -260,8 +260,8 @@ class Backup
         }
         // Force the new login to be used
         DB::purge();
-        DB::unprepared('USE `' . env('DB_DATABASE','htigov_en') . '`');
-        DB::connection()->setDatabaseName(env('DB_DATABASE','htigov_en'));
+        DB::unprepared('USE `' . env('DB_DATABASE','hatinhtrade') . '`');
+        DB::connection()->setDatabaseName(env('DB_DATABASE','hatinhtrade'));
         DB::unprepared(file_get_contents($file));
 
         $this->deleteFile($file);
