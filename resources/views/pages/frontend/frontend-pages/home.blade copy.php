@@ -11,15 +11,17 @@
   <meta property="og:image" content="{{ URL::asset('/img/logo/logo.png') }}"/>
   <meta property="og:image" content="{{ URL::asset(get_site_logo_image()) }}"/>
 
-  @foreach(get_appearance_header_settings_data() as $img)
+  @if($appearance_all_data['header_details']['slider_visibility'] == true && Request::is('/'))
+    @foreach(get_appearance_header_settings_data() as $img)
 
-    @if($img->img_url)
+      @if($img->img_url)
 
-        <meta property="og:image" content="{{ URL::asset(get_image_url($img->img_url)) }}"/>
+          <meta property="og:image" content="{{ URL::asset(get_image_url($img->img_url)) }}"/>
 
-    @endif
+      @endif
 
-  @endforeach
+    @endforeach
+  @endif
 
 @stop
 
@@ -31,6 +33,7 @@
 
     <!-- Start banner Area -->
 
+    @if($appearance_all_data['header_details']['slider_visibility'] == false && Request::is('/'))
 
     <section class="product-area pt-20">
 
@@ -51,6 +54,7 @@
 
     </section>
 
+    @endif
 
     <!-- Start banner Area -->
 

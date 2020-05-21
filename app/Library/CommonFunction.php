@@ -242,6 +242,51 @@ class CommonFunction
     $get_cat_tree = $product->get_categories(0, 'product_cat');
 
     $data_ary['_currency_symbol']              =  $this->get_currency_symbol( $get_settings_option['general_settings']['currency_options']['currency_name'] );
+    $data_ary['appearance_settings']          =   current_appearance_settings();
+    $data_ary['appearance_all_data']          =   get_appearance_settings();
+    $data_ary['popular_tags_list']            =   $product->getTermData( 'product_tag', false, null, 1 );
+    $data_ary['productCategoriesTree']        =   $get_cat_tree;
+        
+    $get_frontend_selected_lang = get_frontend_selected_languages_data();
+    $data_ary['selected_lang_code']    =    $get_frontend_selected_lang['lang_code'];
+    $data_ary['subscriptions_data'] = get_subscription_settings_data();
+
+    $is_subscribe_cookie_exists = false;
+    if(Cookie::has('subscribe_popup_not_needed') && Cookie::get('subscribe_popup_not_needed') == 'no_need'){
+      $is_subscribe_cookie_exists = true;
+    }
+
+    $data_ary['is_subscribe_cookie_exists'] = $is_subscribe_cookie_exists;
+
+    if(Session::has('shopist_selected_compare_product_ids') && count(Session::get('shopist_selected_compare_product_ids')) > 0){
+      $data_ary['total_compare_item'] = count(Session::get('shopist_selected_compare_product_ids'));
+    }
+    else{
+      $data_ary['total_compare_item'] = 0;
+    }
+
+    $data_ary['pages_list'] = $CMS->get_pages(false, null, 1);
+
+    if (empty($data_ary['user_info'])){
+      Session::forget('shopist_frontend_user_id');
+    }
+    
+    return $data_ary;
+  }
+
+  public function get_dynamic_frontend_content_data_bk(){
+    $data_ary = array();
+    $product =  new ProductsController();
+    $CMS     =  new CMSController();
+    $option  =  new OptionController();
+    
+    //set language
+    $this->set_frontend_lang();
+    
+    $get_settings_option = $option->getSettingsData();
+    $get_cat_tree = $product->get_categories(0, 'product_cat');
+
+    $data_ary['_currency_symbol']              =  $this->get_currency_symbol( $get_settings_option['general_settings']['currency_options']['currency_name'] );
     $data_ary['currency_symbol']              =   $get_settings_option['general_settings']['currency_options']['currency_name'];
     $data_ary['appearance_settings']          =   current_appearance_settings();
     $data_ary['appearance_all_data']          =   get_appearance_settings();
@@ -293,6 +338,7 @@ class CommonFunction
     
     return $data_ary;
   }
+
   
   /**
   * frontend menu html
