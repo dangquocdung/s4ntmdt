@@ -61,23 +61,12 @@ class FrontendManagerController extends Controller
     $data = array();
     
     $data = $this->classCommonFunction->get_dynamic_frontend_content_data(); 
-
     $data['advancedData']        =   $this->product->getAdvancedProducts();
-
     $data['brands_data']         =   $this->product->getTermData( 'product_brands', false, null, 1 );
-
     $sort = null;
     $search_term = null;
-    
-    $get_vendors = $this->vendors->getFilterVendorsWithPagination(array('srch_term' => $search_term, 'sort' => $sort)); 
-
-    $data['vendors_list'] =   $get_vendors;
-
     $data['blogs_data']            =   $this->CMS->get_latest_blogs();
-
     $data['slide_list'] =   Slide::all();
-
-    // $data['testimonials_data']   =   get_all_testimonial_data();
 
     // return Response::json($data);
 
