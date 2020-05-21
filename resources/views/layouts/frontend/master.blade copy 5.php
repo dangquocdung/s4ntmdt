@@ -6,6 +6,7 @@
   <!-- Body-->
   <body>
 
+
     <!-- Header-->
     <!-- Remove "navbar-sticky" class to make navigation bar scrollable with the page.-->
 
@@ -34,13 +35,18 @@
     <input type="hidden" name="lang_code" id="lang_code" value="{{ $selected_lang_code }}">  
     <input type="hidden" name="subscription_type" id="subscription_type" value="{{ $subscriptions_data['subscribe_type'] }}">
 
+  
+
     @include('modal.quick-view')
     @include('modal.subscribe-content')
+
 
     <!-- Back To Top Button-->
     <a class="scroll-to-top-btn" href="#"><i class="icon-chevron-up"></i></a>
     <!-- Backdrop-->
     <div class="site-backdrop"></div>
+
+
 
     <!-- JavaScript (jQuery) libraries, plugins and custom scripts-->
     <!-- Main Template Styles-->
@@ -265,6 +271,7 @@
 
       })
 
+
       if ($('#sendVendorContactMessage').length > 0) {
         $('#sendVendorContactMessage').on('click', function () {
           if ($('#contact_name').val() == '' || $('#contact_name').val() == null) {
@@ -369,6 +376,47 @@
             });
         }
     </script>
+
+
+    @if( Request::is('/') )
+      <style>
+        .fb_dialog.fb_dialog_advanced {
+            left: 18pt;
+        }
+        iframe.fb_customer_chat_bounce_in_v2 {
+            left: 9pt;
+        }
+        iframe.fb_customer_chat_bounce_out_v2 {
+            left: 9pt;
+        }      
+      </style>
+      <!-- Load Facebook SDK for JavaScript -->
+      <div id="fb-root"></div>
+        <script>
+          window.fbAsyncInit = function() {
+            FB.init({
+              xfbml            : true,
+              version          : 'v4.0'
+            });
+          };
+
+          (function(d, s, id) {
+          var js, fjs = d.getElementsByTagName(s)[0];
+          if (d.getElementById(id)) return;
+          js = d.createElement(s); js.id = id;
+          js.src = 'https://connect.facebook.net/vi_VN/sdk/xfbml.customerchat.js';
+          fjs.parentNode.insertBefore(js, fjs);
+        }(document, 'script', 'facebook-jssdk'));
+      </script>
+
+      <!-- Your customer chat code -->
+      <div class="fb-customerchat"
+        attribution=setup_tool
+        page_id="2003597729919876"
+        theme_color="#0084ff">
+      </div>
+    @endif
+
 
   </body>
 </html>
