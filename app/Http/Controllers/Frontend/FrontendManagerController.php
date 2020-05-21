@@ -458,21 +458,8 @@ class FrontendManagerController extends Controller
 
     if(!empty($get_product)){
 
-      // Push product ID to session
 
       session()->push('products.recently_viewed', $get_product->id);
-
-      // $products = session()->get('products.recently_viewed');
-
-      // $products = array_unique($products);
-
-      // $recently = array();
-
-      // foreach ($products as $row){
-
-      //   array_push($recently, $row);
-
-      // }
 
       $data = array();
 
