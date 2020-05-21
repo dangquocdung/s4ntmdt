@@ -27,8 +27,10 @@
   <div id="home_page">
 
     @include('includes.frontend.home-section')
+    @yield('categories-slider-area')
 
     @include('includes.frontend.home-spcl')
+    @yield('product_area')
 
     @if(count($blogs_data) > 0)  
 

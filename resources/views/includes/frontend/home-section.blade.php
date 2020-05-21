@@ -1,4 +1,3 @@
-@section('categories-slider-area')
 <!-- Start Feature Product -->
 <section class="categories-slider-area bg__white">
     <div class="container">
@@ -9,7 +8,6 @@
                     <div class="category-heading">
                         <h3>{{ trans('frontend.product_categories_label') }}</h3>
                     </div>
-
 
                     @if(count($productCategoriesTree) > 0)
 
@@ -166,5 +164,3 @@
     </div>
 </section>
 <!-- End Feature Product -->
-
-@stop

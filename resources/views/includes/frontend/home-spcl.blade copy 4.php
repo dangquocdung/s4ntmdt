@@ -4,7 +4,7 @@
             <h2 class="title text-center">{{ trans('frontend.homepage_items') }}</h2>
             <div class="tab-content another-product-style jump">
                 <div class="tab-pane fade show active" id="latest_products" role="tabpanel">
-                  <div class="isotope-grid cols-4 mb-2">
+                  <div class="isotope-grid cols-5 mb-2">
                     <div class="gutter-sizer"></div>
                     <div class="grid-sizer"></div>
                         @foreach($advancedData['homepage_items'] as $item)
@@ -73,6 +73,30 @@
     </div>
 </section>
 
+<!-- Popular Brands Carousel-->
+@if(count($brands_data) > 0)  
+<section class="bg-secondary padding-top-1x padding-bottom-2x">
+  <div class="container">
+    <div class="product-style">
+
+      <h2 class="title text-center">{{ trans('frontend.nhan-hang-uy-tin') }}</h2>
+
+      <!-- <h2 class="h3 text-center mb-30 pb-3">{!! trans('frontend.brands') !!}</h2> -->
+      <div class="owl-carousel" data-owl-carousel='{ "nav": false, "dots": false, "loop": true, "autoplay": true, "autoplayTimeout": 4000, "responsive": {"0":{"items":2}, "470":{"items":3},"630":{"items":4},"991":{"items":5},"1200":{"items":6}} }'>
+        @foreach($brands_data as $brand)  
+        <a href="{{ route('brands-single-page', $brand['slug']) }}">
+          @if(!empty($brand['brand_logo_img_url']))
+            <img  class="d-block w-110 opacity-75 m-auto" src="{{ get_image_url($brand['brand_logo_img_url']) }}" alt="{{ basename($brand['brand_logo_img_url']) }}" title="{{ $brand['name'] }}" />
+          @else
+            <img  class="d-block w-110 opacity-75 m-auto" src="{{ default_placeholder_img_src() }}" alt="{{ basename($brand['brand_logo_img_url']) }}" title="{{ $brand['name'] }}" />
+          @endif
+        </a>
+        @endforeach
+      </div>
+    </div>
+  </div>
+</section>
+@endif
 
 <section class="product-area pt-50">
 
@@ -101,7 +125,7 @@
                   @foreach($advancedData as $key => $advData)
                     @if ($key!='homepage_items')
                       <div class="tab-pane fade {{ ($key=='recommended_items')?'show active':'' }}" id="{{ $key }}" role="tabpanel">
-                        <div class="isotope-grid cols-4 mb-2">
+                        <div class="isotope-grid cols-5 mb-2">
                           <div class="gutter-sizer"></div>
                           <div class="grid-sizer"></div>
                               @foreach($advData as $item)
