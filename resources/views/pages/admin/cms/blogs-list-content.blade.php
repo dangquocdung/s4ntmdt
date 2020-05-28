@@ -56,7 +56,11 @@
                   <td>{!! $row['post_title'] !!}</td>
 
                   <td>
-                    {{ Carbon\Carbon::parse($row['post_date'])->format('d-m-Y') }}
+                    @if (!empty($row['post_date']))
+                      {{ Carbon\Carbon::parse($row['post_date'])->format('d-m-Y') }}
+                    @else
+                      {{ Carbon\Carbon::parse($row['created_at'])->format('d-m-Y') }}
+                    @endif
                   </td>
 
 
