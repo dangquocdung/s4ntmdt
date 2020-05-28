@@ -35,7 +35,7 @@
           <h3 class="box-title">Ngày đăng</h3>
         </div>
         <div class="box-body">
-          <input type="text" placeholder="Ngày đăng" id="blog_post_date" name="blog_post_date" class="form-control" value="{{ $blog_details_by_slug['post_date'] }}">
+            <input type="text" placeholder="Ngày đăng" id="blog_post_date" name="blog_post_date" class="form-control" value="{{ $blog_details_by_slug['post_date'] }}">
         </div>
       </div>
 
