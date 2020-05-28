@@ -35,7 +35,11 @@
           <h3 class="box-title">Ngày đăng</h3>
         </div>
         <div class="box-body">
+          @if (!empty($blog_details_by_slug['post_date']))
             <input type="text" placeholder="Ngày đăng" id="blog_post_date" name="blog_post_date" class="form-control" value="{{ $blog_details_by_slug['post_date'] }}">
+          @else
+            <input type="text" placeholder="Ngày đăng" id="blog_post_date" name="blog_post_date" class="form-control" value="{{ $blog_details_by_slug['created_at'] }}">
+          @endif
         </div>
       </div>
 
