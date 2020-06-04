@@ -87,8 +87,8 @@ body{
             <div class="top-x1 col-sm-8 col-sm-offset-md-2 col-xs-offset-2 col-xs-8 col-md-offset-3 col-md-6 col-lg-6 col-lg-offset-3">
                 
                 <center><h1 class="head1">&#9889;</h1></center>
-                <h3 align="center" class="top-x2">Oops ! No Connection</h3>
-                <h3 align="center" class="top-x3">Please Find us !</h3>
+                <h3 align="center" class="top-x2">Ồ ! Bạn đã mất kết nối </h3>
+                <h3 align="center" class="top-x3">Vui lòng kiểm tra kết nối và thử lại !</h3>
                 
 
             </div>

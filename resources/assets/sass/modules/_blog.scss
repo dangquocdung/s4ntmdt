@@ -4,13 +4,14 @@
 
 // Post
 .blog-post {
-  margin-bottom: 30px;
-  border: 1px solid $border-color;
+  margin-bottom: 10px;
+  // border: 1px solid $border-color;
   border-radius: $border-radius-base;
   background-color: $white-color;
   overflow: hidden;
   .post-body {
-    padding: 22px;
+    padding: 10px;
+    text-align: center;
     > p {
       margin-bottom: 0;
       color: $blog-post-body-color;

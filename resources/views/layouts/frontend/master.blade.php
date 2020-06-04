@@ -250,6 +250,8 @@
               $('#hf_frontend_profile_picture').val('');
           });
       }
+
+     
         
       $(document).ready(function(){
         // console.log($('.comparison-item:first-child').css('height'));

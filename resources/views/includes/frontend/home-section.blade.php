@@ -140,24 +140,55 @@
                 </div>
             </div>
             <div class="col-md-8 col-lg-9 col-sm-12 padding-top-1x">
-                @if(!empty($slide_list) > 0)
-                <!-- Start Slider Area -->
-                <div class="owl-carousel" data-owl-carousel='{ "autoplay": true, "loop": true }'>
-                    @foreach($slide_list as $img)
 
-                        @if(!empty($img->img_url))
-                            <a href="{{ $img->url }}" target="_blank">
-                                <img src="{{ get_image_url($img->img_url) }}" alt="{{ $img->name }}" />
-                            </a>
+
+                    <div class="row">
+                        <div class="{{ empty($slide_list_2)?'col-md-12':'col-md-9' }}">
+                            <!-- Start Slider Area -->
+                            <div class="owl-carousel" data-owl-carousel='{ "autoplay": true, "loop": true }'>
+                                @foreach($slide_list_1 as $img)
+                                    @if(!empty($img->img_url))
+                                        <a href="{{ $img->url }}" target="_blank">
+                                            <img src="{{ get_image_url($img->img_url) }}" alt="{{ $img->name }}" />
+                                        </a>
+                                    @endif
+                                @endforeach
+                            </div>
+                        </div>
+
+                        @if (!empty($slide_list_2))
+
+                        <div class="col-md-3">
+                            <div class="row">
+                                <!-- Start Slider Area -->
+                                <a href="{{ $slide_list_2->url }}" target="_blank">
+                                    <img src="{{ get_image_url($slide_list_2->img_url) }}" alt="{{ $slide_list_2->name }}" />
+                                </a>
+                            </div>
+
+                        </div>
                         @endif
+                    </div>
 
-                    @endforeach
+                    @if (!empty($slide_list_3))
 
-                </div>
+                    <div class="row">
 
-                @endif
+                        <div class="col-md-12 padding-top-1x">
+                            <div class="row">
 
-                <!-- Start Slider Area -->
+                                <!-- Start Slider Area -->
+                                <a href="{{ $slide_list_3->url }}" target="_blank">
+                                    <img src="{{ get_image_url($slide_list_3->img_url) }}" alt="{{ $slide_list_3->name }}" />
+                                </a>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+                    @endif
+
             </div>
             <!-- End Left Feature -->
         </div>

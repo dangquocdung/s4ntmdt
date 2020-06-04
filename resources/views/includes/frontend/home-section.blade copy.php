@@ -1,14 +1,14 @@
-@section('categories-slider-area')
 <!-- Start Feature Product -->
-<section class="categories-slider-area bg__white  padding-top-1x">
+<section class="categories-slider-area bg__white">
     <div class="container">
         <div class="row">
             <!-- Start Left Feature -->
-            <div class="col-md-4 col-lg-3 col-sm-4 col-xs-12">
-                <div class="categories-menu mrg-xs">
+            <div class="col-md-4 col-lg-3 col-sm-12 padding-top-1x">
+                <div class="">
                     <div class="category-heading">
                         <h3>{{ trans('frontend.product_categories_label') }}</h3>
                     </div>
+
                     @if(count($productCategoriesTree) > 0)
 
                     <div class="category-menu-list">
@@ -139,18 +139,17 @@
                     @endif
                 </div>
             </div>
-    
-            <div class="col-md-8 col-lg-9 col-sm-8 col-xs-12">
-
-                @if($appearance_all_data['header_details']['slider_visibility'] == true && Request::is('/'))
-  
+            <div class="col-md-8 col-lg-9 col-sm-12 padding-top-1x">
+                @if(!empty($slide_list) > 0)
                 <!-- Start Slider Area -->
                 <div class="owl-carousel" data-owl-carousel='{ "autoplay": true, "loop": true }'>
-                    @foreach(get_appearance_header_settings_data() as $img)
+                    @foreach($slide_list as $img)
 
-                    @if($img->img_url)
-                        <img src="{{ get_image_url($img->img_url) }}" alt="Sản phẩm nổi bật" />
-                    @endif
+                        @if(!empty($img->img_url))
+                            <a href="{{ $img->url }}" target="_blank">
+                                <img src="{{ get_image_url($img->img_url) }}" alt="{{ $img->name }}" />
+                            </a>
+                        @endif
 
                     @endforeach
 
@@ -165,5 +164,3 @@
     </div>
 </section>
 <!-- End Feature Product -->
-
-@stop

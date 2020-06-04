@@ -66,7 +66,9 @@ class FrontendManagerController extends Controller
     $sort = null;
     $search_term = null;
     $data['blogs_data']            =   $this->CMS->get_latest_blogs();
-    $data['slide_list'] =   Slide::all();
+    $data['slide_list_1'] =   Slide::where('status',1)->where('type',1)->orderBy('id', 'desc')->get();
+    $data['slide_list_2'] =   Slide::where('status',1)->where('type',2)->orderBy('id', 'desc')->first();
+    $data['slide_list_3'] =   Slide::where('status',1)->where('type',3)->orderBy('id', 'desc')->first();
 
     // return Response::json($data);
 

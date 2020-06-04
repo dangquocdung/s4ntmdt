@@ -839,7 +839,7 @@ shopist.pageLoad = {
 
                                         swal(adminLocalizationString.updated_label, responseMsg, "success");
                                         window.location.href = window.location.href;
-                                        
+
                                     }
                                 },
                                 error: function(xhr) {
@@ -2388,6 +2388,7 @@ shopist.ajaxRequest = {
         var name = '';
         var url = '';
         var status = '';
+        var type = '';
         var img_url = '';
         var dataObj = {};
 
@@ -2400,6 +2401,7 @@ shopist.ajaxRequest = {
         }
 
         status = $('#slide_status :selected').val();
+        type = $('#slide_pos :selected').val();
 
         if ($('.slide-img img').attr('src').length > 0) {
             img_url = $('.slide-img img').data('img_url');
@@ -2411,7 +2413,7 @@ shopist.ajaxRequest = {
 
         dataObj.name = name;
         dataObj.url = url;
-        dataObj.type = '1';
+        dataObj.type = type;
         dataObj.status = status;
         dataObj.img_url = img_url;
         dataObj.click_source = $('#hf_from_model').val();
@@ -2870,8 +2872,8 @@ shopist.ajaxRequest = {
                     } else if (track == 'slide_list') {
                         $('#inputSlideName').val(data.name);
                         $('#inputSlideUrl').val(data.url);
-
                         $('#slide_status').select2('val', data.status);
+                        $('#slide_pos').select2('val', data.type);
 
                         if (data.img_url) {
                             $('.slide-img img').attr('src', base_url + data.img_url);
@@ -3990,7 +3992,7 @@ var customDropZone = (function() {
                                             shopist.normalFunction.createJsonDataForAllFrontendImage('header_slider_images', { id: id, url: '/uploads/' + parseResponse[count] });
                                         }
 
-                                        $('#frontendImageUploader').modal('hide');                                        
+                                        $('#frontendImageUploader').modal('hide');
                                         $('.uploaded-header-slider-images .sample-img').hide();
                                         $('.uploaded-header-slider-images .uploaded-slider-images').show();
                                     }

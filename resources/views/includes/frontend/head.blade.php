@@ -70,7 +70,7 @@
     <link rel="stylesheet" href="{{ URL::asset('/css/responsive.css') }}">
 
     <!-- HTTRADE  Template Styles-->
-    <link id="mainStyles" rel="stylesheet" media="screen" href="{{ URL::asset('/css/styles.css') }}">
+    <link id="mainStyles" rel="stylesheet" media="screen" href="{{ mix('/css/styles.css') }}">
 
     <!-- Modernizr-->
     <script src="{{ URL::asset('/js/modernizr.min.js') }}"></script>

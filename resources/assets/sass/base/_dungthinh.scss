@@ -311,13 +311,9 @@ h2.title {
 
     .can-giua-img{
 
-        display: block;
-        margin-left: auto;
-        margin-right: auto;
-        width: 50%;
-        
         img{
-            width: 50% !important;
+            display: block;
+            margin: auto;
         }
     }
 
@@ -359,9 +355,8 @@ h2.title {
 
             img {
                 display: block;
-                width: 50%;
-                margin-left: auto;
-                margin-right: auto;
+                margin: auto;
+                width: auto;
             }
 
         }
@@ -374,10 +369,10 @@ h2.title {
     a{
         .can-giua-img{
 
-            display: block;
-            margin-left: auto;
-            margin-right: auto;
-            width: 50%;
+            img{
+                display: block;
+                margin: auto;
+            }
             
         }
 

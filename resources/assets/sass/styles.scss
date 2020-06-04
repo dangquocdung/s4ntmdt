@@ -6,16 +6,13 @@
 
 //Import Google Fonts (Rubik)
 @import url('https://fonts.googleapis.com/css?family=Rubik:300,400,400i,500,700');
-
 // Helpers: Variables, Mixins and Placeholders
 @import 'helpers/variables';
 @import 'helpers/mixins';
 @import 'helpers/placeholders';
-
 // Base
 @import 'base/scaffolding';
 @import 'base/utilities';
-
 // Components
 @import 'components/typography';
 @import 'components/forms';
@@ -40,18 +37,15 @@
 @import 'components/widgets';
 @import 'components/steps';
 @import 'components/comparison';
-
 // Layout
 @import 'layout/section';
 @import 'layout/grid';
 @import 'layout/header';
 @import 'layout/page-title';
 @import 'layout/footer';
-
 // Modules
 @import 'modules/account';
 @import 'modules/shop';
 @import 'modules/blog';
-
 // Dungthinh
 @import 'base/dungthinh';

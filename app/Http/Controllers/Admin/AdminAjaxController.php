@@ -175,9 +175,9 @@ class AdminAjaxController extends Controller
           elseif(isset($input['slide_thumbnail_image'])){
             $image = Input::file('slide_thumbnail_image');
             // $fileName = time()."-"."h-150-".$image->getClientOriginalName();
-            $fileName = time()."w-1920-h-1080-".$image->getClientOriginalName();
-            $width = 1920;
-            $height = 1080;
+            $fileName = time()."-w-1080-".$image->getClientOriginalName();
+            $width = 1080;
+            
 
           }
           elseif(isset($input['manufacturers_logo'])){
@@ -488,7 +488,7 @@ class AdminAjaxController extends Controller
             $termObj					    =			new Slide;
             $termObj->name        =   $input['data']['name'];
             $termObj->url         =   $input['data']['url'];
-            $termObj->img_url         =   $input['data']['img_url'];
+            $termObj->img_url     =   $input['data']['img_url'];
             $termObj->type				=   $input['data']['type'];
             $termObj->status			=   $input['data']['status'];
             if( $termObj->save() ){
@@ -501,7 +501,8 @@ class AdminAjaxController extends Controller
               'name'				=>    $input['data']['name'],
               'url'				  =>    $input['data']['url'],
               'img_url'     =>    $input['data']['img_url'],
-              'status'      =>    $input['data']['status']
+              'status'      =>    $input['data']['status'],
+              'type'      =>    $input['data']['type']
             );
 
             if( Slide::where('id', $input['data']['id'])->update($data)){
@@ -1178,7 +1179,7 @@ class AdminAjaxController extends Controller
 
             $get_details_by_id =  Slide::find($input['data']['id'])->toarray();
             
-            $data = array('success' => TRUE, 'name' => $get_details_by_id['name'], 'url' => $get_details_by_id['url'], 'img_url' => $get_details_by_id['img_url'], 'status' => $get_details_by_id['status']);
+            $data = array('success' => TRUE, 'name' => $get_details_by_id['name'], 'url' => $get_details_by_id['url'], 'img_url' => $get_details_by_id['img_url'], 'status' => $get_details_by_id['status'], 'type' => $get_details_by_id['type']);
           }
           elseif($input['data']['track'] == 'tag_list'){
             $get_details_by_id =  $this->product->getTermDataById($input['data']['id']);
@@ -1820,7 +1821,7 @@ class AdminAjaxController extends Controller
             $width    = 0;
             $height   = 0;
         
-            $fileName = $count.time()."w-1920-h-1080-".$image->getClientOriginalName();
+            $fileName = $count.time()."-w-1920-h-1080-".$image->getClientOriginalName();
             $path  = public_path('uploads/' . $fileName);
             
             $width = 1920;

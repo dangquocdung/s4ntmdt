@@ -28,10 +28,24 @@
       </div>    
       <div class="modal-body">
         <div class="custom-model-row">
+
+          <div class="custom-input-group">
+            <div class="custom-input-label"><label for="slide_status">Vị trí hiển thị</label></div>
+            <div class="custom-input-element">
+              <select name="slide_pos" id="slide_pos" class="form-control select2" style="width: 100%;">
+                <option value="1">Ở giữa</option>
+                <option value="2">Bên phải</option>
+                <option value="3">Bên dưới</option>
+              </select>
+            </div>
+          </div>
+
+
           <div class="custom-input-group">
             <div class="custom-input-label"><label for="inputSlideName">{!! trans('admin.name') !!}</label></div>
             <div class="custom-input-element"><input type="text" placeholder="{{ trans('admin.category_name') }}" id="inputSlideName" name="inputSlideName" class="form-control"></div>
           </div>
+
           <div class="custom-input-group">
             <div class="custom-input-label"><label for="inputSlideUrl">Liên kết</label></div>
             <div class="custom-input-element"><input type="text" placeholder="{{ trans('admin.enter_unique_slug_name') }}" id="inputSlideUrl" name="inputSlideUrl" class="form-control">

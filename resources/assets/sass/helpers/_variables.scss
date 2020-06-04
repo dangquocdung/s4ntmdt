@@ -40,8 +40,10 @@ $highlight-color: #fff8b0;
 // Helvetica,
 // Arial,
 // sans-serif;
-
-$font-family-base:'Roboto', Helvetica, Arial, sans-serif;
+$font-family-base:'Roboto',
+Helvetica,
+Arial,
+sans-serif;
 $font-family-headings: inherit;
 // Font sizes
 $font-size-base: 16px;
@@ -88,7 +90,7 @@ $line-height-h6: 1.4;
 $line-height-display: 1.15;
 //== Grid Vertical Step
 // -------------------------------------------------------
-$grid-vertical-step: 24px;
+$grid-vertical-step: 12px;
 //== Border Radius
 // -------------------------------------------------------
 $border-radius-lg: 6px;
@@ -122,7 +124,7 @@ $table-cell-padding: 15px;
 $table-bg-accent: $gray-lighter;
 //== Navbar / Logo
 //
-$logo-width: 136px;
+$logo-width: 250px;
 $navbar-stuck-shadow: 0 7px 30px -6px rgba(0, 0, 0, .15);
 //== Navigation
 //

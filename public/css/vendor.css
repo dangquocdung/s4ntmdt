@@ -427,8 +427,8 @@ pre code {
     display: flex;
     -ms-flex-wrap: wrap;
     flex-wrap: wrap;
-    margin-right: -5px;
-    margin-left: -5px
+    margin-right: -15px;
+    margin-left: -15px
 }
 
 .no-gutters {
@@ -8571,6 +8571,7 @@ a.badge:focus {
     content: "\ea09"
 }
 
+
 /* * iziToast | v1.1.2 * http://izitoast.marcelodolce.com * by Marcelo Dolce. */
 
 .iziToast-capsule {
@@ -9789,6 +9790,7 @@ a.badge:focus {
     content: "\e67f"
 }
 
+
 /*! PhotoSwipe main CSS by Dmitry Semenov | photoswipe.com | MIT license */
 
 .pswp,
@@ -9975,6 +9977,7 @@ a.badge:focus {
     text-decoration: none;
     color: #000
 }
+
 
 /*! PhotoSwipe Default UI CSS by Dmitry Semenov | photoswipe.com | MIT license */
 
