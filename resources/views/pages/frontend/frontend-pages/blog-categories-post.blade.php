@@ -61,8 +61,16 @@
 
       </div>
 
-     
+      <nav class="phan-trang">
+        <div class="column">
+          {!! $blogs_cat_post['posts']->appends(Request::capture()->except('page'))->render() !!}
+        </div>
+      </nav>
+  
+
     </div>
+
+
   </div>
 </div>
 

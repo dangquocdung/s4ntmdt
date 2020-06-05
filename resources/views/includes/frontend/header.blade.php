@@ -338,7 +338,7 @@
 
         <li class="has-submenu {{ Request::is('tin-tuc')||Request::is('tin-tuc/*')?'active':''}}">
         
-          <a href="{{ route('blogs-page-content') }}"><span>{!! trans('frontend.truyen-thong') !!}</span></a>
+          <a href="javascript:void(0)"><span>{!! trans('frontend.truyen-thong') !!}</span></a>
 
           <ul class="sub-menu">
 

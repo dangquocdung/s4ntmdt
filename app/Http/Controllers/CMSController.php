@@ -1236,7 +1236,7 @@ class CMSController extends Controller
       $str = '';
       $currentPage = LengthAwarePaginator::resolveCurrentPage();
       $col = new Collection( $data_array );
-      $perPage = 12;
+      $perPage = 18;
       $currentPageSearchResults = $col->slice(($currentPage - 1) * $perPage, $perPage)->all();
       $posts_object = new LengthAwarePaginator($currentPageSearchResults, count($col), $perPage);
       $posts_object->setPath( route('blog-cat-page', $cat_data['slug']) );
