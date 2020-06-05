@@ -5822,7 +5822,7 @@ video {
 .widget-featured-posts > .entry .entry-thumb,
 .widget-featured-products > .entry .entry-thumb,
 .widget-cart > .entry .entry-thumb {
-  width: 90px;
+  width: 62px;
   padding-right: 12px;
   padding-top: 3px;
 }
@@ -6620,6 +6620,12 @@ video {
   width: 250px;
   color: #232323 !important;
   text-decoration: none;
+}
+
+@media only screen and (max-width: 600px) {
+  .site-header .site-branding .site-logo {
+    width: 162px;
+  }
 }
 
 .site-header .site-branding .site-logo > img {
@@ -8601,3 +8607,4 @@ h2.title::after {
 .product-action {
   padding: 10px;
 }
+

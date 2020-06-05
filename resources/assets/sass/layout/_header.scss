@@ -29,6 +29,13 @@
         .site-logo {
             display: block;
             width: $logo-width;
+
+            @media only screen and (max-width: 600px) {
+
+                width:$logo-width-mb;
+
+            }
+
             color: $headings-color !important;
             text-decoration: none;
             >img {
