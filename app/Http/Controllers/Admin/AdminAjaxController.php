@@ -1229,6 +1229,8 @@ class AdminAjaxController extends Controller
    */
   public function selectedItemDeleteById(){
     $input = Request::all();
+
+    $data=array('deleted_at' => date("y-m-d H:i:s", strtotime('now')));
     
     if(Request::isMethod('post') && Request::ajax() && Session::token() == Request::header('X-CSRF-TOKEN')){
       if($input['data']['id'] && $input['data']['track']){
@@ -1340,18 +1342,20 @@ class AdminAjaxController extends Controller
           }
         }
         elseif($input['data']['track'] == 'user_list'){
-          if(User::where('id', $input['data']['id'])->delete())
+
+          if(User::where('id', $input['data']['id'])->update($data))
           {
-            if(RoleUser::where('user_id', $input['data']['id'])->delete())
+            if(RoleUser::where('user_id', $input['data']['id'])->update($data))
             {
               $get_user_details_by_id = UsersDetail::where(['user_id' => $input['data']['id']])->get()->toArray();
               if(count($get_user_details_by_id) >0){
-                UsersDetail::where('user_id', $input['data']['id'])->delete();
+                UsersDetail::where('user_id', $input['data']['id'])->update($data);
               }
               
               return response()->json(array('delete' => true));
             }
           }
+
         }
         elseif($input['data']['track'] == 'user_roles'){
           if(Role::where('id', $input['data']['id'])->delete())
