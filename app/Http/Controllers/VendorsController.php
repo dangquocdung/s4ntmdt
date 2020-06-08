@@ -98,7 +98,7 @@ class VendorsController extends Controller
     elseif(Request::is('admin/vendors/list/pending')){
       $data['vendor_pending']     =  "class=active";
       $data['vendors_list_data']  =  $this->getAllVendors( true, $search_value, 0);
-    } 
+    }
      
     return view('pages.admin.vendors.vendors-list', $data);
   }

@@ -221,7 +221,7 @@ return [
   'create_attrs' =>'Tạo thuộc tính',
   'create_color' =>'Tạo màu',
   'create_size' =>'Tạo kích thước',
-  'product_sku' =>'SKU sản phẩm',
+  'product_sku' =>'Mã sản phẩm',
   'product_price' =>'Giá sản phẩm',
   'product_status' =>'Trạng thái sản phẩm',
   'comment_status' =>'Trạng thái bình luận',
