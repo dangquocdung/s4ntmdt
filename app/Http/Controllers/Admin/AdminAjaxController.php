@@ -1414,9 +1414,9 @@ class AdminAjaxController extends Controller
           }
         }
         elseif($input['data']['track'] == 'vendors_list'){
-          if(User::where('id', $input['data']['id'])->delete()){
-            if(RoleUser::where('user_id', $input['data']['id'])->delete()){
-              if(UsersDetail::where('user_id', $input['data']['id'])->delete()){
+          if(User::where('id', $input['data']['id'])->update($data)){
+            if(RoleUser::where('user_id', $input['data']['id'])->update($data)){
+              if(UsersDetail::where('user_id', $input['data']['id'])->update($data)){
                  return response()->json(array('delete' => true));
               }
             }

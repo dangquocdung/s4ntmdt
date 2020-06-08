@@ -91,7 +91,7 @@
                           <li><a href="#" class="vendor-status-change" data-id="{{ $row->id }}" data-target="enable"><i class="fa fa-check-square-o"></i>{{ trans('admin.enable') }}</a></li>
                         @endif
                         
-                        <!-- <li><a class="remove-selected-data-from-list" data-track_name="vendors_list" data-id="{{ $row->id }}" href="#"><i class="fa fa-remove"></i>{{ trans('admin.remove_label') }}</a></li> -->
+                        <li><a class="remove-selected-data-from-list" data-track_name="vendors_list" data-id="{{ $row->id }}" href="#"><i class="fa fa-remove"></i>{{ trans('admin.remove_label') }}</a></li>
                       </ul>
                     </div>
                   </td>

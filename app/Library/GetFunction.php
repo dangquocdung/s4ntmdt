@@ -3068,6 +3068,7 @@ class GetFunction
     if(!is_null($extra_search_term) || !empty($extra_search_term)){
       $get_users = DB::table('users')
                    ->where($where)
+                   ->where('deleted_at',null)
                    ->where('users.name', 'LIKE', '%'. $extra_search_term. '%')
                    ->join('role_user', 'users.id', '=', 'role_user.user_id')
                    ->join('users_details', 'users.id', '=', 'users_details.user_id')
@@ -3079,6 +3080,7 @@ class GetFunction
     else{
       $get_users = DB::table('users')
                    ->where($where)
+                   ->where('deleted_at',null)
                    ->join('role_user', 'users.id', '=', 'role_user.user_id')
                    ->leftJoin('users_details', 'users.id', '=', 'users_details.user_id')
                    ->select('users.*', 'users_details.details')
