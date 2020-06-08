@@ -1030,7 +1030,7 @@ return [
 'earning_reports_label' =>'Báo cáo thu nhập',
 'by_day_label' =>'Theo ngày',
 'by_year_label' =>'Theo năm',
-'by_vendor_label' =>'Bởi gian hàng',
+'by_vendor_label' =>'Theo gian hàng ',
 'from_label' =>'Từ',
 'only_to_label' =>'Đến',
 'only_show_label' =>'Chỉ',
