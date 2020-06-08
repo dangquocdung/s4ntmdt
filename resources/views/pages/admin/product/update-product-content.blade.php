@@ -915,7 +915,7 @@
                 @if (count($categories_lists) > 0)
                   <ul>
                   @foreach ($categories_lists as $data)
-                      @include('pages.common.category-list', $data)
+                      @include('pages.common.update-category-list', $data)
                   @endforeach
                   </ul>
                 @else
