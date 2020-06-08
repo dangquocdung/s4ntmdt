@@ -95,7 +95,7 @@ return [
   'start_date_format' =>'ngày bắt đầu .. YYYY-MM-DD',
   'sale_price_end_date' =>'Ngày kết thúc giá bán',
   'end_date_format' =>'ngày kết thúc .. YYYY-MM-DD',
-  'cancel_schedule' =>'Hủy lịch trình',
+  'cancel_schedule' =>'Hủy lịch biểu',
   'manage_stock' =>'Quản lý kho hàng',
   'enable_stock_management_product' =>'Cho phép quản lý kho',
   'stock_qty' =>'Số lượng sản phẩm',

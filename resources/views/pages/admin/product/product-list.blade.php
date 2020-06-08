@@ -90,7 +90,7 @@
               <th>{!! trans('admin.product_image') !!}</th>
               <th>{!! trans('admin.product_name') !!}</th>
               <th>{!! trans('admin.product_sku') !!}</th>
-              <th>{!! trans('admin.product_type') !!}</th>
+              {{-- <th>{!! trans('admin.product_type') !!}</th> --}}
               <th>{!! trans('admin.product_price') !!}</th>
               <th>{!! trans('admin.product_status') !!}</th>
               <th>{!! trans('admin.vendor_name_label') !!}</th>
@@ -110,16 +110,6 @@
                 <td>{!! $row->title !!}</td>
 
                 <td>{!! $row->sku !!}</td>
-
-                @if($row->type == 'simple_product')
-                  <td>{!! trans('admin.simple_product') !!}</td>
-                @elseif($row->type == 'configurable_product')
-                  <td>{!! trans('admin.configurable_product') !!}</td>
-                @elseif($row->type == 'downloadable_product')  
-                  <td>{!! trans('admin.downloadable_product') !!}</td>
-                @else
-                  <td>{!! trans('admin.customizable_product') !!}</td>
-                @endif
 
                 <td>{!! price_html( $row->price ) !!}</td>
 
@@ -145,7 +135,6 @@
                       @endif
 
                       @if(!is_vendor_login())  
-
 
                         @if($row->status == 1)
                           <li><a href="#" class="product-status-change" data-id="{{ $row->id }}" data-target="disable"><i class="fa fa-times-rectangle-o"></i>{{ trans('admin.disable') }}</a></li>
@@ -179,7 +168,6 @@
               <th>{!! trans('admin.product_image') !!}</th>
               <th>{!! trans('admin.product_name') !!}</th>
               <th>{!! trans('admin.product_sku') !!}</th>
-              <th>{!! trans('admin.product_type') !!}</th>
               <th>{!! trans('admin.product_price') !!}</th>
               <th>{!! trans('admin.product_status') !!}</th>
               <th>{!! trans('admin.vendor_name_label') !!}</th>

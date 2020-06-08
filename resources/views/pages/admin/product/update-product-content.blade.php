@@ -896,7 +896,6 @@
       @endif  
 
 
-      @if(is_vendor_login())  
 
       <div class="box box-solid product-categories">
         <div class="box-header with-border">
@@ -916,23 +915,19 @@
                 @if (count($categories_lists) > 0)
                   <ul>
                   @foreach ($categories_lists as $data)
-                    @if(in_array($data['id'], $user_data['categories']))
-
-                      @include('pages.common.update-category-list', $data)
-
-                    @endif
+                      @include('pages.common.category-list', $data)
                   @endforeach
                   </ul>
                 @else
                   <span>{!! trans('admin.no_categories_yet') !!}</span>
                 @endif
+
               </div>
             </div>  
           </div>
         </div>
       </div>
 
-      @endif
         
       <div class="box box-solid product-tags">
         <div class="box-header with-border">

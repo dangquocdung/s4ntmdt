@@ -865,7 +865,6 @@
       </div> 
       @endif
 
-      @if(is_vendor_login())  
 
       <div class="box box-solid product-categories">
         <div class="box-header with-border">
@@ -884,25 +883,21 @@
               <label class="col-sm-1 control-label" for="inputSelectCategories"></label>
               <div class="col-sm-11">
                 @if (count($categories_lists) > 0)
-                  <ul>
-                  @foreach ($categories_lists as $data)
-                    @if(in_array($data['id'], $user_data['categories']))
+                <ul>
+                @foreach ($categories_lists as $data)
+                    @include('pages.common.category-list', $data)
+                @endforeach
+                </ul>
+              @else
+                <span>{!! trans('admin.no_categories_yet') !!}</span>
+              @endif
 
-                      @include('pages.common.category-list', $data)
-                      
-                    @endif
-                  @endforeach
-                  </ul>
-                @else
-                  <span>{!! trans('admin.no_categories_yet') !!}</span>
-                @endif
               </div>
             </div>  
           </div>
         </div>
       </div>
 
-      @endif
       
       <div class="box box-solid product-tags">
         <div class="box-header with-border">
