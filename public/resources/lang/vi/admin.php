@@ -1028,7 +1028,7 @@ return [
 'read_more_label' =>'Đọc thêm',
 'notice_details_label' =>'Thông tin chi tiết',
 'earning_reports_label' =>'Báo cáo thu nhập',
-'by_day_label' =>'Ban ngày',
+'by_day_label' =>'Theo ngày',
 'by_year_label' =>'Theo năm',
 'by_vendor_label' =>'Bởi gian hàng',
 'from_label' =>'Từ',
