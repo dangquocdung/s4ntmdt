@@ -1040,7 +1040,7 @@ return [
   'by_vendor_label' =>'Theo gian hàng',
   'from_label' =>'Từ',
   'only_to_label' =>'Đến',
-  'only_show_label' =>'Chỉ',
+  'only_show_label' =>'Xem',
   'vendor_earning_label' =>'Tổng thu nhập',
   'commision_label' =>'Cam kết',
   'total_earning_label' =>'Tổng thu nhập trong giai đoạn này',
