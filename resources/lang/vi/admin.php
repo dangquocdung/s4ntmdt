@@ -909,7 +909,7 @@ return [
   'select_cat_label' =>'Thêm danh mục',
   'search_cat_label' =>'Tìm kiếm danh mục để thêm',
   'vendor_name_label' =>'Tên gian hàng',
-  'vendors_package_label' =>'Cài đặt gian hàng',
+  'vendors_package_label' =>'Gói gian hàng',
   'update_vendors_package_label' =>'Cập nhật các gói gian hàng',
   'create_vendors_package_label' =>'Tạo gói gian hàng',
   'update_vendors_package_label' =>'Cập nhật gói gian hàng',

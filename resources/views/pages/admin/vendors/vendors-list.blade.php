@@ -93,6 +93,9 @@
                         
                         <li><a class="remove-selected-data-from-list" data-track_name="vendors_list" data-id="{{ $row->id }}" href="#"><i class="fa fa-remove"></i>{{ trans('admin.remove_label') }}</a></li>
 
+                        <li><a href="{{ route('admin.vendors_settings_content',['id'=>$row->id]) }}"><i class="fa fa-cog"></i>{{ trans('admin.settings') }}</a></li>
+
+
                       </ul>
                     </div>
                   </td>

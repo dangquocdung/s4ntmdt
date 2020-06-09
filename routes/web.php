@@ -612,10 +612,12 @@ Route::group(['prefix' => 'admin'], function () {
     'as'   => 'admin.vendors_list_with_status'
   ])->middleware('verifyLoginPage', 'admin', 'sufficientPermission');
   
-  Route::get('vendor/settings', [
+  Route::get('vendor/settings/{id?}', [
     'uses' => 'VendorsController@vendorMenuSettingsContent',
     'as'   => 'admin.vendors_settings_content'
   ])->middleware('verifyLoginPage', 'admin', 'sufficientPermission');
+
+
   
   //admin vendor packages menu
   Route::get('vendors/package/create', [
@@ -927,7 +929,7 @@ Route::group(['prefix' => 'admin', 'middleware' => 'admin'], function () {
     'as'   => 'admin.update_frontend_settings_data'
   ]);
    
-  Route::post('vendor/settings', [
+  Route::post('vendor/settings/{id?}', [
     'uses' => 'VendorsController@saveVendorSettings',
     'as'   => 'admin.save_vendors_settings_content'
   ]);

@@ -508,32 +508,65 @@ class VendorsController extends Controller
    * @param null
    * @return response view
    */
-  public function vendorMenuSettingsContent(){
+  public function vendorMenuSettingsContent($id=null){
     $data = array();
     
     $data = $this->classCommonFunction->commonDataForAllPages();
     $data['vendors_settings'] = null;
-      
-    if(is_vendor_login()){
-      $vendor_details   = get_current_vendor_user_info();
-      $get_user_details = json_decode(get_user_account_details_by_user_id( $vendor_details['user_id'] )[0]['details']);
 
-      if(!empty($get_user_details)){
-        if(!Session::has('update-target')){
-          Session::flash('update-target', 'general');
-          $data['update_target']   =  'general';
-        }
-        else{
-          $data['update_target']   =  Session::get('update-target');
-        }
+    if (!$id){
 
-        $data['vendors_settings'] = $get_user_details;
-        $data['user_details']     = (object)$vendor_details;
+      if(is_vendor_login()){
+
+        $vendor_details   = get_current_vendor_user_info();
+        $get_user_details = json_decode(get_user_account_details_by_user_id( $vendor_details['user_id'] )[0]['details']);
+  
+        if(!empty($get_user_details)){
+          if(!Session::has('update-target')){
+            Session::flash('update-target', 'general');
+            $data['update_target']   =  'general';
+          }
+          else{
+            $data['update_target']   =  Session::get('update-target');
+          }
+  
+          $data['vendors_settings'] = $get_user_details;
+          $data['user_details']     = (object)$vendor_details;
+        }
+  
       }
+  
+
+    }else{
+
+      if(is_admin_login()){
+
+        $vendor_details   = get_vendor_user_info($id);
+        $get_user_details = json_decode(get_user_account_details_by_user_id( $vendor_details['user_id'] )[0]['details']);
+  
+        if(!empty($get_user_details)){
+          if(!Session::has('update-target')){
+            Session::flash('update-target', 'general');
+            $data['update_target']   =  'general';
+          }
+          else{
+            $data['update_target']   =  Session::get('update-target');
+          }
+  
+          $data['vendors_settings'] = $get_user_details;
+          $data['user_details']     = (object)$vendor_details;
+        }
+  
+      }
+
+
     }
+      
     
     return view('pages.admin.vendors.vendors-menu-settings', $data);
   }
+
+
   
   /**
    * 
@@ -677,7 +710,7 @@ class VendorsController extends Controller
     }
   }
   
-  public function saveVendorSettings(){
+  public function saveVendorSettings($id=null){
     if( Request::isMethod('post') && Session::token() == Input::get('_token') ){
       if(is_vendor_login()){
         $vendor_details = get_current_vendor_user_info();
@@ -755,6 +788,51 @@ class VendorsController extends Controller
           Session::flash('update-target', Input::get('hf_settings_target_tab'));
           return redirect()-> back();
         }
+      }elseif(is_admin_login()){
+
+        $vendor_details = get_vendor_user_info($id);
+        $get_user_details = json_decode(get_user_account_details_by_user_id( $vendor_details['user_id'] )[0]['details']);
+        
+        
+        if(Input::has('hf_update_vendor_profile') && Input::get('hf_update_vendor_profile') == 'update_vendor_profile'){
+          $get_user_details->profile_details->store_name = Input::get('inputStoreName');
+          $get_user_details->profile_details->address_line_1 = Input::get('inputAddress1');
+          $get_user_details->profile_details->address_line_2 = Input::get('inputAddress2');
+          $get_user_details->profile_details->city = Input::get('inputCity');
+          $get_user_details->profile_details->state = Input::get('inputState');
+          $get_user_details->profile_details->country = Input::get('inputCountry');
+          $get_user_details->profile_details->zip_postal_code = Input::get('inputZipPostalCode');
+          $get_user_details->profile_details->phone = Input::get('inputPhoneNumber');
+        }
+        
+        if(Input::has('hf_update_vendor_general_settings') && Input::get('hf_update_vendor_general_settings') == 'update_vendor_general_settings'){
+          $get_user_details->general_details->cover_img = Input::get('hf_vendor_cover_picture');
+          $get_user_details->general_details->vendor_home_page_cats = Input::get('selected_vendor_categories');
+          $get_user_details->general_details->google_map_app_key = Input::get('google_map_api_key');
+          $get_user_details->general_details->latitude = Input::get('google_map_latitude');
+          $get_user_details->general_details->longitude = Input::get('google_map_longitude');
+        }
+        
+        if(Input::has('hf_update_vendor_social_media') && Input::get('hf_update_vendor_social_media') == 'update_vendor_social_media'){
+          $get_user_details->social_media->fb_follow_us_url = Input::get('fb_follow_us_url');
+          $get_user_details->social_media->twitter_follow_us_url = Input::get('twitter_follow_us_url');
+          $get_user_details->social_media->linkedin_follow_us_url = Input::get('linkedin_follow_us_url');
+          $get_user_details->social_media->dribbble_follow_us_url = Input::get('dribbble_follow_us_url');
+          $get_user_details->social_media->google_plus_follow_us_url = Input::get('google_plus_follow_us_url');
+          $get_user_details->social_media->instagram_follow_us_url = Input::get('instagram_follow_us_url');
+          $get_user_details->social_media->youtube_follow_us_url = Input::get('youtube_follow_us_url');
+        }
+        
+        $data = array(
+                    'details' =>  json_encode($get_user_details)
+        );
+        
+        if(UsersDetail::where('user_id', $vendor_details['user_id'])->update( $data )){
+          Session::flash('success-message', Lang::get('admin.successfully_updated_msg'));
+          Session::flash('update-target', Input::get('hf_settings_target_tab'));
+          return redirect()-> back();
+        }
+
       }
     }
     else{ return redirect()-> back(); }

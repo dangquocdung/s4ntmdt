@@ -1669,6 +1669,52 @@ class GetFunction
     
     return $userData;
   }
+
+  public static function admin_user_info($id){
+    $userData = array();
+    
+    $getuserdata = User::find($id);
+    
+    if(!empty($getuserdata)){
+      $userData['user_role_id'] = $getuserdata->roles[0]->id;
+      $userData['user_role'] = $getuserdata->roles[0]->role_name;
+      $userData['user_role_slug'] = $getuserdata->roles[0]->slug;
+      $userData['user_display_name'] = $getuserdata->display_name;
+      $userData['user_name'] = $getuserdata->name;
+      $userData['user_email'] = $getuserdata->email;
+      $userData['user_photo_url'] = $getuserdata->user_photo_url;
+      $userData['user_status'] = $getuserdata->user_status;
+      $userData['user_id'] = $getuserdata->id;
+      $userData['member_since'] = $getuserdata->roles[0]->created_at;
+
+      $userData['categories'] = array();
+
+      $user_details = get_user_account_details_by_user_id($id);
+
+      if(count($user_details) > 0){
+        $get_user_details = json_decode($user_details[0]['details']);
+      } 
+
+      if(!empty($get_user_details->general_details->vendor_home_page_cats)){
+      
+        $vendor_home_cats = json_decode($get_user_details->general_details->vendor_home_page_cats);
+        
+        if(count($vendor_home_cats) > 0){
+          foreach($vendor_home_cats as $cat){
+
+            $explod_val = explode('#', $cat);
+            $get_id = end($explod_val);
+
+            array_push($userData['categories'], $get_id);
+          }
+        }
+      }
+
+    }
+    
+    return $userData;
+  }
+
   
   public static function current_frontend_user_info(){
     $userData = array();
@@ -1709,6 +1755,12 @@ class GetFunction
     $_this = new self;
     return $_this->current_admin_user_info();
   }
+
+  public static function vendor_user_info($id){
+    $_this = new self;
+    return $_this->admin_user_info($id);
+  }
+
   
   public static function create_slug_format($str){
     if($str){

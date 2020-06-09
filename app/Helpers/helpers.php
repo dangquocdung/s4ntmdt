@@ -357,6 +357,12 @@ function get_current_vendor_user_info()
   return GetFunction::current_vendor_user_info();
 }
 
+function get_vendor_user_info($id)
+{
+  return GetFunction::vendor_user_info($id);
+}
+
+
 /**
  * Check vendor login
  *
