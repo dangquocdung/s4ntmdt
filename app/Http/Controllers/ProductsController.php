@@ -205,9 +205,18 @@ class ProductsController extends Controller
     }
     
     $data = $this->classCommonFunction->commonDataForAllPages();
+
     $data['product_all_data']  =  $this->getProducts(true, $search_value, -1, $params);
     $data['search_value']      =  $search_value;
-    
+
+    $data['product_all']      = "class=active";
+    $data['product_deleted']   = '';
+
+    if(Request::is('admin/product/list/deleted')){
+      $data['product_all']      =  '';
+      $data['product_deleted']  =  "class=active";
+    }
+
     return view('pages.admin.product.product-list', $data);
   }
 
@@ -2254,7 +2263,8 @@ class ProductsController extends Controller
   public function getProducts($pagination = false, $search_val = null, $status_flag = -1, $author_id){
     $where = '';
     
-    if((is_vendor_login() && Session::has('shopist_admin_user_id')) || (!empty($author_id) && $author_id > 0 && $author_id != 'all')){
+    if((is_vendor_login() && Session::has('shopist_admin_user_id')) || (!empty($author_id) && $author_id > 0 && $author_id != 'all' && $author_id != 'deleted')){
+
       $post_author_id = 0;
       
       if(!empty($author_id) && $author_id > 0 && $author_id != 'all'){
@@ -2270,8 +2280,8 @@ class ProductsController extends Controller
       else{
         $where = ['author_id' => $post_author_id];
       }
-    }
-    else{
+
+    }else{
       if($status_flag != -1){
         $where = ['status' => $status_flag];
       }
@@ -2280,22 +2290,35 @@ class ProductsController extends Controller
     if(!empty($search_val) && $search_val != '' && !empty($where)){
       $get_posts_for_product = Product:: where($where)
                                ->where('title', 'LIKE', '%'. $search_val .'%')
+                               ->where('deleted_at',null)
                                ->orderBy('id', 'desc')
                                ->paginate(30);
     }
     elseif(!empty($search_val) && $search_val != '' && empty($where)){
       $get_posts_for_product = Product:: where('title', 'LIKE', '%'. $search_val .'%')
+                               ->where('deleted_at',null)
                                ->orderBy('id', 'desc')
                                ->paginate(30);
     }
     elseif (empty($search_val)  && !empty($where)) {
       $get_posts_for_product = Product:: where($where)
+                               ->whereNull('deleted_at')
                                ->orderBy('id', 'desc')
                                ->paginate(30);
     }
+    
     else{
-      $get_posts_for_product = Product:: orderBy('id', 'desc')
-                               ->paginate(30);
+
+      if ($author_id != 'all'){
+        $get_posts_for_product = Product:: whereNotNull('deleted_at')
+                                 ->orderBy('id', 'desc')
+                                 ->paginate(30);
+      }
+      else{
+        $get_posts_for_product = Product:: whereNull('deleted_at')
+                                 ->orderBy('id', 'desc')
+                                 ->paginate(30);
+      }
     }
         
     return $get_posts_for_product;

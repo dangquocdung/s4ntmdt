@@ -13,58 +13,71 @@
   </div>
 </div>
 
+
 <div class="row">
   <div class="col-12">
-				<div class="clearfix">
-						<div class="products-export-import-options">
-        <ul style="padding: 0px;">
-          <li><div class="btn btn-primary btn-sm" data-toggle="modal" data-target="#productImport"><i class="fa fa-download"></i> {!! trans('admin.import_label') !!}</div></li>
-										<li><div class="btn btn-primary btn-sm" data-toggle="modal" data-target="#productExport"><i class="fa fa-upload"></i> {!! trans('admin.export_label') !!}</div></li>
-								</ul>
-						</div>
-						
-						<div class="modal fade" id="productImport" tabindex="-1" role="dialog" aria-labelledby="updater" aria-hidden="true">
-								<div class="modal-dialog">
-										<form enctype="multipart/form-data" id="product_csv_import" method="POST">
-												<div class="modal-content">
-              <div class="modal-header">
-                <p class="no-margin">{!! trans('admin.import_title_label') !!}</p>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                  <span aria-hidden="true">&times;</span>
-                </button>
-              </div>   
-              <div class="modal-body">   
-                <input type="file" name="csvFileImport" id="csvFileImport" /><br>
-                <div class="sample-csv-download"><a href="{{ url('/'). '/public/extra-files/products_import.csv' }}" download="">[ {!! trans('admin.sample_csv_file_label') !!} ]</a></div>
+      <div class="clearfix">
+        <div class="products-export-import-options">
+            <ul style="padding: 0px;">
+              <li><div class="btn btn-primary btn-sm" data-toggle="modal" data-target="#productImport"><i class="fa fa-download"></i> {!! trans('admin.import_label') !!}</div></li>
+                <li><div class="btn btn-primary btn-sm" data-toggle="modal" data-target="#productExport"><i class="fa fa-upload"></i> {!! trans('admin.export_label') !!}</div></li>
+            </ul>
+        </div>
+          
+        <div class="modal fade" id="productImport" tabindex="-1" role="dialog" aria-labelledby="updater" aria-hidden="true">
+            <div class="modal-dialog">
+                <form enctype="multipart/form-data" id="product_csv_import" method="POST">
+                    <div class="modal-content">
+          <div class="modal-header">
+            <p class="no-margin">{!! trans('admin.import_title_label') !!}</p>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>   
+          <div class="modal-body">   
+            <input type="file" name="csvFileImport" id="csvFileImport" /><br>
+            <div class="sample-csv-download"><a href="{{ url('/'). '/public/extra-files/products_import.csv' }}" download="">[ {!! trans('admin.sample_csv_file_label') !!} ]</a></div>
+          </div>
+          <div class="modal-footer" style="position:relative;">
+                            <input type="submit" name="upload_product_file" id="upload_product_file" value="{{ trans('admin.upload_lang_zip_file') }}" class="btn btn-default attachtopost upload-btn-action" /> 
+                            <button  type="button" class="btn btn-default attachtopost upload-btn-action" data-dismiss="modal">{!! trans('admin.close') !!}</button>
+                        </div>
+                    </div>
+                </form>		
+            </div>
+        </div>
+
+        <div class="modal fade" id="productExport" tabindex="-1" role="dialog" aria-labelledby="updater" aria-hidden="true">
+          <div class="modal-dialog">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <p class="no-margin">{!! trans('admin.export_title_label') !!}</p>
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>  
+                <div class="modal-body">     
+                  <a href="{{ route('export-products') }}" class="btn btn-default export-csv-file">{!! trans('admin.export_csv_file_label') !!}</a>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default attachtopost" data-dismiss="modal">{!! trans('admin.close') !!}</button>
+                </div>
               </div>
-              <div class="modal-footer" style="position:relative;">
-																<input type="submit" name="upload_product_file" id="upload_product_file" value="{{ trans('admin.upload_lang_zip_file') }}" class="btn btn-default attachtopost upload-btn-action" /> 
-																<button  type="button" class="btn btn-default attachtopost upload-btn-action" data-dismiss="modal">{!! trans('admin.close') !!}</button>
-														</div>
-												</div>
-										</form>		
-								</div>
-						</div>
-				
-						<div class="modal fade" id="productExport" tabindex="-1" role="dialog" aria-labelledby="updater" aria-hidden="true">
-								<div class="modal-dialog">
-										<div class="modal-content">
-            <div class="modal-header">
-              <p class="no-margin">{!! trans('admin.export_title_label') !!}</p>
-              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                <span aria-hidden="true">&times;</span>
-              </button>
-            </div>  
-												<div class="modal-body">     
-              <a href="{{ route('export-products') }}" class="btn btn-default export-csv-file">{!! trans('admin.export_csv_file_label') !!}</a>
-												</div>
-												<div class="modal-footer">
-														<button type="button" class="btn btn-default attachtopost" data-dismiss="modal">{!! trans('admin.close') !!}</button>
-												</div>
-										</div>
-								</div>
-						</div>
-				</div>		
+          </div>
+        </div>
+      </div>	
+      
+      <hr class="text-border-bottom">
+      <div class="vendor-list-status">
+        <div class="row">
+          <div class="col-md-12">
+            <ul>
+              <li><a {{ $product_all }} href="{{ route('admin.product_list',$product_parm)}}">{!! trans('admin.only_all_label') !!}  </a></li> &nbsp; | &nbsp;  
+              <li><a {{ $product_deleted }} href="{{ route('admin.product_list', 'deleted')}}">{!! trans('admin.only_deleted') !!}  </a></li>
+            </ul>
+          </div>
+        </div>
+      </div>    
 				
     <div class="box">
       <div class="box-body">
@@ -113,10 +126,12 @@
 
                 <td>{!! price_html( $row->price ) !!}</td>
 
-                @if($row->status == 1)
-                <td class="status-enable">{!! trans('admin.enable') !!}</td>
-                @else
-                <td class="status-disable">{!! trans('admin.disable') !!}</td>
+                @if (!empty($row->deleted_at))
+                  <td class="status-disable">{!! trans('admin.only_deleted') !!}</td>
+                @elseif($row->status == 1)
+                  <td class="status-enable">{!! trans('admin.enable') !!}</td>
+                @else 
+                  <td class="status-disable">{!! trans('admin.disable') !!}</td>
                 @endif
                 
                 <td>{!! get_vendor_name( $row->author_id ) !!}</td>
@@ -128,33 +143,39 @@
                       <span class="caret"></span>
                       <span class="sr-only">Toggle Dropdown</span>
                     </button>
-                    <ul role="menu" class="dropdown-menu">
 
-                      @if (isset($row->author_id))
-                        <li><a target="_blank" href="{{ route( 'details-page', $row->slug ) }}"><i class="fa fa-edit"></i>{!! trans('admin.view') !!}</a></li>
-                      @endif
-
-                      @if(!is_vendor_login())  
+                    @if (empty($row->deleted_at))
+                      <ul role="menu" class="dropdown-menu">
 
                         @if($row->status == 1)
-                          <li><a href="#" class="product-status-change" data-id="{{ $row->id }}" data-target="disable"><i class="fa fa-times-rectangle-o"></i>{{ trans('admin.disable') }}</a></li>
-                        @else
-                          <li><a href="#" class="product-status-change" data-id="{{ $row->id }}" data-target="enable"><i class="fa fa-check-square-o"></i>{{ trans('admin.enable') }}</a></li>
+
+                          <li><a target="_blank" href="{{ route( 'details-page', $row->slug ) }}"><i class="fa fa-edit"></i>{!! trans('admin.view') !!}</a></li>
                         @endif
 
-                      @endif
-
-                      @if(in_array('add_edit_delete_product', $user_permission_list)) 
-                        <li><a href="{{ route('admin.update_product_content', $row->slug) }}"><i class="fa fa-edit"></i>{!! trans('admin.edit') !!}</a></li>
-                      @endif
-
-                      @if(in_array('add_edit_delete_product', $user_permission_list)) 
                         @if(!is_vendor_login())  
-                          <li><a class="remove-selected-data-from-list" data-track_name="product_list" data-id="{{ $row->id }}" href="#"><i class="fa fa-remove"></i>{!! trans('admin.delete') !!}</a></li>
-                        @endif
-                      @endif
 
-                    </ul>
+                          @if($row->status == 1)
+                            <li><a href="#" class="product-status-change" data-id="{{ $row->id }}" data-target="disable"><i class="fa fa-times-rectangle-o"></i>{{ trans('admin.disable') }}</a></li>
+                          @else
+                            <li><a href="#" class="product-status-change" data-id="{{ $row->id }}" data-target="enable"><i class="fa fa-check-square-o"></i>{{ trans('admin.enable') }}</a></li>
+                          @endif
+
+                        @endif
+
+                        @if(in_array('add_edit_delete_product', $user_permission_list)) 
+                          <li><a href="{{ route('admin.update_product_content', $row->slug) }}"><i class="fa fa-edit"></i>{!! trans('admin.edit') !!}</a></li>
+                        @endif
+
+                        @if($row->status == 0)
+
+                          @if(in_array('add_edit_delete_product', $user_permission_list)) 
+                            <li><a class="remove-selected-data-from-list" data-track_name="product_list" data-id="{{ $row->id }}" href="#"><i class="fa fa-remove"></i>{!! trans('admin.delete') !!}</a></li>
+                          @endif
+
+                        @endif
+
+                      </ul>
+                    @endif
                   </div>
                 </td>
               </tr>

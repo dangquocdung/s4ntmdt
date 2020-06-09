@@ -50,10 +50,37 @@ class OrderController extends Controller
 
     $data['orders_list_data']  =  $order_object;
 
+    $data['order_all']      = "class=active";
+    $data['order_deleted']   = '';
+
     // return response()->json($data);
      
     return view('pages.admin.orders.order-list', $data);
   }
+
+  public function orderListsContentDeleted(){
+    $data = array();
+    $data = $this->classCommonFunction->commonDataForAllPages();
+    $get_shop_order_data = $this->getOrderList('deleted'); 
+    
+    $currentPage = LengthAwarePaginator::resolveCurrentPage();
+    $col = new Collection( $get_shop_order_data );
+    $perPage = 12;
+    $currentPageSearchResults = $col->slice(($currentPage - 1) * $perPage, $perPage)->all();
+    $order_object = new LengthAwarePaginator($currentPageSearchResults, count($col), $perPage);
+
+    $order_object->setPath( route('admin.shop_orders_list_deleted') );
+
+    $data['orders_list_data']  =  $order_object;
+
+    $data['order_all']      =  '';
+    $data['order_deleted']  =  "class=active";
+
+    // return response()->json($data);
+     
+    return view('pages.admin.orders.order-list', $data);
+  }
+
   
   /**
    * 
@@ -150,6 +177,8 @@ class OrderController extends Controller
    */
   public function getOrderList( $order_track ){
     $order_data = array();
+    $get_order = array();
+
     
     if(is_vendor_login() && Session::has('shopist_admin_user_id')){
       if($order_track == 'all_order'){
@@ -173,17 +202,33 @@ class OrderController extends Controller
                       ->get()
                       ->toArray();
       }
+      elseif($order_track == 'deleted'){
+        $get_order  = DB::table('posts')
+                      ->where(['posts.post_type' => 'shop_order'])
+                      ->where(['vendor_orders.vendor_id' => Session::get('shopist_admin_user_id')])
+                      ->join('vendor_orders', 'vendor_orders.order_id', '=', 'posts.id')
+                      ->orderBy('posts.id', 'desc')
+                      ->select('posts.*')
+                      ->get()
+                      ->toArray();
+      }
+
+
       if(count($get_order) >0){
         $order_data = $this->manageAllOrders( $this->classCommonFunction->objToArray( $get_order ));
       }
     }
     else{
       if($order_track == 'all_order'){
-        $get_order = Post::where(['parent_id' => 0, 'post_type' => 'shop_order'])->orderBy('id', 'DESC')->get()->toArray();
+        $get_order = Post::where(['parent_id' => 0, 'post_type' => 'shop_order', 'deleted_at' => null])->orderBy('id', 'DESC')->get()->toArray();
       }
       elseif($order_track == 'current_date_order'){
-        $get_order = Post::whereDate('created_at', '=', $this->carbonObject->today()->toDateString())->where(['parent_id' => 0, 'post_type' => 'shop_order'])->get()->toArray();
+        $get_order = Post::whereDate('created_at', '=', $this->carbonObject->today()->toDateString())->where(['parent_id' => 0, 'post_type' => 'shop_order', 'deleted_at' => null])->get()->toArray();
       }
+      elseif($order_track == 'deleted'){
+        $get_order = Post::where(['parent_id' => 0, 'post_type' => 'shop_order'])->whereNotNull('deleted_at')->orderBy('id', 'DESC')->get()->toArray();
+      }
+
       
       if(count($get_order) >0){
         $order_data = $this->manageAllOrders( $get_order );

@@ -11,9 +11,20 @@
 <div class="row">
   <div class="col-12">
     <h5>{!! trans('admin.order_list_label') !!}</h5>
+    <hr class="text-border-bottom">
+    <div class="vendor-list-status">
+      <div class="row">
+        <div class="col-md-12">
+          <ul>
+            <li><a {{ $order_all }} href="{{ route('admin.shop_orders_list')}}">{!! trans('admin.only_all_label') !!}  </a></li> &nbsp; | &nbsp;  
+            <li><a {{ $order_deleted }} href="{{ route('admin.shop_orders_list_deleted')}}">{!! trans('admin.only_deleted') !!}  </a></li>
+          </ul>
+        </div>
+      </div>
+    </div>    
   </div>
 </div>
-<br>
+
 <div class="row">
   <div class="col-12">
     <div class="box">
@@ -37,7 +48,11 @@
 
                   <tr>
                     <td>
-                      <a href="{{ route('admin.view_order_details', $row['_post_id']) }}">{{ trans('admin.order') }} #{!! $row['_post_id'] !!}</a>
+                      @if (empty($order_deleted))
+                        <a href="{{ route('admin.view_order_details', $row['_post_id']) }}">{{ trans('admin.order') }} #{!! $row['_post_id'] !!}</a>
+                      @else
+                        {{ trans('admin.order') }} #{!! $row['_post_id'] !!}
+                      @endif
                     </td>
                     <td>
                       @if($row['_order_status'] == 'on-hold')
@@ -68,10 +83,13 @@
                           <span class="caret"></span>
                           <span class="sr-only">Toggle Dropdown</span>
                         </button>
+
+                        @if (empty($order_deleted))
                         <ul role="menu" class="dropdown-menu">
                           <li><a href="{{ route('admin.view_order_details', $row['_post_id']) }}"><i class="fa  fa-search"></i>{{ trans('admin.view_order') }}</a></li>
                           <li><a class="remove-selected-data-from-list" data-track_name="order_list" data-id="{{ $row['_post_id'] }}" href="#"><i class="fa fa-remove"></i>{{ trans('admin.delete') }}</a></li>
                         </ul>
+                        @endif
                       </div>
                     </td>
                   </tr>

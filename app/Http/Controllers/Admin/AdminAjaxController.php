@@ -1277,8 +1277,8 @@ class AdminAjaxController extends Controller
           }
         }
         elseif($input['data']['track'] == 'product_list'){
-          if(Product::where('id', $input['data']['id'])->delete()){
-            if(ProductExtra::where('product_id', $input['data']['id'])->delete()){
+          if(Product::where('id', $input['data']['id'])->update($data)){
+            if(ProductExtra::where('product_id', $input['data']['id'])->update($data)){
               return response()->json(array('delete' => true));
             }
           }
@@ -1309,9 +1309,9 @@ class AdminAjaxController extends Controller
           }
         }
         elseif($input['data']['track'] == 'order_list'){
-          if(Post::where('id', $input['data']['id'])->delete()){
-            if(PostExtra::where('post_id', $input['data']['id'])->delete()){
-              if(OrdersItem::where('order_id', $input['data']['id'])->delete()){
+          if(Post::where('id', $input['data']['id'])->update($data)){
+            if(PostExtra::where('post_id', $input['data']['id'])->update($data)){
+              if(OrdersItem::where('order_id', $input['data']['id'])->update($data)){
                 return response()->json(array('delete' => true));
               }
             }

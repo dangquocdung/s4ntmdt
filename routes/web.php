@@ -466,6 +466,12 @@ Route::group(['prefix' => 'admin'], function () {
     'uses' => 'OrderController@orderListsContent',
     'as'   => 'admin.shop_orders_list'
   ])->middleware('verifyLoginPage', 'admin', 'sufficientPermission');
+
+  Route::get('orders/deleted', [
+    'uses' => 'OrderController@orderListsContentDeleted',
+    'as'   => 'admin.shop_orders_list_deleted'
+  ])->middleware('verifyLoginPage', 'admin', 'sufficientPermission');
+
   
   Route::get('orders/current-date', [
     'uses' => 'OrderController@orderCurrentDateContent',

@@ -72,7 +72,7 @@
                   <ul role="menu" class="dropdown-menu">
                     <li><a href="{{ route('admin.update_new_user', $row['id']) }}"><i class="fa fa-edit"></i>{{ trans('admin.edit') }}</a></li>
                     @if($row['user_role'] = 'Administrator')
-                    <li><a class="remove-selected-data-from-list" data-track_name="user_list" data-id="{{ $row['id'] }}" href="#"><i class="fa fa-remove"></i>{{ trans('admin.delete') }}</a></li>
+                      <li><a class="remove-selected-data-from-list" data-track_name="user_list" data-id="{{ $row['id'] }}" href="#"><i class="fa fa-remove"></i>{{ trans('admin.delete') }}</a></li>
                     @endif
                   </ul>
                 </div>

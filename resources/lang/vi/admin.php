@@ -991,6 +991,7 @@ return [
   'cancelled_withdraw_label' =>'Hủy bỏ rút tiền',
   'withdraw_requests_list_label' =>'Danh sách yêu cầu rút tiền',
   'only_all_label' =>'Tất cả',
+  'only_deleted' =>'Đã xóa',
   'only_ip_label' =>'IP',
   'requested_date_label' =>'Ngày yêu cầu',
   'requested_amount_label' =>'Số tiền yêu cầu',
