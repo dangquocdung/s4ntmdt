@@ -12,7 +12,7 @@ return [
   'empty_cart' =>'Giỏ hàng trống',
   'update_cart' =>'Cập nhật giỏ hàng',
   'empty_cart_msg' =>'Giỏ hàng chưa có sản phẩm',
-  'return_to_shop' =>'Quay trở lại gian hàng',
+  'return_to_shop' =>'Quay lại',
   'return_to_home' =>'Quay trở lại trang chủ',
   'cart_sub_total' =>'Giá giỏ hàng',
   'tax' =>'Thuế',
