@@ -36,9 +36,8 @@
             <thead>
               <tr>
                 <th>{!! trans('frontend.cart_item') !!}</th>
-                <th class="text-center">{!! trans('frontend.price') !!}</th>
                 <th class="text-center">{!! trans('frontend.quantity') !!}</th>
-                <th class="text-center">{!! trans('frontend.total') !!}</th>
+                <th class="text-center">{!! trans('frontend.price') !!}</th>
                 <th class="text-center">
                   <input type="submit" name="empty_cart" class="btn btn-sm btn-outline-danger" value="{{ trans('frontend.clear_cart') }}">  
                 </th>
@@ -87,11 +86,6 @@
                   </div>
                 </td>
 
-                <td class="text-center text-lg">
-                  {!! price_html( get_product_price_html_by_filter( $items->price ), get_frontend_selected_currency() ) !!}
-                </td>
-
-
                 <td class="text-center">
 
                   <!-- <input type="number" class="form-control text-center" name="cart_quantity[{{ $index }}]" value="{{ $items->quantity }}" min="1"> -->
@@ -106,7 +100,7 @@
                   </div>
                 </td>
                 <td class="text-center text-lg">
-                  {!! price_html($items->price*$items->quantity) !!}
+                  {!! price_html( get_product_price_html_by_filter( $items->price ), get_frontend_selected_currency() ) !!}
                 </td>
               
                 <td class="text-center"><a class="remove-from-cart" href="{{ route('removed-item-from-cart', $index)}}" data-toggle="tooltip" title="Xoá sản phẩm"><i class="icon-x"></i></a></td>

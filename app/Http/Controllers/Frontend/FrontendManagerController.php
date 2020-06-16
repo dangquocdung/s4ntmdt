@@ -41,7 +41,9 @@ class FrontendManagerController extends Controller
 
     $this->product              =  new ProductsController();
     $this->classCommonFunction  =  new CommonFunction();
-    $this->cart                 =  new Cart();
+    $this->cart                 =  new Cart('gio-hang');
+    $this->cartBuy              =  new Cart('thanh-toan');
+
     $this->classGetFunction     =  new GetFunction();
     $this->CMS                  =  new CMSController();
     $this->option               =  new OptionController();
@@ -690,6 +692,10 @@ class FrontendManagerController extends Controller
     $data['_settings_data']   = $this->option->getSettingsData();
 
     $data['seen_items'] = $this->seenProducts();
+
+
+    $this->classCommonFunction->set_cart_buy();
+
     
     // return response()->json($data);
 

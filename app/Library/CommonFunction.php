@@ -28,7 +28,9 @@ class CommonFunction
   public $catHTML = '';
   
   public function __construct() {
-    $this->cart =  new Cart();
+    $this->cart =  new Cart('gio-hang');
+
+    $this->cartBuy =  new Cart('thanh-toan');
   }
   public function get_currency_symbol( $currency = '' ){
     switch ( $currency ) {
@@ -339,7 +341,6 @@ class CommonFunction
     return $data_ary;
   }
 
-  
   /**
   * frontend menu html
   *
@@ -612,7 +613,6 @@ class CommonFunction
         $i ++;
       }  
 
-      
       $html .= '</div>';
       $html .= '</div>';
     }
@@ -927,7 +927,6 @@ class CommonFunction
     return $data;
   }
   
-  
   /**
    * Get function for products data
    *
@@ -969,7 +968,6 @@ class CommonFunction
     }
   }
 
-  
   /**
    * Get function for products variations data
    *
@@ -1005,7 +1003,6 @@ class CommonFunction
       return $variations_data;
     }
   }
-  
   
   /**
    * Products add to cart
@@ -1079,6 +1076,12 @@ class CommonFunction
       $_this->set_cart_data( $product_cart_line_data );
     }
   }
+
+
+  public function set_cart_buy(){
+    $this->cartBuy = $this->cart;
+  }
+
   
   /**
    * Products add to cart set 
@@ -1196,12 +1199,12 @@ class CommonFunction
       }
       else{
         $product_id = $cart_data['id'];
-      }
-      
+      }      
       
       $this->cart->add([
         'id'            =>  $product_id,
         'product_id'    =>  $cart_data['id'],
+        'vendor_id'     =>  get_vendor_id_by_product_id($cart_data['id']),
         'name'          =>  $cart_data['post_title'],
         'quantity'      =>  $cart_data['product_line_quantity'],
         'price'         =>  $price,
@@ -1250,7 +1253,6 @@ class CommonFunction
     
     return $price;
   }
-  
   
   /**
    * Products add to cart set 

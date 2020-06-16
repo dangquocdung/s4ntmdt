@@ -19,7 +19,7 @@
                 </thead>
                 <tbody>
 
-                @foreach(Cart::items() as $index => $items)
+                @foreach(Cart::named('thanh-toan')->items() as $index => $items)
                 
                 <tr>
                     <td>
