@@ -25,6 +25,7 @@ use dungthinh\Models\CustomCurrencyValue;
 class CommonFunction
 {
   public $cart;
+  public $cartBuy;
   public $catHTML = '';
   
   public function __construct() {
@@ -1202,6 +1203,23 @@ class CommonFunction
       }      
       
       $this->cart->add([
+        'id'            =>  $product_id,
+        'product_id'    =>  $cart_data['id'],
+        'vendor_id'     =>  get_vendor_id_by_product_id($cart_data['id']),
+        'name'          =>  $cart_data['post_title'],
+        'quantity'      =>  $cart_data['product_line_quantity'],
+        'price'         =>  $price,
+        'order_price'   =>  get_product_price_html_by_filter($price),
+        'img_src'       =>  $img_src,  
+        'variation_id'  =>  $variation_id,
+        'options'       =>  $options,
+        'tax'           =>  $tax,
+        'product_type'  =>  get_product_type( $cart_data['id'] ),
+        'acces_token'   =>  $access_token,
+        'designer_data' =>  json_encode($designer_data)
+      ]);
+
+      $this->cartBuy->add([
         'id'            =>  $product_id,
         'product_id'    =>  $cart_data['id'],
         'vendor_id'     =>  get_vendor_id_by_product_id($cart_data['id']),

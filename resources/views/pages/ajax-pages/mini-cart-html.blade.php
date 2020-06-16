@@ -2,7 +2,7 @@
   <div>
     <span class="cart-icon">
       <i class="icon-shopping-cart"></i>
-      <span class="count-label">{!! Cart::count() !!}   </span>
+      <span class="count-label">{!! Cart::named('gio-hang')->count() !!}   </span>
     </span>
     <span class="text-label">{!! trans('frontend.menu_my_cart') !!}</span>
   </div>

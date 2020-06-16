@@ -49,6 +49,8 @@
             }
           }
 
+          // dd(Cart::named('gio-hang')->items());
+
         @endphp
 
         @foreach($gio_hang as $cart_id) 

@@ -246,10 +246,10 @@ class LoginController extends Controller
         'login_password.required'   =>  Lang::get('validation.password_required')
       ];
       
-      if($this->recaptchaData['enable_recaptcha_for_user_login'] == true){
-        $rules['g-recaptcha-response']  = 'required|captcha';
-        $messages['g-recaptcha-response.required']  =  Lang::get('validation.g_recaptcha_response_required');
-      }
+      // if($this->recaptchaData['enable_recaptcha_for_user_login'] == true){
+      //   $rules['g-recaptcha-response']  = 'required|captcha';
+      //   $messages['g-recaptcha-response.required']  =  Lang::get('validation.g_recaptcha_response_required');
+      // }
       
       $validator = Validator:: make($inputData, $rules, $messages);
       

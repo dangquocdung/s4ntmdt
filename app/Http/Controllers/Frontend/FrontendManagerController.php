@@ -31,6 +31,8 @@ class FrontendManagerController extends Controller
 {
   public $classGetFunction;
   public $cart;
+  public $cartBuy;
+
   public $product;
   public $classCommonFunction;
   public $CMS;
@@ -1656,12 +1658,15 @@ class FrontendManagerController extends Controller
             
     if( Request::isMethod('post') && isset($data['empty_cart']) && Session::token() == Input::get('_token')){
       $this->cart->clear();
+      $this->cartBuy->clear();
       return redirect()->back();
     }
     elseif( Request::isMethod('post') && (isset($data['update_cart']) || isset($data['shipping_method'])) && Session::token() == Input::get('_token')){
       if(count($data['cart_quantity']) > 0){
         foreach($data['cart_quantity'] as $key => $qty){
           $this->cart->updateQty($key, $qty);
+          $this->cartBuy->updateQty($key, $qty);
+
         }
       }
 

@@ -27,7 +27,7 @@
 
       <div class="col-xl-9 col-lg-8">
 
-        @if( Cart::count() >0 )
+        @if( Cart::named('thanh-toan')->count() >0 )
         <form class="form-horizontal" method="post" action="" enctype="multipart/form-data">
           <input type="hidden" name="_token" value="{{ csrf_token() }}"> 
           <div class="checkout-content cart-data">

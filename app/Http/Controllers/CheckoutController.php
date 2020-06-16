@@ -53,7 +53,7 @@ class CheckoutController extends Controller
   
   public function __construct()
   {
-    $this->cart = new Cart();
+    $this->cart = new Cart('thanh-toan');
     $this->classGetFunction     =  new GetFunction();
     $this->classCommonFunction  = new CommonFunction();
     $option  =  new OptionController();
