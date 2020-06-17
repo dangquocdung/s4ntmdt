@@ -37,7 +37,6 @@
 
                   </span>
 
-
                   <div class="product-action">
 
                     <a class="animate-left quick-view-popup" data-id="{{ $item->id }}" data-toggle="tooltip" title="{{ trans('frontend.quick_view') }}" data-original-title="{{ trans('frontend.quick_view') }}">
@@ -87,14 +86,14 @@
           <div class="single-product single-product-list product-list-right-pr mb-40">
               <div class="product-img list-img-width">
                   <a href="{{ route('details-page', $item->slug) }}">
-                  <div class="can-giua-img">
+                    <div class="can-giua-img">
 
-                    @if(!empty($item->image_url))
-                      <img src="{{ get_image_url( $item->image_url ) }}" alt="{{ basename( get_image_url( $item->image_url ) ) }}"/>
-                    @else
-                      <img  src="{{ default_placeholder_img_src() }}" alt="" />
-                    @endif
-</div>
+                      @if(!empty($item->image_url))
+                        <img src="{{ get_image_url( $item->image_url ) }}" alt="{{ basename( get_image_url( $item->image_url ) ) }}"/>
+                      @else
+                        <img  src="{{ default_placeholder_img_src() }}" alt="" />
+                      @endif
+                    </div>
                   </a>
 
                   <div class="product-action">
@@ -122,13 +121,9 @@
                             {!! price_html( get_product_price_html_by_filter(get_role_based_price_by_product_id($item->id, $item->regular_price)), get_frontend_selected_currency()) !!}
                           </span>
 
-
                         @endif
 
                       </div>
-
-
-
 
                   </div>
 
@@ -140,8 +135,6 @@
 
                     </div>
                   @endif 
-
-
 
                   <div class="product-list-cart-wishlist">
                       <div class="product-list-cart">
@@ -169,7 +162,6 @@
 
                   </div>
 
-                  
               </div>
           </div>
 

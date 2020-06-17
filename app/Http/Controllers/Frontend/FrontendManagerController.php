@@ -464,7 +464,6 @@ class FrontendManagerController extends Controller
 
     if(!empty($get_product)){
 
-
       session()->push('products.recently_viewed', $get_product->id);
 
       $data = array();
@@ -637,7 +636,7 @@ class FrontendManagerController extends Controller
    * @param null
    * @return void 
    */
-  public function checkoutPageContent(){
+  public function checkoutPageContent($vendor=null){
     $data = array();
     $vendor_details  = array();
     $is_user_login = false;
@@ -695,10 +694,33 @@ class FrontendManagerController extends Controller
 
     $data['seen_items'] = $this->seenProducts();
 
+    // Move items from gio-hang to thanh-toan
 
-    $this->classCommonFunction->set_cart_buy();
+    if ($vendor!=null){
+
+      if($this->cart->getItems()->count() > 0){
+
+        if($this->cartBuy->getItems()->count() > 0){
+          foreach($this->cartBuy->getItems() as $item){
+            if ($item->vendor_id != $vendor){
+              $this->cartBuy->remove($item->id);
+            }
+          }
+        }else{
+          foreach($this->cart->getItems() as $item){
+            if ($item->vendor_id == $vendor){
+              if ($this->cartBuy->add((array)$item)){
+                $this->cart->remove($item->id);
+              }
+            }
+          }
+        }
+      }
+
+    }
 
     
+
     // return response()->json($data);
 
     return view('pages.frontend.frontend-pages.checkout', $data);
@@ -1750,7 +1772,25 @@ class FrontendManagerController extends Controller
       }
     }
   }
-  
+
+  public function doActionForRemoveItemBuy( $item_id ){
+    if($item_id){
+      
+      $item = (array)$this->cartBuy->get($item_id);
+
+      if ($this->cart->add($item)){
+
+        if( $this->cartBuy->remove( $item_id ) ){
+
+          return redirect()->back();
+        }
+
+      }
+
+      
+    }
+  }
+
   /**
    * 
    *Remove compare product from list

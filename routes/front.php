@@ -54,7 +54,7 @@ Route::get('/gio-hang', [
   'as'   => 'cart-page'
 ]);
 
-Route::get('/thanh-toan', [
+Route::get('/thanh-toan/{vendor?}', [
   'uses' => 'Frontend\FrontendManagerController@checkoutPageContent',
   'as'   => 'checkout-page'
 ]);
@@ -70,6 +70,9 @@ Route::post('/gio-hang', [
 ]);
 
 $router->get('/remove_item/{cart_id}', ['uses' => 'Frontend\FrontendManagerController@doActionForRemoveItem', 'as' => 'removed-item-from-cart']);
+
+$router->get('/remove_item_buy/{cart_id}', ['uses' => 'Frontend\FrontendManagerController@doActionForRemoveItemBuy', 'as' => 'removed-item-from-cart-buy']);
+
 $router->get('/remove_compare_product/{product_id}', ['uses' => 'Frontend\FrontendManagerController@doActionForRemoveCompareProduct', 'as' => 'remove-compare-product-from-list']);
 
 Route::post('/thanh-toan', [

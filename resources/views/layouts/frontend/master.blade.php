@@ -6,7 +6,6 @@
   <!-- Body-->
   <body>
 
-
     <!-- Header-->
     <!-- Remove "navbar-sticky" class to make navigation bar scrollable with the page.-->
 
@@ -35,18 +34,13 @@
     <input type="hidden" name="lang_code" id="lang_code" value="{{ $selected_lang_code }}">  
     <input type="hidden" name="subscription_type" id="subscription_type" value="{{ $subscriptions_data['subscribe_type'] }}">
 
-  
-
     @include('modal.quick-view')
     @include('modal.subscribe-content')
-
 
     <!-- Back To Top Button-->
     <a class="scroll-to-top-btn" href="#"><i class="icon-chevron-up"></i></a>
     <!-- Backdrop-->
     <div class="site-backdrop"></div>
-
-
 
     <!-- JavaScript (jQuery) libraries, plugins and custom scripts-->
     <!-- Main Template Styles-->
@@ -251,8 +245,6 @@
           });
       }
 
-     
-        
       $(document).ready(function(){
         // console.log($('.comparison-item:first-child').css('height'));
 
@@ -271,8 +263,31 @@
 
         }
 
-      })
+        // Thanh toan  
+        
+        if ($('.chuyen_thanh_toan').length > 0) {
 
+          
+
+          $('.chuyen_thanh_toan').on('click', function () {
+            var url = $(this).data('url');
+            swal({
+              title: '',
+              text: url,
+              showCancelButton: true,
+              cancelButtonText: 'Hủy',
+              confirmButtonColor: "#DD6B55",
+              confirmButtonText: 'Tiếp tục',
+              closeOnConfirm: false,
+              type: 'warning'
+						},function() {
+                location.href = url;
+            });
+          })
+
+        }
+
+      })
 
       if ($('#sendVendorContactMessage').length > 0) {
         $('#sendVendorContactMessage').on('click', function () {
@@ -379,7 +394,6 @@
         }
     </script>
 
-
     @if( Request::is('/') )
       <style>
         .fb_dialog.fb_dialog_advanced {
@@ -418,7 +432,6 @@
         theme_color="#0084ff">
       </div>
     @endif
-
 
   </body>
 </html>

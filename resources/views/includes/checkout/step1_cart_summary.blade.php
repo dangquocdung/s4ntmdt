@@ -12,9 +12,16 @@
                     <th class="text-center">{!! trans('frontend.price') !!}</th>
                     <th class="text-center">{!! trans('frontend.quantity') !!}</th>
                     <th class="text-center">{!! trans('frontend.total') !!}</th>
+                    <th></th>
                 </tr>
                 </thead>
                 <tbody>
+
+                @php
+
+                    // dd(Cart::named('thanh-toan')->items());
+
+                @endphp
 
                 @foreach(Cart::named('thanh-toan')->items() as $index => $items)
                 
@@ -72,6 +79,9 @@
                     <td class="text-center text-lg">
                         {!! price_html($items->price*$items->quantity) !!}
                     </td>
+
+                    <td class="text-center"><a class="remove-from-cart" href="{{ route('removed-item-from-cart-buy', $index)}}" data-toggle="tooltip" title="Xoá sản phẩm"><i class="icon-x"></i></a></td>
+
       
                 </tr>
 
