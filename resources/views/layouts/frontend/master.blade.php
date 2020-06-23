@@ -266,14 +266,11 @@
         // Thanh toan  
         
         if ($('.chuyen_thanh_toan').length > 0) {
-
-          
-
           $('.chuyen_thanh_toan').on('click', function () {
             var url = $(this).data('url');
             swal({
               title: '',
-              text: url,
+              text: 'Bạn muốn thanh toán đơn hàng với nhà cung cấp: '+$(this).data('vendor'),
               showCancelButton: true,
               cancelButtonText: 'Hủy',
               confirmButtonColor: "#DD6B55",

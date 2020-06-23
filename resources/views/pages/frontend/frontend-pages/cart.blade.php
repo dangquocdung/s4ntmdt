@@ -156,7 +156,7 @@
             
             {{-- <a class="btn btn-primary chuyen_thanh_toan" data-id="{{ $items->vendor_id }}" href="{{ route('checkout-page',['vendor'=>$items->vendor_id]) }}">{!! trans('frontend.checkout') !!}</a> --}}
 
-            <a class="btn btn-primary chuyen_thanh_toan" data-id="{{ $items->vendor_id }}" data-url={{ route('checkout-page',['vendor'=>$items->vendor_id]) }} href="#">{!! trans('frontend.checkout') !!}</a>
+            <a class="btn btn-primary chuyen_thanh_toan" data-vendor="{{ get_vendor_name( $items->vendor_id) }}" data-url={{ route('checkout-page',['vendor'=>$items->vendor_id]) }} href="#">{!! trans('frontend.checkout') !!}</a>
   
           </div>
         </div>
