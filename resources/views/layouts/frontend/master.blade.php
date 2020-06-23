@@ -403,7 +403,7 @@
     @if( Request::is('/') )
       <style>
         .fb_dialog.fb_dialog_advanced {
-            left: 18pt;
+            left: 18pt !important;
         }
         iframe.fb_customer_chat_bounce_in_v2 {
             left: 9pt;
