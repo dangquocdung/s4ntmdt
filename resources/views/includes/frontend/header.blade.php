@@ -80,7 +80,6 @@
 
       <div class="toolbar-item hidden-on-mobile">
         <a href="{{ route('user-login-page') }}">
-          {{ Session::get('dt_frontend_user_id') }}
 
           @if (Session::has('dt_frontend_user_id') && !empty($user_info))
           <div>
