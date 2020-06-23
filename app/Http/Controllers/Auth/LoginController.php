@@ -270,12 +270,12 @@ class LoginController extends Controller
            
           if(Hash::check(Input::get('login_password'), $password) && Hash::check(Input::get('login_password'), $data->password)){
             
-            if(Session::has('shopist_frontend_user_id')){
-              Session::forget('shopist_frontend_user_id');
-              Session::put('shopist_frontend_user_id', $data->id);
+            if(Session::has('dt_frontend_user_id')){
+              Session::forget('dt_frontend_user_id');
+              Session::put('dt_frontend_user_id', $data->id);
             }
-            elseif(!Session::has('shopist_frontend_user_id')){
-              Session::put('shopist_frontend_user_id', $data->id);
+            elseif(!Session::has('dt_frontend_user_id')){
+              Session::put('dt_frontend_user_id', $data->id);
             }
 
             $remember = (Input::has('login_remember_me')) ? true : false;
@@ -292,6 +292,8 @@ class LoginController extends Controller
                 return redirect()->route('user-account-page')->withCookie( $cookie );
               }
               else {
+                // return response()->json($data);
+
                 return redirect()->route('user-account-page');
               }
             }
@@ -374,12 +376,12 @@ class LoginController extends Controller
 
     if($authUser){
 
-        if(Session::has('shopist_frontend_user_id')){
-          Session::forget('shopist_frontend_user_id');
-          Session::put('shopist_frontend_user_id', $authUser->id);
+        if(Session::has('dt_frontend_user_id')){
+          Session::forget('dt_frontend_user_id');
+          Session::put('dt_frontend_user_id', $authUser->id);
         }
-        elseif(!Session::has('shopist_frontend_user_id')){
-          Session::put('shopist_frontend_user_id', $authUser->id);
+        elseif(!Session::has('dt_frontend_user_id')){
+          Session::put('dt_frontend_user_id', $authUser->id);
         }
         return redirect()->route('home-page');
     }

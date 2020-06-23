@@ -861,7 +861,7 @@ class MobileAppFrontendController extends Controller
     $is_user_login = false;
     $get_user_login_data = get_current_frontend_user_info();
 
-    if(Session::has('shopist_frontend_user_id') && isset($get_user_login_data['user_id'])){
+    if(Session::has('dt_frontend_user_id') && isset($get_user_login_data['user_id'])){
       $is_user_login = true;
     }
 

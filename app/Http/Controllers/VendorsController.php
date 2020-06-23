@@ -25,15 +25,12 @@ use dungthinh\Library\GetFunction;
 use Illuminate\Support\Facades\App;
 use dungthinh\Library\CommonFunction;
 
-
-
 class VendorsController extends Controller
 {
   public $carbonObject;
   public $option;
   public $env;
   public $classCommonFunction;
-
 
   public function __construct(){
 		$this->carbonObject = new Carbon();
@@ -266,7 +263,6 @@ class VendorsController extends Controller
     if(Request::is('admin/vendors/earning-reports/by-day')){
       $start_date   =  date('Y-m-01');
       $current_date =  date('Y-m-d');
-
 
       if(isset($_GET['date_from']) && isset($_GET['date_to'])){
         $start_date   =  $_GET['date_from'];
@@ -536,7 +532,6 @@ class VendorsController extends Controller
   
       }
   
-
     }else{
 
       if(is_admin_login()){
@@ -559,15 +554,11 @@ class VendorsController extends Controller
   
       }
 
-
     }
       
-    
     return view('pages.admin.vendors.vendors-menu-settings', $data);
   }
 
-
-  
   /**
    * 
    * Vendor package manage content
@@ -793,7 +784,6 @@ class VendorsController extends Controller
         $vendor_details = get_vendor_user_info($id);
         $get_user_details = json_decode(get_user_account_details_by_user_id( $vendor_details['user_id'] )[0]['details']);
         
-        
         if(Input::has('hf_update_vendor_profile') && Input::get('hf_update_vendor_profile') == 'update_vendor_profile'){
           $get_user_details->profile_details->store_name = Input::get('inputStoreName');
           $get_user_details->profile_details->address_line_1 = Input::get('inputAddress1');
@@ -844,7 +834,7 @@ class VendorsController extends Controller
       
       if(empty($get_user)){ return redirect()-> back();}
       
-      if(Session::has('shopist_frontend_user_id')){
+      if(Session::has('dt_frontend_user_id')){
         $input = Input::all();
         
         $rules =  [
@@ -867,7 +857,7 @@ class VendorsController extends Controller
         else{
           $comments   =  new Comment;
           
-          $comments->user_id     =    Session::get('shopist_frontend_user_id');
+          $comments->user_id     =    Session::get('dt_frontend_user_id');
           $comments->content     =    Input::get('product_review_content');
           $comments->rating      =    Input::get('selected_rating_value');
           $comments->object_id   =    $get_user->id;
@@ -1064,8 +1054,6 @@ class VendorsController extends Controller
                       'options'        =>  json_encode($package_data)
         );
         
-        
-
         if(VendorPackage::where('id', $param)->update($data)){
           Session::flash('success-message', Lang::get('admin.successfully_updated_msg'));
           return redirect()->route('admin.vendors_packages_update_content', $param);
@@ -1382,7 +1370,6 @@ class VendorsController extends Controller
 
     $withdraw_history_data_obj->setPath( route('admin.withdraws_content') );
     
-    
     return $withdraw_history_data_obj;
   }
   
@@ -1411,7 +1398,6 @@ class VendorsController extends Controller
     $vendor_reviews_object = new LengthAwarePaginator($currentPageSearchResults, count($col), $perPage);
 
     $vendor_reviews_object->setPath( route('admin.withdraws_content') );
-    
     
     return $vendor_reviews_object;
   }
@@ -1987,8 +1973,6 @@ class VendorsController extends Controller
     
     $vendor_data['sort_by']            =  '';
 
-
-          
     $get_posts_for_vendor =  DB::table('users')
                               ->where('role_id',3)
                               ->join('role_user', 'users.id', '=', 'role_user.user_id')
@@ -1998,7 +1982,6 @@ class VendorsController extends Controller
                               ->get()
                               ->toArray();
 
-    
     if(isset($filter['srch_term'])){
       $get_posts_for_vendor->where('display_name', 'like', '%'. $filter['srch_term'] .'%');
     }

@@ -80,7 +80,7 @@
 
       <div class="toolbar-item hidden-on-mobile">
         <a href="{{ route('user-login-page') }}">
-          @if (Session::has('shopist_frontend_user_id') && !empty($user_info))
+          @if (Session::has('dt_frontend_user_id') && !empty($user_info))
           <div>
 
             <i class="flag-icon">
@@ -103,7 +103,7 @@
         </a>
 
         <div class="toolbar-dropdown text-center px-3">
-          @if (Session::has('shopist_frontend_user_id') && !empty($user_info))
+          @if (Session::has('dt_frontend_user_id') && !empty($user_info))
             <a class="btn btn-primary btn-sm btn-block" href="{{ route('user-account-page') }}">{!! trans('frontend.dashboard') !!}</a>
           @else
             <!-- <p class="text-xs mb-3 pt-2">Sign in to your account or register new one to have full control over your orders, receive bonuses and more.</p> -->
@@ -165,7 +165,7 @@
         
         <div class="toolbar-item">
 
-          @if ( Session::has('shopist_frontend_user_id') && !empty($user_info) )
+          @if ( Session::has('dt_frontend_user_id') && !empty($user_info) )
             <a href="{{ route('user-account-page') }}">
               <div>
                 <i class="flag-icon">

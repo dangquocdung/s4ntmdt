@@ -357,9 +357,9 @@ class FrontendAjaxController extends Controller
   {
     if(Request::isMethod('post') && Request::ajax() && Session::token() == Request::header('X-XSRF-TOKEN'))
     {
-      if(Session::has('shopist_frontend_user_id'))
+      if(Session::has('dt_frontend_user_id'))
       {
-        Session::forget('shopist_frontend_user_id');
+        Session::forget('dt_frontend_user_id');
         echo urlencode(route('user-login-page'));
       }
     }

@@ -15,7 +15,7 @@ class IsUserAdminMiddleware
    */
   public function handle($request, Closure $next)
   {
-    if (Session::has('shopist_frontend_user_id')){
+    if (Session::has('dt_frontend_user_id')){
 			return $next($request);
 		}
     

@@ -154,8 +154,8 @@ class CheckoutController extends Controller
         
        
         //if login user do not have address, it will redirect to back
-        if(!empty($checkout_user) && $checkout_user == 'login' && Session::has('shopist_frontend_user_id')){
-          $get_data_by_user_id     =  get_user_account_details_by_user_id( Session::get('shopist_frontend_user_id') );
+        if(!empty($checkout_user) && $checkout_user == 'login' && Session::has('dt_frontend_user_id')){
+          $get_data_by_user_id     =  get_user_account_details_by_user_id( Session::get('dt_frontend_user_id') );
           $get_array_shift_data    =  array_shift($get_data_by_user_id);
           $user_account_parse_data =  json_decode($get_array_shift_data['details']);
           
@@ -529,7 +529,7 @@ class CheckoutController extends Controller
     }
     else{
       $user_mode = 'login';
-      $user_id   = Session::get('shopist_frontend_user_id');
+      $user_id   = Session::get('dt_frontend_user_id');
     }
     
     $users_data = array('user_mode' => $user_mode, 'user_id' => $user_id);

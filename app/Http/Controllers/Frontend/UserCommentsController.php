@@ -14,7 +14,7 @@ class UserCommentsController extends Controller
   public function saveUserComments(){
     if( Request::isMethod('post') && Session::token() == Input::get('_token') ){
       
-      if(Session::has('shopist_frontend_user_id')){
+      if(Session::has('dt_frontend_user_id')){
         $input = Input::all();
         
         $rules =  [
@@ -37,7 +37,7 @@ class UserCommentsController extends Controller
         else{
           $comments   =  new Comment;
           
-          $comments->user_id     =    Session::get('shopist_frontend_user_id');
+          $comments->user_id     =    Session::get('dt_frontend_user_id');
           $comments->content     =    Input::get('product_review_content');
           $comments->rating      =    Input::get('selected_rating_value');
           $comments->object_id   =    Input::get('object_id');

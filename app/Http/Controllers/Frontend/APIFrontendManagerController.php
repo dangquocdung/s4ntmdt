@@ -94,7 +94,7 @@ class APIFrontendManagerController extends Controller
       }
     } 
          
-    if(Session::has('shopist_frontend_user_id') && isset($get_user_login_data['user_id'])){
+    if(Session::has('dt_frontend_user_id') && isset($get_user_login_data['user_id'])){
       $is_user_login = true;
       $get_data_by_user_id     =  get_user_account_details_by_user_id( $get_user_login_data['user_id'] ); 
       $get_array_shift_data    =  array_shift($get_data_by_user_id);

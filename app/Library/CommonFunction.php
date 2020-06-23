@@ -270,8 +270,12 @@ class CommonFunction
 
     $data_ary['pages_list'] = $CMS->get_pages(false, null, 1);
 
+    $data_ary['seo_data'] = get_seo_data();
+
+    $data_ary['user_info'] = get_current_frontend_user_info();
+
     if (empty($data_ary['user_info'])){
-      Session::forget('shopist_frontend_user_id');
+      Session::forget('dt_frontend_user_id');
     }
     
     return $data_ary;
@@ -336,7 +340,7 @@ class CommonFunction
     $data_ary['user_info'] = get_current_frontend_user_info();
 
     if (empty($data_ary['user_info'])){
-      Session::forget('shopist_frontend_user_id');
+      Session::forget('dt_frontend_user_id');
     }
     
     return $data_ary;

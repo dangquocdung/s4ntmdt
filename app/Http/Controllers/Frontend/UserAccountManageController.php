@@ -96,7 +96,7 @@ class UserAccountManageController extends Controller
     $data = $this->classCommonFunction->get_dynamic_frontend_content_data();
     $data['orders_list_data'] = array();
         
-    $get_shop_order_data = Post::where(['post_author_id' => Session::get('shopist_frontend_user_id'), 'post_status' => 1, 'post_type' => 'shop_order'])->orderBy('id', 'DESC')->get()->toArray();
+    $get_shop_order_data = Post::where(['post_author_id' => Session::get('dt_frontend_user_id'), 'post_status' => 1, 'post_type' => 'shop_order'])->orderBy('id', 'DESC')->get()->toArray();
 
     if(count($get_shop_order_data) > 0){
       $order_list_data = array();
@@ -218,7 +218,7 @@ class UserAccountManageController extends Controller
     $data = $this->classCommonFunction->get_dynamic_frontend_content_data();
     $data['orders_list_data'] = array();
        
-    $get_shop_order_data = Post::where(['post_author_id' => Session::get('shopist_frontend_user_id'), 'post_status' => 1, 'post_type' => 'shop_order'])->orderBy('id', 'DESC')->get()->toArray();
+    $get_shop_order_data = Post::where(['post_author_id' => Session::get('dt_frontend_user_id'), 'post_status' => 1, 'post_type' => 'shop_order'])->orderBy('id', 'DESC')->get()->toArray();
 
     if(count($get_shop_order_data) > 0){
       $order_list_data = array();
@@ -460,13 +460,13 @@ class UserAccountManageController extends Controller
         $is_user_name_exists = User::where(['name' => Input::get('user_name')])->first();
         $is_email_exists     = User::where(['email' => Input::get('email_id')])->first();
         
-        if($is_user_name_exists && $is_user_name_exists->id != Session::get('shopist_frontend_user_id'))
+        if($is_user_name_exists && $is_user_name_exists->id != Session::get('dt_frontend_user_id'))
         {
           Session::flash('error-message', Lang::get('validation.unique', ['attribute' => 'user name']));
           return redirect()->back();
         } 
         
-        if($is_email_exists && $is_email_exists->id != Session::get('shopist_frontend_user_id'))
+        if($is_email_exists && $is_email_exists->id != Session::get('dt_frontend_user_id'))
         {
           Session::flash('error-message', Lang::get('validation.unique', ['attribute' => 'email id']));
           return redirect()->back();
@@ -492,7 +492,7 @@ class UserAccountManageController extends Controller
           $data['user_photo_url'] = '';
         }
 
-        if(User::where('id', Session::get('shopist_frontend_user_id'))->update($data))
+        if(User::where('id', Session::get('dt_frontend_user_id'))->update($data))
         {
           Session::flash('message', Lang::get('frontend.profile_updated_msg'));
           return redirect()->back();
@@ -514,7 +514,7 @@ class UserAccountManageController extends Controller
    */
   public function userLogout(){
     if(is_frontend_user_logged_in() && Request::isMethod('post') && Session::token() == Input::get('_token')){
-      Session::forget('shopist_frontend_user_id');
+      Session::forget('dt_frontend_user_id');
       return redirect()->route('user-login-page');
     }
   }

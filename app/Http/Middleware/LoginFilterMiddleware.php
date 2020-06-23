@@ -35,7 +35,7 @@ class LoginFilterMiddleware
         return redirect()->route('admin.dashboard');
       }
       
-      if ( Session::has('shopist_frontend_user_id') && ( $request->is('user/login') || $request->is('user/quen-mat-khau') ) ) {
+      if ( Session::has('dt_frontend_user_id') && ( $request->is('user/login') || $request->is('user/quen-mat-khau') ) ) {
         return redirect()->route('user-dashboard-page');
       }
        

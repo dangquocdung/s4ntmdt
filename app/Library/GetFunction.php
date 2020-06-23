@@ -794,11 +794,11 @@ class GetFunction
       }
       
       if(!empty($coupon_response['coupon_allow_role_name']) && $coupon_response['coupon_allow_role_name'] != 'no_role'){
-        if(!Session::has('shopist_frontend_user_id')){
+        if(!Session::has('dt_frontend_user_id')){
           $response_str = 'no_login';
           return $response_str;
         }
-        elseif(Session::has('shopist_frontend_user_id')){
+        elseif(Session::has('dt_frontend_user_id')){
           $get_login_user = get_current_frontend_user_info();
           
           if($get_login_user['user_role_slug'] != $coupon_response['coupon_allow_role_name']){
@@ -1719,8 +1719,8 @@ class GetFunction
   public static function current_frontend_user_info(){
     $userData = array();
     
-    if(Session::has('shopist_frontend_user_id')){
-      $getuserdata = User::find(Session::get('shopist_frontend_user_id'));
+    if(Session::has('dt_frontend_user_id')){
+      $getuserdata = User::find(Session::get('dt_frontend_user_id'));
       
       if(!empty($getuserdata)){
         $userData['user_role_id'] = $getuserdata->roles[0]->id;
@@ -1731,7 +1731,7 @@ class GetFunction
         $userData['user_email'] = $getuserdata->email;
         $userData['user_photo_url'] = $getuserdata->user_photo_url;
         $userData['user_status'] = $getuserdata->user_status;
-        $userData['user_id'] = Session::get('shopist_frontend_user_id');
+        $userData['user_id'] = Session::get('dt_frontend_user_id');
         $userData['member_since'] = $getuserdata->created_at;
       }
     }
@@ -2825,7 +2825,7 @@ class GetFunction
   public static function frontend_user_logged_in(){
     $is_logged_in = false;
     
-    if(Session::has('shopist_frontend_user_id')){
+    if(Session::has('dt_frontend_user_id')){
       $is_logged_in = true;
     }
     
