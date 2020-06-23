@@ -28,7 +28,7 @@
     "subscribe_success_msg": "Cảm ơn bạn đã đăng ký",
     "subscribe_error_msg": "Đầu vào của bạn không chính xác",
     "error_message_text": "Thông điệp",
-    "user_mode_select_msg": "Vui lòng chọn chế độ người dùng để tiến hành thanh toán.",
+    "user_mode_select_msg": "Vui lòng chọn chế độ thanh toán.",
     "billing_email_not_valid_msg": "Địa chỉ email thanh toán không hợp lệ!.",
     "shipping_email_not_valid_msg": "Địa chỉ email vận chuyển không hợp lệ!.",
     "required_field_still_empty_msg": "Một số trường bắt buộc vẫn trống, vui lòng kiểm tra.",
