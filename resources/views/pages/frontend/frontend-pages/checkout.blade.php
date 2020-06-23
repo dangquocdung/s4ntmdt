@@ -28,7 +28,7 @@
       <div class="col-xl-9 col-lg-8">
 
         @if( Cart::named('thanh-toan')->count() >0 )
-        <form class="form-horizontal" method="post" action="" enctype="multipart/form-data">
+        <form class="form-horizontal" method="post" action="{{ route('checkout-process') }}" enctype="multipart/form-data">
           <input type="hidden" name="_token" value="{{ csrf_token() }}"> 
           <div class="checkout-content cart-data">
             @if (count($errors) > 0)
@@ -76,7 +76,6 @@
                 <button name="checkout_proceed" class="action submit btn btn-danger place-order" type="submit" value="checkout_proceed">{{ trans('frontend.place_order') }}</button>
               </div>
               </div>
-            
             </div>
 
           <input type="hidden" id="selected_user_mode" name="selected_user_mode">

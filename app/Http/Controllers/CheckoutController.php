@@ -77,7 +77,362 @@ class CheckoutController extends Controller
    * @param null
    * @return void
    */
+  
   public function doCheckoutProcess(){
+    $data = Input::all();
+
+            
+    if( Request::isMethod('post') && isset($data['empty_cart']) && $data['empty_cart'] == 'empty_cart' && Session::token() == Input::get('_token')){
+      $this->cart->clear();
+      return redirect()->back();
+    }
+    elseif( Request::isMethod('post') && isset($data['update_cart']) && $data['update_cart'] == 'update_cart' && Session::token() == Input::get('_token')){
+      if(count($data['cart_quantity']) > 0){
+        foreach($data['cart_quantity'] as $key => $qty){
+          $this->cart->updateQty($key, $qty);
+        }
+      }
+      return redirect()->back();
+    }
+    elseif( Request::isMethod('post') && isset($data['checkout_proceed']) && $data['checkout_proceed'] == 'checkout_proceed' && Session::token() == Input::get('_token')){
+      
+      // return response()->json($data);
+
+      if(!empty($this->cart->getItems())){
+        foreach($this->cart->getItems() as $items){
+          if($items->variation_id && count($items->options) > 0){
+            $variation_product_data = $this->classCommonFunction->get_variation_and_data_by_post_id( $items->variation_id );
+            if($variation_product_data['_variation_post_price'] == 0){
+              Session::flash('message', Lang::get('frontend.sorry_label') .' '. get_product_title($variation_product_data['parent_id']) .' '. Lang::get('frontend.price_zero_validation'));
+              $this->cart->clear();
+              return redirect()->back();
+            }
+
+            if($variation_product_data['_variation_post_manage_stock'] == 1){
+              if(isset($this->cart->get($items->id)->quantity)){
+               $cat_qty = $this->cart->get($items->id)->quantity;
+
+               if($variation_product_data['_variation_post_back_to_order'] == 'variation_not_allow' && $variation_product_data['_variation_post_manage_stock_qty'] >0 && $cat_qty > $variation_product_data['_variation_post_manage_stock_qty']){
+                 Session::flash('message', Lang::get('frontend.sorry_label') .' '.get_product_title($variation_product_data['parent_id']) .' '. Lang::get('frontend.stock_validation'));
+                 $this->cart->clear();
+                 return redirect()->back();
+               }
+              }
+            }
+          }
+          else{
+            $product_data = $this->classCommonFunction->get_product_data_by_product_id( $items->id );
+          
+            if($product_data['product_manage_stock'] == 'yes'){
+              if(isset($this->cart->get($items->id)->quantity)){
+               $cat_qty = $this->cart->get($items->id)->quantity;
+       
+               if($product_data['product_stock_back_to_order'] == 'not_allow' && $product_data['product_manage_stock_qty'] >0 && $cat_qty > $product_data['product_manage_stock_qty']){
+                 Session::flash('message', Lang::get('frontend.sorry_label') .' '.$product_data['post_title'] .' '. Lang::get('frontend.stock_validation'));
+                 $this->cart->clear();
+                 return redirect()->back();
+               }
+              }
+            }
+          }
+        }
+        
+        
+        if(Input::get('payment_option') === 'stripe' && !Input::has('stripeToken')){
+          Session::flash('message', Lang::get('validation.stripe_required_msg'));
+          return redirect()->back();
+        }
+								
+        if(Input::get('payment_option') === '2checkout' && !Input::has('twoCheckoutToken')){
+          Session::flash('message', Lang::get('validation.twocheckout_required_msg'));
+          return redirect()->back();
+        }
+								
+        $checkout_user = '';
+        if( (isset($data['user_checkout_complete_type']) && $data['user_checkout_complete_type'] == 'login_user') || ( isset($data['selected_user_mode']) && $data['selected_user_mode'] == 'login_user' ) || ( isset($data['is_user_login']) && $data['is_user_login'] == true ) ){
+          $checkout_user = 'login';
+        }
+        else{
+          $checkout_user = 'guest';
+        }
+        
+       
+        //if login user do not have address, it will redirect to back
+        if(!empty($checkout_user) && $checkout_user == 'login' && Session::has('dt_frontend_user_id')){
+          $get_data_by_user_id     =  get_user_account_details_by_user_id( Session::get('dt_frontend_user_id') );
+          $get_array_shift_data    =  array_shift($get_data_by_user_id);
+          $user_account_parse_data =  json_decode($get_array_shift_data['details']);
+          
+          if(empty($user_account_parse_data) && empty($user_account_parse_data->address_details)){
+            return redirect()-> back();
+          }
+        }
+        
+        if(!empty($checkout_user) && $checkout_user == 'guest'){
+          $rules = [
+                 'account_bill_first_name'                =>  'required',
+                 'account_bill_last_name'                 =>  'required',
+                 'account_bill_email_address'             =>  'required|email',
+                 'account_bill_phone_number'              =>  'required',
+                 'account_bill_select_country'            =>  'required',
+                 'account_bill_select_state'              =>  'required',
+                 'account_bill_select_city'               =>  'required',
+                 'account_bill_adddress_line_1'           =>  'required',
+                 ];
+          
+          $get_shipping_status = Input::get('different_shipping_address');
+
+          if(isset($get_shipping_status) && $get_shipping_status == 'different_address'){
+            $rules['account_shipping_first_name']         = 'required';
+            $rules['account_shipping_last_name']          = 'required';
+            $rules['account_shipping_email_address']      = 'required|email';
+            $rules['account_shipping_phone_number']       = 'required';
+            $rules['account_shipping_select_country']     = 'required';
+            $rules['account_shipping_select_state']       = 'required';
+            $rules['account_shipping_select_city']       = 'required';
+            $rules['account_shipping_adddress_line_1']    = 'required';
+          }
+          
+          $messages = [
+                'account_bill_first_name.required' => Lang::get('validation.billing_fill_first_name_field'),
+                'account_bill_last_name.required' => Lang::get('validation.billing_fill_last_name_field'),
+                'account_bill_email_address.required' => Lang::get('validation.billing_fill_email_field'),
+                'account_bill_email_address.email' => Lang::get('validation.billing_fill_valid_email_field'),
+                'account_bill_phone_number.required' => Lang::get('validation.billing_fill_phone_number_field'),
+                'account_bill_select_country.required' => Lang::get('validation.billing_country_name_field'),
+                'account_bill_select_state.required' => Lang::get('validation.billing_fill_state_name_field'),
+                'account_bill_select_city.required' => Lang::get('validation.billing_fill_town_city_field'),
+                'account_bill_adddress_line_1.required' => Lang::get('validation.billing_address_line_1_field'),
+              ];
+          
+          if(isset($get_shipping_status) && $get_shipping_status == 'different_address'){
+            $messages['account_shipping_first_name.required'] = Lang::get('validation.shipping_fill_first_name_field');
+            $messages['account_shipping_last_name.required'] = Lang::get('validation.shipping_fill_last_name_field');
+            $messages['account_shipping_email_address.required'] = Lang::get('validation.shipping_fill_email_field');
+            $messages['account_shipping_email_address.email'] = Lang::get('validation.shipping_fill_valid_email_field');
+            $messages['account_shipping_phone_number.required'] = Lang::get('validation.shipping_fill_phone_number_field');
+            $messages['account_shipping_select_country.required'] = Lang::get('validation.shipping_country_name_field');
+            $messages['account_shipping_select_state.required'] = Lang::get('validation.shipping_fill_state_name_field');
+            $messages['account_shipping_select_city.required'] = Lang::get('validation.shipping_fill_city_name');
+            $messages['account_shipping_adddress_line_1.required'] = Lang::get('validation.shipping_address_line_1_field');
+          }
+        }
+      
+        $rules['payment_option']  = 'required';
+        $messages['payment_option.required']  =  Lang::get('validation.fill_payment_gateway');
+        
+        if(Input::get('payment_option') === 'stripe' && Input::has('stripeToken')){
+          $rules['stripeToken']  = 'required';
+          $messages['stripeToken.required']  =  Lang::get('validation.stripe_required_msg');
+        }
+								
+        if(Input::get('payment_option') === '2checkout' && Input::has('twoCheckoutToken')){
+          $rules['twoCheckoutToken']  = 'required';
+          $messages['twoCheckoutToken.required']  =  Lang::get('validation.twocheckout_required_msg');
+        }
+      
+        $validator = Validator::make(Input::all(), $rules, $messages);
+      
+        if($validator->fails()){
+          return redirect()-> back()
+          ->withInput()
+          ->withErrors( $validator );
+        }
+        elseif($validator->passes())
+        {
+          if(!empty($checkout_user) && $checkout_user == 'guest'){
+            // $shipping_title                 =   Input::get('account_bill_title');
+            $shipping_first_name            =   Input::get('account_bill_first_name');
+            $shipping_last_name             =   Input::get('account_bill_last_name');
+            // $shipping_company_name          =   Input::get('account_bill_company_name');
+            $shipping_email_address         =   Input::get('account_bill_email_address');
+            $shipping_phone_number          =   Input::get('account_bill_phone_number');
+            // $shipping_fax_number            =   Input::get('account_bill_fax_number');
+            $shipping_select_country        =   Input::get('account_bill_select_country');
+            $shipping_select_state          =   Input::get('account_bill_select_state');
+            $shipping_select_city           =   Input::get('account_bill_select_city');
+            $shipping_adddress_line_1       =   Input::get('account_bill_adddress_line_1');
+            // $shipping_address_line_2        =   Input::get('account_bill_adddress_line_2');
+            
+            if(isset($get_shipping_status) && $get_shipping_status == 'different_address'){
+              // $shipping_title                 =   Input::get('account_shipping_title');
+              $shipping_first_name            =   Input::get('account_shipping_first_name');
+              $shipping_last_name             =   Input::get('account_shipping_last_name');
+              // $shipping_company_name          =   Input::get('account_shipping_company_name');
+              $shipping_email_address         =   Input::get('account_shipping_email_address');
+              $shipping_phone_number          =   Input::get('account_shipping_phone_number');
+              // $shipping_fax_number            =   Input::get('account_shipping_fax_number');
+              $shipping_select_country        =   Input::get('account_shipping_select_country');
+              $shipping_select_state          =   Input::get('account_shipping_select_state');
+              $shipping_select_city           =   Input::get('account_shipping_select_city');
+              $shipping_adddress_line_1       =   Input::get('account_shipping_adddress_line_1');
+              // $shipping_address_line_2        =   Input::get('account_shipping_adddress_line_2');
+            }
+            
+            // $this->checkoutData['billing_title']              =   Input::get('account_bill_title');
+            $this->checkoutData['bill_first_name']            =   Input::get('account_bill_first_name');
+            $this->checkoutData['bill_last_name']             =   Input::get('account_bill_last_name');
+            // $this->checkoutData['bill_company_name']          =   Input::get('account_bill_company_name');
+            $this->checkoutData['bill_email_address']         =   Input::get('account_bill_email_address');
+            $this->checkoutData['bill_phone_number']          =   Input::get('account_bill_phone_number');
+            // $this->checkoutData['bill_fax_number']            =   Input::get('account_bill_fax_number');
+            $this->checkoutData['bill_select_country']        =   Input::get('account_bill_select_country');
+            $this->checkoutData['bill_select_state']          =   Input::get('account_bill_select_state');
+            $this->checkoutData['bill_select_city']           =   Input::get('account_bill_select_city');
+            $this->checkoutData['bill_adddress_line_1']       =   Input::get('account_bill_adddress_line_1');
+            // $this->checkoutData['bill_address_line_2']        =   Input::get('account_bill_adddress_line_2');
+            
+            // $this->checkoutData['shipping_title']              =   $shipping_title;
+            $this->checkoutData['shipping_first_name']         =   $shipping_first_name;
+            $this->checkoutData['shipping_last_name']          =   $shipping_last_name;
+            // $this->checkoutData['shipping_company_name']       =   $shipping_company_name;
+            $this->checkoutData['shipping_email_address']      =   $shipping_email_address;
+            $this->checkoutData['shipping_phone_number']       =   $shipping_phone_number;
+            // $this->checkoutData['shipping_fax_number']         =   $shipping_fax_number;
+            $this->checkoutData['shipping_select_country']     =   $shipping_select_country;
+            $this->checkoutData['shipping_select_state']      =   $shipping_select_state;
+            $this->checkoutData['shipping_select_city']       =   $shipping_select_city;
+            $this->checkoutData['shipping_adddress_line_1']    =   $shipping_adddress_line_1;
+            // $this->checkoutData['shipping_address_line_2']     =   $shipping_address_line_2;
+          }
+          
+          $this->checkoutData['payment_method']             =   Input::get('payment_option');
+          $this->checkoutData['payment_method_title']       =   Input::get('payment_option');
+          $this->checkoutData['order_note']                 =   Input::get('checkout_order_extra_message');
+          $this->checkoutData['user_mode']                  =   $checkout_user;  
+          
+          
+          if(Session::get('checkout_post_details')){
+            Session::forget('checkout_post_details');
+            Session::put('checkout_post_details', json_encode($this->checkoutData));
+          }
+          else{
+            Session::put('checkout_post_details', json_encode($this->checkoutData));
+          }
+          
+          $email_options = get_emails_option_data();
+          
+          
+          if(Input::get('payment_option') === 'bacs' || Input::get('payment_option') === 'cod' ){
+            $mailData = array();
+            $adminMailData = array();
+            $order_id = $this->save_checkout_data();
+            
+            $adminMailData['source']           =   'admin_order_confirmation';
+            $adminMailData['data']             =   array('order_id' => $order_id['order_id']);
+
+            if($order_id['order_id'] > 0 && $this->env === 'production'){
+              $this->classGetFunction->sendCustomMail( $adminMailData );
+            }
+            
+            if(isset($email_options['new_order']['enable_disable']) && $email_options['new_order']['enable_disable'] == true){
+              //load mailData Array
+              $mailData['source']           =   'order_confirmation';
+              $mailData['data']             =   array('order_id' => $order_id['order_id']);
+
+              if($order_id['order_id'] > 0 && $this->env === 'production'){
+                $this->classGetFunction->sendCustomMail( $mailData );
+              }
+            }
+            
+            if($this->nexmo_data['enable_nexmo_option'] == true){
+              $this->classCommonFunction->sendSMSToAdmin();
+            }
+
+            return \Redirect::route('frontend-order-received', array('order_id' => $order_id['order_id'], 'order_key' => $order_id['process_id']));
+          }
+          elseif(Input::get('payment_option') === 'paypal'){
+            //process items
+            $payer = new Payer();
+            $payer->setPaymentMethod('paypal');
+
+            $items_ary = array();
+            if($this->cart->getItems() && $this->cart->getItems()->count()>0)
+            {
+              foreach($this->cart->getItems() as $items)
+              {
+                $itemObj = new Item();
+                $itemObj->setName( $items->name )
+                        ->setCurrency( get_frontend_selected_currency() ) 
+                        ->setQuantity( $items->quantity )
+                        ->setPrice( $items->price );
+
+                array_push($items_ary, $itemObj);
+              }
+            }
+
+            //amount details
+            $amount_details = new Details();
+            $amount_details-> setSubtotal( $this->cart->getTotal() )
+                           -> setShipping( $this->cart->getShippingCost() ) 
+                           -> setTax( $this->cart->getTax() ) ;
+
+
+            // add item to list
+            $item_list = new ItemList();
+            $item_list->setItems( $items_ary );
+
+
+            //to ammount 
+            $amount = new Amount();
+            $amount->setCurrency( get_frontend_selected_currency() )
+                   ->setTotal( $this->cart->getCartTotal() )
+                   ->setDetails( $amount_details );
+
+            //transaction
+            $transaction = new Transaction();
+            $transaction->setAmount($amount)
+                        ->setItemList($item_list)
+                        ->setDescription('Your transaction description');
+
+
+            $redirect_urls = new RedirectUrls();
+            $redirect_urls->setReturnUrl(URL::route('payment.status'))
+                          ->setCancelUrl(URL::route('payment.status'));    
+
+            $payment = new Payment();
+            $payment->setIntent('Sale')
+                    ->setPayer($payer)
+                    ->setRedirectUrls($redirect_urls)
+                    ->setTransactions(array($transaction));
+
+            try 
+            {
+              $payment->create($this->_api_context);
+            } 
+            catch (\PayPal\Exception\PPConnectionException $ex) 
+            {
+              if (\Config::get('app.debug')) {
+                  echo "Exception: " . $ex->getMessage() . PHP_EOL;
+                  $err_data = json_decode($ex->getData(), true);
+                  exit;
+              } else {
+                  die('Some error occur, sorry for inconvenient');
+              }
+            }
+
+            foreach($payment->getLinks() as $link) {
+              if($link->getRel() == 'approval_url') {
+                  $redirect_url = $link->getHref();
+                  break;
+              }
+            }
+
+            Session::put('paypal_payment_id', $payment->getId());
+
+            if(isset($redirect_url)) {
+              // redirect to paypal
+              return \Redirect::away($redirect_url);
+            }
+
+            return \Redirect::route('cart-page');
+          }
+        }
+      }
+    }
+  }
+
+  public function doCheckoutProcess_bk(){
     $data = Input::all();
             
     if( Request::isMethod('post') && isset($data['empty_cart']) && $data['empty_cart'] == 'empty_cart' && Session::token() == Input::get('_token')){
@@ -427,7 +782,6 @@ class CheckoutController extends Controller
       }
     }
   }
-  
   /**
    * 
    *Paypal payment status
