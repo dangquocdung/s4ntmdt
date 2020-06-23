@@ -13830,3 +13830,38 @@ h2.title::after {
   padding: 10px;
 }
 
+.hotline {
+  position: fixed;
+  right: -20px;
+  bottom: 100px;
+  z-index: 3;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: flex-end;
+}
+
+.hotline a._tel {
+  display: flex;
+  background-color: #f5f5f5;
+  flex-direction: row;
+  align-items: center;
+  border-radius: 40px;
+}
+
+.hotline a._tel img {
+  vertical-align: middle;
+  border-style: none;
+}
+
+.hotline a._tel ._text {
+  margin-right: 25px;
+  margin-left: 15px;
+}
+
+.hotline a._tel ._text p {
+  margin: 0;
+  text-transform: uppercase;
+  color: #000;
+}
+

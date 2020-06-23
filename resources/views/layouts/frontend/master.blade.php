@@ -37,6 +37,15 @@
     @include('modal.quick-view')
     @include('modal.subscribe-content')
 
+    {{-- hotline --}}
+
+    <div class="hotline">
+      <a href="tel:02393895589" class="_tel">
+          <div class="icon"><img src="https://nhasangxexin.vinhomes.vn/wp-content/themes/vinfast/assets/images/landing-page/phone.png" alt=""></div>
+          <div class="_text"><p>hotline</p><p>(0239)3895589</p></div>
+      </a>
+    </div>
+
     <!-- Back To Top Button-->
     <a class="scroll-to-top-btn" href="#"><i class="icon-chevron-up"></i></a>
     <!-- Backdrop-->
