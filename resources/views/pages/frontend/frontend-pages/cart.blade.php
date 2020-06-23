@@ -155,9 +155,10 @@
             <input type="submit" name="update_cart" class="btn btn-warning update" value="{{ trans('frontend.update_cart') }}">  
             
             {{-- <a class="btn btn-primary chuyen_thanh_toan" data-id="{{ $items->vendor_id }}" href="{{ route('checkout-page',['vendor'=>$items->vendor_id]) }}">{!! trans('frontend.checkout') !!}</a> --}}
-
+            
+            @if (Cart::named('thanh-toan')->count() == 0)
             <a class="btn btn-primary chuyen_thanh_toan" data-vendor="{{ get_vendor_name( $cart_id) }}" data-url={{ route('checkout-page',['vendor'=>$cart_id]) }} href="#">{!! trans('frontend.checkout') !!}</a>
-  
+            @endif
           </div>
         </div>
 
