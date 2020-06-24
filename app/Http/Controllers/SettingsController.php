@@ -430,7 +430,7 @@ class SettingsController extends Controller
         
         
         $general_array = array(
-            'general_options'     => array('site_title' => Input::get('inputSiteTitle'), 'email_address' => Input::get('inputEmailAddress'), 'site_logo' => Input::get('hf_site_picture'), 'allow_registration_for_frontend' => $is_reg_enable_at_frontend, 'default_role_slug_for_site' => Input::get('inputDefaultRoleForSite')),
+            'general_options'     => array('site_title' => Input::get('inputSiteTitle'), 'email_address' => Input::get('inputEmailAddress'), 'hotline' => Input::get('inputHotline'), 'site_logo' => Input::get('hf_site_picture'), 'allow_registration_for_frontend' => $is_reg_enable_at_frontend, 'default_role_slug_for_site' => Input::get('inputDefaultRoleForSite')),
             'taxes_options' => array('enable_status' => Input::get('inputTaxesOptions'), 'apply_tax_for' => Input::get('inputApplyTaxes'), 'tax_amount' => Input::get('inputTaxAmount')),
             'checkout_options'    => array('enable_guest_user' => $is_guest_enable_at_frontend, 'enable_login_user' => $is_login_enable_at_frontend),
             'downloadable_products_options'    => array('login_restriction' => $is_download_require_login_at_frontend, 'grant_access_from_thankyou_page' => $is_access_downloadable_product_order_ty, 'grant_access_from_email' => $is_access_downloadable_product_email), 

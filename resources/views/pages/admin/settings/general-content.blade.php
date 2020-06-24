@@ -39,6 +39,16 @@
             </div>
           </div>  
         </div>
+
+        <div class="form-group">
+          <div class="row">  
+            <label class="col-sm-4 control-label" for="inputHotline">{{ trans('admin.hotline') }}</label>
+            <div class="col-sm-8">
+              <input type="text" placeholder="{{ trans('admin.hotline') }}" id="inputHotline" name="inputHotline" class="form-control" value="">
+            </div>
+          </div>  
+        </div>
+
         
         <div class="form-group">
           <div class="row">  
