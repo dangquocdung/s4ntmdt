@@ -6,7 +6,8 @@
             <div class="col-md-4 col-lg-3 col-sm-12 padding-top-1x">
                 <div class="">
                     <div class="category-heading">
-                        <h3>{{ trans('frontend.product_categories_label') }}</h3>
+                        
+                        <h3><i class="icon-menu"></i>&nbsp;{{ trans('frontend.product_categories_label') }}</h3>
                     </div>
 
                     @if(count($productCategoriesTree) > 0)

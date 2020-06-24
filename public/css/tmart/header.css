@@ -6,7 +6,6 @@
   Version: 1.0
 -------------------------------------------------------------------------------------*/
 
-
 /*
  
     font-family: 'Poppins', sans-serif;
@@ -14,7 +13,6 @@
     font-family: 'Dosis', sans-serif;
 
 */
-
 
 /*----------------------------------------
   Menu basic style
@@ -92,7 +90,6 @@
     background: #fff none repeat scroll 0 0;
 }
 
-
 /*---------------------------
   Sidebar Menu
 ----------------------------*/
@@ -131,7 +128,6 @@
     padding-top: 40px;
 }
 
-
 /*-------------------------
   Menu Style 7
 --------------------------*/
@@ -157,7 +153,6 @@
     width: 189px;
     z-index: 99;
 }
-
 
 /*-----------------------------------------
   Sticky  For  Header
@@ -214,7 +209,6 @@
 .mobile-logo img {
     max-height: 25px;
 }
-
 
 /*-----------------------------
   Dropdown Menu
@@ -284,7 +278,6 @@
 .scroll-header .main__menu li.drop a:hover ul.dropdown {
     top: 100%;
 }
-
 
 /*----------------------------
   Sub Menu
@@ -356,7 +349,6 @@
     top: 0;
 }
 
-
 /*-----------------------------
   Menu Right Side
 ------------------------------*/
@@ -390,7 +382,6 @@
     color: #ff4136;
 }
 
-
 /*---------------------------
   Header Stayle 2
 -----------------------------*/
@@ -407,7 +398,6 @@
 .sticky__header.scroll-header.header--2 {
     background: rgba(64, 64, 64, 0.7) none repeat scroll 0 0;
 }
-
 
 /*---------------------------
   Header Stayle 3
@@ -457,7 +447,6 @@
     height: 70px;
 }
 
-
 /*---------------------------
   Header Stayle  4
 -----------------------------*/
@@ -474,7 +463,6 @@
     padding-left: 60px;
     padding-right: 60px;
 }
-
 
 /*---------------------------
   Header Stayle  5
@@ -573,7 +561,6 @@
     top: 24px;
 }
 
-
 /*-------------------------------
   Header 6
 --------------------------------*/
@@ -587,7 +574,6 @@
     font-size: 15px;
     font-weight: 500;
 }
-
 
 /*-----------------------------------
   Header Search area
@@ -716,7 +702,6 @@
     transform: translateY(0px);
     transition: all 300ms ease 0s;
 }
-
 
 /*--------------------------
   Toggle menu
@@ -939,7 +924,6 @@ h4.offset__title {
     padding: 21px 50px 24px;
 }
 
-
 /*---------------------------------
   Shopping Cart Area
 ---------------------------------*/
@@ -1057,7 +1041,6 @@ h4.offset__title {
     border-top: 1px solid #ddd;
 }
 
-
 /*-------------------------------
   Mega Menu
 ---------------------------------*/
@@ -1147,7 +1130,7 @@ h4.offset__title {
     font-size: 16px;
     font-weight: normal;
     letter-spacing: 1px;
-    padding: 15px 15px 15px 50px;
+    padding: 15px;
     position: relative;
     text-transform: uppercase;
     transition: all .3s ease 0s;
@@ -1160,17 +1143,6 @@ h4.offset__title {
 
 .category-heading>h3:hover {
     color: #ff4136;
-}
-
-.category-heading>h3::before {
-    content: "";
-    font-family: "Material-Design-Iconic-Font";
-    font-size: 20px;
-    font-weight: normal;
-    left: 20px;
-    margin-right: 12px;
-    position: absolute;
-    top: 12px;
 }
 
 .category-menu-list {
