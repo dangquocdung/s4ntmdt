@@ -443,7 +443,12 @@ h2.title {
                 margin: 0;
                 text-transform: uppercase;
                 color: #000;
+                line-height: 14px;
             }
         }
     }
+}
+
+.hotline.visible {
+    opacity: 0.8;
 }

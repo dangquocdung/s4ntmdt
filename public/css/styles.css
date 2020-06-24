@@ -13863,5 +13863,10 @@ h2.title::after {
   margin: 0;
   text-transform: uppercase;
   color: #000;
+  line-height: 14px;
+}
+
+.hotline.visible {
+  opacity: 0.8;
 }
 

@@ -102,11 +102,9 @@
 // require('./common.js')
 __webpack_require__(/*! ./common.js */ "./resources/assets/js/common.js"); // require('./checkout.js')
 
-
 __webpack_require__(/*! ./products-add-to-cart */ "./resources/assets/js/products-add-to-cart.js");
 
 __webpack_require__(/*! ./unishop */ "./resources/assets/js/unishop.js"); // require('./customizer.js');
-
 
 __webpack_require__(/*! ./dungdang */ "./resources/assets/js/dungdang.js"); // window.Vue = require('vue');
 
@@ -353,7 +351,6 @@ $(document).ready(function () {
     });
   } //checkout multistep
 
-
   var current = 1;
   var is_enable_selected = false;
   widget = $("#checkout_page .step");
@@ -507,7 +504,6 @@ $(document).ready(function () {
   //shopist_frontend.ajaxCall.getMiniCartContent();
   //}
 
-
   if ($('#different_shipping_address').length > 0) {
     $('.different-shipping-address').hide();
     $('#different_shipping_address').on('ifChecked', function (event) {
@@ -517,7 +513,6 @@ $(document).ready(function () {
       $('.different-shipping-address').hide();
     });
   } //slick start
-
 
   if ($('.upsell-products').length > 0) {
     $('.upsell-products').slick({
@@ -795,7 +790,6 @@ shopist_frontend.init = {
     //    {
     //      $("#bill_select_country").select2();
     //    }
-
 
     if ($('.view-customize-images').length > 0) {
       $('.view-customize-images').on('click', function (e) {
@@ -1415,13 +1409,11 @@ function product_review_tab_control_with_hashtag() {
   $('#product_single_page').find('.product-description-bottom-tab .tab-content #reviews').addClass('active in');
 } // Change progress bar action
 
-
 function setProgress(currstep) {
   var percent = parseFloat(100 / widget.length) * currstep;
   percent = percent.toFixed();
   $(".progress-bar").css("width", percent + "%").html(percent + "%");
 } // Hide buttons according to the current step
-
 
 function hideButtons(current) {
   var limit = parseInt(widget.length);
@@ -1524,7 +1516,6 @@ function checkoutStepValidation() {
     // if (isChecked && $('#account_shipping_zip_or_postal_code').length > 0 && $('#account_shipping_zip_or_postal_code').val().length == 0 && $('#account_shipping_zip_or_postal_code').val() == '') {
     //     errorStr.push('no_account_shipping_zip_or_postal_code');
     // }
-
 
     if ($('#account_bill_email_address').val().length > 0 && !isValidEmail($('#account_bill_email_address').val())) {
       emailMsg += '<p>' + frontendLocalizationString.billing_email_not_valid_msg + '</p>';
@@ -1660,7 +1651,6 @@ function removeERRORMessageFromChekoutStep() {
     $('#checkout_page .checkout-content').find('.error-msg').parent('.alert-danger').remove();
   }
 } // Numeric only control handler
-
 
 jQuery.fn.ForceNumericOnly = function () {
   return this.each(function () {
@@ -2009,7 +1999,6 @@ $(document).ready(function () {
    */
   //ajax request for add to cart
 
-
   if ($('.add-to-cart-bg').length > 0 || $('.single-page-add-to-cart').length > 0) {
     dynamicAddToCart();
   }
@@ -2163,7 +2152,8 @@ var dynamicAddToCart = function dynamicAddToCart() {
 
 /*global jQuery, iziToast, noUiSlider*/
 jQuery(document).ready(function ($) {
-  'use strict'; // Check if Page Scrollbar is visible
+  'use strict'; 
+  // Check if Page Scrollbar is visible
   //------------------------------------------------------------------------------
 
   var hasScrollbar = function hasScrollbar() {
@@ -2171,7 +2161,6 @@ jQuery(document).ready(function ($) {
     if (typeof window.innerWidth === 'number') {
       return window.innerWidth > document.documentElement.clientWidth;
     } // rootElem for quirksmode
-
 
     var rootElem = document.documentElement || document.body; // Check overflow style property on body for fauxscrollbars
 
@@ -2198,14 +2187,15 @@ jQuery(document).ready(function ($) {
 
   if (hasScrollbar()) {
     $('body').addClass('hasScrollbar');
-  } // Disable default link behavior for dummy links that have href='#'
+  } 
+  // Disable default link behavior for dummy links that have href='#'
   //------------------------------------------------------------------------------
-
 
   var $emptyLink = $('a[href="#"]');
   $emptyLink.on('click', function (e) {
     e.preventDefault();
-  }); // Sticky Navbar
+  }); 
+  // Sticky Navbar
   //------------------------------------------------------------------------------
 
   function stickyHeader() {
@@ -2227,7 +2217,8 @@ jQuery(document).ready(function ($) {
     }
   }
 
-  stickyHeader(); // Mobile Menu Toggle
+  stickyHeader(); 
+  // Mobile Menu Toggle
   //-----------------------------------------------------------
 
   function mobileMenu(trigger, target) {
@@ -2238,7 +2229,8 @@ jQuery(document).ready(function ($) {
     });
   }
 
-  mobileMenu('.mobile-menu-toggle', '.mobile-menu'); // Slidable (Mobile) Menu
+  mobileMenu('.mobile-menu-toggle', '.mobile-menu'); 
+  // Slidable (Mobile) Menu
   //---------------------------------------------------------
 
   var backBtnText = 'Back',
@@ -2274,7 +2266,8 @@ jQuery(document).ready(function ($) {
     menu.css('height', $(self).parent().parent().find('> .slideable-submenu').height());
     e.preventDefault();
     return false;
-  }); // Off-Canvas Sidebar
+  }); 
+  // Off-Canvas Sidebar
   //-----------------------------------------------------------
 
   function offcanvasSidebar(triggerOpen, target, triggerClose) {
@@ -2288,7 +2281,25 @@ jQuery(document).ready(function ($) {
     });
   }
 
-  offcanvasSidebar('.sidebar-toggle', '.sidebar-offcanvas', '.sidebar-close'); // Animated Scroll to Top Button
+  offcanvasSidebar('.sidebar-toggle', '.sidebar-offcanvas', '.sidebar-close'); 
+  
+  // Animated hotline
+
+  var $hotline = $('.hotline');
+
+  if ($hotline.length > 0){
+
+    $(window).on('scroll', function () {
+      if ($(this).scrollTop() > 600) {
+        $hotline.addClass('visible');
+      } else {
+        $$hotline.removeClass('visible');
+      }
+    });
+    
+  }
+  
+  // Animated Scroll to Top Button
   //------------------------------------------------------------------------------
 
   var $scrollTop = $('.scroll-to-top-btn');
@@ -2310,9 +2321,10 @@ jQuery(document).ready(function ($) {
         mobileHA: false
       });
     });
-  } // Smooth scroll to element
+  } 
+  
+  // Smooth scroll to element
   //---------------------------------------------------------
-
 
   $(document).on('click', '.scroll-to', function (event) {
     var target = $(this).attr('href');
@@ -2553,7 +2565,6 @@ jQuery(document).ready(function ($) {
     });
   } // Filtering
 
-
   if ($('.filter-grid').length > 0) {
     var $filterGrid = $('.filter-grid');
     $('.nav-pills').on('click', 'a', function (e) {
@@ -2567,7 +2578,6 @@ jQuery(document).ready(function ($) {
     });
   } // Shop Categories Widget
   //------------------------------------------------------------------------------
-
 
   var categoryToggle = $('.widget-categories .has-children > a');
 
@@ -2638,7 +2648,6 @@ jQuery(document).ready(function ($) {
   } // Gallery (Photoswipe)
   //------------------------------------------------------------------------------
 
-
   if ($('.gallery-wrapper').length) {
     var initPhotoSwipeFromDOM = function initPhotoSwipeFromDOM(gallerySelector) {
       // parse slide data (url, title, size ...) from DOM elements
@@ -2692,7 +2701,6 @@ jQuery(document).ready(function ($) {
         return items;
       }; // find nearest parent element
 
-
       var closest = function closest(el, fn) {
         return el && (fn(el) ? el : closest(el.parentNode, fn));
       };
@@ -2700,7 +2708,6 @@ jQuery(document).ready(function ($) {
       function hasClass(element, cls) {
         return (' ' + element.className + ' ').indexOf(' ' + cls + ' ') > -1;
       } // triggers when user clicks on thumbnail
-
 
       var onThumbnailsClick = function onThumbnailsClick(e) {
         e = e || window.event;
@@ -2715,7 +2722,6 @@ jQuery(document).ready(function ($) {
           return;
         } // find index of clicked item by looping through all child nodes
         // alternatively, you may define index via data- attribute
-
 
         var clickedGallery = clickedListItem.closest('.gallery-wrapper'),
             childNodes = $(clickedListItem.closest('.gallery-wrapper')).find('.gallery-item:not(.isotope-hidden)').get(),
@@ -2743,7 +2749,6 @@ jQuery(document).ready(function ($) {
 
         return false;
       }; // parse picture index and gallery index from URL (#&pid=1&gid=2)
-
 
       var photoswipeParseHash = function photoswipeParseHash() {
         var hash = window.location.hash.substring(1),
@@ -2821,7 +2826,6 @@ jQuery(document).ready(function ($) {
           options.index = parseInt(index, 10);
         } // exit if index not found
 
-
         if (isNaN(options.index)) {
           return;
         }
@@ -2829,7 +2833,6 @@ jQuery(document).ready(function ($) {
         if (disableAnimation) {
           options.showAnimationDuration = 0;
         } // Pass data to PhotoSwipe and initialize it
-
 
         gallery = new PhotoSwipe(pswpElement, PhotoSwipeUI_Default, items, options);
         gallery.init();
@@ -2850,14 +2853,12 @@ jQuery(document).ready(function ($) {
         });
       }; // loop through all gallery elements and bind events
 
-
       var galleryElements = document.querySelectorAll(gallerySelector);
 
       for (var i = 0, l = galleryElements.length; i < l; i++) {
         galleryElements[i].setAttribute('data-pswp-uid', i + 1);
         galleryElements[i].onclick = onThumbnailsClick;
       } // Parse URL and open gallery if it contains #&pid=3&gid=1
-
 
       var hashData = photoswipeParseHash();
 
@@ -2866,11 +2867,9 @@ jQuery(document).ready(function ($) {
       }
     }; // execute above function
 
-
     initPhotoSwipeFromDOM('.gallery-wrapper');
   } // Product Gallery
   //------------------------------------------------------------------------------
-
 
   var $productCarousel = $('.product-carousel');
 
@@ -2894,7 +2893,6 @@ jQuery(document).ready(function ($) {
     });
   } // Google Maps API
   //------------------------------------------------------------------------------
-
 
   var $googleMap = $('.google-map');
 
@@ -2988,7 +2986,6 @@ jQuery(document).ready(function ($) {
 
 __webpack_require__(/*! /Users/quocdungdang/Project/s4ntmdt/resources/assets/js/app.js */"./resources/assets/js/app.js");
 module.exports = __webpack_require__(/*! /Users/quocdungdang/Project/s4ntmdt/resources/assets/sass/styles.scss */"./resources/assets/sass/styles.scss");
-
 
 /***/ })
 
