@@ -303,7 +303,7 @@ button:focus {
 .scroll-to-top-btn {
     display: block;
     position: fixed;
-    right: 16px;
+    left: 16px;
     bottom: -($btn-height * 2);
     width: $btn-height;
     height: $btn-height;
