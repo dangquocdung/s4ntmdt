@@ -274,6 +274,8 @@ class CommonFunction
 
     $data_ary['user_info'] = get_current_frontend_user_info();
 
+    $data_ary['settings_data']   =   $option->getSettingsData()['general_settings']['general_options'];
+
     if (empty($data_ary['user_info'])){
       Session::forget('dt_frontend_user_id');
     }
