@@ -3125,7 +3125,7 @@ class GetFunction
                    ->join('role_user', 'users.id', '=', 'role_user.user_id')
                    ->join('users_details', 'users.id', '=', 'users_details.user_id')
                    ->select('users.*', 'users_details.details')
-                   ->orderBy('users.id', 'desc')
+                   ->orderBy('users.name', 'asc')
                    ->get()
                    ->toArray();
     }
@@ -3136,7 +3136,7 @@ class GetFunction
                    ->join('role_user', 'users.id', '=', 'role_user.user_id')
                    ->leftJoin('users_details', 'users.id', '=', 'users_details.user_id')
                    ->select('users.*', 'users_details.details')
-                   ->orderBy('users.id', 'desc')
+                   ->orderBy('users.name', 'asc')
                    ->get()
                    ->toArray();
     }
