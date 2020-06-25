@@ -245,8 +245,9 @@ class CommonFunction
     $get_cat_tree = $product->get_categories(0, 'product_cat');
 
     $data_ary['_currency_symbol']              =  $this->get_currency_symbol( $get_settings_option['general_settings']['currency_options']['currency_name'] );
-    $data_ary['appearance_settings']          =   current_appearance_settings();
+    // $data_ary['appearance_settings']          =   current_appearance_settings();
     $data_ary['appearance_all_data']          =   get_appearance_settings();
+
     $data_ary['popular_tags_list']            =   $product->getTermData( 'product_tag', false, null, 1 );
     $data_ary['productCategoriesTree']        =   $get_cat_tree;
         
