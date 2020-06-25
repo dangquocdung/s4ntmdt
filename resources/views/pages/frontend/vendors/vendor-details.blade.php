@@ -31,7 +31,7 @@
       function initMap() {
         var position = { lat: {!! $vendor_settings->general_details->latitude !!}, lng: {!! $vendor_settings->general_details->longitude !!} };
         var map = new google.maps.Map(document.getElementById('location_map'), {
-          zoom: 7,
+          zoom: 13,
           center: position
         });
 
