@@ -4433,7 +4433,6 @@ return array(
     'dungthinh\\Http\\Controllers\\SettingsController' => $baseDir . '/app/Http/Controllers/SettingsController.php',
     'dungthinh\\Http\\Controllers\\ShippingMethodController' => $baseDir . '/app/Http/Controllers/ShippingMethodController.php',
     'dungthinh\\Http\\Controllers\\VendorsController' => $baseDir . '/app/Http/Controllers/VendorsController.php',
-    'dungthinh\\Http\\Controllers\\zCheckoutController' => $baseDir . '/app/Http/Controllers/zCheckoutController.php',
     'dungthinh\\Http\\Kernel' => $baseDir . '/app/Http/Kernel.php',
     'dungthinh\\Http\\Middleware\\EncryptCookies' => $baseDir . '/app/Http/Middleware/EncryptCookies.php',
     'dungthinh\\Http\\Middleware\\IsAdminMiddleware' => $baseDir . '/app/Http/Middleware/IsAdminMiddleware.php',

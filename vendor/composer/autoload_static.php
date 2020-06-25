@@ -4954,7 +4954,6 @@ class ComposerStaticInitbc4c21e3d2065861b0c2055b1c4f8390
         'dungthinh\\Http\\Controllers\\SettingsController' => __DIR__ . '/../..' . '/app/Http/Controllers/SettingsController.php',
         'dungthinh\\Http\\Controllers\\ShippingMethodController' => __DIR__ . '/../..' . '/app/Http/Controllers/ShippingMethodController.php',
         'dungthinh\\Http\\Controllers\\VendorsController' => __DIR__ . '/../..' . '/app/Http/Controllers/VendorsController.php',
-        'dungthinh\\Http\\Controllers\\zCheckoutController' => __DIR__ . '/../..' . '/app/Http/Controllers/zCheckoutController.php',
         'dungthinh\\Http\\Kernel' => __DIR__ . '/../..' . '/app/Http/Kernel.php',
         'dungthinh\\Http\\Middleware\\EncryptCookies' => __DIR__ . '/../..' . '/app/Http/Middleware/EncryptCookies.php',
         'dungthinh\\Http\\Middleware\\IsAdminMiddleware' => __DIR__ . '/../..' . '/app/Http/Middleware/IsAdminMiddleware.php',
