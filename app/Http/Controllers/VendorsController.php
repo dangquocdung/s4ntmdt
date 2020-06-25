@@ -818,6 +818,15 @@ class VendorsController extends Controller
 
         $vendor_details = get_vendor_user_info($id);
         $get_user_details = json_decode(get_user_account_details_by_user_id( $vendor_details['user_id'] )[0]['details']);
+
+        if(Input::get('hf_profile_picture')){
+          $data['user_photo_url'] = Input::get('hf_profile_picture');
+        }
+        else{
+          $data['user_photo_url'] = '';
+        }
+
+        User::where('id', $id)->update($data);
         
         if(Input::has('hf_update_vendor_profile') && Input::get('hf_update_vendor_profile') == 'update_vendor_profile'){
           $get_user_details->profile_details->store_name = Input::get('inputStoreName');
