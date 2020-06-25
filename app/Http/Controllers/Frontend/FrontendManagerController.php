@@ -893,11 +893,11 @@ class FrontendManagerController extends Controller
 
     $data = $this->classCommonFunction->get_dynamic_frontend_content_data();
 
-    $get_vendors = $this->vendors->getFilterVendorsWithPagination(array('srch_term' => $search_term, 'sort' => $sort)); 
+    // $get_vendors = $this->vendors->getFilterVendorsWithPagination(array('srch_term' => $search_term, 'sort' => $sort)); 
 
-    $data['vendors_list'] =   $get_vendors;
+    // $data['vendors_list'] =   $get_vendors;
 
-    // $data['vendors_list'] = $this->vendors->getAllVendors( false, null, 1 );
+    $data['vendors_list'] = $this->vendors->getAllVendors_fe( true, null, 1 );
 
     // return response()->json($data['vendors_list']);
     

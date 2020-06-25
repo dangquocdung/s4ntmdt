@@ -24,7 +24,46 @@
 
 <div class="container padding-bottom-2x mb-2" id="vendors-page">
 
-  
+  <!-- Shop Toolbar-->
+  <div class="shop-toolbar padding-bottom-1x mb-2">
+    <div class="sort-filter-option">
+      <label for="sorting">{{ trans('frontend.sort_filter_label') }}:</label>
+      <select class="form-control select2 sort-by-filter" id="sorting" style="width: 30%">
+      
+        @if($vendors_list['sort_by'] == 'all')  
+        <option selected="selected" value="all">{{ trans('frontend.sort_filter_all_label') }}</option>
+        @else
+        <option value="all">{{ trans('frontend.sort_filter_all_label') }}</option>
+        @endif
+
+        @if($vendors_list['sort_by'] == 'alpaz')  
+        <option selected="selected" value="alpaz">{{ trans('frontend.sort_filter_alpaz_label') }}</option>
+        @else
+        <option value="alpaz">{{ trans('frontend.sort_filter_alpaz_label') }}</option>
+        @endif
+
+        @if($vendors_list['sort_by'] == 'alpza')  
+        <option selected="selected" value="alpza">{{ trans('frontend.sort_filter_alpza_label') }}</option>
+        @else
+        <option value="alpza">{{ trans('frontend.sort_filter_alpza_label') }}</option>
+        @endif
+
+        @if($vendors_list['sort_by'] == 'old-new')  
+        <option selected="selected" value="old-new">{{ trans('frontend.sort_filter_old_new_label') }}</option>
+        @else
+        <option value="old-new">{{ trans('frontend.sort_filter_old_new_label') }}</option>
+        @endif
+
+        @if($vendors_list['sort_by'] == 'new-old')
+        <option selected="selected" value="new-old">{{ trans('frontend.sort_filter_new_old_label') }}</option>
+        @else
+        <option value="new-old">{{ trans('frontend.sort_filter_new_old_label') }}</option>
+        @endif
+      </select>
+      <!-- </select><span class="text-muted">Showing:&nbsp;</span><span>1 - 12 items</span> -->
+    </div>
+  </div>
+  <!-- Products-->
 
   @if(count($vendors_list) > 0)
 
@@ -32,7 +71,7 @@
       <div class="gutter-sizer"></div>
       <div class="grid-sizer"></div>
 
-      @foreach($vendors_list as $vendor)
+      @foreach($vendors_list['vendors'] as $vendor)
       
         @if($vendor->user_status == 1 && !is_vendor_expired($vendor->id))
         <?php $details = json_decode($vendor->details);?>
@@ -55,24 +94,8 @@
         @endif
       @endforeach
           
-  </div> 
-  
-  <!-- Pagination-->
-  <nav class="phan-trang">
-    <div class="column">
-      {!! $vendors_list->appends(Request::capture()->except('page'))->render() !!}
-    </div>
-
-    <!-- <div class="column text-left hidden-xs-down">
-      <a class="btn btn-outline-secondary btn-sm" href="#"><i class="icon-chevron-left"></i>&nbsp;Previous</a>
-    </div>
-    <div class="column text-right hidden-xs-down">
-      <a class="btn btn-outline-secondary btn-sm" href="#">Next&nbsp;<i class="icon-chevron-right"></i></a>
-    </div> -->
-  </nav>
-
-  <br>
-  <br>
+  </div>
+</div>  
 
 @else
   <br>

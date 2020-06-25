@@ -667,6 +667,7 @@ class VendorsController extends Controller
    *
    * @param null
    * @return array
+   * 
    */
   public function getAllVendors( $pagination = false, $search_val = null, $status_flag = -1 ){
     $users_details = array();
@@ -700,6 +701,40 @@ class VendorsController extends Controller
       return $users_details;
     }
   }
+
+  public function getAllVendors_fe( $pagination = false, $search_val = null, $status_flag = -1 ){
+    $users_details = array();
+    $get_role_details = get_roles_details_by_role_slug('vendor');
+    
+    if(!empty($get_role_details)){
+
+      // $get_users = get_users_by_role_id( $get_role_details->id, $search_val, $status_flag);
+      
+      $get_users = get_users_by_display_name( $get_role_details->id, $search_val, $status_flag);
+      
+      if(count($get_users) > 0){
+        $users_details = $get_users;
+      }
+    }
+      
+    if($pagination){
+      $currentPage = LengthAwarePaginator::resolveCurrentPage();
+      $col = new Collection( $users_details );
+      $perPage = 12;
+      $currentPageSearchResults = $col->slice(($currentPage - 1) * $perPage, $perPage)->all();
+      $vendors_object = new LengthAwarePaginator($currentPageSearchResults, count($col), $perPage);
+      
+      $vendors_object->setPath( route('store-list-page-content') );
+    }
+    
+    if($pagination){
+      return $vendors_object;
+    }
+    else{
+      return $users_details;
+    }
+  }
+
   
   public function saveVendorSettings($id=null){
     if( Request::isMethod('post') && Session::token() == Input::get('_token') ){
