@@ -381,6 +381,7 @@ return [
   'site_title' =>'Tiêu đề trang web',
   'example_shopist' =>'ví dụ - người bán hàng',
   'email_address' =>'Địa chỉ email',
+  'hotline' =>'Đường dây nóng',
   'taxes_options' =>'Tùy chọn thuế',
   'checkout_options' =>'Tùy chọn thanh toán',
   'downloadable_products_options' =>'Options Tùy chọn sản phẩm có thể tải xuống ',
