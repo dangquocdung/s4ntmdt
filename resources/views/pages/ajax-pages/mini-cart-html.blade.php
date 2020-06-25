@@ -47,8 +47,8 @@
     <p class="text-gray-dark py-2 mb-0"><span class='text-muted'>{!! trans('frontend.total') !!}:</span> &nbsp;{!! price_html( get_product_price_html_by_filter(Cart::getTotal()) ) !!}</p>
   </div>
   <div class="d-flex">
-    <div class="pr-2 w-50"><a class="btn btn-secondary btn-sm btn-block mb-0" href="{{ route('cart-page') }}">{!! trans('frontend.cart') !!}</a></div>
-    <div class="pl-2 w-50"><a class="btn btn-primary btn-sm btn-block mb-0" href="{{ route('checkout-page') }}">{!! trans('frontend.checkout') !!}</a></div>
+    <div class="pr-2 w-50"><a class="btn btn-primary btn-sm btn-block mb-0" href="{{ route('cart-page') }}">{!! trans('frontend.cart') !!}</a></div>
+    {{-- <div class="pl-2 w-50"><a class="btn btn-primary btn-sm btn-block mb-0" href="{{ route('checkout-page') }}">{!! trans('frontend.checkout') !!}</a></div> --}}
   </div>
 </div>
 
