@@ -39,12 +39,16 @@
 
     {{-- hotline --}}
 
+    @if( Request::is('/') )
+
     <div class="hotline">
       <a href="tel:{{ $settings_data['hotline'] }}" class="_tel">
           <div class="icon"><img src="https://nhasangxexin.vinhomes.vn/wp-content/themes/vinfast/assets/images/landing-page/phone.png" alt=""></div>
           <div class="_text"><p>hotline</p><p>{{ $settings_data['hotline'] }}</p></div>
       </a>
     </div>
+
+    @endif
 
     <!-- Back To Top Button-->
     <a class="scroll-to-top-btn" href="#"><i class="icon-chevron-up"></i></a>
