@@ -40,6 +40,7 @@
           <thead class="thead-dark">
             <tr>
               <th>{{ trans('admin.image') }}</th>
+              <th>{{  trans('admin.account_name') }}</th>
               <!-- <th>{{ trans('admin.store_path_label') }}</th> -->
               <th>{{ trans('admin.vendors_table_header_shop_name') }}</th>
               <th>{{ trans('admin.email') }}</th>
@@ -60,6 +61,8 @@
                   @else
                   <td><img src="{{ default_placeholder_img_src() }}" alt=""></td>
                   @endif
+
+                  <td>{{ $row->display_name }}</td>
                   
                   <!-- <td>{!! $row->name !!}</td> -->
                   <td><a target="_blank" href="{{ route('store-details-page-content', $row->name) }}">{!! $details->profile_details->store_name !!}</a></td>

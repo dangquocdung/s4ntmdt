@@ -62,7 +62,7 @@ class VendorsController extends Controller
     $data['vendor_active']   = '';
     $data['vendor_pending']  = '';
 
-    // return response()->json($data);
+    // return response()->json($data['vendors_list_data']);
      
     return view('pages.admin.vendors.vendors-list', $data);
   }
