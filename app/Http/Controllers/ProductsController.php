@@ -890,7 +890,8 @@ class ProductsController extends Controller
             $product_id  =  $get_post[0]['id'];
           }
         }
-        
+
+        $buy            = 0;
         $price          = '';
         $regular_price  = '';
         $sale_price     = '';
@@ -898,6 +899,11 @@ class ProductsController extends Controller
         $sale_price_start_date = '';
         $sale_price_end_date   = '';
         $stock_availability    = ''; 
+
+        if (Input::has('buy_sell')){
+          $buy = 1;
+        }
+
 
         if(is_numeric(Input::get('inputRegularPrice')) && Input::has('inputRegularPrice')){
           $regular_price = Input::get('inputRegularPrice');
@@ -1233,6 +1239,7 @@ class ProductsController extends Controller
           $post->title              =   Input::get('product_name');
           $post->slug               =   $post_slug;
           // $post->status             =   Input::get('product_visibility');
+          $post->buy                =   $buy;
           $post->status             =   0;
           $post->sku                =   Input::get('ProductSKU');
           $post->regular_price      =   $regular_price;
@@ -1923,6 +1930,7 @@ class ProductsController extends Controller
       $post_array['post_title']               =  $get_post->title;
       $post_array['post_slug']                =  $get_post->slug;
       $post_array['post_status']              =  $get_post->status;
+      $post_array['post_buy']                 =  $get_post->buy;
       $post_array['post_sku']                 =  $get_post->sku;
       $post_array['post_regular_price']       =  $get_post->regular_price;
       $post_array['post_sale_price']          =  $get_post->sale_price;
@@ -2551,7 +2559,7 @@ class ProductsController extends Controller
                                 ->where('products.status', 1)
                                 ->join(DB::raw("(SELECT product_id FROM product_extras WHERE key_name = '_product_enable_as_selected_cat' AND key_value = 'yes') T1") , 'products.id', '=', 'T1.product_id')
                                 ->orderby('updated_at','desc')
-                                ->take(12)
+                                ->take(8)
                                 ->get()
                                 ->toArray();
 
@@ -3885,5 +3893,24 @@ class ProductsController extends Controller
     // return response()->json($data['categories_lists']);
                                                           return $data;
   }
+
+
+  public function getBuyProducts(){
+
+    $advanced_arr        =  array();
+    
+    $get_buy_items =  DB::table('products')
+                      ->select('products.*')
+                      ->where('products.buy', 1)
+                      ->orderby('updated_at','desc')
+                      ->take(8)
+                      ->get()
+                      ->toArray();
+
+    $advanced_arr['buy_items']      =   $get_buy_items;
+
+    return $advanced_arr;
+  }
+
   
 }

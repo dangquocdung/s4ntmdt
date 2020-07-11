@@ -841,7 +841,7 @@ return [
   'add_new_filter_color_label' => 'Thêm màu bộ lọc mới',
   'home_page_cat_select_label' => 'Chọn các danh mục hàng đầu để hiển thị ở trang chủ',
   'no_cat_yet_label' =>'Chưa có danh mục nào!',
-  'home_page_product_label_1' =>'Sản phẩm được chọn',
+  'home_page_product_label_1' =>'Sản phẩm nổi bật',
   'home_page_product_label_2' =>'Kích hoạt',
   'home_page_cat_collection_select_label' =>'Chọn danh sách bộ sưu tập danh mục để hiển thị tại trang chủ',
   'remove_label' => 'Xoá',
@@ -1181,4 +1181,9 @@ return [
   'not_confirm' => 'Chưa xác thực',
   'banner_visibility' => 'Bật/Tắt banner trang chủ',
   'appearance_banner_slider_image' => 'Banner trang chủ',
+  'ten_san_pham' => 'Tên sản phẩm',
+  'buy_sell' => 'Cần mua',
+  'product_buy' => 'Loại',
+  'buy' => 'Mua',
+  'sell' => 'Bán',
 ];

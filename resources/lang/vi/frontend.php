@@ -622,7 +622,8 @@ return [
   'store_path_label' => 'cong-ty-tnhh-abc',
   'todays_deal_label' => 'Giá tốt hôm nay',
   'nhan-hang-uy-tin' => 'Nhãn hàng uy tín',
-  'homepage_items'  => 'Sản phẩm được chọn',
-  'related_items'  => 'Sản phẩm phổ biến'
+  'homepage_items'  => 'Sản phẩm nổi bật',
+  'related_items'  => 'Sản phẩm phổ biến',
+  'buy_items' => 'Sản phẩm cần mua'
 
 ];

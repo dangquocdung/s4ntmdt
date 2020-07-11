@@ -75,9 +75,12 @@ class FrontendManagerController extends Controller
     $data['slide_list_3'] =   Slide::where('status',1)->where('type',3)->orderBy('id', 'desc')->first();
 
     // $data['settings_data']   =   $this->option->getSettingsData()['general_settings']['general_options'];
+
+    $data['buyItems']        =   $this->product->getBuyProducts();
+
     
 
-    // return Response::json($data);
+    // return Response::json( $data['buyItems']);
 
     return view('pages.frontend.frontend-pages.home', $data);
 

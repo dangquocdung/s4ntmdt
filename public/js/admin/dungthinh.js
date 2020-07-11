@@ -2024,6 +2024,18 @@ shopist.event = {
         }
     },
 
+    buy_sell: function() {
+        if ($('#buy_sell').length > 0) {
+            $('#buy_sell').on('ifChanged', function(event) {
+                if (event.currentTarget.checked) {
+                    $('.product-type-details, .product-categories, .product-videos-settings, .compare-data, .product-manufacturer-settings, .product-tags, .product-colors, .product-sizes').hide();
+                } else if (!event.currentTarget.checked) {
+                    $('.product-type-details, .product-categories, .product-videos-settings, .compare-data, .product-manufacturer-settings, .product-tags, .product-colors, .product-sizes').show();
+                }
+            });
+        }
+    },
+
     manage_variation_stock: function() {
         if ($('#inputManageVariationStock').length > 0) {
             $('#inputManageVariationStock').on('ifChanged', function(event) {
@@ -3713,6 +3725,8 @@ $(document).ready(function() {
     shopist.event.create_sale_variation_schedule();
     shopist.event.cancel_sale_variation_schedule();
     shopist.event.manage_stock();
+    shopist.event.buy_sell();
+
     shopist.event.manage_variation_stock();
     shopist.event.create_variation();
     shopist.event.create_attribute();

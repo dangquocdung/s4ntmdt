@@ -46,363 +46,368 @@
         </div>
       </div>
 
-      <div class="box box-solid product-type-details">
-        <div class="box-header with-border">
-          <i class="fa fa-text-width"></i>
-          <h3 class="box-title">{!! trans('admin.product_type') !!}</h3>
-          <div class="box-tools pull-right" style="display:none">
-            <select id="change_product_type" name="change_product_type" class="form-control select2" style="width: 100%;">
-              @if($product_post_data['post_type'] == 'simple_product')
-                <option selected="selected" value="simple_product">{!! trans('admin.simple_product') !!}</option>
-              @else
-                <option value="simple_product">{!! trans('admin.simple_product') !!}</option>
-              @endif
-              
-              @if($product_post_data['post_type'] == 'configurable_product')
-                <option selected="selected" value="configurable_product">{!! trans('admin.configurable_product') !!}</option>
-              @else
-                <option value="configurable_product">{!! trans('admin.configurable_product') !!}</option>
-              @endif
-              
-              @if($product_post_data['post_type'] == 'customizable_product')
-                <option selected="selected" value="customizable_product">{!! trans('admin.customizable_product') !!}</option>
-              @else
-                <option value="customizable_product">{!! trans('admin.customizable_product') !!}</option>
-              @endif
-														
-							@if($product_post_data['post_type'] == 'downloadable_product')
-                <option selected="selected" value="downloadable_product">{!! trans('admin.downloadable_product') !!}</option>
-              @else
-                <option value="downloadable_product">{!! trans('admin.downloadable_product') !!}</option>
-              @endif
-            </select>
+      @if ($product_post_data['post_buy'] ==0 )
+
+
+        <div class="box box-solid product-type-details">
+          <div class="box-header with-border">
+            <i class="fa fa-text-width"></i>
+            <h3 class="box-title">{!! trans('admin.product_type') !!}</h3>
+            <div class="box-tools pull-right" style="display:none">
+              <select id="change_product_type" name="change_product_type" class="form-control select2" style="width: 100%;">
+                @if($product_post_data['post_type'] == 'simple_product')
+                  <option selected="selected" value="simple_product">{!! trans('admin.simple_product') !!}</option>
+                @else
+                  <option value="simple_product">{!! trans('admin.simple_product') !!}</option>
+                @endif
+                
+                @if($product_post_data['post_type'] == 'configurable_product')
+                  <option selected="selected" value="configurable_product">{!! trans('admin.configurable_product') !!}</option>
+                @else
+                  <option value="configurable_product">{!! trans('admin.configurable_product') !!}</option>
+                @endif
+                
+                @if($product_post_data['post_type'] == 'customizable_product')
+                  <option selected="selected" value="customizable_product">{!! trans('admin.customizable_product') !!}</option>
+                @else
+                  <option value="customizable_product">{!! trans('admin.customizable_product') !!}</option>
+                @endif
+                              
+                @if($product_post_data['post_type'] == 'downloadable_product')
+                  <option selected="selected" value="downloadable_product">{!! trans('admin.downloadable_product') !!}</option>
+                @else
+                  <option value="downloadable_product">{!! trans('admin.downloadable_product') !!}</option>
+                @endif
+              </select>
+            </div>
           </div>
-        </div>
-        <div class="box-body product-tab-content">
-          <div class="tabbable tabs-left">
-            <ul class="nav nav-tabs">
-              @if($product_post_data['post_type'] == 'simple_product')
-                <li class="nav-item general"><a class="nav-link active" href="#tab_general" data-toggle="tab">{!! trans('admin.general') !!}</a></li>
-                <li class="nav-item inventory"><a class="nav-link" href="#tab_stock" data-toggle="tab">{!! trans('admin.inventory') !!}</a></li>
-                <li class="nav-item features"><a class="nav-link" href="#tab_features" data-toggle="tab">{!! trans('admin.features') !!}</a></li>
+          <div class="box-body product-tab-content">
+            <div class="tabbable tabs-left">
+              <ul class="nav nav-tabs">
+                @if($product_post_data['post_type'] == 'simple_product')
+                  <li class="nav-item general"><a class="nav-link active" href="#tab_general" data-toggle="tab">{!! trans('admin.general') !!}</a></li>
+                  <li class="nav-item inventory"><a class="nav-link" href="#tab_stock" data-toggle="tab">{!! trans('admin.inventory') !!}</a></li>
+                  <li class="nav-item features"><a class="nav-link" href="#tab_features" data-toggle="tab">{!! trans('admin.features') !!}</a></li>
 
-                @if(!is_vendor_login()) 
+                  @if(!is_vendor_login()) 
 
-                  <li class="nav-item advanced"><a class="nav-link" href="#tab_advanced" data-toggle="tab">{!! trans('admin.advanced') !!}</a></li>
+                    <li class="nav-item advanced"><a class="nav-link" href="#tab_advanced" data-toggle="tab">{!! trans('admin.advanced') !!}</a></li>
 
+                  @endif
                 @endif
-              @endif
-            </ul>
-            <div class="tab-content">
-              <div class="tab-general tab-pane fade {{ $tabSettings['generalTab'] }}" id="tab_general">
-                <div class="form-group">
-                  <div class="row">
-                    <label class="col-sm-6 control-label" for="inputSKU">{!! trans('admin.sku') !!}</label>
-                    <div class="col-sm-6">
-                      <input type="text" placeholder="{{ trans('admin.sku') }}" id="inputForProductSKU" name="ProductSKU" class="form-control" value="{{ $product_post_data['post_sku'] }}">
-                      <span>{!! trans('admin.unique_field') !!}</span>
-                    </div>
-                  </div>  
-                </div>
-                <br>
-                <div class="form-group">
-                  <div class="row">  
-                    <label class="col-sm-6 control-label" for="inputRegularPrice">{!! trans('admin.regular_price') !!} ({!! $currency_symbol !!})</label>
-                    <div class="col-sm-6">
-                      <input type="number" placeholder="{{ trans('admin.regular_price') }}" id="inputRegularPrice" name="inputRegularPrice" class="form-control" min="0" step="any" value="{{ $product_post_data['post_regular_price'] }}">
-                    </div>
-                  </div>  
-                </div>
-                <div class="form-group">
-                  <div class="row">  
-                    <label class="col-sm-6 control-label" for="inputSalePrice">{!! trans('admin.sale_price') !!} ({!! $currency_symbol !!})</label>
-                    <div class="col-sm-6">
-                      <input type="number" placeholder="{{ trans('admin.sale_price') }}" id="inputSalePrice" name="inputSalePrice" class="form-control" min="0" step="any" value="{{ $product_post_data['post_sale_price'] }}">
-                      @if($product_post_data['_product_sale_price_start_date'] && $product_post_data['_product_sale_price_end_date'])
-                        <a href="#" class="create_sale_schedule" style="display:none;">{!! trans('admin.create_schedule') !!}</a>
-                      @else
-                        <a href="#" class="create_sale_schedule" style="display:block;">{!! trans('admin.create_schedule') !!}</a>
-                      @endif
-                    </div>
-                  </div>  
-                </div>
-
-                @if($product_post_data['_product_sale_price_start_date'] && $product_post_data['_product_sale_price_end_date'])
-                <div class="form-group sale_start_date" style="display: block;">
-                  <div class="row">  
-                    <label class="col-sm-6 control-label" for="inputSalePriceStartDate">{!! trans('admin.sale_price_start_date') !!}</label>
-                    <div class="col-sm-6">                    
-                      <div class="input-group mb-3">
-                        <div class="input-group-prepend">
-                          <span class="input-group-text" id="basic-addon1"><i class="fa fa-calendar"></i></span>
-                        </div>
-                        <input type="text" placeholder="{{ trans('admin.start_date_format') }}" id="inputSalePriceStartDate" name="inputSalePriceStartDate" class="form-control pull-right" value="{{ date("Y-m-d", strtotime($product_post_data['_product_sale_price_start_date'])) }}">
-                      </div>  
-                    </div>
-                  </div>  
-                </div>
-                <div class="form-group sale_end_date" style="display: block;">
-                  <div class="row">  
-                    <label class="col-sm-6 control-label" for="inputSalePriceEndDate">{!! trans('admin.sale_price_end_date') !!}</label>
-                    <div class="col-sm-6">  
-                      <div class="input-group mb-3">
-                        <div class="input-group-prepend">
-                          <span class="input-group-text" id="basic-addon1"><i class="fa fa-calendar"></i></span>
-                        </div>
-                        <input type="text" placeholder="{{ trans('admin.end_date_format') }}" id="inputSalePriceEndDate" name="inputSalePriceEndDate" class="form-control pull-right" value="{{ date("Y-m-d", strtotime($product_post_data['_product_sale_price_end_date'])) }}">
-                      </div>  
-                      <a href="#" class="cancel_schedule">{!! trans('admin.cancel_schedule') !!}</a>
-                    </div>
-                  </div>
-                </div>
-                @else
-                <div class="form-group sale_start_date" style="display: none;">
-                  <div class="row">  
-                    <label class="col-sm-6 control-label" for="inputSalePriceStartDate">{!! trans('admin.sale_price_start_date') !!}</label>
-                    <div class="col-sm-6">
-                      <div class="input-group mb-3">
-                        <div class="input-group-prepend">
-                          <span class="input-group-text" id="basic-addon1"><i class="fa fa-calendar"></i></span>
-                        </div>
-                        <input type="text" placeholder="{{ trans('admin.start_date_format') }}" id="inputSalePriceStartDate" name="inputSalePriceStartDate" class="form-control pull-right">
-                      </div>    
-                    </div>
-                  </div>
-                </div>
-                <div class="form-group sale_end_date" style="display: none;">
-                  <div class="row">  
-                    <label class="col-sm-6 control-label" for="inputSalePriceEndDate">{!! trans('admin.sale_price_end_date') !!}</label>
-                    <div class="col-sm-6">  
-                      <div class="input-group mb-3">
-                        <div class="input-group-prepend">
-                          <span class="input-group-text" id="basic-addon1"><i class="fa fa-calendar"></i></span>
-                        </div>
-                        <input type="text" placeholder="{{ trans('admin.end_date_format') }}" id="inputSalePriceEndDate" name="inputSalePriceEndDate" class="form-control pull-right">
-                      </div>   
-                      <a href="#" class="cancel_schedule">{!! trans('admin.cancel_schedule') !!}</a>
-                    </div>
-                  </div>  
-                </div>
-                @endif
-
-              </div>
-              
-              <div class="tab-stock tab-pane fade" id="tab_stock">
-                <div class="form-group">
-                  <div class="row">    
-                    <label class="col-sm-6 control-label" for="inputManageStock">{!! trans('admin.manage_stock') !!}</label>
-                    <div class="col-sm-6">
-                      <label>
-                        @if($product_post_data['_product_manage_stock'] == 'yes')
-                          <input type="checkbox" checked="checked" class="shopist-iCheck" name="manage_stock" id="manage_stock">
-                        @else
-                          <input type="checkbox" class="shopist-iCheck" name="manage_stock" id="manage_stock">
-                        @endif
-                        &nbsp;{!! trans('admin.enable_stock_management_product') !!}
-                      </label>                                             
-                    </div>
-                  </div>    
-                </div>
-                @if($product_post_data['_product_manage_stock'] == 'yes')
-                <div class="form-group stock-qty" style="display:block;">
-                  <div class="row">      
-                    <label class="col-sm-6 control-label" for="inputStockQty">{!! trans('admin.stock_qty') !!}</label>
-                    <div class="col-sm-6">
-                      <input type="number" min="0" placeholder="{{ trans('admin.stock_qty') }}" id="inputStockQty" name="inputStockQty" class="form-control" value="{{ $product_post_data['post_stock_qty'] }}">
-                    </div>
-                  </div>      
-                </div>
-                @else
-                <div class="form-group stock-qty" style="display:none;">
-                  <div class="row">    
-                    <label class="col-sm-6 control-label" for="inputStockQty">{!! trans('admin.stock_qty') !!}</label>
-                    <div class="col-sm-6">
-                      <input type="number" min="0" placeholder="{{ trans('admin.stock_qty') }}" id="inputStockQty" name="inputStockQty" class="form-control" value="0">
-                    </div>
-                  </div>   
-                </div>
-                @endif
-
-                @if($product_post_data['_product_manage_stock'] == 'yes')
-                <div class="form-group back-to-order-page" style="display:block;">
-                  <div class="row">    
-                    <label class="col-sm-6 control-label" for="inputBackToOrder">{!! trans('admin.backorders') !!}</label>
-                    <div class="col-sm-6">
-                      <select id="back_to_order_status" name="back_to_order_status" class="form-control select2" style="width: 100%;">
-                        @if($product_post_data['_product_manage_stock_back_to_order'] == 'not_allow')
-                          <option selected="selected" value="not_allow">{!! trans('admin.not_allow') !!}</option>
-                        @else
-                          <option value="not_allow">{!! trans('admin.not_allow') !!}</option>
-                        @endif
-
-                        @if($product_post_data['_product_manage_stock_back_to_order'] == 'allow_notify_customer')
-                          <option selected="selected" value="allow_notify_customer">{!! trans('admin.allow_and_notify_customer') !!}</option>
-                        @else
-                          <option value="allow_notify_customer">{!! trans('admin.allow_and_notify_customer') !!}</option>
-                        @endif
-
-                        @if($product_post_data['_product_manage_stock_back_to_order'] == 'only_allow')
-                          <option selected="selected" value="only_allow">{!! trans('admin.only_allow') !!}</option>
-                        @else
-                          <option value="only_allow">{!! trans('admin.only_allow') !!}</option>
-                        @endif   
-                      </select>
-                    </div>
-                  </div>  
-                </div>
-                @else
-                <div class="form-group back-to-order-page" style="display: none;">
-                  <div class="row">   
-                    <label class="col-sm-6 control-label" for="inputBackToOrder">{!! trans('admin.backorders') !!}</label>
-                    <div class="col-sm-6">
-                      <select id="back_to_order_status" name="back_to_order_status" class="form-control select2" style="width: 100%;">
-                        <option selected="selected" value="not_allow">{!! trans('admin.not_allow') !!}</option>
-                        <option value="allow_notify_customer">{!! trans('admin.allow_and_notify_customer') !!}</option>
-                        <option value="only_allow">{!! trans('admin.only_allow') !!}</option>
-                      </select>
-                    </div>
-                  </div>  
-                </div>
-                @endif
-
-                <div class="form-group">
-                  <div class="row">  
-                    <label class="col-sm-6 control-label" for="inputStockAvailability">{!! trans('admin.stock_availability') !!}</label>
-                    <div class="col-sm-6">
-                      <select id="stock_availability_status" name="stock_availability_status" class="form-control select2" style="width: 100%;">
-                        @if($product_post_data['post_stock_availability'] == 'in_stock')
-                          <option selected="selected" value="in_stock">{!! trans('admin.in_stock') !!}</option>
-                        @else
-                          <option value="in_stock">{!! trans('admin.in_stock') !!}</option>
-                        @endif
-
-                        @if($product_post_data['post_stock_availability'] == 'out_of_stock')
-                          <option selected="selected" value="out_of_stock">{!! trans('admin.out_of_stock') !!}</option>
-                        @else
-                          <option value="out_of_stock">{!! trans('admin.out_of_stock') !!}</option>
-                        @endif
-                      </select>
-                    </div>
-                  </div>  
-                </div>
-              </div><!-- /.tab-pane -->
-              
-              <div class="tab-features tab-pane fade {{ $tabSettings['featureTab'] }}" id="tab_features">
-                <div class="row">
-                  <div class="col-12">
-                    <div class="form-group">
-                      <textarea id="eb_features_editor" name="eb_features_editor" class="dynamic-editor" placeholder="{{ trans('admin.write_some_extra_features') }}">
-                       {!! $product_post_data['_product_extra_features'] !!}                 
-                      </textarea>
-                    </div> 
-                  </div>
-                </div>  
-              </div><!-- /.tab-pane -->
-
-              @if(!is_vendor_login())    
-              
-                <div class="tab-advanced tab-pane fade" id="tab_advanced">
+              </ul>
+              <div class="tab-content">
+                <div class="tab-general tab-pane fade {{ $tabSettings['generalTab'] }}" id="tab_general">
                   <div class="form-group">
-                    <div class="row">  
-                      <label class="col-sm-6 control-label" for="inputEnableRecommendedProduct">{!! trans('admin.recommended_product') !!}</label>
+                    <div class="row">
+                      <label class="col-sm-6 control-label" for="inputSKU">{!! trans('admin.sku') !!}</label>
                       <div class="col-sm-6">
-                        @if($product_post_data['_product_enable_as_recommended'] == 'yes')
-                          <input type="checkbox" checked="checked" class="shopist-iCheck" name="enable_recommended_product" id="enable_recommended_product">
-                        @else
-                          <input type="checkbox" class="shopist-iCheck" name="enable_recommended_product" id="enable_recommended_product">
-                        @endif
-                        &nbsp;{!! trans('admin.enable_recommended_product') !!}                                    
+                        <input type="text" placeholder="{{ trans('admin.sku') }}" id="inputForProductSKU" name="ProductSKU" class="form-control" value="{{ $product_post_data['post_sku'] }}">
+                        <span>{!! trans('admin.unique_field') !!}</span>
                       </div>
                     </div>  
                   </div>
+                  <br>
                   <div class="form-group">
-                    <div class="row">    
-                      <label class="col-sm-6 control-label" for="inputEnableFeaturesProduct">{!! trans('admin.features_product') !!}</label>
+                    <div class="row">  
+                      <label class="col-sm-6 control-label" for="inputRegularPrice">{!! trans('admin.regular_price') !!} ({!! $currency_symbol !!})</label>
                       <div class="col-sm-6">
-                        @if($product_post_data['_product_enable_as_features'] == 'yes')
-                        <input type="checkbox" checked="checked" class="shopist-iCheck" name="enable_features_product" id="enable_features_product">
-                        @else
-                        <input type="checkbox" class="shopist-iCheck" name="enable_features_product" id="enable_features_product">
-                        @endif
-                        &nbsp;{!! trans('admin.enable_features_product') !!}                                     
+                        <input type="number" placeholder="{{ trans('admin.regular_price') }}" id="inputRegularPrice" name="inputRegularPrice" class="form-control" min="0" step="any" value="{{ $product_post_data['post_regular_price'] }}">
                       </div>
                     </div>  
                   </div>
                   <div class="form-group">
                     <div class="row">  
-                      <label class="col-sm-6 control-label" for="inputEnableLatestProduct">{!! trans('admin.latest_product') !!}</label>
+                      <label class="col-sm-6 control-label" for="inputSalePrice">{!! trans('admin.sale_price') !!} ({!! $currency_symbol !!})</label>
                       <div class="col-sm-6">
-                        @if($product_post_data['_product_enable_as_latest'] == 'yes')
-                          <input type="checkbox" checked="checked" class="shopist-iCheck" name="enable_latest_product" id="enable_latest_product">
+                        <input type="number" placeholder="{{ trans('admin.sale_price') }}" id="inputSalePrice" name="inputSalePrice" class="form-control" min="0" step="any" value="{{ $product_post_data['post_sale_price'] }}">
+                        @if($product_post_data['_product_sale_price_start_date'] && $product_post_data['_product_sale_price_end_date'])
+                          <a href="#" class="create_sale_schedule" style="display:none;">{!! trans('admin.create_schedule') !!}</a>
                         @else
-                          <input type="checkbox" class="shopist-iCheck" name="enable_latest_product" id="enable_latest_product">
+                          <a href="#" class="create_sale_schedule" style="display:block;">{!! trans('admin.create_schedule') !!}</a>
                         @endif
-                        &nbsp;{!! trans('admin.enable_latest_product') !!}                                        
                       </div>
                     </div>  
                   </div>
-                  <div class="form-group">
+
+                  @if($product_post_data['_product_sale_price_start_date'] && $product_post_data['_product_sale_price_end_date'])
+                  <div class="form-group sale_start_date" style="display: block;">
                     <div class="row">  
-                      <label class="col-sm-6 control-label" for="inputEnableForRelatedProduct">{!! trans('admin.related_product') !!}</label>
-                      <div class="col-sm-6">
-                        @if($product_post_data['_product_enable_as_related'] == 'yes')
-                          <input type="checkbox" checked="checked" class="shopist-iCheck" name="inputEnableForRelatedProduct" id="inputEnableForRelatedProduct">
-                        @else
-                          <input type="checkbox" class="shopist-iCheck" name="inputEnableForRelatedProduct" id="inputEnableForRelatedProduct">
-                        @endif
-                        &nbsp;{!! trans('admin.enable_related_product') !!}                                        
+                      <label class="col-sm-6 control-label" for="inputSalePriceStartDate">{!! trans('admin.sale_price_start_date') !!}</label>
+                      <div class="col-sm-6">                    
+                        <div class="input-group mb-3">
+                          <div class="input-group-prepend">
+                            <span class="input-group-text" id="basic-addon1"><i class="fa fa-calendar"></i></span>
+                          </div>
+                          <input type="text" placeholder="{{ trans('admin.start_date_format') }}" id="inputSalePriceStartDate" name="inputSalePriceStartDate" class="form-control pull-right" value="{{ date("Y-m-d", strtotime($product_post_data['_product_sale_price_start_date'])) }}">
+                        </div>  
                       </div>
                     </div>  
                   </div>
-                  <div class="form-group enable-custom-design" {!! $tabSettings['btnCustomize'] !!}>
-                    <div class="row">   
-                      <label class="col-sm-6 control-label" for="inputEnableForCustomDesignProduct">{!! trans('admin.custom_design') !!}</label>
-                      <div class="col-sm-6">
-                        @if($product_post_data['_product_enable_as_custom_design'] == 'yes')
-                          <input type="checkbox" checked="checked" class="shopist-iCheck" name="inputEnableForCustomDesignProduct" id="inputEnableForCustomDesignProduct">
-                        @else
-                          <input type="checkbox" checked="checked" class="shopist-iCheck" name="inputEnableForCustomDesignProduct" id="inputEnableForCustomDesignProduct">
-                        @endif
-                        &nbsp;{!! trans('admin.enable_custom_design_product') !!}                                      
+                  <div class="form-group sale_end_date" style="display: block;">
+                    <div class="row">  
+                      <label class="col-sm-6 control-label" for="inputSalePriceEndDate">{!! trans('admin.sale_price_end_date') !!}</label>
+                      <div class="col-sm-6">  
+                        <div class="input-group mb-3">
+                          <div class="input-group-prepend">
+                            <span class="input-group-text" id="basic-addon1"><i class="fa fa-calendar"></i></span>
+                          </div>
+                          <input type="text" placeholder="{{ trans('admin.end_date_format') }}" id="inputSalePriceEndDate" name="inputSalePriceEndDate" class="form-control pull-right" value="{{ date("Y-m-d", strtotime($product_post_data['_product_sale_price_end_date'])) }}">
+                        </div>  
+                        <a href="#" class="cancel_schedule">{!! trans('admin.cancel_schedule') !!}</a>
                       </div>
-                    </div>  
+                    </div>
                   </div>
-                  <div class="form-group">
+                  @else
+                  <div class="form-group sale_start_date" style="display: none;">
                     <div class="row">  
-                      <label class="col-sm-6 control-label" for="inputEnableForHomePage">{!! trans('admin.home_page_product_label_1') !!}</label>
+                      <label class="col-sm-6 control-label" for="inputSalePriceStartDate">{!! trans('admin.sale_price_start_date') !!}</label>
                       <div class="col-sm-6">
-                        @if( !empty($product_post_data['_product_enable_as_selected_cat']) && $product_post_data['_product_enable_as_selected_cat'] == 'yes')  
-                          <input type="checkbox" checked="checked" class="shopist-iCheck" name="inputEnableForHomePage" id="inputEnableForHomePage">
-                        @else
-                          <input type="checkbox" class="shopist-iCheck" name="inputEnableForHomePage" id="inputEnableForHomePage">
-                        @endif
-                        &nbsp;{!! trans('admin.home_page_product_label_2') !!}                              
+                        <div class="input-group mb-3">
+                          <div class="input-group-prepend">
+                            <span class="input-group-text" id="basic-addon1"><i class="fa fa-calendar"></i></span>
+                          </div>
+                          <input type="text" placeholder="{{ trans('admin.start_date_format') }}" id="inputSalePriceStartDate" name="inputSalePriceStartDate" class="form-control pull-right">
+                        </div>    
                       </div>
-                    </div>  
-                  </div>    
-                  @if( $settings_data['general_settings']['taxes_options']['enable_status'] == 1 && $settings_data['general_settings']['taxes_options']['apply_tax_for'] == 'per_product' )
-                  <div class="form-group taxes-option">
+                    </div>
+                  </div>
+                  <div class="form-group sale_end_date" style="display: none;">
                     <div class="row">  
-                      <label class="col-sm-6 control-label" for="inputEnableTaxesForProduct">{!! trans('admin.taxes') !!}</label>
-                      <div class="col-sm-6">
-                        @if($product_post_data['_product_enable_taxes'] == 'yes')
-                          <input type="checkbox" checked="checked" class="shopist-iCheck" name="inputEnableTaxesForProduct" id="inputEnableTaxesForProduct">
-                        @else
-                          <input type="checkbox" class="shopist-iCheck" name="inputEnableTaxesForProduct" id="inputEnableTaxesForProduct">
-                        @endif
-                        &nbsp;{!! trans('admin.enable_taxes_this_product') !!}                                      
+                      <label class="col-sm-6 control-label" for="inputSalePriceEndDate">{!! trans('admin.sale_price_end_date') !!}</label>
+                      <div class="col-sm-6">  
+                        <div class="input-group mb-3">
+                          <div class="input-group-prepend">
+                            <span class="input-group-text" id="basic-addon1"><i class="fa fa-calendar"></i></span>
+                          </div>
+                          <input type="text" placeholder="{{ trans('admin.end_date_format') }}" id="inputSalePriceEndDate" name="inputSalePriceEndDate" class="form-control pull-right">
+                        </div>   
+                        <a href="#" class="cancel_schedule">{!! trans('admin.cancel_schedule') !!}</a>
                       </div>
                     </div>  
                   </div>
                   @endif
+
+                </div>
+                
+                <div class="tab-stock tab-pane fade" id="tab_stock">
+                  <div class="form-group">
+                    <div class="row">    
+                      <label class="col-sm-6 control-label" for="inputManageStock">{!! trans('admin.manage_stock') !!}</label>
+                      <div class="col-sm-6">
+                        <label>
+                          @if($product_post_data['_product_manage_stock'] == 'yes')
+                            <input type="checkbox" checked="checked" class="shopist-iCheck" name="manage_stock" id="manage_stock">
+                          @else
+                            <input type="checkbox" class="shopist-iCheck" name="manage_stock" id="manage_stock">
+                          @endif
+                          &nbsp;{!! trans('admin.enable_stock_management_product') !!}
+                        </label>                                             
+                      </div>
+                    </div>    
+                  </div>
+                  @if($product_post_data['_product_manage_stock'] == 'yes')
+                  <div class="form-group stock-qty" style="display:block;">
+                    <div class="row">      
+                      <label class="col-sm-6 control-label" for="inputStockQty">{!! trans('admin.stock_qty') !!}</label>
+                      <div class="col-sm-6">
+                        <input type="number" min="0" placeholder="{{ trans('admin.stock_qty') }}" id="inputStockQty" name="inputStockQty" class="form-control" value="{{ $product_post_data['post_stock_qty'] }}">
+                      </div>
+                    </div>      
+                  </div>
+                  @else
+                  <div class="form-group stock-qty" style="display:none;">
+                    <div class="row">    
+                      <label class="col-sm-6 control-label" for="inputStockQty">{!! trans('admin.stock_qty') !!}</label>
+                      <div class="col-sm-6">
+                        <input type="number" min="0" placeholder="{{ trans('admin.stock_qty') }}" id="inputStockQty" name="inputStockQty" class="form-control" value="0">
+                      </div>
+                    </div>   
+                  </div>
+                  @endif
+
+                  @if($product_post_data['_product_manage_stock'] == 'yes')
+                  <div class="form-group back-to-order-page" style="display:block;">
+                    <div class="row">    
+                      <label class="col-sm-6 control-label" for="inputBackToOrder">{!! trans('admin.backorders') !!}</label>
+                      <div class="col-sm-6">
+                        <select id="back_to_order_status" name="back_to_order_status" class="form-control select2" style="width: 100%;">
+                          @if($product_post_data['_product_manage_stock_back_to_order'] == 'not_allow')
+                            <option selected="selected" value="not_allow">{!! trans('admin.not_allow') !!}</option>
+                          @else
+                            <option value="not_allow">{!! trans('admin.not_allow') !!}</option>
+                          @endif
+
+                          @if($product_post_data['_product_manage_stock_back_to_order'] == 'allow_notify_customer')
+                            <option selected="selected" value="allow_notify_customer">{!! trans('admin.allow_and_notify_customer') !!}</option>
+                          @else
+                            <option value="allow_notify_customer">{!! trans('admin.allow_and_notify_customer') !!}</option>
+                          @endif
+
+                          @if($product_post_data['_product_manage_stock_back_to_order'] == 'only_allow')
+                            <option selected="selected" value="only_allow">{!! trans('admin.only_allow') !!}</option>
+                          @else
+                            <option value="only_allow">{!! trans('admin.only_allow') !!}</option>
+                          @endif   
+                        </select>
+                      </div>
+                    </div>  
+                  </div>
+                  @else
+                  <div class="form-group back-to-order-page" style="display: none;">
+                    <div class="row">   
+                      <label class="col-sm-6 control-label" for="inputBackToOrder">{!! trans('admin.backorders') !!}</label>
+                      <div class="col-sm-6">
+                        <select id="back_to_order_status" name="back_to_order_status" class="form-control select2" style="width: 100%;">
+                          <option selected="selected" value="not_allow">{!! trans('admin.not_allow') !!}</option>
+                          <option value="allow_notify_customer">{!! trans('admin.allow_and_notify_customer') !!}</option>
+                          <option value="only_allow">{!! trans('admin.only_allow') !!}</option>
+                        </select>
+                      </div>
+                    </div>  
+                  </div>
+                  @endif
+
+                  <div class="form-group">
+                    <div class="row">  
+                      <label class="col-sm-6 control-label" for="inputStockAvailability">{!! trans('admin.stock_availability') !!}</label>
+                      <div class="col-sm-6">
+                        <select id="stock_availability_status" name="stock_availability_status" class="form-control select2" style="width: 100%;">
+                          @if($product_post_data['post_stock_availability'] == 'in_stock')
+                            <option selected="selected" value="in_stock">{!! trans('admin.in_stock') !!}</option>
+                          @else
+                            <option value="in_stock">{!! trans('admin.in_stock') !!}</option>
+                          @endif
+
+                          @if($product_post_data['post_stock_availability'] == 'out_of_stock')
+                            <option selected="selected" value="out_of_stock">{!! trans('admin.out_of_stock') !!}</option>
+                          @else
+                            <option value="out_of_stock">{!! trans('admin.out_of_stock') !!}</option>
+                          @endif
+                        </select>
+                      </div>
+                    </div>  
+                  </div>
+                </div><!-- /.tab-pane -->
+                
+                <div class="tab-features tab-pane fade {{ $tabSettings['featureTab'] }}" id="tab_features">
+                  <div class="row">
+                    <div class="col-12">
+                      <div class="form-group">
+                        <textarea id="eb_features_editor" name="eb_features_editor" class="dynamic-editor" placeholder="{{ trans('admin.write_some_extra_features') }}">
+                        {!! $product_post_data['_product_extra_features'] !!}                 
+                        </textarea>
+                      </div> 
+                    </div>
+                  </div>  
                 </div><!-- /.tab-pane -->
 
-              @endif
-              
+                @if(!is_vendor_login())    
+                
+                  <div class="tab-advanced tab-pane fade" id="tab_advanced">
+                    <div class="form-group">
+                      <div class="row">  
+                        <label class="col-sm-6 control-label" for="inputEnableRecommendedProduct">{!! trans('admin.recommended_product') !!}</label>
+                        <div class="col-sm-6">
+                          @if($product_post_data['_product_enable_as_recommended'] == 'yes')
+                            <input type="checkbox" checked="checked" class="shopist-iCheck" name="enable_recommended_product" id="enable_recommended_product">
+                          @else
+                            <input type="checkbox" class="shopist-iCheck" name="enable_recommended_product" id="enable_recommended_product">
+                          @endif
+                          &nbsp;{!! trans('admin.enable_recommended_product') !!}                                    
+                        </div>
+                      </div>  
+                    </div>
+                    <div class="form-group">
+                      <div class="row">    
+                        <label class="col-sm-6 control-label" for="inputEnableFeaturesProduct">{!! trans('admin.features_product') !!}</label>
+                        <div class="col-sm-6">
+                          @if($product_post_data['_product_enable_as_features'] == 'yes')
+                          <input type="checkbox" checked="checked" class="shopist-iCheck" name="enable_features_product" id="enable_features_product">
+                          @else
+                          <input type="checkbox" class="shopist-iCheck" name="enable_features_product" id="enable_features_product">
+                          @endif
+                          &nbsp;{!! trans('admin.enable_features_product') !!}                                     
+                        </div>
+                      </div>  
+                    </div>
+                    <div class="form-group">
+                      <div class="row">  
+                        <label class="col-sm-6 control-label" for="inputEnableLatestProduct">{!! trans('admin.latest_product') !!}</label>
+                        <div class="col-sm-6">
+                          @if($product_post_data['_product_enable_as_latest'] == 'yes')
+                            <input type="checkbox" checked="checked" class="shopist-iCheck" name="enable_latest_product" id="enable_latest_product">
+                          @else
+                            <input type="checkbox" class="shopist-iCheck" name="enable_latest_product" id="enable_latest_product">
+                          @endif
+                          &nbsp;{!! trans('admin.enable_latest_product') !!}                                        
+                        </div>
+                      </div>  
+                    </div>
+                    <div class="form-group">
+                      <div class="row">  
+                        <label class="col-sm-6 control-label" for="inputEnableForRelatedProduct">{!! trans('admin.related_product') !!}</label>
+                        <div class="col-sm-6">
+                          @if($product_post_data['_product_enable_as_related'] == 'yes')
+                            <input type="checkbox" checked="checked" class="shopist-iCheck" name="inputEnableForRelatedProduct" id="inputEnableForRelatedProduct">
+                          @else
+                            <input type="checkbox" class="shopist-iCheck" name="inputEnableForRelatedProduct" id="inputEnableForRelatedProduct">
+                          @endif
+                          &nbsp;{!! trans('admin.enable_related_product') !!}                                        
+                        </div>
+                      </div>  
+                    </div>
+                    <div class="form-group enable-custom-design" {!! $tabSettings['btnCustomize'] !!}>
+                      <div class="row">   
+                        <label class="col-sm-6 control-label" for="inputEnableForCustomDesignProduct">{!! trans('admin.custom_design') !!}</label>
+                        <div class="col-sm-6">
+                          @if($product_post_data['_product_enable_as_custom_design'] == 'yes')
+                            <input type="checkbox" checked="checked" class="shopist-iCheck" name="inputEnableForCustomDesignProduct" id="inputEnableForCustomDesignProduct">
+                          @else
+                            <input type="checkbox" checked="checked" class="shopist-iCheck" name="inputEnableForCustomDesignProduct" id="inputEnableForCustomDesignProduct">
+                          @endif
+                          &nbsp;{!! trans('admin.enable_custom_design_product') !!}                                      
+                        </div>
+                      </div>  
+                    </div>
+                    <div class="form-group">
+                      <div class="row">  
+                        <label class="col-sm-6 control-label" for="inputEnableForHomePage">{!! trans('admin.home_page_product_label_1') !!}</label>
+                        <div class="col-sm-6">
+                          @if( !empty($product_post_data['_product_enable_as_selected_cat']) && $product_post_data['_product_enable_as_selected_cat'] == 'yes')  
+                            <input type="checkbox" checked="checked" class="shopist-iCheck" name="inputEnableForHomePage" id="inputEnableForHomePage">
+                          @else
+                            <input type="checkbox" class="shopist-iCheck" name="inputEnableForHomePage" id="inputEnableForHomePage">
+                          @endif
+                          &nbsp;{!! trans('admin.home_page_product_label_2') !!}                              
+                        </div>
+                      </div>  
+                    </div>    
+                    @if( $settings_data['general_settings']['taxes_options']['enable_status'] == 1 && $settings_data['general_settings']['taxes_options']['apply_tax_for'] == 'per_product' )
+                    <div class="form-group taxes-option">
+                      <div class="row">  
+                        <label class="col-sm-6 control-label" for="inputEnableTaxesForProduct">{!! trans('admin.taxes') !!}</label>
+                        <div class="col-sm-6">
+                          @if($product_post_data['_product_enable_taxes'] == 'yes')
+                            <input type="checkbox" checked="checked" class="shopist-iCheck" name="inputEnableTaxesForProduct" id="inputEnableTaxesForProduct">
+                          @else
+                            <input type="checkbox" class="shopist-iCheck" name="inputEnableTaxesForProduct" id="inputEnableTaxesForProduct">
+                          @endif
+                          &nbsp;{!! trans('admin.enable_taxes_this_product') !!}                                      
+                        </div>
+                      </div>  
+                    </div>
+                    @endif
+                  </div><!-- /.tab-pane -->
+
+                @endif
+                
+              </div>
             </div>
           </div>
         </div>
-      </div>
+
+      @endif
 
       <div class="box box-solid">
         <div class="box-header with-border">
@@ -495,313 +500,319 @@
         </div>
       </div>
 
-      <div class="box box-solid product-videos-settings">
-        <div class="box-header with-border">
-          <i class="fa fa-video-camera"></i>
-          <h3 class="box-title">{!! trans('admin.product_video_settings') !!}</h3>
-        </div>
-        <div class="box-body">
-          <div class="form-group">
-            <div class="row">  
-              <label class="col-sm-6 control-label" for="inputEnableProductVideo">{!! trans('admin.enable_product_video') !!}</label>
-              <div class="col-sm-6">
-                <label>
-                  @if($product_post_data['_product_enable_video_feature'] == 'yes')
-                  <input type="checkbox" checked="checked" class="shopist-iCheck" name="inputEnableProductVideo" id="inputEnableProductVideo">
-                  @else
-                  <input type="checkbox" class="shopist-iCheck" name="inputEnableProductVideo" id="inputEnableProductVideo">
-                  @endif
-                </label>                                             
-              </div>
-            </div>  
-          </div>
-          <div class="form-group" style="display:none">
-            <div class="row">  
-              <label class="col-sm-6 control-label" for="inputDisplayProductVideo">{!! trans('admin.product_video_display_mode_at_frontend') !!}</label>
-              <div class="col-sm-6">
-                <span>
-                  @if($product_post_data['_product_video_feature_display_mode'] == 'popup')
-                  <input type="radio" class="shopist-iCheck" checked="checked" name="inputVideoDisplayMode" id="inputVideoDisplayModeAtPopup" value="popup">&nbsp; {!! trans('admin.display_at_popup') !!}
-                  @else
-                  <input type="radio" class="shopist-iCheck" name="inputVideoDisplayMode" id="inputVideoDisplayModeAtPopup" value="popup">&nbsp; {!! trans('admin.display_at_popup') !!}
-                  @endif
-                </span>
 
-                &nbsp;&nbsp;&nbsp;&nbsp;<span>
-                  @if($product_post_data['_product_video_feature_display_mode'] == 'content')
-                  <input type="radio" checked="checked" class="shopist-iCheck" name="inputVideoDisplayMode" id="inputVideoDisplayModeAtPageContent" value="content">&nbsp; {!! trans('admin.page_content') !!}
-                  @else
-                  <input type="radio" class="shopist-iCheck" name="inputVideoDisplayMode" id="inputVideoDisplayModeAtPageContent" value="content">&nbsp; {!! trans('admin.page_content') !!}
-                  @endif
-                </span>
-              </div>
-            </div>  
-          </div><hr><br>
+      @if ($product_post_data['post_buy'] ==0 )
 
-          <div class="form-group">
-            <div class="row">  
-              <label class="col-sm-6 control-label" for="inputTitleForVideo">{!! trans('admin.video_title') !!}</label>
-              <div class="col-sm-6">
-                <input type="Text" class="form-control" name="inputTitleForVideo" id="inputTitleForVideo" placeholder="{{ trans('admin.video_title') }}" value="{{ $product_post_data['_product_video_feature_title'] }}">          
-              </div>
-            </div>  
-          </div>
-          <div class="form-group" style="display:none;">
-            <div class="row">  
-              <label class="col-sm-6 control-label" for="inputVideoPanelWidth">{!! trans('admin.video_panel_width') !!}</label>
-              <div class="col-sm-6">
-                  <input type="number" class="form-control" name="inputVideoPanelWidth" id="inputVideoPanelWidth" placeholder="{{ trans('admin.video_panel_width') }}" value="{{ $product_post_data['_product_video_feature_panel_size']['width'] }}"><i>{!! trans('admin.pixels') !!}</i>           
-              </div>
-            </div>  
-          </div>
-          <div class="form-group" style="display:none;">
-            <div class="row">  
-              <label class="col-sm-6 control-label" for="inputVideoPanelHeight">{!! trans('admin.video_panel_height') !!}</label>
-              <div class="col-sm-6">
-                  <input type="number" class="form-control" name="inputVideoPanelHeight" id="inputVideoPanelHeight" placeholder="{{ trans('admin.video_panel_height') }}" value="{{ $product_post_data['_product_video_feature_panel_size']['height'] }}"><i>{!! trans('admin.pixels') !!}</i>
-              </div>
-            </div>  
-          </div>
-          <hr><br>
 
-          <div class="form-group">
-            <div class="row">  
-              <label class="col-sm-6 control-label" for="inputLabelVideoSource">{!! trans('admin.select_video_source') !!}</label>
-              <div class="col-sm-6">
-                <div class="source-embedded-code">
-                  <div class="source-embedded-code-label">
-                    @if($product_post_data['_product_video_feature_source'] == 'embedded_code')
-                    <input type="radio" checked="checked" class="shopist-iCheck" name="inputVideoSourceName" id="inputVideoSourceEmbed" value="embedded_code"> {!! trans('admin.embedded_code') !!}
+        <div class="box box-solid product-videos-settings">
+          <div class="box-header with-border">
+            <i class="fa fa-video-camera"></i>
+            <h3 class="box-title">{!! trans('admin.product_video_settings') !!}</h3>
+          </div>
+          <div class="box-body">
+            <div class="form-group">
+              <div class="row">  
+                <label class="col-sm-6 control-label" for="inputEnableProductVideo">{!! trans('admin.enable_product_video') !!}</label>
+                <div class="col-sm-6">
+                  <label>
+                    @if($product_post_data['_product_enable_video_feature'] == 'yes')
+                    <input type="checkbox" checked="checked" class="shopist-iCheck" name="inputEnableProductVideo" id="inputEnableProductVideo">
                     @else
-                    <input type="radio" class="shopist-iCheck" name="inputVideoSourceName" id="inputVideoSourceEmbed" value="embedded_code"> {!! trans('admin.embedded_code') !!}
+                    <input type="checkbox" class="shopist-iCheck" name="inputEnableProductVideo" id="inputEnableProductVideo">
                     @endif
-                  </div>
-                  <div class="source-embedded-code-textarea">
-                      <input type="text" class="form-control" name="inputEmbedCode" id="inputEmbedCode" placeholder="{{ trans('admin.enter_your_embedded_code_here') }}" value="{{ string_decode($product_post_data['_product_video_feature_source_embedded_code']) }}">
-                  </div>
-                  {!! trans('admin.youtube_embedded_msg') !!}
-                </div><hr><br>
-
-                <div class="source-custom-video-url">
-                  <div class="source-custom-video-url-label">
-                    @if($product_post_data['_product_video_feature_source'] == 'online_url')
-                    <input type="radio" checked="checked" class="shopist-iCheck" name="inputVideoSourceName" id="inputVideoSourceCustomVideoUrl" value="online_url"> {!! trans('admin.add_online_video_url') !!}
-                    @else
-                    <input type="radio" class="shopist-iCheck" name="inputVideoSourceName" id="inputVideoSourceCustomVideoUrl" value="online_url"> {!! trans('admin.add_online_video_url') !!}
-                    @endif
-                  </div>
-                  <div class="source-custom-video-url-textbox"><input type="text" class="form-control" name="inputAddOnlineVideoUrl" id="inputAddOnlineVideoUrl" placeholder="{{ trans('admin.add_online_video_url') }}" value="{{ $product_post_data['_product_video_feature_source_online_url'] }}"></div>
-                  {!! trans('admin.online_video_file_extensions') !!}
+                  </label>                                             
                 </div>
+              </div>  
+            </div>
+            <div class="form-group" style="display:none">
+              <div class="row">  
+                <label class="col-sm-6 control-label" for="inputDisplayProductVideo">{!! trans('admin.product_video_display_mode_at_frontend') !!}</label>
+                <div class="col-sm-6">
+                  <span>
+                    @if($product_post_data['_product_video_feature_display_mode'] == 'popup')
+                    <input type="radio" class="shopist-iCheck" checked="checked" name="inputVideoDisplayMode" id="inputVideoDisplayModeAtPopup" value="popup">&nbsp; {!! trans('admin.display_at_popup') !!}
+                    @else
+                    <input type="radio" class="shopist-iCheck" name="inputVideoDisplayMode" id="inputVideoDisplayModeAtPopup" value="popup">&nbsp; {!! trans('admin.display_at_popup') !!}
+                    @endif
+                  </span>
 
-                <div class="source-custom-video">                    
-                  <div class="modal fade" id="productVideoUploader" tabindex="-1" role="dialog" aria-labelledby="updater" aria-hidden="true">
-                      <div class="modal-dialog">
-                        <div class="modal-content">
-                          <div class="modal-header">
-                            <p class="no-margin">{!! trans('admin.product_vedio_label') !!}</p>
-                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                              <span aria-hidden="true">&times;</span>
-                            </button>
-                          </div>    
-                          <div class="modal-body">             
-                            <div class="uploadform dropzone no-margin dz-clickable dropzone-product-video-uploader" id="dropzone_video_file_uploader" name="dropzone_video_file_uploader">
-                              <div class="dz-default dz-message">
-                                <span>Drop your Cover Picture here</span>
+                  &nbsp;&nbsp;&nbsp;&nbsp;<span>
+                    @if($product_post_data['_product_video_feature_display_mode'] == 'content')
+                    <input type="radio" checked="checked" class="shopist-iCheck" name="inputVideoDisplayMode" id="inputVideoDisplayModeAtPageContent" value="content">&nbsp; {!! trans('admin.page_content') !!}
+                    @else
+                    <input type="radio" class="shopist-iCheck" name="inputVideoDisplayMode" id="inputVideoDisplayModeAtPageContent" value="content">&nbsp; {!! trans('admin.page_content') !!}
+                    @endif
+                  </span>
+                </div>
+              </div>  
+            </div><hr><br>
+
+            <div class="form-group">
+              <div class="row">  
+                <label class="col-sm-6 control-label" for="inputTitleForVideo">{!! trans('admin.video_title') !!}</label>
+                <div class="col-sm-6">
+                  <input type="Text" class="form-control" name="inputTitleForVideo" id="inputTitleForVideo" placeholder="{{ trans('admin.video_title') }}" value="{{ $product_post_data['_product_video_feature_title'] }}">          
+                </div>
+              </div>  
+            </div>
+            <div class="form-group" style="display:none;">
+              <div class="row">  
+                <label class="col-sm-6 control-label" for="inputVideoPanelWidth">{!! trans('admin.video_panel_width') !!}</label>
+                <div class="col-sm-6">
+                    <input type="number" class="form-control" name="inputVideoPanelWidth" id="inputVideoPanelWidth" placeholder="{{ trans('admin.video_panel_width') }}" value="{{ $product_post_data['_product_video_feature_panel_size']['width'] }}"><i>{!! trans('admin.pixels') !!}</i>           
+                </div>
+              </div>  
+            </div>
+            <div class="form-group" style="display:none;">
+              <div class="row">  
+                <label class="col-sm-6 control-label" for="inputVideoPanelHeight">{!! trans('admin.video_panel_height') !!}</label>
+                <div class="col-sm-6">
+                    <input type="number" class="form-control" name="inputVideoPanelHeight" id="inputVideoPanelHeight" placeholder="{{ trans('admin.video_panel_height') }}" value="{{ $product_post_data['_product_video_feature_panel_size']['height'] }}"><i>{!! trans('admin.pixels') !!}</i>
+                </div>
+              </div>  
+            </div>
+            <hr><br>
+
+            <div class="form-group">
+              <div class="row">  
+                <label class="col-sm-6 control-label" for="inputLabelVideoSource">{!! trans('admin.select_video_source') !!}</label>
+                <div class="col-sm-6">
+                  <div class="source-embedded-code">
+                    <div class="source-embedded-code-label">
+                      @if($product_post_data['_product_video_feature_source'] == 'embedded_code')
+                      <input type="radio" checked="checked" class="shopist-iCheck" name="inputVideoSourceName" id="inputVideoSourceEmbed" value="embedded_code"> {!! trans('admin.embedded_code') !!}
+                      @else
+                      <input type="radio" class="shopist-iCheck" name="inputVideoSourceName" id="inputVideoSourceEmbed" value="embedded_code"> {!! trans('admin.embedded_code') !!}
+                      @endif
+                    </div>
+                    <div class="source-embedded-code-textarea">
+                        <input type="text" class="form-control" name="inputEmbedCode" id="inputEmbedCode" placeholder="{{ trans('admin.enter_your_embedded_code_here') }}" value="{{ string_decode($product_post_data['_product_video_feature_source_embedded_code']) }}">
+                    </div>
+                    {!! trans('admin.youtube_embedded_msg') !!}
+                  </div><hr><br>
+
+                  <div class="source-custom-video-url">
+                    <div class="source-custom-video-url-label">
+                      @if($product_post_data['_product_video_feature_source'] == 'online_url')
+                      <input type="radio" checked="checked" class="shopist-iCheck" name="inputVideoSourceName" id="inputVideoSourceCustomVideoUrl" value="online_url"> {!! trans('admin.add_online_video_url') !!}
+                      @else
+                      <input type="radio" class="shopist-iCheck" name="inputVideoSourceName" id="inputVideoSourceCustomVideoUrl" value="online_url"> {!! trans('admin.add_online_video_url') !!}
+                      @endif
+                    </div>
+                    <div class="source-custom-video-url-textbox"><input type="text" class="form-control" name="inputAddOnlineVideoUrl" id="inputAddOnlineVideoUrl" placeholder="{{ trans('admin.add_online_video_url') }}" value="{{ $product_post_data['_product_video_feature_source_online_url'] }}"></div>
+                    {!! trans('admin.online_video_file_extensions') !!}
+                  </div>
+
+                  <div class="source-custom-video">                    
+                    <div class="modal fade" id="productVideoUploader" tabindex="-1" role="dialog" aria-labelledby="updater" aria-hidden="true">
+                        <div class="modal-dialog">
+                          <div class="modal-content">
+                            <div class="modal-header">
+                              <p class="no-margin">{!! trans('admin.product_vedio_label') !!}</p>
+                              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                              </button>
+                            </div>    
+                            <div class="modal-body">             
+                              <div class="uploadform dropzone no-margin dz-clickable dropzone-product-video-uploader" id="dropzone_video_file_uploader" name="dropzone_video_file_uploader">
+                                <div class="dz-default dz-message">
+                                  <span>Drop your Cover Picture here</span>
+                                </div>
                               </div>
                             </div>
-                          </div>
-                          <div class="modal-footer">
-                            <button type="button" class="btn btn-default attachtopost" data-dismiss="modal">Close</button>
+                            <div class="modal-footer">
+                              <button type="button" class="btn btn-default attachtopost" data-dismiss="modal">Close</button>
+                            </div>
                           </div>
                         </div>
                       </div>
-                    </div>
-                </div>
-              </div>
-            </div>  
-          </div>
-        </div>
-      </div>
-
-      
-      <div class="box box-solid" style="display:none">
-        <div class="box-header with-border">
-          <i class="fa fa-upload"></i>
-          <h3 class="box-title">{!! trans('admin.shop_banner') !!}</h3>
-          <div class="box-tools pull-right">
-            <div data-toggle="modal" data-dropzone_id="eb_dropzone_banner_file_upload" data-target="#shopbannerUploader" class="icon shop-banner-uploader">{!! trans('admin.upload_image') !!}</div>
-          </div>
-        </div>
-        <div class="box-body">
-          <div class="uploaded-banner-image">
-            @if($product_post_data['_product_related_images_url']->shop_banner_image && $product_post_data['_product_related_images_url']->shop_banner_image != '/images/upload.png')
-            <div class="banner-uploaded-image" style="display:block;"><img class="img-responsive" src="{{ get_image_url($product_post_data['_product_related_images_url']->shop_banner_image) }}"><div class="remove-img-link banner-img-remove"><button type="button" class="btn btn-default attachtopost">{!! trans('admin.remove_image') !!}</button></div></div>
-            <div class="banner-sample-img" style="display:none;"><img class="banner-upload-icon img-responsive" src="{{ default_upload_sample_img_src() }}"></div>
-            @else
-            <div class="banner-sample-img"><img class="banner-upload-icon img-responsive" src="{{ default_upload_sample_img_src() }}"></div>
-            <div class="banner-uploaded-image"><img class="img-responsive"><div class="remove-img-link banner-img-remove"><button type="button" class="btn btn-default attachtopost">{!! trans('admin.remove_image') !!}</button></div></div>
-            @endif
-          </div>
-            
-          <div class="modal fade" id="shopbannerUploader" tabindex="-1" role="dialog" aria-labelledby="updater" aria-hidden="true">
-            <div class="modal-dialog">
-              <div class="modal-content">
-                <div class="modal-header">
-                  <p class="no-margin">{!! trans('admin.you_can_upload_1_image') !!}</p>
-                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                  </button>
-                </div> 
-                <div class="modal-body">             
-                  <div class="uploadform dropzone no-margin dz-clickable eb_dropzone_banner_file_upload" id="eb_dropzone_banner_file_upload" name="eb_dropzone_banner_file_upload">
-                    <div class="dz-default dz-message">
-                      <span>{!! trans('admin.drop_your_cover_picture_here') !!}</span>
-                    </div>
                   </div>
                 </div>
-                <div class="modal-footer">
-                  <button type="button" class="btn btn-default attachtopost" data-dismiss="modal">{!! trans('admin.close') !!}</button>
+              </div>  
+            </div>
+          </div>
+        </div>
+
+        
+        <div class="box box-solid" style="display:none">
+          <div class="box-header with-border">
+            <i class="fa fa-upload"></i>
+            <h3 class="box-title">{!! trans('admin.shop_banner') !!}</h3>
+            <div class="box-tools pull-right">
+              <div data-toggle="modal" data-dropzone_id="eb_dropzone_banner_file_upload" data-target="#shopbannerUploader" class="icon shop-banner-uploader">{!! trans('admin.upload_image') !!}</div>
+            </div>
+          </div>
+          <div class="box-body">
+            <div class="uploaded-banner-image">
+              @if($product_post_data['_product_related_images_url']->shop_banner_image && $product_post_data['_product_related_images_url']->shop_banner_image != '/images/upload.png')
+              <div class="banner-uploaded-image" style="display:block;"><img class="img-responsive" src="{{ get_image_url($product_post_data['_product_related_images_url']->shop_banner_image) }}"><div class="remove-img-link banner-img-remove"><button type="button" class="btn btn-default attachtopost">{!! trans('admin.remove_image') !!}</button></div></div>
+              <div class="banner-sample-img" style="display:none;"><img class="banner-upload-icon img-responsive" src="{{ default_upload_sample_img_src() }}"></div>
+              @else
+              <div class="banner-sample-img"><img class="banner-upload-icon img-responsive" src="{{ default_upload_sample_img_src() }}"></div>
+              <div class="banner-uploaded-image"><img class="img-responsive"><div class="remove-img-link banner-img-remove"><button type="button" class="btn btn-default attachtopost">{!! trans('admin.remove_image') !!}</button></div></div>
+              @endif
+            </div>
+              
+            <div class="modal fade" id="shopbannerUploader" tabindex="-1" role="dialog" aria-labelledby="updater" aria-hidden="true">
+              <div class="modal-dialog">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <p class="no-margin">{!! trans('admin.you_can_upload_1_image') !!}</p>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                      <span aria-hidden="true">&times;</span>
+                    </button>
+                  </div> 
+                  <div class="modal-body">             
+                    <div class="uploadform dropzone no-margin dz-clickable eb_dropzone_banner_file_upload" id="eb_dropzone_banner_file_upload" name="eb_dropzone_banner_file_upload">
+                      <div class="dz-default dz-message">
+                        <span>{!! trans('admin.drop_your_cover_picture_here') !!}</span>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-default attachtopost" data-dismiss="modal">{!! trans('admin.close') !!}</button>
+                  </div>
                 </div>
               </div>
             </div>
           </div>
         </div>
-      </div>
-      
         
-      <div class="box box-solid">
-        <div class="box-header with-border">
-          <i class="fa fa-text-width"></i>
-          <h3 class="box-title">{!! trans('admin.product_seo_label') !!}</h3>
-        </div>
-        <div class="box-body">
-          <div class="seo-preview-content">
-            <p><i class="fa fa-eye"></i> {!! trans('admin.google_search_preview_label') !!}</p><hr>
-            <h3>{!! $product_post_data['_product_seo_title'] !!}</h3>
-            <p class="link">{!! url('/') !!}/san-pham/chi-tiet/<span>{!! $product_post_data['post_slug'] !!}</span></p>
-            @if(!empty($product_post_data['_product_seo_description']))
-            <p class="description">{!! $product_post_data['_product_seo_description'] !!}</p>
-            @else
-            <p class="description">{!! trans('admin.product_seo_desc_example') !!}</p>
-            @endif
-          </div><hr>
-          <div class="seo-content">
-            <div class="form-group">  
-              <div class="row">    
-                <div class="col-md-12">
-                  <input type="text" class="form-control" name="seo_title" id="seo_title" placeholder="{{ trans('admin.seo_title_label') }}" value="{{ $product_post_data['_product_seo_title'] }}">
-                </div>  
-              </div>    
-            </div>
-            <div class="form-group">
-              <div class="row">    
-                <div class="col-md-12">
-                <input type="text" class="form-control" name="seo_url_format" id="seo_url_format" placeholder="{{ trans('admin.seo_url_label') }}" value="{{ $product_post_data['post_slug'] }}">
-                </div>
-              </div>    
-            </div>
-            <div class="form-group">  
-              <div class="row">    
-                <div class="col-md-12">  
-                  <textarea id="seo_description" class="form-control" name="seo_description" placeholder="{{ trans('admin.seo_description_label') }}">{!! $product_post_data['_product_seo_description'] !!}</textarea>
-                </div>
-              </div>    
-            </div>  
-            <div class="form-group">
-              <div class="row">    
-                <div class="col-md-12">  
-                  <textarea id="seo_keywords" class="form-control" name="seo_keywords" placeholder="{{ trans('admin.seo_keywords_label') }}">{!! $product_post_data['_product_seo_keywords'] !!}</textarea>
-                </div>
-              </div>    
-            </div>
-          </div>  
-        </div>  
-      </div>
-        
-      <div class="box box-solid compare-data">
-        <div class="box-header with-border">
-          <i class="fa  fa-text-width"></i>
-          <h3 class="box-title">{!! trans('admin.add_compare_data_title') !!}</h3>
-        </div>
-        <div class="box-body">
-          @if(!is_vendor_login())    
-            <div class="clearfix">
-              <a class="btn btn-default pull-right btn-sm" href="{{ route('admin.extra_features_compare_products_content') }}">{!! trans('admin.add_compare_data_title') !!}</a>
-            </div>  
-          @endif
-          <br>  
-          @if(!empty($fields_name))
-            @foreach($fields_name as $key => $compare_field)
+          
+        <div class="box box-solid">
+          <div class="box-header with-border">
+            <i class="fa fa-text-width"></i>
+            <h3 class="box-title">{!! trans('admin.product_seo_label') !!}</h3>
+          </div>
+          <div class="box-body">
+            <div class="seo-preview-content">
+              <p><i class="fa fa-eye"></i> {!! trans('admin.google_search_preview_label') !!}</p><hr>
+              <h3>{!! $product_post_data['_product_seo_title'] !!}</h3>
+              <p class="link">{!! url('/') !!}/san-pham/chi-tiet/<span>{!! $product_post_data['post_slug'] !!}</span></p>
+              @if(!empty($product_post_data['_product_seo_description']))
+              <p class="description">{!! $product_post_data['_product_seo_description'] !!}</p>
+              @else
+              <p class="description">{!! trans('admin.product_seo_desc_example') !!}</p>
+              @endif
+            </div><hr>
+            <div class="seo-content">
+              <div class="form-group">  
+                <div class="row">    
+                  <div class="col-md-12">
+                    <input type="text" class="form-control" name="seo_title" id="seo_title" placeholder="{{ trans('admin.seo_title_label') }}" value="{{ $product_post_data['_product_seo_title'] }}">
+                  </div>  
+                </div>    
+              </div>
               <div class="form-group">
-                <div class="row">  
-                  <label class="col-sm-6 control-label">{!! $compare_field !!}</label>
-                  <div class="col-sm-6">
-                    @if(!empty($product_post_data['_product_compare_data']) && isset($product_post_data['_product_compare_data'][$key]) )  
-                      <input type="text" class="form-control" name="inputCompareData[<?php echo $key;?>]" placeholder="{{ $compare_field }}" value="{{ $product_post_data['_product_compare_data'][$key] }}">
+                <div class="row">    
+                  <div class="col-md-12">
+                  <input type="text" class="form-control" name="seo_url_format" id="seo_url_format" placeholder="{{ trans('admin.seo_url_label') }}" value="{{ $product_post_data['post_slug'] }}">
+                  </div>
+                </div>    
+              </div>
+              <div class="form-group">  
+                <div class="row">    
+                  <div class="col-md-12">  
+                    <textarea id="seo_description" class="form-control" name="seo_description" placeholder="{{ trans('admin.seo_description_label') }}">{!! $product_post_data['_product_seo_description'] !!}</textarea>
+                  </div>
+                </div>    
+              </div>  
+              <div class="form-group">
+                <div class="row">    
+                  <div class="col-md-12">  
+                    <textarea id="seo_keywords" class="form-control" name="seo_keywords" placeholder="{{ trans('admin.seo_keywords_label') }}">{!! $product_post_data['_product_seo_keywords'] !!}</textarea>
+                  </div>
+                </div>    
+              </div>
+            </div>  
+          </div>  
+        </div>
+          
+        <div class="box box-solid compare-data">
+          <div class="box-header with-border">
+            <i class="fa  fa-text-width"></i>
+            <h3 class="box-title">{!! trans('admin.add_compare_data_title') !!}</h3>
+          </div>
+          <div class="box-body">
+            @if(!is_vendor_login())    
+              <div class="clearfix">
+                <a class="btn btn-default pull-right btn-sm" href="{{ route('admin.extra_features_compare_products_content') }}">{!! trans('admin.add_compare_data_title') !!}</a>
+              </div>  
+            @endif
+            <br>  
+            @if(!empty($fields_name))
+              @foreach($fields_name as $key => $compare_field)
+                <div class="form-group">
+                  <div class="row">  
+                    <label class="col-sm-6 control-label">{!! $compare_field !!}</label>
+                    <div class="col-sm-6">
+                      @if(!empty($product_post_data['_product_compare_data']) && isset($product_post_data['_product_compare_data'][$key]) )  
+                        <input type="text" class="form-control" name="inputCompareData[<?php echo $key;?>]" placeholder="{{ $compare_field }}" value="{{ $product_post_data['_product_compare_data'][$key] }}">
+                      @else
+                        <input type="text" class="form-control" name="inputCompareData[<?php echo $key;?>]" placeholder="{{ $compare_field }}">
+                      @endif
+                    </div>
+                  </div>  
+                </div>
+              @endforeach
+            @endif
+          </div>
+        </div>  
+        
+        
+        
+        @if(!is_vendor_login())    
+        <div class="box box-solid product-manufacturer-settings">
+          <div class="box-header with-border">
+            <i class="fa fa-html5"></i>
+            <h3 class="box-title">{!! trans('admin.product_manufacturer_settings') !!}</h3>
+          </div>
+          <div class="box-body">
+            <div class="form-group" style="display:none;">
+              <div class="row">     
+                <label class="col-sm-6 control-label" for="inputEnableProductManufacturer">{!! trans('admin.enable_product_manufacturer') !!}</label>
+                <div class="col-sm-6">
+                  <label>
+                    @if($product_post_data['_product_enable_manufacturer'] == 'yes')
+                      <input type="checkbox" checked="checked" class="shopist-iCheck" name="inputEnableProductManufacturer" id="inputEnableProductManufacturer">
                     @else
-                      <input type="text" class="form-control" name="inputCompareData[<?php echo $key;?>]" placeholder="{{ $compare_field }}">
+                      <input type="checkbox" class="shopist-iCheck" name="inputEnableProductManufacturer" id="inputEnableProductManufacturer">
+                    @endif
+                  </label>                                             
+                </div>
+              </div>  
+            </div>
+            @if(count($manufacturer_lists)>0)
+            <div class="form-group">
+              <div class="row">  
+                <label class="col-sm-6 control-label" for="inputSelectManufacturerName">{!! trans('admin.select_manufacturer') !!}</label>
+                <div class="col-sm-6">
+                @foreach($manufacturer_lists as $row)
+                <div class="manufacturer-name">
+                  <div>
+                    @if(in_array($row['term_id'], $selected_brands['term_id']))
+                    <input type="checkbox" checked="checked" class="shopist-iCheck" name="inputManufacturerName[]" id="inputManufacturerName-{{ $row['name'] }}" value="{{ $row['term_id'] }}">
+                    @else
+                    <input type="checkbox" class="shopist-iCheck" name="inputManufacturerName[]" id="inputManufacturerName-{{ $row['name'] }}" value="{{ $row['term_id'] }}">
                     @endif
                   </div>
-                </div>  
-              </div>
-            @endforeach
-          @endif
-        </div>
-      </div>  
-      
-      
-      
-      @if(!is_vendor_login())    
-      <div class="box box-solid product-manufacturer-settings">
-        <div class="box-header with-border">
-          <i class="fa fa-html5"></i>
-          <h3 class="box-title">{!! trans('admin.product_manufacturer_settings') !!}</h3>
-        </div>
-        <div class="box-body">
-          <div class="form-group" style="display:none;">
-            <div class="row">     
-              <label class="col-sm-6 control-label" for="inputEnableProductManufacturer">{!! trans('admin.enable_product_manufacturer') !!}</label>
-              <div class="col-sm-6">
-                <label>
-                  @if($product_post_data['_product_enable_manufacturer'] == 'yes')
-                    <input type="checkbox" checked="checked" class="shopist-iCheck" name="inputEnableProductManufacturer" id="inputEnableProductManufacturer">
-                  @else
-                    <input type="checkbox" class="shopist-iCheck" name="inputEnableProductManufacturer" id="inputEnableProductManufacturer">
-                  @endif
-                </label>                                             
-              </div>
-            </div>  
-          </div>
-          @if(count($manufacturer_lists)>0)
-          <div class="form-group">
-            <div class="row">  
-              <label class="col-sm-6 control-label" for="inputSelectManufacturerName">{!! trans('admin.select_manufacturer') !!}</label>
-              <div class="col-sm-6">
-               @foreach($manufacturer_lists as $row)
-               <div class="manufacturer-name">
-                 <div>
-                   @if(in_array($row['term_id'], $selected_brands['term_id']))
-                   <input type="checkbox" checked="checked" class="shopist-iCheck" name="inputManufacturerName[]" id="inputManufacturerName-{{ $row['name'] }}" value="{{ $row['term_id'] }}">
-                   @else
-                   <input type="checkbox" class="shopist-iCheck" name="inputManufacturerName[]" id="inputManufacturerName-{{ $row['name'] }}" value="{{ $row['term_id'] }}">
-                   @endif
-                 </div>
-                 @if($row['brand_logo_img_url'])<div><img src="{{ get_image_url($row['brand_logo_img_url']) }}" class="img-responsive"></div>@else <div><img src="{{ default_placeholder_img_src() }}" class="img-responsive"></div> @endif<div>{!! $row['name'] !!}</div><div>({!! $row['brand_country_name'] !!})</div>
-               </div>
-               @endforeach
-              </div>
-            </div>  
-          </div>
-          @else
-          <div class="form-group">
-            <div class="row">     
-              <label class="col-sm-6 control-label" for="manufacturer-empty">{!! trans('admin.no_manufacturer_yet') !!}</label>
+                  @if($row['brand_logo_img_url'])<div><img src="{{ get_image_url($row['brand_logo_img_url']) }}" class="img-responsive"></div>@else <div><img src="{{ default_placeholder_img_src() }}" class="img-responsive"></div> @endif<div>{!! $row['name'] !!}</div><div>({!! $row['brand_country_name'] !!})</div>
+                </div>
+                @endforeach
+                </div>
+              </div>  
             </div>
+            @else
+            <div class="form-group">
+              <div class="row">     
+                <label class="col-sm-6 control-label" for="manufacturer-empty">{!! trans('admin.no_manufacturer_yet') !!}</label>
+              </div>
+            </div>
+            @endif
           </div>
-          @endif
         </div>
-      </div>
+        @endif
+
       @endif
       
     </div>
@@ -895,151 +906,156 @@
       </div> 
       @endif  
 
+      @if ($product_post_data['post_buy'] ==0 )
 
 
-      <div class="box box-solid product-categories">
-        <div class="box-header with-border">
-          <i class="fa fa-camera"></i>
-          <h3 class="box-title">{!! trans('admin.product_categories') !!}</h3>
-        </div>
-        <div class="box-body">
-          @if(!is_vendor_login())    
-          <div class="clearfix">
-            <a class="btn btn-default pull-right" href="{{ route('admin.product_categories_list') }}">{!! trans('admin.create_categories') !!}</a>
+
+
+        <div class="box box-solid product-categories">
+          <div class="box-header with-border">
+            <i class="fa fa-camera"></i>
+            <h3 class="box-title">{!! trans('admin.product_categories') !!}</h3>
           </div>
-          @endif
-          <div class="form-group">
-            <div class="row">  
-              <label class="col-sm-1 control-label" for="inputSelectCategories"></label>
-              <div class="col-sm-11">
-                @if (count($categories_lists) > 0)
-                  <ul>
-                  @foreach ($categories_lists as $data)
-                      @include('pages.common.update-category-list', $data)
-                  @endforeach
-                  </ul>
-                @else
-                  <span>{!! trans('admin.no_categories_yet') !!}</span>
-                @endif
+          <div class="box-body">
+            @if(!is_vendor_login())    
+            <div class="clearfix">
+              <a class="btn btn-default pull-right" href="{{ route('admin.product_categories_list') }}">{!! trans('admin.create_categories') !!}</a>
+            </div>
+            @endif
+            <div class="form-group">
+              <div class="row">  
+                <label class="col-sm-1 control-label" for="inputSelectCategories"></label>
+                <div class="col-sm-11">
+                  @if (count($categories_lists) > 0)
+                    <ul>
+                    @foreach ($categories_lists as $data)
+                        @include('pages.common.update-category-list', $data)
+                    @endforeach
+                    </ul>
+                  @else
+                    <span>{!! trans('admin.no_categories_yet') !!}</span>
+                  @endif
 
-              </div>
-            </div>  
+                </div>
+              </div>  
+            </div>
           </div>
         </div>
-      </div>
 
-        
-      <div class="box box-solid product-tags">
-        <div class="box-header with-border">
-          <i class="fa fa-tags"></i>
-          <h3 class="box-title">{!! trans('admin.product_tags') !!}</h3>
-        </div>
-        <div class="box-body">
-          @if(!is_vendor_login())  
-          <div class="clearfix">
-            <a class="btn btn-default pull-right" href="{{ route('admin.product_tags_list') }}" target="_blank">{!! trans('admin.create_tags') !!}</a>
+          
+        <div class="box box-solid product-tags">
+          <div class="box-header with-border">
+            <i class="fa fa-tags"></i>
+            <h3 class="box-title">{!! trans('admin.product_tags') !!}</h3>
           </div>
-          @endif
+          <div class="box-body">
+            @if(!is_vendor_login())  
+            <div class="clearfix">
+              <a class="btn btn-default pull-right" href="{{ route('admin.product_tags_list') }}" target="_blank">{!! trans('admin.create_tags') !!}</a>
+            </div>
+            @endif
 
-          <div class="form-group">
-            <div class="row">  
-              <div class="col-sm-12">
-                @if(count($tags_lists)>0)
-                  @foreach($tags_lists as $row)
-                    <div class="tags-name">
-                      <div>
-                       @if(in_array($row['term_id'], $selected_tag['term_id']))
-                       <input type="checkbox" checked="checked" class="shopist-iCheck" name="inputTagsName[]" id="inputTagsName-{{ $row['name'] }}" value="{{ $row['term_id'] }}">
-                       @else
-                       <input type="checkbox" class="shopist-iCheck" name="inputTagsName[]" id="inputTagsName-{{ $row['name'] }}" value="{{ $row['term_id'] }}">
-                       @endif
+            <div class="form-group">
+              <div class="row">  
+                <div class="col-sm-12">
+                  @if(count($tags_lists)>0)
+                    @foreach($tags_lists as $row)
+                      <div class="tags-name">
+                        <div>
+                        @if(in_array($row['term_id'], $selected_tag['term_id']))
+                        <input type="checkbox" checked="checked" class="shopist-iCheck" name="inputTagsName[]" id="inputTagsName-{{ $row['name'] }}" value="{{ $row['term_id'] }}">
+                        @else
+                        <input type="checkbox" class="shopist-iCheck" name="inputTagsName[]" id="inputTagsName-{{ $row['name'] }}" value="{{ $row['term_id'] }}">
+                        @endif
+                        </div>
+                        <div>{!! $row['name'] !!}</div>
                       </div>
-                       <div>{!! $row['name'] !!}</div>
-                    </div>
-                  @endforeach
-                @else
-                <span>{!! trans('admin.no_tags_yet') !!}</span>
-                @endif 
-              </div>
-            </div>    
+                    @endforeach
+                  @else
+                  <span>{!! trans('admin.no_tags_yet') !!}</span>
+                  @endif 
+                </div>
+              </div>    
+            </div>
           </div>
         </div>
-      </div>
-        
-      <div class="box box-solid product-colors">
-        <div class="box-header with-border">
-          <i class="fa fa-paint-brush"></i>
-          <h3 class="box-title">{!! trans('admin.product_colors') !!}</h3>
-        </div>
-        <div class="box-body">
-          @if(!is_vendor_login())  
-          <div class="clearfix">
-            <a class="btn btn-default pull-right" href="{{ route('admin.product_colors_list') }}" target="_blank">{!! trans('admin.create_colors') !!}</a>
+          
+        <div class="box box-solid product-colors">
+          <div class="box-header with-border">
+            <i class="fa fa-paint-brush"></i>
+            <h3 class="box-title">{!! trans('admin.product_colors') !!}</h3>
           </div>
-          @endif
+          <div class="box-body">
+            @if(!is_vendor_login())  
+            <div class="clearfix">
+              <a class="btn btn-default pull-right" href="{{ route('admin.product_colors_list') }}" target="_blank">{!! trans('admin.create_colors') !!}</a>
+            </div>
+            @endif
 
-          <div class="form-group">
-            <div class="row">  
-              <div class="col-sm-12">
-                @if(count($colors_lists)>0)
-                  @foreach($colors_lists as $row)
-                  <div class="colors-name">
-                    <div>
-                    @if(in_array($row['term_id'], $selected_colors['term_id']))      
-                      <input type="checkbox" checked="checked" class="shopist-iCheck" name="inputColorsName[]" id="inputColorsName-{{ $row['name'] }}" value="{{ $row['term_id'] }}">
-                    @else
-                      <input type="checkbox" class="shopist-iCheck" name="inputColorsName[]" id="inputColorsName-{{ $row['name'] }}" value="{{ $row['term_id'] }}">
-                    @endif
-                    </div> &nbsp;&nbsp;
-                    <div style="width:22px;height:22px;border:1px solid #EEEEEE; background-color:#{{ $row['color_code'] }}"></div>
-                    <div>{!! $row['name'] !!}</div>
-                  </div>
-                  @endforeach
-                @else
-                <span>{!! trans('admin.no_colors_yet') !!}</span>
-                @endif 
-              </div>
-            </div>    
-          </div>
-        </div>
-      </div>  
-      
-      <div class="box box-solid product-sizes">
-        <div class="box-header with-border">
-          <i class="fa fa-th-large"></i>
-          <h3 class="box-title">{!! trans('admin.product_sizes') !!}</h3>
-        </div>
-        <div class="box-body">
-          @if(!is_vendor_login())    
-          <div class="clearfix">
-            <a class="btn btn-default pull-right" href="{{ route('admin.product_sizes_list') }}" target="_blank">{!! trans('admin.create_sizes') !!}</a>
-          </div>
-          @endif
-
-          <div class="form-group">
-             <div class="row">  
-              <div class="col-sm-12">
-                @if(count($sizes_lists)>0)
-                  @foreach($sizes_lists as $row)
-                    <div class="sizes-name">
+            <div class="form-group">
+              <div class="row">  
+                <div class="col-sm-12">
+                  @if(count($colors_lists)>0)
+                    @foreach($colors_lists as $row)
+                    <div class="colors-name">
                       <div>
-                      @if(in_array($row['term_id'], $selected_sizes['term_id']))    
-                      <input type="checkbox" checked="checked" class="shopist-iCheck" name="inputSizesName[]" id="inputSizesName-{{ $row['name'] }}" value="{{ $row['term_id'] }}">
+                      @if(in_array($row['term_id'], $selected_colors['term_id']))      
+                        <input type="checkbox" checked="checked" class="shopist-iCheck" name="inputColorsName[]" id="inputColorsName-{{ $row['name'] }}" value="{{ $row['term_id'] }}">
                       @else
-                      <input type="checkbox" class="shopist-iCheck" name="inputSizesName[]" id="inputSizesName-{{ $row['name'] }}" value="{{ $row['term_id'] }}">
+                        <input type="checkbox" class="shopist-iCheck" name="inputColorsName[]" id="inputColorsName-{{ $row['name'] }}" value="{{ $row['term_id'] }}">
                       @endif
                       </div> &nbsp;&nbsp;
+                      <div style="width:22px;height:22px;border:1px solid #EEEEEE; background-color:#{{ $row['color_code'] }}"></div>
                       <div>{!! $row['name'] !!}</div>
                     </div>
-                  @endforeach
-                @else
-                <span>{!! trans('admin.no_sizes_yet') !!}</span>
-                @endif 
-              </div>
-             </div>     
+                    @endforeach
+                  @else
+                  <span>{!! trans('admin.no_colors_yet') !!}</span>
+                  @endif 
+                </div>
+              </div>    
+            </div>
           </div>
-        </div>
-      </div> 
+        </div>  
+        
+        <div class="box box-solid product-sizes">
+          <div class="box-header with-border">
+            <i class="fa fa-th-large"></i>
+            <h3 class="box-title">{!! trans('admin.product_sizes') !!}</h3>
+          </div>
+          <div class="box-body">
+            @if(!is_vendor_login())    
+            <div class="clearfix">
+              <a class="btn btn-default pull-right" href="{{ route('admin.product_sizes_list') }}" target="_blank">{!! trans('admin.create_sizes') !!}</a>
+            </div>
+            @endif
+
+            <div class="form-group">
+              <div class="row">  
+                <div class="col-sm-12">
+                  @if(count($sizes_lists)>0)
+                    @foreach($sizes_lists as $row)
+                      <div class="sizes-name">
+                        <div>
+                        @if(in_array($row['term_id'], $selected_sizes['term_id']))    
+                        <input type="checkbox" checked="checked" class="shopist-iCheck" name="inputSizesName[]" id="inputSizesName-{{ $row['name'] }}" value="{{ $row['term_id'] }}">
+                        @else
+                        <input type="checkbox" class="shopist-iCheck" name="inputSizesName[]" id="inputSizesName-{{ $row['name'] }}" value="{{ $row['term_id'] }}">
+                        @endif
+                        </div> &nbsp;&nbsp;
+                        <div>{!! $row['name'] !!}</div>
+                      </div>
+                    @endforeach
+                  @else
+                  <span>{!! trans('admin.no_sizes_yet') !!}</span>
+                  @endif 
+                </div>
+              </div>     
+            </div>
+          </div>
+        </div> 
+
+      @endif
         
     </div>
   </div>
