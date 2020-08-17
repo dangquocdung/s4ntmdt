@@ -39,6 +39,19 @@
     </div>
     <div class="form-group">
       <div class="row">    
+        <label class="col-sm-3 control-label" for="inputWebURL">{{ trans('admin.web_url') }}</label>
+        <div class="col-sm-9">
+          @if (!empty($manufacturers_update_data['brand_web_url']))
+            <input type="text" placeholder="{{ trans('admin.web_url') }}" id="inputWebURL" name="inputWebURL" class="form-control" value="{{ $manufacturers_update_data['brand_web_url'] }}">
+          @else
+            <input type="text" placeholder="{{ trans('admin.web_url') }}" id="inputWebURL" name="inputWebURL" class="form-control">
+          @endif
+        </div>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <div class="row">    
         <label class="col-sm-3 control-label" for="inputShortDescription">{{ trans('admin.short_description') }}</label>
         <div class="col-sm-9">
           <textarea id="inputShortDescription" name="inputShortDescription" class="dynamic-editor" placeholder="{{ trans('admin.short_description') }}">

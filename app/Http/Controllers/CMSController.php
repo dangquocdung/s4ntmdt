@@ -1614,7 +1614,9 @@ class CMSController extends Controller
       
       $rules = [
                 'inputManufacturersName'   => 'required',
-                'inputCountryName'         => 'required'
+                'inputCountryName'         => 'required',
+                'inputWebURL'         => 'required'
+
                ];
         
       $validator = Validator:: make($data, $rules);
@@ -1652,6 +1654,10 @@ class CMSController extends Controller
                                   'key_value'   =>  Input::get('inputCountryName')
             );
 
+            $brand_web_url = array(
+                                  'key_value'   =>  Input::get('inputWebURL')
+            );
+
             $brand_short_description = array(
                                        'key_value'   =>  string_encode(Input::get('inputShortDescription'))
             );
@@ -1661,6 +1667,7 @@ class CMSController extends Controller
             );
 
             TermExtra::where(['term_id' => $getTerm->term_id, 'key_name' => '_brand_country_name'])->update($brand_country_name);
+            TermExtra::where(['term_id' => $getTerm->term_id, 'key_name' => '_brand_web_url'])->update($brand_web_url);
             TermExtra::where(['term_id' => $getTerm->term_id, 'key_name' => '_brand_short_description'])->update($brand_short_description);
             TermExtra::where(['term_id' => $getTerm->term_id, 'key_name' => '_brand_logo_img_url'])->update($brand_logo_img_url);
 
@@ -1683,6 +1690,13 @@ class CMSController extends Controller
                                         'key_value'     =>  Input::get('inputCountryName'),
                                         'created_at'    =>  date("y-m-d H:i:s", strtotime('now')),
                                         'updated_at'    =>  date("y-m-d H:i:s", strtotime('now'))
+                                    ),
+                                    array(
+                                      'term_id'       =>  $termObj->id,
+                                      'key_name'      =>  '_brand_web_url',
+                                      'key_value'     =>  Input::get('inputWebURL'),
+                                      'created_at'    =>  date("y-m-d H:i:s", strtotime('now')),
+                                      'updated_at'    =>  date("y-m-d H:i:s", strtotime('now'))
                                     ),
                                     array(
                                         'term_id'       =>  $termObj->id,

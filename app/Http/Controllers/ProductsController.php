@@ -439,6 +439,14 @@ class ProductsController extends Controller
                 $term['brand_country_name'] = '';
               }
             }
+            elseif(!empty($term_extra_row) && $term_extra_row->key_name == '_brand_web_url'){
+              if(!empty($term_extra_row->key_value)){
+                $term['brand_web_url'] = $term_extra_row->key_value;
+              }
+              else{
+                $term['brand_web_url'] = '';
+              }
+            }
             elseif(!empty($term_extra_row) && $term_extra_row->key_name == '_brand_short_description'){
               if(!empty($term_extra_row->key_value)){
                 $term['brand_short_description'] = $term_extra_row->key_value;
@@ -568,6 +576,14 @@ class ProductsController extends Controller
               }
               else{
                 $term['brand_country_name'] = '';
+              }
+            }
+            elseif(!empty($term_extra_row) && $term_extra_row->key_name == '_brand_web_url'){
+              if(!empty($term_extra_row->key_value)){
+                $term['brand_web_url'] = $term_extra_row->key_value;
+              }
+              else{
+                $term['brand_web_url'] = '';
               }
             }
             elseif(!empty($term_extra_row) && $term_extra_row->key_name == '_brand_short_description'){

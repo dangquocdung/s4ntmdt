@@ -59,6 +59,7 @@
                 <td>{!! $row['name'] !!}</td>
                 <td>{!! $row['brand_country_name'] !!}</td>
 
+
                 @if($row['status'] == 1)
                 <td>{{ trans('admin.enable') }}</td>
                 @else
