@@ -3917,10 +3917,10 @@ class ProductsController extends Controller
     
     $get_buy_items =  DB::table('products')
                       ->select('products.*')
-                      ->where('products.buy', 1)
+                      ->where('buy', 1)
+                      ->where('status',1)
                       ->orderby('updated_at','desc')
                       ->take(8)
-                      ->get()
                       ->toArray();
 
     $advanced_arr['buy_items']      =   $get_buy_items;
