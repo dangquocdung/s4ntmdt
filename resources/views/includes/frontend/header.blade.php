@@ -345,6 +345,7 @@
               <li><a href="{{ asset('chuyen-muc/truyen-thong/san-pham-dac-trung') }}">Sản phẩm đặc trưng</a></li>
               <li><a href="{{ asset('chuyen-muc/truyen-thong/van-ban-qppl') }}">Văn bản QPPL</a></li>
               <li><a href="{{ asset('chuyen-muc/truyen-thong/tin-tuc') }}">Tin tức</a></li>
+              <li><a href="{{ asset('chuyen-muc/truyen-thong/san-pham-can-mua') }}">Sản phẩm cần mua</a></li>
 
           </ul>
 
