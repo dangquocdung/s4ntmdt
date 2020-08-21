@@ -76,7 +76,7 @@
 </section>
 
 @if ($key =='homepage_items')
-  @if (count($buyItems) >0)
+  {{-- @if (count($buyItems) >0)
     <section class="product-area pt-20">
       <div class="container">
           <div class="product-style">
@@ -119,7 +119,7 @@
           </div>
       </div>
     </section>
-  @endif
+  @endif --}}
 
   @if(count($brands_data) > 0)  
   <section class="bg-secondary padding-top-1x padding-bottom-2x">
