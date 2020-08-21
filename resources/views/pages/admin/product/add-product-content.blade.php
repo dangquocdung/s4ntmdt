@@ -30,7 +30,7 @@
     
             </div>
 
-            <div class="col-sm-6">
+            <div class="col-sm-6" style="display:none">
               <label>
                 <input type="checkbox" name="buy_sell" id="buy_sell" class="shopist-iCheck">
                 &nbsp;{!! trans('admin.buy_sell') !!}
