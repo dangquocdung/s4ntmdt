@@ -3921,6 +3921,7 @@ class ProductsController extends Controller
                       ->where('status',1)
                       ->orderby('updated_at','desc')
                       ->take(8)
+                      ->get()
                       ->toArray();
 
     $advanced_arr['buy_items']      =   $get_buy_items;
