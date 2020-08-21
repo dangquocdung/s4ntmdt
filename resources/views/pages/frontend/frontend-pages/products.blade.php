@@ -206,6 +206,8 @@
                     <i class="icon-map-pin text-muted"></i> {!! $brand_name['brand_country_name'] !!}
                   </span>
                 </div>
+                
+
               </div>
 
               @endforeach

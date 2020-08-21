@@ -21,12 +21,30 @@
     <div class="col-md-8">
       <div class="box box-solid">
         <div class="box-header with-border">
-          <i class="fa fa-text-width"></i>
-          <h3 class="box-title">{!! trans('admin.product_name') !!}</h3>
+          <div class="row">
+
+            <div class="col-sm-6">
+
+              <i class="fa fa-text-width"></i>
+              <h3 class="box-title">{!! trans('admin.product_name') !!}</h3>
+    
+            </div>
+
+            <div class="col-sm-6">
+              <label>
+                <input type="checkbox" name="buy_sell" id="buy_sell" class="shopist-iCheck">
+                &nbsp;{!! trans('admin.buy_sell') !!}
+              </label>                                             
+            </div>
+  
+          </div>
+
+
         </div>
         <div class="box-body">
-          <input type="text" placeholder="{{ trans('admin.example_red_t_shirt') }}" class="form-control" name="product_name" id="eb_product_name" value="{{ old('product_name') }}">
+          <input type="text" placeholder="{{ trans('admin.ten_san_pham') }}" class="form-control" name="product_name" id="eb_product_name" value="{{ old('product_name') }}">
         </div>
+
       </div>
       
       <div class="box box-solid">
@@ -127,7 +145,6 @@
                   </div>  
                 </div>
 
-              
               </div>
               
               <div class="tab-stock tab-pane fade" id="tab_stock">
@@ -591,7 +608,6 @@
         </div>
       </div>
 
-
       <div class="box box-solid">
         <div class="box-header with-border">
           <i class="fa fa-upload"></i>
@@ -708,7 +724,6 @@
         </div>
       </div>
       
-      
       <div class="box box-solid">
         <div class="box-header with-border">
           <i class="fa fa-text-width"></i>
@@ -779,8 +794,6 @@
         </div>
       </div>
         
-      
-      
       @if(!is_vendor_login())  
         <div class="box box-solid product-manufacturer-settings">
           <div class="box-header with-border">
@@ -843,7 +856,7 @@
       </div>
 
       @if(!is_vendor_login())  
-      <div class="box box-solid product-sizes">
+      <div class="box box-solid product-vendor">
         <div class="box-header with-border">
           <i class="fa fa-handshake-o"></i>
           <h3 class="box-title">{!! trans('admin.select_vendor_title') !!}</h3>
@@ -864,7 +877,6 @@
         </div>
       </div> 
       @endif
-
 
       <div class="box box-solid product-categories">
         <div class="box-header with-border">
@@ -898,7 +910,6 @@
         </div>
       </div>
 
-      
       <div class="box box-solid product-tags">
         <div class="box-header with-border">
           <i class="fa fa-tags"></i>

@@ -29,9 +29,17 @@
     </div>
     <div class="form-group">
       <div class="row">    
-        <label class="col-sm-3 control-label" for="inputCountryName">{{ trans('admin.country_name') }}</label>
+        <label class="col-sm-3 control-label" for="inputCountryName">{{ trans('admin.address') }}</label>
         <div class="col-sm-9">
-          <input type="text" placeholder="{{ trans('admin.country_name') }}" id="inputCountryName" name="inputCountryName" class="form-control" value="{{ old('inputCountryName') }}">
+          <input type="text" placeholder="{{ trans('admin.address') }}" id="inputCountryName" name="inputCountryName" class="form-control" value="{{ old('inputCountryName') }}">
+        </div>
+      </div>
+    </div>
+    <div class="form-group">
+      <div class="row">    
+        <label class="col-sm-3 control-label" for="inputCountryName">{{ trans('admin.web_url') }}</label>
+        <div class="col-sm-9">
+          <input type="text" placeholder="{{ trans('admin.web_url') }}" id="inputWebURL" name="inputWebURL" class="form-control" value="{{ old('inputWebURL') }}">
         </div>
       </div>
     </div>

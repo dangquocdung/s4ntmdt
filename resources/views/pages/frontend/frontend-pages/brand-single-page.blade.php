@@ -125,6 +125,17 @@
         <ul class="list-icon" style="list-style:none">
           <li> <i class="icon-map-pin text-muted"></i> {!! $brand_details_by_slug['brand_details']['brand_country_name'] !!}</li>
         </ul>
+        @if (!empty($brand_details_by_slug['brand_details']['brand_web_url']))
+          <ul class="list-icon" style="list-style:none">
+            <li> 
+              <i class="icon-mail text-muted"></i>
+              <a href="//{!! $brand_details_by_slug['brand_details']['brand_web_url'] !!}" target="_blank">
+               {!! $brand_details_by_slug['brand_details']['brand_web_url'] !!}
+              </a>
+            </li>
+          </ul>
+        @endif
+
       </section>
     </div>
   </div>

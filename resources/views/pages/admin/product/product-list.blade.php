@@ -100,6 +100,7 @@
         <table class="table table-bordered table-responsive admin-data-table admin-data-list" id="table_for_vendors_list">
           <thead class="thead-dark">
             <tr>
+              <th>{!! trans('admin.product_buy') !!}</th>
               <th>{!! trans('admin.product_image') !!}</th>
               <th>{!! trans('admin.product_name') !!}</th>
               <th>{!! trans('admin.product_sku') !!}</th>
@@ -114,6 +115,12 @@
             @if($product_all_data->count() > 0)  
               @foreach($product_all_data as $row)
               <tr>
+                @if($row->buy == 1)
+                  <td class="status-enable">{!! trans('admin.buy') !!}</td>
+                @else 
+                  <td class="status-disable">{!! trans('admin.sell') !!}</td>
+                @endif
+
                 @if(!empty($row->image_url))
                   <td><img src="{{ get_image_url($row->image_url) }}" alt="{{ basename ($row->image_url) }}"></td>
                 @else
@@ -133,6 +140,8 @@
                 @else 
                   <td class="status-disable">{!! trans('admin.disable') !!}</td>
                 @endif
+
+
                 
                 <td>{!! get_vendor_name( $row->author_id ) !!}</td>
                 
@@ -184,17 +193,6 @@
               <tr><td colspan="8"><i class="fa fa-exclamation-triangle"></i> {!! trans('admin.no_data_found_label') !!}</td></tr>
             @endif
           </tbody>
-          <tfoot class="thead-dark">
-            <tr>
-              <th>{!! trans('admin.product_image') !!}</th>
-              <th>{!! trans('admin.product_name') !!}</th>
-              <th>{!! trans('admin.product_sku') !!}</th>
-              <th>{!! trans('admin.product_price') !!}</th>
-              <th>{!! trans('admin.product_status') !!}</th>
-              <th>{!! trans('admin.vendor_name_label') !!}</th>
-              <th>{!! trans('admin.action') !!}</th>
-            </tr>
-          </tfoot>
         </table>
           <br>
         <div class="products-pagination">{!! $product_all_data->appends(Request::capture()->except('page'))->render() !!}</div>  

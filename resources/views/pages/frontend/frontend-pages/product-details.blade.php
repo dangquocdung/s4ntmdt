@@ -53,301 +53,291 @@
 <div class="container padding-bottom-3x" id="single_product">
   <div class="row">
     <!-- Poduct Gallery-->
-    <div class="col-md-6">
+    <div class="{{ $single_product_details['post_buy']===1?'col-md-12':'col-md-6' }}">
 
-    @if(count($single_product_details['_product_related_images_url']->product_gallery_images) > 0)
+      @if(count($single_product_details['_product_related_images_url']->product_gallery_images) > 0)
 
-      <?php $count = 1;?>
+        <?php $count = 1;?>
 
-      <div class="product-gallery">
+        <div class="product-gallery">
 
-        @if ($single_product_details['solid_price'] < $single_product_details['offer_price'])
+          @if ($single_product_details['solid_price'] < $single_product_details['offer_price'])
 
-          <span class="product-badge text-danger"id="hasSale">30% Off</span>
+            <span class="product-badge text-danger"id="hasSale">30% Off</span>
 
-        @endif
+          @endif
 
-        @if ($single_product_details['solid_price'] < $single_product_details['offer_price'])
-            @php
-              $tiengiam = $single_product_details['offer_price'] - $single_product_details['solid_price'];
-              $phantram = round(($tiengiam/$single_product_details['offer_price'])*100);
-            @endphp
-          <div class="product-badge bg-danger">Giảm giá {{ $phantram }}%</div>
-        @endif
+          @if ($single_product_details['solid_price'] < $single_product_details['offer_price'])
+              @php
+                $tiengiam = $single_product_details['offer_price'] - $single_product_details['solid_price'];
+                $phantram = round(($tiengiam/$single_product_details['offer_price'])*100);
+              @endphp
+            <div class="product-badge bg-danger">Giảm giá {{ $phantram }}%</div>
+          @endif
 
-        @if($single_product_details['_product_enable_video_feature'] == 'yes')
-          <div class="gallery-wrapper" id="hasVideo">
-            @if($single_product_details['_product_video_feature_source'] == 'embedded_code')
-              @include('pages.frontend.frontend-pages.video-source-embedded-url')
-              @yield('embedded-content')
-            @elseif($single_product_details['_product_video_feature_source'] == 'online_url')
-              @include('pages.frontend.frontend-pages.video-source-online-url')
-              @yield('online-url-content')
-            @endif
-          </div>
-        @endif
-
-
-        <div class="product-carousel owl-carousel gallery-wrapper">
-          @foreach($single_product_details['_product_related_images_url']->product_gallery_images as $key => $row)
-            <div class="gallery-item" data-hash="{{ $count }}">
-              <a href="{{ get_image_url($row->url) }}" data-size="1000x667">
-                <div class="can-giua-img">
-                  @if(!empty($row->url) && (basename($row->url) !== 'no-image.png'))  
-                    <img src="{{ get_image_url($row->url) }}" alt="Product">
-                  @else
-                    <img src="{{ default_placeholder_img_src() }}" alt="Product"/>
-                  @endif
-                </div>
-              </a>
-            </div>
-            <?php $count ++;?>
-          @endforeach
-        </div>
-        
-        <ul class="product-thumbnails">
-          <?php $count = 1;?>
-          @foreach($single_product_details['_product_related_images_url']->product_gallery_images as $key => $row)
-              <li class="{{ ($count==1)?'active':'' }}">
-                <a href="#{{ $count }}">
-                    @if(!empty($row->url) && (basename($row->url) !== 'no-image.png'))  
-                    <img src="{{ get_image_url($row->url) }}" alt="Product">
-                    @else
-                    <img src="{{ default_placeholder_img_src() }}" alt="Product"/>
-                    @endif
-                </a>
-              </li>
-          <?php $count ++;?>
-          @endforeach
-          
-        </ul>
-        </div>
-
-      @else
-      <div class="gallery-wrapper">
-
-
-        <div class="gallery-item">
-          <a href="{{ get_image_url( $single_product_details['post_image_url'] ) }}" data-size="1000x667">
-
-            <div class="can-giua-img">
-
-
-              @if( !empty($single_product_details['post_image_url']) )  
-                <img src="{{ get_image_url( $single_product_details['post_image_url'] ) }}" alt="{{ $single_product_details['post_title'] }}">
-              @else
-                <img src="{{ default_placeholder_img_src() }}" alt="{{ $single_product_details['post_title'] }}"/>
+          @if($single_product_details['_product_enable_video_feature'] == 'yes')
+            <div class="gallery-wrapper" id="hasVideo">
+              @if($single_product_details['_product_video_feature_source'] == 'embedded_code')
+                @include('pages.frontend.frontend-pages.video-source-embedded-url')
+                @yield('embedded-content')
+              @elseif($single_product_details['_product_video_feature_source'] == 'online_url')
+                @include('pages.frontend.frontend-pages.video-source-online-url')
+                @yield('online-url-content')
               @endif
-
             </div>
-          </a>
+          @endif
+
+          <div class="product-carousel owl-carousel gallery-wrapper">
+            @foreach($single_product_details['_product_related_images_url']->product_gallery_images as $key => $row)
+              <div class="gallery-item" data-hash="{{ $count }}">
+                <a href="{{ get_image_url($row->url) }}" data-size="1000x667">
+                  <div class="can-giua-img">
+                    @if(!empty($row->url) && (basename($row->url) !== 'no-image.png'))  
+                      <img src="{{ get_image_url($row->url) }}" alt="Product">
+                    @else
+                      <img src="{{ default_placeholder_img_src() }}" alt="Product"/>
+                    @endif
+                  </div>
+                </a>
+              </div>
+              <?php $count ++;?>
+            @endforeach
+          </div>
+          
+          <ul class="product-thumbnails">
+            <?php $count = 1;?>
+            @foreach($single_product_details['_product_related_images_url']->product_gallery_images as $key => $row)
+                <li class="{{ ($count==1)?'active':'' }}">
+                  <a href="#{{ $count }}">
+                      @if(!empty($row->url) && (basename($row->url) !== 'no-image.png'))  
+                      <img src="{{ get_image_url($row->url) }}" alt="Product">
+                      @else
+                      <img src="{{ default_placeholder_img_src() }}" alt="Product"/>
+                      @endif
+                  </a>
+                </li>
+            <?php $count ++;?>
+            @endforeach
+            
+          </ul>
+          </div>
+
+        @else
+        <div class="gallery-wrapper">
+
+          <div class="gallery-item">
+            <a href="{{ get_image_url( $single_product_details['post_image_url'] ) }}" data-size="1000x667">
+
+              <div class="can-giua-img">
+
+                @if( !empty($single_product_details['post_image_url']) )  
+                  <img src="{{ get_image_url( $single_product_details['post_image_url'] ) }}" alt="{{ $single_product_details['post_title'] }}">
+                @else
+                  <img src="{{ default_placeholder_img_src() }}" alt="{{ $single_product_details['post_title'] }}"/>
+                @endif
+
+              </div>
+            </a>
+
+          </div>
 
         </div>
-
-      </div>
-
-
-
 
       @endif
     </div>
     <!-- Product Info-->
-    <div class="col-md-6">
-      @if (count($selected_cat['term_details']) > 0)
-        <div class="padding-top-2x mt-2 hidden-md-up"></div>
-        <div class="sp-categories pb-3"><i class="icon-tag"></i>
-        
+
+    @if  ($single_product_details['post_buy']!=1)
+      <div class="col-md-6">
+        @if (count($selected_cat['term_details']) > 0)
+          <div class="padding-top-2x mt-2 hidden-md-up"></div>
+          <div class="sp-categories pb-3"><i class="icon-tag"></i>
           
+              @foreach ($selected_cat['term_details'] as $row)
 
-            @foreach ($selected_cat['term_details'] as $row)
+                <a href="{{ route('categories-page', $row['slug']) }}">{!! $row['name'] !!},&nbsp;</a>
 
-              <a href="{{ route('categories-page', $row['slug']) }}">{!! $row['name'] !!},&nbsp;</a>
-
-            @endforeach
-            
-          
-        
-        </div>
-      @endif
-      
-      <h2 class="mb-3">{{ $single_product_details['post_title'] }}</h2>
-
-      @if( get_product_type($single_product_details['id']) == 'simple_product' || (get_product_type($single_product_details['id']) == 'downloadable_product' && count(get_product_variations($single_product_details['id'])) == 0 ) || (get_product_type($single_product_details['id']) == 'customizable_product' && count(get_product_variations($single_product_details['id'])) == 0 ) )
-        <span class="h3 d-block">
-          @if(!is_null($single_product_details['offer_price']))
-            <del class="text-muted">{!! price_html( $single_product_details['offer_price'] ) !!}</del>
-          @endif
-          
-          {!! price_html( $single_product_details['solid_price'] ) !!}
-
-          @if($single_product_details['post_regular_price'] && $single_product_details['post_sale_price'] && $single_product_details['post_regular_price'] > $single_product_details['post_sale_price'] && $single_product_details['_product_sale_price_start_date'] && $single_product_details['_product_sale_price_end_date'] && $single_product_details['_product_sale_price_end_date'] >= date("Y-m-d"))
-            <p class="offer-message-label">
-              <i class="fa fa-bell" aria-hidden="true"></i> 
-              {{ trans('frontend.offer_msg') }}  
-              <i>{!! date("F j, Y", strtotime($single_product_details['_product_sale_price_start_date'])) !!} {{ trans('frontend.to') }} {!! date("F j, Y", strtotime($single_product_details['_product_sale_price_end_date'])) !!} </i>
-            </p>
-          @endif
-        </span>
-        
-      @elseif( (get_product_type($single_product_details['id']) == 'configurable_product' || get_product_type($single_product_details['id']) == 'customizable_product' || get_product_type($single_product_details['id']) == 'downloadable_product') && count(get_product_variations($single_product_details['id'])) > 0 )
-        <span class="h3 d-block">
-          {!! get_product_variations_min_to_max_price_html($currency_symbol, $single_product_details['id']) !!}
-        </span>
-      @endif
-
-      <p class="text-muted">
-        {!! string_decode($single_product_details['post_content']) !!}
-        <!-- <a href='#details' class='scroll-to'>More info</a> -->
-      </p>
-      
-      <div class="row margin-top-1x">
-
-        @if (count($selected_colors['term_details']) > 0)
-          <div class="col-sm-6">
-            <div class="form-group">
-              <label for="color">{!! trans('frontend.choose_color_label') !!}</label>
-              <select class="form-control" id="color">
-
-              <option>{!! trans('frontend.choose_color_label') !!}</option>
-
-              @foreach ($selected_colors['term_details'] as $row)
-                <option value="{{ $row['term_id'] }}" style="color:#{{ $row['color_code'] }}">{!! $row['name'] !!}</option>
               @endforeach
-                
-              </select>
-            </div>
+              
           </div>
         @endif
+        
+        <h2 class="mb-3">{{ $single_product_details['post_title'] }}</h2>
 
-        @if (count($selected_sizes['term_details']) > 0)
+        @if( get_product_type($single_product_details['id']) == 'simple_product' || (get_product_type($single_product_details['id']) == 'downloadable_product' && count(get_product_variations($single_product_details['id'])) == 0 ) || (get_product_type($single_product_details['id']) == 'customizable_product' && count(get_product_variations($single_product_details['id'])) == 0 ) )
+          <span class="h3 d-block">
+            @if(!is_null($single_product_details['offer_price']))
+              <del class="text-muted">{!! price_html( $single_product_details['offer_price'] ) !!}</del>
+            @endif
+            
+            {!! price_html( $single_product_details['solid_price'] ) !!}
 
+            @if($single_product_details['post_regular_price'] && $single_product_details['post_sale_price'] && $single_product_details['post_regular_price'] > $single_product_details['post_sale_price'] && $single_product_details['_product_sale_price_start_date'] && $single_product_details['_product_sale_price_end_date'] && $single_product_details['_product_sale_price_end_date'] >= date("Y-m-d"))
+              <p class="offer-message-label">
+                <i class="fa fa-bell" aria-hidden="true"></i> 
+                {{ trans('frontend.offer_msg') }}  
+                <i>{!! date("F j, Y", strtotime($single_product_details['_product_sale_price_start_date'])) !!} {{ trans('frontend.to') }} {!! date("F j, Y", strtotime($single_product_details['_product_sale_price_end_date'])) !!} </i>
+              </p>
+            @endif
+          </span>
+          
+        @elseif( (get_product_type($single_product_details['id']) == 'configurable_product' || get_product_type($single_product_details['id']) == 'customizable_product' || get_product_type($single_product_details['id']) == 'downloadable_product') && count(get_product_variations($single_product_details['id'])) > 0 )
+          <span class="h3 d-block">
+            {!! get_product_variations_min_to_max_price_html($currency_symbol, $single_product_details['id']) !!}
+          </span>
+        @endif
+
+        <p class="text-muted">
+          {!! string_decode($single_product_details['post_content']) !!}
+          <!-- <a href='#details' class='scroll-to'>More info</a> -->
+        </p>
+        
+        <div class="row margin-top-1x">
+
+          @if (count($selected_colors['term_details']) > 0)
+            <div class="col-sm-6">
+              <div class="form-group">
+                <label for="color">{!! trans('frontend.choose_color_label') !!}</label>
+                <select class="form-control" id="color">
+
+                <option>{!! trans('frontend.choose_color_label') !!}</option>
+
+                @foreach ($selected_colors['term_details'] as $row)
+                  <option value="{{ $row['term_id'] }}" style="color:#{{ $row['color_code'] }}">{!! $row['name'] !!}</option>
+                @endforeach
+                  
+                </select>
+              </div>
+            </div>
+          @endif
+
+          @if (count($selected_sizes['term_details']) > 0)
+
+            <div class="col-sm-6">
+              <div class="form-group">
+                <label for="size">{!! trans('frontend.choose_size_label') !!}</label>
+                <select class="form-control" id="size">
+                  <option>{!! trans('frontend.choose_size_label') !!}</option>
+
+                  @foreach ($selected_sizes['term_details'] as $row)
+
+                    <option value="{{ $row['term_id'] }}">{!! $row['name'] !!}</option>
+                  @endforeach
+                  
+                </select>
+              </div>
+            </div>
+          @endif
+
+        </div>
+
+        <!-- <div class="row margin-top-1x">
           <div class="col-sm-6">
             <div class="form-group">
-              <label for="size">{!! trans('frontend.choose_size_label') !!}</label>
+              <label for="size">Choose color</label>
               <select class="form-control" id="size">
-                <option>{!! trans('frontend.choose_size_label') !!}</option>
-
-                @foreach ($selected_sizes['term_details'] as $row)
-
-                  <option value="{{ $row['term_id'] }}">{!! $row['name'] !!}</option>
-                @endforeach
-                
+                <option>White/Gray/Black</option>
+                <option>Black</option>
+                <option>Black/White/Red</option>
               </select>
             </div>
           </div>
+          <div class="col-sm-6">
+            <div class="form-group">
+              <label for="color">Battery capacity</label>
+              <select class="form-control" id="color">
+                <option>5100 mAh</option>
+                <option>6200 mAh</option>
+                <option>8000 mAh</option>
+              </select>
+            </div>
+          </div>
+        </div> -->
+
+        <div class="row align-items-end pb-4">
+          <div class="col-sm-4">
+          <div class="form-group mb-0">
+            <label for="quantity">{!! trans('frontend.quantity') !!}</label>
+
+              @php
+
+                $qty = ''; 
+
+                if($single_product_details['_product_manage_stock_back_to_order'] == 'not_allow' && $single_product_details['post_stock_qty']>0){
+                  $qty = $single_product_details['post_stock_qty'];
+                }
+
+              @endphp
+
+              <select class="form-control" id="quantity" name="quant[1]">
+
+              @if ($qty > 1)
+
+                @for($i=1; $i<$qty; $i++)
+
+                  <option value="{{ $i }}">{{ $i}}</option>
+
+                @endfor
+              @else
+
+                <option value="1" selected>1</option>
+
+              @endif
+
+              </select>
+            </div>
+
+          </div>
+
+          <div class="col-sm-8">
+            <div class="pt-4 hidden-sm-up"></div>
+            <button class="btn btn-primary btn-block m-0 add-to-cart-bg" data-id="{{ $single_product_details['id'] }}" data-toggle="tooltip" data-placement="top" title="" data-original-title="{{ trans('frontend.add_to_cart_label') }}"><i class="icon-bag"></i> Thêm vào giỏ hàng</button>
+          </div>
+
+        </div>
+
+        <div class="row align-items-end pb-4">
+          <div class="col-sm-6">
+            <div class="pt-4 hidden-sm-up"></div>
+            <button class="btn btn-outline-secondary btn-block m-0 product-wishlist" data-id="{{ $single_product_details['id'] }}" data-toggle="tooltip" title="{{ trans('frontend.add_to_wishlist_label') }}" data-original-title="{{ trans('frontend.add_to_wishlist_label') }}"><i class="icon-heart"></i>&nbsp;{!! trans('frontend.wishlist') !!}</button>
+          </div>
+          <div class="col-sm-6">
+            <div class="pt-4 hidden-sm-up"></div>
+            <button class="btn btn-outline-secondary btn-block m-0 product-compare" data-id="{{ $single_product_details['id'] }}" data-toggle="tooltip" title="" data-original-title="{{ trans('frontend.add_to_compare_list_label') }}"><i class="icon-repeat"></i>&nbsp;{!! trans('frontend.compare') !!}</button>
+          </div>
+
+        </div>
+
+        <div class="pt-1 mb-3 store-name">
+          <span class="text-medium">{!! trans('frontend.gian-hang') !!}: </span>
+          <a href="{{ route('store-products-page-content', get_user_name_by_user_id($single_product_details['_selected_vendor'])) }}" target="_blank">{{ get_store_name_by_user_id($single_product_details['_selected_vendor']) }}</a>
+        </div>
+
+        @if ($single_product_details['post_sku'])
+          <div class="pt-1 mb-4"><span class="text-medium">{!! trans('frontend.sku') !!}: </span>
+              #{{ $single_product_details['post_sku'] }}
+          </div>
         @endif
 
-      </div>
+        <hr class="mb-2">
+        <div class="d-flex flex-wrap justify-content-between">
 
-      <!-- <div class="row margin-top-1x">
-        <div class="col-sm-6">
-          <div class="form-group">
-            <label for="size">Choose color</label>
-            <select class="form-control" id="size">
-              <option>White/Gray/Black</option>
-              <option>Black</option>
-              <option>Black/White/Red</option>
-            </select>
+          <div class="mt-2 mb-2">
+            <!-- <button class="btn btn-outline-secondary btn-sm btn-wishlist product-wishlist" data-id="{{ $single_product_details['id'] }}" data-toggle="tooltip" title="{{ trans('frontend.add_to_wishlist_label') }}" data-original-title="{{ trans('frontend.add_to_wishlist_label') }}"><i class="icon-heart"></i>&nbsp;{!! trans('frontend.wishlist') !!}</button>
+            <button class="btn btn-outline-secondary btn-sm btn-compare product-compare" data-id="{{ $single_product_details['id'] }}" data-toggle="tooltip" title="" data-original-title="{{ trans('frontend.add_to_compare_list_label') }}"><i class="icon-repeat"></i>&nbsp;{!! trans('frontend.compare') !!}</button> -->
+          </div>
+          <div class="mt-2 mb-2">
+            <span class="text-muted">{!! trans('frontend.share') !!}:&nbsp;&nbsp;</span>
+            <div class="d-inline-block" id="share-content">
+              <a class="social-button shape-rounded sb-facebook" href="#" data-toggle="tooltip" data-placement="top" title="Facebook" data-name="fb"><i class="socicon-facebook"></i></a>
+              <!-- <a class="social-button shape-rounded sb-twitter" href="#" data-toggle="tooltip" data-placement="top" title="Twitter"><i class="socicon-twitter"></i></a>
+              <a class="social-button shape-rounded sb-instagram" href="#" data-toggle="tooltip" data-placement="top" title="Instagram"><i class="socicon-instagram"></i></a> -->
+            </div>
+
           </div>
         </div>
-        <div class="col-sm-6">
-          <div class="form-group">
-            <label for="color">Battery capacity</label>
-            <select class="form-control" id="color">
-              <option>5100 mAh</option>
-              <option>6200 mAh</option>
-              <option>8000 mAh</option>
-            </select>
-          </div>
-        </div>
-      </div> -->
-
-      <div class="row align-items-end pb-4">
-        <div class="col-sm-4">
-        <div class="form-group mb-0">
-          <label for="quantity">{!! trans('frontend.quantity') !!}</label>
-
-            @php
-
-              $qty = ''; 
-
-              if($single_product_details['_product_manage_stock_back_to_order'] == 'not_allow' && $single_product_details['post_stock_qty']>0){
-                $qty = $single_product_details['post_stock_qty'];
-              }
-
-            @endphp
-
-            <select class="form-control" id="quantity" name="quant[1]">
-
-            @if ($qty > 1)
-
-              @for($i=1; $i<$qty; $i++)
-
-                <option value="{{ $i }}">{{ $i}}</option>
-
-              @endfor
-            @else
-
-              <option value="1" selected>1</option>
-
-            @endif
-
-            </select>
-          </div>
-
-        </div>
-
-        <div class="col-sm-8">
-          <div class="pt-4 hidden-sm-up"></div>
-          <button class="btn btn-primary btn-block m-0 add-to-cart-bg" data-id="{{ $single_product_details['id'] }}" data-toggle="tooltip" data-placement="top" title="" data-original-title="{{ trans('frontend.add_to_cart_label') }}"><i class="icon-bag"></i> Thêm vào giỏ hàng</button>
-        </div>
-
       </div>
-
-      <div class="row align-items-end pb-4">
-        <div class="col-sm-6">
-          <div class="pt-4 hidden-sm-up"></div>
-          <button class="btn btn-outline-secondary btn-block m-0 product-wishlist" data-id="{{ $single_product_details['id'] }}" data-toggle="tooltip" title="{{ trans('frontend.add_to_wishlist_label') }}" data-original-title="{{ trans('frontend.add_to_wishlist_label') }}"><i class="icon-heart"></i>&nbsp;{!! trans('frontend.wishlist') !!}</button>
-        </div>
-        <div class="col-sm-6">
-          <div class="pt-4 hidden-sm-up"></div>
-          <button class="btn btn-outline-secondary btn-block m-0 product-compare" data-id="{{ $single_product_details['id'] }}" data-toggle="tooltip" title="" data-original-title="{{ trans('frontend.add_to_compare_list_label') }}"><i class="icon-repeat"></i>&nbsp;{!! trans('frontend.compare') !!}</button>
-        </div>
-
-
-      </div>
-
-
-
-      <div class="pt-1 mb-3 store-name">
-        <span class="text-medium">{!! trans('frontend.gian-hang') !!}: </span>
-        <a href="{{ route('store-products-page-content', get_user_name_by_user_id($single_product_details['_selected_vendor'])) }}" target="_blank">{{ get_store_name_by_user_id($single_product_details['_selected_vendor']) }}</a>
-      </div>
-
-      @if ($single_product_details['post_sku'])
-        <div class="pt-1 mb-4"><span class="text-medium">{!! trans('frontend.sku') !!}: </span>
-            #{{ $single_product_details['post_sku'] }}
-        </div>
-      @endif
-
-      <hr class="mb-2">
-      <div class="d-flex flex-wrap justify-content-between">
-
-        <div class="mt-2 mb-2">
-          <!-- <button class="btn btn-outline-secondary btn-sm btn-wishlist product-wishlist" data-id="{{ $single_product_details['id'] }}" data-toggle="tooltip" title="{{ trans('frontend.add_to_wishlist_label') }}" data-original-title="{{ trans('frontend.add_to_wishlist_label') }}"><i class="icon-heart"></i>&nbsp;{!! trans('frontend.wishlist') !!}</button>
-          <button class="btn btn-outline-secondary btn-sm btn-compare product-compare" data-id="{{ $single_product_details['id'] }}" data-toggle="tooltip" title="" data-original-title="{{ trans('frontend.add_to_compare_list_label') }}"><i class="icon-repeat"></i>&nbsp;{!! trans('frontend.compare') !!}</button> -->
-        </div>
-        <div class="mt-2 mb-2">
-          <span class="text-muted">{!! trans('frontend.share') !!}:&nbsp;&nbsp;</span>
-          <div class="d-inline-block" id="share-content">
-            <a class="social-button shape-rounded sb-facebook" href="#" data-toggle="tooltip" data-placement="top" title="Facebook" data-name="fb"><i class="socicon-facebook"></i></a>
-            <!-- <a class="social-button shape-rounded sb-twitter" href="#" data-toggle="tooltip" data-placement="top" title="Twitter"><i class="socicon-twitter"></i></a>
-            <a class="social-button shape-rounded sb-instagram" href="#" data-toggle="tooltip" data-placement="top" title="Instagram"><i class="socicon-instagram"></i></a> -->
-          </div>
-
-        </div>
-      </div>
-    </div>
+    @endif
   </div>
 </div>
 <!-- Product Details-->
@@ -381,7 +371,6 @@
 
   <div class="container padding-bottom-2x">
     <div class="row category-tab">
-
 
       <div class="col-12">  
 
@@ -558,7 +547,6 @@
 
   @if(count($related_items) > 0)   
 
-    
     <section class="product-area">
       <div class="container">
         <div class="product-style">
@@ -579,7 +567,6 @@
                                   <img  src="{{ default_placeholder_img_src() }}" alt="" />
                                 @endif
 
-
                               </div>
                             </a>
                             @if ( $item['post_price'] < $item['post_regular_price'] )
@@ -598,7 +585,6 @@
                               {!! price_html( get_product_price_html_by_filter(get_role_based_price_by_product_id($item['id'], $item['post_price'])), get_frontend_selected_currency()) !!}
                             </span>
 
-
                               <div class="product-action">
 
                                 <a class="animate-left quick-view-popup" data-id="{{ $item['id'] }}" data-toggle="tooltip" title="{{ trans('frontend.quick_view') }}" data-original-title="{{ trans('frontend.quick_view') }}">
@@ -615,7 +601,6 @@
                                 <a class="animate-right product-compare" data-id="{{ $item['id'] }}" data-toggle="tooltip" title="{{ trans('frontend.add_to_compare_list_label') }}" data-original-title="{{ trans('frontend.add_to_compare_list_label') }}">
                                   <i class="ion-ios-list-outline"></i>
                                 </a>
-
 
                               </div>
 
@@ -643,7 +628,6 @@
   @yield('seen-products')
   </div>
 </section>
-
 
 <!-- Photoswipe container-->
 <div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
