@@ -80,7 +80,7 @@
     <section class="product-area pt-20">
       <div class="container">
           <div class="product-style">
-              <h2 class="title text-center">{{ trans('frontend.buy_items') }}</h2>
+              <h2 class="title text-center">{{ trans('frontend.buy_items').' '.count($buyItems) }}</h2>
               <div class="tab-content another-product-style jump">
                 <div class="tab-pane fade show active" id="latest_products" role="tabpanel">
                   <div class="isotope-grid cols-4 mb-2">
