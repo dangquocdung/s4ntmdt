@@ -25,9 +25,71 @@
 
       @if (Cart::named('thanh-toan')->count() >0 )
 
-        <div class="alert alert-danger mb-3">
+        <div class="alert alert-info alert-dismissible fade show text-center" style="margin-bottom: 30px;">
+          <span class="alert-close" data-dismiss="alert"></span>
           <a href="thanh-toan">Bạn có sản phẩm đang trong quá trình thanh toán!</a>
         </div>
+      @endif
+
+      @if ( isset($_GET['vnp_ResponseCode']))
+
+        @php
+
+          $vnp_TmnCode = "ZGOVKSHZ"; //Mã website tại VNPAY 
+          $vnp_HashSecret = "LYQSHBHMXGPPIFXKOBMGMPZJIJGQXMRR"; //Chuỗi bí mật
+          $vnp_SecureHash = $_GET['vnp_SecureHash'];
+          $inputData = array();
+          foreach ($_GET as $key => $value) {
+              if (substr($key, 0, 4) == "vnp_") {
+                  $inputData[$key] = $value;
+              }
+          }
+          unset($inputData['vnp_SecureHashType']);
+          unset($inputData['vnp_SecureHash']);
+          ksort($inputData);
+          $i = 0;
+          $hashData = "";
+          foreach ($inputData as $key => $value) {
+              if ($i == 1) {
+                  $hashData = $hashData . '&' . $key . "=" . $value;
+              } else {
+                  $hashData = $hashData . $key . "=" . $value;
+                  $i = 1;
+              }
+          }
+
+          //$secureHash = md5($vnp_HashSecret . $hashData);
+          $secureHash = hash('sha256',$vnp_HashSecret . $hashData);
+
+        @endphp
+
+        @if (trim($_GET['vnp_ResponseCode']) == '00')
+          <div class="alert alert-success alert-dismissible fade show text-center" style="margin-bottom: 30px;">
+            <span class="alert-close" data-dismiss="alert"></span>
+            <label><b>Thanh toán thành công !</b></label>
+            <br>
+
+            <p>Mã đơn hàng: <?php echo $_GET['vnp_TxnRef'] ?></p>
+            <p>Số tiền: <?php echo $_GET['vnp_Amount'] ?></p>
+            <p>Mã GD Tại VNPAY: <?php echo $_GET['vnp_TransactionNo'] ?></p>
+            <p>Mã Ngân hàng: <?php echo $_GET['vnp_BankCode'] ?></p>
+            <p>Thời gian thanh toán: <?php echo $_GET['vnp_PayDate'] ?></p>
+          </div>
+        @else
+
+          <div class="alert alert-danger alert-dismissible fade show text-center" style="margin-bottom: 30px;">
+            <span class="alert-close" data-dismiss="alert"></span>
+            <label><b>Thanh toán thất bại !</b></label>
+            <br>
+            <p>Mã đơn hàng: <?php echo $_GET['vnp_TxnRef'] ?></p>
+            <p>Số tiền: <?php echo $_GET['vnp_Amount'] ?></p>
+            <p>Mã phản hồi: <?php echo $_GET['vnp_ResponseCode'] ?></p>
+            <p>Mã GD Tại VNPAY: <?php echo $_GET['vnp_TransactionNo'] ?></p>
+            <p>Mã Ngân hàng: <?php echo $_GET['vnp_BankCode'] ?></p>
+            <p>Thời gian thanh toán: <?php echo $_GET['vnp_PayDate'] ?></p>
+          </div>
+        @endif
+
       @endif
 
       @if( Cart::named('gio-hang')->count() >0 )
@@ -179,10 +241,15 @@
 
       @else
 
-        <div class="alert alert-info alert-dismissible fade show text-center" style="margin-bottom: 30px;">
-          <span class="alert-close" data-dismiss="alert"></span>
-          {{ trans('frontend.empty_cart_msg') }}
-        </div>
+        @if ( !isset($_GET['vnp_ResponseCode']))
+
+
+          <div class="alert alert-info alert-dismissible fade show text-center" style="margin-bottom: 30px;">
+            <span class="alert-close" data-dismiss="alert"></span>
+            {{ trans('frontend.empty_cart_msg') }}
+          </div>
+
+        @endif
 
         @include('pages-message.notify-msg-error')
 
