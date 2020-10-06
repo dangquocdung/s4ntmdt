@@ -348,7 +348,9 @@ class CheckoutController extends Controller
             $vnp_TmnCode = "ZGOVKSHZ"; //Mã website tại VNPAY 
             $vnp_HashSecret = "LYQSHBHMXGPPIFXKOBMGMPZJIJGQXMRR"; //Chuỗi bí mật
             $vnp_Url = "http://sandbox.vnpayment.vn/paymentv2/vpcpay.html";
-            $vnp_Returnurl = "https://hatinhtrade.com.vn/vnpay_php/vnpay_return.php";
+            // $vnp_Returnurl = "https://hatinhtrade.com.vn/vnpay_php/vnpay_return.php";
+
+            $vnp_Returnurl = route('cart-page');
 
             $vnp_TxnRef = $order_id['order_id']; //Mã đơn hàng. Trong thực tế Merchant cần insert đơn hàng vào DB và gửi mã này sang VNPAY
             
