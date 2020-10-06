@@ -159,7 +159,7 @@
 
           <div class="column">
 
-            {{-- <input type="submit" name="update_cart" class="btn btn-warning update" value="{{ trans('frontend.update_cart') }}">   --}}
+            <input type="submit" name="update_cart" class="btn btn-warning update" value="{{ trans('frontend.update_cart') }}">  
             
             {{-- <a class="btn btn-primary chuyen_thanh_toan" data-id="{{ $items->vendor_id }}" href="{{ route('checkout-page',['vendor'=>$items->vendor_id]) }}">{!! trans('frontend.checkout') !!}</a> --}}
             
