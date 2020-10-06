@@ -336,8 +336,10 @@ class CheckoutController extends Controller
           }
           elseif(Input::get('payment_option') === 'vnpay'){
 
+            $vnp_Amount = $this->cart->getTotal() * 100;
 
-            // return response()->json($this->cart->getTotal());
+
+            // return response()->json($vnp_Amount);
 
             $order_id = $this->save_checkout_data();
 
@@ -356,7 +358,7 @@ class CheckoutController extends Controller
 
             $vnp_OrderInfo = "Thanh toán hóa đơn phí dich vụ";
             $vnp_OrderType = 'billpayment';
-            $vnp_Amount = (int)$this->cart->getTotal() * 100;
+            // $vnp_Amount = $this->cart->getTotal() * 100;
             $vnp_Locale = 'vn';
             $vnp_IpAddr = $_SERVER['REMOTE_ADDR'];
 
