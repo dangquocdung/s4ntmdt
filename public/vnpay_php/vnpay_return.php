@@ -99,7 +99,7 @@
                 &nbsp;
             </p>
             <footer class="footer">
-                <p>&copy; VNPAY 2015</p>
+                <a href="/">Về trang chủ</a>
             </footer>
         </div>  
     </body>
