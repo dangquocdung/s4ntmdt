@@ -134,6 +134,7 @@ class Cart implements CartInterface
      */
     public function update(Array $product)
     {
+        
         $this->collection->setItems($this->session->get($this->getCart(), []));
 
         if (! isset($product['id'])) {

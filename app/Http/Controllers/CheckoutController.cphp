@@ -65,7 +65,7 @@ class CheckoutController extends Controller
     $this->_api_context->setConfig($paypal_conf['settings']);
 
     $this->settingsData   =  $option->getSettingsData();
-    $this->cartObject     =  $this->cartBuy->getItems()->toArray();
+    $this->cartObject     =  $this->cart->getItems()->toArray();
     $this->env = App::environment();
     $this->nexmo_data = get_nexmo_data();
   }
@@ -82,13 +82,13 @@ class CheckoutController extends Controller
     $data = Input::all();
 
     if( Request::isMethod('post') && isset($data['empty_cart']) && $data['empty_cart'] == 'empty_cart' && Session::token() == Input::get('_token')){
-      $this->cartBuy->clear();
+      $this->cart->clear();
       return redirect()->back();
     }
     elseif( Request::isMethod('post') && isset($data['update_cart']) && $data['update_cart'] == 'update_cart' && Session::token() == Input::get('_token')){
       if(count($data['cart_quantity']) > 0){
         foreach($data['cart_quantity'] as $key => $qty){
-          $this->cartBuy->updateQty($key, $qty);
+          $this->cart->updateQty($key, $qty);
         }
       }
       return redirect()->back();
@@ -97,23 +97,23 @@ class CheckoutController extends Controller
       
       // return response()->json($data);
 
-      if(!empty($this->cartBuy->getItems())){
-        foreach($this->cartBuy->getItems() as $items){
+      if(!empty($this->cart->getItems())){
+        foreach($this->cart->getItems() as $items){
           if($items->variation_id && count($items->options) > 0){
             $variation_product_data = $this->classCommonFunction->get_variation_and_data_by_post_id( $items->variation_id );
             if($variation_product_data['_variation_post_price'] == 0){
               Session::flash('message', Lang::get('frontend.sorry_label') .' '. get_product_title($variation_product_data['parent_id']) .' '. Lang::get('frontend.price_zero_validation'));
-              $this->cartBuy->clear();
+              $this->cart->clear();
               return redirect()->back();
             }
 
             if($variation_product_data['_variation_post_manage_stock'] == 1){
-              if(isset($this->cartBuy->get($items->id)->quantity)){
-               $cat_qty = $this->cartBuy->get($items->id)->quantity;
+              if(isset($this->cart->get($items->id)->quantity)){
+               $cat_qty = $this->cart->get($items->id)->quantity;
 
                if($variation_product_data['_variation_post_back_to_order'] == 'variation_not_allow' && $variation_product_data['_variation_post_manage_stock_qty'] >0 && $cat_qty > $variation_product_data['_variation_post_manage_stock_qty']){
                  Session::flash('message', Lang::get('frontend.sorry_label') .' '.get_product_title($variation_product_data['parent_id']) .' '. Lang::get('frontend.stock_validation'));
-                 $this->cartBuy->clear();
+                 $this->cart->clear();
                  return redirect()->back();
                }
               }
@@ -123,12 +123,12 @@ class CheckoutController extends Controller
             $product_data = $this->classCommonFunction->get_product_data_by_product_id( $items->id );
           
             if($product_data['product_manage_stock'] == 'yes'){
-              if(isset($this->cartBuy->get($items->id)->quantity)){
-               $cat_qty = $this->cartBuy->get($items->id)->quantity;
+              if(isset($this->cart->get($items->id)->quantity)){
+               $cat_qty = $this->cart->get($items->id)->quantity;
        
                if($product_data['product_stock_back_to_order'] == 'not_allow' && $product_data['product_manage_stock_qty'] >0 && $cat_qty > $product_data['product_manage_stock_qty']){
                  Session::flash('message', Lang::get('frontend.sorry_label') .' '.$product_data['post_title'] .' '. Lang::get('frontend.stock_validation'));
-                 $this->cartBuy->clear();
+                 $this->cart->clear();
                  return redirect()->back();
                }
               }
@@ -338,7 +338,7 @@ class CheckoutController extends Controller
           }
           elseif(Input::get('payment_option') === 'vnpay'){
 
-            $vnp_Amount = $this->cartBuy->getTotal() * 100;
+            $vnp_Amount = $this->cart->getTotal() * 100;
 
 
             // return response()->json($vnp_Amount);
@@ -360,7 +360,7 @@ class CheckoutController extends Controller
 
             $vnp_OrderInfo = "Thanh toán hóa đơn phí dich vụ";
             $vnp_OrderType = 'billpayment';
-            // $vnp_Amount = $this->cartBuy->getTotal() * 100;
+            // $vnp_Amount = $this->cart->getTotal() * 100;
             $vnp_Locale = 'vn';
             $vnp_IpAddr = $_SERVER['REMOTE_ADDR'];
 
@@ -413,9 +413,9 @@ class CheckoutController extends Controller
             $payer->setPaymentMethod('paypal');
 
             $items_ary = array();
-            if($this->cartBuy->getItems() && $this->cartBuy->getItems()->count()>0)
+            if($this->cart->getItems() && $this->cart->getItems()->count()>0)
             {
-              foreach($this->cartBuy->getItems() as $items)
+              foreach($this->cart->getItems() as $items)
               {
                 $itemObj = new Item();
                 $itemObj->setName( $items->name )
@@ -429,9 +429,9 @@ class CheckoutController extends Controller
 
             //amount details
             $amount_details = new Details();
-            $amount_details-> setSubtotal( $this->cartBuy->getTotal() )
-                           -> setShipping( $this->cartBuy->getShippingCost() ) 
-                           -> setTax( $this->cartBuy->getTax() ) ;
+            $amount_details-> setSubtotal( $this->cart->getTotal() )
+                           -> setShipping( $this->cart->getShippingCost() ) 
+                           -> setTax( $this->cart->getTax() ) ;
 
             // add item to list
             $item_list = new ItemList();
@@ -440,7 +440,7 @@ class CheckoutController extends Controller
             //to ammount 
             $amount = new Amount();
             $amount->setCurrency( get_frontend_selected_currency() )
-                   ->setTotal( $this->cartBuy->getCartTotal() )
+                   ->setTotal( $this->cart->getCartTotal() )
                    ->setDetails( $amount_details );
 
             //transaction
@@ -499,36 +499,36 @@ class CheckoutController extends Controller
     $data = Input::all();
             
     if( Request::isMethod('post') && isset($data['empty_cart']) && $data['empty_cart'] == 'empty_cart' && Session::token() == Input::get('_token')){
-      $this->cartBuy->clear();
+      $this->cart->clear();
       return redirect()->back();
     }
     elseif( Request::isMethod('post') && isset($data['update_cart']) && $data['update_cart'] == 'update_cart' && Session::token() == Input::get('_token')){
       if(count($data['cart_quantity']) > 0){
         foreach($data['cart_quantity'] as $key => $qty){
-          $this->cartBuy->updateQty($key, $qty);
+          $this->cart->updateQty($key, $qty);
         }
       }
       return redirect()->back();
     }
     elseif( Request::isMethod('post') && isset($data['checkout_proceed']) && $data['checkout_proceed'] == 'checkout_proceed' && Session::token() == Input::get('_token')){
       
-      if(!empty($this->cartBuy->getItems())){
-        foreach($this->cartBuy->getItems() as $items){
+      if(!empty($this->cart->getItems())){
+        foreach($this->cart->getItems() as $items){
           if($items->variation_id && count($items->options) > 0){
             $variation_product_data = $this->classCommonFunction->get_variation_and_data_by_post_id( $items->variation_id );
             if($variation_product_data['_variation_post_price'] == 0){
               Session::flash('message', Lang::get('frontend.sorry_label') .' '. get_product_title($variation_product_data['parent_id']) .' '. Lang::get('frontend.price_zero_validation'));
-              $this->cartBuy->clear();
+              $this->cart->clear();
               return redirect()->back();
             }
 
             if($variation_product_data['_variation_post_manage_stock'] == 1){
-              if(isset($this->cartBuy->get($items->id)->quantity)){
-               $cat_qty = $this->cartBuy->get($items->id)->quantity;
+              if(isset($this->cart->get($items->id)->quantity)){
+               $cat_qty = $this->cart->get($items->id)->quantity;
 
                if($variation_product_data['_variation_post_back_to_order'] == 'variation_not_allow' && $variation_product_data['_variation_post_manage_stock_qty'] >0 && $cat_qty > $variation_product_data['_variation_post_manage_stock_qty']){
                  Session::flash('message', Lang::get('frontend.sorry_label') .' '.get_product_title($variation_product_data['parent_id']) .' '. Lang::get('frontend.stock_validation'));
-                 $this->cartBuy->clear();
+                 $this->cart->clear();
                  return redirect()->back();
                }
               }
@@ -538,12 +538,12 @@ class CheckoutController extends Controller
             $product_data = $this->classCommonFunction->get_product_data_by_product_id( $items->id );
           
             if($product_data['product_manage_stock'] == 'yes'){
-              if(isset($this->cartBuy->get($items->id)->quantity)){
-               $cat_qty = $this->cartBuy->get($items->id)->quantity;
+              if(isset($this->cart->get($items->id)->quantity)){
+               $cat_qty = $this->cart->get($items->id)->quantity;
        
                if($product_data['product_stock_back_to_order'] == 'not_allow' && $product_data['product_manage_stock_qty'] >0 && $cat_qty > $product_data['product_manage_stock_qty']){
                  Session::flash('message', Lang::get('frontend.sorry_label') .' '.$product_data['post_title'] .' '. Lang::get('frontend.stock_validation'));
-                 $this->cartBuy->clear();
+                 $this->cart->clear();
                  return redirect()->back();
                }
               }
@@ -757,9 +757,9 @@ class CheckoutController extends Controller
             $payer->setPaymentMethod('paypal');
 
             $items_ary = array();
-            if($this->cartBuy->getItems() && $this->cartBuy->getItems()->count()>0)
+            if($this->cart->getItems() && $this->cart->getItems()->count()>0)
             {
-              foreach($this->cartBuy->getItems() as $items)
+              foreach($this->cart->getItems() as $items)
               {
                 $itemObj = new Item();
                 $itemObj->setName( $items->name )
@@ -773,9 +773,9 @@ class CheckoutController extends Controller
 
             //amount details
             $amount_details = new Details();
-            $amount_details-> setSubtotal( $this->cartBuy->getTotal() )
-                           -> setShipping( $this->cartBuy->getShippingCost() ) 
-                           -> setTax( $this->cartBuy->getTax() ) ;
+            $amount_details-> setSubtotal( $this->cart->getTotal() )
+                           -> setShipping( $this->cart->getShippingCost() ) 
+                           -> setTax( $this->cart->getTax() ) ;
 
             // add item to list
             $item_list = new ItemList();
@@ -784,7 +784,7 @@ class CheckoutController extends Controller
             //to ammount 
             $amount = new Amount();
             $amount->setCurrency( get_frontend_selected_currency() )
-                   ->setTotal( $this->cartBuy->getCartTotal() )
+                   ->setTotal( $this->cart->getCartTotal() )
                    ->setDetails( $amount_details );
 
             //transaction
@@ -917,8 +917,8 @@ class CheckoutController extends Controller
     $discount_code = '';
     $is_coupon_applyed = false;
 
-    if($this->cartBuy->getShippingMethod()){
-      $getShippingData = $this->cartBuy->getShippingMethod();
+    if($this->cart->getShippingMethod()){
+      $getShippingData = $this->cart->getShippingMethod();
       $shipping_cost   = $getShippingData['shipping_cost'];
       $shipping_method = $getShippingData['shipping_method'];
     }
@@ -944,14 +944,14 @@ class CheckoutController extends Controller
     
     $users_data = array('user_mode' => $user_mode, 'user_id' => $user_id);
     
-    if($this->cartBuy->is_coupon_applyed()){
-      $discount = $this->cartBuy->couponPrice();
-      $discount_code = $this->cartBuy->couponCode();
+    if($this->cart->is_coupon_applyed()){
+      $discount = $this->cart->couponPrice();
+      $discount_code = $this->cart->couponCode();
       $is_coupon_applyed = true;
     }
     
     //best sales data save
-    $get_items = $this->cartBuy->getItems()->toArray();
+    $get_items = $this->cart->getItems()->toArray();
     $vendor_id = null;
     
     if(count($get_items) >0){
@@ -1064,28 +1064,28 @@ class CheckoutController extends Controller
                         array(
                                 'post_id'       =>  $post->id,
                                 'key_name'      =>  '_order_tax',
-                                'key_value'     =>  $this->cartBuy->getTax(),
+                                'key_value'     =>  $this->cart->getTax(),
                                 'created_at'    =>  date("y-m-d H:i:s", strtotime('now')),
                                 'updated_at'    =>  date("y-m-d H:i:s", strtotime('now'))
                               ),
                         array(
                                 'post_id'       =>  $post->id,
                                 'key_name'      =>  '_final_order_tax',
-                                'key_value'     =>  get_product_price_html_by_filter($this->cartBuy->getTax()),
+                                'key_value'     =>  get_product_price_html_by_filter($this->cart->getTax()),
                                 'created_at'    =>  date("y-m-d H:i:s", strtotime('now')),
                                 'updated_at'    =>  date("y-m-d H:i:s", strtotime('now'))
                               ),      
                         array(
                                 'post_id'       =>  $post->id,
                                 'key_name'      =>  '_order_total',
-                                'key_value'     =>  $this->cartBuy->getCartTotal(),
+                                'key_value'     =>  $this->cart->getCartTotal(),
                                 'created_at'    =>  date("y-m-d H:i:s", strtotime('now')),
                                 'updated_at'    =>  date("y-m-d H:i:s", strtotime('now'))
                               ),
                         array(
                                 'post_id'       =>  $post->id,
                                 'key_name'      =>  '_final_order_total',
-                                'key_value'     =>  get_product_price_html_by_filter($this->cartBuy->getCartTotal()),
+                                'key_value'     =>  get_product_price_html_by_filter($this->cart->getCartTotal()),
                                 'created_at'    =>  date("y-m-d H:i:s", strtotime('now')),
                                 'updated_at'    =>  date("y-m-d H:i:s", strtotime('now'))
                               ),      
@@ -1338,21 +1338,21 @@ class CheckoutController extends Controller
           
           $vendorOrders->order_id        =   $post->id;
           $vendorOrders->vendor_id       =   $vendor_id;
-          $vendorOrders->order_total     =   $this->cartBuy->getCartTotal();
-          $vendorOrders->net_amount      =   ($get_package_details->vendor_commission / 100) * $this->cartBuy->getCartTotal();
+          $vendorOrders->order_total     =   $this->cart->getCartTotal();
+          $vendorOrders->net_amount      =   ($get_package_details->vendor_commission / 100) * $this->cart->getCartTotal();
           $vendorOrders->order_status    =   'ON-HOLD';
           if($vendorOrders->save()){
             $get_vendor_total = VendorTotal::where(['vendor_id' => $vendor_id])->first();
             
             if(!empty($get_vendor_total)){
               $data = array(
-                      'totals' => $get_vendor_total->totals + ($get_package_details->vendor_commission / 100) * $this->cartBuy->getCartTotal()
+                      'totals' => $get_vendor_total->totals + ($get_package_details->vendor_commission / 100) * $this->cart->getCartTotal()
               );
               $vendorTotals::where('vendor_id', $vendor_id)->update($data);
             }
             else{
               $vendorTotals->vendor_id = $vendor_id;
-              $vendorTotals->totals    = ($get_package_details->vendor_commission / 100) * $this->cartBuy->getCartTotal();
+              $vendorTotals->totals    = ($get_package_details->vendor_commission / 100) * $this->cart->getCartTotal();
               $vendorTotals->save();
             }
           }
@@ -1368,8 +1368,8 @@ class CheckoutController extends Controller
             $get_design_img  = unserialize(Session::get('_recent_saved_custom_design_images'));
           }
 
-          if(count($this->cartBuy->getItems())>0){
-            foreach($this->cartBuy->getItems() as $cart_items){
+          if(count($this->cart->getItems())>0){
+            foreach($this->cart->getItems() as $cart_items){
               if(get_product_type($cart_items->id) === 'customizable_product'){
                 $usersCustomData =       new UsersCustomDesign;
                 if($cart_items->id)
@@ -1439,7 +1439,7 @@ class CheckoutController extends Controller
             Session::forget('checkout_post_details');
           }
           
-          $this->cartBuy->clear();
+          $this->cart->clear();
          
           return array('order_id' => $post->id, 'process_id' => $order_process_key);
         }

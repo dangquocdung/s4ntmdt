@@ -87,7 +87,7 @@
         </form>    
         @else
           <p>@include('pages-message.notify-msg-error')</p>
-          <div class="empty-cart-msg">{{ trans('frontend.empty_cart_msg') }}</div>
+          <div class="empty-cart-msg">Bạn chưa chọn sản phẩm để thanh toán!</div>
           <br>
           <div class="cart-return-shop">
             <a class="btn btn-secondary check_out" href="{{ route('shop-page') }}">{{ trans('frontend.return_to_shop') }}</a>
