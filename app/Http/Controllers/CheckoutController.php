@@ -85,14 +85,14 @@ class CheckoutController extends Controller
       $this->cartBuy->clear();
       return redirect()->back();
     }
-    elseif( Request::isMethod('post') && isset($data['update_cart']) && $data['update_cart'] == 'update_cart' && Session::token() == Input::get('_token')){
-      if(count($data['cart_quantity']) > 0){
-        foreach($data['cart_quantity'] as $key => $qty){
-          $this->cartBuy->updateQty($key, $qty);
-        }
-      }
-      return redirect()->back();
-    }
+    // elseif( Request::isMethod('post') && isset($data['update_cart']) && $data['update_cart'] == 'update_cart' && Session::token() == Input::get('_token')){
+    //   if(count($data['cart_quantity']) > 0){
+    //     foreach($data['cart_quantity'] as $key => $qty){
+    //       $this->cartBuy->updateQty($key, $qty);
+    //     }
+    //   }
+    //   return redirect()->back();
+    // }
     elseif( Request::isMethod('post') && isset($data['checkout_proceed']) && $data['checkout_proceed'] == 'checkout_proceed' && Session::token() == Input::get('_token')){
       
       // return response()->json($data);
