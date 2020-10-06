@@ -23,16 +23,23 @@
     <!-- Page Content-->
     <div class="container padding-bottom-3x mb-30" id="cart_page">
 
+      @if (Cart::named('thanh-toan')->count() >0 )
+
+        <div class="alert alert-danger mb-3">
+          <a href="thanh-toan">Bạn có sản phẩm đang trong quá trình thanh toán!</a>
+        </div>
+      @endif
+
       @if( Cart::named('gio-hang')->count() >0 )
 
-      <form class="form-horizontal" method="post" action="" enctype="multipart/form-data">
-      <input type="hidden" name="_token" value="{{ csrf_token() }}">  
+        <form class="form-horizontal" method="post" action="" enctype="multipart/form-data">
+        <input type="hidden" name="_token" value="{{ csrf_token() }}">  
 
-      <div class="cart-data">
+        <div class="cart-data">
 
-      </div>
+        </div>
 
-      <!-- Shopping Cart-->
+        <!-- Shopping Cart-->
 
         @include('pages-message.notify-msg-error')
 
@@ -64,7 +71,7 @@
                 <th class="text-center">{!! trans('frontend.quantity') !!}</th>
                 <th class="text-center">{!! trans('frontend.total') !!}</th>
                 <th class="text-center">
-                  <input type="submit" name="empty_cart" class="btn btn-sm btn-outline-danger" value="{{ trans('frontend.clear_cart') }}">  
+                  {{-- <input type="submit" name="empty_cart" class="btn btn-sm btn-outline-danger" value="{{ trans('frontend.clear_cart') }}">   --}}
                 </th>
 
               </tr>
