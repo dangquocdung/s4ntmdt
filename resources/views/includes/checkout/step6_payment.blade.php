@@ -42,6 +42,16 @@
                                     </ul>
                                 </td>
                             </tr>
+
+                            <tr>
+                                <td class="align-middle">
+                                    <input type="radio" class="shopist-iCheck" name="payment_option" value="vnpay"> 
+                                </td>
+                                <td class="align-middle">
+                                    <span class="text-gray-dark">Thanh toán qua VNPAY</span><br>
+                                    <span class="text-muted text-sm"><small>Thanh toán trực tuyến qua cổng thanh toán VNPAY</small></span><br>
+                                </td>
+                            </tr>
                         
                         @endif
         
