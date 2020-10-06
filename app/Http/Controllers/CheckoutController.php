@@ -341,7 +341,7 @@ class CheckoutController extends Controller
             $order_id = $this->save_checkout_data();
             
             $vnp_Url = "http://sandbox.vnpayment.vn/paymentv2/vpcpay.htm";
-            $vnp_Returnurl = "http://localhost:8000";
+            $vnp_Returnurl = "http://hatinhtrade.com.vn";
             $vnp_TmnCode = "ZGOVKSHZ";//Mã website tại VNPAY 
             $vnp_HashSecret = "LYQSHBHMXGPPIFXKOBMGMPZJIJGQXMRR"; //Chuỗi bí mật
 
