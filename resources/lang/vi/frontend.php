@@ -305,7 +305,7 @@ return [
   'choose_color_label' =>'Chọn màu',
   'choose_size_label' =>'Chọn Kích cỡ',
   'sort_filter_label' =>'Sắp xếp theo',
-  'filter_label' =>'Bộ lọc',
+  'filter_label' =>'Xem',
   'clear_filter_label' =>'Cài lại',
   'grid_label' =>'Lưới',
   'list_label' =>'Danh sách',
