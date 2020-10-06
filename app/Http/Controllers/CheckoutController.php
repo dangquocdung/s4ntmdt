@@ -37,8 +37,6 @@ use Illuminate\Support\Facades\App;
 use dungthinh\Library\TwocheckoutLib\Twocheckout;
 use dungthinh\Library\TwocheckoutLib\Twocheckout\Twocheckout_Charge;
 
-
-
 class CheckoutController extends Controller
 {
   private $_api_context;
@@ -81,7 +79,6 @@ class CheckoutController extends Controller
   public function doCheckoutProcess(){
     $data = Input::all();
 
-            
     if( Request::isMethod('post') && isset($data['empty_cart']) && $data['empty_cart'] == 'empty_cart' && Session::token() == Input::get('_token')){
       $this->cart->clear();
       return redirect()->back();
@@ -137,7 +134,6 @@ class CheckoutController extends Controller
           }
         }
         
-        
         if(Input::get('payment_option') === 'stripe' && !Input::has('stripeToken')){
           Session::flash('message', Lang::get('validation.stripe_required_msg'));
           return redirect()->back();
@@ -156,7 +152,6 @@ class CheckoutController extends Controller
           $checkout_user = 'guest';
         }
         
-       
         //if login user do not have address, it will redirect to back
         if(!empty($checkout_user) && $checkout_user == 'login' && Session::has('dt_frontend_user_id')){
           $get_data_by_user_id     =  get_user_account_details_by_user_id( Session::get('dt_frontend_user_id') );
@@ -301,7 +296,6 @@ class CheckoutController extends Controller
           $this->checkoutData['order_note']                 =   Input::get('checkout_order_extra_message');
           $this->checkoutData['user_mode']                  =   $checkout_user;  
           
-          
           if(Session::get('checkout_post_details')){
             Session::forget('checkout_post_details');
             Session::put('checkout_post_details', json_encode($this->checkoutData));
@@ -311,7 +305,6 @@ class CheckoutController extends Controller
           }
           
           $email_options = get_emails_option_data();
-          
           
           if(Input::get('payment_option') === 'bacs' || Input::get('payment_option') === 'cod' ){
             $mailData = array();
@@ -345,17 +338,8 @@ class CheckoutController extends Controller
 
             //amount details
             
-            $mailData = array();
-            $adminMailData = array();
             $order_id = $this->save_checkout_data();
             
-            $adminMailData['source']           =   'admin_order_confirmation';
-            $adminMailData['data']             =   array('order_id' => $order_id['order_id']);
-
-            if($order_id['order_id'] > 0 && $this->env === 'production'){
-              $this->classGetFunction->sendCustomMail( $adminMailData );
-            }
-
             $vnp_Url = "http://sandbox.vnpayment.vn/paymentv2/vpcpay.htm";
             $vnp_Returnurl = "http://localhost:8000";
             $vnp_TmnCode = "ZGOVKSHZ";//Mã website tại VNPAY 
@@ -435,11 +419,9 @@ class CheckoutController extends Controller
                            -> setShipping( $this->cart->getShippingCost() ) 
                            -> setTax( $this->cart->getTax() ) ;
 
-
             // add item to list
             $item_list = new ItemList();
             $item_list->setItems( $items_ary );
-
 
             //to ammount 
             $amount = new Amount();
@@ -452,7 +434,6 @@ class CheckoutController extends Controller
             $transaction->setAmount($amount)
                         ->setItemList($item_list)
                         ->setDescription('Your transaction description');
-
 
             $redirect_urls = new RedirectUrls();
             $redirect_urls->setReturnUrl(URL::route('payment.status'))
@@ -556,7 +537,6 @@ class CheckoutController extends Controller
           }
         }
         
-        
         if(Input::get('payment_option') === 'stripe' && !Input::has('stripeToken')){
           Session::flash('message', Lang::get('validation.stripe_required_msg'));
           return redirect()->back();
@@ -575,7 +555,6 @@ class CheckoutController extends Controller
           $checkout_user = 'guest';
         }
         
-       
         //if login user do not have address, it will redirect to back
         if(!empty($checkout_user) && $checkout_user == 'login' && Session::has('dt_frontend_user_id')){
           $get_data_by_user_id     =  get_user_account_details_by_user_id( Session::get('dt_frontend_user_id') );
@@ -720,7 +699,6 @@ class CheckoutController extends Controller
           $this->checkoutData['order_note']                 =   Input::get('checkout_order_extra_message');
           $this->checkoutData['user_mode']                  =   $checkout_user;  
           
-          
           if(Session::get('checkout_post_details')){
             Session::forget('checkout_post_details');
             Session::put('checkout_post_details', json_encode($this->checkoutData));
@@ -730,7 +708,6 @@ class CheckoutController extends Controller
           }
           
           $email_options = get_emails_option_data();
-          
           
           if(Input::get('payment_option') === 'bacs' || Input::get('payment_option') === 'cod' ){
             $mailData = array();
@@ -786,11 +763,9 @@ class CheckoutController extends Controller
                            -> setShipping( $this->cart->getShippingCost() ) 
                            -> setTax( $this->cart->getTax() ) ;
 
-
             // add item to list
             $item_list = new ItemList();
             $item_list->setItems( $items_ary );
-
 
             //to ammount 
             $amount = new Amount();
@@ -803,7 +778,6 @@ class CheckoutController extends Controller
             $transaction->setAmount($amount)
                         ->setItemList($item_list)
                         ->setDescription('Your transaction description');
-
 
             $redirect_urls = new RedirectUrls();
             $redirect_urls->setReturnUrl(URL::route('payment.status'))
@@ -1379,7 +1353,6 @@ class CheckoutController extends Controller
           if(Session::has('_recent_saved_custom_design_images')){
             $get_design_img  = unserialize(Session::get('_recent_saved_custom_design_images'));
           }
-
 
           if(count($this->cart->getItems())>0){
             foreach($this->cart->getItems() as $cart_items){
