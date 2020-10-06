@@ -1693,8 +1693,6 @@ class FrontendManagerController extends Controller
       if(count($data['cart_quantity']) > 0){
         foreach($data['cart_quantity'] as $key => $qty){
           $this->cart->updateQty($key, $qty);
-          $this->cartBuy->updateQty($key, $qty);
-
         }
       }
 
