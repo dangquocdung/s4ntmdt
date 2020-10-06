@@ -336,6 +336,9 @@ class CheckoutController extends Controller
           }
           elseif(Input::get('payment_option') === 'vnpay'){
 
+
+            // return response()->json($this->cart->getTotal());
+
             $order_id = $this->save_checkout_data();
 
             $vnp_TmnCode = "ZGOVKSHZ"; //Mã website tại VNPAY 
@@ -353,7 +356,7 @@ class CheckoutController extends Controller
 
             $vnp_OrderInfo = "Thanh toán hóa đơn phí dich vụ";
             $vnp_OrderType = 'billpayment';
-            $vnp_Amount = $this->cart->getTotal() * 100;
+            $vnp_Amount = (int)$this->cart->getTotal() * 100;
             $vnp_Locale = 'vn';
             $vnp_IpAddr = $_SERVER['REMOTE_ADDR'];
 
