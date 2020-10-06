@@ -353,7 +353,7 @@ class CheckoutController extends Controller
 
             $vnp_OrderInfo = "Thanh toán hóa đơn phí dich vụ";
             $vnp_OrderType = 'billpayment';
-            $vnp_Amount = 1000000 * 100;
+            $vnp_Amount = $this->cart->getCartTotal() * 100;
             $vnp_Locale = 'vn';
             $vnp_IpAddr = $_SERVER['REMOTE_ADDR'];
 
