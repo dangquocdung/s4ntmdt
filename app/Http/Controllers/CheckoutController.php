@@ -336,26 +336,27 @@ class CheckoutController extends Controller
           }
           elseif(Input::get('payment_option') === 'vnpay'){
 
-            //amount details
-            
             $order_id = $this->save_checkout_data();
-            
-            $vnp_Url = "http://sandbox.vnpayment.vn/paymentv2/vpcpay.htm";
-            $vnp_Returnurl = "http://hatinhtrade.com.vn";
-            $vnp_TmnCode = "ZGOVKSHZ";//Mã website tại VNPAY 
-            $vnp_HashSecret = "LYQSHBHMXGPPIFXKOBMGMPZJIJGQXMRR"; //Chuỗi bí mật
 
-            $vnp_TxnRef = $order_id['order_id'];//Mã đơn hàng. Trong thực tế Merchant cần insert đơn hàng vào DB và gửi mã này sang VNPAY
-            // $vnp_OrderInfo = $_POST['orderDesc'];
-            // $vnp_OrderType = $_POST['ordertype'];
-            $vnp_OrderInfo = "Thanh toán hóa đơn phí dich vụ";
-            $vnp_OrderType = 'billpayment';
-            $vnp_Amount = $this->cart->getTotal() * 100;
-            $vnp_Locale = 'vn';
-            $vnp_IpAddr = $_SERVER['REMOTE_ADDR'];
+            $vnp_TmnCode = "ZGOVKSHZ"; //Mã website tại VNPAY 
+            $vnp_HashSecret = "LYQSHBHMXGPPIFXKOBMGMPZJIJGQXMRR"; //Chuỗi bí mật
+            $vnp_Url = "http://sandbox.vnpayment.vn/paymentv2/vpcpay.html";
+            $vnp_Returnurl = "https://hatinhtrade.com.vn/vnpay_php/vnpay_return.php";
+
+            $vnp_TxnRef = $order_id['order_id']; //Mã đơn hàng. Trong thực tế Merchant cần insert đơn hàng vào DB và gửi mã này sang VNPAY
+            
+            // $vnp_OrderInfo = $_POST['order_desc'];
+            // $vnp_OrderType = $_POST['order_type'];
             // $vnp_Amount = $_POST['amount'] * 100;
             // $vnp_Locale = $_POST['language'];
-            // $vnp_IpAddr = $_SERVER['REMOTE_ADDR'];
+            // $vnp_BankCode = $_POST['bank_code'];
+
+            $vnp_OrderInfo = "Thanh toán hóa đơn phí dich vụ";
+            $vnp_OrderType = 'billpayment';
+            $vnp_Amount = 1000000 * 100;
+            $vnp_Locale = 'vn';
+            $vnp_IpAddr = $_SERVER['REMOTE_ADDR'];
+
             $inputData = array(
                 "vnp_Version" => "2.0.0",
                 "vnp_TmnCode" => $vnp_TmnCode,
@@ -364,12 +365,16 @@ class CheckoutController extends Controller
                 "vnp_CreateDate" => date('YmdHis'),
                 "vnp_CurrCode" => "VND",
                 "vnp_IpAddr" => $vnp_IpAddr,
-                "vnp_Locale" => $vnp_Locale,   
+                "vnp_Locale" => $vnp_Locale,
                 "vnp_OrderInfo" => $vnp_OrderInfo,
                 "vnp_OrderType" => $vnp_OrderType,
                 "vnp_ReturnUrl" => $vnp_Returnurl,
-                "vnp_TxnRef" => $vnp_TxnRef,    
+                "vnp_TxnRef" => $vnp_TxnRef,
             );
+
+            if (isset($vnp_BankCode) && $vnp_BankCode != "") {
+                $inputData['vnp_BankCode'] = $vnp_BankCode;
+            }
             ksort($inputData);
             $query = "";
             $i = 0;
@@ -386,11 +391,13 @@ class CheckoutController extends Controller
 
             $vnp_Url = $vnp_Url . "?" . $query;
             if (isset($vnp_HashSecret)) {
-                $vnpSecureHash = hash('sha256',$vnp_HashSecret . $hashdata);
+              // $vnpSecureHash = md5($vnp_HashSecret . $hashdata);
+                $vnpSecureHash = hash('sha256', $vnp_HashSecret . $hashdata);
                 $vnp_Url .= 'vnp_SecureHashType=SHA256&vnp_SecureHash=' . $vnpSecureHash;
             }
 
-            return redirect($vnp_Url);
+            return \Redirect::away($vnp_Url);
+
 
           }
           elseif(Input::get('payment_option') === 'paypal'){
