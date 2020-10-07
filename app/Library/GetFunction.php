@@ -2644,8 +2644,8 @@ class GetFunction
             $user_address['_billing_country'] = get_tinhthanh($user_account_parse_data->address_details->account_bill_select_country); 
             $user_address['_billing_state'] = get_quanhuyen($user_account_parse_data->address_details->account_bill_select_state);
             $user_address['_billing_city'] = get_xaphuong($user_account_parse_data->address_details->account_bill_select_city);
-            $user_address['_billing_address_1'] = $user_account_parse_data->address_details->account_bill_adddress_line_1; 
-            // $user_address['_billing_address_2'] = $user_account_parse_data->address_details->account_bill_adddress_line_2; 
+            $user_address['_billing_address_1'] = $user_account_parse_data->address_details->account_bill_address_line_1; 
+            // $user_address['_billing_address_2'] = $user_account_parse_data->address_details->account_bill_address_line_2; 
 
             // $user_address['_billing_postcode'] = $user_account_parse_data->address_details->account_bill_zip_or_postal_code;
             
@@ -2659,8 +2659,8 @@ class GetFunction
             $user_address['_shipping_country'] = $user_account_parse_data->address_details->account_shipping_select_country; 
             $user_address['_shipping_state'] = $user_account_parse_data->address_details->account_shipping_select_state;
             $user_address['_shipping_city'] = $user_account_parse_data->address_details->account_shipping_select_city;
-            $user_address['_shipping_address_1'] = $user_account_parse_data->address_details->account_shipping_adddress_line_1; 
-            // $user_address['_shipping_address_2'] = $user_account_parse_data->address_details->account_shipping_adddress_line_2; 
+            $user_address['_shipping_address_1'] = $user_account_parse_data->address_details->account_shipping_address_line_1; 
+            // $user_address['_shipping_address_2'] = $user_account_parse_data->address_details->account_shipping_address_line_2; 
 
             // $user_address['_shipping_postcode'] = $user_account_parse_data->address_details->account_shipping_zip_or_postal_code;
           }

@@ -72,7 +72,7 @@
             <div class="col-md-12">
                 <div class="form-group">
                 <label class="control-label" for="inputAccountAddressLine1">{{ trans('frontend.account_address_line_1') }}</label>
-                <textarea class="form-control" id="account_bill_adddress_line_1" name="account_bill_adddress_line_1" placeholder="{{ trans('frontend.address_line_1') }}">{{ old('account_shipping_adddress_line_1') }}</textarea>
+                <textarea class="form-control" id="account_bill_address_line_1" name="account_bill_address_line_1" placeholder="{{ trans('frontend.address_line_1') }}">{{ old('account_shipping_address_line_1') }}</textarea>
                 </div>
             </div>
 
@@ -151,8 +151,8 @@
             <div class="col-md-12">
                 <div class="form-group">
                 <label class="control-label" for="inputAccountAddressLine1">{{ trans('frontend.account_address_line_1') }}</label>
-                <textarea class="form-control" id="account_shipping_adddress_line_1" name="account_shipping_adddress_line_1" placeholder="{{ trans('frontend.address_line_1') }}">
-                  {{ old('account_shipping_adddress_line_1') }}
+                <textarea class="form-control" id="account_shipping_address_line_1" name="account_shipping_address_line_1" placeholder="{{ trans('frontend.address_line_1') }}">
+                  {{ old('account_shipping_address_line_1') }}
                 </textarea>
                 </div>
             </div>

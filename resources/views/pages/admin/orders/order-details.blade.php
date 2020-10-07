@@ -77,8 +77,6 @@
         <p><strong>{{ trans('admin.order') }} #:</strong> {!! $order_data_by_id['_order_id'] !!}
         <p><strong>{{ trans('admin.order_date') }}:</strong> {!! $order_data_by_id['_order_date'] !!}
         <p><strong>{{ trans('admin.payment_method') }}:</strong> {!! get_payment_method_title( $order_data_by_id['_payment_method_title'] ) !!} 
-        <p><strong>{{ trans('admin.payment_method') }}:</strong> {!! $order_data_by_id['_payment_method_title'] !!} 
-
         <p><strong>{{ trans('admin.shipping_method') }}:</strong> {!! $order_data_by_id['_order_shipping_method'] !!}   
         <p><strong>{{ trans('admin.member') }}:</strong> 
             {{-- @if(!empty($order_data_by_id['_member']['url'])) 
@@ -99,9 +97,11 @@
         <p><strong>{{ trans('admin.phone') }}:</strong> {!! $order_data_by_id['_billing_phone'] !!}</p>
 
         <p><strong>{{ trans('admin.address_1') }}:</strong> {!! $order_data_by_id['_billing_address_1'] !!}</p>
-        <p><strong>{{ trans('admin.city') }}:</strong> {!! $order_data_by_id['_billing_city'] !!}</p>
-        <p><strong>{{ trans('admin.state') }}:</strong> {!! $order_data_by_id['_billing_state'] !!}</p>
-        <p><strong>{{ trans('admin.country') }}:</strong> {!!  $order_data_by_id['_billing_country']  !!}</p>
+
+
+        <p><strong>{{ trans('admin.city') }}:</strong> {!! get_xaphuong($order_data_by_id['_billing_city']) !!}</p>
+        <p><strong>{{ trans('admin.state') }}:</strong> {!! get_quanhuyen($order_data_by_id['_billing_state']) !!}</p>
+        <p><strong>{{ trans('admin.country') }}:</strong> {!!  get_tinhthanh($order_data_by_id['_billing_country'])  !!}</p>
         <p><strong>{{ trans('admin.email') }}:</strong> {!! $order_data_by_id['_billing_email'] !!}</p>
         
         

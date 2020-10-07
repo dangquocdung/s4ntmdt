@@ -13,65 +13,215 @@
      <br>
      <div class="user-address-content">
      <div class="row address-information clearfix">
-         <div class="col-md-6 address-content-sub">
-         <h4>{!! trans('frontend.billing_address') !!}</h4><br>
-         @if(!empty($login_user_account_data) && !empty($login_user_account_data->address_details))
 
-            <p>{!! $login_user_account_data->address_details->account_bill_last_name .' '. $login_user_account_data->address_details->account_bill_first_name !!}</p>
+        @if(!empty($login_user_account_data) && !empty($login_user_account_data->address_details))
 
-            @if($login_user_account_data->address_details->account_bill_phone_number)
-                <p><strong>{{ trans('frontend.phone') }}:</strong> {!! $login_user_account_data->address_details->account_bill_phone_number !!}</p>
-            @endif
+            <div class="address-content-sub">
+                <h4>{!! trans('frontend.shipping_address') !!}</h4>
+                <hr class="padding-bottom-1x">
 
-            @if($login_user_account_data->address_details->account_bill_email_address)
-                <p><strong>{{ trans('frontend.email') }}:</strong> {!! $login_user_account_data->address_details->account_bill_email_address !!}</p>
-            @endif
+                <div class="row">
+                <div class="col-sm-6">
+                    <div class="form-group">
+                        <label for="inputAccountLastName">{{ trans('frontend.account_last_name') }}</label>
+                        <input type="text" class="form-control" name="account_shipping_last_name" id="account_shipping_last_name" value={!! $login_user_account_data->address_details->account_shipping_last_name  !!} disabled>
+                    </div>
+                </div>
 
+                <div class="col-sm-6">
+                    <div class="form-group">
+                        <label for="inputAccountFirstName">{{ trans('frontend.account_first_name') }}</label>
+                        <input type="text" class="form-control" name="account_shipping_first_name" id="account_shipping_first_name" value={!! $login_user_account_data->address_details->account_shipping_first_name !!} disabled>
+                    </div>
+                </div>
 
-            <p><strong>{{ trans('frontend.address_1') }}:</strong> {!! $login_user_account_data->address_details->account_bill_adddress_line_1 !!}</p>
+                <div class="col-sm-6">
+                    <div class="form-group">
+                        <label for="inputAccountEmailAddress">{{ trans('frontend.account_email') }}</label>
+                        <input type="email" class="form-control" name="account_shipping_email_address" id="account_bill_email_address" value={!! $user_info['user_email'] !!} disabled>
+                    </div>
+                </div>
+                <div class="col-sm-6">
+                    <div class="form-group">
+                        <label for="inputAccountPhoneNumber">{{ trans('frontend.account_phone_number') }}</label>
+                        <input type="number" class="form-control" name="account_shipping_phone_number" id="account_bill_phone_number" value={!! $login_user_account_data->address_details->account_shipping_phone_number !!} disabled>
+                    </div>
+                </div>
 
-            <p><strong>{{ trans('frontend.city') }}:</strong> {!! get_xaphuong($login_user_account_data->address_details->account_bill_select_city) !!}</p>
+                <div class="col-md-4">
+                    <div class="form-group">
+                    <label class="control-label" for="account_shipping_select_country">{{ trans('frontend.checkout_select_country_label') }}</label>
+                        <select class="form-control" id="account_shipping_select_country" name="account_shipping_select_country" disabled>
+                        @foreach(get_country_list() as $val)
+                            @if ( $val['matp'] == ($login_user_account_data->address_details->account_shipping_select_country))
+                                <option selected value="{{ $val['matp'] }}"> {!! $val['name'] !!}</option>
+                            @else
+                                <option value="{{ $val['matp'] }}"> {!! $val['name'] !!}</option>
+                            @endif
+                        @endforeach
+                        </select>
+                    </div>
+                </div>
+            
+                <div class="col-md-4">
+                    <div class="form-group">
+                    <label class="control-label" for="account_shipping_select_state">{{ trans('frontend.account_address_town_city') }}</label>
+                    <select class="form-control" name="account_shipping_select_state" id="account_shipping_select_state" disabled>
+                        <option selected value={!! $login_user_account_data->address_details->account_shipping_select_state !!}> {!! get_quanhuyen($login_user_account_data->address_details->account_shipping_select_state) !!}</option>
+                    </select>
+                    </div>
+                </div>
+            
+                <div class="col-md-4">
+                    <div class="form-group">
+                    <label class="control-label" for="account_shipping_select_city">{{ trans('frontend.account_address_select_city') }}</label>
+                    <select class="form-control" name="account_shipping_select_city" id="account_shipping_select_city" disabled>
+                        <option selected value= {!! ($login_user_account_data->address_details->account_shipping_select_city) !!}> {!! get_xaphuong($login_user_account_data->address_details->account_shipping_select_city) !!}</option>
+                    </select>
+                    </div>
+                </div>
 
-            <p><strong>{{ trans('frontend.state') }}:</strong> {!! get_quanhuyen($login_user_account_data->address_details->account_bill_select_state) !!}</p>
+                <div class="col-md-12">
+                    <div class="form-group">
+                        <label class="control-label" for="inputAccountAddressLine1">{{ trans('frontend.account_address_line_1') }}</label>
+                        <textarea class="form-control" id="account_shipping_address_line_1" name="account_shipping_address_line_1" disabled>{{  $login_user_account_data->address_details->account_shipping_address_line_1 }}</textarea>
+                    </div>
+                </div>
 
-            <p><strong>{{ trans('frontend.country') }}:</strong> {{ get_tinhthanh($login_user_account_data->address_details->account_bill_select_country) }}</p>
+                </div>
+            </div>
 
             <br>
 
-         @else
-            <p>{{ trans('frontend.billing_address_not_available') }}</p>
-         @endif
-         </div>
-         <div class="col-md-6 address-content-sub">
-         <h4>{!! trans('frontend.shipping_address') !!}</h4><br>
+            <div class="address-content-sub">
+                <h4>{!! trans('frontend.billing_address') !!}</h4>
+                <hr class="padding-bottom-1x">
 
-         @if(!empty($login_user_account_data) && !empty($login_user_account_data->address_details))
+                <div class="row">
+                <div class="col-sm-6">
+                    <div class="form-group">
+                        <label for="inputAccountLastName">{{ trans('frontend.account_last_name') }}</label>
+                        <input type="text" class="form-control" name="account_bill_last_name" id="account_bill_last_name" value={!! $login_user_account_data->address_details->account_bill_last_name  !!} disabled>
+                    </div>
+                </div>
 
-            <p>{!! $login_user_account_data->address_details->account_shipping_last_name .' '. $login_user_account_data->address_details->account_shipping_first_name !!}</p>
+                <div class="col-sm-6">
+                    <div class="form-group">
+                        <label for="inputAccountFirstName">{{ trans('frontend.account_first_name') }}</label>
+                        <input type="text" class="form-control" name="account_bill_first_name" id="account_bill_first_name" value={!! $login_user_account_data->address_details->account_bill_first_name !!} disabled>
+                    </div>
+                </div>
 
-            @if($login_user_account_data->address_details->account_shipping_phone_number)
-                <p><strong>{{ trans('frontend.phone') }}:</strong> {!! $login_user_account_data->address_details->account_shipping_phone_number !!}</p>
-            @endif
+                <div class="col-sm-6">
+                    <div class="form-group">
+                        <label for="inputAccountEmailAddress">{{ trans('frontend.account_email') }}</label>
+                        <input type="email" class="form-control" name="account_bill_email_address" id="account_bill_email_address" value={!! $user_info['user_email'] !!} disabled>
+                    </div>
+                </div>
+                <div class="col-sm-6">
+                    <div class="form-group">
+                        <label for="inputAccountPhoneNumber">{{ trans('frontend.account_phone_number') }}</label>
+                        <input type="number" class="form-control" name="account_bill_phone_number" id="account_bill_phone_number" value={!! $login_user_account_data->address_details->account_bill_phone_number !!} disabled>
+                    </div>
+                </div>
+
+                <div class="col-md-4">
+                    <div class="form-group">
+                    <label class="control-label" for="account_bill_select_country">{{ trans('frontend.checkout_select_country_label') }}</label>
+                        <select class="form-control" id="account_bill_select_country" name="account_bill_select_country" disabled>
+                        @foreach(get_country_list() as $val)
+                            @if ( $val['matp'] == ($login_user_account_data->address_details->account_bill_select_country))
+                                <option selected value="{{ $val['matp'] }}"> {!! $val['name'] !!}</option>
+                            @else
+                                <option value="{{ $val['matp'] }}"> {!! $val['name'] !!}</option>
+                            @endif
+                        @endforeach
+                        </select>
+                    </div>
+                </div>
             
-            @if($login_user_account_data->address_details->account_shipping_email_address)
-                <p><strong>{{ trans('frontend.email') }}:</strong> {!! $login_user_account_data->address_details->account_shipping_email_address !!}</p>
-            @endif
-
-
-            <p><strong>{{ trans('frontend.address_1') }}:</strong> {!! $login_user_account_data->address_details->account_shipping_adddress_line_1 !!}</p>
+                <div class="col-md-4">
+                    <div class="form-group">
+                    <label class="control-label" for="account_bill_select_state">{{ trans('frontend.account_address_town_city') }}</label>
+                    <select class="form-control" name="account_bill_select_state" id="account_bill_select_state" disabled>
+                        <option selected value={!! $login_user_account_data->address_details->account_bill_select_state !!}> {!! get_quanhuyen($login_user_account_data->address_details->account_bill_select_state) !!}</option>
+                    </select>
+                    </div>
+                </div>
             
-            <p><strong>{{ trans('frontend.city') }}:</strong> {!! get_xaphuong($login_user_account_data->address_details->account_shipping_select_city) !!}</p>
+                <div class="col-md-4">
+                    <div class="form-group">
+                    <label class="control-label" for="account_bill_select_city">{{ trans('frontend.account_address_select_city') }}</label>
+                    <select class="form-control" name="account_bill_select_city" id="account_bill_select_city" disabled>
+                        <option selected value= {!! ($login_user_account_data->address_details->account_bill_select_city) !!}> {!! get_xaphuong($login_user_account_data->address_details->account_bill_select_city) !!}</option>
+                    </select>
+                    </div>
+                </div>
 
-            <p><strong>{{ trans('frontend.account_address_town_city') }}:</strong> {!! get_quanhuyen($login_user_account_data->address_details->account_shipping_select_state) !!}</p>
+                <div class="col-md-12">
+                    <div class="form-group">
+                        <label class="control-label" for="inputAccountAddressLine1">{{ trans('frontend.account_address_line_1') }}</label>
+                        <textarea class="form-control" id="account_bill_address_line_1" name="account_bill_address_line_1" disabled>{{  $login_user_account_data->address_details->account_bill_address_line_1 }}</textarea>
+                    </div>
+                </div>
 
-            <p><strong>{{ trans('frontend.country') }}:</strong> {{ get_tinhthanh($login_user_account_data->address_details->account_shipping_select_country) }}</p>
+                </div>
+            </div>
 
-            <br>
 
-         @else
+            <div class="col-md-6 address-content-sub">
+                <h4>{!! trans('frontend.billing_address') !!}</h4><br>
+
+                    <p>{!! $login_user_account_data->address_details->account_bill_last_name .' '. $login_user_account_data->address_details->account_bill_first_name !!}</p>
+
+                    @if($login_user_account_data->address_details->account_bill_phone_number)
+                        <p><strong>{{ trans('frontend.phone') }}:</strong> {!! $login_user_account_data->address_details->account_bill_phone_number !!}</p>
+                    @endif
+
+                    @if($login_user_account_data->address_details->account_bill_email_address)
+                        <p><strong>{{ trans('frontend.email') }}:</strong> {!! $login_user_account_data->address_details->account_bill_email_address !!}</p>
+                    @endif
+
+
+                    <p><strong>{{ trans('frontend.address_1') }}:</strong> {!! $login_user_account_data->address_details->account_bill_address_line_1 !!}</p>
+
+                    <p><strong>{{ trans('frontend.city') }}:</strong> {!! get_xaphuong($login_user_account_data->address_details->account_bill_select_city) !!}</p>
+
+                    <p><strong>{{ trans('frontend.state') }}:</strong> {!! get_quanhuyen($login_user_account_data->address_details->account_bill_select_state) !!}</p>
+
+                    <p><strong>{{ trans('frontend.country') }}:</strong> {{ get_tinhthanh($login_user_account_data->address_details->account_bill_select_country) }}</p>
+
+                    <br>
+            </div>
+
+            <div class="col-md-6 address-content-sub">
+                <h4>{!! trans('frontend.shipping_address') !!}</h4><br>
+                    <p>{!! $login_user_account_data->address_details->account_shipping_last_name .' '. $login_user_account_data->address_details->account_shipping_first_name !!}</p>
+
+                    @if($login_user_account_data->address_details->account_shipping_phone_number)
+                        <p><strong>{{ trans('frontend.phone') }}:</strong> {!! $login_user_account_data->address_details->account_shipping_phone_number !!}</p>
+                    @endif
+                    
+                    @if($login_user_account_data->address_details->account_shipping_email_address)
+                        <p><strong>{{ trans('frontend.email') }}:</strong> {!! $login_user_account_data->address_details->account_shipping_email_address !!}</p>
+                    @endif
+
+
+                    <p><strong>{{ trans('frontend.address_1') }}:</strong> {!! $login_user_account_data->address_details->account_shipping_address_line_1 !!}</p>
+                    
+                    <p><strong>{{ trans('frontend.city') }}:</strong> {!! get_xaphuong($login_user_account_data->address_details->account_shipping_select_city) !!}</p>
+
+                    <p><strong>{{ trans('frontend.account_address_town_city') }}:</strong> {!! get_quanhuyen($login_user_account_data->address_details->account_shipping_select_state) !!}</p>
+
+                    <p><strong>{{ trans('frontend.country') }}:</strong> {{ get_tinhthanh($login_user_account_data->address_details->account_shipping_select_country) }}</p>
+
+                    <br>
+
+            </div>
+        @else
             <p>{{ trans('frontend.shipping_address_not_available') }}</p>
-         @endif
-         </div>
+        @endif
+
      </div>
      </div>
  </div>

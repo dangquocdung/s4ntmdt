@@ -1410,12 +1410,12 @@ function checkoutStepValidation() {
             errorStr.push('no_get_shipping_country_name');
         }
 
-        if ($('#account_bill_adddress_line_1').length > 0 && $('#account_bill_adddress_line_1').val().length == 0 && $('#account_bill_adddress_line_1').val() == '') {
-            errorStr.push('no_account_bill_adddress_line_1');
+        if ($('#account_bill_address_line_1').length > 0 && $('#account_bill_address_line_1').val().length == 0 && $('#account_bill_address_line_1').val() == '') {
+            errorStr.push('no_account_bill_address_line_1');
         }
 
-        if (isChecked && $('#account_shipping_adddress_line_1').length > 0 && $('#account_shipping_adddress_line_1').val().length == 0 && $('#account_shipping_adddress_line_1').val() == '') {
-            errorStr.push('no_account_shipping_adddress_line_1');
+        if (isChecked && $('#account_shipping_address_line_1').length > 0 && $('#account_shipping_address_line_1').val().length == 0 && $('#account_shipping_address_line_1').val() == '') {
+            errorStr.push('no_account_shipping_address_line_1');
         }
 
         if ($('#account_bill_select_state').length > 0 && $('#account_bill_select_state').val().length == 0 && $('#account_bill_select_state').val() == '') {
@@ -1762,7 +1762,7 @@ if ($('#same_shipping_address').length > 0) {
         //     $('#account_shipping_select_city').val($('#account_bill_select_city').val());
         // }, 500);
 
-        $('#account_shipping_adddress_line_1').val($('#account_bill_adddress_line_1').val());
+        $('#account_shipping_address_line_1').val($('#account_bill_address_line_1').val());
 
     });
 
@@ -1771,7 +1771,7 @@ if ($('#same_shipping_address').length > 0) {
     //     $('#account_shipping_first_name').val('');
     //     $('#account_shipping_last_name').val('');
     //     $('#account_shipping_phone_number').val('');
-    //     $('#account_shipping_adddress_line_1').val('');
+    //     $('#account_shipping_address_line_1').val('');
 
     // });
 }

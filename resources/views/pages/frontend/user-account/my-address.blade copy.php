@@ -24,10 +24,10 @@
         <p><strong>{{ trans('admin.company') }}:</strong> {!! $frontend_account_details->address_details->account_bill_company_name !!}</p>
       @endif
 
-      <p><strong>{{ trans('admin.address_1') }}:</strong> {!! $frontend_account_details->address_details->account_bill_adddress_line_1 !!}</p>
+      <p><strong>{{ trans('admin.address_1') }}:</strong> {!! $frontend_account_details->address_details->account_bill_address_line_1 !!}</p>
 
-      @if($frontend_account_details->address_details->account_bill_adddress_line_2)
-        <p><strong>{{ trans('admin.address_2') }}:</strong> {!! $frontend_account_details->address_details->account_bill_adddress_line_2 !!}</p>
+      @if($frontend_account_details->address_details->account_bill_address_line_2)
+        <p><strong>{{ trans('admin.address_2') }}:</strong> {!! $frontend_account_details->address_details->account_bill_address_line_2 !!}</p>
       @endif
 
       <p><strong>{{ trans('admin.city') }}:</strong> {!! $frontend_account_details->address_details->account_bill_town_or_city !!}</p>
@@ -64,10 +64,10 @@
         <p><strong>{{ trans('admin.company') }}:</strong> {!! $frontend_account_details->address_details->account_shipping_company_name !!}</p>
       @endif
 
-      <p><strong>{{ trans('admin.address_1') }}:</strong> {!! $frontend_account_details->address_details->account_shipping_adddress_line_1 !!}</p>
+      <p><strong>{{ trans('admin.address_1') }}:</strong> {!! $frontend_account_details->address_details->account_shipping_address_line_1 !!}</p>
 
-      @if($frontend_account_details->address_details->account_shipping_adddress_line_2)
-        <p><strong>{{ trans('admin.address_2') }}:</strong> {!! $frontend_account_details->address_details->account_shipping_adddress_line_2 !!}</p>
+      @if($frontend_account_details->address_details->account_shipping_address_line_2)
+        <p><strong>{{ trans('admin.address_2') }}:</strong> {!! $frontend_account_details->address_details->account_shipping_address_line_2 !!}</p>
       @endif
 
       <p><strong>{{ trans('admin.city') }}:</strong> {!! $frontend_account_details->address_details->account_shipping_town_or_city !!}</p>

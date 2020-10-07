@@ -1496,12 +1496,12 @@ function checkoutStepValidation() {
       errorStr.push('no_get_shipping_country_name');
     }
 
-    if ($('#account_bill_adddress_line_1').length > 0 && $('#account_bill_adddress_line_1').val().length == 0 && $('#account_bill_adddress_line_1').val() == '') {
-      errorStr.push('no_account_bill_adddress_line_1');
+    if ($('#account_bill_address_line_1').length > 0 && $('#account_bill_address_line_1').val().length == 0 && $('#account_bill_address_line_1').val() == '') {
+      errorStr.push('no_account_bill_address_line_1');
     }
 
-    if (isChecked && $('#account_shipping_adddress_line_1').length > 0 && $('#account_shipping_adddress_line_1').val().length == 0 && $('#account_shipping_adddress_line_1').val() == '') {
-      errorStr.push('no_account_shipping_adddress_line_1');
+    if (isChecked && $('#account_shipping_address_line_1').length > 0 && $('#account_shipping_address_line_1').val().length == 0 && $('#account_shipping_address_line_1').val() == '') {
+      errorStr.push('no_account_shipping_address_line_1');
     }
 
     if ($('#account_bill_select_state').length > 0 && $('#account_bill_select_state').val().length == 0 && $('#account_bill_select_state').val() == '') {
@@ -1841,12 +1841,12 @@ if ($('#same_shipping_address').length > 0) {
     // setTimeout(function() {
     //     $('#account_shipping_select_city').val($('#account_bill_select_city').val());
     // }, 200);
-    // $('#account_shipping_adddress_line_1').val($('#account_bill_adddress_line_1').val());
+    // $('#account_shipping_address_line_1').val($('#account_bill_address_line_1').val());
     // setTimeout(function() {
     //     $('#account_shipping_select_country').prop('readonly', true);
     //     $('#account_shipping_select_state').prop('readonly', true);
     //     $('#account_shipping_select_city').prop('readonly', true);
-    //     $('#account_shipping_adddress_line_1').prop('readonly', true);
+    //     $('#account_shipping_address_line_1').prop('readonly', true);
     // }, 250);
   });
   $('#same_shipping_address').on('ifUnchecked', function (event) {
@@ -1857,7 +1857,7 @@ if ($('#same_shipping_address').length > 0) {
     $('#account_shipping_select_country').prop('readonly', false);
     $('#account_shipping_select_state').prop('readonly', false);
     $('#account_shipping_select_city').prop('readonly', false);
-    $('#account_shipping_adddress_line_1').prop('readonly', false);
+    $('#account_shipping_address_line_1').prop('readonly', false);
   });
 }
 
