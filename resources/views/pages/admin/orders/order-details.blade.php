@@ -77,6 +77,8 @@
         <p><strong>{{ trans('admin.order') }} #:</strong> {!! $order_data_by_id['_order_id'] !!}
         <p><strong>{{ trans('admin.order_date') }}:</strong> {!! $order_data_by_id['_order_date'] !!}
         <p><strong>{{ trans('admin.payment_method') }}:</strong> {!! get_payment_method_title( $order_data_by_id['_payment_method_title'] ) !!} 
+        <p><strong>{{ trans('admin.payment_method') }}:</strong> {!! $order_data_by_id['_payment_method_title'] !!} 
+
         <p><strong>{{ trans('admin.shipping_method') }}:</strong> {!! $order_data_by_id['_order_shipping_method'] !!}   
         <p><strong>{{ trans('admin.member') }}:</strong> 
             {{-- @if(!empty($order_data_by_id['_member']['url'])) 

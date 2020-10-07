@@ -43,29 +43,20 @@
                                 </td>
                             </tr>
 
+                        
+                        @endif
+        
+        
+                        @if($payment_method_data['paypal']['enable_option'] == 'yes')
                             <tr>
                                 <td class="align-middle">
-                                    <input type="radio" class="shopist-iCheck" name="payment_option" value="vnpay"> 
+                                    <input type="radio" class="shopist-iCheck" name="payment_option" value="paypal"> 
                                 </td>
                                 <td class="align-middle">
                                     <span class="text-gray-dark">Thanh toán qua VNPAY</span><br>
                                     <span class="text-muted text-sm"><small>Thanh toán trực tuyến qua cổng thanh toán VNPAY</small></span><br>
                                 </td>
                             </tr>
-                        
-                        @endif
-        
-        
-                        @if($payment_method_data['paypal']['enable_option'] == 'yes')
-                        <tr>
-                            <td class="align-middle">
-                                <input type="radio" class="shopist-iCheck" name="payment_option" value="paypal"> 
-                            </td>
-                            <td class="align-middle">
-                                <span class="text-gray-dark">{{ $payment_method_data['paypal']['method_title'] }}</span><br>
-                                <span class="text-muted text-sm">{!! $payment_method_data['paypal']['method_description'] !!}</span>
-                            </td>
-                        </tr>
                         @endif
                     </tbody>
                 </table>

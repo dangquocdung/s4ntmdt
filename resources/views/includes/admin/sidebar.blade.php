@@ -613,23 +613,25 @@
                 <li><a href="{{ route('admin.payment_method_cash_on_delivery_content') }}"><i class="fa fa-home"></i> {!! trans('admin.cash_on_delivery') !!}</a></li>
               @endif
 
+
+
               @if(Request::is('admin/payment-method/paypal'))
                 <li class="active"><a href="{{ route('admin.payment_method_paypal_content') }}"><i class="fa fa-paypal"></i> {!! trans('admin.paypal') !!}</a></li>
               @else
                 <li><a href="{{ route('admin.payment_method_paypal_content') }}"><i class="fa fa-paypal"></i> {!! trans('admin.paypal') !!}</a></li>
               @endif
               
-              <!-- @if(Request::is('admin/payment-method/stripe'))
+              {{-- @if(Request::is('admin/payment-method/stripe'))
                 <li class="active"><a href="{{ route('admin.payment_method_stripe_content') }}"><i class="fa fa-cc-stripe"></i> {!! trans('admin.stripe') !!}</a></li>
               @else
                 <li><a href="{{ route('admin.payment_method_stripe_content') }}"><i class="fa fa-cc-stripe"></i> {!! trans('admin.stripe') !!}</a></li>
               @endif
-              
-              @if(Request::is('admin/payment-method/two-checkout'))
+               --}}
+              {{-- @if(Request::is('admin/payment-method/two-checkout'))
                 <li class="active"><a href="{{ route('admin.payment_method_two_checkout_content') }}"><i class="fa fa-cc-visa"></i> {!! trans('admin.two_checkout') !!}</a></li>
               @else
                 <li><a href="{{ route('admin.payment_method_two_checkout_content') }}"><i class="fa fa-cc-visa"></i> {!! trans('admin.two_checkout') !!}</a></li>
-              @endif -->
+              @endif --}}
             </ul>
           </li>
         @else

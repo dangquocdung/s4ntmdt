@@ -336,7 +336,7 @@ class CheckoutController extends Controller
 
             return \Redirect::route('frontend-order-received', array('order_id' => $order_id['order_id'], 'order_key' => $order_id['process_id']));
           }
-          elseif(Input::get('payment_option') === 'vnpay'){
+          elseif(Input::get('payment_option') === 'paypal'){
 
             $vnp_Amount = $this->cartBuy->getTotal() * 100;
 
@@ -408,89 +408,6 @@ class CheckoutController extends Controller
             return \Redirect::away($vnp_Url);
 
 
-          }
-          elseif(Input::get('payment_option') === 'paypal'){
-            //process items
-            $payer = new Payer();
-            $payer->setPaymentMethod('paypal');
-
-            $items_ary = array();
-            if($this->cartBuy->getItems() && $this->cartBuy->getItems()->count()>0)
-            {
-              foreach($this->cartBuy->getItems() as $items)
-              {
-                $itemObj = new Item();
-                $itemObj->setName( $items->name )
-                        ->setCurrency( get_frontend_selected_currency() ) 
-                        ->setQuantity( $items->quantity )
-                        ->setPrice( $items->price );
-
-                array_push($items_ary, $itemObj);
-              }
-            }
-
-            //amount details
-            $amount_details = new Details();
-            $amount_details-> setSubtotal( $this->cartBuy->getTotal() )
-                           -> setShipping( $this->cartBuy->getShippingCost() ) 
-                           -> setTax( $this->cartBuy->getTax() ) ;
-
-            // add item to list
-            $item_list = new ItemList();
-            $item_list->setItems( $items_ary );
-
-            //to ammount 
-            $amount = new Amount();
-            $amount->setCurrency( get_frontend_selected_currency() )
-                   ->setTotal( $this->cartBuy->getCartTotal() )
-                   ->setDetails( $amount_details );
-
-            //transaction
-            $transaction = new Transaction();
-            $transaction->setAmount($amount)
-                        ->setItemList($item_list)
-                        ->setDescription('Your transaction description');
-
-            $redirect_urls = new RedirectUrls();
-            $redirect_urls->setReturnUrl(URL::route('payment.status'))
-                          ->setCancelUrl(URL::route('payment.status'));    
-
-            $payment = new Payment();
-            $payment->setIntent('Sale')
-                    ->setPayer($payer)
-                    ->setRedirectUrls($redirect_urls)
-                    ->setTransactions(array($transaction));
-
-            try 
-            {
-              $payment->create($this->_api_context);
-            } 
-            catch (\PayPal\Exception\PPConnectionException $ex) 
-            {
-              if (\Config::get('app.debug')) {
-                  echo "Exception: " . $ex->getMessage() . PHP_EOL;
-                  $err_data = json_decode($ex->getData(), true);
-                  exit;
-              } else {
-                  die('Some error occur, sorry for inconvenient');
-              }
-            }
-
-            foreach($payment->getLinks() as $link) {
-              if($link->getRel() == 'approval_url') {
-                  $redirect_url = $link->getHref();
-                  break;
-              }
-            }
-
-            Session::put('paypal_payment_id', $payment->getId());
-
-            if(isset($redirect_url)) {
-              // redirect to paypal
-              return \Redirect::away($redirect_url);
-            }
-
-            return \Redirect::route('cart-page');
           }
         }
       }

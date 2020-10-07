@@ -470,6 +470,10 @@ class PaymentMethodController extends Controller
     $cod_method_title              =   '';
     $cod_method_desc               =   '';
     $cod_method_ins                =   '';
+    $enable_vnpay                    =   ''; 
+    $vnpay_method_title              =   '';
+    $vnpay_method_desc               =   '';
+    $vnpay_method_ins                =   '';
     $enable_paypal                 =   '';
     $paypal_method_title           =   '';
     $paypal_client_id              =   '';
