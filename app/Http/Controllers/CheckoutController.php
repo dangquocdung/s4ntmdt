@@ -167,52 +167,27 @@ class CheckoutController extends Controller
         
         if(!empty($checkout_user) && $checkout_user == 'guest'){
           $rules = [
-                 'account_bill_first_name'                =>  'required',
-                 'account_bill_last_name'                 =>  'required',
-                 'account_bill_email_address'             =>  'required|email',
-                 'account_bill_phone_number'              =>  'required',
-                 'account_bill_select_country'            =>  'required',
-                 'account_bill_select_state'              =>  'required',
-                 'account_bill_select_city'               =>  'required',
-                 'account_bill_address_line_1'           =>  'required',
+                 'guest_bill_first_name'                =>  'required',
+                 'guest_bill_last_name'                 =>  'required',
+                 'guest_bill_email_address'             =>  'required|email',
+                 'guest_bill_phone_number'              =>  'required',
+                 'guest_bill_select_country'            =>  'required',
+                 'guest_bill_select_state'              =>  'required',
+                 'guest_bill_select_city'               =>  'required',
+                 'guest_bill_address_line_1'           =>  'required',
                  ];
           
-          $get_shipping_status = Input::get('different_shipping_address');
-
-          if(isset($get_shipping_status) && $get_shipping_status == 'different_address'){
-            $rules['account_shipping_first_name']         = 'required';
-            $rules['account_shipping_last_name']          = 'required';
-            $rules['account_shipping_email_address']      = 'required|email';
-            $rules['account_shipping_phone_number']       = 'required';
-            $rules['account_shipping_select_country']     = 'required';
-            $rules['account_shipping_select_state']       = 'required';
-            $rules['account_shipping_select_city']       = 'required';
-            $rules['account_shipping_address_line_1']    = 'required';
-          }
-          
           $messages = [
-                'account_bill_first_name.required' => Lang::get('validation.billing_fill_first_name_field'),
-                'account_bill_last_name.required' => Lang::get('validation.billing_fill_last_name_field'),
-                'account_bill_email_address.required' => Lang::get('validation.billing_fill_email_field'),
-                'account_bill_email_address.email' => Lang::get('validation.billing_fill_valid_email_field'),
-                'account_bill_phone_number.required' => Lang::get('validation.billing_fill_phone_number_field'),
-                'account_bill_select_country.required' => Lang::get('validation.billing_country_name_field'),
-                'account_bill_select_state.required' => Lang::get('validation.billing_fill_state_name_field'),
-                'account_bill_select_city.required' => Lang::get('validation.billing_fill_town_city_field'),
-                'account_bill_address_line_1.required' => Lang::get('validation.billing_address_line_1_field'),
+                'guest_bill_first_name.required' => Lang::get('validation.billing_fill_first_name_field'),
+                'guest_bill_last_name.required' => Lang::get('validation.billing_fill_last_name_field'),
+                'guest_bill_email_address.required' => Lang::get('validation.billing_fill_email_field'),
+                'guest_bill_email_address.email' => Lang::get('validation.billing_fill_valid_email_field'),
+                'guest_bill_phone_number.required' => Lang::get('validation.billing_fill_phone_number_field'),
+                'guest_bill_select_country.required' => Lang::get('validation.billing_country_name_field'),
+                'guest_bill_select_state.required' => Lang::get('validation.billing_fill_state_name_field'),
+                'guest_bill_select_city.required' => Lang::get('validation.billing_fill_town_city_field'),
+                'guest_bill_address_line_1.required' => Lang::get('validation.billing_address_line_1_field'),
               ];
-          
-          if(isset($get_shipping_status) && $get_shipping_status == 'different_address'){
-            $messages['account_shipping_first_name.required'] = Lang::get('validation.shipping_fill_first_name_field');
-            $messages['account_shipping_last_name.required'] = Lang::get('validation.shipping_fill_last_name_field');
-            $messages['account_shipping_email_address.required'] = Lang::get('validation.shipping_fill_email_field');
-            $messages['account_shipping_email_address.email'] = Lang::get('validation.shipping_fill_valid_email_field');
-            $messages['account_shipping_phone_number.required'] = Lang::get('validation.shipping_fill_phone_number_field');
-            $messages['account_shipping_select_country.required'] = Lang::get('validation.shipping_country_name_field');
-            $messages['account_shipping_select_state.required'] = Lang::get('validation.shipping_fill_state_name_field');
-            $messages['account_shipping_select_city.required'] = Lang::get('validation.shipping_fill_city_name');
-            $messages['account_shipping_address_line_1.required'] = Lang::get('validation.shipping_address_line_1_field');
-          }
         }
       
         $rules['payment_option']  = 'required';
@@ -238,75 +213,56 @@ class CheckoutController extends Controller
         elseif($validator->passes())
         {
           if(!empty($checkout_user) && $checkout_user == 'login'){
-           
-            
-            if(isset($get_shipping_status) && $get_shipping_status == 'different_address'){
-              // $shipping_title                 =   Input::get('account_shipping_title');
-              $shipping_first_name            =   Input::get('account_shipping_first_name');
-              $shipping_last_name             =   Input::get('account_shipping_last_name');
-              // $shipping_company_name          =   Input::get('account_shipping_company_name');
-              $shipping_email_address         =   Input::get('account_shipping_email_address');
-              $shipping_phone_number          =   Input::get('account_shipping_phone_number');
-              // $shipping_fax_number            =   Input::get('account_shipping_fax_number');
-              $shipping_select_country        =   Input::get('account_shipping_select_country');
-              $shipping_select_state          =   Input::get('account_shipping_select_state');
-              $shipping_select_city           =   Input::get('account_shipping_select_city');
-              $shipping_address_line_1       =   Input::get('account_shipping_address_line_1');
-              // $shipping_address_line_2        =   Input::get('account_shipping_address_line_2');
-            }else{
-              // $shipping_title                 =   Input::get('account_bill_title');
-              $shipping_first_name            =   Input::get('account_bill_first_name');
-              $shipping_last_name             =   Input::get('account_bill_last_name');
-              // $shipping_company_name          =   Input::get('account_bill_company_name');
-              $shipping_email_address         =   Input::get('account_bill_email_address');
-              $shipping_phone_number          =   Input::get('account_bill_phone_number');
-              // $shipping_fax_number            =   Input::get('account_bill_fax_number');
-              $shipping_select_country        =   Input::get('account_bill_select_country');
-              $shipping_select_state          =   Input::get('account_bill_select_state');
-              $shipping_select_city           =   Input::get('account_bill_select_city');
-              $shipping_address_line_1       =   Input::get('account_bill_address_line_1');
-              // $shipping_address_line_2        =   Input::get('account_bill_address_line_2');
-            }
-            
-            // $this->checkoutData['billing_title']              =   Input::get('account_bill_title');
             $this->checkoutData['bill_first_name']            =   Input::get('account_bill_first_name');
             $this->checkoutData['bill_last_name']             =   Input::get('account_bill_last_name');
-            // $this->checkoutData['bill_company_name']          =   Input::get('account_bill_company_name');
             $this->checkoutData['bill_email_address']         =   Input::get('account_bill_email_address');
             $this->checkoutData['bill_phone_number']          =   Input::get('account_bill_phone_number');
-            // $this->checkoutData['bill_fax_number']            =   Input::get('account_bill_fax_number');
             $this->checkoutData['bill_select_country']        =   Input::get('account_bill_select_country');
             $this->checkoutData['bill_select_state']          =   Input::get('account_bill_select_state');
             $this->checkoutData['bill_select_city']           =   Input::get('account_bill_select_city');
             $this->checkoutData['bill_address_line_1']       =   Input::get('account_bill_address_line_1');
-            // $this->checkoutData['bill_address_line_2']        =   Input::get('account_bill_address_line_2');
             
-            // $this->checkoutData['shipping_title']              =   $shipping_title;
-            $this->checkoutData['shipping_first_name']         =   $shipping_first_name;
-            $this->checkoutData['shipping_last_name']          =   $shipping_last_name;
-            // $this->checkoutData['shipping_company_name']       =   $shipping_company_name;
-            $this->checkoutData['shipping_email_address']      =   $shipping_email_address;
-            $this->checkoutData['shipping_phone_number']       =   $shipping_phone_number;
-            // $this->checkoutData['shipping_fax_number']         =   $shipping_fax_number;
-            $this->checkoutData['shipping_select_country']     =   $shipping_select_country;
-            $this->checkoutData['shipping_select_state']      =   $shipping_select_state;
-            $this->checkoutData['shipping_select_city']       =   $shipping_select_city;
-            $this->checkoutData['shipping_address_line_1']    =   $shipping_address_line_1;
-            // $this->checkoutData['shipping_address_line_2']     =   $shipping_address_line_2;
+            $this->checkoutData['shipping_first_name']         =   Input::get('account_shipping_first_name');
+            $this->checkoutData['shipping_last_name']          =   Input::get('account_shipping_last_name');
+            $this->checkoutData['shipping_email_address']      =   Input::get('account_shipping_email_address');
+            $this->checkoutData['shipping_phone_number']       =   Input::get('account_shipping_phone_number');
+            $this->checkoutData['shipping_select_country']     =   Input::get('account_shipping_select_country');
+            $this->checkoutData['shipping_select_state']      =   Input::get('account_shipping_select_state');
+            $this->checkoutData['shipping_select_city']       =   Input::get('account_shipping_select_city');
+            $this->checkoutData['shipping_address_line_1']    =   Input::get('account_shipping_address_line_1');
+          }
+          else{
+
+            $this->checkoutData['bill_first_name']            =   Input::get('guest_bill_first_name');
+            $this->checkoutData['bill_last_name']             =   Input::get('guest_bill_last_name');
+            $this->checkoutData['bill_email_address']         =   Input::get('guest_bill_email_address');
+            $this->checkoutData['bill_phone_number']          =   Input::get('guest_bill_phone_number');
+            $this->checkoutData['bill_select_country']        =   Input::get('guest_bill_select_country');
+            $this->checkoutData['bill_select_state']          =   Input::get('guest_bill_select_state');
+            $this->checkoutData['bill_select_city']           =   Input::get('guest_bill_select_city');
+            $this->checkoutData['bill_address_line_1']       =   Input::get('guest_bill_address_line_1');
+            
+            $this->checkoutData['shipping_first_name']         =   Input::get('guest_bill_first_name');
+            $this->checkoutData['shipping_last_name']          =   Input::get('guest_bill_last_name');
+            $this->checkoutData['shipping_email_address']      =   Input::get('guest_bill_email_address');
+            $this->checkoutData['shipping_phone_number']       =   Input::get('guest_bill_phone_number');
+            $this->checkoutData['shipping_select_country']     =   Input::get('guest_bill_select_country');
+            $this->checkoutData['shipping_select_state']      =   Input::get('guest_bill_select_state');
+            $this->checkoutData['shipping_select_city']       =   Input::get('guest_bill_select_city');
+            $this->checkoutData['shipping_address_line_1']    =   Input::get('guest_bill_address_line_1');
+  
           }
           
           $this->checkoutData['payment_method']             =   Input::get('payment_option');
           $this->checkoutData['payment_method_title']       =   Input::get('payment_option');
           $this->checkoutData['order_note']                 =   Input::get('checkout_order_extra_message');
           $this->checkoutData['user_mode']                  =   $checkout_user;  
-          
+
           if(Session::get('checkout_post_details')){
             Session::forget('checkout_post_details');
-            Session::put('checkout_post_details', json_encode($this->checkoutData));
           }
-          else{
-            Session::put('checkout_post_details', json_encode($this->checkoutData));
-          }
+
+          Session::put('checkout_post_details', json_encode($this->checkoutData));
           
           $email_options = get_emails_option_data();
           
@@ -341,7 +297,6 @@ class CheckoutController extends Controller
           elseif(Input::get('payment_option') === 'paypal'){
 
             $vnp_Amount = $this->cartBuy->getTotal() * 100;
-
 
             // return response()->json($vnp_Amount);
 
@@ -408,7 +363,6 @@ class CheckoutController extends Controller
             }
 
             return \Redirect::away($vnp_Url);
-
 
           }
         }
@@ -916,7 +870,7 @@ class CheckoutController extends Controller
     $post->parent_id              =   0;
     $post->post_status            =   1;
     $post->post_type              =   'shop_order';
-    
+
     if($post->save()){
       $order_array = array(
                         array(
@@ -1063,317 +1017,193 @@ class CheckoutController extends Controller
       
       $order_post_meta_data = $order_array;
         
-      if($checkout_details->user_mode == 'guest'){
-        $guest_address_array = array( 
-                          // array(
-                          //         'post_id'       =>  $post->id,
-                          //         'key_name'      =>  '_billing_title',
-                          //         'key_value'     =>  $checkout_details->billing_title,
-                          //         'created_at'    =>  date("y-m-d H:i:s", strtotime('now')),
-                          //         'updated_at'    =>  date("y-m-d H:i:s", strtotime('now'))
-                          //     ), 
-                          array(
-                                  'post_id'       =>  $post->id,
-                                  'key_name'      =>  '_billing_first_name',
-                                  'key_value'     =>  $checkout_details->bill_first_name,
-                                  'created_at'    =>  date("y-m-d H:i:s", strtotime('now')),
-                                  'updated_at'    =>  date("y-m-d H:i:s", strtotime('now'))
-                                ),
-                          array(
-                                  'post_id'       =>  $post->id,
-                                  'key_name'      =>  '_billing_last_name',
-                                  'key_value'     =>  $checkout_details->bill_last_name,
-                                  'created_at'    =>  date("y-m-d H:i:s", strtotime('now')),
-                                  'updated_at'    =>  date("y-m-d H:i:s", strtotime('now'))
-                                ), 
-                          // array(
-                          //         'post_id'       =>  $post->id,
-                          //         'key_name'      =>  '_billing_company',
-                          //         'key_value'     =>  $checkout_details->bill_company_name,
-                          //         'created_at'    =>  date("y-m-d H:i:s", strtotime('now')),
-                          //         'updated_at'    =>  date("y-m-d H:i:s", strtotime('now'))
-                          //       ),  
-                          array(
-                                  'post_id'       =>  $post->id,
-                                  'key_name'      =>  '_billing_email',
-                                  'key_value'     =>  $checkout_details->bill_email_address,
-                                  'created_at'    =>  date("y-m-d H:i:s", strtotime('now')),
-                                  'updated_at'    =>  date("y-m-d H:i:s", strtotime('now'))
-                                ),
-                          array(
-                                  'post_id'       =>  $post->id,
-                                  'key_name'      =>  '_billing_phone',
-                                  'key_value'     =>  $checkout_details->bill_phone_number,
-                                  'created_at'    =>  date("y-m-d H:i:s", strtotime('now')),
-                                  'updated_at'    =>  date("y-m-d H:i:s", strtotime('now'))
-                                ),
-                          // array(
-                          //         'post_id'       =>  $post->id,
-                          //         'key_name'      =>  '_billing_fax',
-                          //         'key_value'     =>  $checkout_details->bill_fax_number,
-                          //         'created_at'    =>  date("y-m-d H:i:s", strtotime('now')),
-                          //         'updated_at'    =>  date("y-m-d H:i:s", strtotime('now'))
-                          //       ),       
-                          array(
-                                  'post_id'       =>  $post->id,
-                                  'key_name'      =>  '_billing_country',
-                                  'key_value'     =>  $checkout_details->bill_select_country,
-                                  'created_at'    =>  date("y-m-d H:i:s", strtotime('now')),
-                                  'updated_at'    =>  date("y-m-d H:i:s", strtotime('now'))
-                                ),
-                          array(
-                                  'post_id'       =>  $post->id,
-                                  'key_name'      =>  '_billing_state',
-                                  'key_value'     =>  $checkout_details->bill_select_state,
-                                  'created_at'    =>  date("y-m-d H:i:s", strtotime('now')),
-                                  'updated_at'    =>  date("y-m-d H:i:s", strtotime('now'))
-                                ),
-                          array(
-                                  'post_id'       =>  $post->id,
-                                  'key_name'      =>  '_billing_address_1',
-                                  'key_value'     =>  $checkout_details->bill_address_line_1,
-                                  'created_at'    =>  date("y-m-d H:i:s", strtotime('now')),
-                                  'updated_at'    =>  date("y-m-d H:i:s", strtotime('now'))
-                                ),
-                          // array(
-                          //         'post_id'       =>  $post->id,
-                          //         'key_name'      =>  '_billing_address_2',
-                          //         'key_value'     =>  $checkout_details->bill_address_line_2,
-                          //         'created_at'    =>  date("y-m-d H:i:s", strtotime('now')),
-                          //         'updated_at'    =>  date("y-m-d H:i:s", strtotime('now'))
-                          //       ), 
-                          array(
-                                  'post_id'       =>  $post->id,
-                                  'key_name'      =>  '_billing_city',
-                                  'key_value'     =>  $checkout_details->bill_select_city,
-                                  'created_at'    =>  date("y-m-d H:i:s", strtotime('now')),
-                                  'updated_at'    =>  date("y-m-d H:i:s", strtotime('now'))
-                                ),
-                          // array(
-                          //         'post_id'       =>  $post->id,
-                          //         'key_name'      =>  '_billing_postcode',
-                          //         'key_value'     =>  '480000',
-                          //         'created_at'    =>  date("y-m-d H:i:s", strtotime('now')),
-                          //         'updated_at'    =>  date("y-m-d H:i:s", strtotime('now'))
-                          //       ),
-                          // array(
-                          //         'post_id'       =>  $post->id,
-                          //         'key_name'      =>  '_shipping_title',
-                          //         'key_value'     =>  $checkout_details->shipping_title,
-                          //         'created_at'    =>  date("y-m-d H:i:s", strtotime('now')),
-                          //         'updated_at'    =>  date("y-m-d H:i:s", strtotime('now'))
-                          //     ), 
-                          array(
-                                  'post_id'       =>  $post->id,
-                                  'key_name'      =>  '_shipping_first_name',
-                                  'key_value'     =>  $checkout_details->shipping_first_name,
-                                  'created_at'    =>  date("y-m-d H:i:s", strtotime('now')),
-                                  'updated_at'    =>  date("y-m-d H:i:s", strtotime('now'))
-                                ),
-                          array(
-                                  'post_id'       =>  $post->id,
-                                  'key_name'      =>  '_shipping_last_name',
-                                  'key_value'     =>  $checkout_details->shipping_last_name,
-                                  'created_at'    =>  date("y-m-d H:i:s", strtotime('now')),
-                                  'updated_at'    =>  date("y-m-d H:i:s", strtotime('now'))
-                                ), 
-                          // array(
-                          //         'post_id'       =>  $post->id,
-                          //         'key_name'      =>  '_shipping_company',
-                          //         'key_value'     =>  $checkout_details->shipping_company_name,
-                          //         'created_at'    =>  date("y-m-d H:i:s", strtotime('now')),
-                          //         'updated_at'    =>  date("y-m-d H:i:s", strtotime('now'))
-                          //       ),  
-                          array(
-                                  'post_id'       =>  $post->id,
-                                  'key_name'      =>  '_shipping_email',
-                                  'key_value'     =>  $checkout_details->shipping_email_address,
-                                  'created_at'    =>  date("y-m-d H:i:s", strtotime('now')),
-                                  'updated_at'    =>  date("y-m-d H:i:s", strtotime('now'))
-                                ),
-                          array(
-                                  'post_id'       =>  $post->id,
-                                  'key_name'      =>  '_shipping_phone',
-                                  'key_value'     =>  $checkout_details->shipping_phone_number,
-                                  'created_at'    =>  date("y-m-d H:i:s", strtotime('now')),
-                                  'updated_at'    =>  date("y-m-d H:i:s", strtotime('now'))
-                                ),
-                          // array(
-                          //         'post_id'       =>  $post->id,
-                          //         'key_name'      =>  '_shipping_fax',
-                          //         'key_value'     =>  $checkout_details->shipping_fax_number,
-                          //         'created_at'    =>  date("y-m-d H:i:s", strtotime('now')),
-                          //         'updated_at'    =>  date("y-m-d H:i:s", strtotime('now'))
-                          //       ),       
-                          array(
-                                  'post_id'       =>  $post->id,
-                                  'key_name'      =>  '_shipping_country',
-                                  'key_value'     =>  $checkout_details->shipping_select_country,
-                                  'created_at'    =>  date("y-m-d H:i:s", strtotime('now')),
-                                  'updated_at'    =>  date("y-m-d H:i:s", strtotime('now'))
-                                ),
-                          array(
-                                  'post_id'       =>  $post->id,
-                                  'key_name'      =>  '_shipping_state',
-                                  'key_value'     =>  $checkout_details->shipping_select_state,
-                                  'created_at'    =>  date("y-m-d H:i:s", strtotime('now')),
-                                  'updated_at'    =>  date("y-m-d H:i:s", strtotime('now'))
-                                ),
+      $user_address_array = array( 
+                        // array(
+                        //         'post_id'       =>  $post->id,
+                        //         'key_name'      =>  '_billing_title',
+                        //         'key_value'     =>  $checkout_details->billing_title,
+                        //         'created_at'    =>  date("y-m-d H:i:s", strtotime('now')),
+                        //         'updated_at'    =>  date("y-m-d H:i:s", strtotime('now'))
+                        //     ), 
+                        array(
+                                'post_id'       =>  $post->id,
+                                'key_name'      =>  '_billing_first_name',
+                                'key_value'     =>  $checkout_details->bill_first_name,
+                                'created_at'    =>  date("y-m-d H:i:s", strtotime('now')),
+                                'updated_at'    =>  date("y-m-d H:i:s", strtotime('now'))
+                              ),
+                        array(
+                                'post_id'       =>  $post->id,
+                                'key_name'      =>  '_billing_last_name',
+                                'key_value'     =>  $checkout_details->bill_last_name,
+                                'created_at'    =>  date("y-m-d H:i:s", strtotime('now')),
+                                'updated_at'    =>  date("y-m-d H:i:s", strtotime('now'))
+                              ), 
+                        // array(
+                        //         'post_id'       =>  $post->id,
+                        //         'key_name'      =>  '_billing_company',
+                        //         'key_value'     =>  $checkout_details->bill_company_name,
+                        //         'created_at'    =>  date("y-m-d H:i:s", strtotime('now')),
+                        //         'updated_at'    =>  date("y-m-d H:i:s", strtotime('now'))
+                        //       ),  
+                        array(
+                                'post_id'       =>  $post->id,
+                                'key_name'      =>  '_billing_email',
+                                'key_value'     =>  $checkout_details->bill_email_address,
+                                'created_at'    =>  date("y-m-d H:i:s", strtotime('now')),
+                                'updated_at'    =>  date("y-m-d H:i:s", strtotime('now'))
+                              ),
+                        array(
+                                'post_id'       =>  $post->id,
+                                'key_name'      =>  '_billing_phone',
+                                'key_value'     =>  $checkout_details->bill_phone_number,
+                                'created_at'    =>  date("y-m-d H:i:s", strtotime('now')),
+                                'updated_at'    =>  date("y-m-d H:i:s", strtotime('now'))
+                              ),
+                        // array(
+                        //         'post_id'       =>  $post->id,
+                        //         'key_name'      =>  '_billing_fax',
+                        //         'key_value'     =>  $checkout_details->bill_fax_number,
+                        //         'created_at'    =>  date("y-m-d H:i:s", strtotime('now')),
+                        //         'updated_at'    =>  date("y-m-d H:i:s", strtotime('now'))
+                        //       ),       
+                        array(
+                                'post_id'       =>  $post->id,
+                                'key_name'      =>  '_billing_country',
+                                'key_value'     =>  $checkout_details->bill_select_country,
+                                'created_at'    =>  date("y-m-d H:i:s", strtotime('now')),
+                                'updated_at'    =>  date("y-m-d H:i:s", strtotime('now'))
+                              ),
+                        array(
+                                'post_id'       =>  $post->id,
+                                'key_name'      =>  '_billing_state',
+                                'key_value'     =>  $checkout_details->bill_select_state,
+                                'created_at'    =>  date("y-m-d H:i:s", strtotime('now')),
+                                'updated_at'    =>  date("y-m-d H:i:s", strtotime('now'))
+                              ),
+                        array(
+                                'post_id'       =>  $post->id,
+                                'key_name'      =>  '_billing_address_1',
+                                'key_value'     =>  $checkout_details->bill_address_line_1,
+                                'created_at'    =>  date("y-m-d H:i:s", strtotime('now')),
+                                'updated_at'    =>  date("y-m-d H:i:s", strtotime('now'))
+                              ),
+                        // array(
+                        //         'post_id'       =>  $post->id,
+                        //         'key_name'      =>  '_billing_address_2',
+                        //         'key_value'     =>  $checkout_details->bill_address_line_2,
+                        //         'created_at'    =>  date("y-m-d H:i:s", strtotime('now')),
+                        //         'updated_at'    =>  date("y-m-d H:i:s", strtotime('now'))
+                        //       ), 
+                        array(
+                                'post_id'       =>  $post->id,
+                                'key_name'      =>  '_billing_city',
+                                'key_value'     =>  $checkout_details->bill_select_city,
+                                'created_at'    =>  date("y-m-d H:i:s", strtotime('now')),
+                                'updated_at'    =>  date("y-m-d H:i:s", strtotime('now'))
+                              ),
+                        // array(
+                        //         'post_id'       =>  $post->id,
+                        //         'key_name'      =>  '_billing_postcode',
+                        //         'key_value'     =>  '480000',
+                        //         'created_at'    =>  date("y-m-d H:i:s", strtotime('now')),
+                        //         'updated_at'    =>  date("y-m-d H:i:s", strtotime('now'))
+                        //       ),
+                        // array(
+                        //         'post_id'       =>  $post->id,
+                        //         'key_name'      =>  '_shipping_title',
+                        //         'key_value'     =>  $checkout_details->shipping_title,
+                        //         'created_at'    =>  date("y-m-d H:i:s", strtotime('now')),
+                        //         'updated_at'    =>  date("y-m-d H:i:s", strtotime('now'))
+                        //     ), 
+                        array(
+                                'post_id'       =>  $post->id,
+                                'key_name'      =>  '_shipping_first_name',
+                                'key_value'     =>  $checkout_details->shipping_first_name,
+                                'created_at'    =>  date("y-m-d H:i:s", strtotime('now')),
+                                'updated_at'    =>  date("y-m-d H:i:s", strtotime('now'))
+                              ),
+                        array(
+                                'post_id'       =>  $post->id,
+                                'key_name'      =>  '_shipping_last_name',
+                                'key_value'     =>  $checkout_details->shipping_last_name,
+                                'created_at'    =>  date("y-m-d H:i:s", strtotime('now')),
+                                'updated_at'    =>  date("y-m-d H:i:s", strtotime('now'))
+                              ), 
+                        // array(
+                        //         'post_id'       =>  $post->id,
+                        //         'key_name'      =>  '_shipping_company',
+                        //         'key_value'     =>  $checkout_details->shipping_company_name,
+                        //         'created_at'    =>  date("y-m-d H:i:s", strtotime('now')),
+                        //         'updated_at'    =>  date("y-m-d H:i:s", strtotime('now'))
+                        //       ),  
+                        array(
+                                'post_id'       =>  $post->id,
+                                'key_name'      =>  '_shipping_email',
+                                'key_value'     =>  $checkout_details->shipping_email_address,
+                                'created_at'    =>  date("y-m-d H:i:s", strtotime('now')),
+                                'updated_at'    =>  date("y-m-d H:i:s", strtotime('now'))
+                              ),
+                        array(
+                                'post_id'       =>  $post->id,
+                                'key_name'      =>  '_shipping_phone',
+                                'key_value'     =>  $checkout_details->shipping_phone_number,
+                                'created_at'    =>  date("y-m-d H:i:s", strtotime('now')),
+                                'updated_at'    =>  date("y-m-d H:i:s", strtotime('now'))
+                              ),
+                        // array(
+                        //         'post_id'       =>  $post->id,
+                        //         'key_name'      =>  '_shipping_fax',
+                        //         'key_value'     =>  $checkout_details->shipping_fax_number,
+                        //         'created_at'    =>  date("y-m-d H:i:s", strtotime('now')),
+                        //         'updated_at'    =>  date("y-m-d H:i:s", strtotime('now'))
+                        //       ),       
+                        array(
+                                'post_id'       =>  $post->id,
+                                'key_name'      =>  '_shipping_country',
+                                'key_value'     =>  $checkout_details->shipping_select_country,
+                                'created_at'    =>  date("y-m-d H:i:s", strtotime('now')),
+                                'updated_at'    =>  date("y-m-d H:i:s", strtotime('now'))
+                              ),
+                        array(
+                                'post_id'       =>  $post->id,
+                                'key_name'      =>  '_shipping_state',
+                                'key_value'     =>  $checkout_details->shipping_select_state,
+                                'created_at'    =>  date("y-m-d H:i:s", strtotime('now')),
+                                'updated_at'    =>  date("y-m-d H:i:s", strtotime('now'))
+                              ),
 
-                          array(
-                                  'post_id'       =>  $post->id,
-                                  'key_name'      =>  '_shipping_address_1',
-                                  'key_value'     =>  $checkout_details->shipping_address_line_1,
-                                  'created_at'    =>  date("y-m-d H:i:s", strtotime('now')),
-                                  'updated_at'    =>  date("y-m-d H:i:s", strtotime('now'))
-                                ),
-                          // array(
-                          //         'post_id'       =>  $post->id,
-                          //         'key_name'      =>  '_shipping_address_2',
-                          //         'key_value'     =>  $checkout_details->shipping_address_line_2,
-                          //         'created_at'    =>  date("y-m-d H:i:s", strtotime('now')),
-                          //         'updated_at'    =>  date("y-m-d H:i:s", strtotime('now'))
-                          //       ), 
-                          array(
-                                  'post_id'       =>  $post->id,
-                                  'key_name'      =>  '_shipping_city',
-                                  'key_value'     =>  $checkout_details->shipping_select_city,
-                                  'created_at'    =>  date("y-m-d H:i:s", strtotime('now')),
-                                  'updated_at'    =>  date("y-m-d H:i:s", strtotime('now'))
-                                ),
-                          // array(
-                          //         'post_id'       =>  $post->id,
-                          //         'key_name'      =>  '_shipping_postcode',
-                          //         'key_value'     =>  '480000',
-                          //         'created_at'    =>  date("y-m-d H:i:s", strtotime('now')),
-                          //         'updated_at'    =>  date("y-m-d H:i:s", strtotime('now'))
-                          //       ),        
-                      ); 
-        
-        $order_post_meta_data = array_merge($order_array, $guest_address_array);
-      }
-      else{
-        $user_address_array = array( 
-          
-            array(
-                    'post_id'       =>  $post->id,
-                    'key_name'      =>  '_billing_first_name',
-                    'key_value'     =>  $checkout_details->bill_first_name,
-                    'created_at'    =>  date("y-m-d H:i:s", strtotime('now')),
-                    'updated_at'    =>  date("y-m-d H:i:s", strtotime('now'))
-                  ),
-            array(
-                    'post_id'       =>  $post->id,
-                    'key_name'      =>  '_billing_last_name',
-                    'key_value'     =>  $checkout_details->bill_last_name,
-                    'created_at'    =>  date("y-m-d H:i:s", strtotime('now')),
-                    'updated_at'    =>  date("y-m-d H:i:s", strtotime('now'))
-                  ), 
-            array(
-                    'post_id'       =>  $post->id,
-                    'key_name'      =>  '_billing_email',
-                    'key_value'     =>  $checkout_details->bill_email_address,
-                    'created_at'    =>  date("y-m-d H:i:s", strtotime('now')),
-                    'updated_at'    =>  date("y-m-d H:i:s", strtotime('now'))
-                  ),
-            array(
-                    'post_id'       =>  $post->id,
-                    'key_name'      =>  '_billing_phone',
-                    'key_value'     =>  $checkout_details->bill_phone_number,
-                    'created_at'    =>  date("y-m-d H:i:s", strtotime('now')),
-                    'updated_at'    =>  date("y-m-d H:i:s", strtotime('now'))
-                  ),
-            array(
-                    'post_id'       =>  $post->id,
-                    'key_name'      =>  '_billing_country',
-                    'key_value'     =>  $checkout_details->bill_select_country,
-                    'created_at'    =>  date("y-m-d H:i:s", strtotime('now')),
-                    'updated_at'    =>  date("y-m-d H:i:s", strtotime('now'))
-                  ),
-            array(
-                    'post_id'       =>  $post->id,
-                    'key_name'      =>  '_billing_state',
-                    'key_value'     =>  $checkout_details->bill_select_state,
-                    'created_at'    =>  date("y-m-d H:i:s", strtotime('now')),
-                    'updated_at'    =>  date("y-m-d H:i:s", strtotime('now'))
-                  ),
-            array(
-                    'post_id'       =>  $post->id,
-                    'key_name'      =>  '_billing_address_1',
-                    'key_value'     =>  $checkout_details->bill_address_line_1,
-                    'created_at'    =>  date("y-m-d H:i:s", strtotime('now')),
-                    'updated_at'    =>  date("y-m-d H:i:s", strtotime('now'))
-                  ),
-            array(
-                    'post_id'       =>  $post->id,
-                    'key_name'      =>  '_billing_city',
-                    'key_value'     =>  $checkout_details->bill_select_city,
-                    'created_at'    =>  date("y-m-d H:i:s", strtotime('now')),
-                    'updated_at'    =>  date("y-m-d H:i:s", strtotime('now'))
-                  ),
-            array(
-                    'post_id'       =>  $post->id,
-                    'key_name'      =>  '_shipping_first_name',
-                    'key_value'     =>  $checkout_details->shipping_first_name,
-                    'created_at'    =>  date("y-m-d H:i:s", strtotime('now')),
-                    'updated_at'    =>  date("y-m-d H:i:s", strtotime('now'))
-                  ),
-            array(
-                    'post_id'       =>  $post->id,
-                    'key_name'      =>  '_shipping_last_name',
-                    'key_value'     =>  $checkout_details->shipping_last_name,
-                    'created_at'    =>  date("y-m-d H:i:s", strtotime('now')),
-                    'updated_at'    =>  date("y-m-d H:i:s", strtotime('now'))
-                  ), 
-            array(
-                    'post_id'       =>  $post->id,
-                    'key_name'      =>  '_shipping_email',
-                    'key_value'     =>  $checkout_details->shipping_email_address,
-                    'created_at'    =>  date("y-m-d H:i:s", strtotime('now')),
-                    'updated_at'    =>  date("y-m-d H:i:s", strtotime('now'))
-                  ),
-            array(
-                    'post_id'       =>  $post->id,
-                    'key_name'      =>  '_shipping_phone',
-                    'key_value'     =>  $checkout_details->shipping_phone_number,
-                    'created_at'    =>  date("y-m-d H:i:s", strtotime('now')),
-                    'updated_at'    =>  date("y-m-d H:i:s", strtotime('now'))
-                  ),
-            array(
-                    'post_id'       =>  $post->id,
-                    'key_name'      =>  '_shipping_country',
-                    'key_value'     =>  $checkout_details->shipping_select_country,
-                    'created_at'    =>  date("y-m-d H:i:s", strtotime('now')),
-                    'updated_at'    =>  date("y-m-d H:i:s", strtotime('now'))
-                  ),
-            array(
-                    'post_id'       =>  $post->id,
-                    'key_name'      =>  '_shipping_state',
-                    'key_value'     =>  $checkout_details->shipping_select_state,
-                    'created_at'    =>  date("y-m-d H:i:s", strtotime('now')),
-                    'updated_at'    =>  date("y-m-d H:i:s", strtotime('now'))
-                  ),
-
-            array(
-                    'post_id'       =>  $post->id,
-                    'key_name'      =>  '_shipping_address_1',
-                    'key_value'     =>  $checkout_details->shipping_address_line_1,
-                    'created_at'    =>  date("y-m-d H:i:s", strtotime('now')),
-                    'updated_at'    =>  date("y-m-d H:i:s", strtotime('now'))
-                  ),
-            array(
-                    'post_id'       =>  $post->id,
-                    'key_name'      =>  '_shipping_city',
-                    'key_value'     =>  $checkout_details->shipping_select_city,
-                    'created_at'    =>  date("y-m-d H:i:s", strtotime('now')),
-                    'updated_at'    =>  date("y-m-d H:i:s", strtotime('now'))
-                  ),
-        ); 
-
-        $order_post_meta_data = array_merge($order_array, $user_address_array);
-
-
-      }  
+                        array(
+                                'post_id'       =>  $post->id,
+                                'key_name'      =>  '_shipping_address_1',
+                                'key_value'     =>  $checkout_details->shipping_address_line_1,
+                                'created_at'    =>  date("y-m-d H:i:s", strtotime('now')),
+                                'updated_at'    =>  date("y-m-d H:i:s", strtotime('now'))
+                              ),
+                        // array(
+                        //         'post_id'       =>  $post->id,
+                        //         'key_name'      =>  '_shipping_address_2',
+                        //         'key_value'     =>  $checkout_details->shipping_address_line_2,
+                        //         'created_at'    =>  date("y-m-d H:i:s", strtotime('now')),
+                        //         'updated_at'    =>  date("y-m-d H:i:s", strtotime('now'))
+                        //       ), 
+                        array(
+                                'post_id'       =>  $post->id,
+                                'key_name'      =>  '_shipping_city',
+                                'key_value'     =>  $checkout_details->shipping_select_city,
+                                'created_at'    =>  date("y-m-d H:i:s", strtotime('now')),
+                                'updated_at'    =>  date("y-m-d H:i:s", strtotime('now'))
+                              ),
+                        // array(
+                        //         'post_id'       =>  $post->id,
+                        //         'key_name'      =>  '_shipping_postcode',
+                        //         'key_value'     =>  '480000',
+                        //         'created_at'    =>  date("y-m-d H:i:s", strtotime('now')),
+                        //         'updated_at'    =>  date("y-m-d H:i:s", strtotime('now'))
+                        //       ),        
+                    ); 
+      
+      $order_post_meta_data = array_merge($order_array, $user_address_array);
       
       if(PostExtra::insert($order_post_meta_data)){
         if(!is_null($vendor_id) && $vendor_id > 0){
@@ -1488,6 +1318,7 @@ class CheckoutController extends Controller
         }
       }
     } 
+
   }
 
   public function save_checkout_data_bk(){

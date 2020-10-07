@@ -2538,7 +2538,6 @@ class GetFunction
       if(!empty($get_order_user)){
         $order_user = unserialize($get_order_user->key_value);
         
-        if($order_user['user_mode'] == 'guest'){
 
           $get_order_post_meta    =   PostExtra :: where('post_id', $order_id)->get();
           
@@ -2627,44 +2626,6 @@ class GetFunction
               // }
             }
           }
-        }
-        elseif($order_user['user_mode'] == 'login'){
-          $get_data_by_user_id     =  get_user_account_details_by_user_id( $order_user['user_id'] ); 
-          $get_array_shift_data    =  array_shift($get_data_by_user_id);
-          $user_account_parse_data =  json_decode($get_array_shift_data['details']);
-          
-          if(!empty($user_account_parse_data) && !empty($user_account_parse_data->address_details)){
-            // $user_address['_billing_title'] = $user_account_parse_data->address_details->account_bill_title;
-            $user_address['_billing_first_name'] = $user_account_parse_data->address_details->account_bill_first_name;
-            $user_address['_billing_last_name'] = $user_account_parse_data->address_details->account_bill_last_name;
-            // $user_address['_billing_company'] = $user_account_parse_data->address_details->account_bill_company_name;
-            $user_address['_billing_email'] = $user_account_parse_data->address_details->account_bill_email_address;
-            $user_address['_billing_phone'] = $user_account_parse_data->address_details->account_bill_phone_number;
-            // $user_address['_billing_fax'] = $user_account_parse_data->address_details->account_bill_fax_number; 
-            $user_address['_billing_country'] = get_tinhthanh($user_account_parse_data->address_details->account_bill_select_country); 
-            $user_address['_billing_state'] = get_quanhuyen($user_account_parse_data->address_details->account_bill_select_state);
-            $user_address['_billing_city'] = get_xaphuong($user_account_parse_data->address_details->account_bill_select_city);
-            $user_address['_billing_address_1'] = $user_account_parse_data->address_details->account_bill_address_line_1; 
-            // $user_address['_billing_address_2'] = $user_account_parse_data->address_details->account_bill_address_line_2; 
-
-            // $user_address['_billing_postcode'] = $user_account_parse_data->address_details->account_bill_zip_or_postal_code;
-            
-            // $user_address['_shipping_title'] = $user_account_parse_data->address_details->account_shipping_title;
-            $user_address['_shipping_first_name'] = $user_account_parse_data->address_details->account_shipping_first_name;
-            $user_address['_shipping_last_name'] = $user_account_parse_data->address_details->account_shipping_last_name;
-            // $user_address['_shipping_company'] = $user_account_parse_data->address_details->account_shipping_company_name;
-            $user_address['_shipping_email'] = $user_account_parse_data->address_details->account_shipping_email_address;
-            $user_address['_shipping_phone'] = $user_account_parse_data->address_details->account_shipping_phone_number;
-            // $user_address['_shipping_fax'] = $user_account_parse_data->address_details->account_shipping_fax_number; 
-            $user_address['_shipping_country'] = $user_account_parse_data->address_details->account_shipping_select_country; 
-            $user_address['_shipping_state'] = $user_account_parse_data->address_details->account_shipping_select_state;
-            $user_address['_shipping_city'] = $user_account_parse_data->address_details->account_shipping_select_city;
-            $user_address['_shipping_address_1'] = $user_account_parse_data->address_details->account_shipping_address_line_1; 
-            // $user_address['_shipping_address_2'] = $user_account_parse_data->address_details->account_shipping_address_line_2; 
-
-            // $user_address['_shipping_postcode'] = $user_account_parse_data->address_details->account_shipping_zip_or_postal_code;
-          }
-        }
       }
     }
     
