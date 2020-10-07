@@ -80,7 +80,7 @@
           <div class="col-md-12">
             <div class="form-group">
               <label class="control-label" for="inputAccountAddressLine1">{{ trans('frontend.account_address_line_1') }}</label>
-              <input type="text" class="form-control" id="account_bill_adddress_line_1" name="account_bill_adddress_line_1" placeholder="{{ trans('frontend.address_line_1') }}" value="{{ old('account_bill_adddress_line_1') }}">
+              <input type="text" class="form-control" id="account_bill_address_line_1" name="account_bill_address_line_1" placeholder="{{ trans('frontend.address_line_1') }}" value="{{ old('account_bill_address_line_1') }}">
             </div>
           </div>
       

@@ -33,7 +33,7 @@
           <div class="col-sm-6">
             <div class="form-group">
               <label for="account_bill_email_address">{{ trans('frontend.email_address') }}</label>
-              <input type="email" class="form-control" placeholder="{{ trans('frontend.email_address') }}" name="account_bill_email_address" id="account_bill_email_address" value="{{ $frontend_account_details->address_details->account_bill_email_address }}">
+              <input type="email" class="form-control" placeholder="{{ trans('frontend.email_address') }}" name="account_bill_email_address" id="account_bill_email_address" value="{{ $user_info['user_email'] }}" disabled>
             </div>
           </div>
 
@@ -90,8 +90,8 @@
       
           <div class="col-md-12">
             <div class="form-group">
-              <label for="account_bill_adddress_line_1">{{ trans('frontend.account_address_line_1') }}</label>
-              <input type="text" class="form-control" id="account_bill_adddress_line_1" name="account_bill_adddress_line_1" placeholder="{{ trans('frontend.address_line_1') }}" value="{{ $frontend_account_details->address_details->account_bill_adddress_line_1 }}">
+              <label for="account_bill_address_line_1">{{ trans('frontend.account_address_line_1') }}</label>
+              <input type="text" class="form-control" id="account_bill_address_line_1" name="account_bill_address_line_1" placeholder="{{ trans('frontend.address_line_1') }}" value="{{ $frontend_account_details->address_details->account_bill_address_line_1 }}">
             </div>
           </div>
       
@@ -131,7 +131,7 @@
           <div class="col-sm-6">
             <div class="form-group">
               <label for="account_shipping_email_address">{{ trans('frontend.email_address') }}</label>
-              <input type="email" class="form-control" placeholder="{{ trans('frontend.email_address') }}" name="account_shipping_email_address" id="account_shipping_email_address" value="{{ $frontend_account_details->address_details->account_shipping_email_address }}">
+              <input type="email" class="form-control" placeholder="{{ trans('frontend.email_address') }}" name="account_shipping_email_address" id="account_shipping_email_address" value="{{ $user_info['user_email'] }}" disabled>
             </div>
           </div>
 
@@ -202,8 +202,8 @@
       
           <div class="col-md-12">
             <div class="form-group">
-              <label for="account_shipping_adddress_line_1">{{ trans('frontend.account_address_line_1') }}</label>
-              <input type="text" class="form-control"  id="account_shipping_adddress_line_1" name="account_shipping_adddress_line_1" placeholder="{{ trans('frontend.address_line_1') }}" value="{{ $frontend_account_details->address_details->account_shipping_adddress_line_1 }}">
+              <label for="account_shipping_address_line_1">{{ trans('frontend.account_address_line_1') }}</label>
+              <input type="text" class="form-control"  id="account_shipping_address_line_1" name="account_shipping_address_line_1" placeholder="{{ trans('frontend.address_line_1') }}" value="{{ $frontend_account_details->address_details->account_shipping_address_line_1 }}">
             </div>
           </div>
       

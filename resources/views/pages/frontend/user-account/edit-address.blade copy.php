@@ -88,7 +88,7 @@
           <label class="control-label" for="inputAccountAddressLine1">{{ trans('frontend.account_address_line_1') }}</label>
         </div>
         <div class="col-sm-8">
-          <textarea class="form-control" id="account_bill_adddress_line_1" name="account_bill_adddress_line_1" placeholder="{{ trans('frontend.address_line_1') }}"> {{ $frontend_account_details->address_details->account_bill_adddress_line_1 }} </textarea>
+          <textarea class="form-control" id="account_bill_address_line_1" name="account_bill_address_line_1" placeholder="{{ trans('frontend.address_line_1') }}"> {{ $frontend_account_details->address_details->account_bill_address_line_1 }} </textarea>
         </div>
       </div>
       
@@ -97,7 +97,7 @@
           <label class="control-label" for="inputAccountAddressLine2">{{ trans('frontend.account_address_line_2') }}</label>
         </div>
         <div class="col-sm-8">
-          <textarea class="form-control" id="account_bill_adddress_line_2" name="account_bill_adddress_line_2" placeholder="{{ trans('frontend.address_line_2') }}"> {{ $frontend_account_details->address_details->account_bill_adddress_line_2 }} </textarea>
+          <textarea class="form-control" id="account_bill_address_line_2" name="account_bill_address_line_2" placeholder="{{ trans('frontend.address_line_2') }}"> {{ $frontend_account_details->address_details->account_bill_address_line_2 }} </textarea>
         </div>
       </div>
       
@@ -213,7 +213,7 @@
           <label class="control-label" for="inputAccountAddressLine1">{{ trans('frontend.account_address_line_1') }}</label>
         </div>
         <div class="col-sm-8">
-          <textarea class="form-control" id="account_shipping_adddress_line_1" name="account_shipping_adddress_line_1" placeholder="{{ trans('frontend.address_line_1') }}">{{ $frontend_account_details->address_details->account_shipping_adddress_line_1 }}</textarea>
+          <textarea class="form-control" id="account_shipping_address_line_1" name="account_shipping_address_line_1" placeholder="{{ trans('frontend.address_line_1') }}">{{ $frontend_account_details->address_details->account_shipping_address_line_1 }}</textarea>
         </div>
       </div>
       
@@ -222,7 +222,7 @@
           <label class="control-label" for="inputAccountAddressLine2">{{ trans('frontend.account_address_line_2') }}</label>
         </div>
         <div class="col-sm-8">
-          <textarea class="form-control" id="account_shipping_adddress_line_2" name="account_shipping_adddress_line_2" placeholder="{{ trans('frontend.address_line_2') }}">{{ $frontend_account_details->address_details->account_shipping_adddress_line_2 }}</textarea>
+          <textarea class="form-control" id="account_shipping_address_line_2" name="account_shipping_address_line_2" placeholder="{{ trans('frontend.address_line_2') }}">{{ $frontend_account_details->address_details->account_shipping_address_line_2 }}</textarea>
         </div>
       </div>
       

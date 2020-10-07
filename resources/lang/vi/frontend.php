@@ -154,7 +154,7 @@ return [
   'country' =>'Tỉnh / Thành phố',
   'phone' =>'Số điện thoại',
   'fax' =>'Số fax',
-  'email' =>'Địa chi email *',
+  'email' =>'Địa chi email',
   'shipping_address' =>'Địa chỉ giao hàng',
   'no_content_yet' =>'Chưa có nội dung!',
   'offer_msg' =>'Nhanh lên, cung cấp giới hạn từ',
