@@ -176,15 +176,10 @@
                     <div class="row">
 
                         <div class="col-md-12 padding-top-1x">
-                            <div class="row">
-
-                                <!-- Start Slider Area -->
-                                <a href="{{ $slide_list_3->url }}" target="_blank">
-                                    <img src="{{ get_image_url($slide_list_3->img_url) }}" alt="{{ $slide_list_3->name }}" />
-                                </a>
-
-                            </div>
-
+                            <!-- Start Slider Area -->
+                            <a href="{{ $slide_list_3->url }}" target="_blank">
+                                <img src="{{ get_image_url($slide_list_3->img_url) }}" alt="{{ $slide_list_3->name }}" />
+                            </a>
                         </div>
 
                     </div>
