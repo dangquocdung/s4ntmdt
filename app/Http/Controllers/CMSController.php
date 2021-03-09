@@ -378,8 +378,12 @@ class CMSController extends Controller
     $login_user_details = json_decode(array_shift($get_user_store_data)['details']);
     
     $data = $common_obj->commonDataForAllPages();
+    
+    $data['seo_data'] = get_log_data();
 
     return response()->json($data);
+
+    return view('pages.admin.log.log-content', $data);
     
     // if(is_vendor_login()){
     //   $data['seo_data'] = $login_user_details->seo;

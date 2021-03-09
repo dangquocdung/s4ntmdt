@@ -2348,6 +2348,17 @@ class GetFunction
     $_this  =  new self;
     return $_this->option->getSEOData();
   }
+
+
+  public static function log_data(){
+
+    $get_logs = DB::table('users')
+                   ->get()
+                   ->toArray();
+    return $get_logs;
+    
+
+  }
   
   public static function subscription_data(){
     $_this     =   new self;

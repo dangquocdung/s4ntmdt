@@ -754,6 +754,17 @@ function get_seo_data()
 }
 
 /**
+ * Get global LOG data
+ *
+ * @param null
+ * @return array
+ */
+function get_log_data()
+{
+  return GetFunction::log_data();
+}
+
+/**
  * Get Subscription data
  *
  * @param null
