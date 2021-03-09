@@ -21,22 +21,7 @@
   <div class="col-12">
     <div class="box">
       <div class="box-body">
-        <!-- <div id="table_search_option">
-          <form action="{{ route('admin.users_list') }}" method="GET"> 
-            <div class="row">
-              <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-                <div class="input-group">
-                  <input type="text" name="term_user_name" class="search-query form-control" placeholder="Nhập tên người dùng để tìm kiếm" value="{{ $search_value }}" />
-                  <div class="input-group-btn">
-                    <button class="btn btn-primary" type="submit">
-                      <span class="fa fa-search"></span>
-                    </button>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </form>  
-        </div>       -->
+        
         <table class="table table-bordered table-responsive admin-data-table admin-data-list" id="user-list-tbl">
           <thead class="thead-dark">
             <tr>
