@@ -64,7 +64,7 @@
               <td>{{ trans('admin.disable') }}</td>
               @endif
 
-              <td>{!! $row['user_role'] !!}</td>
+              <td>{!! $row['created_at']['date'] !!}</td>
 
                 
               <td>
