@@ -39,7 +39,19 @@
             @foreach($log_data as $row)
             <tr>
               <td>{!! $row->id !!}</td>
-             
+              <td>{!! $row->name !!}</td>
+              
+              <td>{!! $row->display_name !!}</td>
+              
+              <td>{!! $row->email !!}</td>
+              
+              <td>{!! $row->user_photo_url !!}</td>
+              
+              @if($row->user_status == 1)
+              <td>{{ trans('admin.enable') }}</td>
+              @else
+              <td style="color:red">{{ trans('admin.disable') }}</td>
+              @endif
 
 
                 
