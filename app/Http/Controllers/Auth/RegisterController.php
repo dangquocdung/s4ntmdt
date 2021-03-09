@@ -531,7 +531,7 @@ class RegisterController extends Controller
             $User->email              =    Input::get('reg_email_id');
             $User->password           =    bcrypt( trim(Input::get('reg_password')) );
             $User->user_photo_url     =    '';
-            $User->user_status        =    0;
+            $User->user_status        =    1;
             $User->secret_key         =    bcrypt( trim(Input::get('reg_secret_key')) );
             $User->confirmation_code  =    time().uniqid(true);
 
@@ -541,20 +541,22 @@ class RegisterController extends Controller
 
               if($Roleuser->save()){
 
-                if($email_options['new_customer_account']['enable_disable'] == true && $this->env === 'production'){
+                // if($email_options['new_customer_account']['enable_disable'] == true && $this->env === 'production'){
 
-                  $user_pwd = trim(Input::get('reg_password'));
-                  $secret_key = trim(Input::get('reg_secret_key'));
+                //   $user_pwd = trim(Input::get('reg_password'));
+                //   $secret_key = trim(Input::get('reg_secret_key'));
 
-                  $this->classGetFunction->sendCustomMail( array('source' => 'new_customer_account', 'email' => Input::get('reg_email_id'), 'confirmation_code' => $User->confirmation_code, 'user_name' => $User->name, 'user_pwd' => $user_pwd, 'secret_key' => $secret_key ));
+                //   $this->classGetFunction->sendCustomMail( array('source' => 'new_customer_account', 'email' => Input::get('reg_email_id'), 'confirmation_code' => $User->confirmation_code, 'user_name' => $User->name, 'user_pwd' => $user_pwd, 'secret_key' => $secret_key ));
 
-                }
+                // }
 
-                Session::flash('success-message', 'Bạn đã tạo tài khoản thành công. Để tài khoản hoạt động, bạn cần kiểm tra email và làm theo hướng dẫn' );
+                // Session::flash('success-message', 'Bạn đã tạo tài khoản thành công. Để tài khoản hoạt động, bạn cần kiểm tra email và làm theo hướng dẫn' );
+
+                Session::flash('success-message', 'Bạn đã tạo tài khoản thành công. Vui lòng đăng nhập để tiếp tục' );
+
 
                 return redirect()->route('user-login-page');
 
-                // return redirect()->route('user-login-page');
 
               }
             }
