@@ -21,7 +21,6 @@ use dungthinh\Models\RoleUser;
 use Auth;
 use dungthinh\Models\Logging;
 
-
 class LoginController extends Controller
 {
     /*
@@ -136,7 +135,6 @@ class LoginController extends Controller
 
   }
   
-  
   /**
    * 
    * Manage admin login
@@ -194,7 +192,6 @@ class LoginController extends Controller
 
             Logging::log("Đăng nhập thành công");
 
-
             $remember = (Input::has('remember_me')) ? true : false;
 
             if($remember == TRUE){
@@ -215,14 +212,11 @@ class LoginController extends Controller
           }
           else{            
             
-            Logging::log("Đăng nhập thất bại");
-
             Session::flash('error-message', Lang::get('admin.authentication_failed_msg'));
             return redirect()-> back();
           }
         }
         else{
-          Logging::log("Đăng nhập thất bại");
 
           Session::flash('error-message', Lang::get('admin.authentication_failed_msg'));
           return redirect()-> back();
@@ -230,7 +224,6 @@ class LoginController extends Controller
       }
     }
     else{
-      Logging::log("Đăng nhập thất bại");
 
       return redirect()-> back();
     }
@@ -274,7 +267,6 @@ class LoginController extends Controller
         $password       =      bcrypt(Input::get('login_password'));
         $userdata       =      ['name' => $username, 'user_status' => 1];
         $data           =      User::where($userdata)->first();
-        
         
         if(!empty($data) && isset($data->password) && isset($data->id)){
           $get_user_role =  get_user_details( $data->id );
@@ -341,7 +333,6 @@ class LoginController extends Controller
     }
   }
 
-
   /**
    * 
    * Facebook login
@@ -349,7 +340,6 @@ class LoginController extends Controller
    * @param null
    * @return response
    */
-
 
   public function redirectToProvider($provider){
 
@@ -405,7 +395,6 @@ class LoginController extends Controller
       $User->provider_id        =    $user->id;
       $User->provider           =    $provider;
 
-
       if($User->save()){
         $Roleuser->user_id    =    $User->id;
         $Roleuser->role_id    =    $get_role->id;
@@ -415,7 +404,6 @@ class LoginController extends Controller
         }
       }
     }
-
 
   }
 }
