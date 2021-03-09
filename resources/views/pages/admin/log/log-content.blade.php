@@ -38,8 +38,8 @@
             @if(count($log_data)>0)
             @foreach($log_data as $row)
             <tr>
-              <td>{!! $row['id'] !!}</td>
-              <td>{!! $row['name'] !!}</td>
+              <td>{!! $row->id !!}</td>
+              <!-- <td>{!! $row['name'] !!}</td>
               
               <td>{!! $row['display_name'] !!}</td>
               
@@ -51,7 +51,7 @@
               <td>{{ trans('admin.enable') }}</td>
               @else
               <td style="color:red">{{ trans('admin.disable') }}</td>
-              @endif
+              @endif -->
 
 
                 
