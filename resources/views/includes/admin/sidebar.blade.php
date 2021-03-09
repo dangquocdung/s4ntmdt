@@ -205,13 +205,13 @@
       @if(in_array('manage_seo_full', $user_permission_list))
         @if(Request::is('admin/manage/log'))
           <li class="active">
-            <a href="{{ route('admin.manage_seo_content') }}" class="active">
+            <a href="{{ route('admin.manage_log_content') }}" class="active">
               <i class="fa fa-bars"></i> <span>Ghi nhật kí</span>
             </a>
           </li>
         @else
           <li>
-            <a href="{{ route('admin.manage_seo_content') }}">
+            <a href="{{ route('admin.manage_log_content') }}">
               <i class="fa fa-bars"></i> <span>Ghi nhật kí</span>
             </a>
           </li>

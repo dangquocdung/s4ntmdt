@@ -364,6 +364,33 @@ class CMSController extends Controller
     }
   }
 
+  /**
+   * 
+   * LOGs content
+   *
+   * @param null
+   * @return response view
+   */
+  public function logContent(){
+    $data = array();
+    $common_obj  =  new CommonFunction();
+    $get_user_store_data = get_user_account_details_by_user_id( Session::get('shopist_admin_user_id'));
+    $login_user_details = json_decode(array_shift($get_user_store_data)['details']);
+    
+    $data = $common_obj->commonDataForAllPages();
+
+    return response()->json($data);
+    
+    // if(is_vendor_login()){
+    //   $data['seo_data'] = $login_user_details->seo;
+    //   return view('pages.admin.seo.vendor-seo-content', $data);
+    // }
+    // else{
+    //   $data['seo_data'] = get_seo_data();
+    //   return view('pages.admin.seo.seo-content', $data);
+    // }
+  }
+
     /**
    * 
    * Save/Update page data
