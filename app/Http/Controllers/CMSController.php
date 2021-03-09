@@ -19,6 +19,7 @@ use dungthinh\Library\CommonFunction;
 use dungthinh\Models\TermExtra;
 use dungthinh\Models\Option;
 use dungthinh\Models\UsersDetail;
+use dungthinh\Models\Log;
 
 use dungthinh\Models\PostArchive;
 
@@ -378,8 +379,10 @@ class CMSController extends Controller
     $login_user_details = json_decode(array_shift($get_user_store_data)['details']);
     
     $data = $common_obj->commonDataForAllPages();
+
+    $getLogsData = Log :: orderBy('id','desc')->get();
     
-    $data['log_data'] = get_log_data();
+    $data['log_data'] = $getLogsData;
 
     // return response()->json($data);
 
