@@ -468,12 +468,10 @@ class UserController extends Controller
                      ->where('name', 'LIKE', '%'.$search_val.'%')  
                      ->orWhere('display_name', 'LIKE', '%'.$search_val.'%')  
                      ->orWhere('email', 'LIKE', '%'.$search_val.'%')  
-                     ->orderBy('id','desc')
                      ->get();
     }
     else{
       $getuserdata = User::where($where)->where('deleted_at', null)
-                     ->orderBy('id','desc')
                      ->get();
     }
     
