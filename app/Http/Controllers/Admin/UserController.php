@@ -493,22 +493,24 @@ class UserController extends Controller
 			}
 		}		
 
-    if($pagination){
-      $currentPage = LengthAwarePaginator::resolveCurrentPage();
-      $col = new Collection( $user_data );
-      $perPage = 12;
-      $currentPageSearchResults = $col->slice(($currentPage - 1) * $perPage, $perPage)->all();
-      $user_object = new LengthAwarePaginator($currentPageSearchResults, count($col), $perPage);
+    // if($pagination){
+    //   $currentPage = LengthAwarePaginator::resolveCurrentPage();
+    //   $col = new Collection( $user_data );
+    //   $perPage = 12;
+    //   $currentPageSearchResults = $col->slice(($currentPage - 1) * $perPage, $perPage)->all();
+    //   $user_object = new LengthAwarePaginator($currentPageSearchResults, count($col), $perPage);
 
-      $user_object->setPath( route('admin.users_list') );
-    }
+    //   $user_object->setPath( route('admin.users_list') );
+    // }
     
-    if($pagination){
-      return $user_object;
-    }
-    else{
-      return $user_data;
-    }
+    // if($pagination){
+    //   return $user_object;
+    // }
+    // else{
+    //   return $user_data;
+    // }
+
+    return $user_data;
   }
   
   /**
