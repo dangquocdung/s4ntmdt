@@ -17,11 +17,10 @@
           <thead class="thead-dark">
             <tr>
               <th>ID</th>
-              <th>{{ trans('admin.user_list_table_header_title_1') }}</th>
-              <th>{{ trans('admin.user_list_table_header_title_2') }}</th>
-              <th>{{ trans('admin.user_list_table_header_title_3') }}</th>
-              <th>{{ trans('admin.user_list_table_header_title_4') }}</th>
-              <th>{{ trans('admin.user_list_table_header_title_5') }}</th>
+              <th>Tên</th>
+              <th>IP</th>
+              <th>Thao tác</th>
+              <th>Thời gian</th>
 
             </tr>
           </thead>
@@ -38,11 +37,7 @@
               
               <td>{!! $row->user_photo_url !!}</td>
               
-              @if($row->user_status == 1)
-              <td>{{ trans('admin.enable') }}</td>
-              @else
-              <td style="color:red">{{ trans('admin.disable') }}</td>
-              @endif
+          
 
             </tr>
             @endforeach
