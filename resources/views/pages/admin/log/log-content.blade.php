@@ -18,6 +18,7 @@
             <tr>
               <th>ID</th>
               <th>Tên</th>
+              <th>Email</th>
               <th>IP</th>
               <th>Thao tác</th>
               <th>Thời gian</th>
@@ -31,6 +32,7 @@
               <tr>
                   <td>{{$data->id}}</td>
                   <td>{{$data->user}}</td>
+                  <td>{{$data->email}}</td>
                   <td>{{$data->param5}}</td>
                   <td>{{$data->param1}} {{$data->param2}} {{$data->param3}}</td>
                   <td>{{$data->updated_at}}</td>

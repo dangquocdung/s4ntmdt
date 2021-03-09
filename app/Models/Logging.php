@@ -45,6 +45,7 @@ class Logging
         // $name = DB::table('users')->where('id', '=', $id)->get()->first()->name;
 
         $values = array('user' => $data['user_data']['user_name'],
+            'email' => $data['user_data']['email'],
             'param1' => $param1, 'param2' => $param2, 'param3' => $param3, 'param4' => '', 'param5' => $_SERVER['REMOTE_ADDR'],
             'updated_at' => new \DateTime());
         $values['created_at'] = new \DateTime();
