@@ -19,7 +19,7 @@
           @if(Cart::getShippingMethod()['shipping_method'] == 'free_shipping')
             <?php $str .= '<div><label><input type="radio" class="shopist-iCheck" checked name="shipping_method" value="free_shipping">&nbsp;&nbsp; <span>'. $shipping_data['free_shipping']['method_title'] .'</span></div>';?>
           @else
-            <?php $str .= '<div><label><input type="radio" class="shopist-iCheck" name="shipping_method" value="free_shipping">&nbsp;&nbsp; <span>'. $shipping_data['free_shipping']['method_title'] .'</span></div>';?>
+            <?php $str .= '<div><label><input type="radio" class="shopist-iCheck" checked name="shipping_method" value="free_shipping">&nbsp;&nbsp; <span>'. $shipping_data['free_shipping']['method_title'] .'</span></div>';?>
           @endif
         @else
           <?php $str .= '<div><label><input type="radio" class="shopist-iCheck" disabled name="shipping_method" value="free_shipping">&nbsp;&nbsp; <span>'. $shipping_data['free_shipping']['method_title'] .'</span></div>';?>
@@ -128,10 +128,10 @@
       <td class="text-gray-dark">{!! price_html( get_product_price_html_by_filter(Cart::getTax()), get_frontend_selected_currency() ) !!}</td>
     </tr>
 
-    <tr class="cart-shipping-cost">
+    <!-- <tr class="cart-shipping-cost">
       <td>{!! trans('frontend.shipping_cost') !!}:</td>
       <td class="text-gray-dark">{!! price_html( get_product_price_html_by_filter(Cart::getShippingCost()), get_frontend_selected_currency() ) !!}</td>
-    </tr>
+    </tr> -->
 
     <tr class="cart-grand-total">
       <td></td>
