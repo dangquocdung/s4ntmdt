@@ -1,10 +1,10 @@
 @extends('layouts.admin.master')
-@section('title', trans('admin.manage_seo_page_title') .' | '. get_site_title())
+@section('title', trans('admin.manage_log_page_title') .' | '. get_site_title())
 
 @section('content')
 <div class="row">
   <div class="col-6">
-    <h5>{!! trans('admin.user_list_title') !!}</h5>
+    <h5>{!! trans('admin.log_title') !!}</h5>
   </div>
   
 </div>
