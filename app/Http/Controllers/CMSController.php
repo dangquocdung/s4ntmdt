@@ -381,7 +381,7 @@ class CMSController extends Controller
     
     $data['log_data'] = get_log_data();
 
-    return response()->json($data);
+    // return response()->json($data);
 
     return view('pages.admin.log.log-content', $data);
     

@@ -2,51 +2,118 @@
 @section('title', trans('admin.manage_seo_page_title') .' | '. get_site_title())
 
 @section('content')
-@include('pages-message.notify-msg-error')
-@include('pages-message.form-submit')
-@include('pages-message.notify-msg-success')
+@extends('layouts.admin.master')
+@section('title', trans('admin.user_list_title') .' | '. get_site_title())
 
-<form class="form-horizontal" method="post" action="" enctype="multipart/form-data">
-  <input type="hidden" name="_token" id="_token" value="{{ csrf_token() }}">
-  
-  <div class="row">
-    <div class="col-md-12">
-      <div class="box box-info">
-        <div class="box-header">
-          <h3 class="box-title">{{ trans('admin.seo_info_insert_top_label') }}</h3>
-          <div class="box-tools pull-right">
-            <button class="btn btn-block btn-primary btn-sm" type="submit">{{ trans('admin.save') }}</button>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div class="col-md-12">
-      <div class="box box-solid">
-        <div class="box-header with-border">
-          <h3 class="box-title">{{ trans('admin.manage_metatag_label') }}</h3>
-        </div> 
-        <div class="box-body">
-          <div class="form-group">
-            <div class="row">  
-              <label class="col-sm-3 control-label" for="inputMetaKeywords">{{ trans('admin.meta_keywords_label') }}</label>
-              <div class="col-sm-9">
-                <input type="text" placeholder="{{ trans('admin.meta_keywords_example_label') }}" id="inputMetaKeywords" name="inputMetaKeywords" class="form-control" value="{{ $seo_data['meta_tag']['meta_keywords'] }}">
-                <p>[{{ trans('admin.keywords_entry_label') }}]</p>
+@section('content')
+<div class="row">
+  <div class="col-6">
+    <h5>{!! trans('admin.user_list_title') !!}</h5>
+  </div>
+  <div class="col-6">
+    <div class="pull-right">
+      <a href="{{ route('admin.add_new_user') }}" class="btn btn-primary pull-right btn-sm">{{ trans('admin.add_new_user_title') }}</a>
+    </div>  
+  </div>
+</div>
+<br>
+<div class="row">
+  <div class="col-12">
+    <div class="box">
+      <div class="box-body">
+        <!-- <div id="table_search_option">
+          <form action="{{ route('admin.users_list') }}" method="GET"> 
+            <div class="row">
+              <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                <div class="input-group">
+                  <input type="text" name="term_user_name" class="search-query form-control" placeholder="Nhập tên người dùng để tìm kiếm" value="{{ $search_value }}" />
+                  <div class="input-group-btn">
+                    <button class="btn btn-primary" type="submit">
+                      <span class="fa fa-search"></span>
+                    </button>
+                  </div>
+                </div>
               </div>
             </div>
-          </div>
-          <div class="form-group">
-            <div class="row">    
-              <label class="col-sm-3 control-label" for="inputMetaDescription">{{ trans('admin.meta_description_label') }}</label>
-              <div class="col-sm-9">
-                <textarea id="inputMetaDescription" name="inputMetaDescription" placeholder="{{ trans('admin.meta_description_label') }}" class="form-control">{{ $seo_data['meta_tag']['meta_description'] }}</textarea>
-              </div>
-            </div>
-          </div>
-        </div>
+          </form>  
+        </div>       -->
+        <table class="table table-bordered table-responsive admin-data-table admin-data-list" id="user-list-tbl">
+          <thead class="thead-dark">
+            <tr>
+              <th>ID</th>
+              <th>{{ trans('admin.user_list_table_header_title_1') }}</th>
+              <th>{{ trans('admin.user_list_table_header_title_2') }}</th>
+              <th>{{ trans('admin.user_list_table_header_title_3') }}</th>
+              <th>{{ trans('admin.user_list_table_header_title_4') }}</th>
+              <th>{{ trans('admin.user_list_table_header_title_5') }}</th>
+
+            </tr>
+          </thead>
+          <tbody>
+            @if(count($log_data)>0)
+            @foreach($log_data as $row)
+            <tr>
+              <td>{!! $row['id'] !!}</td>
+              <td>{!! $row['name'] !!}</td>
+              
+              <td>{!! $row['display_name'] !!}</td>
+              
+              <td>{!! $row['email'] !!}</td>
+              
+              <td>{!! $row['user_photo_url'] !!}</td>
+              
+              @if($row['user_status'] == 1)
+              <td>{{ trans('admin.enable') }}</td>
+              @else
+              <td style="color:red">{{ trans('admin.disable') }}</td>
+              @endif
+
+
+                
+              
+            </tr>
+            @endforeach
+            @endif
+          </tbody>
+         
+        </table>
+          <br>  
       </div>
     </div>
   </div>
-</form>  
+</div>
+<div class="eb-overlay"></div>
+<div class="eb-overlay-loader"></div>
+
+<input type="hidden" name="_token" id="_token" value="{{ csrf_token() }}">
+
+<script>
+
+$(document).ready( function () {
+    $('#user-list-tbl').DataTable({
+      "language": {
+        "sProcessing": "Đang xử lý...",
+        "sLengthMenu": "Hiện thị _MENU_  dòng.",
+        "sZeroRecords": "Không có kết quả",
+        "sEmptyTable": "Không có dữ liệu",
+        "sInfo": "Từ _START_ đến _END_ trong tổng số _TOTAL_ mục",
+        "sInfoEmpty": "Không có dữ liệu",
+        "sInfoFiltered": "(Số lượng bản ghi _MAX_)",
+        "sInfoPostFix": "",
+        "sSearch": "Tìm kiếm:",
+        "sUrl": "",
+        "sInfoThousands": ",",
+        "sLoadingRecords": "Đang tải...",
+        "oPaginate": {
+          "sFirst": "Đầu tiên", "sLast": "Cuối cùng", "sNext": "Kế tiếp", "sPrevious": "Trước"
+        },
+        "oAria": {
+          "sSortAscending": ": Thứ tự tăng dần", "sSortDescending": ": Thứ tự giảm dần"
+        }
+      }
+    });
+} );
+
+</script>
+@endsection
 @endsection
