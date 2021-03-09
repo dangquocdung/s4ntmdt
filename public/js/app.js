@@ -1022,12 +1022,10 @@ shopist_frontend.ajaxCall = {
       success: function success(data) {
         if (data) {
           console.log(data);
-          console.log(Cart::getCartTotal());
 
           if ($('#cart_page').length > 0 || $('#checkout_page').length > 0) {
             // $('.cart-grand-total .value').html(data);
 
-            
             // $('.cart-shipping-cost .value').html(data);
 
             $('#loader-1-cart').hide();
