@@ -103,8 +103,10 @@
 
             </div>
         </div>
+
+        @include('pages.ajax-pages.cart-total-html')
+
     </div>
 
-    @include('pages.ajax-pages.cart-total-html')
 
     @endsection
