@@ -179,7 +179,7 @@
           <div class="row">   
             <label class="col-sm-4 control-label" for="inputTaxAmount">{{ trans('admin.tax_amount') }}</label>
             <div class="col-sm-8">
-              <input type="number" placeholder="{{ trans('admin.tax_amount') }}" min="0" step="any" id="inputTaxAmount" name="inputTaxAmount" class="form-control" value="{{ $settings_data['general_settings']['taxes_options']['tax_amount'] }}">%
+              <input type="number" placeholder="{{ trans('admin.tax_amount') }}" min="0" step="any" id="inputTaxAmount" name="inputTaxAmount" class="form-control" value="{{ $settings_data['general_settings']['taxes_options']['tax_amount'] }}">
             </div>
           </div>  
         </div>
