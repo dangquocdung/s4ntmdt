@@ -61,7 +61,7 @@
               @if($row['user_status'] == 1)
               <td>{{ trans('admin.enable') }}</td>
               @else
-              <td>{{ trans('admin.disable') }}</td>
+              <td style="color:red">{{ trans('admin.disable') }}</td>
               @endif
 
               <td>{!! $row['created_at']->format('d/m/Y') !!}</td>
@@ -86,7 +86,7 @@
             @endforeach
             @endif
           </tbody>
-          <tfoot class="thead-dark">
+          <!-- <tfoot class="thead-dark">
             <tr>
               <th>{{ trans('admin.user_list_table_header_title_1') }}</th>
               <th>{{ trans('admin.user_list_table_header_title_2') }}</th>
@@ -97,7 +97,7 @@
               <th>{{ trans('admin.user_list_table_header_title_7') }}</th>
 
             </tr>
-          </tfoot>
+          </tfoot> -->
         </table>
           <br>  
       </div>
