@@ -642,7 +642,9 @@ return [
   'user_list_table_header_title_3' =>'E-mail',
   'user_list_table_header_title_4' =>'Vai trò',
   'user_list_table_header_title_5' =>'Trạng thái',
-  'user_list_table_header_title_6' =>'Hoạt động',
+  'user_list_table_header_title_6' =>'Ngày đăng kí',
+  'user_list_table_header_title_7' =>'Hoạt động',
+
   'user_role_list_title' =>'Danh sách vai trò người dùng',
   'user_role_list_table_header_title_1' =>'Tên vai trò người dùng',
   'site_logo' =>'Tải lên Logo trang web',
