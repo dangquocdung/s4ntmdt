@@ -170,9 +170,11 @@ class FrontendAjaxController extends Controller
       $shipping_array = array('shipping_method' => $input['data'], 'shipping_cost' => $shipping_cost);
       
       if(count($shipping_array) > 0){   
-        if(Cart::setShippingMethod( $shipping_array )){
-          echo  price_html( get_product_price_html_by_filter(Cart::getCartTotal()) ); 
-        }
+        echo  price_html( get_product_price_html_by_filter(Cart::getCartTotal()) ); 
+
+        // if(Cart::setShippingMethod( $shipping_array )){
+        //   echo  price_html( get_product_price_html_by_filter(Cart::getCartTotal()) ); 
+        // }
       }
     }
   }

@@ -67,6 +67,7 @@
             <div class="padding-bottom-1x">{!! trans('frontend.free') !!}</div>
           </div>
         @endif
+        
       @elseif($shipping_data['shipping_option']['display_mode'] == 'dropdown')
 
         @if($shipping_data['flat_rate']['enable_option'] && $shipping_data['flat_rate']['method_cost'])
@@ -104,17 +105,18 @@
           @endif
         @endif
         @if($str)
-        <div class="cart-shipping-total">
-          <label>{!! trans('frontend.shipping_cost') !!}:</label>
-          <div class="value">
-            <select name="shipping_method_dropdown" id="shipping_method_dropdown"><?php echo $str;?></select>
+          <div class="cart-shipping-total">
+            <label>{!! trans('frontend.shipping_cost') !!}:</label>
+            <div class="value">
+              <select name="shipping_method_dropdown" id="shipping_method_dropdown"><?php echo $str;?></select>
+            </div>
           </div>
-        </div>
-        <div class="clearfix"></div>
+          <div class="clearfix"></div>
         @else
-        <div class="cart-shipping-total">
-          <label>{!! trans('frontend.shipping_cost') !!}:</label>
-          <div class="value">{!! trans('frontend.free') !!}</div></div>
+          <div class="cart-shipping-total">
+            <label>{!! trans('frontend.shipping_cost') !!}:</label>
+            <div class="value">{!! trans('frontend.free') !!}</div>
+          </div>
         @endif
       @endif
     @endif
