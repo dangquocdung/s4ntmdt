@@ -24,6 +24,10 @@ use dungthinh\Library\CommonFunction;
 use Carbon\Carbon;
 use dungthinh\Models\SaveCustomDesign;
 
+use dungthinh\Models\Logging;
+
+
+
 class ProductsController extends Controller
 {
 	public $option;
@@ -216,6 +220,9 @@ class ProductsController extends Controller
       $data['product_all']      =  '';
       $data['product_deleted']  =  "class=active";
     }
+
+    Logging::log("Xem danh sách sản phẩm");
+
 
     return view('pages.admin.product.product-list', $data);
   }
