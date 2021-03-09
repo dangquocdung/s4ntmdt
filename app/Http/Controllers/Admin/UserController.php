@@ -19,7 +19,6 @@ use dungthinh\Library\GetFunction;
 use Illuminate\Support\Facades\App;
 use dungthinh\Library\CommonFunction;
 
-
 class UserController extends Controller
 {
   public $classCommonFunction;
@@ -146,7 +145,6 @@ class UserController extends Controller
       return view('pages.admin.users.user-profile', $data);
     }
   }
-  
   
   /**
    * 
@@ -477,7 +475,6 @@ class UserController extends Controller
                      ->get();
     }
     
-    
 		if(count($getuserdata) > 0){
 			foreach($getuserdata as $val){
 			  $data['id'] = $val->id;
@@ -495,8 +492,7 @@ class UserController extends Controller
 			  array_push($user_data, $data);
 			}
 		}		
-    
-    
+
     if($pagination){
       $currentPage = LengthAwarePaginator::resolveCurrentPage();
       $col = new Collection( $user_data );

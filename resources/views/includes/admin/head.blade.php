@@ -22,6 +22,9 @@
 <link rel="stylesheet" href="{{ URL::asset('/plugins/morris/morris.css') }}" />
 <link rel="stylesheet" href="{{ URL::asset('/editor/summernote.css') }}" />
 <link rel="stylesheet" href="{{ URL::asset('/input-tag/tagmanager.min.css') }}" />
+<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.23/css/jquery.dataTables.css">
+  
+
 
 <script type="text/javascript" src="{{ URL::asset('/jquery/jquery-1.10.2.js') }}"></script>
 <script type="text/javascript" src="{{ URL::asset('/jquery/jquery-ui-1.11.4.js') }}"></script>
@@ -55,3 +58,4 @@
 <script type="text/javascript" src="{{ URL::asset('/input-tag/bootstrap3-typeahead.min.js') }}"></script>
 <script src='https://www.google.com/recaptcha/api.js'></script>
 <script type="text/javascript" src="{{ URL::asset('/designer/designer-export.js') }}"></script>
+<script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.23/js/jquery.dataTables.js"></script>

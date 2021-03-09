@@ -33,7 +33,7 @@
             </div>
           </form>  
         </div>      
-        <table class="table table-bordered table-responsive admin-data-table admin-data-list">
+        <table class="table table-bordered table-responsive admin-data-table admin-data-list" id="user-list-tbl">
           <thead class="thead-dark">
             <tr>
               <th>{{ trans('admin.user_list_table_header_title_1') }}</th>
@@ -109,4 +109,12 @@
 <div class="eb-overlay-loader"></div>
 
 <input type="hidden" name="_token" id="_token" value="{{ csrf_token() }}">
+
+<script>
+
+$(document).ready( function () {
+    $('#user-list-tbl').DataTable();
+} );
+
+</script>
 @endsection
