@@ -104,7 +104,7 @@
             </div>
         </div>
 
-        @include('pages.ajax-pages.cart-total-html')
+        <!-- @include('pages.ajax-pages.cart-total-html') -->
 
     </div>
 
