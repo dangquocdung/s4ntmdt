@@ -141,5 +141,3 @@
 
   </table>
 </section>
-
-</script>

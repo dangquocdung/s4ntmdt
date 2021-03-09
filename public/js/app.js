@@ -894,11 +894,11 @@ shopist_frontend.event = {
       shopist_frontend.ajaxCall.filterProductsByName($(this).attr('href'));
     });
   },
-  shipping_method_dropdown_option: function shipping_method_dropdown_option() {
-    $('#cart_page #shipping_method_dropdown, #checkout_page #shipping_method_dropdown').select2().on('change', function () {
-      shopist_frontend.ajaxCall.setCartTotalByShippingMethodValue($(this).val());
-    });
-  },
+  // shipping_method_dropdown_option: function shipping_method_dropdown_option() {
+  //   $('#cart_page #shipping_method_dropdown, #checkout_page #shipping_method_dropdown').select2().on('change', function () {
+  //     shopist_frontend.ajaxCall.setCartTotalByShippingMethodValue($(this).val());
+  //   });
+  // },
   shipping_method_radio_option: function shipping_method_radio_option() {
     $('#cart_page .cart-total-content input[type="radio"], #checkout_page .cart-total-content input[type="radio"]').on('ifClicked', function (event) {
       shopist_frontend.ajaxCall.setCartTotalByShippingMethodValue(this.value);
