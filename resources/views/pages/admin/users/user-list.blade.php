@@ -42,6 +42,8 @@
               <th>{{ trans('admin.user_list_table_header_title_4') }}</th>
               <th>{{ trans('admin.user_list_table_header_title_5') }}</th>
               <th>{{ trans('admin.user_list_table_header_title_6') }}</th>
+              <th>{{ trans('admin.user_list_table_header_title_7') }}</th>
+
             </tr>
           </thead>
           <tbody>
@@ -61,6 +63,9 @@
               @else
               <td>{{ trans('admin.disable') }}</td>
               @endif
+
+              <td>{!! $row['user_role'] !!}</td>
+
                 
               <td>
                 <div class="btn-group">
@@ -89,6 +94,8 @@
               <th>{{ trans('admin.user_list_table_header_title_4') }}</th>
               <th>{{ trans('admin.user_list_table_header_title_5') }}</th>
               <th>{{ trans('admin.user_list_table_header_title_6') }}</th>
+              <th>{{ trans('admin.user_list_table_header_title_7') }}</th>
+
             </tr>
           </tfoot>
         </table>
