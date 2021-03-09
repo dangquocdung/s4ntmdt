@@ -464,10 +464,13 @@ class UserController extends Controller
     if($search_val && $search_val != ''){
       $getuserdata = User::where($where)->where('deleted_at', null)
                      ->where('name', 'LIKE', $search_val.'%')  
+                     ->orderBy('id','desc')
+
                      ->get();
     }
     else{
       $getuserdata = User::where($where)->where('deleted_at', null)
+                     ->orderBy('id','desc')
                      ->get();
     }
     
