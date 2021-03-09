@@ -82,7 +82,7 @@ class UserController extends Controller
       $data = $this->classCommonFunction->commonDataForAllPages();
       $data['user_edit_details'] = $get_data;
 
-      return response()->json($data);
+      // return response()->json($data);
       
       return view('pages.admin.users.update-users', $data);
     }
