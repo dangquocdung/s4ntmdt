@@ -398,6 +398,9 @@ class LoginController extends Controller
       $User->provider_id        =    $user->id;
       $User->provider           =    $provider;
 
+      Logging::log("Đã tạo người dùng mới");
+
+
       if($User->save()){
         $Roleuser->user_id    =    $User->id;
         $Roleuser->role_id    =    $get_role->id;
