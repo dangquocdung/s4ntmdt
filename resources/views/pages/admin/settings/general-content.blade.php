@@ -327,7 +327,7 @@
           </div>  
         </div>
         <br>
-        <b><i>{{ trans('admin.nexmo_config_option_label') }}</i></b><hr>
+        <!-- <b><i>{{ trans('admin.nexmo_config_option_label') }}</i></b><hr>
         <div class="form-group">
           <div class="row">   
             <label class="col-sm-4 control-label" for="inputNexmoEnable"></label>
@@ -381,7 +381,7 @@
             </div>
           </div>  
         </div>
-        <br>
+        <br> -->
         <!-- <b><i>{{ trans('admin.currency_converter_option') }}</i></b><hr> -->
         <div class="form-group" style="display:none">
           <div class="row">   
