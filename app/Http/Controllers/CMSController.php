@@ -379,7 +379,7 @@ class CMSController extends Controller
     
     $data = $common_obj->commonDataForAllPages();
     
-    $data['seo_data'] = get_log_data();
+    $data['log_data'] = get_log_data();
 
     return response()->json($data);
 
