@@ -37,12 +37,12 @@
 
       
         <div class="card-body">
-          <div class="row margin-bottom-1x">
-            <div class="col-md-6"><a class="btn btn-sm btn-block facebook-btn" href="{{ URL::to('auth/facebook') }}"><i class="socicon-facebook"></i>&nbsp;Facebook</a></div>
+          <!-- <div class="row margin-bottom-1x">
+            <div class="col-md-6"><a class="btn btn-sm btn-block facebook-btn" href="{{ URL::to('auth/facebook') }}"><i class="socicon-facebook"></i>&nbsp;Facebook</a></div> -->
             <!-- <div class="col-xl-4 col-md-6 col-sm-4"><a class="btn btn-sm btn-block twitter-btn" href="#"><i class="socicon-twitter"></i>&nbsp;Zalo</a></div> -->
-            <div class="col-md-6"><a class="btn btn-sm btn-block google-btn" href="{{ URL::to('auth/google') }}"><i class="socicon-googleplus"></i>&nbsp;Google</a></div>
+            <!-- <div class="col-md-6"><a class="btn btn-sm btn-block google-btn" href="{{ URL::to('auth/google') }}"><i class="socicon-googleplus"></i>&nbsp;Google</a></div>
           </div>
-          <h4 class="margin-bottom-1x">Hoặc điền thông tin vào biểu mẫu</h4>
+          <h4 class="margin-bottom-1x">Hoặc điền thông tin vào biểu mẫu</h4> -->
           <div class="form-group input-group">
             <input name="login_username" id="login_username" tabindex="1" class="form-control" placeholder="{{ trans('frontend.frontend_username_placeholder') }}" value="{{ $frontend_login_data['user'] }}" type="text">
             <span class="input-group-addon"><i class="icon-mail"></i></span>
