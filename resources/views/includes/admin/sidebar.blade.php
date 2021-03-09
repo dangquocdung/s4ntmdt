@@ -206,13 +206,13 @@
         @if(Request::is('admin/manage/log'))
           <li class="active">
             <a href="{{ route('admin.manage_seo_content') }}" class="active">
-              <i class="fa fa-menu"></i> <span>Ghi nhật kí</span>
+              <i class="fa fa-bars"></i> <span>Ghi nhật kí</span>
             </a>
           </li>
         @else
           <li>
             <a href="{{ route('admin.manage_seo_content') }}">
-              <i class="fa fa-menu"></i> <span>Ghi nhật kí</span>
+              <i class="fa fa-bars"></i> <span>Ghi nhật kí</span>
             </a>
           </li>
         @endif
