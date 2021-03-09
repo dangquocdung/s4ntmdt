@@ -101,7 +101,7 @@
         <aside class="sidebar">
           <div class="padding-top-2x hidden-lg-up"></div>
           <!-- Order Summary Widget-->
-          @include('pages.ajax-pages.cart-total-html')
+          <!-- @include('pages.ajax-pages.cart-total-html') -->
           
           <!-- Featured Products Widget-->
           @if ($seen_items <> '')
