@@ -190,7 +190,7 @@ class LoginController extends Controller
               Session::put('shopist_admin_user_id', $data->id);
             }
 
-            Logging::log("Đăng nhập thành công");
+            // Logging::log("Đăng nhập thành công");
 
             $remember = (Input::has('remember_me')) ? true : false;
 
