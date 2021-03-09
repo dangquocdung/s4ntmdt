@@ -325,6 +325,9 @@ class LoginController extends Controller
    * @return response
    */
   public function logoutFromLogin(){
+
+    Logging::log("Đã đăng xuất");
+
     if( Request::isMethod('post') && Session::token() == Input::get('_token') ){
       if(Session::has('shopist_admin_user_id')){
         Session::forget('shopist_admin_user_id');
