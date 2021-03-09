@@ -582,8 +582,8 @@
             </a>
             <ul class="treeview-menu">
               <li><a href="{{ route('admin.shipping_method_options_content') }}"><i class="fa fa-wrench"></i> {!! trans('admin.shipping_options') !!}</a></li>
-              <li><a href="{{ route('admin.shipping_method_flat_rate_content') }}"><i class="fa fa-calculator"></i> {!! trans('admin.flat_rate') !!}</a></li>
               <li><a href="{{ route('admin.shipping_method_free_shipping_content') }}"><i class="fa fa-close"></i> {!! trans('admin.free_shipping') !!}</a></li>
+              <li><a href="{{ route('admin.shipping_method_flat_rate_content') }}"><i class="fa fa-calculator"></i> {!! trans('admin.flat_rate') !!}</a></li>
               <li><a href="{{ route('admin.shipping_method_local_delivery_content') }}"><i class="fa fa-bus"></i> {!! trans('admin.local_delivery') !!}</a></li>
             </ul>
           </li>
