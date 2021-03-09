@@ -54,7 +54,7 @@
           <div class="col-sm-6">
             <div class="form-group">
               <label for="reg-phone_id">{{ ucfirst(trans('frontend.phone')) }}</label>
-              <input type="text" placeholder="{{ ucfirst(trans('frontend.phone')) }}" class="form-control" id="reg_phone_id" name="reg_phone_id">
+              <input type="text" placeholder="{{ ucfirst(trans('frontend.phone')) }}" class="form-control" value="{{ old('reg_phone_id') }}" id="reg_phone_id" name="reg_phone_id">
             </div>
           </div>
 
