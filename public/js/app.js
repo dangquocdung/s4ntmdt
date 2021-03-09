@@ -1022,9 +1022,9 @@ shopist_frontend.ajaxCall = {
       success: function success(data) {
         if (data) {
           console.log("Hello world!");
-          
+
           if ($('#cart_page').length > 0 || $('#checkout_page').length > 0) {
-            $('.cart-grand-total .value').html(data);
+            // $('.cart-grand-total .value').html(data);
 
             
             // $('.cart-shipping-cost .value').html(data);
