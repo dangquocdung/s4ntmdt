@@ -77,7 +77,8 @@ $(document).ready( function () {
           "sSortAscending": ": Thứ tự tăng dần", "sSortDescending": ": Thứ tự giảm dần"
         }
       },
-      "order": [[ 0, "desc" ]]
+      "order": [[ 0, "desc" ]],
+      "pageLength": 50
     });
 } );
 
