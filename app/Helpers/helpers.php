@@ -2,7 +2,6 @@
 use dungthinh\Library\GetFunction;
 use dungthinh\Library\GetFunctionMB;
 
-
 /**
  * Get function for product title
  *
@@ -248,10 +247,7 @@ function get_term_name($id){
 
   return GetFunction::get_term($id);
 
-
 }
-
-
 
 /**
  * Get function for country list
@@ -361,7 +357,6 @@ function get_vendor_user_info($id)
 {
   return GetFunction::vendor_user_info($id);
 }
-
 
 /**
  * Check vendor login
@@ -754,17 +749,6 @@ function get_seo_data()
 }
 
 /**
- * Get global LOG data
- *
- * @param null
- * @return array
- */
-function get_log_data()
-{
-  return GetFunction::log_data();
-}
-
-/**
  * Get Subscription data
  *
  * @param null
@@ -1039,7 +1023,6 @@ function download_file_html ( $post_id, $data = array(), $order_id )
   return GetFunction::create_download_files_html( $post_id, $data, $order_id);
 }
 
-
 /**
  * Get IP address
  *
@@ -1115,8 +1098,6 @@ function get_vendor_by_id($id)
 {
   return GetFunctionMB::vendor_by_id($id);
 }
-
-
 
 /**
  * Get vendor details by product id
@@ -1294,7 +1275,6 @@ function get_payment_details_by_vendor_id( $vendor_id ){
   return GetFunction::payment_details_by_vendor_id( $vendor_id );
 }
 
-
 /**
  * Get user name
  *
@@ -1309,7 +1289,6 @@ function get_user_name_by_user_id( $user_id ){
 function get_store_name_by_user_id( $user_id ){
   return GetFunction::store_name_by_user_id( $user_id );
 }
-
 
 /**
  * Get vendor settings
@@ -1384,5 +1363,3 @@ function check_permission_menu_heading($heading_slug){
 function get_vendor_id_by_order_id( $order_id ){
   return GetFunction::vendor_id_by_order_id( $order_id );
 }
-
-

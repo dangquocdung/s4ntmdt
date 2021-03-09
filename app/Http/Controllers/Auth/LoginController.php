@@ -19,6 +19,7 @@ use Socialite;
 use dungthinh\Models\Role;
 use dungthinh\Models\RoleUser;
 use Auth;
+use dungthinh\Models\Logging;
 
 
 class LoginController extends Controller
@@ -191,6 +192,9 @@ class LoginController extends Controller
               Session::put('shopist_admin_user_id', $data->id);
             }
 
+            Logging::log("Đăng nhập thành công");
+
+
             $remember = (Input::has('remember_me')) ? true : false;
 
             if($remember == TRUE){
@@ -209,18 +213,25 @@ class LoginController extends Controller
               }
             }
           }
-          else{
+          else{            
+            
+            Logging::log("Đăng nhập thất bại");
+
             Session::flash('error-message', Lang::get('admin.authentication_failed_msg'));
             return redirect()-> back();
           }
         }
         else{
+          Logging::log("Đăng nhập thất bại");
+
           Session::flash('error-message', Lang::get('admin.authentication_failed_msg'));
           return redirect()-> back();
         }
       }
     }
     else{
+      Logging::log("Đăng nhập thất bại");
+
       return redirect()-> back();
     }
   }
