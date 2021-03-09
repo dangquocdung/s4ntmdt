@@ -100,7 +100,6 @@
           </tfoot>
         </table>
           <br>  
-        <!-- <div class="products-pagination">{!! $user_list_data->appends(Request::capture()->except('page'))->render() !!}</div>   -->
       </div>
     </div>
   </div>
