@@ -380,7 +380,7 @@ class CMSController extends Controller
     
     $data = $common_obj->commonDataForAllPages();
 
-    $getLogsData = Log :: orderBy('id','desc')->get();
+    $getLogsData = DB::table('logging')->get();
     
     $data['log_data'] = $getLogsData;
 

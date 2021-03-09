@@ -26,20 +26,16 @@
           </thead>
           <tbody>
             @if(count($log_data)>0)
-            @foreach($log_data as $row)
-            <tr>
-              <td>{!! $row->id !!}</td>
-              <td>{!! $row->name !!}</td>
-              
-              <td>{!! $row->display_name !!}</td>
-              
-              <td>{!! $row->email !!}</td>
-              
-              <td>{!! $row->user_photo_url !!}</td>
-              
-          
+            @foreach($log_data as $data)
 
-            </tr>
+              <tr>
+                  <td>{{$data->id}}</td>
+                  <td>{{$data->user}}</td>
+                  <td>{{$data->param5}}</td>
+                  <td>{{$data->param1}} {{$data->param2}} {{$data->param3}}</td>
+                  <td>{{$data->updated_at}}</td>
+              </tr>
+
             @endforeach
             @endif
           </tbody>
