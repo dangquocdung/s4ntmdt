@@ -1023,6 +1023,8 @@ shopist_frontend.ajaxCall = {
         if (data) {
           if ($('#cart_page').length > 0 || $('#checkout_page').length > 0) {
             $('.cart-grand-total .value').html(data);
+
+            console.log("Hello world!");
             // $('.cart-shipping-cost .value').html(data);
 
             $('#loader-1-cart').hide();
