@@ -36,6 +36,7 @@
         <table class="table table-bordered table-responsive admin-data-table admin-data-list" id="user-list-tbl">
           <thead class="thead-dark">
             <tr>
+              <th>ID</th>
               <th>{{ trans('admin.user_list_table_header_title_1') }}</th>
               <th>{{ trans('admin.user_list_table_header_title_2') }}</th>
               <th>{{ trans('admin.user_list_table_header_title_3') }}</th>
@@ -50,6 +51,7 @@
             @if(count($user_list_data)>0)
             @foreach($user_list_data as $row)
             <tr>
+              <td>{!! $row['id'] !!}</td>
               <td>{!! $row['name'] !!}</td>
               
               <td>{!! $row['display_name'] !!}</td>
