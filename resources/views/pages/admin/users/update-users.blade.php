@@ -81,7 +81,7 @@
             <label class="control-label" for="inputSecretKey">Thành viên từ</label>
           </div>
           <div class="col-sm-8">
-            <input type="text" class="form-control" value="{{$user_data['member_since']->formar('d/m/Y')}}" id="created_at" name="user_secret_key">
+            <input type="text" class="form-control" value="{{$user_data['member_since']->format('d/m/Y')}}" id="created_at" name="user_secret_key">
           </div>
         </div>    
       </div>
