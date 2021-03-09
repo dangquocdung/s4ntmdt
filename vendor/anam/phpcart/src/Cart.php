@@ -154,7 +154,6 @@ class Cart implements CartInterface
           $item = array_merge((array) $this->get($product['id']), $product);
         }
         
-
         $items = $this->collection->insert($item);
 
         $this->session->set($this->getCart(), $items);
@@ -178,7 +177,6 @@ class Cart implements CartInterface
 
         return $this->update($item);
     }
-
 
     /**
      * Update price of an Item.
@@ -520,13 +518,11 @@ class Cart implements CartInterface
     
     public function getShippingCost()
     {
-      $shipping_cost = 0;
+      $shipping_cost = 100;
      
       if($this->getShippingMethod())
       {
         $getShippingData = $this->getShippingMethod();
-
-
 
         $shipping_cost = $getShippingData['shipping_cost'];
       }

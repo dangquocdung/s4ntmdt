@@ -520,7 +520,7 @@ class Cart implements CartInterface
     
     public function getShippingCost()
     {
-      $shipping_cost = 100;
+      $shipping_cost = 0;
      
       if($this->getShippingMethod())
       {
