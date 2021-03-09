@@ -64,7 +64,7 @@
               <td>{{ trans('admin.disable') }}</td>
               @endif
 
-              <td>{!! $row['created_at']['date'] !!}</td>
+              <td>{!! $row['created_at']->format('m/d/Y') !!}</td>
 
                 
               <td>
