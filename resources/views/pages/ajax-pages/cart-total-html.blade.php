@@ -128,7 +128,7 @@
       <td class="text-gray-dark">{!! price_html( get_product_price_html_by_filter(Cart::getTax()), get_frontend_selected_currency() ) !!}</td>
     </tr>
 
-    <tr>
+    <tr class="cart-shipping-cost">
       <td>{!! trans('frontend.shipping_cost') !!}:</td>
       <td class="text-gray-dark">{!! price_html( get_product_price_html_by_filter(Cart::getShippingCost()), get_frontend_selected_currency() ) !!}</td>
     </tr>

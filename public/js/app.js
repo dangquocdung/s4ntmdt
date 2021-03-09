@@ -1025,7 +1025,7 @@ shopist_frontend.ajaxCall = {
           console.log(data);
 
           if ($('#cart_page').length > 0 || $('#checkout_page').length > 0) {
-            $('.cart-grand-total .value').html(data);
+            // $('.cart-grand-total .value').html(data);
 
             // $('.cart-shipping-cost .value').html(data);
 

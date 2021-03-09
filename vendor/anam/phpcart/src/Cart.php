@@ -520,8 +520,6 @@ class Cart implements CartInterface
     {
       $get_shipping = $this->get_shipping_data();
 
-      // return response()->json($get_shipping);
-
       if(!$get_shipping['shipping_option']['enable_shipping'] || ($get_shipping['shipping_option']['enable_shipping'] && !$get_shipping['flat_rate']['enable_option'] && !$get_shipping['free_shipping']['enable_option'] && !$get_shipping['local_delivery']['enable_option']))
       {
         if($this->session->has('eBazar_shipping_method'))
