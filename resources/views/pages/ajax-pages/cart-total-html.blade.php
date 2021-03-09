@@ -128,6 +128,11 @@
       <td class="text-gray-dark">{!! price_html( get_product_price_html_by_filter(Cart::getTax()), get_frontend_selected_currency() ) !!}</td>
     </tr>
 
+    <tr>
+      <td>{!! trans('frontend.shipping_cost') !!}:</td>
+      <td class="text-gray-dark">{!! price_html( get_product_price_html_by_filter(Cart::getShippingCost()), get_frontend_selected_currency() ) !!}</td>
+    </tr>
+
     <tr class="cart-grand-total">
       <td></td>
       <td class="text-lg text-gray-dark value text-medium">{!! price_html( get_product_price_html_by_filter(Cart::getCartTotal()), get_frontend_selected_currency() ) !!}</td>
