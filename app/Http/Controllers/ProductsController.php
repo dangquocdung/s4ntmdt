@@ -26,8 +26,6 @@ use dungthinh\Models\SaveCustomDesign;
 
 use dungthinh\Models\Logging;
 
-
-
 class ProductsController extends Controller
 {
 	public $option;
@@ -184,7 +182,6 @@ class ProductsController extends Controller
 
       Logging::log2("Cập nhật sản phẩm",$get_post[0]['title']);
 
-
       // return response()->json($data['product_post_data']);
 
       return view('pages.admin.product.update-product-content', $get_data);
@@ -223,9 +220,6 @@ class ProductsController extends Controller
       $data['product_all']      =  '';
       $data['product_deleted']  =  "class=active";
     }
-
-    Logging::log("Xem danh sách sản phẩm");
-
 
     return view('pages.admin.product.product-list', $data);
   }
@@ -930,7 +924,6 @@ class ProductsController extends Controller
           $buy = 1;
         }
 
-
         if(is_numeric(Input::get('inputRegularPrice')) && Input::has('inputRegularPrice')){
           $regular_price = Input::get('inputRegularPrice');
         }
@@ -1277,6 +1270,9 @@ class ProductsController extends Controller
           $post->image_url          =   $product_image;
 
           if($post->save()){  
+
+            Logging::log2("Tạo mới sản phẩm",$post->title);
+
             if(ProductExtra::insert(array(
                                       array(
                                           'product_id'    =>  $post->id,
@@ -3920,7 +3916,6 @@ class ProductsController extends Controller
                                                           return $data;
   }
 
-
   public function getBuyProducts(){
 
     $advanced_arr        =  array();
@@ -3939,5 +3934,4 @@ class ProductsController extends Controller
     return $advanced_arr;
   }
 
-  
 }
