@@ -901,7 +901,7 @@ shopist_frontend.event = {
   },
   shipping_method_radio_option: function shipping_method_radio_option() {
     $('#cart_page .cart-total-content input[type="radio"], #checkout_page .cart-total-content input[type="radio"]').on('ifClicked', function (event) {
-      shopist_frontend.ajaxCall.setCartTotalByShippingMethodValue(this.value);
+      shopist_frontend.ajaxCall.setCartTotalByShippingMethodValue($(this).val());
     });
   },
   manageRequestProducts: function manageRequestProducts() {
