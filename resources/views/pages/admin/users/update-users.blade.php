@@ -78,6 +78,28 @@
       <div class="form-group">
         <div class="row">  
           <div class="col-sm-4">
+            <label class="control-label" for="inputSecretKey">Ngày đăng kí</label>
+          </div>
+          <div class="col-sm-8">
+            <input type="text" class="form-control" value="{{$user_edit_details['user_display_name']}}" id="created_at" name="user_secret_key">
+          </div>
+        </div>    
+      </div>
+
+      <div class="form-group">
+        <div class="row">  
+          <div class="col-sm-4">
+            <label class="control-label" for="inputSecretKey">Ngày hoạt động</label>
+          </div>
+          <div class="col-sm-8">
+            <input type="text" class="form-control" value="{{$user_edit_details['user_display_name']}}" id="updated_at" name="user_secret_key">
+          </div>
+        </div>    
+      </div>
+
+      <div class="form-group">
+        <div class="row">  
+          <div class="col-sm-4">
             <label class="control-label" for="inputUserRole">{{ trans('admin.user_role_title') }}</label>
           </div>
           <div class="col-sm-8">
