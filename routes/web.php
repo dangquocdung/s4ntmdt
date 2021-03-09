@@ -557,6 +557,7 @@ Route::group(['prefix' => 'admin'], function () {
     'as'   => 'admin.manage_seo_content'
   ])->middleware('verifyLoginPage', 'admin', 'sufficientPermission');
 
+  //admin log settings menu
   Route::get('manage/log', [
     'uses' => 'CMSController@logContent',
     'as'   => 'admin.manage_log_content'
