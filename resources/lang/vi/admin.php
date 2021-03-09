@@ -363,7 +363,7 @@ return [
   'shipping_method_free_shipping' =>'Phương thức giao hàng Giao hàng miễn phí',
   'minimum_order_amount' =>'Gía trị đơn hàng tối thiểu',
   'shipping_method_local_delivery' =>'Phương thức giao hàng Giao hàng ngoài tỉnh',
-  'local_delivery_title' =>'Phương thức vận chuyển đơn giản để giao hàng tại địa phương. ',
+  'local_delivery_title' =>'Phương thức vận chuyển để giao hàng khác tỉnh. ',
   'fee_type' =>'Loại phí',
   'fixed_amount' =>'Số tiền cố định',
   'percentage_of_cart_total' =>'Tỷ lệ phần trăm của tổng giỏ hàng',
