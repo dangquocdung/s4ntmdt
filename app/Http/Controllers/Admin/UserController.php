@@ -46,6 +46,8 @@ class UserController extends Controller
     $data = $this->classCommonFunction->commonDataForAllPages();
     $data['user_list_data'] = $this->getUserListData(true, $search_value, -1);
     $data['search_value']   = $search_value;
+
+    return response()->json($data);
      
     return view('pages.admin.users.user-list', $data);
   }
