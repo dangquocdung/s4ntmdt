@@ -237,7 +237,7 @@ class AdminDashboardContentController extends Controller{
 
     $data['dashboard_data'] = $dashboard;
 
-    return response()->json($data);
+    // return response()->json($data);
     
     return view('pages.admin.dashboard-content', $data);
   }
