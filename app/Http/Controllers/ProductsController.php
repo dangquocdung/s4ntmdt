@@ -182,7 +182,7 @@ class ProductsController extends Controller
       $data['crosssell_products'] = json_encode( $crosssell_products );
       $get_data = $this->createProductContentData( $data );
 
-      Logging::log("Cập nhật sản phẩm",$get_post[0]['title']);
+      Logging::log2("Cập nhật sản phẩm",$get_post[0]['title']);
 
 
       // return response()->json($data['product_post_data']);
