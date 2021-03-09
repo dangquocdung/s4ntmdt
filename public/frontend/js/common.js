@@ -968,7 +968,7 @@ shopist_frontend.ajaxCall = {
             success: function(data) {
                 if (data) {
                     if ($('#cart_page').length > 0 || $('#checkout_page').length > 0) {
-                        $('.cart-grand-total .value').html(data);
+                        $('.cart-grand-total-2 .value').html(data);
                         $('#loader-1-cart').hide();
                         $('.cart-total-area-overlay').hide();
                     }
