@@ -17,7 +17,7 @@
   <div class="col-12">
     <div class="box">
       <div class="box-body">
-        <div id="table_search_option">
+        <!-- <div id="table_search_option">
           <form action="{{ route('admin.users_list') }}" method="GET"> 
             <div class="row">
               <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
@@ -32,7 +32,7 @@
               </div>
             </div>
           </form>  
-        </div>      
+        </div>       -->
         <table class="table table-bordered table-responsive admin-data-table admin-data-list" id="user-list-tbl">
           <thead class="thead-dark">
             <tr>
