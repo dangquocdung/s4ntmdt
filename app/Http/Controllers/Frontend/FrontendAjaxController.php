@@ -168,6 +168,8 @@ class FrontendAjaxController extends Controller
       }
       
       $shipping_array = array('shipping_method' => $input['data'], 'shipping_cost' => $shipping_cost);
+
+      echo $shipping_cost;
       
       // if(count($shipping_array) > 0){   
       //   if(Cart::setShippingMethod( $shipping_array )){
