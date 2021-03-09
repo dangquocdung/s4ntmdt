@@ -152,7 +152,7 @@ class FrontendAjaxController extends Controller
       if($input['data'] == 'flat_rate'){
         $shipping_cost = $shipping_details['flat_rate']['method_cost'];
       }
-      elseif($input['data'] == 'free_shipping'){
+      elseif($input['data'] == 'free_shipping'){ 
         $shipping_cost = 0;
       }
       elseif($input['data'] == 'local_delivery'){
