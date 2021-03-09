@@ -76,7 +76,8 @@ $(document).ready( function () {
         "oAria": {
           "sSortAscending": ": Thứ tự tăng dần", "sSortDescending": ": Thứ tự giảm dần"
         }
-      }
+      },
+      "order": [[ 0, "desc" ]]
     });
 } );
 
