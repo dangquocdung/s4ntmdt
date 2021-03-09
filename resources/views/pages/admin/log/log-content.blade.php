@@ -2,26 +2,17 @@
 @section('title', trans('admin.manage_seo_page_title') .' | '. get_site_title())
 
 @section('content')
-@extends('layouts.admin.master')
-@section('title', trans('admin.user_list_title') .' | '. get_site_title())
-
-@section('content')
 <div class="row">
   <div class="col-6">
     <h5>{!! trans('admin.user_list_title') !!}</h5>
   </div>
-  <div class="col-6">
-    <div class="pull-right">
-      <a href="{{ route('admin.add_new_user') }}" class="btn btn-primary pull-right btn-sm">{{ trans('admin.add_new_user_title') }}</a>
-    </div>  
-  </div>
+  
 </div>
 <br>
 <div class="row">
   <div class="col-12">
     <div class="box">
       <div class="box-body">
-        
         <table class="table table-bordered table-responsive admin-data-table admin-data-list" id="user-list-tbl">
           <thead class="thead-dark">
             <tr>
@@ -53,9 +44,6 @@
               <td style="color:red">{{ trans('admin.disable') }}</td>
               @endif
 
-
-                
-              
             </tr>
             @endforeach
             @endif
@@ -100,5 +88,4 @@ $(document).ready( function () {
 } );
 
 </script>
-@endsection
 @endsection
