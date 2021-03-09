@@ -75,8 +75,8 @@
     <section class="container padding-top-2x padding-bottom-2x">
       <div class="row">
         <div class="col-md-3 col-6 text-center mb-30"><img class="d-block w-90 img-thumbnail rounded mx-auto mb-4" src="img/services/01.png" alt="Shipping">
-          <h6 class="mb-2">Miễn phí vận chuyển</h6>
-          <p class="text-sm text-muted mb-0">Miễn phí vận chuyển nội tỉnh cho các đơn hàng có giá trị từ 100.000đ</p>
+          <h6 class="mb-2">Giao hàng miễn phí</h6>
+          <p class="text-sm text-muted mb-0">Giao hàng miễn phí nội tỉnh cho các đơn hàng có giá trị từ 100.000đ</p>
         </div>
         <div class="col-md-3 col-6 text-center mb-30"><img class="d-block w-90 img-thumbnail rounded mx-auto mb-4" src="img/services/02.png" alt="Money Back">
           <h6 class="mb-2">Bảo đảm hoàn tiền</h6>
