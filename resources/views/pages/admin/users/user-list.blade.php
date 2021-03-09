@@ -117,12 +117,12 @@ $(document).ready( function () {
     $('#user-list-tbl').DataTable({
       "language": {
         "sProcessing": "Đang xử lý...",
-        "sLengthMenu": "Trưng bày _MENU_ dòng.",
-        "sZeroRecords": "Không có kết quả nào",
+        "sLengthMenu": "Hiện thị _MENU_  dòng.",
+        "sZeroRecords": "Không có kết quả",
         "sEmptyTable": "Không có dữ liệu",
-        "sInfo": "Dòng _START_ ở ngoài _END_ chắc chắn rồi _TOTAL_",
-        "sInfoEmpty": "Không hiển thị dòng",
-        "sInfoFiltered": "(Lọc tối đa _MAX_)",
+        "sInfo": "Từ _START_ đến _END_ trong tổng số _TOTAL_ mục",
+        "sInfoEmpty": "Không có dữ liệu",
+        "sInfoFiltered": "(Số lượng bản ghi _MAX_)",
         "sInfoPostFix": "",
         "sSearch": "Tìm kiếm:",
         "sUrl": "",
