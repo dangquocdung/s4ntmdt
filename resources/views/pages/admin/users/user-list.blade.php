@@ -116,23 +116,23 @@
 $(document).ready( function () {
     $('#user-list-tbl').DataTable({
       "language": {
-        "sProcessing": "Traitement en cours ...",
-        "sLengthMenu": "Afficher _MENU_ lignes",
-        "sZeroRecords": "Aucun résultat trouvé",
-        "sEmptyTable": "Aucune donnée disponible",
-        "sInfo": "Lignes _START_ à _END_ sur _TOTAL_",
-        "sInfoEmpty": "Aucune ligne affichée",
-        "sInfoFiltered": "(Filtrer un maximum de_MAX_)",
+        "sProcessing": "Đang xử lý...",
+        "sLengthMenu": "Trưng bày _MENU_ dòng.",
+        "sZeroRecords": "Không có kết quả nào",
+        "sEmptyTable": "Không có dữ liệu",
+        "sInfo": "Dòng _START_ ở ngoài _END_ chắc chắn rồi _TOTAL_",
+        "sInfoEmpty": "Không hiển thị dòng",
+        "sInfoFiltered": "(Lọc tối đa _MAX_)",
         "sInfoPostFix": "",
-        "sSearch": "Chercher:",
+        "sSearch": "Tìm kiếm:",
         "sUrl": "",
         "sInfoThousands": ",",
-        "sLoadingRecords": "Chargement...",
+        "sLoadingRecords": "Đang tải...",
         "oPaginate": {
-          "sFirst": "Premier", "sLast": "Dernier", "sNext": "Suivant", "sPrevious": "Précédent"
+          "sFirst": "Đầu tiên", "sLast": "Cuối cùng", "sNext": "Kế tiếp", "sPrevious": "Trước"
         },
         "oAria": {
-          "sSortAscending": ": Trier par ordre croissant", "sSortDescending": ": Trier par ordre décroissant"
+          "sSortAscending": ": Thứ tự tăng dần", "sSortDescending": ": Thứ tự giảm dần"
         }
       }
     });
