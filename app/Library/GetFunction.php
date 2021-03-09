@@ -37,7 +37,6 @@ use dungthinh\Models\QuanHuyen;
 use dungthinh\Models\XaPhuong;
 use dungthinh\Models\TinhThanh;
 
-
 class GetFunction
 {
   public $str = '';
@@ -366,7 +365,6 @@ class GetFunction
 
       // $get_view_data['_subject']    =  'Biên nhận đơn hàng';
 
-      
       $get_view_data['_logo'] = $logo;
       $get_view_data['_appearance'] = $appearance;
       $get_view_data['_order_date'] = $this->carbonObject->parse( $this->carbonObject->today() )->format('F d, Y');
@@ -504,7 +502,6 @@ class GetFunction
       $get_view_data['_subject']    =   $email_options['vendor_new_account']['subject'];
       // $get_view_data['_subject']    =   'Tạo tài khoản nhà cung cấp thành công';
       $get_view_data['_confirmation_code']    =   $data['confirmation_code'];
-
 
     }
     elseif($data['source'] == 'vendor_account_activation'){
@@ -1715,7 +1712,6 @@ class GetFunction
     return $userData;
   }
 
-  
   public static function current_frontend_user_info(){
     $userData = array();
     
@@ -1761,7 +1757,6 @@ class GetFunction
     return $_this->admin_user_info($id);
   }
 
-  
   public static function create_slug_format($str){
     if($str){
       return Str::slug($str, '-');
@@ -1989,7 +1984,6 @@ class GetFunction
     return $slider_elements;
   }
 
-  
   public static function available_languages_data()
   {
     $get_avaliable_lang = array();
@@ -2349,15 +2343,12 @@ class GetFunction
     return $_this->option->getSEOData();
   }
 
-
   public static function log_data(){
 
-    $get_logs = DB::table('users')
-                   ->get()
-                   ->toArray();
+    $get_logs = DB::table('users')->get();
+    
     return $get_logs;
     
-
   }
   
   public static function subscription_data(){
@@ -2549,7 +2540,6 @@ class GetFunction
       if(!empty($get_order_user)){
         $order_user = unserialize($get_order_user->key_value);
         
-
           $get_order_post_meta    =   PostExtra :: where('post_id', $order_id)->get();
           
           if(!empty($get_order_post_meta) && $get_order_post_meta->count() > 0){
