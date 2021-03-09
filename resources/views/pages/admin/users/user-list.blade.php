@@ -22,7 +22,7 @@
             <div class="row">
               <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
                 <div class="input-group">
-                  <input type="text" name="term_user_name" class="search-query form-control" placeholder="Enter user name to search" value="{{ $search_value }}" />
+                  <input type="text" name="term_user_name" class="search-query form-control" placeholder="Nhập tên người dùng để tìm kiếm" value="{{ $search_value }}" />
                   <div class="input-group-btn">
                     <button class="btn btn-primary" type="submit">
                       <span class="fa fa-search"></span>
