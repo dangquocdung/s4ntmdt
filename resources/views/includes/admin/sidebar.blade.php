@@ -201,6 +201,22 @@
           </li>
         @endif
       @endif
+
+      @if(in_array('manage_seo_full', $user_permission_list))
+        @if(Request::is('admin/manage/log'))
+          <li class="active">
+            <a href="{{ route('admin.manage_seo_content') }}" class="active">
+              <i class="fa fa-menu"></i> <span>Ghi nhật kí</span>
+            </a>
+          </li>
+        @else
+          <li>
+            <a href="{{ route('admin.manage_seo_content') }}">
+              <i class="fa fa-menu"></i> <span>Ghi nhật kí</span>
+            </a>
+          </li>
+        @endif
+      @endif
       
       @if(check_permission_menu_heading('sales'))
       <li class="sidebar-cms-title">{!! trans('admin.sidebar_sales_channel_title') !!}</li>
