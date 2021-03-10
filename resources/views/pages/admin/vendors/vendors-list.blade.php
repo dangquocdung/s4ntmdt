@@ -44,7 +44,7 @@
               <!-- <th>{{ trans('admin.store_path_label') }}</th> -->
               <th>{{ trans('admin.vendors_table_header_shop_name') }}</th>
               <th>{{ trans('admin.email') }}</th>
-              <!-- <th>Gói gian hàng</th> -->
+              <th>Ngày đăng kí</th>
               <th>{{ trans('admin.vendors_table_header_products') }}</th>
               <th>{{ trans('admin.vendors_table_header_phone_number') }}</th>
               <th>{{ trans('admin.status') }}</th>
@@ -67,6 +67,8 @@
                   <!-- <td>{!! $row->name !!}</td> -->
                   <td><a target="_blank" href="{{ route('store-details-page-content', $row->name) }}">{!! $details->profile_details->store_name !!}</a></td>
                   <td>{!! $row->email !!}</td>
+                  <td>{!! $row->created_at->format('d/m/Y') !!}</td>
+
                   <!-- <td>{!! $details->package->package_name !!}</td> -->
                   <td><a href="{{ route('admin.product_list', $row->id) }}">{!! get_author_total_products( $row->id ) !!}</a></td>
                   <td>{!! $details->profile_details->phone !!}</td>
@@ -113,16 +115,7 @@
             <tr><td colspan="9"><i class="fa fa-exclamation-triangle"></i> {!! trans('admin.no_data_found_label') !!}</td></tr>
             @endif
           </tbody>
-          <tfoot class="thead-dark">
-            <th>{{ trans('admin.image') }}</th>
-            <th>{{ trans('admin.user_display_name') }}</th>
-            <th>{{ trans('admin.vendors_table_header_shop_name') }}</th>
-            <th>{{ trans('admin.email') }}</th>
-            <th>{{ trans('admin.vendors_table_header_products') }}</th>
-            <th>{{ trans('admin.vendors_table_header_phone_number') }}</th>
-            <th>{{ trans('admin.status') }}</th>
-            <th>{{ trans('admin.action') }}</th>
-          </tfoot>
+          
         </table>
         <br>  
         <div class="products-pagination">{!! $vendors_list_data->appends(Request::capture()->except('page'))->render() !!}</div>
