@@ -67,7 +67,7 @@
                   <!-- <td>{!! $row->name !!}</td> -->
                   <td><a target="_blank" href="{{ route('store-details-page-content', $row->name) }}">{!! $details->profile_details->store_name !!}</a></td>
                   <td>{!! $row->email !!}</td>
-                  <td>{!! $row->created_at->format('d/m/Y') !!}</td>
+                  <td>{!! $row->created_at !!}</td>
 
                   <!-- <td>{!! $details->package->package_name !!}</td> -->
                   <td><a href="{{ route('admin.product_list', $row->id) }}">{!! get_author_total_products( $row->id ) !!}</a></td>
